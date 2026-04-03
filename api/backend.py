@@ -11,7 +11,8 @@ from datetime import datetime
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse
+from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import httpx
 import asyncio
@@ -33,14 +34,28 @@ app.add_middleware(
 # Project directory
 PROJECT_DIR = Path(__file__).parent.parent
 
-@app.get("/")
-async def root():
+# Mount static files for frontend (if exists)
+STATIC_DIR = PROJECT_DIR / "static"
+if STATIC_DIR.exists():
+    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+
+# API info endpoint
+@app.get("/api")
+async def api_info():
     return {
         "name": "Gas Turbine Combustion Expert API",
         "version": "1.0.0",
         "docs": "/docs",
         "status": "running"
     }
+
+# Serve frontend for root
+@app.get("/")
+async def root():
+    index_file = STATIC_DIR / "index.html"
+    if index_file.exists():
+        return FileResponse(str(index_file))
+    return {"message": "Gas Turbine Combustion Expert API", "docs": "/docs"}
 
 
 class ChatRequest(BaseModel):
