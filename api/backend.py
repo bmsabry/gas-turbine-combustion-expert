@@ -193,16 +193,20 @@ async def chat(request: ChatRequest):
             if text not in seen_texts and len(relevant_chunks) < 5:
                 relevant_chunks.append(chunk)
                 seen_texts.add(text)
-    
-    
     # Check for conflicts related to the query
     relevant_conflicts = []
     for conflict in conflicts:
-        entity = conflict.get("entity", "").lower()
-        if entity in query_lower:
+        entity = conflict.get("entity_1", "").lower()
+        entity2 = conflict.get("entity_2", "").lower()
+        if entity in query_lower or entity2 in query_lower:
+            paper_a = conflict.get("paper_a", "Unknown")
+            paper_b = conflict.get("paper_b", "Unknown")
+            finding_a = conflict.get("paper_a_finding", "")
+            finding_b = conflict.get("paper_b_finding", "")
             relevant_conflicts.append(
-                f"Paper A ({conflict.get('paper1', 'Unknown')}) states {conflict.get('relation1', 'X')}. "
-                f"However, Paper B ({conflict.get('paper2', 'Unknown')}) states {conflict.get('relation2', 'Y')}."
+                f"⚠️ CONFLICTING EVIDENCE: {paper_a} indicates {finding_a}. "
+                f"However, {paper_b} indicates {finding_b}. "
+                f"Resolution: {conflict.get('resolution_notes', 'Requires expert review')}"
             )
     
     # Build context
@@ -222,42 +226,46 @@ async def chat(request: ChatRequest):
             })
             seen_titles.add(title)
     
+    # If no API key, return informative message
+    if not api_key:
+        return ChatResponse(
+            response="⚠️ **LLM Not Configured**\n\n"
+                    "To get AI-synthesized answers, please configure an LLM in the admin panel:\n\n"
+                    "1. Go to /admin\n"
+                    "2. Login with admin/admin123\n"
+                    "3. Set your LLM provider (OpenAI or Anthropic)\n"
+                    "4. Add your API key\n\n"
+                    "**Raw context retrieved from papers:**\n\n" + 
+                    "\n\n".join([f"• {c.get('title', 'Unknown')}: {c.get('text', '')[:200]}..." for c in relevant_chunks[:3]]),
+            sources=sources,
+            conflicts=relevant_conflicts,
+            single_study_notes=[]
+        )
     
-    # If API key is set, call the LLM
-    if api_key:
-        try:
-            async with httpx.AsyncClient() as client:
-                # Build system prompt
-                system_prompt = """You are a gas turbine combustion expert AI assistant. You answer ONLY based on the provided research paper excerpts. Rules:
+    # Call the LLM
+    try:
+        async with httpx.AsyncClient() as client:
+            # Build system prompt
+            system_prompt = """You are a gas turbine combustion expert AI assistant. You answer ONLY based on the provided research paper excerpts. Rules:
 1. Never use knowledge outside the provided context.
 2. When multiple papers agree, cite all: (Smith et al., 2021; Jones et al., 2019).
 3. When papers DISAGREE, flag it: ⚠️ CONFLICTING EVIDENCE: [details]
 4. For single-study findings: 📌 NOTE: This finding is from a single study.
 5. Always end with a 'Sources Used' section."""
-                
-                response = await client.post(
-                    f"{api_url}/v1/messages",
-                    headers={
-                        "x-api-key": api_key,
-                        "anthropic-version": "2023-06-01",
-                        "content-type": "application/json"
-                    },
-                    json={
-                        "model": model,
-                        "max_tokens": 2048,
-                        "system": system_prompt,
-                        "messages": [
-                            {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {request.message}"}
-                        ]
-                    },
-                    timeout=60.0
-                )
-                
-                if response.status_code == 200:
-                    data = response.json()
-                    llm_response = data.get("content", [{}])[0].get("text", "")
-                    return ChatResponse(
-                        response=llm_response,
+            
+            response = await client.post(
+                f"{api_url}/v1/messages",
+                headers={
+                    "x-api-key": api_key,
+                    "anthropic-version": "2023-06-01",
+                    "content-type": "application/json"
+                },
+                json={
+                    "model": model,
+                    "max_tokens": 2048,
+                    "system": system_prompt,
+                    "messages": [
+                        {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {request.message}"}
                         sources=sources,
                         conflicts=relevant_conflicts[:3],
                         single_study_notes=[]
