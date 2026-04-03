@@ -1,0 +1,1817 @@
+
+--- Page 1 ---
+
+Large-Eddy Simulation of Swirl-Stabilized Spray
+Combustion
+Nayan Patel∗and Suresh Menon†
+School of Aerospace Engineering
+Georgia Inst. of Technology, Atlanta, GA 30332.
+Large-Eddy Simulation of swirl-stabilized ﬂow in a laboratory combustor have been per-
+formed for non-reacting and reacting conditions and both gas- and liquid-phase results are
+compared with available data. Dynamic model is employed for momentum subgrid closure
+in this study. Additionally, simulations with two reaction rate closures are performed and
+compared. Results for non-reacting case show the presence of vortex breakdown bubble
+(VBB) in the center-line region with two corner recirculation zones past the dump plane.
+Non-reacting comparisons with measurements for both mean and RMS show good agree-
+ment. Reacting simulations show presence of stronger but smaller VBB in the center-line
+region. Overall, reacting comparisons with measurements are also in reasonable agreement.
+Time-averaged ﬂow visualization in form of streamlines indicate that the non-reacting ﬂow
+rotates twice as much from the inﬂow to outﬂow boundary than the reacting case. Droplet
+data show good agreement for particle velocity proﬁles and reasonable trends for the SMD
+variation.
+I.
+Introduction
+D
+esign and development of combustion devices has exclusively relied on empirical relations, past designs,
+and rig testing. Various external forces, like government regulations, market-demand, health & safety
+concerns, have presented a strong push1 for cleaner burning combustion technology without sacriﬁcing engine
+characteristics like high-thrust-to-weight ratios. Complexity of combustion device added with ever tightening
+pollution limits, has increasingly made the design process rely on physics-based combustion system calcu-
+lations. Major impetus, according to recent article by Mongia,2 is to develop no-fudge factor combustion
+design tools for achieving pre-test prediction capability which is equivalent to running the engine. The idea
+here is to assess the impact of the design on the overall operating engine characteristics,2 like emissions,
+dome/liner wall temperature levels, pressure losses, proﬁle and pattern factor, lean blowout and ignition,
+etc., without relying on emperical correlations or rig testing.
+For this idea to be fruitful, simulation of
+critical design eﬀects with a reasonable (a week or less) turn-around time is essential. Besides aiding in
+design process, computational studies has potential for exploring fundamental physical phenomena3 without
+added complexities of hardware and measurement uncertainties especially in operational conﬁguration and
+conditions.
+In the current study, we focus on a laboratory swirl-cup conﬁguration being investigated by Colby et al.4,5
+Previous computational studies, mostly involving Reynolds Averaged Navier-Stokes (RANS) approach, on
+similar swirl-cup conﬁguration have been performed. Tolpadi et al.6 undertook RANS computations and
+validation of two-phase, non-reacting and isothermal, non-vaporizing, 2D-axisymmetric ﬂow ﬁeld for the
+single annular combustor.
+For the gas phase, the axisymmetric RANS calculations overpredicted mean
+proﬁles (for all three components) especially for the azimuthal (or tangential) component. Also, since the
+axisymmetric calculations were performed, both the radial and tangential computed proﬁles approached
+zero contrary to that seen in experiments. For the liquid phase, the data was compared at the next axial
+measurement location indicating fair agreement for axial and radial velocities for large to medium size (30-100
+µm) droplets. The swirl component showed poor agreement due to axisymmetric assumption.
+Hsiao et al.7 had led eﬀorts to assess/calibrate commercially available software – Fluent package – for
+non-reacting ﬂow. Authors have advocated ”through-the-vane”(TTV) approach for the swirl cup assembly
+∗Graduate Student; gte101g@mail.gatech.edu
+†Professor, Associate Fellow; suresh.menon@ae.gatech.edu
+1 of 22
+American Institute of Aeronautics and Astronautics
+44th AIAA Aerospace Sciences Meeting and Exhibit
+9 - 12 January 2006, Reno, Nevada
+AIAA 2006-154
+Copyright © 2006 by Patel and Menon. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+to minimize uncertainty in specifying the inlet boundary conditions for the combustor. Comparisons for the
+axial velocity showed that peaks (both negative in the recirculation zone and positive in shear layer region)
+and their magnitude compared well at most axial locations however, the length of recirculation bubble was
+over-predicted. For the radial component, the comparisons were fair with some overpredictions in the shear-
+layer regions. Their simulations revealed a counter-rotating feature at the ﬁrst measurement location (3 mm
+downstream of the ﬂare exit) which is not seen in experiments. To address the turbulence model deﬁciencies,
+Hsiao et al.8 set out to study the eﬀect of ﬁve RANS turbulence models implemented in the commercially
+available Fluent package. The conﬁguration used was a 90o (periodic) sector volume with hybrid domain
+and compared with LDV non-reacting data.9 The authors acknowledged that all ﬁve turbulence models
+predicted similar results.
+Wang et al.10 had undertaken investigation of non-reacting ﬂow dynamics using Large-Eddy Simulation
+(LES) technique. The computational domain they used incorporated both the primary as well as the sec-
+ondary swirler ejecting the ﬂow ﬁeld in a dump combustor. Various instantaneous snapshots of pressure
+and angular momentum were presented signifying the unsteady dynamics and their interactions however, no
+quantitative comparisons with experiments for ﬂow characteristics were presented. In summary, their study
+gave a qualitative look into the capabilities of LES.
+Recently, several studies of two-phase LES in a realistic full-scale gas turbine combustors have been carried
+out.
+Sankaran and Menon11 investigated unsteady interactions between spray dispersion, vaporization,
+fuel-air mixing, and heat release in a realistic combustor. Results showed increase in droplet dispersion
+with swirl and large scale coherent structures are subjected to complex stretch eﬀects in the presence of
+swirling motion. Menon and Patel12 studied spray combustion under diﬀerent operating conditions for twin
+burner conﬁguration. They showed that shape of the combustor signiﬁcantly impacts three-dimensional
+motions with no similarity between ﬂame structures and vortex breakdown bubbles between the two burners.
+These studies gave qualitative look into the chemistry-turbulence interactions however, no measurement data
+were available for comparisons mainly due to realistic (typically 20-35 atmospheres and 800-1200K preheat)
+operating conditions.
+This study aims to apply and investigate the ability of compressible LES approach to resolve processes for
+both non-reacting and reacting (spray) ﬂow-ﬁeld in a swirl-stabilized experimental combustor4,5 operated at
+atmospheric pressure. The measurements are performed by Colby et al.4,5 at Georgia Tech and will be used
+in this study for validation purposes. Due to signiﬁcant diﬀerences in combustor conﬁguration and operating
+conditions, no comparisons are made with previous6–8 computational studies. Unique aspect of this study
+is the application of both Localized Dynamic K-equation Model (LDKM)13,14 and the Linear Eddy Mixing
+(LEM)12,15,16 model for achieving momentum and scalar equation closures, respectively. The combination
+results in a simulation approach that has no model parameters to adjust regardless of the physical problem
+simulated. Both the gas and liquid phase validations are reported and discussed.
+II.
+Mathematical Formulation
+The conservation equations for compressible reacting ﬂow are solved using the Large-Eddy Simulation
+methodology in generalized co-ordinates.
+To simulate multiphase (spray) combustion, Lagrangian spray
+model is concurrently solved with Eulerian gas phase.
+Eulerian-Phase LES Equations
+Applying the ﬁltering operation, using a low-pass box ﬁlter, to the instantaneous Navier-Stokes equations,
+the following ﬁltered LES equations are obtained:
+∂¯ρ
+∂t
+=
+e˙ρs −∂¯ρ˜uj
+∂xj
+∂¯ρ˜ui
+∂t
+=
+g
+˙Fs,i −
+∂
+∂xj
+[¯ρ˜ui˜uj + ¯pδij −¯τij + τ sgs
+ij ]
+∂¯ρ ˜E
+∂t
+=
+f˙Qs −∂
+∂xi
+[(¯ρ ˜E + ¯p)˜ui + ¯qi −˜uj¯τji + Hsgs
+i
++ σsgs
+i
+]
+∂¯ρ ˜Yk
+∂t
+=
+g
+˙Ss,k −∂
+∂xi
+[¯ρ ˜Yk˜ui + ¯ρ ˜Ykg
+Vi,k + Y sgs
+i,k + θsgs
+i,k ] + ¯˙wk
+(1)
+2 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 3 ---
+
+where, ρ is ﬁltered mass density, eui is the resolved velocity vector, f
+Yk is the resolved species mass fraction,
+g
+Vi,k is the resolved species diﬀusion velocity, p ﬁltered pressure determined from ﬁltered equation of state
+(shown later), eE is resolved total energy per unit mass, τij is ﬁltered viscous stress, and qi is the heat ﬂux
+vector. The sub-grid terms resulting from the ﬁltering operation, denoted with super-script sgs, represent
+the small-scale eﬀects upon the resolved-scales in the form of additional stresses and ﬂuxes. Subscript s
+denote source terms from dispersed phase and index k for species varies from 1 to Ns, where Ns is the total
+number of species present in the system.
+The viscous stress tensor (τij) and heat ﬂux vector (qi) are given as:
+τij
+=
+µ( ∂eui
+∂xj
++ ∂euj
+∂xi
+) −2
+3µ(∂f
+uk
+∂xk
+)δij
+qi
+=
+−κ ∂eT
+∂xi
++ ¯ρ
+Ns
+X
+k=1
+˜hk ˜Ykg
+Vi,k +
+Ns
+X
+k=1
+qsgs
+i,k
+where, the diﬀusion velocities are approximated using Fickian diﬀusion as g
+Vi,k = (−¯
+Dk/ ˜Yk)(∂˜Yk/∂xi),
+molecular viscosity (µ) is approximated by Sutherland’s Law based on resolved temperature ( eT), and the
+thermal conductivity (¯κ) is approximated as ¯κ = µ ¯Cp/Pr, where ¯Cp is the speciﬁc heat at constant pressure
+for gaseous mixture and Pr is the Prandtl number.
+The pressure is determined from the ﬁltered equation of state,
+¯p = ¯ρRu
+Ns
+X
+k=1
+[
+˜Yk ˜T
+MWk
++ T sgs
+k
+MWk
+]
+(2)
+where, Ru and MWk are the universal gas constant and k −th species molecular weight, respectively. The
+subgrid temperature-species correlation term is deﬁned as, T sgs
+k
+= [ g
+YkT −˜Yk ˜T].
+The ﬁltered total energy per unit volume is given by ¯ρ ˜E = ¯ρ˜e+ 1
+2 ¯ρ˜ui˜ui + ¯ρksgs where, the sub-grid kinetic
+energy (discussed later) is deﬁned as, ksgs = (1/2)[ g
+ukuk −˜uk˜uk]. The ﬁltered speciﬁc internal energy is given
+by ˜e = PNs
+k=1[ ˜Yk˜hk + ( g
+Ykhk −˜Yk ˜hk)] −¯p/¯ρ where, f
+hk = ∆ho
+f,k +
+R e
+T
+T o Cp,k(T ′)dT ′ is the speciﬁc enthalpy at
+ﬁltered temperature ( eT). For calorically perfect gas, the ﬁltered speciﬁc internal energy equation simpliﬁes
+to ˜e = PNs
+k=1[cv,k ˜Yk ˜T + cv,kT sgs
+k
++ ˜Yk∆h
+′
+f,k] where, ∆h
+′
+f,k = ∆h0
+f,k −cp,kT 0 and ∆h0
+f,k is the standard heat
+of formation at a reference temperature T 0.
+The SGS terms that require closure are: the sub-grid stress tensor, the sub-grid enthalpy ﬂux, the sub-
+grid viscous work, the sub-grid convective species ﬂux, the sub-grid heat ﬂux, the sub-grid species diﬀusive
+ﬂux, and the subgrid temperature-species correlation, respectively:
+τ sgs
+ij
+=
+ρ ( g
+uiuj −euieuj)
+Hsgs
+i
+=
+ρ (g
+Eui −eEeui) + (pui −peui)
+σsgs
+i
+=
+g
+ujτij −eujτ ij
+(3)
+Y sgs
+i,k
+=
+¯ρ[ g
+uiYk −˜ui ˜Yk]
+qsgs
+i,k
+=
+[hkDk∂Yk/∂xi −˜hk ˜Dk∂˜Yk/∂xi]
+θsgs
+i,k
+=
+¯ρ[ g
+Vi,kYk −eVi,k eYk]
+T sgs
+k
+=
+g
+YkT −˜Yk ˜T
+The closure of these terms in addition to the closure for the ﬁltered chemical reaction source terms (¯˙wk)
+and the source terms for the dispersed phase in Eq. (1) are described below.
+Momentum Transport Closure
+The sub-grid stress tensor τ sgs
+ij
+is modeled as:
+τ sgs
+ij
+= −2ρ νt(eSij −1
+3
+eSkkδij) + 2
+3ρksgsδij
+(4)
+where, resolved strain-rate is given as f
+Sij = (1/2)[ ∂e
+ui
+∂xj + ∂e
+uj
+∂xi ]. The subgrid eddy viscosity is modeled as:
+νt = Cν(
+√
+ksgs)∆where ∆= (∆x∆y∆z)1/3 is based on local grid size (∆x, ∆y, ∆z). A transport model for
+the subgrid kinetic energy (ksgs) is also solved:17–19
+3 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 4 ---
+
+∂ρ ksgs
+∂t
++ ∂
+∂xi
+(ρ euiksgs) = P sgs −Dsgs + ∂
+∂xi
+µ
+ρ νt
+σk
+∂ksgs
+∂xi
+¶
++ Fd
+(5)
+where, σk is a model constant typically equal to unity. Here, P sgs = −τ sgs
+ij (∂eui/∂xj) and Dsgs = Cερ(ksgs)3/2/∆
+are, respectively, the production and the dissipation of ksgs. In the above equation, Fd =
+g
+˜uiFs,i −euig
+Fs,i is
+the source term due to the particle phase (this term can be closed exactly, as shown earlier20).
+The two coeﬃcients in this model, Cν and Cε are obtained dynamically as a part of the solution using
+a localized dynamic technique (LDKM).18,19,21 Fully localized evaluation of these coeﬃcients in space and
+time is achieved in this approach. The nominal “constant” values for these coeﬃcients are22,23 0.067 and
+0.916, respectively. The dynamic procedure uses the experimental observation in high Re turbulent jet24
+that the subgrid stress τ sgs
+ij
+at the grid ﬁlter level ∆and the Leonard’s stress Lij(= [⟨ρ eui euj⟩−⟨ρe
+ui⟩⟨ρe
+uj⟩]
+bρ
+)
+at the test ﬁlter level b∆(= 2∆) are self-similar. Here (and henceforth), < f > and bf both indicate test
+ﬁltering. Since Lij can be explicitly computed at the test ﬁlter level, a simple scale-similar model of the
+form τ sgs
+ij
+= CLLij, where CL is an adjustable constant, was proposed earlier24 but was found to lack proper
+dissipation.
+In the LDKM model, the above observation is extended and it is assumed that Lij and the subgrid stress
+bτ sgs
+ij
+at the test ﬁlter level are also similar (i.e., bτ sgs
+ij
+= c
+CLLij). Using this, bτ sgs
+ij
+is modeled using the same
+form as for τ sgs
+ij
+(Eqn. 4), except that all variables are deﬁned at the test ﬁlter level. We deﬁne the subgrid
+kinetic energy at the test ﬁlter level as ktest = 1
+2[
+d
+ρ e
+uk
+2
+bρ
+−c
+ρeuk
+2
+bρ
+2 ] and obtain a relation
+Lij =
+bτ sgs
+ij
+c
+CL
+=
+1
+c
+CL
+[−2bρCν
+p
+ktest b∆(⟨˜
+Sij⟩−1
+3⟨˜
+Skk⟩δij) + 2
+3
+bρ ktestδij]
+(6)
+In the above equation, we assume c
+CL = 1 and so, the only unknown is Cν. This equation is, thus,
+an explicit model representation for the constant Cν in terms of quantities resolved at the test ﬁlter level.
+This system of equations represents ﬁve independent equations for one unknown coeﬃcient (and hence, is
+an over-determined system). The value of Cν is determined in an approximated manner by applying the
+least-square method.25 Thus,
+Cν = −L′
+ijMij
+2MijMij
+(7)
+In the above expression
+L′
+ij = Lij −2
+3
+bρ ktestδij
+(8)
+Mij = bρ
+p
+ktest b∆(⟨˜
+Sij⟩−1
+3⟨˜
+Skk⟩δij)
+(9)
+A similar approach is used to obtain the dissipation coeﬃcient Cε such that:
+Cϵ =
+b∆(µ + µt)
+bρ k3/2
+test
+[⟨f
+Tij
+∂euj
+∂xi
+⟩−c
+f
+Tij
+d
+∂euj
+∂xi
+]
+(10)
+where µ is the molecular viscosity and µt(= νt ∗ρ) is eddy viscosity at the grid ﬁlter level. The tensor f
+Tij
+is deﬁned as [ ∂e
+ui
+∂xj + ∂e
+uj
+∂xi −2
+3
+∂e
+uk
+∂xk δij] and c
+f
+Tij indicates tensor at the test-ﬁlter level.
+Salient12,26 aspects, among others, of the LDKM approach are: (a) the LDKM approach does not employ
+the Germano’s identity,27 (b) the self-similar approach implies that both ∆and b∆must lie in the inertial
+range, and this provides a (albeit) rough estimate for the minimum grid resolution that can be used for a
+given Re, (c) the evaluation of the coeﬃcients can be carried out locally (i.e., at all grid points) in space
+without encountering any instability, and (d) the LDKM approach satisﬁes all the realizability conditions28
+in the majority of the grid points even in complex swirling reacting ﬂows.
+Energy and Scalar Transport Closure
+The subgrid total enthalpy ﬂux, Hsgs
+i
+is modeled using the eddy viscosity and a gradient assumption as:
+Hsgs
+i
+= −ρ νt
+Prt
+∂eH
+∂xi
+(11)
+4 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 5 ---
+
+Here, eH is the ﬁltered total enthalpy and Prt is a turbulent Prandtl number that can also be computed using
+a dynamic procedure but is currently assumed to be unity. The total enthalpy term eH is evaluated as sum of
+speciﬁc enthalpy of mixture, speciﬁc kinetic energy, and speciﬁc sub-grid scale energy: eH = eh + ˜ui ˜ui
+2
++ ksgs,
+where eh = PNs
+k=1 ehk eYk.
+In conventional LES (i.e., methods that solve the ﬁltered species equations seen in Eqn. (1) along with
+the ﬁltered Navier-Stokes equations), the subgrid convective species ﬂux Y sgs
+i,k
+is modeled using the gradient
+diﬀusion assumption, as well. This is used for scalar closure in eddy-breakup simulations. Thus,
+Y sgs
+i,k = −ρνt
+Sct
+∂˜Yk
+∂xi
+(12)
+The coeﬃcient Sct is the turbulent Schmidt Number, and is taken to be unity but could be computed
+dynamically. The gradient closure for the species subgrid ﬂux is more problematic than for momentum or
+energy transport, since scalar mixing and diﬀusion occur at the subgrid scale.
+The other terms such as σsgs
+i
+, qsgs
+i,k , θsgs
+i,k ,and T sgs
+k
+are neglected29 at present, but there is no clear
+justiﬁcation.
+Subgrid Scalar Closure in LEM
+In the LEM model,30–32 the ﬁltered scalar equation shown in Eqn. (1) is not solved directly. Rather, molec-
+ular diﬀusion, small- and large-scale turbulent convection, and chemical reaction are all modeled separately,
+but concurrently at their respective time scales. To describe this model mathematically, we split the velocity
+ﬁeld as: ui = ˜ui + (u′
+i)R + (u′
+i)S. Here, ˜ui is the LES-resolved velocity ﬁeld, (u′
+i)R is the LES-resolved
+subgrid ﬂuctuation (obtained from ksgs) and (u′
+i)S is the unresolved subgrid ﬂuctuation. Then, consider the
+exact species equation (i.e., without any explicit LES ﬁltering) for the k-th scalar Yk written in a slightly
+diﬀerent form as:
+ρ∂Yk
+∂t = −ρ[ ˜ui + (u′
+i)R + (u′
+i)S]∂Yk
+∂xi
+−∂
+∂xi
+(ρYkVi,k) + ˙wk + ˙Ss,k
+(13)
+Implementation of LEM model in LES approach is called LEMLES, hereafter. In LEMLES, the above
+equation is rewritten as:
+Yk
+∗−Yk
+n
+∆tLES
+= −[ ˜ui + (u′
+i)R]∂Yk
+n
+∂xi
+(14)
+Yk
+n+1 −Yk
+∗=
+Z t+∆tLES
+t
+−1
+ρ[ρ(u′
+i)S ∂Yk
+n
+∂xi
++ ∂
+∂xi
+(ρYkVi,k)n −˙wn
+k −˙Sn
+s,k]dt′
+(15)
+Here, ∆tLES is the LES time-step. Equation (14) describes the large-scale 3D LES-resolved convection of the
+scalar ﬁeld, and is implemented by a Lagrangian transfer of mass across the ﬁnite-volume cell surfaces.22,33
+Equation (15) describes the subgrid LEM model, as viewed at the LES space and time scales. The integrand
+includes four processes that occur within each LES grid, and represent, respectively, (i) subgrid molecular
+diﬀusion, (ii) reaction kinetics, (iii) subgrid stirring, and (iv) phase change of the liquid fuel. These processes
+are modeled on a 1D domain embedded inside each LES grid where the integrand is rewritten in terms of
+the subgrid time and space scales. Descriptions for the subgrid processes (in Eq. (15)) and the 3D advection
+process (in Eq. (14)) are presented at length in Menon and Patel12 and are omitted here, for brevity.
+Since all the turbulent scales below the grid are resolved in this approach, both molecular diﬀusion and
+chemical kinetics are closed in an exact manner. As a result, “subgrid” terms such as Y sgs
+i,k , qsgs
+i,k , θsgs
+i,k , T sgs
+k
+,
+and ¯˙wk do not have to be closed or modeled.
+The LEM subgrid closure is similar to the closure in PDF methods34 except that molecular diﬀusion is
+also included exactly in LEMLES in addition to ﬁnite-rate kinetics ( ˙wk). As in PDF methods, the large-scale
+transport is modeled as a Lagrangian transport of the scalar ﬁelds across LES cells, and the subgrid stirring
+is modeled. In PDF methods, a mixing model is often employed to model turbulent mixing, whereas, in
+LEMLES, small-scale turbulent stirring is implemented by the triplet mapping process.
+Conservation of mass, momentum and energy (at the LES level) and conservation of mass, energy and
+species (at the LEM level) are fully coupled. Chemical reaction at the LEM level determines heat release
+and thermal expansion at the LEM level, which at the LES level generates ﬂow motion that, in turns,
+transports the species ﬁeld at the LEM level. Full coupling is maintained in the LEMLES to ensure local
+mass conservation.
+5 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 6 ---
+
+Liquid-Phase Equations
+The Lagrangian equation of motion governing instantaneous droplet, under the assumptions of dispersed
+droplet ﬁeld leading to infrequent particle collisions and the Kolmogorov scale is of the same order or larger
+than the largest droplet, can be expressed as:35,36
+dxi,p
+dt
+=
+ui,p
+dui,p
+dt
+=
+f
+τV
+(ui −ui,p) + gi
+(16)
+where, ui,p is the i-th component of the parcel velocity, ui is the i-th component of gas-phase velocity, xi,p
+is the i-th component of parcel position, f is the drag factor (ratio of the drag coeﬃcient to Stokes drag),
+τV is the particle velocity response time, and gi is the i-th gravity component. Subscript p represents liquid
+phase quantities and unsubscribed quantities correspond to gas-phase (except as noted). Here, ui(= eui +u′′
+i )
+represent instantaneous gas-phase velocity components, consisting of both the LES resolved velocity eui and
+a stochastic term u′′
+i that is obtained using ksgs at intervals coincident with the local characteristic eddy
+lifetime. Interaction of droplet with an eddy is assumed for a time taken as the smaller of either eddy lifetime
+or the transit time required to traverse the eddy. The drag factor and particle velocity response time are:
+f
+=
+CDRed
+24
+(17)
+τV
+=
+ρpd2
+p
+18µg
+(18)
+where, ρp is the liquid density, dp is the parcel diameter (= 2rp, rp is parcel radius), µg is gas-phase dynamic
+viscosity, νg is gas-phase kinematic viscosity (µg/ρg), CD is the drag coeﬃcient, and Red is the relative
+particle Reynolds number expressed as Red = (dp/νg)
+p
+(ui −ui,p)(ui −ui,p).
+The drag coeﬃcient accounts for the dynamic inﬂuence of pressure and viscous forces acting on droplet
+surfaces. Following,37 the standard drag coeﬃcient (assuming drops retain the spherical shape) is given by:
+CD =
+(
+24
+Red (1 + 1
+6Re2/3
+d
+)
+Red ≤1000
+0.4392
+Red > 1000
+(19)
+The eﬀect of droplet distortion on the drag coeﬃcient can be accounted for in the breakup model.
+The droplet mass transfer is governed by the droplet continuity equation,
+dmp
+dt
+=
+−˙
+mp
+(20)
+where, mp is the mass of particle given by 4
+3ρpπr3
+p, and
+˙
+mp(> 0) is the net mass transfer rate (or vaporization
+rate) for a droplet in a convective ﬂow ﬁeld can be expressed35 as:
+˙
+mp
+˙mp,Red=0
+=
+1 + 0.278√RedSc(1/3)
+[1 +
+1.232
+RedSc(4/3) ](1/2)
+(21)
+where, Red=0 is the Reynolds number for particle at rest. Under quiescent conditions, the mass transfer
+rate reduces to:
+˙mp,Red=0
+=
+2πρsDsmdpln(1 + BM)
+(22)
+where, ρs and Dsm respectively, are the gas mixture density and the mixture diﬀusion coeﬃcient at the
+droplet surface. Also, BM is the Spalding transfer number38 given by:
+BM ≡b∞−bs = (YF,s −YF,∞)
+(1 −YF,s)
+;
+where b ≡
+YF
+YF,s −1
+In above relations, Sc (≡νg,s/Dsm, ratio of momentum to mass transport) is the Schmidt number. Subscript
+s represents quantities at droplet surface. Also, YF is the fuel species (that is evaporating) mass fraction.
+The mole fraction (XF,s) at the droplet surface is obtained from Raoult’s Law,39 which assumes that the
+mole fraction at the droplet surface is equal to the ratio of the partial pressure of fuel vapor (Pvap) to the
+total pressure of gas-phase (P). Various correlations exist40 to evaluate the partial pressure of fuel vapor
+that are typically speciﬁc for particular fuels and dependent on critical temperature and pressure of fuel
+6 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 7 ---
+
+vapor. Droplet heat transfer is governed by the droplet energy equation, which consists of external and the
+internal energy, as well as, the energy associated with surface tension. The equation governing the internal
+temperature distribution based on this uniform temperature model35,38 is:
+mpCl
+dTp
+dt = ˙Qconv −˙
+mpLv = hpπd2
+p(T −Tp) −˙
+mpLv
+(23)
+where,
+˙
+Qconv is the convective thermal energy transfer rate, mp is particle mass, Cl is liquid heat capacity,
+hp is the heat transfer coeﬃcient, and Lv is the latent heat of vaporization. Additional details of this model,
+including the heat transfer coeﬃcient, are given elsewhere.35,38
+Equations (16, 20, 23) are integrated using a fourth-order Runge-Kutta scheme. The integration is carried
+out based on the smallest of the time scales35,41 (i.e., the smallest of the particle velocity relaxation time,
+the droplet life-time, the turbulent eddy interaction time, the droplet surface temperature constraint time,
+and the LES gas-phase CFL time) governing the particle evolution.
+Eulerian-Lagrangian Coupling
+Eulerian-Lagrangian coupling is through the inter-phase exchange terms35 (not presented here, for brevity).
+If np number of particles are present per parcel/group, then the volume-averaged source terms for all the
+droplet parcel/group trajectories that cross a computational cell (of volume ∆V ) are computed by summing
+the contribution from every parcel/group as follows:
+
+
+
+
+
+
+e˙ρs
+g
+˙Fs,i
+f˙Qs
+g
+˙Ss,k
+
+
+
+
+
+
+=
+1
+∆V
+
+
+
+
+
+P
+m np[ ˙
+mp]
+P
+m np[ ˙
+mpui,p −4π
+3 ρpr3
+p
+dui,p
+dt ]
+P
+m np[ ˙
+mphv,s −hpπd2
+p(T −Tp) −ui,pmp
+dui,p
+dt
++ ˙
+mp( 1
+2u2
+i,p)]
+P
+m np[ ˙
+mp]
+
+
+
+
+
+where, the summation index “m” is over all the droplet parcels/groups crossing a computational cell (of
+volume ∆V ). Also, note that the species source term (g
+˙Ss,k) for all species (k) is zero, except for the species
+that is present in liquid form and evaporating.
+Combustion Modeling
+In this study, we have employed liquid fuel (C12H23) to approximate experimental Jet-A fuel. A three step,
+seven-species, global reduced mechanism42,43 of the form:
+C12H23 + (35/2)O2 −→12CO + (23/2)H2O
+2CO + O2 −→2CO2
+and
+N2 + O2 −→2NO
+is employed in this study. Global heat release eﬀects and pollutant(CO and NO) distribution in the com-
+bustor can be investigated by this reduced mechanism, although with certain limitations.
+The closure for the reaction rate is particularly important since it strongly impacts the LES prediction.
+LES closure for ¯˙wk employed in EBULES is a conventional approach that utilizes a subgrid eddy break-
+up model.44
+In this model the ﬁltered reaction rate ( ¯˙wk) is computed as the minimum of the kinetic
+reaction rate and the mixing rate.
+For a general reaction mechanism comprising of Nr reactions given
+by PNs
+k=1 ν′k,jMk,j ⇀
+↽PNs
+k=1 ν”k,jMk,j the ﬁltered reaction rates for species “k” is computed as follows
+¯˙wk = Wk
+PNr
+j=1 i(ν”k,j −ν′k,j) min[qmix
+j
+, qkin
+j
+] where qmix
+j
+and qkin
+j
+are the molar reaction rates based on
+mixing and Arrhenius chemical kinetic rate, respectively. The Arrhenius reaction rates for step “j” is given
+by, qkin
+j
+= kf,j
+QNs
+k=1[Mk]ν”
+k,j −kb,j
+QNs
+k=1[Mk]ν′
+k,j and the mixing rates for the forward and the backward
+reactions are given by
+qmix
+j,f
+=
+1
+τM min
+³
+[Mk]
+ν”k,j
+´
+and
+qmix
+j,b
+=
+1
+τM min
+³
+[Mk]
+ν′k,j
+´
+(24)
+Here, τM is the mixing time scale and is related to the sub-grid turbulence as follows τM = CEBU
+∆
+√
+ksgs ,
+with CEBU = 1. In this study, subgrid kinetic energy (ksgs) is evaluated dynamically and therefore, the
+reaction rate closure is dynamic as well. The proportionality constant is chosen as unity44 for these studies.
+The chemical rate is based on Arrhenius kinetic rate adapted from Westbrook & Dryer42 for the ﬁrst two
+steps, and from Malte et al.43 for the NO mechanism. In constrast, LEMLES approach does not require a
+closure for reaction rate as the instantanous species transport equation is solved directly without resorting
+to ﬁltering.
+7 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 8 ---
+
+III.
+Experimental Setup
+The experimental study by Colby et al.4,5 used a laboratory scale combustor with a trapezoidal cross-
+section having two windows on the sides for optical access. The main chamber converges gradually leading
+to a smaller trapezoidal cross-section for the purposes of ﬂow acceleration to attain positive (out of the
+combustor) axial velocity. The swirl cup burner is an assembly of co-axial, counter-rotating airﬂows aided
+by eight-jet primary and ten-vaned secondary swirlers. The measurements, non-reacting and reacting, are
+performed at atmospheric conditions with nominal (379K) pre-heat air.
+Issues relevant to experimental
+set-up and measurement methods are described in Colby et al.4,5 The case relevant to this study involved
+total mass (air) ﬂow rate of 30.5 g/s and fuel mass ﬂow rate of 0.750 g/s. For these ﬂow conditions, the
+overall equivalence ratio amounted to 0.40.
+IV.
+Numerical Method
+For this study, we employ a compressible LES solver based on ﬁnite-volume scheme that is nominally
+second-order accurate in space and time. The solver has been implemented on a parallel processing environ-
+ment using Message-Passing Interface (MPI) technique and scalability studies45 performed.
+Grid and Inﬂow Conditions
+Figure 1 shows schematically the combustor domain used in the study, along with the grid distribution (every
+other node is shown). It also shows positions (at intersection of marked lines) of probes where transient
+signals are collected for spectral analysis. We have employed a two-domain, butterﬂy grid to resolve the
+central core of the combustor using a Cartesian grid (185×21×21) while a body-conforming cylindrical grid
+(185×74×81) is employed elsewhere. The combustor length from the dump plane (x/Ro = 0.0, equivalent
+to ﬂare exit plane) to the exit is 0.278 m, the height is 0.0896 m, and the width is 0.0737 m (lower) and
+0.103 m (upper). The circular inlet diameter (Do = 2Ro) at the dump plane is 0.04026 m and the actual
+inlet is approximately 0.77Ro upstream of the dump plane. The swirl vanes and the internal details have
+not been modeled in the this study and therefore, the inﬂow velocity proﬁles, as shown in Fig. 2(a), at
+the computational inlet are considered approximate. Velocity proﬁles shown are non-dimensionalized by the
+bulk ﬂow velocity (Uo = 45.9m/s). Hashed sections seen in the plot represent wall-surfaces present in the
+inﬂow plane. A bluﬀ-body of 0.19Ro radius with origin at r/Ro = 0.0 is placed in the inlet section spanning
+x = 0.08Ro axial distance from the inlet plane to represent constriction formed by the fuel injector.
+Nominal conditions of atmospheric pressure and 379K pre-heat, the Reynolds number, ReD = U0D0/ν
+is 76,212 for the combustor. At the dump plane, using the computed ksgs to estimate the subgrid velocity
+ﬂuctuation u′, and an integral length scale, l ≈0.65D0, the turbulence Reynolds number Rel = u′l/ν
+is estimated around 9,800 and 17,446 for non-reacting and reacting cases, respectively. The corresponding
+subgrid Reynolds number, Re∆= u′∆/ν is 113 and 187, respectively. Using scaling relations, the Kolmogorov
+scale η is 0.009 mm and 0.006 mm, respectively for the two cases in the high turbulence region. Analysis of
+the local values of Re∆suggest that, in general, subgrid resolution used in LEMLES resolves around 2-4η
+in the regions of interest. Thus, the current resolution used for LEMLES is considered quite adequate.
+Spray is injected using a Stochastic Separated Flow (SSF) approach36 using parcels to represent groups
+of droplets with similar properties. Typically, around 25,000 to 35,000 droplet parcels (with 1-12 particles
+per group, chosen based on their size distribution function) are present, on an average. A log-normal size
+distribution, as shown in Fig. 2(b), with a Sauter-Mean Diameter (SMD) of 31.2 micron is used with a droplet
+cutoﬀradius (amounting to complete evaporation) of 4 µm. The particles are given initial momentum such
+that they form a hollow-cone pattern (consistent with the measurements). The location of particle injection
+is along the outer periphery of the center-bluﬀbody (mentioned above) approximately 1mm downstream of
+the inﬂow plane.
+Characteristics boundary conditions following Poinsot & Lele46 are employed at the inﬂow and outﬂow
+planes.
+Adiabatic no-slip conditions are employed at all surface walls.
+Grid clustering is employed in
+regions of shear-layers and high-gradients along with nominal (5-8%) grid stretching in streamwise and
+radial directions. The minimum resolution in the inlet shear layer region is around 0.3 mm in the axial
+direction, 0.26 mm in the radial direction and 0.25 mm in the azimuthal direction. With this resolution,
+nearly 8-16 points are in the shear layer width, which is considered adequate. Figure 3 shows kinetic energy
+spectrum for both non-reacting and reacting cases at (x/Ro, r/Ro)=(0.0, 0.308) probe location. It can be
+seen that the current grid resolution is able to recover inertial range (as represented by the −5/3 slope) for
+8 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 9 ---
+
+both the cases.
+Time-step restriction for two-phase ﬂow
+There are many time-steps of importance in this type of problem. In addition to the usual LES time-step
+(∆tLES), subgrid processes in LEMLES have additional time-steps for (a) reaction-diﬀusion (∆tLEM), (b)
+subgrid stirring (∆tstir), and (c) large-scale advection (∆tsp). The LES time step, ∆tLES is the explicit time
+step determined by stability consideration. To maintain strict mass conservation, ∆tsp = ∆tLES. ∆tstir is
+determined from the stirring frequency,12 λ, and ∆tLEM is determined by the minimum of the chemical and
+diﬀusion time within each cell needed for stable integration of the LEM equation.12
+Inclusion of spray introduces more time scales in the ﬂow. To accurately calculate the particle trajectories,
+size and temperature, the Lagrangian time step used for the integration has to be the smallest of the various
+physical time scales. The various time scales are: (1) ∆tLES, (2) the droplet velocity relaxation time, (3) the
+droplet life time, (4) the turbulent eddy droplet interaction time, and (5) the droplet surface temperature
+constraint time. At any instant, the smallest of the time scales is used for particle evolution36 .
+Computational Issues
+Simulations are carried out using a parallel solver on a SGI Altix 3700 Linux cluster. For a single characteristic
+time τ (based on Do and Uo), around 23 and 52 single-processor hours are needed for non-reacting and
+EBULES cases, respectively. After the initial transients, approximately 32τ and 26τ of data is statistically
+averaged for non-reacting and EBULES cases, respectively. For the LEMLES simulations, the processing
+cost is approximately seven times the EBULES. Although LEMLES is expensive, due to the high parallel
+scalability of the solver the turn-around time can be reduced by using a larger number of processors.
+V.
+Results and Discussion
+Results for the non-reacting and reacting simulations are presented in the following sub-sections.
+A.
+Non-Reacting Simulation
+Inﬂow velocity boundary conditions in this study have been approximated by a series of simulations initially
+conducted to determine sensitivity of the predictions (especially the centerline axial velocity) to the speciﬁed
+inﬂow proﬁles. Representative results were presented in Menon and Patel.12 It was concluded that once
+axial and azimuthal proﬁles were determined based on bulk ﬂow and swirl conditions, small variations in
+the radial component impacted the near ﬁeld however, the far ﬁeld remained relatively insensitive. In this
+study, both the non-reacting and reacting cases use the same inﬂow velocity proﬁle.
+Figure 4 the shows time-averaged streamwise velocity along the centerline of the combustor for both
+non-reacting and reacting (discussed in the next section) simulations. The proﬁle is non-dimensionalized by
+the bulk ﬂow velocity. For the non-reacting case, the axial velocity is consistently negative all the way to
+x/Ro = 7.0, indicating the length of the recirculation bubble. The peak negative axial velocity in the bubble
+is around 0.25Uo, and the axial velocity is seen to gradually increase till it reaches the outﬂow boundary.
+Both the strength as well as the extent of the recirculation region is well predicted by the LES simulations.
+It can also be noted that the reverse region extends all the way into the inlet pipe consistent with the
+measurements.
+Figure 5(a) show the streamlines and VBB region for the non-reacting simulation. It can be seen that
+the bubble is a single contiguous region and the ﬂow swirls into and around the VBB. The swirl eﬀect only
+weakens near the outﬂow and the ﬂow is primarily axial by the time the outﬂow is reached. Analysis of the
+time evolution of the solution shows that the VBB is not stationary and oscillates in the axial direction with
+very small lateral movement. The mean ﬂow rotates whole 2π from the inﬂow plane to the outﬂow boundary
+as seen by the streamlines. The sense of rotation is clockwise when viewed from the outﬂow boundary and is
+in the same sense as the outer/secondary swirler. Figure 5(b) shows the time-averaged streamwise velocity
+contour plot in the x −y center plane. The resulting cross-sectional shape of the VBB resembles a leaf with
+its stem originating at the center-body located in the inlet pipe. No separation is observed at the 45o ﬂare
+expansion angle just upstream of the dump plane. The ﬂow is seen to move parallel to the inlet wall and
+gradually decelerating before it impinges on the outer combustor wall at around x/Ro = 2.0.
+Figures 6(a,c) show the normalized mean axial velocity proﬁles in the combustor at various axial locations.
+Two center planes are shown: horizontal x −z plane (Fig. 6(a)) and a vertical x −y plane (Fig. 6(c)). The
+9 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 10 ---
+
+experimental data obtained at some of the axial locations are also shown. At the ﬁrst location where data
+is available for comparison, both the peak value as well as the peak location in the shear layer region is well
+predicted. The strength of the reverse ﬂow in the recirculation regions is also consistent with measurements.
+The reverse ﬂow region is seen to spread (in radial direction) around x/Ro = 2.3 with peak values moving
+farther away from the centerline.
+Moving further downstream, the VBB quick diminishes in the radial
+direction and ﬁnally terminating around x/Ro = 7.0 (as seen in Fig. 4). The comparison with measurements
+at all downstream locations are in very good agreement for both the center-planes.
+Figures 6(b) and 6(d) show respectively, the normalized mean azimuthal velocity proﬁles in the x −z
+horizontal center-plane and the radial velocity proﬁles in the x −y vertical center-plane at various axial
+locations. For these normal components, both the peak magnitude as well as peak locations in the shear
+layer regions are well predicted.
+Peak location of radial velocity and its rapid decay in axial direction
+indicates the eﬀect of the 45o ﬂare angle. It was observed in a prior study (not presented here) that the
+eﬀect of reducing the ﬂare angle was to bring the peak location closer to the center-line. It can also be seen
+that the intensity of the azimuthal velocity is weaker in relation to the radial or axial components however,
+its decay is not as signiﬁcant as seen for the radial component. Also, the presence of non-zero variation
+of azimuthal velocity along various axial locations indicate swirling ﬂow in the combustor. This was seen
+before in form of swirling streamlines. The weaker intensity seen for azimuthal velocity is contributed to its
+transition to other two velocity components.
+Comparisons for turbulence properties such as the streamwise, the radial, and the azimuthal RMS
+velocity ﬂuctuations are presented in Figs. 7(a-d). The proﬁles are normalized by u′
+0 = 20 m/sec, which
+represents the peak value seen in the axial RMS proﬁles. The experimental data shows some asymmetry
+in the uRMS proﬁle for both the center planes at the ﬁrst measurement location. It is noticed that for all
+three components, the decay and eventual approach to uniform radial proﬁle of Reynolds (normal) stresses
+as the ﬂow progresses downstream. There are two reasons for this to occur. The ﬁrst being the mean ﬂow
+in axial direction eventually approaches uniform radial proﬁle going downstream. And the second reason
+for uniform (but not zero) RMS proﬁle in all three components is due to the swirling mean ﬂow as seen in
+Fig. 6(a-d). Overall, the normal Reynolds stress for respective components are in good agreement with the
+measurements.4,5
+For comparisons of RMS velocity proﬁles, we considered only the resolved (or ﬁltered) portion of the
+ﬂuctuations. And good comparisons with measurements indicates the presence of most of the unsteady
+motion in the large scale structures which are well resolved and predicted by the LES. These results show that
+the current LES approach is capable of predicting the mixing region quite accurately. Further comparison
+with data for the reacting (spray) cases will be reported in the next section.
+B.
+Reacting Simulation
+Figure 4 presented time-averaged streamwise velocity along the centerline of the combustor for both non-
+reacting and reacting simulations. As was observed for the non-reacting case, the axial velocity is consistently
+negative through the inlet pipe upto the point where the VBB terminates. For the EBULES simulation, there
+are two locations with negative peak velocity. Both of the values are relatively larger than seen in the non-
+reacting case. The ﬁrst peak is located inside the inlet pipe with negative peak value of 0.5Uo whereas, the
+other is located at x/Ro = 1.5 with negative 0.28Uo peak value. Comparison with the measurements indicate
+that EBULES underpredicts the strength of the reverse ﬂow region located in the combustor by 0.04Uo. Also,
+the placement of the peak is further upstream in EBULES by 0.9Ro. The rate of gradual increase in the axial
+velocity past the negative peak location for EBULES is similar to that seen in measurements. The mis-match
+in the placement of the peak recirculation strength causes the length of the VBB to be under-predicted by
+2.1Ro for the EBULES. Major cause for this can be attributed to the approximate inﬂow velocity boundary
+condition which aﬀects the placement of the ﬂame and eventual volume expansion. Further downstream, the
+ﬁnal rate of increase in the axial velocity compares well with the measurements indicating that the overall
+mass ﬂux and ﬂow conditions are modeled accurately. Preliminary time-averaged centerline axial velocity
+proﬁle for the LEMLES simulation is also shown. Overall trend for LEMLES simulation is similar to the
+EBULES. Several ripples are observed along the axial direction indicating insuﬃcient time for statistical
+convergence.
+Figures 8(a,c) show the normalized mean axial velocity proﬁles in the combustor at various axial locations
+for two center planes. The experimental data obtained at some of the axial locations are also shown. At
+the ﬁrst location, the peak locations in the shear layers are well predicted however, the overall axial velocity
+proﬁle is under-predicted. This suggests a mis-match in the ﬂame location in part due to assumed inﬂow
+10 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 11 ---
+
+boundary.
+However, the peak value in the reverse ﬂow region compares well with data suggesting that
+the bulk ﬂow is captured accurately. Further downstream, with the formation of VBB determined by the
+combustor geometry, comparison with measurements are in good agreement. This includes the radial spread
+of the recirculation zone as seen at x/Ro ≈2.3. Axial proﬁles for the LEMLES simulation are also shown
+in form of dashed lines. Overall variations are similar to that of EBULES. It is seen from these preliminary
+LEMLES results that inspite of employing better closure for the species equation, it is unable to correctly
+predict the ﬂow acceleration at the ﬁrst measurement location. This directly indicates the necessesity of
+realistic inﬂow velocity boundary conditions which can be achieved only by solving through the swirler
+assembly.
+In comparisons with the non-reacting case, the VBB is smaller in both length and width (radial direction)
+however, the reverse ﬂow is much stronger. The eﬀect of combustion is to increase the overall volume ﬂow
+rate through the outﬂow boundary as can be seen by the increase in axial velocity from 0.125Uo to 0.352Uo.
+It is this property of increased organized (mechanical) energy that is relied upon for extracting work via
+turbines. Similar to the non-reacting case, the resulting cross-sectional shape of the VBB in the center-planes
+resembles are leaf with its stem orginating in the inlet pipe. However, in the reacting case, overall size is
+relatively smaller.
+Figures 8(b) and 8(d) show respectively, the normalized mean tangential velocity proﬁles in the x −z
+horizontal center-plane, and the radial velocity proﬁles in the x −y vertical center-plane at various axial
+locations. For the azimuthal component, both the peak magnitude as well as peak locations in the shear layer
+regions are well predicted. The radial component, at the ﬁrst measurement location, shows signs of under-
+expansion of ﬂow, consistent with axial component. The EBULES shows good trend with measurements
+but fails to achieve the peak value at the bottom (r/Ro ≈−1.5) corner. In comparison, the LEMLES radial
+proﬁles are showing better agreement at the top corner and relative improvement in peak radial position in
+the bottom corner. Elsewhere, the EBULES and LEMLES proﬁles are similar.
+In a similar behavior to non-reacting case, the peak radial velocity rapidly decays moving downstream
+achieving an uniform proﬁle. It can also be seen that the intensity of the azimuthal velocity is weaker in
+relation to the radial or axial components however, its decay is not as signiﬁcant as seen for the radial
+component.
+Also, the presence of non-zero variation of azimuthal velocity along various axial locations
+indicate presence of swirl in the combustor. As was seen in the non-reacting case, the swirl is in the same
+direction as the outer swirler ﬂow.
+Keeping in mind the uncertainties relating to inﬂow boundary and
+chemical rate closure involved, the characteristics of VBB are reasonably predicted by both approaches.
+Comparisons for turbulence properties are presented in Figs. 9(a-d). The proﬁles are normalized by
+u′
+0 = 30 m/sec, which represents the nominal value seen in the axial RMS proﬁles. The reacting data
+shows relatively uniform proﬁles for all three components as compared to the non-reacting RMS proﬁles,
+especially at the ﬁrst measurement location. In the reacting case, the shear layer region, as seen in Fig. 8(a,c)
+at ﬁrst axial location, is broadly dispersed in the radial direction amounting to increase turbulence at those
+locations. Turbulence variations for the LEMLES simulation is seen similar to EBULES. It is noticed that
+for all three components, the decay and eventual approach to uniform radial proﬁle of Reynolds (normal)
+stresses as the ﬂow progresses downstream. Except for the ﬁrst measurement location, the normal Reynolds
+stress for respective components are in reasonable agreement with the data. At the ﬁrst location, there
+is over-prediction in both axial and radial RMS quantities. Origin for this can be traced to the previous
+inconsistencies seen in axial and radial mean proﬁles. Overall, the turbulence intensity in the reacting case
+is 15 −20% larger than seen in the non-reacting simulation.
+Flow visualization for EBULES simulation is shown in Fig. 10(a) in form of streamlines and VBB region.
+The recirculation regions is seen to be contiguous albeit smaller than seen for the non-reacting case. The
+streamline patterns are markedly diﬀerent. Here, the ﬂow is seen not to expand much radially but rather
+moves downstream at relatively smaller radial angle. This happens due to volume expansion and smaller
+but stronger recirculation bubble. Viewing the VBB in a cross-sectional plane, as shown in Fig. 10(b), its
+size in terms of width (radial direction) and length are relatively smaller than the non-reacting case. The
+ﬂow is also seen to separate at 45o expansion angle just upstream of the dump plane. Such separation was
+not observed in the non-reacting simulation. The mean ﬂow is seen to rotate clockwise ≈π radians from
+inﬂow to the outﬂow boundary as seen by the streamlines. Rotation is almost half than that noticed in the
+non-reacting case.
+Figure 10(c) shows time-averaged overall fuel reaction rate as solid-colored background super-imposed
+with mean axial velocity contours in the vertical center-plane. The units for the reaction rate shown are in
+the CGS system. The overall reaction rate is positioned in the shear layers between the incoming reactants
+and the recirculation bubble. The reaction rate has contribution from both the mixing (based on turbulence)
+11 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 12 ---
+
+and chemical (based on Arrhenius) rates and their breakdown is shown in Fig. 10(d). The mixing rate is
+limiting in recirculation bubble whereas the chemical rate is limiting in the shear layer region. Also notice
+that the typical range of mixing rate is approximately 5-10 times the chemical rate. The positioning of the
+overall ﬂame in the shear layers implies that the recirculating region sustains the ﬂame by providing pool of
+hot products both for pre-heating the incoming reactants as well as ignition source.
+C.
+Spray Dynamics
+Time-averaged fuel particle velocities and SMD proﬁles are compared to measurements and presented in
+Fig.
+11.
+All three components of droplet velocities are compared in two center-planes as seen in Fig.
+11(a-d). At the ﬁrst measurement location, velocities proﬁles compare reasonably well with measurements.
+Both the peak value, as well as, the peak locations are captured.
+The droplet axial velocity is seen to
+peak in the shear layers and follows gas-phase closely. In the center region (around r/Ro ≈[−0.25, 0.25]),
+measurements shows negative axial velocity indicating that the droplets are entrained in the recirculation
+bubble. LES droplet proﬁle in that region shows positive axial droplet velocity albeit smaller in magnitude.
+This indicates that incoming droplets are not able to slow down enough to reach negative axial velocity.
+Several reasons can be attributed to this behavior. Principally, the initial velocity given to the droplets at
+the inﬂow boundary is approximated which may be over-speciﬁed. Secondly, this study assumes the spray
+is dilute and no atomization of droplets is taken into account. Presence of small droplets via breakup in the
+center region would follow gas-phase more accurately. Inspite of these approximations/assumptions, overall
+trend for droplet velocities is reasonably well predicted.
+Sauter-Mean Diameter (SMD, D32) proﬁles are also compared with measurements and presented in
+Fig. 11(e-f) normalized by nominal value D32,0 = 100µm seen in measurements. At the ﬁrst data location,
+measurements show D32 values of O(100µm) whereas, the LES is predicting on the range of 30 µm. Colby et
+al.5 have shown that low fuel injection pressure, as is the case here, could result in poor spray characteristics
+and oﬀ-rated injector performance. The initial droplet distribution given to particles was based in part on
+rated (at 40µm) SMD of the injector. The mis-match at the ﬁrst measurement location is expected and
+seen in the proﬁles. Further downstream, error in comparisons diminishes in part due to the heat release
+eﬀects and less inﬂuence of nozzle distribution. The heat release, due to droplet evaporation, changes droplet
+radius distribution, and thereby signiﬁcantly aﬀecting the SMD proﬁles. Again, given the approximations
+employed in this study, overall trend for the particle SMD proﬁles are reasonably captured especially at
+downstream locations.
+The droplets are seen to follow a hollow cone pattern as seen from both the radial proﬁles as well as ﬂow
+visualization (not shown here, for brevity). The trajectory of particles is through the shear layer regions
+tucked in between the 45o ﬂare angle and the re-circulation bubble. Then onwards, the particles continue
+to travel the same trajectory however, at lower velocities until they ﬁnally vaporize.
+The acceleration
+of particles is seen just upstream of the dump plane in the shear layer regions consistent with gas-phase
+speedup. Relatively few particles are seen in the recirculation bubble due to longer residence time allowing for
+complete vaporization. Particles seize to exist past x/Ro = 3.3. Closer inspection of SMD proﬁles indicate
+that SMD increases both moving radially outwards and downstream axially, consistent with measurements.
+Lower values of SMD closer to recirculation bubble indicate the eﬀect of proximity of heat source leading
+to presence of smaller droplets due to rapid particle evaporations. Also, presence of larger particles is seen
+on the outer periphery owing to their centrifugal acceleration by the gas-phase swirl imparted in the inlet
+pipe.
+VI.
+Conclusions
+Large-Eddy Simulation of swirl-stabilized ﬂow in a laboratory combustor have been performed for non-
+reacting and reacting conditions and both gas- and liquid-phase results are compared with available data.
+Methodology employed in this study attempts to capture spray-turbulence interactions as well as subgrid
+fuel-air mixing and ﬁnite rate kinetics. Results for non-reacting case show presence of vortex breakdown
+bubble (VBB) in the center-line region with two corner recirculation zones past the dump plane. Non-reacting
+comparisons with measurements for both mean and RMS show good agreement. Reacting simulations show
+presence of stronger yet smaller VBB in the center-line region. EBULES is seen to under-predict both the
+location and negative peak value of the axial velocity by 0.9Ro and 0.04Uo, respectively. Overall reacting
+comparisons with measurements are in reasonable agreement. Time-averaged ﬂow visualization in form of
+streamlines indicate that the non-reacting ﬂow rotates twice as much from the inﬂow to outﬂow boundary
+12 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 13 ---
+
+than the reacting case. Droplet data show good agreement for particle velocity proﬁles and reasonable trends
+for the SMD variation.
+Acknowledgments
+This research is supported in part by General Electric Aircraft Engine Company and by NASA/GRC.
+Computational time provided by NASA/GRC and Computational Combustion Laboratory (CCL) at Georgia-
+Tech is greatly appreciated.
+References
+1Maclin, H. and Haubert, C., “Fifty Years Down - Fifty Years To Go,” AIAA Paper 2003–2788, 2003.
+2Mongia, H. C., “Perspective of Combustion Modelling for Gas Turbine Combustors,” AIAA Paper 2004–0156, 2004.
+3Candel, S., Thevenin, D., Darabiha, N., and Veynante, D., “Progress in Numerical Combustion,” Combustion Science
+and Technology, Vol. 149, 1999, pp. 297–337.
+4Colby, J., Jagoda, J., and Menon, S., “Flow Field Measurements in a Swirling Spray Combustor,” AIAA Paper AIAA-
+2005–4143, 41st Joint Propulsion Conference, 2005.
+5Colby, J., Menon, S., and Jagoda, J., “Spray and Emission Characteristics near Lean Blow Out in a Counter-Swirl
+Stabilized Gas Turbine Combustor,” ASME Turbo Expo 2006; GT2006-90974; Submitted, 2006.
+6Tolpadi, A. K., Burrus, D. L., and Lawson, R. J., “Numerical Computation and Validation of Two-Phase Flow Down-
+stream of a Gas Turbine Combustor Dome Swirl Cup,” ASME Journal of Engineering for Gas Turbines and Power, Vol. 117,
+1995, pp. 704–712.
+7Hsiao, G. and Mongia, H. C., “Swirl Cup Modelling, Part 2: Inlet Boundary Conditions,” AIAA Paper 2003–1350, 2003.
+8Hsiao, G. and Mongia, H. C., “Swirl Cup Modelling, Part 3: Grid Independent Solution with Diﬀerent Turbulence
+Models,” AIAA Paper 2003–1349, 2003.
+9Mongia, H. C., Al-Roub, M., Danis, A., Elliott-Lewis, D., Jeng, S. M. Johnson, A., McDonell, V. G., Smauelsen, G. S.,
+and Vise, S., “Swirl Cup Modelling, Part 1,” AIAA Paper 2001–3576, 2001.
+10Wang, S., Yang, V., Mongia, H. C., Hsieh, S. Y., and Hsiao, G., “Modelling of Gas Turbine Swirl Cup Dynamics, Part
+5: Large-Eddy Simulation of Cold Flow,” AIAA Paper 2003–0485, 2003.
+11Sankaran, V. and Menon, S., “LES of Spray Combustion in Swirling Flows,” Journal of Turbulence, Vol. 3, 2002, pp. 011.
+12Menon, S. and Patel, N., “Subgrid Modeling for LES of Spray Combustion in Large-Scale Combustors,” AIAA Journal
+(in press, 2006), 2006.
+13Kim, W.-W. and Menon, S., “Application of the localized dynamic subgrid-scale model to turbulent wall-bounded ﬂows,”
+AIAA Paper 97–0210, 1997.
+14Kim, W.-W., Menon, S., and Mongia, H. C., “Large-Eddy Simulation of a Gas Turbine Combustor Flow,” Combustion
+Science and Technology, Vol. 143, 1999, pp. 25–62.
+15Chakravarthy, V. K. and Menon, S., “Subgrid Modeling of Premixed Flames in the Flamelet Regime,” Flow, Turbulence
+and Combustion, Vol. 65, 2000, pp. 133–161.
+16Sankaran, V. and Menon, S., “Subgrid Combustion Modeling of 3-D Premixed Flames in the Thin-Reaction-Zone
+Regime,” Proc. Combust. Inst., Vol. 30, 2005, pp. 575–582.
+17Menon, S., Yeung, P. K., and Kim, W. W., “Eﬀect of subgrid models on the computed interscale energy transfer in
+isotropic turbulence,” Computers and ﬂuids, Vol. 25, No. 2, 1996, pp. 165–180.
+18Kim, W. W., Menon, S., and Mongia, H. C., “Large-Eddy simulation of a gas turbine combustor ﬂow,” Combustion
+Science and Technology, Vol. 143, 1999, pp. 25–62.
+19Menon, S. and Kim, W.-W., “High Reynolds Number Flow Simulations Using the Localized Dynamic Subgrid-Scale
+Model,” AIAA-96-0425, 1996.
+20Menon, S. and Pannala, S., “Subgrid Modeling of Unsteady Two-Phase Turbulent Flows,” AIAA Paper No. 97-3113,
+1997.
+21Kim, W.-W. and Menon, S., “A New Incompressible Solver for Large-Eddy Simulations,” International Journal of
+Numerical Fluid Mechanics, Vol. 31, 1999, pp. 983–1017.
+22Chakravarthy, V. K. and Menon, S., “Large-Eddy Simulations of Turbulent Premixed Flames in the Flamelet Regime,”
+Combustion Science and Technology, Vol. 162, 2000, pp. 175–222.
+23Chakravarthy, V. K. and Menon, S., “Linear-Eddy Simulations of Reynolds and Schmidt Number Dependencies in
+Turbulent Scalar Mixing,” Physics of Fluids, Vol. 13, 2001, pp. 488–499.
+24Liu, S., Meneveau, C., and Katz, J., “On the Properties of Similarity Subgrid-Scale Models as Deduced from Measure-
+ments in a Turbulent Jet,” Journal of Fluid Mechanics, Vol. 275, 1994, pp. 83–119.
+25Lilly, D. K., “A Proposed Modiﬁcation of the Germano Subgrid-Scale Closure Method,” Physics of Fluids A, Vol. 4,
+No. 3, 1992, pp. 633–635.
+26Patel, N., Stone, C., and Menon, S., “Large-Eddy Simulations of Turbulent Flow over an Axisymmetric Hill,” AIAA-03-
+0967, 2003.
+27Germano, M., Piomelli, U., Moin, P., and Cabot, W. H., “A Dynamic Subgrid-Scale Eddy viscosity Model,” Physics of
+Fluids A, Vol. 3, No. 11, 1991, pp. 1760–1765.
+28Schumann, U., “Realizability of Reynolds-Stress Turbulence Models,” Physics of Fluids, Vol. 20, No. 5, 1977, pp. 721–725.
+29Fureby, C. and M¨oller, S.-I., “Large-Eddy Simulation of Reacting Flows Applied to BluﬀBody Stabilized Flames,” AIAA
+Journal, Vol. 33, No. 12, 1995, pp. 2339–2347.
+13 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 14 ---
+
+30Kerstein, A. R., “Linear-Eddy Model of Turbulent Transport: Part 2,” Combustion and Flame, Vol. 75, 1989, pp. 397–
+413.
+31Menon, S. and Kerstein, A. R., “Stochastic Simulation of the Structure and Propagation Rate of Turbulent Premixed
+Flames,” Proc. Combust. Inst., Vol. 24, 1992, pp. 443–450.
+32Menon, S., McMurtry, P., and Kerstein, A. R., “A Linear Eddy Mixing Model for Large Eddy Simulation of Turbulent
+Combustion,” LES of Complex Engineering and Geophysical Flows, edited by B. Galperin and S. Orszag, Cambridge University
+Press, 1993, pp. 287–314.
+33Menon, S. and Calhoon, W., “Subgrid Mixing and Molecular Transport Modeling for Large-Eddy Simulations of Turbulent
+Reacting Flows,” Proc. Combust. Inst., Vol. 26, 1996, pp. 59–66.
+34Pope, S. B., “PDF Methods for Turbulent Reactive Flows,” Progress in Energy and Combustion Science, 1985, pp. 119–
+192.
+35Oefelein, J. C. and Yang, V., “Simulation of High-Pressure Spray Field Dynamics,” Recent Advances in Spray Combus-
+tion:Spray Combustion and Droplet Burning Phenomena, Progress in Astronautics and Aeronautics, Vol. 166, 1995, pp. 263–
+304.
+36Faeth, G. M., “Mixing, Transport and Combustion in Sprays,” Progress in Energy and Combustion Science, Vol. 13,
+1987, pp. 293–345.
+37Crowe, C. T., Sommerfeld, M., and Tsuji, Y., “Multiphase Flows with Droplets and Particles,” CRC Press LLC, Boca
+Raton, FL, 1998.
+38Faeth, G. M., “Evaporation and combustion of sprays,” Progress in Energy and Combustion Science, Vol. 9, 1983,
+pp. 1–76.
+39Chen, K. H. and Shuen, J. S., “A coupled Multi-block solution procedure for spray combustion in complex geometries,”
+AIAA Paper 1993-0108, 1993.
+40Reid, R. C., Prausniz, J. M., and Poling, B. E., Mcgraw Hill Publishing Company, 1988.
+41Sankaran, V., “Sub-grid combustion modeling for compressible two-phase ﬂows,” Doctorate Thesis, Georgia Inst. of
+Technology, Aerospace Eng., 2003.
+42Westbrook, C. K. and Dryer, F. L., “Simpliﬁed Reaction Mechanisms for the Oxidation of Hydrocarbon Fuels in Flames,”
+Combustion Science and Technology, Vol. 27, 1981, pp. 31–43.
+43Malte, P., Hamer, A., Roby, R., and Steele, R., “Development of a Five-Step Global Methane Oxidation-NO Formation
+Mechanism for Lean-Premixed Gas Turbine Combustion,” Trans.
+of the ASME: J. of Eng. for Gas Turbine and Power,
+Vol. 121, No. April, 1999, pp. 272–280.
+44Fureby, C. and L¨ofstr¨om, C., “Large-Eddy Simulations of BluﬀBody Stabilized Flames,” Proc. Combust. Inst., Vol. 25,
+1994, pp. 1257–1264.
+45Stone, C. and Menon, S., “Adaptive swirl control of combustion instability in gas turbine combustors,” Proc. Com-
+bust. Inst., Vol. 29, 2002, pp. 155–160.
+46Poinsot, T. and Lele, S., “Boundary Conditions for Direct Simulations of Compressible Viscous Flow,” Journal of
+Computational Physics, Vol. 101, 1992, pp. 104–129.
+(a) Schematic
+(b) Computational Grid
+Figure 1.
+Computational domain for the combustor; outer cylindrical grid: 185×74×81 and inner cartesian
+grid: 185×21×21. Schematic of the grid is shown along with probe locations (at intersection of thin lines) at
+which transient signals are collected. Numbers represent distances (x/Ro, r/Ro) for the probes from the dump
+plane and combustor center-line, respectively.
+14 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 15 ---
+
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+r/Ro
+-0.5
+0
+0.5
+1
+1.5
+Ui/Uo
+Ux
+Ur
+Uθ
+(a) Inﬂow Proﬁles
+0.0 
+10.0 µ
+20.0 µ
+30.0 µ
+40.0 µ
+Particle Radius (R), meter
+0
+0.2
+0.4
+0.6
+0.8
+fR(R)
+σ=1.0
+σ=0.5
+(b) Particle Size Distribution
+Figure 2. Velocity inﬂow proﬁles (Ux, Ur, Uθ) normalized by the bulk ﬂow velocity (Uo) used for the simulations
+are shown in (a). For droplets, a log-normal size distribution is used with a SMD of 31.2 µm.
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+10
+5
+10
+6
+Frequency (Hz)
+10
+-3
+10
+-2
+10
+-1
+10
+0
+10
+1
+10
+2
+Kinetic Energy (m
+2/s
+2)
+Reacting
+Non-Reacting
+-(5/3)
+-(5/3)
+(x/R0=0.0, r/R0=0.308)
+Figure 3.
+Kinetic energy spectrum for both the reacting and non-reacting case showing the (−5/3) slope for
+decay of energy indicating attainment of inertial layer using the current grid. Probe location for the spectrum
+is in the shear layer region just downstream of the dump plane.
+15 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 16 ---
+
+0 
+2 
+4 
+6 
+8 
+10 
+12 
+14 
+x/Ro
+-1.0
+-0.5
+0.0
+0.5
+1.0
+Ux/Uo
+Expt--Non-Reacting
+LES--Non-Reacting
+Expt--Reacting
+EBULES--Reacting
+LEMLES--Reacting
+Figure 4.
+Time-averaged centerline streamwise non-dimensional velocities for the non-reacting and reacting
+cases are shown.
+Parameters used for non-dimensionalization are the bulk velocity (Uo) and dump plane
+expansion radius (Ro).
+(a) Non-Reacting VBB
+(b) Non-Reacting X −Y Plane
+Figure 5.
+Time-averaged axial velocity iso-surface at zero velocity depicting VBB is shown in (a) for non-
+reacting case. Also shown are streamlines originating from the inﬂow boundary. Mean axial velocity contours
+in the horizontal plane are shown in (b) showing the cross-section as a leaf shaped structure.
+16 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 17 ---
+
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(a) Horizontal-Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Uθ/Uo
+(b) Horizontal-Azimuthal Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(c) Vertical-Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ur/Uo
+(d) Vertical-Radial Mean
+Figure 6. Time-averaged horizontal (X−Z) and vertical (X−Y ) plane comparisons for non-reacting simulations.
+Open symbols represent measurement data points. Scaling used for non-dimensionalization is the bulk ﬂow
+velocity (Uo) and the dump expansion radius (Ro) or as noted in the discussion.
+17 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 18 ---
+
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+uRMS/uo
+(a) Horizontal-Axial RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+vRMS/uo
+(b) Horizontal-Azimuthal RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+uRMS/uo
+(c) Vertical-Axial RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+vRMS/uo
+(d) Vertical-Radial RMS
+Figure 7. Time-averaged horizontal (X−Z) and vertical plane (X−Y ) comparisons for non-reacting simulations.
+Open symbols represent measurement data points. Scaling used for non-dimensionalization is the bulk ﬂow
+velocity (Uo) and the dump expansion radius (Ro) or as noted in the discussion.
+18 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 19 ---
+
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(a) Horizontal - Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Uθ/Uo
+(b) Horizontal - Azimuthal Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(c) Vertical - Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ur/Uo
+(d) Vertical - Radial Mean
+Figure 8.
+Time-averaged horizontal (X −Z) and vertical (X −Y ) plane comparisons for reacting simulations.
+Open symbols represent measurement data points. Scaling used for non-dimensionalization is the bulk ﬂow
+velocity (Uo) and the dump expansion radius (Ro). Solid blue lines represent EBULES and red dashed lines
+are for LEMLES simulations.
+19 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 20 ---
+
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+uRMS/uo
+(a) Horizontal - Axial RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+vRMS/uo
+(b) Horizontal - Azimuthal RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+uRMS/uo
+(c) Vertical - Axial RMS
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+uRMS/uo
+(d) Vertical - Radial RMS
+Figure 9.
+Time-averaged horizontal (X −Z) and vertical (X −Y ) plane RMS comparisons for reacting sim-
+ulations. Open symbols represent measurement data points. Scaling used for non-dimensionalization is the
+nominal axial RMS velocity (uo) and the dump expansion radius (Ro). Solid blue lines represent EBULES and
+red dashed lines are for LEMLES simulations.
+20 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 21 ---
+
+(a) Reacting VBB
+(b) Reacting X −Y Plane
+(c) Fuel Reaction Rate
+(d) Mixing and Chemical Rate
+Figure 10.
+Time-averaged axial velocity iso-surface at zero velocity depicting VBB is shown in (a).
+Also
+shown are streamlines for the EBULES simulation. Mean axial velocity contours in the horizontal plane are
+shown in (b). Time-averaged fuel reaction rate (as solid contours) in the horizontal plane with axial velocity
+line contours is shown in (c) for EBULES simulation. Mixing (as line contours) and chemical rate (as solid
+contours) contributing to overall fuel reacting rate are shown in (d). Reaction rates are in CGS units.
+21 of 22
+American Institute of Aeronautics and Astronautics
+
+
+--- Page 22 ---
+
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(a) Horizontal - Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(b) Vertical - Axial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(c) Horizontal - Azimuthal Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+Ux/Uo
+(d) Vertical - Radial Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+D32/D32,o
+(e) Horizontal - D32 Mean
+0
+2
+4
+6
+8
+10
+12
+14
+x/Ro
+-2
+-1
+0
+1
+2
+r/Ro
+D32/D32,o
+(f) Vertical - D32 Mean
+Figure 11.
+Time-averaged horizontal (X −Z) and vertical (X −Y ) plane droplet comparisons for reacting
+EBULES simulation.
+22 of 22
+American Institute of Aeronautics and Astronautics

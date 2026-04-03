@@ -1,0 +1,1462 @@
+
+--- Page 1 ---
+
+Engineering Applications of Computational Fluid
+Mechanics
+ISSN: 1994-2060 (Print) 1997-003X (Online) Journal homepage: www.tandfonline.com/journals/tcfm20
+Exploring liquid fuel combustion dynamics in a
+swirl burner using dynamic mode decomposition
+Alireza Ghasemi & Jim B. W. Kok
+To cite this article: Alireza Ghasemi & Jim B. W. Kok (2025) Exploring liquid fuel combustion
+dynamics in a swirl burner using dynamic mode decomposition, Engineering Applications of
+Computational Fluid Mechanics, 19:1, 2557009, DOI: 10.1080/19942060.2025.2557009
+To link to this article:  https://doi.org/10.1080/19942060.2025.2557009
+© 2025 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group.
+Published online: 24 Sep 2025.
+Submit your article to this journal 
+Article views: 447
+View related articles 
+View Crossmark data
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tcfm20
+
+
+--- Page 2 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+2025, VOL. 19, NO. 1, 2557009
+https://doi.org/10.1080/19942060.2025.2557009
+Exploring liquid fuel combustion dynamics in a swirl burner using dynamic mode
+decomposition
+Alireza Ghasemi and Jim B. W. Kok
+Department of Thermal and Fluid Engineering, Faculty of Engineering Technology, University of Twente, Enschede, The Netherlands
+ABSTRACT
+Aero gas turbine engine combustors are transitioning from traditional Rich-Quench-Lean (RQL) stag-
+ing to Lean Premixed Prevaporized (LPP) operation to reduce harmful NOx emissions and improve
+combustion efficiency. This operational shift, however, introduces the risk of thermoacoustic insta-
+bilities, a significant concern for reliable operation and integrity of the jet fuel fired aero gas turbines.
+Moreover, the complex geometries of aero engine combustors and the challenges of partially pre-
+mixed conditions further complicate stability analysis and demand advanced diagnostic techniques.
+To that end, this work aims to analyse thermoacoustic and swirl burner instabilities of our in-house
+designed Magister burner under engine representative lean conditions using Detached Eddy Sim-
+ulation. We extended our prior analysis by applying Dynamic Mode Decomposition (DMD) in a
+distributed computing environment, leveraging our PARAMOUNT modal analysis package, to cap-
+ture the burner’s critical acoustic and transient dynamics. The proposed novel DMD combined
+spectrum effectively identified the mechanism driving vortex core rotation, capturing its frequency
+to within 1% of the measured value. It was demonstrated that using Proper Orthogonal Decomposi-
+tion (POD) modes directly is more effective than an exact DMD formulation, yielding a 44% reduction
+in the Mean Absolute Error (MAE) of DMD predicted temperature values. Furthermore, the applica-
+tion of variable stacking reduced the MAE of the short-term DMD temperature predictions by 40%.
+Finally, an MRDMD adjustment is proposed that leverages a critical Strouhal number (St = 0.6) to
+significantly enhance ROM by ensuring essential flow dynamics are retained. This novel analysis
+framework demonstrates a powerful capability to assess thermoacoustic stability, extracting criti-
+cal physical insights from complex simulations that produce large datasets and thereby accelerating
+the design cycle for aero-engine combustors.
+ARTICLE HISTORY
+Received 15 April 2025
+Accepted 28 August 2025
+KEYWORDS
+Swirl burner; thermoacoustic
+instability; dynamic mode
+decomposition; reduced
+order modelling; combustion
+dynamics
+Nomenclature
+Acronyms
+BVM
+Burning Velocity Model
+CFD
+Computational Fluid Dynamics
+CFL
+Courant-Friedrichs-Lewy
+DES
+Detached Eddy Simulation
+DMD
+Dynamic Mode Decomposition
+FFT
+Fast Fourier Transform
+FTF
+Flame Transfer Function
+HRR
+Heat Release Rate
+LES
+Large Eddy Simulation
+LPP
+Lean Prevaporized Premixed
+MAE
+Mean Absolute Error
+MRDMD
+Multiresolution Dynamic Mode Decompo-
+sition
+NOx
+Nitric Oxides
+POD
+Proper Orthogonal Decomposition
+RANS
+Reynolds-Averaged Navier-Stokes
+CONTACT Alireza Ghasemi
+alireza.ghasemi@utwente.nl
+ROM
+Reduced Order Model
+RPV
+Reaction Progress Variable
+RQL
+Rich Burn–Quick Mix–Lean Burn
+SVD
+Singular Value Decomposition
+TRL
+Technology Readiness Level
+UHC
+Unburnt Hydrocarbons
+Symbols
+A
+Koopman operator
+b
+Vector of initial amplitudes
+c
+Reaction progress variable
+dt
+Time step
+D
+Diffusivity
+f
+Frequency
+htot
+Total enthalpy
+
+Diagonal matrix of eigenvalues
+λ
+Eigenvalue
+q
+Heat flux vector
+© 2025 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group.
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), which permits unrestricted use,
+distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this article has been published allow the posting of the Accepted
+Manuscript in a repository by the author(s) or with their consent.
+
+
+--- Page 3 ---
+
+2
+A. GHASEMI AND J. B. W. KOK
+ρ
+Density
+
+Diagonal matrix of singular values
+Sc
+Source term for mass conservation
+Se
+Source term for energy conservation
+Sm
+Source term for momentum conservation
+St
+Strouhal number
+ST
+Turbulent Schmidt number
+T
+Temperature
+τ
+Shear stress tensor
+U
+Velocity vector
+U, V
+Matrices from singular value decomposi-
+tion
+ω
+Growth rate or angular frequency
+
+Matrix of DMD modes
+x
+State vector
+Z
+Mixture fraction
+1. Introduction
+The demand for improved and cleaner combustion tech-
+nologies in aviation has become increasingly urgent as
+concerns of global climate change and stringent emis-
+sions regulations for NOx and particulates intensify. The
+widely adopted Rich Burn-Quick Mix-Lean Burn (RQL)
+combustion strategy has long been regarded as a reli-
+able approach. This is because it leverages the inher-
+ent stability of rich combustion in the primary zone
+and the low-emission benefits of lean combustion down-
+stream (Liu et al., 2017). However, the overall environ-
+mental performance of RQL has become increasingly
+unsatisfactory, with significant contributions from aero
+engines to greenhouse gas emissions and pollutants like
+NOx, UHC and soot (El Helou et al., 2021; Kyprianidis
+et al., 2015). These emissions pose severe environmental
+and health risks, prompting regulatory bodies to impose
+stricter standards and drive the development of cleaner,
+more sustainable energy practices (Špelić & Mihelić-
+Bogdanić, 2024).
+Among the emerging solutions, LPP combustion
+schemes for aero engine gas turbine combustors have
+gained prominence. LPP involves the mixing of fuel
+vapor with an excess of air before ignition, thereby low-
+ering flame temperatures and reducing the formation of
+NOx. This method is highly effective in curbing emis-
+sions and improving combustion efficiency. Despite their
+promise, however, LPP schemes are notoriously suscepti-
+ble to thermoacoustic instabilities (Dhanuka et al., 2011;
+Lohrmann & Büchner, 2005; Mularz, 1979). These insta-
+bilities arise from the dynamic interaction between Heat
+Release Rate (HRR) and acoustic waves within the
+combustion chamber. This interaction can potentially
+lead to limit cycle oscillations that can damage turbine
+components , degrade performance and compromise the
+structural integrity of the engine and flight safety (Ghani
+et al., 2019; Lieuwen, 2012; Rayleigh, 1878).
+Thermoacoustic instability in aero engines depends
+on multiple factors, including the operating pressure,
+temperature, combustion chamber geometry, burner
+design and fuel type. Addressing these potential instabili-
+ties demands robust design methodologies at lower TRLs
+as well as extensive experimental testing of the engines
+under flight conditions that may be prohibitively expen-
+sive to conduct (Poinsot, 2017). Various solutions have
+been proposed to mitigate these instabilities, including
+active and passive control schemes as well as redesign-
+ing aeroengine combustors to be inherently stable in their
+operation. Moreover, research into thermoacoustic insta-
+bilities has predominantly focussed on simplified geome-
+tries and premixed combustion at atmospheric condi-
+tions. This has left critical gaps in our understanding
+of combustion systems that involve complex geometries,
+challenging operating conditions and liquid fuel combus-
+tion in non-premixed or partially premixed scenarios.
+The novelty of this paper lies in the application of robust
+analysis frameworks to deepen our understanding of the
+complexities associated with combustion dynamics in
+real aero engines.
+In the pursuit of cleaner combustion technologies
+for aero engines, CFD analysis and advanced post-
+processing tools have become indispensable for reduc-
+ing design-phase costs and improving performance. Tra-
+ditional methods often rely on extensive experimental
+testing or pre-existing knowledge of potential resonance
+frequencies. In contrast, data-driven approaches allow
+for the investigation of system dynamics without a pri-
+ori assumptions. One of the prominent analysis frame-
+works in this space is Proper Orthogonal Decomposition
+(POD), which is widely used due to its data-driven nature
+and the inherent sorting of the decomposed modes,
+which is well-suited to combustion dynamics analysis
+(Holmes et al., 2012).
+Efforts have been made to address some of the short-
+comings of POD when applied to combustion dynamics,
+including spectral POD methods (Sun et al., 2024) and
+multiresolution POD analysis (Grader et al., 2021; Pro-
+cacci et al., 2023; Yin & Stöhr, 2020). However, similar
+to the FFT, POD provides limited insight into the tran-
+sient nature of the combustion process and the time
+dynamics of the acoustics response. Because thermoa-
+coustic instabilities evolve rapidly and involve complex
+interactions over time, the use of analysis methods that
+capture these transient dynamics is essential (Schmidt
+& Schmid, 2019).
+DMD offers a unique advantage in analysing both
+spatial and temporal characteristics simultaneously,
+thereby providing deeper insights into the evolution of
+
+
+--- Page 4 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+3
+instabilities over time (Schmid, 2010). This character-
+istic makes DMD a valuable tool for isolating and indi-
+cating how to mitigate combustion-induced instabili-
+ties. This, in turn, offers the opportunity to save costs
+and improve the design in the early development stages,
+ensuring stable operation at higher TRL.
+DMD is highly effective in the context of combustion
+analysis, such as studying reacting flows under varying
+operating conditions (Omi et al., 2024) and acoustics and
+oscillations (Patat, Blaisot, Domingues et al., 2023; Peng
+et al., 2022; Tian et al., 2023). In the context of thermoa-
+coustics and combustion dynamics, References Baillot
+et al. (2021) and Patat, Baillot, Blaisot et al. (2021) applied
+standard DMD to investigate experimental data. Refer-
+ence Vignat et al. (2021) applied standard DMD to com-
+pare experimental and numerical results of a spray flame
+in atmospheric conditions. Reference Badhe et al. (2021)
+used standard DMD modes to create a local Flame Trans-
+fer Function (FTF) based on Large Eddy Simulation
+(LES) of an atmospheric swirling spray flame.
+This study builds on these developments by applying
+DMD to investigate the thermoacoustic behaviour of the
+Magister burner, a laboratory-scale aero engine repre-
+sentative burner designed at the University of Twente.
+Featuring co-swirling flow and an airblast pre-filming
+hybrid atomisation scheme for burning liquid jet fuel
+under pressurised conditions, the burner serves as a
+critical platform for understanding the sensitivities of
+non-premixed combustion to thermoacoustic instabili-
+ties. The complexities of this setup, characterised by tur-
+bulent flows, droplet breakup, hybrid atomisation and
+liquid fuel combustion, necessitate high-fidelity LES.
+These simulations are computationally expensive and
+result in large datasets that challenge conventional post-
+processing methods.
+To address these challenges, we leverage PARA
+MOUNT, our in-house software package developed
+for modal analysis. The parallel distributed nature of
+this package is well-suited to large datasets such as
+LES results. Building on our previous work with POD
+(Ghasemi et al., 2023), a comprehensive framework is
+introduced for the analysis of non-premixed combustion
+data using a DMD combined spectrum. Different formu-
+lations are compared by examining the impact of project-
+ing DMD modes onto the SVD basis versus using unpro-
+jected modes. Additionally, an error metric is defined
+to quantify discrepancies between simulation results and
+DMD reconstructions as well as predictions. The anal-
+ysis identifies critical dominant modes in the flow and
+correlates their resonance frequencies with associated
+time dynamics. This information serves as a method to
+identify the dominant vortex core of the swirler. More-
+over, multiple variable stacking scenarios are compared,
+and it is shown that careful selection of the variables
+for the stacking procedure is crucial in improving short-
+term prediction accuracy of the applied DMD algorithm.
+Finally, Multiresolution DMD (MRDMD) is explored to
+develop a ROM that captures the appropriate level of
+detail for swirl burners. This is calibrated to a characteris-
+tic Strouhal number that describes the unsteady swirling
+motion. These perspectives are aimed at tailoring the
+DMD framework to the sensitivities of the combustion
+dynamics and to help facilitate and improve the analy-
+sis of the acoustics response of aero engine representative
+swirl burners.
+The remainder of this paper is organised as follows:
+A CFD Simulation Setup section that details the simula-
+tion setup, including the geometry of the Magister burner
+and the CFD configuration. Subsequently, a Transient
+CFD Simulation Results section presents the CFD results,
+highlighting the non-premixed flame position and flow
+patterns. Next, the DMD Formulation in PARAMOUNT
+section outlines the algorithmic details of DMD and its
+application to predicting future system states. Finally,
+the DMD Analysis of Simulation Results and Discussion
+section provides an in-depth analysis of the extracted
+modes and discussions on the impact of variable stack-
+ing on the short-term validity of DMD predictions and
+multiresolution techniques.
+2. CFD simulation
+The Magister burner features a three-part design that
+employs two layers of angled air entry ducts (A and B
+ducts in Figure 1) that split the airflow into two co-
+swirling streams. The two streams merge just upstream
+of the dump plane with significant axial and tangential
+velocity differentials, resulting in a region of high shear
+force. The liquid fuel is injected as a spray of fairly large
+droplets at the base of the burner onto the inner walls
+of the swirler. This produces a thin fuel film that subse-
+quently enters the shear region, which accomplishes the
+hybrid atomisation of fuel ligaments into fine droplets.
+The overall schematic of the burner is displayed in Figure
+1(a). The burner operates under a nominal pressure of
+3 bar with a global equivalence ratio of 0.51 and imposes
+a relatively low 3% air pressure drop across the burner.
+Liquid droplet injection of Diesel at a mass flow rate of
+74.5 g/s results in a thermal power delivery of around
+82 kW per bar.
+2.1. Combustion modelling approach
+The CFD scheme employed in this paper is a com-
+putationally efficient Detached Eddy Simulation (DES)
+methodology where the near-wall regions of the flow are
+
+
+--- Page 5 ---
+
+4
+A. GHASEMI AND J. B. W. KOK
+Figure 1. Magister burner schematic (a) and cross-section of the Voxel computational mesh (b).
+treated in a RANS fashion, and the core high-velocity
+region of the flow, including the base of the burner, is
+treated as a LES. The computational mesh consists of
+approximately 20 million cells to promote the forma-
+tion of a structured grid as illustrated in Figure 1(b).
+At the core of the burner, a finer background struc-
+tured hexagonal voxels is employed to enhance the com-
+putation efficiency with respect to lagrangian droplet
+tracking (Wey, 2016) and maintain a Courant-Friedrichs-
+Lewy (CFL) number close to unity within the critical
+shear region. Additionally, structured voxels provide ade-
+quate spatial resolution for subsequent DMD mode shape
+extraction and analysis. Here, the more important aspects
+of the modelling approach are highlighted. The LES gov-
+erning equations of mass, momentum and energy con-
+servation are considered as shown respectively:
+∂ρ
+∂t + ∇· (ρU) = Sc
+(1)
+∂(ρU)
+∂t
++ ∇· (ρU × U) = −∇p + ∇· τ + Sm
+(2)
+∂(ρhtot)
+∂t
+−∂p
+∂t + ∇· (ρUhtot)
+= ∇· q + ∇· (U · τ) + Se
+(3)
+Here, the source terms Sc, Sm, and Se are denoted for each
+equation for the gaseous phase. The shear subgrid scale τ
+accounts for the small-scale effects using the Smagorin-
+sky methodology. Second-order numerical discretization
+was employed for both advection and turbulence terms
+and the pressure-velocity coupling is maintained through
+the usage of a staggered grid and the Rhie-Chow interpo-
+lation scheme (Zhang et al., 2014). The Magister burner
+exhibits a swirling flow with prominent central and cor-
+ner recirculation zones, alongside liquid fuel combustion.
+Accurately capturing these features necessitates a robust
+and reliable combustion modelling approach. Drawing
+on our prior experience and recognising the demon-
+strated reliability, reasonable accuracy, and computa-
+tional stability of the Burning Velocity Model (BVM),
+this empirical framework was chosen to model the com-
+bustion process (Ansys, 2018). This formulation employs
+a Reaction Progress Variable (RPV) to describe regions
+of unburnt and fully burnt mixtures and uses transport
+equations to describe its evolution in the flow field as
+shown below:
+c =
+Yi −Yi,fresh
+Yi,burnt −Yi,fresh
+(4)
+∂(ρc)
+∂t
++ ∇· (ρUc) = ∇·
+
+ρD + μt
+σc
+
+∇c
+
++ ωc (5)
+The transport of c is dependent on the source term ωc as
+defined by using a turbulent Schmidt number ST, mixture
+dynamic diffusivity ρD, and c itself as follows:
+ωc = ρuST |∇c| −∇· (ρD∇c)
+(6)
+Yi = (1 −c)Yi,fresh + c Yz
+i
+(7)
+Here, Yz
+i represents the local mass fraction based on
+the mean mixture fraction Z and its variance Z′′. The
+turbulent burning velocity ST is found based on the
+Zimont correlation which account for flame wrinkling
+and stretching induced by turbulence (Zimont, 2000).
+This methodology involves a number of constant param-
+eters that need to be adjusted based on the operat-
+ing conditions, flow pattern and the fuel type. Further-
+more, detailed chemical kinetics including fuel oxida-
+tion and NOx-producing pathways are precomputed and
+stored in a flamelet library generated with Ansys CFX
+RIF (Ghasemi et al., 2023) using a reaction mecha-
+nism involving 120 species for diesel combustion. During
+the simulation, this library is queried at each cell for
+species mass fractions, thermochemical properties, and
+
+
+--- Page 6 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+5
+Figure 2. Time-averaged values for axial velocity (a) and rota-
+tional velocity (b).
+heat release based on the calculated values for c, Z and
+Z′′.
+To simulate the non-premixed liquid fuel injection,
+a suitable modelling of the droplet size distribution is
+essential. Due to the hybrid atomisation nature of the
+burner and the uncertainty associated with the many fine
+tuning parameters of existing droplet breakup models,
+effective droplet size distribution is instead derived from
+experimental measurements (Ghasemi et al., 2023). In
+this way, fuel droplets are introduced into the compu-
+tational domain at a set distance away from the shear
+ring of the burner to account for the hybrid atomisation
+scheme, similar to references Benajes et al. (2022) zand
+Wu et al. (2021). The diesel fuel spray is modelled using a
+pre-defined Rosin-Rammler size distribution as defined
+by our experimental measurements. Subsequently, the
+air-fuel medium is treated as an ideal gas mixture with
+the viscosity and thermal conductivity determined based
+on ideal gas mixing law.
+2.2. Transient CFD simulation results
+In order to maintain a CFL number below unity within
+the critical LES shear region of the burner, a time step
+of t = 2 × 10−5 s was used for the transient simula-
+tion, which was carried out for a duration of 2.78 ×
+108 CPU−s. Figure 2 shows the time-averaged contour
+plots for the axial and rotational velocity. This provides
+a clear depiction of the dominant flow structures inside
+and outside of the burner. The axial flow exhibits a dis-
+tinct reversal of the flow in the vortex core breakdown
+region that reaches all the way to the base of the burner.
+The shear region is observed just upstream of the dump
+plane. The rotational (tangential) velocity displays the
+presence of a co-swirl in the air entry ducts, with the swirl
+extending into the combustion chamber.
+The flow reversal pattern signals the presence of a neg-
+ative gauge pressure region at the core of the burner.
+This can be seen in the time-averaged contour plots dis-
+played in Figure 2. Here, the OH radicals mass fraction is
+chosen as the main indicator of the regions where com-
+bustion is taking place and thus acting as a surrogate
+for HRR. It can be observed that the droplets start the
+evaporation and combustion process soon after they are
+introduced into the domain, with combustion reaching
+its peak intensity just downstream of the dump plane. The
+resulting high-temperature combustion products form
+an M-shaped flame, with the recirculation zone stretch-
+ing back into the burner and providing pre-heating for
+the upcoming fuel droplets.
+3. DMD formulation in PARAMOUNT
+Dynamic Mode Decomposition (DMD) is a data-driven
+technique that offers a powerful framework for analysing
+spatiotemporal characteristics of a dynamical system
+with its roots in fluid flow analysis (Schmid, 2010). The
+analysis can distinguish various flow patterns along-
+side their associated distinct frequencies and growth
+rates. Unlike traditional spectral analysis methods such
+as Fast Fourier Transform (FFT), which provide purely
+frequency-based insight, or POD, which identifies
+energy-dominant spatial structures without time dynam-
+ics, DMD combines both into one analytical framework.
+By extracting modes that describe the system’s inher-
+ent dynamics, DMD provides a reduced-order represen-
+tation that retains the essential physics of the system.
+Its non-intrusive nature enables the analysis of high-
+dimensional datasets without requiring governing equa-
+tions, allowing researchers to identify dominant flow
+structures and even predict future system states (Li
+et al., 2023; Misar et al., 2023). DMD, in essence, produces
+the best linear time operator that can evolve the dynami-
+cal system in time starting from a given initial condition
+such that it closely matches the underlying dataset.
+3.1. DMD algorithm
+Assume X = [x1, x2, . . . , xm−1] and X′ = [x2, x3, . . . ,
+xm] represent a sequence of snapshots in time where each
+xi ∈Rn is the system’s state vector at a discrete time ti.
+DMD seeks a linear operator A such that:
+X′ ≈AX
+(8)
+The DMD objective is to approximate the Koopman
+operator A using data alone without regard for the
+underlying physics or governing equations (Brunton
+et al., 2022). To achieve this, first a singular value
+
+
+--- Page 7 ---
+
+6
+A. GHASEMI AND J. B. W. KOK
+decomposition is performed. The matrix A is then
+approximated as follows:
+X = UV∗
+(9)
+˜A = U∗X′V−1
+(10)
+where U ∈Rn×r,  ∈Rr×r, and V ∈R(m−1)×r. The
+variable r <m is an arbitrarily chosen value in order
+to truncate the algorithm to more important POD
+modes and improve computational requirements. ˜A is a
+reduced-order approximation of A in the space spanned
+by the columns of the POD modes U. The eigenval-
+ues and eigenvectors of ˜A correspond to the temporal
+dynamics of the DMD modes, providing insight into the
+frequency and growth rate of each mode in the underly-
+ing data.
+Focusing on the eigendecomposition of the matrix
+˜A, such that ˜AW = W, with eigenvectors given as
+columns of W and eigenvalues λ contained in the diag-
+onal matrix , the eigendecomposition of A can be
+reconstructed as follows:
+ = X′V−1W
+(11)
+We refer to Equation (11) as the exact mode formulation
+since it refers to the exact eigenvalues of matrix A (Tu
+et al., 2014). Alternatively, we can formulate the DMD
+modes by directly using the POD modes U:
+ = UW
+(12)
+These two methods typically tend to converge if X and
+X′ share the same column space. In either case, the data
+(x at time t) for variable x at time instance t for all future
+successive instances is constructed as follows:
+x(t) ≈
+r
+
+k=1
+φk exp(ωkt)bk
+(13)
+Finally, the b matrix is found by using the computed
+DMD modes  and the first data snapshot x1 as shown
+below:
+b = †x1
+(14)
+where † refers to the Moore-Penrose pseudoinverse of
+the DMD modes (Schmid, 2010). This is optimal com-
+pared to calculating the matrix A by attempting to com-
+pute A = X′X−1 since, in a typical CFD application, A
+tends to be extremely tall and skinny, meaning the spa-
+tial information is larger than the temporal information.
+In this study, spatial data points n ≈105 and temporal
+data snapshots m ≈103 result in two orders of magni-
+tude of difference between the dimensions of A, render-
+ing the pseudoinverse direct computation of A−1 costly,
+while the presented common DMD framework is highly
+efficient.
+Nonetheless, calculating the DMD modes and eigen-
+values can be quite challenging for large datasets that
+are typical in LES analysis. To address this challenge,
+PARAMOUNT (Ghasemi, 2022), our in-house modal
+analysis software package tailored to efficient parallel
+computation of POD and DMD of large datasets, has
+been developed. This package employs ‘lazy calculation’
+of each step such that an operation graph of the required
+steps necessary to obtain the DMD modes is created
+first. The calculation then proceeds using Dask, a flex-
+ible library that facilitates streaming the large data into
+memory with dynamic task scheduling in a parallel com-
+pute framework. This enables the investigation of the
+DES results using both formulations in Equations (11)
+and (12), allowing for the consideration of the entire pos-
+sible simulation data span with no need for truncation
+(i.e. r = m).
+3.2. Multiresolution DMD algorithm
+Modeling multiscale systems in both space and time
+is a central challenge in modern engineering, biologi-
+cal, and physical sciences, as these systems often exhibit
+interactions between microscale and macroscale phe-
+nomena separated by orders of magnitude in spatial
+and temporal scales (Horstemeyer, 2009). Combustion
+processes are inherently multiscale, involving complex
+interactions between turbulence, chemical reactions, and
+heat release across a wide range of temporal and spatial
+scales (Peters, 2009). A common approach for the numer-
+ical calculation of species concentrations is to separate
+the species into fast and slow categories based on their
+characteristic reaction time scales. Slow species influ-
+ence the overall dynamics of combustion over longer
+timescales, while fast species reach quasi-steady state
+rapidly (Law et al., 2003). Similarly, the flow patterns
+exhibit modes with slower growth rates that deter-
+mine the overall dynamics of the flow, while faster-
+growing patterns emerge as undulations that result in
+faster-evolving and more local flow structures. Tradi-
+tional approaches, such as wavelet-based methods or
+windowed Fourier transforms, are well-suited for mul-
+tiresolution analyses by recursively refining data sam-
+pling to isolate features at different scales (Ghasemi
+& Kok, 2022; Zheng et al., 2022). However, these tech-
+niques typically focus on either spatial or temporal scales
+independently, rather than addressing both simultane-
+ously. This limitation highlights the need for a robust
+method capable of simultaneously capturing multiscale
+spatiotemporal dynamics. In this context, MRDMD is
+utilised.
+
+
+--- Page 8 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+7
+This approach extends the standard DMD framework
+by introducing a hierarchical time-domain decomposi-
+tion that partitions the data into time windows of varying
+sizes in a binary tree structure and applies DMD recur-
+sively at each level of resolution (Begiashvili et al., 2023;
+Kutz et al., 2016). This enables the identification of both
+fast-evolving and slowly varying dynamics that might
+otherwise be missed on a per-variable basis. At each sub-
+level l of the MRDMD binary tree structure, the required
+temporal range of matrices shrinks by a factor of two
+while the spatial dimension remains constant. For n spa-
+tial points and m snapshots, the computational effort for
+each sublevel scales with O( nm2+n3
+2l
+) per analysis window
+(Golub & Van Loan, 2013). Additionally, the resulting
+2l calculations need to be added together to produce
+the final reconstruction at each level. This makes mul-
+tiresolution analysis for large datasets computationally
+challenging; however, the parallel distributed compute
+nature of PARAMOUNT takes advantage of offloading
+memory-intensive tasks to disk, which enables multires-
+olution analysis of arbitrarily large datasets such as the
+considered DES results of the Magister swirl burner.
+Following the notation from Equation (13), the fast
+and slow DMD modes can be distinguished in the fol-
+lowing manner:
+x(t)MRDMD ≈
+m
+
+k=1
+φk exp (ωkt) bk
+
+	
+
+slow modes
++
+r
+
+k=m+1
+φk exp (ωkt) bk
+
+	
+
+fast modes
+(15)
+|ωl| = 2πα
+Tl
+(16)
+where the first sum denotes the dynamics of slow modes
+based on their growth rate, while the rest of the modes
+are identified as fast (Kutz et al., 2016). Equation (16)
+shows the magnitude of the cutoff eigenvalue ωl of DMD
+modes at each multiresolution level l. One logical choice
+here is to relate the mode growth rate to the Nyquist
+frequency at each level, which effectively selects flow
+patterns that complete one cycle within the observed
+time span (α = 1). Additionally, this threshold could be
+adjusted to reflect the Strouhal number of flow patterns
+of interest with characteristic length L and characteristic
+velocity V:
+StMRDMD = |ωk|L
+2πV
+(17)
+This proposed procedure to distinguish between slow
+and fast modes provides some flexibility in deciding
+which flow patterns to keep at each multiresolution level
+by choosing the appropriate α value. Considering the
+flow within the investigated swirl burner, a value of
+StMRDMD ≊0.6 is considered based on the flow velocity
+V ≊70 m/s and the effective cross-sectional area at the
+dump plane.
+3.3. Future system state prediction
+Equation (13) implies that the DMD algorithm can pre-
+dict the future states of a dynamical system based on its
+DMD modes, the time dynamics and the provided first
+instance to be used as an initial state. Considering that
+the DES is initialised using an unsteady RANS simula-
+tion, the initial state x1 is taken as the snapshot where the
+LES fields are sufficiently well-developed. In our earlier
+investigation (Ghasemi et al., 2023), a precessing vortex
+core was identified at the base of the burner, exhibiting
+the same frequency as observed during our experimental
+measurements. This precessing vortex core has an associ-
+ated frequency of 879 Hz. In this study, we limit the num-
+ber of snapshots n to 3000, which allows for upwards of
+100 precession cycles of the vortex core of the burner. The
+averaged flow fields in Figures 2 and 3 are based on the
+same time horizon and show a relatively smooth contour
+field that supports a well-developed periodic dynamic
+footprint of the burner within the considered number
+of snapshots. The number of spatial points to consider
+was limited to m = 105 positions both in a 2D cross-
+section of the burner as well as a 3D point cloud randomly
+selected from the computational domain. Looking at the
+voxel mesh in Figure 1, a concentration of data points
+near the region of interest is evident. This region includes
+the vortex breakdown region and the axial flow rever-
+sal zones, creating a desired bias for the point cloud to
+include more of the relevant system dynamics.
+Additionally, the calculation of subsequent snapshots
+can be continued from x1 to xn and even further into
+xn+k beyond the final snapshot. Based on the DMD
+framework, this extrapolation is only sound if the system
+exhibits strictly periodic dynamics and sufficient snap-
+shots have been observed to develop adequate DMD
+modes. Otherwise, the predicted values lack a physical
+basis and tend to diverge from the actual system dynam-
+ics. Here, to concretely discuss the validity of the future
+state predictions, the DMD system is limited to 80% of
+the snapshots and the remaining 20% of the calculated
+snapshots are used as a test set for validating the DMD
+predicted data.
+
+
+--- Page 9 ---
+
+8
+A. GHASEMI AND J. B. W. KOK
+Figure 3. Time-averaged values for gauge pressure (a), OH mass fractions (b) and temperature (c).
+To quantify the prediction error, we use a Mean Abso-
+lute Error (MAE) notion defined as follows:
+MAE =
+m
+
+i=1
+xi,DMD −xi,CFD
+
+(18)
+where xi,DMD refers to the predicted DMD value and
+xi,CFD refers to the calculated value of the specific variable
+under investigation from our DES analysis at location i.
+This error notion is useful in comparing the prediction
+error of a certain variable under various implementations
+of DMD but is not suited to cross-variable comparison.
+This is because the considered variables, such as OH
+radicals mass fraction, pressure and velocity, have sub-
+stantially different regions of activity. This difference will
+be discussed in more detail in the next section.
+4. DMD analysis of simulation results and
+discussion
+The DMD analysis is limited to several variables of
+interest: Pressure and temperature are considered to
+account for the weak compressibility of the employed
+CFD solver. Additionally, the three components of veloc-
+ity are considered to account for various flow patterns in
+the burner and combustion chamber. Finally, OH radi-
+cals mass fraction is considered as a tracer for the pres-
+ence of combustion in the flow field. These six variables
+are each extracted from each simulation snapshot and
+used to construct the spatiotemporal matrices needed
+for Equation (8). Additionally, taking the imaginary part
+of the eigenvalues, we can inspect the associated mode
+frequency in a DMD spectrum (Schmid, 2010):
+f = ℑ
+ ln(λ)
+2π dt
+
+(19)
+Figure 4 shows the DMD eigenvalues for the pressure
+field displayed in the unit circle on the imaginary plane.
+Conjugate pair symmetry is observed in the eigenvalue
+data as well as a few modes showing a growth rate below
+unity. Many modes fall very close to the unit circle. This
+signifies their active role in the stability of the system
+with a non-decaying growth rate and the largely peri-
+odic nature of the LES results. The DMD spectrum for
+the pressure values shows a mode very close to our pre-
+cessing vortex core frequency of 879 Hz and one peak
+close to its double frequency at 1661 Hz. Frequency dou-
+bling and aliasing might be the underlying reasons for
+this observation.
+By contrast, using FFT to inspect the dominant fre-
+quencies in the flow field requires careful consideration
+of the point from which the data is taken. This is due
+to the localised nature of many significant flow struc-
+tures present in the swirl burner. For example, Figure 5
+demonstrates the spectral content of the pressure data
+taken from three points located on the dump-plane at
+varying radial distances from the center of the burner
+outlet.
+Here, the vortex core precession frequency is only cap-
+tured by one of the points that falls in the sweeping area
+of this particular flow structure, highlighting the sensi-
+tivity of the analysis to the localised nature of the flow
+patterns. DMD spectral analysis, however, considers all
+the occurring structures in the flow field and their asso-
+ciated growth rates in a data-driven manner that does not
+require special treatment.
+In order to highlight the synergistic significant fre-
+quencies present in the domain, a combined eigenvalue
+notion is introduced as follows:
+λcombined =
+6
+
+i=1
+λi
+(20)
+bcombined =
+6
+
+i=1
+
+bi
+max(bi)
+
+(21)
+
+
+--- Page 10 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+9
+Figure 4. DMD Eigenvalues (a) and DMD spectrum (b) for simulated pressure data.
+Figure 5. Spectral content of pressure data at three positions on the dump plane (a). Each position is indicated with the corresponding
+color (b).
+The combined DMD spectrum, shown in Figure 6,
+reveals the presence of a lower frequency eigenvalue as
+well as multiples of the precessing vortex core at 879 Hz,
+consistent with experimentally measured pressure levels
+under cold conditions.
+This observation underscores the motivation for
+focussing on the vortex core frequency and the selected
+time horizon for the DMD analysis. Notably, the pro-
+posed combined DMD spectrum identifies the vortex
+core frequency with remarkable accuracy, falling within
+1% of the measured value.
+4.1. DMD modes of the CFD data
+DMD modes are not inherently well-ordered, similar
+to POD modes, which are ordered by energy content.
+Comparing the DMD spectrum and the POD results
+Figure 6. Combined DMD spectrum for simulated pressure data
+(black) and FFT of the measured pressure levels (blue).
+(Ghasemi et al., 2023), a mode shape associated with sub-
+100 Hz frequency, a mode at sub-400 Hz, and the vortex
+
+
+--- Page 11 ---
+
+10
+A. GHASEMI AND J. B. W. KOK
+Figure 7. DMD and POD modes at speciﬁed frequencies.
+core rotation frequency at 879 Hz are investigated. The
+resulting mode shapes are shown in Figure 7. The top
+row shows the DMD modes with the closest frequency
+to the desired values and the bottom row shows the
+corresponding POD modes.
+Interpretation of mode shapes is often a difficult
+challenge. Here, a physical basis for each presented
+mode shape is presented. The lower frequency mode is
+observed to indicate the presence of a monopole at the
+base of the burner that provides a basis for the suc-
+tion zone that induces the flow reversal and vortex core
+breakdown. The POD mode shape appears to be symmet-
+rical and the closest DMD mode to the corresponding
+95 Hz has a very similar shape. The mode close to 370 Hz
+appears to be a chamber longitudinal eigenfrequency, as
+observed in both POD and many of the DMD modes
+close to the 400 Hz range. The mode shapes at the vor-
+tex core frequency range denote the presence of a dipole
+at the base of the burner that repeats itself in opposing
+patterns as it progresses towards the combustion cham-
+ber. This is the main pressure mechanism that drives the
+prominent swirl present in the burner.
+Investigating the vortex core frequency in more detail,
+the 879 Hz modes can be extracted for more variables,
+providing better insight into the swirl mechanism that
+is foundational in swirl-stabilised aero engines. Figure 8
+shows the velocity and temperature DMD mode shapes
+at the vortex core frequency.
+The 2D vortex core structure can be better visu-
+alised using a 3D point cloud as discussed earlier. The
+resulting helical structures can be clearly identified in
+Figure 9.
+4.2. DMD prediction of future system states
+Following the methodology discussed in Equation (13)
+and using 20% of the data as a validation set, the error
+notion introduced in Equation (18) can be plotted over
+time. The results can be seen in Figure 10. The OH radi-
+cals mass fractions are localised only to the close vicinity
+of the dump plane and are quickly consumed. This leads
+to a very low MAE value that is overshadowed by all the
+non-active cells present in the MAE calculation, result-
+ing in a monotonic increase of MAE over time for this
+
+
+--- Page 12 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+11
+Figure 8. Mode shapes at 879 Hz for axial velocity (a), rotational velocity (b), and temperature (c).
+Figure 9. 3D pressure mode structures at vortex core frequency for pressure (a) and rotational velocity (b).
+variable. This monotonic increase is also observed for the
+temperature field and, to a lesser extent, the axial veloc-
+ity values. Other variables show a relatively steady MAE
+threshold that persists over time with considerable undu-
+lations around the mean predicted value. This is likely the
+result of all the modes present on the unit circle at the sta-
+bility limit actively driving the flow in small ways, making
+it difficult to reliably predict the flow field variables. On
+the right side of this Figure, the immediate prediction
+window is highlighted for the upcoming 100 snapshots.
+The error quickly increases as soon as the prediction goes
+beyond the last calculated time instance and ends up sta-
+bilising around a new threshold with a similar trend as
+the earlier data.
+Switching the DMD mode algorithm to directly use
+the POD mode U as shown in Equation (12), yields
+entirely different results as seen in Figure 11. The direct
+use of the POD mode is highly beneficial in DMD
+result accuracy as this approach better prioritises system
+dynamics highlighted by U and is less focussed on exact
+values that end up introducing noise into the results.
+Contrary to the exact formulation, the predicted values
+show a gradual jump as they tend to the steady-state
+error that is orders of magnitude lower than the exact
+formulation. In the immediate 100-snapshot prediction
+window seen on the right side of this figure, however, the
+improvements are more mixed. Pressure levels appear to
+be predicted close to each other but Temperature values
+show and improvement of about 44% in their reported
+MAE.
+Further investigating the differences between the two
+approaches, the deviation between the results obtained by
+
+
+--- Page 13 ---
+
+12
+A. GHASEMI AND J. B. W. KOK
+Figure 10. MAE of DMD predicted results (a) full prediction window (b) immediate prediction window.
+Figure 11. MAE of projected DMD results (a) and immediate prediction window (b).
+each method can be visualised in a 2D plane, as shown
+in Figure 12. This further supports the idea that the
+two approaches begin to diverge in the regions of higher
+kinetic energy within the flow (Ghasemi et al., 2023).
+This divergence grows over time to a steady threshold
+that is of a similar order of magnitude to the underlying
+data. The presented values are taken after 700 snapshots
+from the initial state. The more localised nature of HRR
+region as seen in the temperature field further explains
+why this variable showed a better improvement using the
+projected formulation.
+4.3. Stacking of multiple variables
+Considering the flexibility that PARAMOUNT pro-
+vides in the DMD analysis of the swirl burner simula-
+tion results, multiple variable stacking scenarios can be
+explored. The following five variable stacking scenarios
+are considered to investigate the efficacy of this method
+in improving the immediate prediction window accuracy
+of the pressure data, since it exhibits the highest MAE
+threshold among all variables: Stacking the pressure data
+with OH radicals mass fraction, temperature, axial veloc-
+ity, all velocity components and finally, all other variables
+at the same time was considered.
+The projected DMD results show the same trends
+as other projected results seen in Figure 13. The MAE
+thresholds exhibit some differences among the consid-
+ered scenarios with an interesting reversal of the pre-
+diction accuracy in the immediate prediction window
+shown on the right side of this figure. The predicted val-
+ues effectively collapse into two curves. One follows the
+standard pressure data prediction pattern with the axial
+and combined velocity components resulting in minor
+differences. The other curve, however, corresponding
+to pressure data stacked with temperature, shows an
+improved immediate prediction accuracy for about 20
+snapshots. This further motivates the importance of vari-
+able selection such that the included variables encompass
+complementary relevant physics. Here, temperature is the
+key variable that corresponds to an improved short-term
+DMD prediction that results to a reduction in MAE by
+
+
+--- Page 14 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+13
+Figure 12. Diﬀerence in exact vs projected results for pressure (a), axial velocity (b) and temperature (c).
+Figure 13. MAE of projected DMD results (a) and immediate prediction window (b) for pressure data under various stacking scenarios.
+40%. After this small window, the two patterns start to
+reach similar MAE thresholds.
+In general, accuracy of the predicted values by DMD
+highly depends on the periodicity of the underlying data.
+Under strongly periodic conditions such as the presence
+of a thermoacoustic limit-cycle oscillatory patterns, the
+likelihood of the observation window capturing the dom-
+inant periodic cycle is higher and therefore the MAE
+levels would be greatly reduced. In this instance, how-
+ever, the higher levels of MAE demonstrate the presence
+of significant non-periodic behaviour that hints at the
+thermoacoustic stability of the burner’s operation. This is
+further corroborated by our experimental measurements
+of the nominal operation of the burner where the corre-
+lation between acoustic pressure levels and HRR as signi-
+fied by chemiluminescence of OH radicals did not yield a
+significant coherence (Navarro-Arredondo & Kok, 2024).
+4.4. Multiresolution DMD applied to CFD results
+The non-premixed combustion processes in swirl-
+stabilised burners are typically confined to a compact
+region near the dump-plane. This localised activity aligns
+well with the MRDMD reconstruction framework, where
+the primary vortex core and the vortex breakdown region
+outside the burner appear prominently and exhibit sig-
+nificant growth rates in the DMD analysis. The capa-
+bilities of PARAMOUNT are utilised to investigate the
+MRDMD at four levels of resolution applied to DES
+results.
+To establish a suitable threshold for separating fast
+and slow modes at each resolution of the MRDMD
+binary tree, two values of the parameter α are consid-
+ered. To account for the Nyquist frequency of modes at
+each resolution, α = 1 is investigated. Additionally, an
+adjusted value of α = 116, corresponding to the iden-
+tified Strouhal number St = 0.6 of the studied burner
+based on Equation (19), is investigated. This value also
+coincides with the dominant vortex core frequency of
+879 Hz, which defines the prominent vortical structure
+within the swirl burner.
+α = 1 corresponds to the Nyquist slow mode cutoff,
+and α = 116 represents the adjusted threshold based on
+the vortex core frequency. Due to its ability to resolve
+
+
+--- Page 15 ---
+
+14
+A. GHASEMI AND J. B. W. KOK
+Figure 14. Slow mode reconstruction of MRDMD in four resolutions for pressure data.
+Figure 15. ROM based on α = 1 (a), ROM based on α = 116 (b). MAE of the MRDMD ROM for two considered thresholds compared to
+full DMD reconstruction (c).
+flow structures not only in space but also across spectra,
+MRDMD is particularly suited for applications in ROM.
+Adjusting the threshold for slow mode identification has
+a significant impact on the resulting ROM representation
+of the flow. Figure 14 shows the slow modes’ contribu-
+tion at each resolution for both investigated scenarios.
+The proposed adjustment successfully isolates the flow
+features of interest corresponding to the desired Strouhal
+number. This results in more modes being retained at
+each resolution until the target frequency is reached, as
+shown in Table 1.
+Table 1. Number of modes considered at each MRDMD resolu-
+tion.
+Resolution
+Total modes
+Slow modes (α = 1)
+Slow modes (α = 116)
+1
+2979
+9
+208
+2
+1489
+6
+202
+3
+744
+7
+202
+4
+371
+7
+371
+The translational invariance of MRDMD facilitates
+the extraction of relevant flow features, unaffected by
+the convective nature of the flow downstream of the
+
+
+--- Page 16 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+15
+combustor . This is evident in the α = 1 results, where
+the steady nature of the MAE reflects the removal of high-
+frequency dynamics, leaving only the baseline behaviour
+of the data. The relatively steady value of MAE over suc-
+cessive snapshots arises from the uniform treatment of
+temporal scales across resolutions, which avoids overem-
+phasis on any frequency range as seen in Figure 15.
+5. Conclusions
+In this study, various implementations of the Dynamic
+Mode Decomposition (DMD) algorithm were employed
+to analyse the combustion dynamics of a non-premixed
+swirl-stabilised airblast burner operating under engine-
+representative conditions. Mean Absolute Error (MAE)
+was used to quantify the validity of DMD reconstruc-
+tion and prediction results. The extracted DMD modes
+provided valuable insights into the underlying flow struc-
+tures, and the proposed DMD combined spectrum was
+demonstrated to be effective in identifying the mecha-
+nisms driving vortex core rotation frequency within 1%
+of the measured value. It was shown that the localised
+combustion region is best captured by directly using the
+modes obtained by Proper Orthogonal Decomposition
+(POD) instead of an exact formulation; with Tempera-
+ture values showing a 44% reduction in their predicted
+values.
+Variable stacking demonstrated a significant effect on
+the validity of DMD predictions for CFD data. By com-
+bining the variables that incorporate essential dynam-
+ics of the system, such as temperature in a combustion
+simulation using a weakly compressible solver, the short-
+window prediction MAE of the DMD results was reduced
+by 40%. This finding, together with the MAE metric, pro-
+vides an important means of assessing whether the com-
+puted snapshots adequately capture the system dynamics
+and offers a measure of confidence in the sufficiency of
+the total calculated timesteps and computational effort.
+The high Mean Absolute Error (MAE) of the DMD-
+predicted values signified that the linear Koopman oper-
+ator has effectively identified a non-oscillatory behaviour
+in the considered simulated data. This hints at a stable
+operation of the burner without thermoacoustic oscilla-
+tory instabilities. This result is reinforced by our other
+published study (Navarro-Arredondo & Kok, 2024),
+where the thermoacoustic stability of the burner was
+investigated experimentally using non-linear chaos the-
+ory. The results demonstrated a stable operation without
+limit-cycle oscillations that resulted in an unorganised
+phase portrait without attractors, consistent with the con-
+clusions derived from the current DMD analysis.
+Finally, the Multiresolution DMD (MRDMD) frame-
+work was demonstrated to effectively capture the
+dynamics of non-premixed combustion within the swirl-
+stabilised burner. The proposed threshold for identifying
+slower-growing modes, based on the Strouhal number
+(St = 0.6), proved particularly effective. This threshold,
+which aligns with the dominant vortex core frequency,
+successfully isolated flow structures critical to the com-
+bustion process, such as vortex breakdown and rota-
+tional patterns, while filtering out less significant high-
+frequency components.
+Collectively, the proposed analysis framework offers
+a powerful capability to assess thermoacoustic stability,
+extract critical physical insights from complex simula-
+tions and thereby accelerate the design cycle for aero-
+engine combustors.
+Author contributions
+CRediT: Alireza Ghasemi: Conceptualization, Data cura-
+tion, Formal analysis, Software, Validation, Visualization; Jim
+B. W. Kok: Conceptualization, Funding acquisition, Project
+administration, Supervision
+Disclosure statement
+No potential conflict of interest was reported by the
+author(s).
+Funding
+The authors would like to thank the European Union’s Horizon
+2020 research and innovation program for providing fund-
+ing under the Marie Skłodowska-Curie grant agreement no.
+766264.
+Data availability statement
+The data that support the findings of this study are
+available from the corresponding author upon reason-
+able request. PARAMOUNT is available under GPL 3.0
+licensing on Github at https://github.com/alirezagsm/
+PARAMOUNT and on 4TU.ResearchData at https://doi.
+org/10.4121/20089760.
+References
+Ansys, Inc. (2018). ANSYS CFX solver theory guide. (19th ed.)
+Canonsburg, PA: ANSYS, Inc.
+Badhe, A., Laera, D., & Gicquel, L. (2021). High-fidelity Large
+Eddy Simulations of the Flame Transfer Function of a turbu-
+lent swirling spray flame. 10th European Combustion Meet-
+ing, Napoli, Italy.
+Baillot, F., Patat, C., Cáceres, M., Blaisot, J. B., & Domingues,
+E. (2021). Saturation phenomenon of swirling spray flames
+at pressure antinodes of a transverse acoustic field. Pro-
+ceedings of the Combustion Institute, 38(4), 5987–5995.
+https://doi.org/10.1016/j.proci.2020.06.046
+
+
+--- Page 17 ---
+
+16
+A. GHASEMI AND J. B. W. KOK
+Begiashvili, B., Groun, N., Garicano-Mena, J., Le Clainche,
+S., & Valero, E. (2023). Data-driven modal decomposition
+methods as feature detection techniques for flow prob-
+lems: A critical assessment. Physics of Fluids, 35(4),041301.
+https://doi.org/10.1063/5.0142102
+Benajes, J., García-Oliver, J. M., Pastor, J. M., Olmeda, I.,
+Both, A., & Mira, D. (2022). Analysis of local extinction of
+a n-heptane spray flame using large-eddy simulation with
+tabulated chemistry. Combustion and Flame, 235,111730.
+https://doi.org/10.1016/j.combustflame.2021.111730
+Brunton, S. L., Budišić, M., Kaiser, E., & Kutz, J. N. (2022). Mod-
+ern Koopman theory for dynamical systems. SIAM Review,
+64(2), 229–340. https://doi.org/10.1137/21M1401243
+Dhanuka, S. K., Temme, J. E., & Driscoll, J. F. (2011). Lean-limit
+combustion instabilities of a lean premixed prevaporized gas
+turbine combustor. Proceedings of the Combustion Institute,
+33(2), 2961–2966. https://doi.org/10.1016/j.proci.2010.07.
+011
+El Helou, I., Skiba, A. W., & Mastorakos, E. (2021). Experimen-
+tal investigation of soot production and oxidation in a lab-
+scale rich–quench–lean (RQL) burner. Flow, Turbulence and
+Combustion, 106(4), 1019–1041. https://doi.org/10.1007/
+s10494-020-00113-5
+Ghani, A., Steinbacher, T., Albayrak, A., & Polifke, W.
+(2019). Intrinsic thermoacoustic feedback loop in turbu-
+lent spray flames. Combustion and Flame, 205, 22–32.
+https://doi.org/10.1016/j.combustflame.2019.03.039
+Ghasemi, A. (2022). PARAMOUNT: Parallel modal analysis
+of large datasets. https://data.4tu.nl/articles/software/PARA
+MOUNT_parallel_modal_analysis_of_large_datasets/
+20089760
+Ghasemi, A., Christou, T., Kok, J. B., Stelzner, B., & Zarzalis, N.
+(2023). Combustion dynamics analysis of a pressurized air-
+blast swirl burner using proper orthogonal decomposition.
+International Journal of Spray and Combustion Dynamics,
+16(1-2),17568277231207252.
+Ghasemi, A., & Kok, J. B. W. (2022). Characterizing combus-
+tion dynamics of a swirl burner using wavelet transform. In
+28th International Congress on Sound and Vibration, ICSV
+2022: Singapore 24-28 July 2022, Proceedings (Vol. 1, pp.
+775-781), Singapore, 24-28 July 2022. Proceedings (Vol. 1,
+pp. 775-781). (Proceedings of the International Congress on
+Sound and Vibration; Vol. 2022, No. 28). Romanian Society
+of Acoustics.
+Golub, G. H., & Van Loan, C. F. (2013). Matrix computa-
+tions (4th ed.). Johns Hopkins Studies in the Mathema -
+tical
+Sciences.
+The
+Johns
+Hopkins
+University
+Press.
+Grader, M., Yin, Z., Geigle, K. P., & Gerlinger, P. (2021). Influ-
+ence of flow field dynamics on soot evolution in an aero-
+engine model combustor. Proceedings of the Combustion
+Institute, 38(4), 6421–6429. https://doi.org/10.1016/j.proci.
+2020.05.019
+Holmes, P., Lumley, J. L., Berkooz, G., & Rowley, C. W. (2012).
+Turbulence, coherent structures, dynamical systems and sym-
+metry (2nd ed.). Cambridge University Press.
+Horstemeyer, M. F. (2009). Multiscale modeling: A review. In J.
+Leszczynski, & M. K. Shukla (Eds.), Practical aspects of com-
+putational chemistry (pp. 87–135). Springer Netherlands.
+Kutz, J. N., Brunton, S. L., Brunton, B. W., & Proctor, J. L.
+(2016). Dynamic mode decomposition. Society for Industrial
+and Applied Mathematics.
+Kutz, J. N., Fu, X., & Brunton, S. L. (2016). Multiresolution
+dynamic mode decomposition. SIAM Journal on Applied
+Dynamical Systems, 15(2), 713–735. https://doi.org/10.
+1137/15M1023543
+Kyprianidis, K. G., Nalianda, D., & Dahlquist, E. (2015). A NOx
+emissions correlation for modern RQL combustors. Energy
+Procedia, 75, 2323–2330. https://doi.org/10.1016/j.egypro.
+2015.07.433
+Law, C. K., Sung, C. J., Wang, H., & Lu, T. F. (2003). Devel-
+opment of comprehensive detailed and reduced reaction
+mechanisms for combustion modeling. AIAA Journal, 41(9),
+1629–1646. https://doi.org/10.2514/2.7289
+Li, C. Y., Chen, Z., Weerasuriya, A. U., Zhang, X., Lin, X., Zhou,
+L., Fu, Y., & Tse, T. K. (2023). Best practice guidelines for the
+dynamic mode decomposition from a wind engineering per-
+spective. Journal of Wind Engineering and Industrial Aero-
+dynamics, 241,105506. https://doi.org/10.1016/j.jweia.2023.
+105506
+Lieuwen, T. C. (2012). Unsteady combustor physics. Cambridge
+University Press.
+Liu, Y., Sun, X., Sethi, V., Nalianda, D., Li, Y. G., & Wang, L.
+(2017). Review of modern low emissions combustion tech-
+nologies for aero gas turbine engines. Progress in Aerospace
+Sciences,
+94,
+12–45.
+https://doi.org/10.1016/j.paerosci.
+2017.08.001
+Lohrmann, M., & Büchner, H. (2005). Prediction of sta-
+bility limits for lp and lpp gas turbine combustors.
+Combustion Science and Technology, 177(12), 2243–2273.
+https://doi.org/10.1080/00102200500241040
+Misar, A., Tison, N. A., Korivi, V. M., & Uddin, M. (2023).
+Application of the DMD approach to high-reynolds-number
+flow over an idealized ground vehicle. Vehicles, 5(2),
+656–681. https://doi.org/10.3390/vehicles5020036
+Mularz, E. (1979). Lean, premixed, prevaporized combustion
+for aircraft gas turbine engines. In 15th Joint Propulsion Con-
+ference. American Institute of Aeronautics and Astronautics.
+Navarro-Arredondo, S., & Kok, J. (2024). Combustion noise
+and heat release rate measured in an aero-gas-turbine like
+pressurized com-bustor. In W. van Keulen, & J. Kok (Eds.),
+Proceedings of the 30th International Congress on Sound and
+Vibration (ICSV 2024). International Institute of Acoustics
+and Vibration (IIAV).
+Omi, K., Nakayama, K., Nakaya, S., Tsue, M., & Taguchi,
+H. (2024). Effects of temperature ratio on combustion
+instability in a non-premixed hydrogen-rich ram combus-
+tor. International Journal of Hydrogen Energy, 49, 14–22.
+https://doi.org/10.1016/j.ijhydene.2023.06.069
+Patat, C., Baillot, F., Blaisot, J. B., & Domingues, E. (2021).
+Responses of lean swirling spray flames to acoustic pressure and
+transverse velocity perturbations. Symposium on Thermoa-
+coustics in Combustion: Industry meets Academia (SoTiC
+2021), Munich, Germany, 2021. https://hal.science/hal-
+03717261
+Patat, C., Blaisot, J., Domingues, E., & Baillot, F. (2023). Mech-
+anisms of swirl-stabilised spray flames dynamics at various
+locations of a forced standing transverse acoustic field. In Pro-
+ceedings of the 11th European Combustion Meeting (pp.
+2196-2201), Rouen, France, 2023.
+Peng, J., Gao, L., Yu, X., Qin, F., Liu, B., Cao, Z., Wu, G., &
+Han, M. (2022). Combustion oscillation characteristics of a
+supersonic ethylene jet flame using high-speed planar laser-
+induced fluorescence and dynamic mode decomposition.
+
+
+--- Page 18 ---
+
+ENGINEERING APPLICATIONS OF COMPUTATIONAL FLUID MECHANICS
+17
+Energy, 239,122330. https://doi.org/10.1016/j.energy.2021.
+122330
+Peters, N. (2009). Multiscale combustion and turbulence. Pro-
+ceedings of the Combustion Institute, 32(1), 1–25. https://doi.
+org/10.1016/j.proci.2008.07.044
+Poinsot, T. (2017). Prediction and control of combustion insta-
+bilities in real engines. Proceedings of the Combustion Insti-
+tute, 36(1), 1–28. https://doi.org/10.1016/j.proci.2016.05.007
+Procacci, A., Kamal, M. M., Hochgreb, S., Coussement, A.,
+& Parente, A. (2023). Analysis of the information overlap
+between the PIV and OH* chemiluminescence signals in tur-
+bulent flames using a sparse sensing framework. Combustion
+and Flame, 257,113004. https://doi.org/10.1016/j.combust
+flame.2023.113004
+Rayleigh, (1878). The explanation of certain acoustical phe-
+nomena. Nature, 18(455), 319–321. https://doi.org/10.1038/
+018319a0
+Schmid, P. J. (2010). Dynamic mode decomposition of numer-
+ical and experimental data. Journal of Fluid Mechanics, 656,
+5–28. https://doi.org/10.1017/S0022112010001217
+Schmidt, O. T., & Schmid, P. J. (2019). A conditional space–time
+POD formalism for intermittent and rare events: Example of
+acoustic bursts in turbulent jets. Journal of Fluid Mechanics,
+867, R2. https://doi.org/10.1017/jfm.2019.200
+Špelić, I., & Mihelić-Bogdanić, A. (2024). EU environmen-
+tal protection in regard to sustainable development: Myth
+or reality? Standards, 4(4), 176–195. https://doi.org/10.3390/
+standards4040010
+Sun, A., Niu, Q., & Dong, S. (2024). Spectral feature
+extraction of rocket exhaust plume using spectral proper
+orthogonal decomposition. Physics of Fluids, 36(3),035172.
+https://doi.org/10.1063/5.0200576
+Tian, X., Yang, J., Gong, Y., Guo, Q., Ding, L., & Yu, G. (2023).
+Study on structure oscillation characteristics in impinging
+zone of multiple diesel jet flames based on dynamic mode
+decomposition. Chemical Engineering Science, 282,119287.
+https://doi.org/10.1016/j.ces.2023.119287
+Tu, J. H., Rowley, C. W., Luchtenburg, D. M., Brunton, S. L., &
+Kutz, J. N. (2014). On dynamic mode decomposition: The-
+ory and applications. Journal of Computational Dynamics,
+1(2), 391–421. https://doi.org/10.3934/jcd.2014.1.391
+Vignat, G., Lo Schiavo, E., Laera, D., Renaud, A., Gicquel, L.,
+Durox, D., & Candel, S. (2021). Dynamics of spray and
+swirling flame under acoustic oscillations : A joint experi-
+mental and LES investigation. Proceedings of the Combustion
+Institute, 38(4), 6015–6024. https://doi.org/10.1016/j.proci.
+2020.05.054
+Wey, C. T. (2016). Simulation of a lean-direct injection com-
+bustor using a body-fitted voxel mesh. In 46th AIAA Fluid
+Dynamics Conference (p. 3482), Washington, D.C., USA,
+2016. https://doi.org/10.2514/6.2016-3482
+Wu, Y., Wang, L., Lin, W., Song, G., He, Y., Wu, X., Wang,
+Z., & Cen, K. (2021). Picosecond pulsed digital off-axis
+holography for near-nozzle droplet size and 3D distribution
+measurement of a swirl kerosene spray. Fuel, 283,119124.
+https://doi.org/10.1016/j.fuel.2020.119124
+Yin, Z., & Stöhr, M. (2020). Time–frequency localisation of
+intermittent dynamics in a bistable turbulent swirl flame.
+Journal of Fluid Mechanics, 882, A30. https://doi.org/10.
+1017/jfm.2019.762
+Zhang, S., Zhao, X., & Bayyuk, S. (2014). Generalized formu-
+lations for the Rhie–Chow interpolation. Journal of Compu-
+tational Physics, 258, 880–914. https://doi.org/10.1016/j.jcp.
+2013.11.006
+Zheng, Y., Zhang, D., Wang, T., Rinoshika, H., & Rinoshika,
+A. (2022). A hybrid two-dimensional orthogonal wavelet
+multiresolution and proper orthogonal decomposition tech-
+nique for the analysis of turbulent wake flow. Ocean Engi-
+neering,
+264,112547.
+https://doi.org/10.1016/j.oceaneng.
+2022.112547
+Zimont, V. (2000). Gas premixed combustion at high turbu-
+lence. Turbulent flame closure combustion model. Exper-
+imental Thermal and Fluid Science, 21(1-3), 179–186.
+https://doi.org/10.1016/S0894-1777(99)00069-2

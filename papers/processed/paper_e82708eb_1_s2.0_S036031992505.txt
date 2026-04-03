@@ -1,0 +1,2427 @@
+
+--- Page 1 ---
+
+Predicting combustor performance for hydrogen-propane fuel blends in gas 
+turbines: A coupled thermofluid and chemical reactor network model
+Chaz Fenner *
+, Johan Van der Spuy
+, Ryno Laubscher
+Department of Mechanical and Mechatronic Engineering, Stellenbosch University, South Africa
+A B S T R A C T
+The transition to carbon-neutral energy has renewed interest in hydrogen as a gas turbine fuel in the form of fuel blends with hydrocarbons. However, the distinct 
+fluid properties and chemical kinetics of hydrogen and hydrocarbon blends necessitate redeveloped combustor designs. While conventional combustor design and 
+emissions estimation through computational fluid dynamics (CFD) is preferred, it is computationally intensive and impractical for system-level simulations. To 
+alleviate this, a thermofluid network model was developed to predict the performance of a MGT combustor operating on pure and fuel blends of propane and 
+hydrogen. It incorporates sub-component pressure losses and heat transfer, and presents the first implementation of well-stirred and plug-flow reactors into Flownex 
+SE. A 3-D CFD study of the combustor revealed that hydrogen addition improved combustion efficiency and reduced wall temperatures. However, although it 
+produces less CO2, it leads to 70 % more CO, and 80 % more NO than for propane-only operation. Validated against the 3-D CFD data, the network model predicted 
+the combustor outlet total temperature and pressure within 0.55 % and 0.26 %, respectively. The change in total pressure across subcomponents (<6 %) and the mass 
+flow distribution showed similarly strong agreement. Major species mass fractions, CO2 and H2O, were predicted accurately. However, by assuming that the tem­
+perature and composition are uniform within combustion zones, zone and wall temperatures and pollutant predictions deviated considerably. NO was overpredicted 
+by a factor of 8.2–10.7, and CO was overpredicted for propane-only, but underpredicted for blended cases. The network model achieved this performance 420 times 
+faster than CFD, making it suitable for rapid design exploration.
+1. Introduction
+Low-emissions combustors, powered by fossil fuels, are a well- 
+developed component of gas turbines. The advent of renewable fuels 
+and a drive towards carbon neutral power generation has revived in­
+terest in hydrogen as a fuel [1]. Currently, 98 % of the available 
+hydrogen is produced from fossil fuels [2]. To achieve carbon-neutral 
+power production using hydrogen, it must be produced from a carbon 
+free feedstock and renewable energy, commonly termed Green 
+Hydrogen. However, the low availability and high cost of green 
+hydrogen has led to increased interest in hydrogen-hydrocarbon fuel 
+mixtures as a transitional solution, enabling partial decarbonization 
+while maintaining fuel supply security [3].
+Hydrogen enrichment in gas turbine combustors is a promising near- 
+term decarbonization strategy. It has been shown to reduce CO and CO2 
+emissions [4], improve combustor pattern factors [5], enhance flame 
+stability, and widen combustor operating limits [3]. These benefits stem 
+from hydrogen’s higher flame speed and improved mixture reaction rate 
+resulting from the increased oxygen (O) and hydrogen (H) radical pool 
+[6,7]. Broader combustion literature indicates that the effect of 
+hydrogen on flame speed in fuel blend combustion depends on the 
+hydrocarbon being enriched [8]. Most studies on gas turbine combustor 
+performance 
+with 
+hydrogen 
+blended fuels 
+typically consider 
+methane-hydrogen blends. By contrast, relatively few studies have 
+conducted 
+numerical 
+or 
+experimental 
+investigations 
+into 
+propane-hydrogen blend firing in gas turbine combustors. This gap is 
+significant as methane exhibits a larger increase in flame speed with 
+hydrogen addition when compared to propane [8], which may alter the 
+formation of pollutant species such as CO and NO.
+While hydrogen enrichment offers clear benefits, it also introduces 
+significant challenges which include a higher likelihood of flashback, 
+increased NOx production and higher flame temperatures. These effects 
+may lead to pollution and increased thermal stresses that require careful 
+consideration. As such, the disparate fluid properties and chemical ki­
+netics of hydrogen and mixture fuels when compared to pure hydro­
+carbons, may require that combustors be redeveloped.
+Typically, the preliminary aerodynamic design of gas turbine com­
+bustors begins with the work of Mongia [9], Melor and Fritskyk [10] and 
+Lefebvre and Ballal [11]. This is an empirical approach using correla­
+tions derived from experimental data. Despite its simplicity, a design 
+process using empirical correlations can be implemented to reduce a 
+combustor’s pressure losses and pollutant formation and optimise its 
+* Corresponding author.
+E-mail address: fenner@sun.ac.za (C. Fenner). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2025.152511
+Received 26 August 2025; Received in revised form 17 October 2025; Accepted 8 November 2025  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+Available online 12 November 2025 
+0360-3199/© 2025 The Authors. Published by Elsevier Ltd on behalf of Hydrogen Energy Publications LLC. This is an open access article under the CC BY license 
+( http://creativecommons.org/licenses/by/4.0/ ). 
+
+
+--- Page 2 ---
+
+mass flow distribution in a timely manner. Moreover, these correlations 
+can also be utilized to investigate off-design performance of the 
+combustor. However, due to the data-driven nature of the correlations, 
+working outside of the intended operating conditions may produce un­
+reliable results and may be a limiting factor of this modelling method.
+A brief review of literature pertaining to semi-empirical modelling of 
+gas turbine combustors. Despierre et al. [12] demonstrated the versa­
+tility of the network method by optimising an annular combustor with a 
+genetic algorithm. Gouws [13] developed an empirical and network 
+model to reverse engineer and predict the performance and wall tem­
+peratures of a can combustor from a T56 Rolls Royce engine. The 
+empirical model, which the estimated discharge coefficients for 
+combustor flow components, produced mass flow distribution errors of 
+11.8–35.7 % compared to experimental data. Calibrating these co­
+efficients reduced errors but made components non-generalisable. Exit 
+temperatures differed from CFD results by less than 13 % and wall 
+temperatures agreed well. du Toit and Theron [14] developed a conju­
+gate flow and heat transfer network model of the NASA E3 development 
+combustor. Validation of the network model focused on combustor wall 
+temperatures where an error range relative to 3-D CFD data was 1 %–13 
+%. Mahto and Chakravarthy [15] presented a hybrid approach by 
+coupling a network model and a CFD simulation. The mass flow distri­
+bution through the combustor was determined by the network model 
+and the CFD resolved the 3-D reacting flow in the flame tube. This 
+significantly reduced the mesh size and time taken for the CFD simula­
+tion to reach convergence. The researchers then performed a complex 
+multi-objective optimisation to improve combustion efficiency, total 
+pressure drop and pattern factor. In these studies, researchers utilized 
+empirical pressure loss correlations for diffusers, holes and swirlers to 
+account for the aerodynamic behavior of the combustor. Similarly, the 
+heat transfer rate to the liner and casing is determined using empirical 
+correlations for fluid radiation, convection and surface radiation 
+pathways.
+Estimating pollutant emissions during combustor design relies 
+heavily on CFD due to the high cost of experimental combustion char­
+acterization tests. Furthermore, the computational resources and time 
+required for transient system-wide CFD modelling is also prohibitive. 
+Consequently, gas turbine designers resort to low-fidelity models that 
+represent combustors as networks of zero and one-dimensional (1D) 
+chemical reactors, known as chemical reactor networks (CRNs) when 
+performing system-wide simulations. With a reduced requirement for 
+computational resources, implementing CRNs enables the use of com­
+plex reaction mechanisms and the timeous exploration of a design space 
+[16].
+Several studies, Park et al. [17]; Colorado and McDonell [18]; Kaluri 
+et al. [19] and Romano et al. [20] show that CRNs in the study of gas 
+turbine combustors achieve comparable levels of accuracy when 
+compared to CFD in the prediction of combustion completeness and 
+pollutants. A wide error range of 0–250 % is shown in Kaluri et al. [19] 
+for manually and automatically extracted networks. A similar result was 
+found in Romano et al. [20] where NO estimations were up to 5 times 
+larger than the experimental data prior to calibration. Park et al. [17] 
+found that the error of the CRN, relative to experimental data, increased 
+at high combustor loading. For all simulated cases in Park et al. [17], the 
+CRN was able to closely replicate the trends for CO though substantial 
+errors were recorded, and NO was estimated to within 4 ppm. Grimm 
+[21] automatically extracted reactor networks from CFD data and 
+evaluated the effect of network fidelity on accuracy. It was found that 
+networks with at least four reactors were required to reliably predict NO 
+emissions and increasing the network size did not produce substantial 
+improvements. Importantly, it was shown that accounting for reactor 
+heat loss had a more substantial impact on the accuracy of predicted NO 
+concentrations. When co-firing hydrogen and ammonia, the extracted 
+reactor network of Gubbi et al. [22] that modelled premixed combus­
+tion, estimated NO to within 3 % of experimental data. In a similar 
+study, NO estimates were within 10 % of the experimental data in 
+Mazzotta et al. [23].
+Most CRN studies focus solely on chemical reactor configuration and 
+neglect momentum transport within the combustor. Aerodynamic ef­
+fects (modelled via flow networks) and combustion (modelled via CRN) 
+are typically treated separately. This separation represents a key limi­
+tation because combustors are coupled to turbomachines, where 
+changes in mass flow rate and operating pressure can significantly affect 
+combustor performance and pollutant formation. Many of the previous 
+researchers who investigated the aerodynamic performance of gas tur­
+bine combustors using the 1-D network modelling approach included 
+combustion modelling (Despierre et al. [12], Gouws [13] and du Toit 
+and Theron [14]). While the techniques implemented by these authors 
+(chemical equilibrium and constrained adiabatic combustion) produced 
+satisfactory outcomes, they are unsuitable for estimating pollutant 
+emissions.
+Accurate emissions prediction requires complex techniques such as 
+chemical reactor networks (CRNs) or computational fluid dynamics 
+(CFD) modelling. Limited research literature exists that attempts to 
+integrate both 1D aerodynamic networks and combustion kinetics 
+through CRNs into a unified model capable of capturing sufficient detail 
+for system-wide investigation of fuel mixture effects on gas turbine 
+performance. Haytaysal and Yozgatligil [24] attempted to integrate 
+chemical reactors into a flow network. However, the study primarily 
+focused on the solution methods for network models, providing only a 
+limited discussion of results. Specifically, it reported total pressure 
+changes and outlet combustor temperature predictions, which showed 
+good correlation with benchmark CFD data.
+Current literature reveals three key gaps: limited investigation of 
+hydrogen-propane mixtures in gas turbine combustors; 1-D thermofluid 
+network studies lacking generalizability due to oversimplified pressure 
+loss treatment; and CRNs are rarely integrated with 1-D flow networks to 
+account for aerodynamic changes, limiting model applicability across 
+combustor operating ranges required for system-wide design and off- 
+design performance simulations. Furthermore, considering the chal­
+lenges inherent to combustor design using CFD and empirical methods, 
+the following problem statement is presented: Due to the high compu­
+tational expense of CFD and the limited flexibility of the empirical 
+design methods, there is a need for an integrated and generalisable 
+modelling framework that combines 1-D aerodynamic networks with 
+detailed chemical reactor networks to provide reliable predictions of 
+performance and emissions in gas turbines for pure and mixed fuels 
+across a wide range of conditions.
+In the present work, the capability of a 1-D thermofluid network 
+model to predict the performance of a can combustor is assessed for fuel 
+mixtures of propane and hydrogen. The network model is constructed in 
+Flownex SE using flow elements to estimate heat transfer and total 
+pressure changes. Well-established pressure loss correlations specific to 
+combustor components are implemented via custom user-defined 
+scripts. For the first time in Flownex SE, Cantera-based well-stirred re­
+actors (WSR) and plug flow reactors (PFR) elements are integrated to 
+account for chemical kinetics within the combustion zones. The per­
+formance of the integrated thermofluid network model is validated 
+using both CFD simulation results and experimental data for propane- 
+only firing, thereafter both the CFD and thermofluid network models 
+are used to estimate combustor performance when firing various degrees 
+of hydrogen mixing with the propane. The novelty of the present work 
+lies in four key contributions: CFD analysis of hydrogen-propane fuel 
+mixture combustion within a gas turbine can combustor, detailed pre­
+sentation of network modelling methodology and applicable loss 
+models, integration of Cantera-based reactors within Flownex SE, 
+comprehensive validation for propane-only operation, and extension of 
+this validation to both pure and blended fuel mixtures. The present study 
+focuses on developing a standalone combustor network model within 
+Flownex SE, with the objective of future integration into a full-cycle gas 
+turbine model. The resulting unified gas turbine system model will 
+feature a fully generalisable combustor network capable of predicting 
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+2 
+
+
+--- Page 3 ---
+
+engine performance and emissions across a wide range of operating 
+conditions.
+2. Materials and methods
+2.1. Case study gas turbine
+The analysis of combustor performance is conducted for its operation 
+within a twin-shaft Brayton cycle gas turbine with a layout as shown in 
+Fig. 1. This is an experimental system currently at the Mechanical and 
+Mechatronic Engineering Department of Stellenbosch University that 
+was developed by Ssebabi [25]. In Fig. 1, the alphanumeric labels 
+demarcate the measurement stations and the control valves.
+The gas-generator and power turbine configuration comprises two 
+Borg Warner turbochargers, the model K31 and K44, as the high and low 
+pressure machines. At a HP turbine rotational speed of 73000 revolu­
+tions per minute (rpm), it operates at a compressor total-to-total pres­
+sure ratio of 2.1 and a combustor outlet total temperature is 840 ◦C. 
+With the LP compressor as the load, at the above operating conditions, 
+the machine was estimated to produce 6.5 kW at a thermal efficiency of 
+3 % [25]. The system is designed for propane-only operation, and work 
+is currently underway to evaluate its performance experimentally with 
+hydrogen and propane fuel mixtures. This study forms part of that 
+investigation. The combustor boundary conditions used to evaluate the 
+network model are based on experimental data from Ssebabi [25], 
+presented in Table 1. In this work, MGT1 to MGT3 correspond to system 
+operating points as shown in Table 1. These operating points will be 
+simulated for both the mixed and pure fuel cases.
+2.2. Thermofluid network modelling theory
+In a system modelled by the finite volume method (FVM) thermo­
+fluid network approach, components are represented as 1-D flow ele­
+ments connected to 0-D nodes to form a network, an example of which is 
+shown below in Fig. 2 (left). This discretization is analogous to the 
+traditional 3-D CFD approach where the domain is discretised into cells 
+with faces and cell centroids (Fig. 2 [right]). In the thermofluid network 
+approach, the mass and energy balance equations are solved at nodes, 
+and the momentum balance equations are solved at flow elements, 
+creating a semi-staggered grid type numerical approach [27]. Closure of 
+the mass, energy and momentum balances are through semi-empirical or 
+empirical 
+component 
+characteristic 
+models 
+for 
+friction 
+(e.g. 
+Darcy-Weisbach correlations), heat transfer (e.g. Dittus-Boelter internal 
+convection correlations) and work (e.g. Euler turbomachine equation). 
+All thermofluid properties such as pressure and temperature are stored 
+at nodes while source terms such as heat transfer rates and pressure 
+losses are stored at elements, along with mass flow rates.
+Shown below in equations (1)–(3) are the differential forms for the 
+steady-state 1-D conservation equations for mass, energy, and mo­
+mentum, respectively. 
+∂(ρu) / ∂x = 0
+(1) 
+∂
+(
+ρu
+(
+h + 1
+2u2 + gz
+))
+∂x
+= qʹʹʹ −wʹʹʹ
+(2) 
+∂(ρuu)
+∂x
+= −∂p
+∂x −ρg ∂z
+∂x + ∂p0,W
+∂x
+−∂p0,L
+∂x
+(3) 
+In the above equations, ρ [kg/m3] is the fluid density, and x [m] is the 
+spatial dimension. On the left-hand-side (LHS) of the energy equation, u 
+[m/s] is the fluid velocity, h [J/kg] is static enthalpy, g [m/s2] and z [m] 
+are the gravitational acceleration constant and the elevation of the 
+system, respectively. On the right-hand-side (RHS), the volumetric heat 
+transfer rate to the fluid and the volumetric work done by the fluid 
+interacting with its surroundings is represented by qʹʹʹ [W/m3] and wʹʹʹ 
+[W/m3], respectively. Finally, on the RHS of the momentum balance, p 
+[Pa] is the fluid static pressure, p0,W [Pa] is the total pressure rise due to 
+work interactions, and p0,L [Pa] is the total pressure loss across the fluid 
+element due to friction or secondary losses.
+Through the volume integration of the differential equations and 
+applying the above-mentioned discretization approaches, the steady- 
+state mass and energy balance equations for fictitious node i are equa­
+tions (4) and (5). In these equations, ∑˙mi→s [kg/s] represents the mass 
+flow rates from nodes i to the successor (downstream) nodes s, along that 
+edge between these nodes. Similarly, ∑˙mp→i represents the mass flow 
+rates along the edges between the predecessor nodes p and the node i. In 
+the discretised integral-form energy balance equation, h0,i [J/kg] is the 
+Fig. 1. MGT engine layout [26].
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+3 
+
+
+--- Page 4 ---
+
+stagnation enthalpy of node i and h0,p [J/kg] is the stagnation enthalpy 
+of the predecessor nodes p connected via edge p→i. ˙Qp→i [W] is the heat 
+transfer rates calculated along edge p→i and similarly ˙Wp→i [W] is the 
+work transfer rate along edges p→i. 
+∑
+˙mi→s −
+∑
+˙mp→i = 0
+(4) 
+∑
+˙mi→sh0,i −
+∑
+˙mp→ih0,p =
+∑˙Qp→i −
+∑˙Wp→i
+(5) 
+To correctly account for the compressible nature of the flow in the 
+combustor, the differential momentum equation should be treated 
+accordingly. As a first step, the derivative on the LHS of equation (3) is 
+expanded using the product rule as shown in equation (6). The second 
+term on the LHS of the below equation is zero for steady-state flow due 
+to the divergence-free condition from the mass conservation equation. 
+ρu ∂u
+∂x + u ∂ρu
+∂x = −∂p
+∂x −ρg ∂z
+∂x + ∂p0,W
+∂x
+−∂p0,L
+∂x
+(6) 
+The momentum equation for compressible flow is written in terms of 
+total pressure (p0) [Pa] and temperature (T0) [K]. To do so, the theorem 
+in equation (7) is substituted into equation (6) [28]. 
+ρu ∂u
+∂x + ∂p
+∂x = p
+p0
+∂p0
+∂x + pu2
+2T0
+∂T0
+∂x
+(7) 
+The result is the momentum equation for compressible flow shown in 
+equation (8). 
+p
+p0
+∂p0
+∂x + pu2
+2T0
+∂T0
+∂x = −ρg ∂z
+∂x + ∂p0,W
+∂x
+−∂p0,L
+∂x
+(8) 
+Finally, the discretised differential equation for compressible mo­
+mentum is written as shown in the equation below, where j and i sub­
+scripts indicate the downstream and upstream nodes, respectively. p0 is 
+the stagnation nodal pressure, T0 the nodal stagnation temperature, Δ 
+p0,W,i→j work input along edge i→j and Δp0,L,i→j pressure loss along edge 
+i→j. The remaining overbar properties are the average properties 
+calculated at edge i→j, using a linear averaging approach based on the 
+properties at the upstream and downstream nodes. 
+pi→j
+p0i→j
+(
+p0,j −p0,i
+)
++ ρu2i→j
+2T0i→j
+(
+T0,j −T0,i
+)
++ ρi→jg
+(
+zj −zi
+)
+= Δp0,W,i→j −Δp0,L,i→j
+(9) 
+Equations (4), (5) and (9) are the generalised form of the discretised 
+difference equations that are solved in a network modelling approach to 
+determine changes in a system’s pressure, enthalpy, and mass flow rate. 
+These are coupled with the necessary fluid properties and characteristic 
+models for friction, heat transfer and work which will be discussed in the 
+next sections.
+2.2.1. Combustor aerodynamic loss models
+A can RQL combustor is shown in Fig. 3. It is comprised of multiple 
+aerodynamic features, highlighted in the upper portion of the diagram. 
+These are the inlet pre-diffuser (1), snout (2), annular passage (3), axial 
+swirler (4), annular passage (5), primary holes (6), secondary holes (7), 
+flame tube (8) and the outlet diffuser (9).
+In the current work, unless stated otherwise, we will use the loss 
+models of Lefebvre [29] and Lefebvre and Ballal [11] to determine the 
+pressure losses through the pre-diffuser, snout, swirler and dilution jets, 
+and the recirculation mass flow rates due to swirl and dilution jets. The 
+changes in pressure for the rest of the combustor can be modelled by 
+existing components within Flownex SE. The total pressure loss through 
+a pre-diffuser is calculated through equation (10) [30]. 
+Δp0,L,PD = 1.75P3Ra
+(m3
+̅̅̅̅̅
+T3
+√
+P3
+)2tan1.22(ϕPD)
+A2
+3
+(
+1 −A3
+Ao
+)2
+(10) 
+A similar equation is used, shown below in equation (11), for the 
+pressure loss through the snout: 
+Δp0,L,SN = 1.75P3Ra
+(mS
+̅̅̅̅̅
+T3
+√
+PSin
+)2tan1.22(ϕsn)
+A2
+S
+(
+1 −
+AS
+Aos
+)2
+(11) 
+For a straight bladed axial flow swirler the total pressure drop is 
+calculated using equation (12). 
+Δp0,L,SW = ˙m2
+sw
+Ksw
+((
+sec(θ)
+ASW
+)2
+−
+1
+A2
+l
+)
+2ρ
+(12) 
+In the previous equation, Ksw is a constant that differs based on the vane 
+shape (flat or curved) and θ is the vane angle. For the flat vaned swirler 
+used in this study it is 1.3, for curved vanes it is 1.15. The total pressure 
+drop is dependent on the liner cross sectional area, Al [m2], and the 
+swirler annulus area, ASW [m2]. The swirling flow will cause flow 
+reversal i.e., flow recirculation known as the entrainment mass flow ˙me 
+[kg/s]. As shown in equation (13), from Lefebvre [29], the average 
+entrainment mass flow in the primary zone is dependent on the swirl 
+number (Sn in equation (14)) which is a geometric indicator of the swirl 
+Table 1 
+Experimental data from Ssebabi (2020).
+Case
+Air
+Fuel
+Outlet static pressure (kPa)
+Outlet total temperature (K)
+Mass flow rate (kg/s)
+Temperature (K)
+Mass flow rate (kg/s)
+Temperature (K)
+Station
+1
+2
+G1
+G1
+3
+3
+MGT1
+0.2035
+351
+0.0034
+287
+155.6
+1091
+MGT2
+0.2374
+376
+0.0039
+288
+173.2
+1121
+MGT3
+0.2614
+393
+0.0045
+289
+189.5
+1142
+Fig. 2. Left: A sample network of node (i and j) and edges (E1-4). Right: 2-D 
+CFD equivalent with faces (E, S, W and N) and cell centroids (i and j).
+Fig. 3. Section view of the RQL combustor designed by Ssebabi (2020).
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+4 
+
+
+--- Page 5 ---
+
+intensity and the length of the primary zone, lpz [m]. 
+˙me =
+˙
+msw(0.35 + 1.4SN)
+l2
+pz
+2
+(
+D2
+sw −D2
+hub
+)
+(13) 
+Sn = 2
+3
+1 −
+(
+Dhub
+DSW
+)3
+1 −
+(
+Dhub
+DSW
+)2 tan(θ)
+(14) 
+For the current combustor, the recirculation of mass flow rate into 
+the primary and secondary zone may also be induced through opposing 
+jet flow as shown in Fig. 4.
+The mass flow recirculated by opposing jets, ˙mr [kg/s], is a function 
+of the jet’s angle of entry into the combustion zone, and the temperature 
+ratio between the jet inlet and the respective combustion zone. To es­
+timate the angle of entry, firstly, the jet’s loss coefficient is calculated as 
+in equation (15). 
+Cd =
+1.25(K −1)
+(
+4K2 −K(2 −α)2)0.5
+(15) 
+Here, K is the ratio of the jet’s dynamic pressure to the dynamic pressure 
+in the annular passage just upstream of the jet. Similarly, α is a ratio of a 
+single jet’s mass flow rate to the mass flow of the annular passage up­
+stream of the jet. The asymptotic discharge coefficient, Cd,n, is deter­
+mined based on equation (15) as K approaches infinity. Finally, the rate 
+of recirculated mass flow is calculated as shown in equation (16). 
+˙mr,pz = 0.5 ˙mh sin
+(
+asin
+(
+̅̅̅̅̅̅̅
+Cd
+Cd,n
+√
+) )(Tjet
+Tz
+)−0.5
+(16) 
+˙mh is the mass flow rate of a single jet and θjet = asin
+(
+√
+(
+Cd /Cd,n
+))
+is the 
+jet’s angle of entry into the combustor’s flame tube. Tr is the tempera­
+ture ratio between the jet inlet (Tjet) [K] and the respective combustion 
+zone (Tz) [K].
+2.2.2. Chemical reactor network models
+Chemical reactor models couple the equations describing the 
+chemical, thermodynamic and fluid dynamic processes within a chem­
+ically reacting system [31]. There are numerous formulations for 
+chemical reactors, each with assumptions that characterise specific 
+operating conditions. Reactor zones within a conventional combustor 
+can be considered as constant volume and pressure processes that may 
+be modelled by a WSR and PFR [11,31,32]. The conditions assumed 
+within the reactors are that the oxidant and fuel are fed constantly and 
+mix rapidly. Under these conditions the reactions occur uniformly, 
+resulting in a homogeneous reactor temperature and composition. The 
+following discussion will present the equations used in Cantera [33] for 
+the simulation of combustion in a WSR and PFR.
+Equation (17) presents the unsteady form of the mass conservation 
+equation written for a single chemical species, k, in a WSR. It states that 
+the change in mass of a species depends on the mass generation or 
+consumption of the species by chemical reaction through the term 
+˙mk,gen = V ˙ωkMWk, where ˙ωk [mol/m3s] is the net reaction rate per unit 
+volume, V [m3] is the reactor volume and MWk [kg/mol] is the molec­
+ular mass of the species. The formulation also considers multiple inlet 
+(∑
+in ˙min) and outlet (∑
+out ˙mout) mass flow streams, where Yk,in is the mass 
+fraction of species k at the inlet and Yk,out is the mass fraction of said 
+species leaving the reactor.
+The energy conservation equation (18) is written in terms of tem­
+perature where ˙Q [W] is the net rate of heat addition to the reactor from 
+external sources. Term ∑
+khk ˙mk,gen [W], describes the combustion heat 
+release of the mixture as a sum of products of specific enthalpy (hk) and 
+the rate of mass consumption/generation ( ˙mk,gen) of the species resulting 
+from the chemical reactions. 
+d(mYk)
+dt
+=
+∑
+in
+˙minYk,in −
+∑
+out
+˙moutYk.out + ˙mk,gen
+(17) 
+mcp
+dT
+dt = ˙Q −
+∑
+k
+hk ˙mk,gen +
+∑
+in
+˙min
+(
+hin −
+∑
+k
+hkYk,in
+)
+(18) 
+In a PFR, reactants and products flow axially under ideal frictionless 
+conditions. The gas mixture is an ideal gas, and the composition is 
+considered uniform perpendicular to the flow, reducing the problem to a 
+one-dimensional analysis. Although the PFR is a steady-state system, it 
+captures the effect of residence time on chemical kinetics by integrating 
+the species’ net production rates over the flow-through time through the 
+reactor. The governing differential equation for the evolution of a spe­
+cies mass fraction through a 1-D domain, in a PFR, is given in equation 
+(19). 
+ρu dYk
+dz = ˙ωkMWk
+(19) 
+In the above equation, the change in species mass fraction, Yk, is 
+determined along the flow path in direction z [m] at a velocity u [m/s]. 
+Similarly, the energy equation (20) is formulated to estimate the change 
+in temperature (T) [K] where cp and ρ are the mixture specific heat and 
+density, respectively. The term −∑
+k̂hk ˙ωk is the heat released due to 
+combustion. ̂hk is the species molar enthalpy and ˙ωk the net reaction rate 
+per unit volume as discussed earlier. 
+ρucp
+dT
+dz = −
+∑
+k
+̂hk ˙ωk
+(20) 
+A generalised and compact form of the net reaction rate is shown below 
+in equation (21). This form accounts for L elementary reactions and N 
+species that contribute to the reaction rate of a single species (j). This 
+form is required when implementing large reaction mechanisms like the 
+GRI-Mech 3.0 [34] for hydrocarbons.
+vʹ
+ji and vʹʹ
+ji are matrices of the stoichiometric coefficients for the re­
+actants and products, respectively. The term 
+∏
+N
+j=1
+[
+Xj
+]vij is the product of 
+terms of the molar concentration 
+[
+Xj
+]
+of each species in the reaction 
+mechanism raised to its stoichiometric coefficient vij. 
+˙ωj =
+∑
+L
+i=0
+(
+vʹʹ
+ji −vʹ
+ji
+) (
+kfi
+∏
+N
+j=1
+[
+Xj
+]vʹ
+ji −kri
+∏
+N
+j=1
+[
+Xj
+]vʹʹ
+ji
+)
+(21) 
+In equation (21), the rate coefficient k is in the modified Arrhenius form, 
+Fig. 4. An illustration of the recirculation flows due to swirl and opposing jets 
+in a RQL combustor.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+5 
+
+
+--- Page 6 ---
+
+equation (22), where the subscripts f and r are for the forward and 
+reverse reaction, respectively. 
+k = ATb exp
+(
+−
+Ea
+RuT
+)
+(22) 
+The magnitude of the rate coefficient is determined by the pre- 
+exponential factor (A), static temperature of the reactants (T) and the 
+activation energy (Ea). The temperature exponent (b), pre-exponential 
+factor and activation energy are empirical constants specific to the re­
+action mechanism, and Ru is the universal gas constant.
+2.2.3. Heat transfer modelling
+In this study, heat transfer is considered within the flame-tube, 
+annular passage of the casing, and to the environment only.
+Convective heat transfer between the fluid and solid in the 
+combustor is modelled using the Dittus and Boelter heat transfer coef­
+ficient calculated in equation (23). Here, k [W/mK] is the fluid con­
+ductivity, Dh [m] is the hydraulic diameter, Re is the Reynolds number 
+and Pr is the Prandtl number. The constant n is 0.4 if the fluid is being 
+heated and 0.3 if the fluid is being cooled. Despite being formulated for 
+inner tube heat transfer, equation (23) can be applied to an annular 
+passage by using the annulus’ hydraulic diameter (Dout - Din) [35]. 
+hc = 0.023
+( k
+Dh
+)
+Re0.8 Prn
+(23) 
+Fourier’s Law determines the rate of heat transfer through solid 
+objects while equation (24) is used to model the radiation heat transfer 
+rate. ε is the surface emissivity, σ [W/(m2⋅K4)] is the Stefan-Boltzmann 
+constant, T [K] is the temperature of radiating (i) and receiving (j) 
+surfaces. 
+˙Qrad = εσA
+(
+T4
+i −T4
+j
+)
+(24) 
+The emissivity of luminous flames (εf) from Lefebvre and Ballal [11] 
+is utilized to estimate gas-to-solid radiation as shown in equation (25). 
+This expression considers the effects of fluid pressure (p), and air ( ˙ma) 
+and fuel ( ˙mf) mass flow rates on radiation. It accounts for the effect of 
+water vapour on luminosity (L = 336
+H2 ) by including the fuel hydrogen 
+mass fraction (H). The mean beam length in the combustion zone is 
+calculated as lb = 3.4V
+As where V [m3] is the reactor volume and As [m2] is 
+the area of the reactor. T [K] is the temperature of the fluid (f) and the 
+wall (w) 
+εf = 1 −exp
+(
+−290P 336
+H2
+( ˙mf
+˙ma
+3.4V
+As
+)0.5
+T−1.5
+f
+)
+(25) 
+Fluid absorptivity (αf) is related to the emissivity through the tem­
+perature ratio between the fluid and the wall, as shown in equation (26). 
+αf
+εf
+=
+(Tf
+Tw
+)1.5
+(26) 
+2.3. CFD modelling theory
+To simulate steady-state turbulent flow in a combustor, the Reynolds 
+Averaged Navier-Stokes (RANS) equations are utilized. In numerical 
+studies of similar combustors, RANS simulations using the Realizable k-ε 
+turbulence closure are often employed to predict hydrogen and mixed 
+fuel combustion accurately when compared to experimental results 
+[36–39]. The Realizable k-ε formulation is more computationally 
+economical than the k-ω Shear Stress Transport (SST) model and 
+comparably capable of modelling flows with adverse pressure gradients, 
+separation and reverse flow caused by swirl as seen in a combustor [40,
+41].Therefore, in the present work, turbulence closure is accomplished 
+using the Realizable k-ε turbulence model with non-equilibrium wall 
+treatment.
+The RANS continuity, momentum and energy balance equations 
+solved by Ansys Fluent version 24R2 are shown in equations (27), (28) 
+and (30) respectively. 
+∂
+∂xi
+(ρui) = 0
+(27) 
+∂
+∂xj
+( ρuiuj
+)
+= −∂p
+∂xi
++ ∂
+∂xj
+[
+μ
+(∂ui
+∂xj
++ ∂uj
+∂xi
+−2
+3δij∂ui
+∂xi
+)]
++ ∂
+∂xj
+(
+−ρuʹ
+iuʹ
+j
+)
+(28) 
+−ρuʹ
+iuʹ
+j = μt
+(∂ui
+∂xj
++ ∂uj
+∂xi
+)
+−2
+3
+(
+ρk + μt
+∂uk
+∂xk
+)
+δij
+(29) 
+In the above equations, ρ is the mean density of the fluid which is, for an 
+ideal gas mixture, based on the mass fraction weighted sum of the spe­
+cies molecular weight. ui and xi are the velocity and spatial dimension in 
+direction i, respectively. In the momentum equation (28), p is the static 
+pressure, k is the turbulence kinetic energy and −ρuʹ
+iuʹ
+j is the Reynolds 
+stress term which, through the Boussinesq hypothesis, is modelled using 
+equation (29). The turbulent viscosity, μt, introduced by equation (29) is 
+calculated as μt = ρCμk2
+ε where ε is the turbulence dissipation rate. In the 
+Realizable formulation, Cμ is a function of the mean strain and rotation 
+rates, the angular velocity of the system rotation, and k and ε [42].
+When using the partially premixed combustion model in Ansys 
+Fluent (discussed later), the total enthalpy (H) formulation of the energy 
+equation is implemented as shown in equation (30) [42]. Total enthalpy 
+includes the species enthalpy of formation and therefore accounts for the 
+heat released during combustion. As such, the heat released due to 
+combustion is not included in the source term, Sh, of equation (30). 
+∂
+∂xi
+[ρuiH] = ∂
+∂xj
+( keff
+cp
+∂H
+∂xj
+)
++ Sh
+(30) 
+Turbulent viscosity is used to determine the effective thermal con­
+ductivity (keff) of the fluid seen in equation (30), keff = k + cpμt
+Prt . Here, k is 
+the fluid thermal conductivity and the turbulent Prandtl number, Prt, is a 
+constant value of 0.85.
+The heat transfer interaction between fluid and solid material is 
+considered in this study. A Conjugate Heat Transfer approach is imple­
+mented where the fluid and solid media form a single and continuous 
+mesh. Equation (31) is the energy balance equation for the solid media 
+only. It accounts for convective heat transfer due to moving walls (first 
+term on RHS), conduction (first term on LHS) and a volumetric heat 
+source term. v→is the velocity vector of the wall, h is the sensible 
+enthalpy, k is the conductivity of the solid and Sh is the volumetric heat 
+source term. 
+∇⋅( v→ρh) = ∇⋅(k∇T) + Sh
+(31) 
+Convective heat transfer between the solid and fluid domain is 
+modelled using the law-of-the-wall for non-dimensional temperature as 
+seen in equation (32) [42]. Here, on the LHS, Tw is the wall temperature, 
+Tp is the temperature of the wall adjacent cell-centroid, u* is calculated 
+as u* = C
+1
+4μk
+1
+2p. The first term on the RHS 
+(
+T*
+c) determines the 
+convective-conductive heat transfer through equation (33). The equa­
+tions available to calculate T*
+c are implemented based on the height of 
+the viscous (y*) and the thermal sublayer (y*
+t ) where E is an empirical 
+and K is the von K´arm´an constant. P is a function that accounts for the 
+influence of roughness and the Prandtl number on heat transfer in the 
+laminar sublayer.
+The second and third terms on the RHS of equation (32) are included 
+to account for compressibility effects when using pressure-based solvers. 
+kp and Up are the turbulent kinetic energy and mean velocity at the wall 
+adjacent cell-centroid. 
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+6 
+
+
+--- Page 7 ---
+
+T* =
+(
+Tw −Tp
+)ρcpu*
+˙q
+= T*
+c + 1
+2 ρ Pr C
+1
+4μk
+1
+2p
+˙q U2
+p
++ 1
+2 ρ C
+1
+4μk
+1
+2p
+˙q
+(
+PrtU2
+p + (Pr −Prt)U2
+c
+)
+(32) 
+T*
+c =
+⎧
+⎨
+⎩
+Pr y*, y* < y*
+T
+Prt
+[1
+K ln(Ey*) + P
+]
+, y* > y*
+T
+(33) 
+2.4. Model development
+In the following section the above thermofluid network theories 
+(flow equations, pressure losses, CRNs and heat transfer) will be applied 
+to model the case-study gas turbine combustor. Furthermore, the 3-D 
+CFD model setup of the combustor will also be detailed. Firstly, the 
+three experimental operating points that will be simulated are discussed 
+along with the propane-hydrogen mixture simulation boundary 
+conditions.
+2.4.1. Simulation cases
+Initial validation of the CFD and network models will be performed 
+for propane-only operation. To this end, the experimental results of [25] 
+are used as simulation boundary conditions. 3 engine operating points 
+have been chosen across the system’s operating curve resulting in 3 
+simulation cases. Running point MGT3 is considered the primary oper­
+ating point as it is closest to the design point of the system.
+Once the CFD and network models are validated using the propane- 
+only experimental data, the effect of hydrogen blending is investigated. 
+Since there is no experimental data available for the hydrogen-blending 
+operating points, the CFD simulations will be used as the ground truth 
+when evaluating the network model accuracy. In this work, the terms 
+’mixture’ and ’blend’ both refer to the combined propane-hydrogen fuel 
+stream.
+The pure hydrogen mass flow rates were iteratively determined to 
+achieve outlet combustor temperatures similar to that of pure propane 
+combustion for the three operating points. Table 2 below shows the mass 
+flow rates for pure propane and pure hydrogen operation.
+The blending ratios were defined based on the nominal fuel mass 
+flow rates for the pure fuel cases, as shown in Table 2. Each fuel blend 
+was determined by summing the respective blending proportions of the 
+nominal mass flow rates from the pure fuel cases. For example, for the 
+75-25 ratio (propane-hydrogen), the fuel flow rate for MGT3 is 75 % of 
+the nominal mass flow rate of propane (0.0045 kg/s from Table 2) and 
+25 % of the nominal hydrogen mass flow rate (0.0018 kg/s from 
+Table 2). For input simplicity in CFD, a total fuel mass flow rate is 
+specified as 0.0033 kg/s together with a 0.883 mass fraction of propane 
+and 0.117 mass fraction of hydrogen.
+Table 3 summarizes the fuel mass flow rates and corresponding 
+species mass fractions for all mixture operating points. This method of 
+blending fuels ensures matched outlet temperatures across cases. Doing 
+so will allow a direct comparison of the CFD data for all fuel composi­
+tions to determine the effect of hydrogen addition on combustor 
+performance.
+2.4.2. 3-D CFD model setup
+The domain used in the 3-D CFD simulation is shown in Fig. 5. As 
+illustrated, the inlet boundary conditions are the air and fuel mass flow 
+rates and the static temperatures of each stream. The compositions of the 
+fuel and air are specified in the setup of the FGM model as mass fractions 
+of the species in the fuel and oxidiser streams. Therefore, for each 
+boundary condition, a mixture fraction is specified which is 1 for the fuel 
+and 0 for the air (oxidiser). A static pressure outlet boundary condition is 
+specified at the outlet of the combustor.
+Fig. 5 (bottom) shows an isometric view of the combustor high­
+lighting the segmented volumes corresponding to the combustion zones 
+and outlet transition duct (nozzle). These zones are present in the 
+generated mesh and thus available in Ansys Fluent for post-processing 
+purposes. The segmentation enables the extraction of mass-weighted 
+average quantities from each zone for direct comparison with the 
+network model.
+The FGM model is implemented using the non-adiabatic diffusion 
+flamelet formulation. The full GRI-Mech 3.0 reaction mechanism and 
+the accompanying thermodynamic and transport properties are used for 
+pure and blended combustion. It was shown in Zettervall et al. [43] that 
+the difference between large chemical kinetic mechanisms for hydro­
+carbons, at similar operating pressures found in this study (2 bar), was 
+not considerable when estimating flame speed and ignition delays in 
+Herzler and Naumann [44]. Therefore, and considering that the level of 
+accuracy in the CFD results for the chemical kinetics cannot be verified 
+by experimental data, the choice of the reaction mechanism is flexible 
+between best performing mechanisms found in Zettervall et al. [43], and 
+Herzler and Naumann [44] which include the GRI-Mech 3.0 mechanism.
+The Zimont turbulent flame speed model is implemented for pre­
+mixed combustion, and the progress variable variance is treated as a 
+transported scalar. To account for mixing and chemical timescales, the 
+turbulent flame speed setting is selected for turbulence-chemistry in­
+teractions. Laminar flame speed is estimated using the Metghalchi-Keck 
+law [45] for propane, and the precomputed PDF values are used for 
+hydrogen and fuel mixtures.
+In ANSYS Fluent, only the mass fractions of CO and CO2 are 
+considered for the progress variable in hydrocarbon combustion. These 
+have a weighting of unity and ensure that the progress variable increases 
+through the flame [42]. Since CO exists in small quantities relative to 
+CO2 within a combustor, the mass fraction of CO2 will bias the progress 
+variable towards 1. This may cause non-physical behaviour since the 
+FGM model will regard a mixture as burnt when the progress variable is 
+close to or equal to 1 (high CO2 concentrations), causing reaction 
+progress to slow or stop. Therefore, in the standard FGM model, when 
+combustion is only mapped using the progress variable, the estimation 
+of slower evolving species like NO and the post-flame burnout of CO is 
+inaccurate [46,47]. To remedy this, as suggested by Klarmann et al. [46] 
+Table 2 
+Operating conditions for pure hydrogen and pure propane.
+Case
+Air
+Fuel
+Outlet static pressure 
+(kPa)
+Outlet total temperature 
+(K)
+Mass flow rate 
+(kg/s)
+Temperature 
+(K)
+Mass flow rate H2 
+(kg/s)
+Mass flow rate C3H8 
+(kg/s)
+Temperature 
+(K)
+MGT1
+0.2035
+351
+0.0014
+0.0034
+287
+155.6
+1027
+MGT2
+0.2374
+376
+0.0016
+0.0039
+288
+173.2
+1030
+MGT3
+0.2614
+393
+0.0018
+0.0045
+289
+189.5
+1070
+Table 3 
+Fuel mixture parameters for each operating point.
+Mixture
+Total fuel mass flow rate (kg/s)
+Mass fraction
+MGT1
+MGT2
+MGT3
+C3H8
+H2
+75–25
+0.0029
+0.0033
+0.0038
+0.883
+0.117
+50–50
+0.0024
+0.0027
+0.0031
+0.714
+0.286
+25–75
+0.0019
+0.0021
+0.0024
+0.454
+0.546
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+7 
+
+
+--- Page 8 ---
+
+and Efimov et al. [47], transport equations for CO and NO mass fractions 
+are solved and their net reaction rates are corrected based on the 
+transported values.
+The fuel and oxidiser were specified as mass fractions corresponding 
+to each operating point and fuel mixture in Tables 2 and 3, with the inlet 
+temperatures defined accordingly. The outlet static pressure of the 
+combustor is the operating pressure for the generation of the flamelet 
+and PDF table. This pressure corresponds to the value specified in the 
+operating conditions of the simulation, and consequently the combustor 
+outlet gauge pressure is 0 Pa for all cases.
+As suggested in ANSYS [42], for large chemical mechanisms, the 
+absolute error tolerance in the Flamelet generation process was reduced 
+to 1e-20 and the relative error tolerance to 1e-05. The Automated Grid 
+Refinement of the Flamelet table was implemented with a maximum 
+change in value ratio of 0.35. The initial scalar dissipation value was 
+reduced to 0.001. The maximum number of flamelets was increased to 
+400, and the number of grid points in the table was increased to 64 in the 
+mixture and reaction space which improved simulation stability. In the 
+PDF table parameters, the minimum temperature of 260 K was set well 
+below the lowest temperature provided in the boundary conditions, and 
+the number of species in the PDF table is 20.
+To model heat transfer, the solid components of the combustor seen 
+in the isometric view of Fig. 5 were included in the mesh for a CHT 
+simulation. The solid-fluid wall interfaces of the mesh are therefore 
+coupled to the energy solution, and the exterior wall of the casing is 
+allowed to radiate to the surroundings. Radiation within the combustor 
+is modelled using the DO method with four angular divisions and three 
+pixels in both the azimuthal (phi) and polar (theta) directions. The ab­
+sorption coefficient is determined using the WSSG method where the 
+beam length is based on the domain, and only the tri-atomic molecules 
+of CO2 and H2O are considered. Radiation scattering is negligible and, 
+therefore, neglected since the radiating medium is gaseous.
+Pressure and velocity are coupled, with spatial gradients calculated 
+using the cell-based least squares method. Pressure is discretised using 
+the PRESTO! Approach, and all equations are discretised using a second- 
+order upwind formulation, except radiation, which uses first-order up­
+wind. The pseudo-time method is implemented with a global time step 
+to enhance simulation stability. An absolute residual value with a 
+magnitude of 10−6 for energy and of 10−3 for the rest of the equations is 
+considered satisfactory to deem the simulation as converged.
+2.4.3. Mesh independence study
+The 3-D domain was discretised into a poly-hexcore mesh. Care was 
+taken to ensure that the y-plus values were between 30 and 300 for the 
+non-equilibrium wall treatment. Two mesh refinements were performed 
+and evaluated for a grid-independent solution. In Fig. 6, the static 
+temperature and velocity magnitude along the axis of the combustor for 
+the coarse, medium and fine mesh are plotted for MGT3. The results 
+show that minor differences in temperature and velocity predictions are 
+observed between the medium and fine mesh.
+To further demonstrate that the solution of the medium mesh is mesh 
+independent, the Grid Convergence Index (GCI) values for outlet total 
+temperature and inlet total pressure were calculated. The results are 
+shown in Table 4.
+For both temperature and pressure, low GCI values are estimated 
+with a range of 0.00 %–0.12 % showing a high degree of numerical 
+precision for the medium and fine mesh. The refinement ratio is 1.3 or 
+greater, indicating adequate mesh refinement [48]. In addition, despite 
+having significantly fewer cells, the results of the medium mesh deviate 
+only slightly from the fine mesh. Consequently, the medium mesh was 
+selected for further use in this study due to the lower computational cost 
+and levels of precision and accuracy comparable to the fine mesh.
+2.4.4. Thermofluid network model setup
+A 1-D network model, as shown in Fig. 7, has been constructed in 
+Flownex SE. The model was developed with an emphasis on simplicity, 
+while being informed qualitatively by 3-D CFD results. A reactor 
+network extracted from CFD increases workflow complexity and would 
+require additional simulation time and computational resources. The 
+intent of the current methodology is to demonstrate the effectiveness of 
+a simplified and generalisable approach to reliably predict combustor 
+performance in the absence of CFD. Furthermore, a preliminary analysis 
+of the reactor network shape for extracted networks showed that the 
+reactor layout and shape would change across fuel mixtures. Therefore, 
+to emphasise the generalizability of the proposed methodology and the 
+effectiveness of a simplified reactor network for mixed fuel applications, 
+the network model layout closely represents the layout introduced by 
+Bragg [49], where the primary combustion zone is assumed to be a WSR 
+and post-flame burnout is modelled using PFRs.
+Standard flow elements are used to model heat transfer and all flow 
+passages. Jets (holes) are modelled as restrictors with discharge co­
+efficients; other sub-components are modelled using pipe elements with 
+loss coefficients for frictional and obstruction losses. The recirculation 
+Fig. 5. CFD domain as seen on the y-z plane (top) and an isometric partial section view of the domain highlighting the combustion zones.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+8 
+
+
+--- Page 9 ---
+
+effects within the combustor, discussed later, are approximated by 
+redirecting mass flow through flow resistance elements with prescribed 
+mass flow rates. Discharge and loss coefficients, as well as recirculation 
+mass flow rates, are determined by the correlations in Section 2.2.1. The 
+calculations are performed by embedded MathCad user-defined scripts, 
+which are executed after each iteration and update the corresponding 
+flow element parameters until convergence is achieved. Implementing 
+the loss models in Flownex SE and the use of standard components re­
+sults in a geometrically generalisable model as the dimensions of each 
+component, and the configuration of the network is fully customizable.
+Flownex SE can execute Python scripts within its C# scripting 
+components through PythonNET. This facilitates the use of Cantera 
+WSRs and PFRs in Flownex SE. In this network model, a C# script is 
+executed within a compound component which is illustrated in Fig. 8. 
+The C# script is shown as the container of the Python script denoted by 
+the dashed rectangle. It obtains the reactants (subscript R) mass flow 
+rate ( ˙m), inlet temperature (T), pressure (P), and list of reactant mass 
+fractions (Y) from the reactor node (labelled R) and sends it to the Py­
+thon script that executes the Cantera reactor calculations for a WSR or 
+PFR. An exit temperature and a list of product (subscript P) mass frac­
+tions are then returned to Flownex SE and written to the outlet node 
+(node P) of the pipe element that approximates the combustion zone in 
+the compound component. The nodes labelled a and b are open nodes 
+that connect to the greater network model.
+The results of the 3-D simulation informed the shape of the network. 
+In Fig. 9 are streamline traces initiated from the PZ jets (left) and the SZ 
+jets (right). It is evident that there is recirculation into the PZ from the 
+flow entering through the PZ jets. This flow phenomenon is not present 
+in the SZ. The magnitude of the recirculation mass flow is estimated 
+using equation (13) from Lefebvre [29] instead of being informed by the 
+CFD. This is, of course, a crude estimation as the correlation does not 
+account for swirl flow within the flame tube and the recirculation zone 
+upstream of the opposed PZ jets. Furthermore, consistent with the 
+mechanism described in Lefebvre [29], recirculation flow induced by 
+swirl is approximated in the network model. This is achieved by 
+returning products at the outlet of the PZ to its inlet at a rate determined 
+by equation (13). Mass flow entrainment due to swirl is critical for flame 
+holding in this combustor as entrained hot reaction products mix with 
+incoming unburnt reactants in the primary zone to sustain combustion.
+A sensitivity analysis was conducted to determine the effect of 
+excluding the PZ recirculation flows on the network model outputs 
+measured at the PZ and combustor outlet. The combustor outlet 
+Fig. 6. Static temperature (left) and velocity magnitude (right) along the combustor’s axis for MGT3.
+Table 4 
+Grid Convergence Index parameters.
+Outlet Total Temperature
+Mesh
+φ
+Ncells
+r
+GCI
+Fine
+1088.71 K
+10526216
+1.6
+0.00 %
+Medium
+1089.69 K
+2500099
+1.3
+0.11 %
+Coarse
+1105.58 K
+1143823
+​
+​
+Inlet Total Gauge Pressure
+Mesh
+φ
+Ncells
+r
+GCI
+Fine
+14368.92 Pa
+10526216
+1.6
+0.01 %
+Medium
+14381.83 Pa
+2500099
+1.3
+0.12 %
+Coarse
+14435.86 Pa
+1143823
+​
+​
+Fig. 7. Network model of the combustor with reactors and MathCad scripts.
+Fig. 8. Compound component in Flownex SE.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+9 
+
+
+--- Page 10 ---
+
+temperature and major species mass fractions (CO2 and H2O) were not 
+sensitive to the recirculation flows with deviations of less than 0.54 %. 
+However, excluding swirl recirculation changed the CO mass fraction by 
+−5.69 % (MGT3) to −23.26 % (MGT2). The opposed jet recirculation 
+had a reduced effect and increased the CO mass fraction by 1.18 %.
+A reduced CO mass fraction when excluding swirl recirculation is an 
+expected outcome. The function of swirl recirculation is to return hot 
+combustion products to the unburnt reactants thereby increasing the 
+reaction rate to sustain combustion. The hot reactants in swirl recircu­
+lation flow include CO and increase the mass fraction of CO in the PZ. 
+Opposed jet recirculation returns unburnt reactants to the PZ combus­
+tion zone which increases the O2 available for reactions to proceed. 
+When opposed jet recirculation is omitted, reaction progress reduces 
+and results in an increased CO mass fraction.
+The effect of the recirculation flows on the PZ is more pronounced 
+and supports the above discussion. The accompanying data shown in 
+Table 5 is for MGT3 only as the observed trends are prevalent for all 
+operating points. It is clear from the above discussion that the swirl and 
+opposed jet recirculation flow, as estimated in equations (13) and (16), 
+have considerable effects on the PZ that propagate to the outlet, most 
+notably observed for the CO mass fraction. As such, the sensitivity study 
+and the phenomenological evidence shown in Fig. 9 motivate the in­
+clusion of the recirculation flows in the network model.
+The type of reactor used to model each reaction zone was informed 
+by the average Damk¨ohler (Da) number of each combustion zone 
+calculated from CFD data. Using the definition of Kuo [50], the Da 
+number was calculated as a ratio of the combustion zone’s average 
+Kolmogorov mixing time scale (τk = (v/ϵ)1/2) to the chemical time scale 
+(τc = 1/k). The rate coefficient (k) is that of the slowest reaction in a 
+WSR at the average combustion zone inlet temperature and composi­
+tion. v and ϵ are the mass averaged kinematic viscosity and the turbulent 
+kinetic energy dissipation rate, respectively.
+A large Da number indicates that mixing is slow, which limits the 
+overall reaction rate. If the Da number is much smaller than unity, the 
+mixing rate is sufficiently high to promote combustion, and the chemical 
+kinetics will limit reaction rates.
+In Fig. 10 are three plots for each operating point. The plots mark the 
+Damk¨ohler number of each combustion zone for three trends that 
+represent three fuel compositions, namely: propane-only (100-0), 
+hydrogen-only (0–100) and a 50 % share of each fuel (50-50).
+Notably, the Da number is much less than 1 for all zones in each data 
+set. This indicates that each zone is mixed sufficiently such that the re­
+action rates will be chemically limited. Therefore, for the combustor in 
+this study, the selection of WSRs to approximate the PZ and SZ is 
+justified. The DZ also exhibits chemically limited combustion, but it is 
+modelled as a PFR to account for the effect of an increased residence 
+time on reaction kinetics.
+3. Results and discussion
+This section presents the results of the 3-D numerical model and 
+network model. Firstly, 3-D CFD results for combustor operation using 
+propane, hydrogen and propane-hydrogen fuel mixtures are presented. 
+The intent is to develop an understanding of how hydrogen supple­
+mentation may augment combustor operation. Secondly, a detailed 
+validation of the network model is conducted for propane-only opera­
+tion. Finally, the network model is validated for operation on fuel 
+mixtures of hydrogen and propane.
+3.1. 3-D numerical model
+The experimental data available to validate the CFD model is limited 
+to the combustor outlet total temperature for propane-only operation at 
+the operating points recorded in Ssebabi [25] (see Table 1). Although 
+the validation dataset is limited, an agreement with the outlet total 
+temperature is considered sufficient for this study as the CFD results will 
+be used to validate a system-level thermofluid network model. A 
+detailed validation of the internal flow structure and flame dynamics is 
+beyond the scope of this work since the network model’s predictive 
+accuracy at the outlet of the combustor is of primary importance.
+The CFD and experimental results for the combustor outlet total 
+temperature are presented in Table 6. The CFD model is shown to predict 
+a combustor outlet total temperature 64 K–85 K lower than the experi­
+mental results of Ssebabi [25]. This represents a 5.9 % (MGT1) to 7.6 % 
+(MGT2) difference which is within the typical error range of approxi­
+mately 5 % and 7 % found in the CFD validation studies of combustors in 
+Cam et al. [51] and Benaissa et al. [52], respectively. The close agree­
+ment in the outlet total temperature suggests that the combustion and 
+heat transfer processes are captured reasonably well by the numerical 
+model for its intended application.
+Kairu [53] determined that when placed in a laboratory flame, ra­
+diation heat loss from a thermocouple was predominant. This resulted in 
+a measured temperature lower than the true temperature with a 
+maximum error of −117.6 K. In contrast, the measured combustor outlet 
+temperature in the current work is higher than the estimates of the CFD 
+simulations, indicating heat gain. Based on this, it is reasoned that the 
+discrepancy between the experimental and CFD results is primarily due 
+to the systematic and precision uncertainties in the experimental data.
+To increase the rigour and confidence in the CFD model validation, a 
+sensitivity study was conducted for operating point MGT3 to assess how 
+experimental measurement uncertainties propagate through the inlet 
+boundary conditions and affect the simulation results. As the operating 
+point closest to the design point, operating point MGT3 was chosen for 
+this analysis.
+Through the total uncertainty values reported in Ssebabi [25], a set 
+Fig. 9. Pathlines, coloured by velocity magnitude, initiated from the PZ jets (left) and the SZ jets (right) for MGT3.
+Table 5 
+Sensitivity of outlet temperature and key species mass fractions at the outlet of 
+the PZ to the implementation of empirically estimated recirculation flows.
+Recirculation flow
+Parameter error (%)
+TOTPZ
+CO2
+H2O
+CO
+Swirl
+−0.40
+6.30
+10.93
+−1.19
+Opposed jet
+−8.45
+−41.44
+−57.67
+4.29
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+10 
+
+
+--- Page 11 ---
+
+of minimum and maximum inlet conditions for the chosen parameters 
+were determined as shown in Table 7. In Ssebabi [25], the total uncer­
+tainty was estimated to a confidence level of 95 % using the method­
+ology reported in ASME [54]. The sensitivity study only varied the inlet 
+air and fuel mass flow rate since these would significantly affect the 
+combustor outlet temperature, and a considerable total uncertainty 
+value is reported for both. Table 8 presents the sensitivity results of the 
+combinations of fuel and air mass flow rates, categorized as follows. 
+• Min and Max: the minimum or maximum fuel and air mass flow rate 
+is simultaneously applied.
+• Min-Fuel and Max-Fuel: the nominal MGT3 conditions for all inlet 
+conditions are applied while the fuel mass flow rate varied to its 
+minimum or maximum value.
+• Min-Air and Max-Air: uses nominal MGT3 conditions for all inlet 
+conditions while varying only the air mass flow rate to its minimum 
+or maximum value.
+• Min-Fuel-Max-Air and Min-Air-Max-Fuel: uses nominal MGT3 con­
+ditions with alternating combinations of minimum or maximum fuel 
+and air mass flow rates.
+In Table 8 the combustor total outlet temperature is estimated in the 
+sensitivity study. The largest range of deviation from the nominal CFD 
+results is for the alternating combinations of minimum or maximum fuel 
+and air mass flow rates. Relative to the nominal CFD value, the deviation 
+range is −7.76 %–8.69 %. When compared to the experimental value, 
+the deviation range is −13.57 %–1.84 %. The large range of deviation 
+shows that the simulation and experiment are considerably affected by 
+the measurement uncertainty reported in Ssebabi [25].
+When accounting for the experimental uncertainty, the CFD results 
+of the sensitivity study estimate a range of combustor outlet 
+temperatures sufficiently large to include the experimental value. This 
+suggests that the discrepancy between the CFD model and the experi­
+mental data may arise from measurement limitation rather than 
+fundamental modelling deficiencies. Therefore, while this result does 
+not directly validate the CFD model, it provides reasonable justification 
+for the suitability of the model for the current purpose of validating a 
+reduced order network model.
+Fig. 11 is a compound figure that displays the change in key 
+combustor parameters with the increase in hydrogen fuel content for 
+each operating point. Figs. 11–1a is the PZ equivalence ratio and 1b is 
+the global equivalence ratio. Figs. 11–2a and 2b are plots for the change 
+in total inlet air and fuel pressure, respectively, normalized to the data 
+for propane-only. Figs. 11–2c shows the combustor efficiency as a 
+function of blending ratio.
+Because hydrogen has a higher mass energy density compared to 
+propane, it is observed that the equivalence ratios are reduced as the 
+blending ratio is increased. Despite common operating conditions for 
+each fuel mixture, the change in total pressure across the combustor 
+varies with changes in fuel blending ratios as seen in Figs. 11–2a. The 
+trends for MGT2 and MGT3 are similar, initially decreasing, then 
+increasing from blending ratio 50-50 to pure hydrogen operation. When 
+compared to propane-only, the change in total pressure across the 
+combustor is at most 3.5 % and 2.1 % higher for MGT2 and MGT3, 
+respectively. The change in total pressure for MGT1 is less than the 
+propane-only data points for all blending ratios. Expectedly, and due to 
+hydrogen’s lower density, increasing its share in the fuel mixture in­
+creases the fuel’s total inlet pressure (Figs. 11–2b). Notably, the 
+maximum inlet total fuel pressure is for the 25–75 mixture for all 
+operating points, and not for hydrogen-only operation.
+Data for combustion efficiency, presented in Figs. 11–2c, is estimated 
+as a ratio of the total outlet enthalpy of the CFD simulations to the values 
+estimated by a well-stirred reactor for the same boundary conditions. A 
+well-stirred reactor is chemically limited and provides a realistic yet 
+ideal ceiling for the reaction progress in a combustor. As such, the total 
+enthalpy of the well-stirred reactor is used as the basis for the combus­
+tor’s efficiency. Operating point MGT3 is closest to the design point and 
+has the highest combustion efficiency of 89 % for propane-only opera­
+tion. It is followed by MGT2 and MGT1 with values of 79 % and 66 %, 
+respectively.
+For the fuel blends, when compared to propane-only operation, there 
+is an increase in efficiency for all operating points. In the data for the 
+Fig. 10. Mass averaged Damk¨ohler number of each combustion zone for varying fuel mixtures of H2 and C3H8.
+Table 6 
+Total outlet temperature results for the CFD model and experimental data.
+Value
+Outlet total temperature (K)
+MGT1
+MGT2
+MGT3
+CFD
+1027
+1036
+1070
+Experiment
+1091
+1121
+1142
+Abs error (%)
+5.9
+7.6
+6.3
+Table 7 
+Sensitivity study confidence intervals for propane-only operating point MGT3 
+from Ssebabi [25].
+Uncertainty
+Parameter
+T02
+T03
+˙ma
+˙mf
+Random (%)
+1.11
+0.21
+2.05
+5.18
+Systematic (%)
+0.75
+0.75
+0.12
+0.05
+Total (%)
+±2.26
+±1.56
+±4.11
+±10.36
+Min
+384.1 K
+1124.2 K
+0.251 kg/s
+0.00403 kg/s
+Max
+401.9 K
+1159.8 K
+0.272 kg/s
+0.00497 kg/s
+Table 8 
+The effect of boundary condition uncertainty on combustor total outlet tem­
+perature. OTT corresponds to the Outlet Total Temperature.
+Uncertainty category
+Min
+Max
+Min- 
+Fuel
+Max- 
+Fuel
+Min- 
+Air
+Max- 
+Air
+Min- 
+Fuel- 
+Max- 
+Air
+Min- 
+Air- 
+Max- 
+Fuel
+OTT 
+(K)
+1024
+1120
+1008
+1140
+1093
+1043
+987
+1163
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+11 
+
+
+--- Page 12 ---
+
+first blending ratio 75-25, when compared to pure propane, MGT1 dis­
+played the largest increase of 22 % followed by MGT2 with 14 %, and 4 
+% for MGT3. In addition, there is a narrow combustion efficiency range 
+for the fuel blends where MGT2 and MGT3 have a similar range of be­
+tween 89 % and 93 %, and MGT1 is between 88 % and 90 %. For pure 
+hydrogen operation, the combustion efficiency of MGT1 and MGT2 is 
+increased to 89 % from 66 % to 79 %; the efficiency of MGT3 is un­
+changed from propane-only operation at 89 %.
+It is clear from the above observation that fuel blending with 
+hydrogen improves combustion efficiency, especially at off-design 
+operating points. This is attributed to the enhanced chemical kinetics 
+of the H2–O2 reaction mechanisms. However, for the current combustor, 
+the combustion efficiency is not improved when operating close to the 
+design point on pure-hydrogen. With the global effects of fuel blending 
+on combustor aerodynamics and overall efficiency established, the in­
+fluence on combustion progress and completeness can now be 
+examined.
+Fig. 12 is a compound figure. It presents mass average data (static 
+temperature and species mass flow rate) calculated at the inlet and 
+outlet planes of each combustion zone. The planes at the interfaces of 
+Fig. 11. Combustor performance metrics for each fuel mixture.
+Fig. 12. Spatial variation of key combustion parameters across the planes of combustor zones for different fuel mixtures.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+12 
+
+
+--- Page 13 ---
+
+zones are labelled with the abbreviations of both zones. All plots are 
+concerned with operating point MGT3 only.
+Similar to the work of Tamang and Park (2023), the CFD data shows 
+that increasing the share of hydrogen reduces the mass fraction of CO2 
+(Fig. 12-c) and increases NO (Fig. 12-b) at the outlet of the combustor. 
+CO2 decreases with increasing hydrogen content due to the reduced 
+carbon mass in the fuel mixture, as hydrogen blending is optimised to 
+maintain outlet gas temperatures equivalent to pure propane 
+combustion.
+There is no fuel-bound nitrogen available to form NO, and the for­
+mation of Prompt-NO is suppressed due to limited CxHy radicals in the 
+current combustor under the fuel-lean conditions. Therefore, the 
+Thermal-Zeldovich route is the dominant NO formation pathway as 
+temperatures in the PZ and SZ exceed 1500 ◦C [55]. This verifies the 
+increased net formation of NO with increasing hydrogen as the effective 
+flame temperature is simultaneously increased due to reduced flame 
+radiation [56]. In Fig. 12-b for the mass flow rate of NO, the 
+hydrogen-only case is shown to produce 80 % more NO than the 
+propane-only case, similar error margins to those reported in Benaissa 
+et al. [52] and Tamang and Park [5]. Hydrogen addition causes the mass 
+of NO to peak in the SZ before sharply declining in the DZ which is a shift 
+upstream relative to the results for pure-propane operation. It occurs 
+because hydrogen’s enhanced combustion kinetics, driven by increased 
+OH, H, and O radical concentrations, accelerate NO formation through 
+thermal, NNH, and N2O pathways compared to propane combustion 
+[57].
+For propane-only operation, NO formation in the PZ and SZ occurs at 
+a lower rate when compared to fuel blend and pure hydrogen operation 
+(Fig. 12-b) despite similar zone temperatures (Fig. 12-a). A fuel rich PZ 
+and SZ, for pure propane firing, increases the presence of CxHy radicals 
+necessary for NO reburn, and a high temperature would promote 
+Thermal NO formation [55]. These are competing mechanisms and 
+would explain the reduced NO formation rate. As CxHy radicals are 
+consumed in the SZ and DZ of the combustor, the NO reburn rate will 
+decrease, thereby increasing the dominance of the thermal pathway. 
+However, since dilution air entering the DZ at plane SZ-DZ lowers fluid 
+temperatures below the threshold for Thermal NO formation, other NO 
+formation pathways like the Prompt, N2O and NNH will be prominent.
+Less CO2 is formed for blended fuels (Fig. 12-c), however, an 
+increased share of hydrogen in the fuel is found to reduce conversion 
+rates of CO to CO2 in the DZ. This is evident in Fig. 12-d, where the outlet 
+CO mass flow rate for mixture fuels is found to be 38 % (25–75) to 70 % 
+(50-50) more than the propane-only case. This finding is contrary to the 
+reviewed literature in gas turbine combustor performance on mixed 
+fuels, as these studies consider mainly methane-hydrogen mixture 
+combustion. However, it is coherent with broader combustion literature 
+that the effect of hydrogen on flame speed in fuel blend combustion is 
+dependent on the enriched hydrocarbon [8,58]. Methane exhibits the 
+largest increase in flame speed with hydrogen addition, whereas there is 
+a reduced effect on propane [8,58]. The following discussion, supported 
+by Fig. 13, will provide an analysis of the mechanisms that result in a 
+reduced conversion of CO to CO2.
+Fig. 13 is a compound figure. It presents mass averaged data calcu­
+lated at the inlet and outlet planes of each zone. The planes at the in­
+terfaces of zones are labelled with the abbreviations of both zones, and 
+all plots are concerned with operating point MGT3 only. Figures in the 
+top row display data for propane-only operation, and the bottom row is 
+for the 50-50 blending ratio. Figs. 13–1a shows the major and minor 
+species, 1b contains data for the O and H radicals and 1c depicts trends 
+for fuel intermediates across the combustor. Similar data are plotted for 
+the 50-50 fuel blend in Figs. 13–2a to 2c.
+A steady decrease in the fuel mass flow rate (Figs. 13–1a) and an 
+increased presence of fuel intermediates (Figs. 13–1c) between the PZ 
+and DZ inlet is an indication of incomplete combustion. Due to the 
+radical reformation of light to heavy hydrocarbons, there is a consid­
+erable quantity of larger hydrocarbons (C2H4 and C2H6) in the PZ and 
+SZ. Evidence for this is the reduced quantities of CH3 as it is radically 
+reformed into C2H6.
+The formation of an O and H radical pool may increase the overall 
+reaction rate by radical multiplication through the oxidation of the H 
+radical. However, at high temperatures in the PZ and SZ, the availability 
+of the H radical is limited through the kinetically favoured H abstraction 
+reactions with heavy hydrocarbons to form lighter compounds and H2 
+[59]. This is evident in the large quantity and steady increase of H2 
+Fig. 13. Spatial variation of key species across the planes of combustor zones for different fuel mixtures.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+13 
+
+
+--- Page 14 ---
+
+shown in Figs. 13–1b and the comparatively low amounts of the H 
+radical.
+At the SZ inlet, fuel intermediate mass flow rates begin to decrease 
+while O and H radicals continue to increase. Here, high temperatures 
+favour the thermal decomposition of hydrocarbons, reducing the H 
+abstraction rate. Subsequently, the H-atom availability is increased, 
+promoting the consumption of H2 via chain branching radical multi­
+plication reactions, thereby increasing the overall reaction rate [59]. 
+High temperatures in the SZ (>1500 K) reduce CO conversion into CO2 
+as the reverse water-gas-shift is kinetically favoured [60], and CO to CO2 
+formation pathways via fuel intermediates are limited [31].
+The elevated temperature at the exit of the SZ, plane SZ-DZ, is rapidly 
+reduced by air dilution. At lower temperatures (<1500 K), more reac­
+tion pathways are available for the conversion of fuel intermediates by O 
+and H radicals which increases the CO2 formation rate [31]. As the 
+concentration of fuel intermediates diminishes, more O and H radicals 
+are available to participate in the conversion of CO to CO2. Lower 
+temperatures in DZ promote CO consumption via the water-gas shift 
+which further increases the formation of CO2. Therefore, as seen in 
+Figs. 13–1a and 1c, there is a sharp decline in CO and fuel intermediate 
+mass flow rates with a simultaneous increase in CO2 between plane 
+SZ-DZ and DZ-out.
+Hydrogen supplementation increases the concentration of O and H 
+radicals in the PZ and SZ which bears significance for the fuel inter­
+mediate composition shown in Figs. 13–2c for the 50-50 blending ratio. 
+Since H radicals’ abstract hydrogen from hydrocarbons forming smaller 
+hydrocarbons and H2, a larger H radical pool will increase the abstrac­
+tion rate in fuel blend combustion. This is evident in Figs. 13–2c where 
+only CH4 is shown to exist in considerable quantities in any combustion 
+zone. Further abstraction of CH4 is hindered at the high temperatures in 
+the PZ and SZ, as the methyl recombination pathways to larger hydro­
+carbons are favoured [59]. However, these larger hydrocarbons are 
+subsequently and rapidly abstracted to form CH4. This balance is then 
+shifted at the exit of the DZ. Similar to propane-only combustion, when 
+the temperature of the gas is reduced, the radical attack and conversion 
+of CH4 into CO2 is enabled. As a result, the reduced concentration of CH4 
+makes H radicals available for the completion of the H2–O2 reacting 
+system.
+Although indicative of incomplete combustion, the large variation 
+and high concentration of fuel intermediates in propane-only combus­
+tion enhance CO to CO2 conversion. At low temperatures, alongside O 
+and H radicals, these hydrocarbons provide indirect CO to CO2 con­
+version pathways [31]. In contrast, a larger O and H radical pool in fuel 
+mixture combustion increases the hydrogen abstraction rate, forming 
+fewer and lighter hydrocarbons which limit the reaction pathways from 
+CO to CO2 in low temperature combustion zones.
+Fig. 14 shows the area-averaged wall temperatures for pure-propane 
+(top), and the mixture firing cases per operating point (bottom). Wall 
+temperatures for propane operation show a monotonic upward trend. 
+The PZ and SZ wall temperatures average between 734 and 754 K, and 
+DZ wall temperatures range between 1031 and 1038 K across all oper­
+ating points. Both hydrogen mixtures and pure-hydrogen reduce zonal 
+wall temperatures compared to propane. The most significant reduction 
+occurs in the PZ of the 50-50 mixture for MGT1 (29 %), while the 
+smallest reduction is in the SZ of the 75-25 and 25–75 mixtures for 
+MGT3 (22 %).
+The DZ wall is highlighted by the rectangles in Fig. 15. Static tem­
+perature contours reveal that propane-only operation exhibits active 
+combustion along the DZ wall due to fuel accumulation in this region. 
+Hydrogen introduction increases fuel velocity through the flame tube 
+centre, preventing wall-bound fuel accumulation and combustion. This 
+change, combined with reduced flame radiation from increased water 
+vapour content in hydrogen combustion products [56,61], successfully 
+lowers PZ and SZ wall temperatures under blended firing configurations.
+3.2. Thermofluid network model validation using CFD results for 
+propane-only firing
+In this section the network model is validated by benchmarking it 
+against CFD results for propane-only operation using the operating 
+points found in Table 1. Validation is achieved through a comparison of 
+the mass flow rate distribution, outlet total temperature, change in 
+Fig. 14. Combustion zone wall temperature for propane-only operation (top), and the wall temperature for mixture fuel operation of each operating point (bottom).
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+14 
+
+
+--- Page 15 ---
+
+absolute total pressure and the mass fractions of major and minor spe­
+cies at the combustor outlet. Subsequently, the network model’s ability 
+to predict combustor performance on mixed fuels is determined by 
+comparison with the CFD data presented in the previous section.
+The CFD and network model results for outlet total temperature 
+(OTT) and absolute pressure (OTP) are shown in Fig. 16 for each oper­
+ating point. The network model predicts higher outlet temperatures than 
+CFD but maintains consistent trends, showing temperature increases 
+from MGT1 to MGT3 with less than 0.5 % relative error. Outlet tem­
+peratures differ by an average of 5.7 K ± 0.3 K across all operating 
+points. Inlet pressure predictions show excellent agreement with CFD, 
+with relative errors ranging from 0.14 % (MGT1) to 0.26 % (MGT3).
+Fig. 17 presents the mass flow rates for each combustor flow path 
+from both CFD and network model simulations, along with the corre­
+sponding total pressure drops per flow path. The total pressure drop 
+across each component, and the resulting mass flow rate are determined 
+by the loss models presented in section 2.2. The network model un­
+derestimates the total combustor pressure drop by 3–4 % compared to 
+CFD. While cooling holes and the pre-diffuser show the largest de­
+viations (6 % and 8 %, respectively), they contribute only 6.3 % of the 
+total pressure drop. The major pressure drop components (snout, SZ jets, 
+and PZ jets) show better agreement with maximum deviations of 3 %, 3 
+%, and 6 %, respectively. Despite the difference in the change in total 
+pressure across each sub-component, the mass flow distribution pre­
+dicted by the network model strongly agrees with the CFD results. A 
+summary of the errors between the network and CFD model is shown in 
+Tables 9 and 10 for the total pressure drop and mass flow rate, 
+respectively.
+Averaged inner wall temperatures (left) and zone temperatures 
+(right), as estimated by the CFD, are shown in the top row of compound 
+Fig. 18. The bottom row shows the errors of the network model relative 
+to the CFD.
+The average combustion zone temperature estimated by the network 
+model displays a similar trend to the CFD. Zone temperatures increase 
+from the PZ to the SZ and subsequently decreases in the DZ. This 
+behaviour is expected as the PZ jets supply air to complete combustion 
+in the secondary zone increasing its temperature. Subsequently, cool air 
+is supplied through DZ jet to quench the gas as it enters the DZ from SZ. 
+Despite similar trends to the CFD data, the network model estimates 
+lower average zone temperatures for all operating points. The network 
+model underpredicts the PZ temperature with a percentage error range 
+of −9.6 % to −18.3 %, and a temperature difference of −109 K to −238 
+K. The SZ has an error range between −11.8 % (−197.5 K) and 1.2 % 
+(19.2 K). The DZ is well predicted with an error of −3.4 % or −36.4 K.
+There is good agreement between the CFD and network model for the 
+inner wall temperatures of the PZ and SZ for MGT1 and MGT2, with 
+errors between −2.5 % and 7.3 %. For MGT3, the SZ wall temperature 
+correlates well with an error of 6.4 %, however the PZ wall temperature 
+is underpredicted by 15.5 %. Large errors are observed for the DZ wall 
+temperature of all operating points with an error range between −16.2 
+% and −21.13 %.
+The configuration of the current network model estimates convec­
+tion heat transfer between a lumped combustion zone, represented as a 
+single flow element, and the solid node of the conduction heat transfer 
+element. As such the difference between the average combustion zone 
+temperature and the temperature of the solid node is used to estimate 
+convection heat transfer. In contrast, considering a FVM CFD simulation, 
+convective heat transfer is determined between the wall and the 
+neighboring cell(s) only. Therefore, CFD simulations can account for 
+localized changes in the flow field and combustion, and their effects on 
+gas temperatures and heat transfer. This explains why, despite the low 
+errors in the estimates for the DZ temperatures, there is a large error in 
+the wall temperature estimates.
+The network model has demonstrated satisfactory agreement with 
+Fig. 15. Static temperature contours for three fuel cases: propane-only (left), 50-50 propane-hydrogen mixture (middle), and hydrogen-only (right). The dilution 
+zone (DZ) wall region is highlighted by black rectangles.
+Fig. 16. Network model versus CFD for combustor outlet total temperature and total pressure.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+15 
+
+
+--- Page 16 ---
+
+the CFD model in predicting the global operating conditions, internal 
+aerodynamics, and heat transfer within a can combustor. The dis­
+tinguishing feature of the network model in this study is the coupling of 
+the aerodynamics with the chemical reactors. The following section of 
+the validation is performed to show that by including chemical reactor 
+models, the network model can predict changes in major and minor 
+combustion species, and the pollutant NO across a system operating 
+curve. Doing so positions the network model as a tool to improve 
+combustion efficiency and pollutant emissions.
+The top row of Fig. 19 shows plots of CFD data only for the major 
+species mass fraction (left), and the minor and pollutant species mass 
+fraction (right). The data shown is for each operating point, measured as 
+a mass average across the combustor outlet plane. The bottom row is the 
+corresponding plots for the error of the network model relative to the 
+CFD (left) and the normalized mass fractions (right).
+For the major species, CO2 and H2O, there is good agreement be­
+tween the network model and the CFD. CO2 is underpredicted within a 
+range of −1.1 % to −2.4 %. The error for H2O mass fraction is negligible 
+and less than 0.03 %. A low degree of error for the major species in­
+dicates that similar degrees of combustion completeness are predicted.
+There is a considerable difference in the NO mass fraction as seen in 
+the right-hand plots of Fig. 19. Despite having a similar trend, a mass 
+fraction of 8.2 (MGT3) to 10.7 (MGT1) times higher than the CFD is 
+estimated by the network model. This difference is attributed to the 
+approximation of PZ and SZ as well-stirred reactors. As a result, by 
+assuming that combustion proceeds uniformly, the reactor temperature 
+is homogeneous and elevated which increases the volumetric thermal 
+NO formation rate. In 3-D CFD, combustion models like the FGM used in 
+this study account for the influence of local turbulence-chemistry in­
+teractions on combustion rates and may result in reduced NO formation 
+rates when compared to a well-stirred reactor.
+NO was overpredicted by a factor of 4–5 in Grimm [21] and Romano 
+et al. [20] when implementing reactor networks extracted from CFD 
+Fig. 17. The change in total pressure across (top) and the mass flow rate (bottom) through each sub-component.
+Table 9 
+A summary of the error between the network and CFD model for the component total pressure drop relative to the CFD total pressure change across the combustor.
+OP
+Component error (%)
+Pre-diffuser
+Snout
+Swirler
+Annular passage
+Cooling holes
+PZ jets
+SZ jets
+Inlet
+MGT1
+8
+3
+4
+4
+5
+3
+1
+3
+MGT2
+7
+2
+4
+3
+7
+6
+2
+3
+MGT3
+8
+1
+4
+3
+6
+5
+3
+4
+Table 10 
+A summary of the error between the network and CFD model for the component 
+mass flow rate relative to the total mass flow rate across the combustor.
+OP
+Component error (%)
+Snout
+Swirler
+Annular 
+passage
+Cooling 
+holes
+PZ jets
+SZ jets
+MGT1
+0.08
+0.26
+0.34
+−0.18
+−0.15
+−0.16
+MGT2
+−0.02
+0.30
+0.36
+−0.32
+−0.14
+−0.13
+MGT3
+0.05
+0.15
+0.51
+−0.09
+−0.15
+0.06
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+16 
+
+
+--- Page 17 ---
+
+data. Despite the use of a reactor network only informed by CFD data 
+and empirical correlation, a comparable error margin is observed in this 
+study. The consistency with prior work supports the validity of the 
+model’s predictions and highlights the inherent difficulty in accurately 
+estimating NO using simplified reactor networks.
+The CO mass fraction of the network model is 1.8–4.2 times larger 
+than the CFD value, which is consistent with the prior work of Colorado 
+and McDonell [18] and Kaluri et al. [19], and more recently in Grimm 
+[21] and Villette et al. [62]. Estimating higher levels of CO for each 
+operating point is consistent with the network model’s underprediction 
+of CO2. As with the result of NO, the discrepancy in CO is primarily 
+attributed to the well-stirred reactor assumption.
+Despite overpredicting the NO and CO mass fraction, the network 
+model trend is consistent with the CFD data, and the magnitude of the 
+network model error is consistent with prior work [18–21,62]. There­
+fore, the model demonstrates suitability for preliminary combustor 
+studies that require trend predictions, stronger predictive capability for 
+CO, and qualitative insights for NO.
+3.3. Comparison between thermofluid network and CFD model results for 
+blended firing
+In the previous section, the network model was validated against 
+CFD results for propane-only operation and demonstrated the network 
+model’s capability to predict combustor performance using a fuel it was 
+designed for. In this section, the predictive capability of the network 
+model will be assessed. It will examine the model’s capacity to extrap­
+olate combustor performance for fuel blends of propane (C3H8) and 
+hydrogen (H2), by validating once more against CFD results. The vali­
+dation will be executed for each operating point and fuel composition 
+discussed in section 2.4.1. This validation will focus on the global per­
+formance of the combustor.
+With data for all operating points and fuel mixtures, Fig. 20 is a 
+compound figure displaying the following: labelled 1a is the total outlet 
+Fig. 18. Combustion zone inner wall temperature (top-left), average combustion zone total temperature (top-right) and the respective relative error (bottom).
+Fig. 19. Outlet CO2 and H2O mass fraction (top left), outlet CO and NO mass fraction (top right). The relative error for CO2 and H2O (bottom left) is also shown 
+together with the normalized CO and NO mass fractions (bottom right).
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+17 
+
+
+--- Page 18 ---
+
+temperature for the CFD simulation and 1b is the relative error of the 
+network model, 2a and 2b are plots of the major species mass fractions 
+for CO2 and H2O at the combustor outlet with the corresponding relative 
+error for each plot shown in 3a and 3b, respectively.
+For the outlet total temperature, a close agreement is observed be­
+tween the network model and the CFD simulation for all operating 
+points and fuel mixtures. The error relative to the CFD is within ±0.55 
+%. This result is expected as Fig. 10 showed that the Damk¨ohler number 
+is much less than 1 for each combustion zone and fuel mixture indicating 
+that reactions are chemically limited, similar to a WSR and PFR.
+For all fuel mixtures, as shown in Figs. 20–2a and 2b, the major 
+species mass fractions (CO2 and H2O) estimated by the network model 
+correspond well with the CFD results. For CO2, the error is within a 
+range of −2.4 %–2.1 %. The H2O mass fraction correlates well and has 
+an error range of −0.6 %–1.3 %. This close correlation indicates similar 
+degrees of combustion completeness and heat release, verifying the 
+agreement in total outlet temperature.
+In Fig. 21, the results for the minor species mass fraction CO (left) 
+and NO (right) are presented as determined at the outlet of the 
+combustor. The data labelled with the suffix F denotes the network 
+model, and the data without are from the CFD model.
+The CO mass fraction estimated by the network model has a similar 
+magnitude and trend when compared to the CFD data, decreasing with 
+an increase in hydrogen. The network model CO mass fraction deviates 
+by similar margins to those observed in the results for propane-only, 
+though it predicts lower levels of CO for blended fuel firing. Similar to 
+the propane-only case, NO is overpredicted for blended fuel firing. 
+However, there is a reduced error range and NO is 5.1–6.9 times higher 
+than the CFD results. In addition, the trend of increasing NO mass 
+fraction with an increase in H2 is captured by the network model for all 
+operating points.
+Under an assumption of an evenly distributed species composition in 
+the chemical reactors, the fuel, O and H radical pool and intermediate 
+hydrocarbons are mixed at a molecular level and reactions can proceed 
+rapidly. Therefore, the reactions that are kinetically favoured at the 
+reactor conditions will dominate. As such, the intermediate hydrocar­
+bons are rapidly oxidised and are found to have a near zero concentra­
+tion within all the network’s reactors. Subsequently, in the DZ of the 
+network model, there are insufficient intermediate hydrocarbons pre­
+sent to promote the low temperature conversion of CO to CO2 observed 
+in the CFD results for propane-only operation. The result is a reduced 
+conversion rate of CO to CO2 for propane-only operation for the network 
+model when compared to the CFD results.
+By contrast, in blended fuel firing, the rate of H2–O2 combustion is 
+Fig. 20. CFD models outlet total temperature (top left) and the network models relative error (top right). Similarly, the CO2 (middle left) and H2O mass fraction 
+(middle right) with the corresponding relative errors (bottom).
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+18 
+
+
+--- Page 19 ---
+
+not limited by the kinetically favoured H abstraction reactions with 
+intermediates. Therefore, the radicals produced by the H2–O2 system are 
+free to increase the CO conversion rate. This is evident in the CO mass 
+fraction being less than the CFD value for all fuel mixtures and operating 
+points, except at the 75-25 mixture for MGT3 and 25–75 mixture for 
+MGT1.
+The observed trends of decreasing CO and increasing NO with 
+hydrogen addition agree with the findings of Farrokhi et al. [63] and 
+Zhao et al. [64]. Moreover, blended fuel firing predicted by the network 
+model displays a similar deviation (for CO) or a reduced deviation (for 
+NO) from the CFD data when compared to propane-only case. These 
+findings demonstrate that the applicability of the network model ex­
+tends to forecasting combustor performance and emissions on pro­
+pane–hydrogen fuel mixtures.
+Fig. 22-1a and 2a are plots for the CFD wall and zone temperatures, 
+respectively. In a similar order and presentation, the data for the 
+network model is presented in Figs. 22–1b and 2b.
+The PZ average temperature is shown to rise with hydrogen addition, 
+which results in an increase in the average wall temperature. This 
+contrasts with the CFD where there is an increase in average PZ tem­
+perature but a reduction in wall temperature. Despite predicting similar 
+SZ temperatures, the network model estimates for the SZ wall temper­
+ature are 1.3–1.4 times larger than the CFD results for mixture fuels. As 
+with the PZ, the trend of the SZ wall temperature is opposite to the CFD 
+results. The DZ zone temperatures are, however, well predicted (<7 %) 
+and wall temperatures are within 16 % of the CFD values for blended 
+fuel operation.
+Similar to the results for propane-only in the previous section, there 
+is considerable difference between the CFD and network model. This is 
+attributed to the localised wall effects that a 3-D FVM CFD simulation 
+can resolve. The difference is intensified by the introduction of hydrogen 
+as the fuel’s high inlet velocity promotes combustion through the core of 
+the combustor. Therefore, the flow along the walls is cooler as the in­
+tensity of the wall-bound combustion is diminished, which reduces the 
+convective heat transfer rate. Moreover, the impact of the well-stirred 
+assumption is evident in the network model’s PZ temperature 
+Fig. 21. CO mass fraction (left) and NO mass fraction (right) for varying fuel mixtures of H2 and C3H8.
+Fig. 22. CFD (left) and network (right) average zone (top) and wall temperatures (bottom) for each combustion zone and blending ratio.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+19 
+
+
+--- Page 20 ---
+
+estimate. From propane to hydrogen-only operation, the average tem­
+perature of the PZ estimated by the network model increases steadily 
+from 1046 K to 1661 K. This results in an elevated PZ wall temperature 
+that is two times greater than the CFD value for hydrogen-only 
+operation.
+3.4. Comparison between CFD and thermofluid network model computing 
+resources
+The principal benefit of using a network model is the significant 
+reduction in time. Table 11 presents the hardware used for each type of 
+simulation and the average compute time for a single simulation to 
+achieve convergence. These results highlight the benefits, specifically 
+for system-wide simulations that the thermofluid network modelling 
+approach offers.
+4. Conclusion
+This study details the development of a thermofluid network model 
+employed to predict the performance of a MGT can combustor operating 
+on pure and fuel blends of propane and hydrogen. It presents the 
+treatment of sub-component pressure losses and heat transfer. In addi­
+tion, it describes the first implementation of well-stirred and plug-flow 
+reactors into Flownex SE to model combustion to form a coupled 
+thermofluid-reactor network model.
+The CFD data showed that blended and pure hydrogen operation 
+increases combustion efficiency and reduces the flame-tube wall tem­
+peratures. However, it boosts pollutant formation when compared to 
+propane-only operation with an 80 % increase in NO. Most notably, the 
+CFD results show a 70 % increase in CO. This is attributed to the reduced 
+CO conversion pathways resulting from diminished concentrations of 
+fuel intermediates due to H-atom abstraction. This finding contrasts 
+with the prevailing gas turbine literature where studies typically 
+consider methane-hydrogen blends.
+The network model accurately predicts bulk flow distribution and 
+pressure changes throughout the combustor. In addition, major species 
+mass fractions and total temperature at the outlet of the combustor are 
+predicted well for blended and pure fuels. Nevertheless, the network 
+model struggles to predict pollutant species (CO and NO) although error 
+predictions are comparable to recent studies. The network model’s error 
+for pollutant species and flame-tube inner wall temperatures is predicted 
+with varying levels of accuracy due to the simplifying assumption of 
+uniform combustion zones. This highlights the need for increased fi­
+delity in the reactor network to predict temperature distributions that 
+better represent the 3-D case. Despite this, the network model is shown 
+to accurately predict the overall aerodynamic and thermodynamic 
+changes in the combustor and does so 420x faster than the CFD model.
+The model in Flownex SE is geometrically generalisable and shown 
+to significantly reduce computational time while accurately predicting 
+combustor performance. Therefore, it is considered well-suited for rapid 
+and accurate design space exploration using both pure and blended fuels 
+to improve combustion efficiency, reduce aerodynamic losses and pro­
+vide a qualitative indication of heat transfer intensity.
+Future work will involve implementing models to improve the pre­
+diction of pollutant emissions. Moreover, the influence of increasing the 
+size of the reactor network on the accuracy of predicted flame-tube wall 
+temperatures will be investigated. The network models application to 
+other fuels will also be analysed. Furthermore, the successful develop­
+ment of the combustor network model in Flownex SE renders it suitable 
+for integration into a full-system MGT model, enabling investigations 
+into the effect of blended fuel firing on overall engine performance.
+CRediT authorship contribution statement
+Chaz Fenner: Writing – review & editing, Writing – original draft, 
+Validation, Methodology, Investigation, Formal analysis, Data curation, 
+Conceptualization. Johan van Der Spuy: Writing – review & editing, 
+Supervision, Conceptualization. Ryno Laubscher: Writing – review & 
+editing, Supervision, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+References
+[1] Valera-Medina A, Morris S, Runyon J, Pugh D, Marsh R, Beasley P, Hughes T. 
+Ammonia, methane and hydrogen for gas turbines. Energy Proc 2015;75:118–23.
+[2] Ochu ER, Braverman S, Smith G, Friedmann J. Hydrogen fact sheet: production of 
+low-carbon hydrogen. Center on Global Energy Policy, Columbia; 2021.
+[3] Cecere D, Giacomazzi E, Di Nardo A, Calchetti G. Gas turbine combustion 
+technologies for hydrogen blends. Energies 2023;16:6829.
+[4] Wang K, Li F, Zhou T, Ao Y. Numerical study of combustion and emission 
+characteristics for hydrogen mixed fuel in the methane-fueled gas turbine 
+combustor. Aerospace 2023;10:72.
+[5] Tamang S, Park H. An investigation on the thermal emission of hydrogen 
+enrichment fuel in a gas turbine combustor. Int J Hydrogen Energy 2023;48: 
+40071–87.
+[6] Jachimowski CJ. Chemical kinetic reaction mechanism for the combustion of 
+propane. Combust Flame 1984;55:213–24.
+[7] Jowkar S, Shen X, Olyaei G, Morad MR. Hydrogen-enriched propane combustion in 
+a lean premixed burner: LES study on flashback, emissions, and combustion 
+instability. Fuel 2025;381:133377.
+[8] Nilsson EJ, van Sprang A, Larfeldt J, Konnov AA. The comparative and combined 
+effects of hydrogen addition on the laminar burning velocities of methane and its 
+blends with ethane and propane. Fuel 2017;189:369–76.
+[9] Mongia HG. An empirical/analytical design methodology for gas turbine 
+combustors. In: 14th joint propulsion conference, Phoenix, Arizona; 1978.
+[10] Melor AM, Fritskyk J. Turbine combustor preliminary design approach. J Propul 
+Power 1990;6(3):334–43.
+[11] Lefebvre AH, Ballal DR. In: Gas turbine combustion: alternative fuels and 
+emissions. 3 ed. Boca Raton: CRC Press; 2010.
+[12] Despierre A, Stuttaford PJ, Rubini PA. Preliminary gas turbine combustor design 
+using a genetic algorithm. In: International gas turbine and Aeroengine Congress 
+and exhibition, Orlando, Florida; 1997.
+[13] Gouws JJ. Combining a one-dimensional empirical and network solver with 
+computational fluid dynamics to investigate possible modifications to a 
+commercial gas turbine combustor. Pretoria: Fac. of Mechanical/Aeronautical 
+Engineering, Univ. of Pretoria; 2008. M.Eng. thesis.
+[14] du Toit B, Theron S. Rapid preliminary combustor design using a flow network 
+approach. In: ASME Turbo expo, Seoul, South Korea; 2016.
+[15] Mahto N, Chakravarthy SR. Response surface methodology for design of gas 
+turbine combustor. Appl Therm Eng 2022;211:118449.
+[16] Savarese M, Cuoci A, De Paepe W, Parente A. Automatic extraction of chemical 
+reactor networks from CFD data via advanced clustering algorithms. In: 
+Proceedings of global power and propulsion Society, Xi’an; 2022.
+[17] Park J, Nguyen TH, Joung D, Huh KY, Lee MC. Prediction of NOx and CO emissions 
+from an industrial lean premixed gas turbine combustor using a chemical reactor 
+network. Energy Fuels 2013;27:1643–51.
+[18] Colorado A, McDonell V. Reactor network analysis to assess fuel composition 
+effects on NOx emissions from a recuperated gas turbine. In: Proceedings of the 
+ASME turbo expo 2014: turbine technical conference and exposition, 4B; 2014.
+[19] Kaluri A, Malte P, Novosselov I. Real-time prediction of lean blowout using 
+chemical reactor network. Fuel 2018;234:797–808.
+[20] Romano C, Cerutti M, Babazzi G, Miris L, Lamioni R, Galletti C, Mazzotta L, 
+Borello D. Ammonia blends for gas-turbines: preliminary test and CFD-CRN 
+modelling. Proc Combust Inst 2024;40(1–4):105494.
+[21] Grimm F. Low-order reactor-network-based prediction of pollutant emission 
+applied to FLOX® combustion. Energies 2022;15(5):1740.
+Table 11 
+Details of the machines used for simulations.
+Simulation
+Solver
+Location
+CPU
+# of 
+CPUs
+RAM
+Average 
+compute 
+time
+3-D CFD
+ANSYS 
+Fluent 
+V242
+HPC
+Intel(R) 
+Xeon(R) 
+E5-2690 
+v3
+240
+1.28 
+TB
+approx. 
+420 min
+1-D 
+Network
+Flownex 
+SE 2022
+Local PC
+intel i9- 
+12900K
+1
+64 
+GB
+approx. 1 
+min
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+20 
+
+
+--- Page 21 ---
+
+[22] Gubbi S, Sun W, Choi N, Park S, Park J, Lee S, Harper J, Steele R, Noble D. 
+Development of a reactor network model for a practical gas turbine combustor. 
+2024. London.
+[23] Mazzotta L, Meloni R, Lamioni R, Romano C, Galletti C, Borello D. Numerical 
+Investigation of NOx emissions in a gas turbine burner using hydrogen-ammonia 
+and partially cracked ammonia fuel blends: a combined LES and CRN approach. 
+Appl Therm Eng 2025;278(D):127330.
+[24] Haytaysal SE, Yozgatligil A. A coupled flow and chemical reactor network model 
+for predicting gas turbine combustor performance. Therm Sci 2020;24:1977–89.
+[25] Ssebabi B. Development of a micro gas turbine for central receiver concentrating 
+solar power systems. 2020.
+[26] Fenner CC. Improved modeling of a micro gas turbine for solar-hybrid application. 
+2022.
+[27] Malalasekera W, Versteeg HK. An introduction to computational fluid dynamics: 
+the finite volume method. Pearson Education; 2007.
+[28] Flownex SE. Flownex theory manual. 2023.
+[29] Lefebvre A. Gas turbine combustion. New York: Taylor & Francis; 1983.
+[30] Conrado AC, Lacava PT, Filho ACP, Sanches MdS. Basic design principles for gas 
+turbine combustor. In: Proceedings of the 10th Brazilian congress of thermal 
+sciences and engineering. Rio de Janeiro; 2004.
+[31] Turns S. In: An introduction to combustion concepts and applications. third ed. ed. 
+New York: McGraw Hill; 2012.
+[32] Mattingly JD, Heiser WH, Pratt DT. In: Aircraft engine design. second ed. Reston: 
+American Institute of Aeronautics and Astronautics; 2002.
+[33] Goodwin DG, Moffat HK, Schoegl I, Speth RL, Weber BW. Cantera: an object- 
+oriented software toolkit for chemical kinetics, thermodynamics, and transport 
+processes [Online]. Available: https://www.cantera.org. [Accessed 25 January 
+2025].
+[34] Smith GP, Golden DM, Frenklach M, Moriarty NW, Eiteneer B, Goldenberg M, 
+Bowman CT, Hanson RK, Song S, Gardiner WC, Lissianski VV, Qin Z. GRI-Mech 3.0 
+[Online]. Available: http://www.me.berkeley.edu/gri_mech/. [Accessed 24 
+January 2025].
+[35] Gnielinski V. Turbulent heat transfer in annular spaces- A new comprehensive 
+correlation. Heat Transf Eng 2015;36:787–9.
+[36] Karam M, Gheshlaghi G, Tahsini AM. Numerical investigation of hydrogen addition 
+effects to a methane-fueled high-pressure combustion chamber. Int J Hydrogen 
+Energy 2023;48:33732–45.
+[37] Liu H, Zeng Z, Guo K. Numerical analysis on hydrogen swirl combustion and flow 
+characteristics of a micro gas turbine combustor with axial air/fuel staged 
+technology. Appl Therm Eng 2023;219:119460.
+[38] Ouali S. Numerical simulation of H2 addition effect to CH4 premixed turbulent 
+flames for gas turbine burner. J Appl Fluid Mech 2024;17:1749–58.
+[39] Filomeno G, Capurso T, Torresi M, Pascazio G. Numerical study of the lean 
+premixed PRECCINSTA burner with hydrogen enrichment. In: E3S web of 
+conferences: 76◦ATI National Congress, Rome; 2021.
+[40] Cellek MS, Pinarbasi A, Coskun G, Demir U. The impact of turbulence and 
+combustion models on flames and emissions. Fuel 2023;343:127905.
+[41] Cheng J, Zong C, Zhu T. A comparative study of combustion models for simulating 
+partially premixed swirling natural gas flames. Therm Sci Eng Prog 2024;47: 
+102310.
+[42] ANSYS, Inc. In: Ansys fluent theory guide, release R2. R2 ed. Canonsburg, 
+Pennsylvania: ANSYS, Inc; 2022.
+[43] Zettervall N, Fureby C, Nilsson EJ. Evaluation of chemical kinetic mechanisms for 
+methane combustion: a review from a CFD perspective. fuels 2021;2:20–240.
+[44] Herzler J, Naumann C. Shock-tube study of the ignition of methane/ethane/ 
+hydrogen mixtures with hydrogen contents from 0% to 100% at different 
+pressures. Proc Combust Inst 2009;32(1):213–20.
+[45] Metghalchi M, Keck JC. Laminar burning velocity of propane-air mixtures at high 
+temperature and pressure. Combust Flame 1980;38:143154.
+[46] Klarmann N, Zoller B, Sattelmayer T. Numerical modeling of CO-emissions for gas 
+turbine combustors operating at part-load conditions. Journal of the Global Power 
+and Propulsion Society 2018;2:367–87.
+[47] Efimov D, de Goey P, van Oijen JA. QFM: quenching flamelet-generated manifold 
+for modelling offlame–wall interactions. Combust Theor Model 2020;24:72–104.
+[48] Celik I, Ghia U, Roache PJ, Freitas C, Coloman H, Raad P. Procedure of estimation 
+and reporting of uncertainty due to discretization in CFD applications. J Fluid Eng 
+2008;130:078001.
+[49] Bragg SL. Application of reaction rate theory to combustion chamber analysis. 
+London: Aeronautical Research Council; 1953.
+[50] Kuo KK. Principles of combustion. Wiley; 1986.
+[51] Cam O, Yilmaz H, Tangoz S, Yilmaz I. A numerical study on combustion and 
+emission characteristics of premixed hydrogen air flames. Int J Hydrogen Energy 
+2017;42(40):25801–11.
+[52] Benaissa S, Adouane B, Ali SM, Rahswan SS, Aouachria Z. Investigation on 
+combustion characteristics and emissions of biogas/hydrogen blends in gas turbine 
+combustors. Therm Sci Eng Prog 2022;27:101178.
+[53] Kairu J, Zhenyu T. Effect of thermal radiation heat transfer on the temperature 
+measurement by the thermocouple in premixed laminar flames. J Therm Sci 2022; 
+31(2):541–51.
+[54] ASME. Test uncertainty. New York: The American Society of Mechanical Engineers; 
+2006.
+[55] Glarborg P, Miller JA, Ruscic B, Klippenstein SJ. Modeling nitrogen chemistry in 
+combustion. Prog Energy Combust Sci 2018;67:31–68.
+[56] Choudhuri AR, Gollahalli SR. Combustion characteristics of 
+hydrogen–hydrocarbon hybrid fuels. Int J Hydrogen Energy 2000;25(5):451–62.
+[57] Messaoudania Zl, Hamida MD, Hassana CRC, Wu Y. The effects of hydrogen 
+addition on the chemical kinetics of hydrogen- hydrocarbon flames: a 
+computational study. S Afr J Chem Eng 2020;33:1–28.
+[58] Li Z, Cheng X, Wei W, Qu L, Wu H. Effects of hydrogen addition on laminar flame 
+speeds of methane, ethane and propane: experimental and numerical analysis. Int J 
+Hydrogen Energy 2017;42(38):24055–66.
+[59] Westbrook CK, Dryer FL. Chemical kinetic modeling of hydrocarbon combustion. 
+Prog Energy Combust Sci 1984;10:1–57.
+[60] Shekari A, Labrecque R, Larocque G, Vienneau M, Simoneau M, Schulz R. 
+Conversion of CO2 by reverse water gas shift (RWGS) reaction using a hydrogen 
+oxyflame. Fuel 2023;344:127947.
+[61] Cepeda F, Demarco R, Escudero F, Liu F, Fuentes A. Impact of water-vapor addition 
+to oxidizer on the thermal radiation characteristics of non-premixed laminar 
+coflow ethylene flames under oxygen-deficient conditions. Fire Saf J 2021;120: 
+103032.
+[62] Villette S, Adam D, Alexiou A, Aretakis N, Mathioudakis K. A simplified chemical 
+reactor network approach for aeroengine combustion chamber modeling and 
+preliminary design. Aerospace 2023;11(1).
+[63] Farrokhi FY, Piscopo A, Pappa A, Parente A, De Paepe W. Emissions and flame 
+stability assessment of hydrogen addition and air dilution in a microgas turbine 
+combustor using zero-dimensional/one-dimensional modeling by chemical reactor 
+network. ASME Journal of Engineering for Gas Turbines and Power 2024;147(7): 
+071002.
+[64] Zhao Q, Liu X, Jiao A, Xu H, Liu F. A simplified mechanism of hydrogen addition to 
+methane combustion for the pollutant emission characteristics of a gas-fired boiler. 
+Int J Hydrogen Energy 2024;49:1376–90.
+C. Fenner et al.                                                                                                                                                                                                                                  
+International Journal of Hydrogen Energy 195 (2025) 152511 
+21 

@@ -1,0 +1,784 @@
+
+--- Page 1 ---
+
+Brian Jones
+Jong Guen Lee1
+e-mail: jxl145@psu.edu
+Bryan D. Quay
+Domenic A. Santavicca
+Center for Advanced Power Generation,
+Department of Mechanical and Nuclear
+Engineering,
+The Pennsylvania State University,
+University Park, PA 16802
+Flame Response Mechanisms
+Due to Velocity Perturbations in a
+Lean Premixed Gas Turbine
+Combustor
+The response of turbulent premixed ﬂames to inlet velocity ﬂuctuations is studied experi-
+mentally in a lean premixed, swirl-stabilized, gas turbine combustor. Overall chemilumi-
+nescence intensity is used as a measure of the ﬂuctuations in the ﬂame’s global heat
+release rate, and hot wire anemometry is used to measure the inlet velocity ﬂuctuations.
+Tests are conducted over a range of mean inlet velocities, equivalence ratios, and velocity
+ﬂuctuation frequencies, while the normalized inlet velocity ﬂuctuation V/Vmean is ﬁxed
+at 5% to ensure linear ﬂame response over the employed modulation frequency range.
+The measurements are used to calculate a ﬂame transfer function relating the velocity
+ﬂuctuation to the heat release ﬂuctuation as a function of the velocity ﬂuctuation fre-
+quency. At low frequency, the gain of the ﬂame transfer function increases with increasing
+frequency to a peak value greater than 1. As the frequency is further increased, the gain
+decreases to a minimum value, followed by a second smaller peak. The frequencies at
+which the gain is minimum and achieves its second peak are found to depend on the
+convection time scale and the ﬂame’s characteristic length scale. Phase-synchronized
+CH chemiluminescence imaging is used to characterize the ﬂame’s response to inlet
+velocity ﬂuctuations. The observed ﬂame response can be explained in terms of the
+interaction of two ﬂame perturbation mechanisms, one originating at ﬂame-anchoring
+point and propagating along the ﬂame front and the other from vorticity ﬁeld generated
+in the outer shear layer in the annular mixing section. An analysis of the phase-
+synchronized ﬂame images show that when both perturbations arrive at the ﬂame at the
+same time (or phase), they constructively interfere, producing the second peak observed
+in the gain curves. When the perturbations arrive at the ﬂame 180 degrees out-of-phase,
+they destructively interfere, producing the observed minimum in the gain curve.
+DOI: 10.1115/1.4001996
+1
+Introduction
+Modern low-emission gas turbines employ lean premixed com-
+bustion to minimize NOx emissions. This approach, however, is
+known to increase a combustion system’s susceptibility to self-
+sustained combustion instabilities 1,2. These combustion insta-
+bilities occur as a result of the coupling between system acoustics
+and unsteady heat release from the ﬂame. The sustained high am-
+plitude pressure ﬂuctuations decrease system efﬁciency and com-
+promise structural integrity. To facilitate the prediction of combus-
+tion instabilities in the combustor design stage, a thorough
+understanding of the ﬂame’s response to periodic ﬂow distur-
+bances is necessary and has been an active subject of both ana-
+lytical 3–8 and experimental 9–19 studies. Experimental ﬂame
+response measurements can be used to guide the formulation of
+and validate the predictions of analytical ﬂame response models.
+Once known, the ﬂame transfer function FTF can be incorpo-
+rated as a source term in a thermoacoustic network model to pre-
+dict combustion instabilities 20,21.
+In order to quantitatively describe a premixed ﬂame’s response
+to upstream velocity perturbations, a FTF describing the ratio of
+normalized heat release and inlet velocity ﬂuctuations is deﬁned
+as
+FTFf,A = Qf/Q¯
+Vf/V¯
+where Q¯ is the time-averaged heat release rate, V¯ is the mean
+velocity of the mixture in the mixing section, Qf and Vf are
+their corresponding ﬂuctuation amplitudes at the forcing fre-
+quency, f, and A is the magnitude of the normalized velocity
+ﬂuctuation, Vf/V¯.
+Flame transfer functions for laminar premixed ﬂames have been
+studied by a number of researchers 4,7,22. Fleiﬁl et al. 4 ana-
+lytically described the response of a laminar premixed ﬂame to
+ﬂow oscillations and concluded that the ﬂame transfer function
+was primarily governed by the ﬂame Strouhal number, deﬁned as
+R/SL. Lieuwen 22 concluded that the ﬂame transfer function
+of premixed ﬂames was strongly dependent upon three param-
+eters: the Strouhal number, the ratio of the ﬂame length to width,
+and the ﬂame shape i.e., conical, inverted wedge, etc.. Similar to
+results from analytic and experimental investigations of laminar
+ﬂame transfer functions, Kim et al. 19 experimentally deter-
+mined that the response of turbulent premixed ﬂames is governed
+by three parameters: the Strouhal number, the ﬂame length, and
+the ﬂame angle. Therefore, the dynamics of turbulent and laminar
+ﬂames are qualitatively similar 23.
+Analytical and experimental studies show that for a given per-
+turbation frequency, the gain is constant until a certain perturba-
+tion amplitude is reached, at which point the gain begins to de-
+1Corresponding author.
+Contributed by the International Gas Turbine Institute IGTI of ASME for pub-
+lication in the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript
+received April 12, 2010; ﬁnal manuscript received April 19, 2010; published online
+October 27, 2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021503-1
+Copyright © 2011 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+crease with increasing forcing amplitude. Correspondingly, the
+ﬂame response can be divided into a linear regime and a nonlinear
+regime, respectively 22,24.
+In general, the ﬂame behaves as a low pass ﬁlter; i.e., the gain
+decreases with increasing frequency. Schuller et al. 7 analyti-
+cally examined the ﬂame transfer function behavior for laminar
+conical and V-ﬂame shapes. While the overall response was that
+of a low pass ﬁlter, the V-ﬂame was also found to exhibit peaks in
+the gain curve at speciﬁc frequencies.
+Two ﬂame response mechanisms govern ﬂame dynamics for
+premixed ﬂames subjected to upstream velocity oscillations: ﬂame
+perturbations originating from the ﬂame-anchoring point, as re-
+ported in Balachandran et al. 11, or perturbations resulting from
+ﬂow nonuniformities along the ﬂame, described for laminar
+ﬂames in Durox et al. 10. Chaudhuri and Cetegen 17 described
+interactions of these two ﬂame response mechanisms for conical
+ﬂames. There was, however, no mention of these mechanisms
+interacting destructively and resulting in a signiﬁcantly damped
+global ﬂame response. Preetham and Lieuwen 16 analytically
+described destructive interactions of two ﬂame perturbation
+waves, originating from the two ﬂame response mechanisms,
+which could result in a signiﬁcantly damped global ﬂame re-
+sponse for both conical ﬂames and wedge-shaped ﬂames.
+The objectives of this paper are to experimentally determine the
+ﬂame transfer function, to identify and quantitatively characterize
+the mechanisms affecting the ﬂame’s response, and to generalize
+the ﬂame transfer function over a range of inlet velocity and
+equivalence ratio.
+2
+Experimental Methods
+The experimental measurements are performed in a lean pre-
+mixed, swirl-stabilized gas turbine combustor facility, utilizing the
+same combustor and nozzle assembly as Kim et al. 18. The
+facility consists of an inlet section, siren modulation device, an-
+nular nozzle assembly, and optically accessible quartz combustor
+section leading to an open exhaust. To eliminate the possibility of
+equivalence ratio perturbations, air and natural gas are completely
+premixed before a choked inlet. A siren-based modulation device
+is used to impose inlet velocity perturbations. Driven by a
+variable-speed dc motor, the siren is capable of forcing the pre-
+mixed fuel-air mixture at frequencies ranging from 30 Hz to 500
+Hz. Two metering valves control the ﬂow rate of the fuel-air mix-
+ture entering the siren device and the siren bypass line. The inlet
+velocity ﬂuctuation amplitude is varied by changing the fraction
+of the fuel-air mixture that ﬂows through the bypass line. The
+annular mixing section consists of a 60 mm inner diameter i.d.
+mixing tube and a 40 mm outer diameter o.d. centerbody, as
+shown in Fig. 1. The centerbody is recessed 20 mm from the
+dump plane. Within the mixing section, 45 deg swirl vanes are
+mounted 120 mm upstream of the combustor dump plane. The
+optically accessible combustor is made of a fully open quartz tube
+150 mm in diameter and 300 mm in length.
+Measurement instruments include a hot wire anemometer, pho-
+tomultiplier tubes PMTs, and an intensiﬁed charge coupled de-
+vice ICCD camera. The hot wire anemometer HWA, TSI model
+1210 is used to measure velocity ﬂuctuations in the annular mix-
+ing section at 60 mm upstream of the dump plane. Three PMTs
+Hamamatsu model H7732-10 are used to measure global chemi-
+luminescence emission intensities from the entire ﬂame. Narrow
+bandpass ﬁlters are mounted on each PMT to allow a separate
+detection of ﬂame chemiluminescence from CH 4325 nm,
+CO2
+ 3655 nm, or OH 3075 nm. Under the premixed
+conditions of this study, the chemiluminescence intensities pro-
+vide a measure of the heat release response to inlet velocity ﬂuc-
+tuations 25. To acquire hot wire anemometry and PMT signal
+data, a digital data acquisition system is used to record 32,768
+data points at a sampling rate of 8192 Hz for each test. An ICCD
+camera Princeton Instruments model 576 G equipped with a
+CH bandpass ﬁlter 4305 nm is used to record ﬂame images.
+Line-of-sight time-averaged images and phase-synchronized im-
+ages are taken for a number of experimental conditions. For
+phase-synchronized images, 40 images are taken per phase angle
+and 12 phase-averaged images are separated in 30 degree incre-
+ments of the forcing period with the hot wire signal serving as a
+reference. To extract a two-dimensional ﬂame structure, a three
+point Abel deconvolution scheme is applied to the phase- or time-
+averaged CH chemiluminescence line-of-sight images 26.
+Experiments are performed at atmospheric pressure with a con-
+stant inlet temperature of 23°C. Mean velocities in the nozzle are
+20 m/s, 25 m/s, and 30 m/s with mean equivalence ratios 
+ranging from 0.65 to 0.80. The corresponding Reynolds number
+ranges from 23,700 to 35,600. Normalized ﬂow velocity harmonic
+forcing amplitudes V/Vmean up to 35% can be achieved de-
+pending on the forcing frequency. For this study, a ﬁxed forcing
+amplitude of 5% is used over a frequency range from 80 Hz to
+340 Hz.
+3
+Results and Discussion
+3.1
+Characterization of Stable Flame Structure. Previous
+results show that the gain and phase of the ﬂame transfer function
+depend on the ﬂame structure ﬂame shape and characteristic
+ﬂame length as well as the frequency and magnitude of inlet
+velocity modulation 6,7,18,19. Also, ﬂames with the same char-
+acteristic ﬂame length exhibit similar ﬂame responses regardless
+of their inlet ﬂow conditions 19. The ﬂame length scale is found
+to be an important parameter determining ﬂame response to inlet
+velocity perturbations. Time-averaged CH chemiluminescence
+images provide insight into the overall ﬂame structure and the
+spatial distribution of the ﬂame’s heat release. Two-dimensional
+chemiluminescence ﬂame images are shown in Fig. 2 for a range
+of mean inlet velocities and equivalence ratios. The ﬂow direction
+is from left to right, and as mentioned previously, the ﬂame im-
+ages are deconvoluted, and only the upper halves of the deconvo-
+luted images are shown because the images are axisymmetric. The
+intensity of chemiluminescence is displayed in pseudocolor, with
+black being the lowest and white the highest intensity. As the
+mean velocity and/or equivalence ratio change/s, the ﬂame’s
+shape and length change. Two general ﬂame shapes are observed:
+typical “V” ﬂames anchored on the centerbody and “V” ﬂames
+with an extension into the outer corner recirculation zone CRZ.
+Fig. 1
+Schematic diagram of mixing section and combustor
+Fig. 2
+Deconvoluted unforced ﬂame images „CH chemilumi-
+nescence… for Vmean=20 m/s, 25 m/s, and 30 m/s and 
+=0.65,0.70,0.75,0.80
+021503-2 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+As the ﬂame length is increased, the ﬂame extends into the outer
+CRZ toward the dump plane, and an earlike structure starts to
+appear in the CRZ. This is especially apparent at 30 m/s and 
+=0.65. Each image in Fig. 2 shows that the heat release is spa-
+tially distributed and that there is a relatively high intensity region
+at the center of the ﬂame. In a turbulent ﬂame, the ﬂame brush
+grows with distance from the ﬂame-anchoring location, which re-
+sults in the broadening of the chemiluminescence ﬂame images
+along the ﬂow direction.
+The high intensity region observed in the chemiluminescence
+ﬂame images is caused by a signiﬁcant increase in the ﬂame area
+due to turbulent wrinkling of the ﬂame surface. This is because for
+a premixed ﬂame in the ﬂamelet regime the increase in heat re-
+lease should be accompanied by the increase in ﬂame surface
+area. Since the overall ﬂame length decreases as the equivalence
+ratio increases for a ﬁxed mean velocity, the total chemilumines-
+cence intensity over the center part of the ﬂame should increase as
+the equivalence ratio increases, as can be seen in Fig. 2. As such,
+the increase in inlet velocity for a ﬁxed equivalence ratio should
+result in an increase in the ﬂame’s length as well as an increase in
+the total chemiluminescence intensity over the center part of the
+ﬂame.
+In order to quantitatively describe the ﬂame’s characteristic
+length scale, a center of mass COM is calculated from the ﬂame
+image. The distance between the ﬂame COM and the top edge of
+the centerbody at the dump plane LCOM can be used to represent
+the overall length scale or convection length scale of the ﬂame. As
+shown in Fig. 3a, LCOM increases as the inlet mean velocity is
+increased for the ﬁxed mean equivalence ratio and decreases as
+the mean equivalence ratio is increased for the ﬁxed inlet mean
+velocity. Figures 3b and 3c show plots of the ﬂame’s surface
+area and total chemiluminescence intensity over the high intensity
+region versus the mean inlet velocity, respectively. The ﬂame’s
+surface area Sflame is calculated as follows:
+Sflame =
+0
+L
+2rmdx
+from the ﬂame’s mean radial location rm identiﬁed by locating
+maximum intensity pixels along the axial distance of each ﬂame
+image, as shown in Fig. 3d. A region of ﬂame whose intensity is
+greater than 70% of the maximum intensity is identiﬁed using the
+threshold method for each image, and the sum of pixel intensities
+weighted by its area over the region is determined as the sum of
+CH intensity over the COM region QCOM region. The ﬂame’s
+surface area linearly increases as the mean inlet velocity increases,
+and the rate of area increase with respect to inlet velocity in-
+creases as the equivalence ratio decreases, suggesting that the heat
+release per unit surface area is greater for a ﬂame with a higher
+equivalence ratio. Also, the sum of CH intensity over the COM
+region increases as the mean inlet velocity increases, and the rate
+Fig. 3
+„a… LCOM versus equivalence ratio for various mean velocities, „b… ﬂame’s surface area, „c… total CH intensity over
+COM region versus mean ﬂow velocity for various equivalence ratios, and „d… a deconvoluted image with the identiﬁed
+mean ﬂame location and the COM region overlaid
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021503-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+of increase with respect to inlet velocity increases as the equiva-
+lence ratio increases. These show that both the ﬂame’s surface
+area and the total chemiluminescence intensity over the high in-
+tensity COM region can be used as a measure of heat release. This
+fact will be used to explain the mechanism of ﬂame response to
+inlet velocity ﬂuctuation in a later section.
+3.2
+Characterization of Average Flame Structure Over a
+Period of Inlet Velocity Fluctuation. The effect of velocity forc-
+ing frequency on the averaged characteristic ﬂame length is inves-
+tigated. An inlet velocity perturbation, which when normalized by
+the mean velocity V/Vmean has an amplitude of approximately
+5%, is imposed upon the premixed mixture. This level of har-
+monic forcing amplitude is chosen because it is small enough to
+yield a ﬂame response in the linear regime and large enough to
+provide satisfactory signal coherence between the inlet velocity
+ﬂuctuation and the chemiluminescence intensity ﬂuctuation.
+Flame transfer function measurements presented in the next sec-
+tion are determined with the same level of forcing amplitude of
+5% of the mean velocity.
+As shown in Fig. 4, ﬂame images averaged over each forcing
+period show that LCOM remains relatively constant with respect to
+forcing frequency. For all inlet ﬂow conditions, unforced ﬂames,
+which are shown in Fig. 4, at 0 Hz are found to have similar
+length scales to those of forced conditions. Therefore, the ﬂame
+transfer function measurements presented in the next section have
+nearly constant ﬂame length scales with respect to frequency.
+However, as the ﬂame is subject to greater inlet velocity modula-
+tion and responds nonlinearly, LCOM is found to decrease with
+increasing forcing frequency 18.
+3.3
+Flame Transfer Function Measurement. The ﬂame
+transfer function is determined for a range of operating conditions
+with a ﬁxed inlet velocity harmonic forcing amplitude of
+V/Vmean=5%. Typical ﬂame transfer function results gain and
+phase are shown in Fig. 5 for a mean inlet velocity of 25 m/s and
+equivalence ratios from 0.65 to 0.8 and in Fig. 6 for an equiva-
+lence ratio of 0.7 and mean inlet velocities from 20 m/s to 30 m/s.
+For a given operating condition, the gain is greater than 1 at low
+forcing frequencies, indicating that the ﬂame acts as an ampliﬁer
+at low frequencies. This has been observed in other studies of both
+laminar 7,16 and turbulent 18,19 V-ﬂames. As the forcing fre-
+quency increases, the gain reaches a maximum and then starts to
+decrease, acting as a low pass ﬁlter. As the forcing frequency
+increases further, the gain reaches a minimum and then starts to
+increase again until reaching a second peak. Recalling that the
+characteristic ﬂame length increases as the equivalence ratio de-
+creases for a given inlet velocity or as the inlet velocity increases
+for a given equivalence ratio see Fig. 3, the ﬂame transfer func-
+tion results indicate that the magnitude of the ﬁrst peak in the gain
+plot increases as the characteristic ﬂame length LCOM increases.
+A similar behavior has been reported by Kim et al. 19. The
+opposite behavior is observed for the second peak where the mag-
+nitude of the second peak decreases as LCOM increases. Also, the
+frequency at which the ﬂame response becomes minimum fmin
+increases as LCOM increases. These results clearly demonstrate
+that ﬂame length LCOM affects the ﬂame response to inlet veloc-
+ity ﬂuctuations.
+The lower plots in Figs. 5 and 6 show the phase of the CH
+chemiluminescence intensity ﬂuctuation relative to the inlet veloc-
+ity ﬂuctuation versus the velocity modulation frequency. The
+phase increases linearly until the modulation frequency ap-
+proaches fmin at which the phase undergoes a sudden shift of
+around 180 deg, as predicted by Preetham and Lieuwen 16, after
+which the phase continues to increase linearly, although at a dif-
+ferent rate. The slope of the phase versus frequency curve is di-
+rectly related to the time between the occurrence of the velocity
+Fig. 4
+Frequency dependence of ﬂame length derived from
+forcing-period-averaged
+images
+for
+Vmean=25 m/s
+and
+
+=0.75
+Fig. 5
+Fixed forcing V/Vmean=5% FTF gain „top… and phase
+„bottom… versus frequency for Vmean=25 m/s, =0.65, 0.70,
+0.75, and 0.80, and forcing frequency=80–340 Hz
+021503-4 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+ﬂuctuation at the two microphone measurement location and the
+occurrence of the corresponding ﬂuctuation in the ﬂame’s rate of
+heat release. Thus, there is a marked change in this time when the
+modulation frequency changes from less than fmin to greater than
+fmin.
+3.4
+Mechanism of Flame Response. Figures 7a and 8a
+show a sequence of phase-averaged ﬂame images recorded in 30
+degree phase angle increments at velocity modulation frequencies
+of 100 Hz and 180 Hz, respectively. In both cases, the mean inlet
+velocity is 25 m/s, and the equivalence ratio is 0.75. Note that the
+100 Hz case corresponds to a condition where the gain of the
+ﬂame transfer function is greater than 1 refer to Fig. 5, and the
+180 Hz case corresponds to a condition where the gain is at its
+minimum. In each image, the ﬂow direction is from left to right,
+and the phase in degrees is referenced to the time when the inlet
+velocity ﬂuctuation is at its minimum. In both cases, it can be seen
+that the intensity in the central part of the ﬂame and the overall
+ﬂame length change during the modulation cycle. Figures 7b and
+8b show plots of the mean ﬂame surface area, center-of-mass
+location, overall CH intensity from the whole ﬂame, and the sum
+of the CH intensity over the COM region. The ﬂame surface area
+and the sum of the CH intensity over the COM region are calcu-
+lated as described previously. Each quantity is normalized by its
+mean value. These results show that the global heat release ﬂuc-
+tuation as represented by the CH intensity is in phase with the
+mean ﬂame surface area modulation and the total CH intensity
+over the COM region.
+Using a kinematic model of ﬂame front evolution, Preetham
+and Lieuwen 16 studied the dynamics of ﬂames submitted to
+inlet velocity modulation in terms of the superposition of different
+perturbations propagating at different velocities: those originating
+at the ﬂame-anchoring point such as vortical disturbances and
+those due to ﬂow nonuniformities along the ﬂame acoustic dis-
+turbances. The kinematic model showed that the perturbations
+can either constructively or destructively interact, resulting in an
+increase or a decrease in the ﬂame’s response, respectively. The
+results presented in this paper provide an opportunity to experi-
+mentally study and validate this behavior.
+As discussed in the previous section, the overall rate of heat
+release of a premixed turbulent ﬂame is directly related to the
+overall ﬂame area, and changes in the overall ﬂame area can be
+expressed in terms of changes in the mean ﬂame area or ﬂame
+length and changes in the local wrinkling of the ﬂame surface.
+Similarly, the effect of inlet velocity ﬂuctuations can be repre-
+sented by two separate phenomena. One is the effect of the veloc-
+ity ﬂuctuation on the mean ﬂame area or mean ﬂame length, while
+the second is the effect of the vorticity ﬂuctuations generated at
+the exit of the injector by the inlet velocity ﬂuctuations on local
+ﬂame wrinkling 10,11. Because these perturbations travel from
+the combustor inlet at different speeds, i.e., the acoustic velocity
+ﬂuctuation propagates at the speed of sound and the vorticity ﬂuc-
+tuation propagates at the mean ﬂow velocity, their combined ef-
+Fig. 6
+Fixed forcing V/Vmean=5% FTF gain „top… and phase
+„bottom… versus frequency for Vmean=20 m/s, 25 m/s, and 30
+m/s, =0.70, and forcing frequency=80–340 Hz
+Fig. 7
+„a… Phase-averaged chemiluminescence images during
+one period of inlet velocity ﬂuctuation and „b… normalized ﬂuc-
+tuation of ﬂame area, COM length, total CH intensity, and sum
+of
+CH
+intensity
+over
+high
+intensity
+region
+„mean
+inlet
+velocity=25 m/s, mean equivalence ratio=0.75, and the forc-
+ing frequency=100 Hz…
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021503-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+fect on the ﬂame depends on their relative phase when they arrive
+at the ﬂame. For example, in-phase arrival at the ﬂame will result
+in constructive interference and increased gain, while if they ar-
+rive in out-of-phase they will destructively interfere and result in a
+diminished gain. The cases of constructive interference and de-
+structive interference are illustrated in Figs. 7b and 8b, respec-
+tively. In Fig. 7b, it is seen that when the ﬂame response is
+ampliﬁed, the heat release ﬂuctuations caused by the two distur-
+bances the ﬂuctuation in the mean ﬂame area, , and the ﬂuc-
+tuation on the local wrinkling of the ﬂame surface,  are almost
+in phase, and they result in a greater 10% of mean amount of
+overall heat release than the inlet velocity ﬂuctuation 5% of
+mean. However, Fig. 8b shows that when the overall ﬂame
+response is minimal, the heat release ﬂuctuations caused by the
+two disturbances are almost out-of-phase, indicating that the effect
+of one on the overall heat release cancels that of the other, and this
+destructive interaction leads to relatively low overall heat release
+ﬂuctuation. It should be noted, however, that each perturbation
+causes a rather signiﬁcant amount about 10% of mean of heat
+release ﬂuctuation though the overall heat release ﬂuctuation be-
+comes minimal.
+In both forcing cases, the overall heat release is associated with
+the change in LCOM. However, at higher forcing frequency cases
+f =260 Hz, LCOM is found to change minimally while the over-
+all heat release ﬂuctuates signiﬁcantly about 8%, as shown in
+Fig. 9. Also, in that case the heat release ﬂuctuation caused by the
+two disturbances are in phase, and the overall ﬂame response is
+ampliﬁed but not quite as greatly as that for f =100 Hz.
+3.5
+Generalization of Flame Response. Figure 10 shows a
+plot of fmin versus LCOM. As observed previously, fmin increases as
+LCOM increases. However, the relationship between fmin and LCOM
+is distinct for each mean convection velocity: For a given LCOM,
+the higher the mean velocity, the higher the fmin. This suggests
+that the time scale dip1/ fmin associated with the mechanism
+causing minimum gain at fmin is related not only to the character-
+istic ﬂame length scale but also to the convection velocity. There-
+fore, a Strouhal number is deﬁned such that dip is related to the
+convection time scale conv=LCOM/U as
+Stdip = conv
+dip
+= fminLCOM
+U
+Figure 11 is a plot of Stdip versus LCOM, showing that dip or
+fmin can be determined if the characteristic length scale LCOM
+and mean ﬂow velocity U are known, and Stdip exponentially
+increases with respect to LCOM. The latter means that dip de-
+creases as LCOM increases for ﬂames with the same conv and
+Fig. 8
+„a… Phase-averaged chemiluminescence images during
+one period of inlet velocity ﬂuctuation and „b… normalized ﬂuc-
+tuation of ﬂame area, COM length, total CH intensity, and sum
+of
+CH
+intensity
+over
+high
+intensity
+region
+„mean
+inlet
+velocity=25 m/s, mean equivalence ratio=0.75, and the forc-
+ing frequency=180 Hz…
+Fig. 9
+Normalized ﬂuctuation of ﬂame area, COM length, total
+CH intensity, and sum of CH intensity over high intensity re-
+gion „mean inlet velocity=25 m/s, mean equivalence ratio
+=0.75, and the forcing frequency=260 Hz…
+Fig. 10
+fmin versus characteristic ﬂame length „LCOM… for
+Vmean=20 m/s, 25 m/s, and 30 m/s, =0.65, 0.70, 0.75, and 0.80,
+and V/Vmean=5%
+021503-6 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+increases as conv increases for ﬂames with the same LCOM. As
+discussed in the previous section, if the minimum gain condition
+is achieved when the ﬂame area change due to acoustic velocity
+ﬂuctuations and the ﬂame area change due to vorticity ﬂuctuations
+are out-of-phase and destructively interfere, then the relationship
+between Stdip and LCOM suggests that the velocity scale associated
+with the former perturbation i.e., LCOM/dip is scaled with the
+convection time scale and exponentially increases with respect to
+the characteristic ﬂame length scale.
+Previously, when discussing Figs. 5 and 6, it is observed that if
+the forcing frequency is increased beyond fmin, the gain reaches
+the second peak. Figure 12 is a plot of the frequency at which the
+second peak occurs versus fmin: The higher the fmin, the higher the
+frequency at which the second peak occurs. For fmin being corre-
+lated with conv and LCOM, it indicates that the frequency at which
+the second peak occurs also depends on conv and LCOM.
+Both analytical and experimental ﬂame transfer function studies
+3–19 have shown that the gain and phase of the ﬂame transfer
+function can be generalized in terms of a Strouhal number deﬁned
+as
+St =
+L
+Lconv
+=
+L
+Veff/f
+where L is a characteristic length scale of the ﬂame or burner, Veff
+is an effective convection velocity, and f is the forcing frequency.
+This means that even if the operating conditions are different, the
+ﬂame response can be determined by the ratio of the two length
+scales. However, the detailed relationship between the ﬂame trans-
+fer function and the Strouhal number is also known to depend on
+other factors, especially ﬂame shape i.e., V-ﬂame or conical
+ﬂames, as discussed in Sec. 1. Figure 13 shows ﬂame transfer
+function gain measurements for ﬂames where the mean ﬂow ve-
+locity is varied from 20 m/s to 30 m/s 20 m/s, 25 m/s, and 30
+m/s and where the equivalence ratio is varied from 0.65 to 0.8
+=0.65,0.70,0.75,0.80. The frequency is normalized by the
+frequency at which the gain reaches the ﬁrst minimum, fmin.
+These results show that the gain can be generalized in terms of the
+normalized frequency when the perturbation frequency is less than
+fmin, suggesting that the gain of ﬂame response over the frequency
+range f / fmin1 is governed by the interaction between pertur-
+bations originating from the ﬂame-anchoring point and from ﬂow-
+forcing nonuniformities along the ﬂame, as discussed in the pre-
+vious section.
+When the forcing frequency is greater than fmin or f / fmin1,
+Fig. 13 shows that the magnitude of the second peak varies by
+about a factor of 6. However, it shows that the magnitude of the
+second peak has a clear dependency on the characteristic ﬂame
+length scale, as shown in Fig. 14: In general, the longer the LCOM,
+the smaller the magnitude of the second gain peak, but it is
+bounded by two limit values. A closer analysis shows that the high
+limit value is for typical V-ﬂames anchored on the centerbody, and
+the low limit value is for V-ﬂames with an extension into the outer
+Fig. 11
+Stdip versus characteristics ﬂame length „LCOM… for
+Vmean=20 m/s, 25 m/s, and 30 m/s, =0.65, 0.70, 0.75, and 0.80,
+and V/Vmean=5%
+Fig. 12
+The frequency at which the second peak occurs ver-
+sus fmin for Vmean=20 m/s, 25 m/s, and 30 m/s, =0.65, 0.70,
+0.75, and 0.80, and V/Vmean=5%
+Fig. 13
+Gain of ﬂame transfer function versus normalized fre-
+quency „f/fmin… for Vmean=20 m/s, 25 m/s, and 30 m/s, =0.65,
+0.70, 0.75, and 0.80, and V/Vmean=5%
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021503-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+corner recirculation zone.
+Figure 15a shows plots of convection time conv calculated
+from the phase plots such as the ones shown in Figs. 5 and 6
+versus LCOM. For each phase plot, the data for forcing frequency,
+which is less than fmin, are used to calculate the convection time.
+It increases as LCOM increases. However, the relationship between
+conv and LCOM is distinct for each mean convection velocity: For
+a given LCOM, the higher the mean velocity, the shorter the conv.
+However, Fig. 15b shows that conv is correlated better with
+convection time calculated using LCOM and Vmean as the charac-
+teristic length and velocity scale, respectively. Since the slope of
+Fig. 15b represents the ratio of the mean velocity to the actual
+convection velocity, it shows that the actual convection velocity is
+60% or 1/slope of the mean inlet velocity for all operating con-
+ditions considered in this study if conv is deﬁned in terms of the
+actual convection velocity and LCOM. In other words, the phase
+can be determined once LCOM is known and using 60% of the
+mean inlet velocity as the characteristic velocity scale.
+4
+Conclusion
+An experimental study is conducted to understand the mecha-
+nisms responsible for the linear response of a premixed turbulent
+ﬂame to inlet velocity perturbations.
+The gain of the ﬂame transfer function exhibits the overall low
+pass ﬁlter behavior. However, the gain is ampliﬁed at low fre-
+quency and becomes a minimum and increases to the second peak
+as the perturbation frequency increases further. The frequencies at
+which the gain becomes minimal fmin and the second peak oc-
+curs depend on the convection time scale as well as on the ﬂame’s
+characteristic length scale: The former increases with respect to
+the ﬂame’s characteristic length scale, and the latter increases with
+respect to fmin.
+The mechanism resulting in the measured ﬂame response is
+explained in terms of the interaction between two perturbations
+one originating at the ﬂame-anchoring point and propagating
+along the ﬂame front mean ﬂame surface area and the other from
+vorticity ﬁeld generated in the outer shear layer in the annular
+mixing section. A detailed image analysis shows that when the
+ﬂame response is ampliﬁed the heat release ﬂuctuation caused by
+the two disturbances is almost in phase, and they result in a larger
+10% of mean amount of overall heat release compared to that of
+inlet velocity ﬂuctuation 5% of mean. However, when the ﬂame
+response is minimal, the heat release ﬂuctuation caused by the two
+disturbances is almost out-of-phase, and this destructive interac-
+tion leads to relatively low overall heat release ﬂuctuation even
+though each perturbation causes a rather signiﬁcant amount of
+heat release ﬂuctuation. This observation indicates that the local
+ﬂame responses can interact with each other, and a detailed nature
+of the interaction determines the global response.
+The gain of ﬂame response function is generalized over the
+frequency range of f / fmin1 in terms of normalized frequency by
+the frequency at which the gain becomes minimal, suggesting that
+the gain of ﬂame response is governed by the interaction between
+the aforementioned perturbations. The phase is also generalized
+over the same frequency range in terms of the ﬂame’s character-
+istic length scale and mean inlet velocity.
+Nomenclature
+A  amplitude
+f  modulation frequency
+fmin  frequency at which the ﬂame response be-
+comes minimum
+L  ﬂame length scale
+LCOM  characteristic ﬂame length the distance be-
+tween the ﬂame COM location and the top
+edge of the centerbody at the dump plane
+Q  heat release from ﬂame
+rm  the ﬂame’s mean radial location
+Sflame  ﬂame’s surface area
+SL  lamina ﬂame speed
+St  Strouhal number
+U  mean mixture velocity
+V  inlet mixture velocity
+Fig. 14
+Magnitude of second peak gain versus LCOM for
+Vmean=20 m/s, 25 m/s, and 30 m/s, =0.65, 0.70, 0.75, and 0.80,
+and V/Vmean=5%
+Fig. 15
+„a… conv versus LCOM and „b… conv versus  „convection
+time based on LCOM and Vmean… for Vmean=20 m/s, 25 m/s, and
+30 m/s, =0.65, 0.70, 0.75, and 0.80, and V/Vmean=5%
+021503-8 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 9 ---
+
+Veff  effective convection velocity
+Greek Symbols
+  equivalence ratio
+	
+  phase difference between  and CH
+  angular modulation frequency
+  time scale
+Superscripts and Subscripts
+  amplitude of ﬂuctuation
+o  outer dimension
+a  inner dimension
+References
+1 Candel, S., 2002, “Combustion Dynamics and Control: Progress and Chal-
+lenges,” Proc. Combust. Inst., 29, pp. 1–28.
+2 Lieuwen, T., and Yang, V., 2005, “Combustion Instabilities in Gas Turbine
+Engines: Operational Experience, Fundamental Mechanisms, and Modeling,”
+Progress in Astronautics and Aeronautics, Vol. 210, AIAA, Reston, VA.
+3 Dowling, A. P., 1999, “A Kinematic Model of a Ducted Flame,” J. Fluid
+Mech., 394, pp. 51–72.
+4 Fleiﬁl, M., Annaswamy, A. M., Ghoneim, Z. A., and Ghoniem, A. F., 1996,
+“Response of a Laminar Premixed Flame to Flow Oscillations: A Kinematic
+Model and Thermoacoustic Instability Results,” Combust. Flame, 106, pp.
+487–510.
+5 Schuller, T., Ducruix, S., Durox, D., and Candel, S., 2002, “Modeling Tools
+for the Prediction of Premixed Flame Transfer Functions,” Proc. Combust.
+Inst., 29, pp. 107–113.
+6 Lieuwen, T., 2003, “Modeling Premixed Combustion-Acoustic Wave Interac-
+tions: A Review,” J. Propul. Power, 195, pp. 765–781.
+7 Schuller, T., Durox, D., and Candel, S., 2003, “A Uniﬁed Model for the Pre-
+diction of Laminar Flame Transfer Functions: Comparisons Between Conical
+and V-Flame Dynamics,” Combust. Flame, 134, pp. 21–34.
+8 Sengissen, A. X., Van Kampen, J. F., Huls, R. A., Stoffels, G. G. M., Kok, J.
+B. W., and Poinsot, T. J., 2007, “LES and Experimental Studies of Cold and
+Reacting Flow in a Swirled Partially Premixed Burner With and Without Fuel
+Modulation,” Combust. Flame, 150, pp. 40–53.
+9 Külsheimer, C., and Büchner, H., 2002, “Combustion Dynamics of Turbulent
+Swirling Flames,” Combust. Flame, 131, pp. 70–84.
+10 Durox, D., Schuller, T., and Candel, S., 2005, “Combustion Dynamics of In-
+verted Conical Flames,” Proc. Combust. Inst., 30, pp. 1717–1724.
+11 Balachandran, R., Ayoola, B. O., Kaminski, C. F., Dowling, A. P., and Mas-
+torakos, E., 2005, “Experimental Investigation of the Nonlinear Response of
+Turbulent Premixed Flames to Imposed Velocity Oscillations,” Combust.
+Flame, 143, pp. 37–55.
+12 Armitage, C. A., Balachandran, R., Mastorakos, E., and Cant, R. S., 2006,
+“Investigation of the Nonlinear Response of Turbulent Premixed Flames to
+Imposed Inlet Velocity Oscillations,” Combust. Flame, 146, pp. 419–436.
+13 Bellows, B. D., Neumeier, Y., and Lieuwen, T., 2006, “Forced Response of a
+Swirling, Premixed Flame to Flow Disturbances,” J. Propul. Power, 225, pp.
+1075–1084.
+14 Birbaud, A. L., Durox, D., Ducruix, S., and Candel, S., 2007, “Dynamics of
+Conﬁned Premixed Flames Submitted to Upstream Acoustic Modulations,”
+Proc. Combust. Inst., 31, pp. 1257–1265.
+15 Polifke, W., and Lawn, C., 2007, “On the Low-Frequency Limit of Flame
+Transfer Functions,” Combust. Flame, 151, pp. 437–451.
+16 Preetham, S. H., and Lieuwen, T., 2008, “Dynamics of Laminar Premixed
+Flames Forced by Harmonic Velocity Disturbances,” J. Propul. Power, 246,
+pp. 1390–1402.
+17 Chaudhuri, S., and Cetegen, B. M., 2009, “Response Dynamics of Bluff-body
+Stabilized Conical Premixed Turbulent Flames With Spatial Mixture Gradi-
+ents,” Combust. Flame, 156, pp. 706–720.
+18 Kim, D., Lee, J. G., Quay, B. D., and Santavicca, D. A., 2010, “Effect of
+Flame Structure on the Flame Transfer Function in a Premixed Gas Turbine
+Combustor,” Trans. ASME: J. Eng. Gas Turbines Power, 132, p. 021502.
+19 Kim, K. T., Lee, J. G., Lee, H. J., Quay, B. D., and Santavicca, D. A., 2010,
+“Characterization of Forced Flame Response of Swirl-Stabilized Turbulent
+Lean-Premixed Flames in a Gas Turbine Combustor,” Trans. ASME: J. Eng.
+Gas Turbines Power, 132, p. 041502.
+20 Dowling, A. P., and Stow, S. R., 2003, “Acoustic Analysis of Gas Turbine
+Combustors,” J. Propul. Power, 19, pp. 751–764.
+21 Bellucci, V., Schuermans, B., Nowak, D., Flohr, P., and Paschereit, C. O.,
+2005, “Thermoacoustic Modeling of a Gas Turbine Combustor Equipped With
+Acoustic Dampers,” ASME J. Turbomach., 127, pp. 372–379.
+22 Lieuwen, T., 2005, “Nonlinear Kinematic Response of Premixed Flames to
+Harmonic Velocity Disturbances,” Proc. Combust. Inst., 30, pp. 1725–1732.
+23 Preetham, S. H., and Lieuwen, T. C., 2007, “Response of Turbulent Premixed
+Flames to Harmonic Acoustic Forcing,” Proc. Combust. Inst., 31, pp. 1427–
+1434.
+24 Noiray, N., Durox, D., Schuller, T., and Candel, S., 2008, “A Uniﬁed Frame-
+work for Nonlinear Combustion Instability Analysis Based on the Flame De-
+scribing Function,” J. Fluid Mech., 615, pp. 139–167.
+25 Lee, J. G., and Santavicca, D. A., 2003, “Experimental Diagnostics for the
+Study of Combustion Instabilities in Lean Premixed Combustors,” J. Propul.
+Power, 195, pp. 735–750.
+26 Dasch, C. J., 1992, “One-Dimensional Tomography: A Comparison of Abel,
+Onion-Peeling, and Filtered Backprojection Methods,” Appl. Opt., 318, pp.
+1146–1152.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021503-9
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

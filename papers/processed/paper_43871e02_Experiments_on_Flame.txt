@@ -1,0 +1,877 @@
+
+--- Page 1 ---
+
+Christian Eichler1
+e-mail: eichler@td.mw.tum.de
+Thomas Sattelmayer
+Lehrstuhl für Thermodynamik,
+Technische Universität München,
+Boltzmannstraße 15,
+85748 Garching, Germany
+Experiments on Flame Flashback
+in a Quasi-2D Turbulent Wall
+Boundary Layer for Premixed
+Methane-Hydrogen-Air Mixtures
+Premixed combustion of hydrogen-rich mixtures involves the risk of ﬂame ﬂashback
+through wall boundary layers. For laminar ﬂow conditions, the ﬂashback mechanism is
+well understood and is usually correlated by a critical velocity gradient at the wall.
+Turbulent transport inside the boundary layer considerably increases the ﬂashback pro-
+pensity. Only tube burner setups were investigated in the past, and thus turbulent ﬂash-
+back limits were only derived for a fully developed Blasius wall friction proﬁle. For
+turbulent ﬂows, details of the ﬂame propagation in proximity to the wall remain unclear.
+This paper presents results from a new experimental combustion rig, apt for detailed
+optical investigations of ﬂame ﬂashbacks in a turbulent wall boundary layer developing
+on a ﬂat plate and being subject to an adjustable pressure gradient. Turbulent ﬂashback
+limits are derived from the observed ﬂame position inside the measurement section. The
+fuels investigated cover mixtures of methane, hydrogen, and air at various mixing ratios.
+The associated wall friction distributions are determined by Reynolds-averaged Navier-
+Stokes (RANS) computations of the ﬂow inside the measurement section with fully re-
+solved boundary layers. Consequently, the interaction between ﬂame back pressure and
+incoming ﬂow is not taken into account explicitly, in accordance with the evaluation
+procedure used for tube burner experiments. The results are compared with literature
+values, and the critical gradient concept is reviewed in light of the new data.
+DOI: 10.1115/1.4001985
+1
+Introduction
+Current developments in the power generation sector aim to-
+ward the capture and storage of CO2 CCS in order to fulﬁll
+climate protection commitments and to reduce emission costs.
+Precombustion capture of CO2, one of three focused CCS process
+chains, yields fuels with high H2 content exceeding 90 vol %. To
+date, the combustion of such H2-rich mixtures in existing gas
+turbine combustors is limited to diluted diffusion-ﬂame operation
+due to combustion stability constraints. Since such systems re-
+quire an undesirable tight integration between gas turbine and
+gasiﬁcation plant, lean premixed LP H2 combustors are consid-
+ered as an enabling technology for precombustion CCS. Recent
+studies 1–3 list blowout, ﬂashback, thermoacoustic instabilities,
+autoignition, and emissions as operational and safety issues in
+modern LP combustion systems. It is interesting to mention that
+most of these issues do also occur in combustors running on natu-
+ral gas NG, and their understanding thus has been improved
+considerably during the past decades. The only exception is
+boundary layer ﬂashback BLF, which is irrelevant for NG de-
+signs but gains in importance when moving toward high H2 con-
+tents. As a consequence, only a very limited number of investiga-
+tions on BLF are available in the open literature so far. The aims
+of the present work are to reconsider turbulent BLF as an impor-
+tant instability source in H2-ﬁred combustors and to provide a
+more complete picture of the physical processes involved. It will
+be shown that the current understanding and data basis for turbu-
+lent BLF are neither sufﬁciently complete nor representative of
+safety-critical ﬂame holding events.
+Before turning to the turbulent situation, it is instructive to con-
+sider laminar BLF at ﬁrst. Lewis and von Elbe 4 introduced a
+model for the physical situation at laminar BLF, which is still
+considered as the state of knowledge today. Figure 1 illustrates
+their physical picture at the onset of BLF. On the left, the wall-
+near region of the undisturbed boundary ﬂow uy is shown. Far
+upstream of the ﬂame, the mixture state is determined by static
+temperature T and pressure p, while the wall temperature is con-
+stant at Tw. On the right-hand side of the ﬁgure, the reaction zone
+of the ﬂame at the onset of ﬂashback is depicted. The reaction
+zone adopts a curved shape due to the velocity gradient of the
+unburnt gases. At the stability limit, the burning velocity Sf at a
+distance b from the wall equals the undisturbed ﬂow velocity at
+the same height, inducing a reaction zone perpendicular to the
+incoming ﬂow, which continuously ignites neighboring regions
+downstream. Since the ﬂame curvature in this leading region is on
+the order of the ﬂame thickness f, Sf can deviate from the lami-
+nar ﬂame speed SL for Le1 due to nonequidiffusion effects
+5,6. Above b, the ﬂame velocity is determined by the laminar
+ﬂame speed SL of the mixture. Close to the wall, Sf decreases due
+to heat loss and radical recombination, and the luminous combus-
+tion zone vanishes below the quenching distance q.
+Based on the situation in Fig. 1, a correlation model has been
+proposed, which involves the velocity gradient at the wall as a
+measure of the ﬂashback limit:
+gc =
+u
+y
+y=0
+=
+Sfy=b
+b
+1
+In Eq. 1, gc is called the critical gradient, which generally de-
+pends on fuel-oxidizer kinetics, equivalence ratio , T, p, Tw, the
+boundary layer state, and the geometry. Equation 1 induces that
+the distance b tends to be smaller than the penetration distance;
+i.e., the distance from the wall at which the reaction rate starts to
+1Corresponding author.
+Contributed by the International Gas Turbine Institute IGTI of ASME for pub-
+lication in the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript
+received April 8, 2010; ﬁnal manuscript received April 21, 2010; published online
+September 14, 2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2011, Vol. 133 / 011503-1
+Copyright © 2011 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+decrease due to the wall inﬂuence 4,7. Putnam and Jensen 8
+proposed
+a
+dimensionless
+correlation
+for
+laminar
+Hagen–
+Poiseuille ﬂow based on Eq. 1, which involves two Peclet num-
+bers:
+Pef = 1
+8KPeF2
+2a
+where
+Pef = u¯d
+a ,
+PeF = SLd
+a ,
+K = const
+2b
+In Eq. 2b, a is the thermal diffusivity of the unburnt mixture and
+d is the diameter of the burner tube. Another means of nondimen-
+sionalizing Eq. 1 was proposed by Lee and T’ien 9. For their
+numerical simulations of laminar tube ﬂashback, they introduced
+an inverse Damköhler number,
+1
+Dac
+= gcf
+SL
+3
+which has been adopted for other laminar ﬂashback simulations
+6. For the fuels considered in the present work, numerous ex-
+perimental results from laminar ﬂashback studies were published
+e.g., Refs. 10–15. Velocity gradients were calculated from
+laminar ﬂow theory and showed good agreement between differ-
+ent studies. In all studies mentioned, only tube or slit burner ge-
+ometries with a constant cross section were investigated.
+The laminar theory behind Eq. 1 was transferred unaltered to
+turbulent BLF. Results for atmospheric H2-air mixtures in tube
+burners were published by several authors 11,12,16. The experi-
+ments showed that the values of gc at constant  increase sub-
+stantially with the transition from laminar to turbulent ﬂow.
+Around stoichiometry, a characteristic ratio of gc,turb/gc,lam=3 has
+been observed for H2-air mixtures, which also seems to hold for
+other fuels 7. Figure 2 summarizes literature results for turbulent
+critical gradients gc as a function of the H2 mixture fraction. To
+illustrate the effect of turbulence, laminar results 4 have also
+been included in the ﬁgure. Measurements for BLF of turbulent
+NG-air mixtures in tube burners are available 17, but the results
+are difﬁcult to interpret since core ﬂow velocities at the ﬂashback
+point were close to the turbulent burning velocity of the mixture.
+In all turbulent studies mentioned so far, velocity gradients were
+calculated from the Blasius–Prandtl correlation for fully devel-
+oped turbulent tube ﬂow. If Eq. 1 is considered to be valid also
+for turbulent BLF, the assumption of Sf=SL leads to a distance b,
+which lies within or at the border of the viscous region of the
+turbulent boundary layer. Although this result supports the laminar
+ﬂame assumption, it does not exclude an alternative solution in
+the turbulent region. At the end, it remains unclear whether the
+increase in gc emerges from a decrease in b, an increase in Sf, or
+a mixture of both.
+This overview on published BLF investigations reveals that in
+spite of early publications on experimental and theoretical basis,
+no substantial progress has been achieved since then to tackle the
+open questions regarding turbulent BLF, which deﬁnitely repre-
+sents the dominating ﬂow situation in practical burner designs.
+Furthermore, all experimental data available were recorded from
+tube burner ﬂames, which represent a rather special case in terms
+of the ﬂame-ﬂow conﬁguration close to the burner rim. For these
+reasons, a new experiment was designed, which allows the optical
+investigation of turbulent BLF at conditions relevant for the
+safety-critical assessment of boundary layers in premixed burner
+geometries. Instead of a tube burner arrangement, a setup was
+chosen where the ﬂame is already burning inside the boundary
+layer of interest, and optical access was considered as a key fea-
+ture to clarify the turbulent BLF mechanism using advanced op-
+tical measurement equipment. In the following, the experimental
+rig will be introduced, and the ﬁrst measurement series of turbu-
+lent BLF limits will be presented and compared with existing tube
+burner data.
+2
+Experimental Setup
+The design of the experiment follows two principles. On the
+one hand, a rather generic ﬂow situation is created, which is well
+accessible for an analytic treatment and for measurements. On the
+other hand, the stable ﬂame conﬁguration represents the critical
+operation condition from a practical combustor, namely, that a
+ﬂame is already present inside the boundary layer region in order
+to test its resistance against ﬂashback.
+2.1
+Rig Structure. The experimental rig consists of ﬂow sec-
+tions for premixing, ﬂow conditioning, the measurement section,
+the combustion chamber, and the exhaust duct. The premixing
+section allows for mixtures of air, H2, and CH4
+2. All gases are
+supplied at room temperature. A static ﬂow mixer and the subse-
+quent ﬂow straightening devices provide proper large- and ﬁne-
+scale mixing before the mixture enters the measurement section.
+An overview of measurement section and combustion chamber is
+shown in Fig. 3. An open air gap at the combustion chamber exit
+generates a constant pressure outlet condition with acoustic de-
+coupling from the exhaust duct system.
+2.2
+Measurement Section. A planar asymmetric diffuser has
+been chosen as the basic geometry for the measurement section
+since diverging sections are often encountered at the exit of non-
+swirling as well as swirling ﬂow burners. At the same time, high
+duct Reynolds numbers can be achieved, which ensures fully tur-
+bulent conditions, while ﬂashback can still be expected due to the
+wall friction reducing effect of the positive pressure gradient. A
+2NG with a mean CH4 content of 97.63 vol % was used as a substitute.
+Fig. 1
+2D model of ﬂow and ﬂame conﬁguration at the onset
+of laminar BLF
+0
+5000
+10000
+15000
+20000
+25000
+30000
+35000
+40000
+0
+20
+40
+60
+80
+100
+H2 [% vol]
+gc [1/s]
+von Elbe et al. (1943)
+Khitrin et al. (1965)
+Fine (1958)
+laminar
+turbulent
+Fig. 2
+Literature results for BLF in tube burners during atmo-
+spheric premixed H2-air combustion
+011503-2 / Vol. 133, JANUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+further advantage of the geometry emerges from the continuously
+increasing wall velocity gradients along the diffuser walls in the
+upstream direction: At ﬂashback, the ﬂame propagates upstream
+only a ﬁnite distance until it reaches a new mean position. This
+behavior allows the determination of critical velocity gradients for
+a ﬂame that is stabilized inside a turbulent boundary layer without
+any inﬂuence from auxiliary ﬂame holders.
+The ﬂow inside the measurement section has been designed
+such that the ﬂashback process only takes place in the center of
+the lower diffuser wall, which constitutes a quasi-2D boundary
+layer region with good optical access. A cross section of the dif-
+fuser arrangement is depicted in Fig. 4, with all dimensions given
+in millimeters. The width of the duct is constant at w=157 mm.
+The premixed gases enter the chamber from the right-hand side of
+the ﬁgure through an entry duct of height h=17.5 mm. To a short
+horizontal section at the inlet, a stainless steel ramp is attached
+with an intermediate graphite seal of approximately 0.5 mm thick-
+ness. The upper edge of the seal is positioned ﬂush with the lower
+wall of the duct upstream. The ramp surface forms the lower
+diffuser wall with a constant inclination angle of , which can be
+discretely varied between 0 deg and 8 deg. The ramp surface
+temperature can be controlled by an impingement cooling system
+on the bottom side of the ramp surface, which is not shown in Fig.
+4. The roughness height of the ramp surface lies within 50 m,
+which results in a hydraulically smooth wall for all ﬂow situations
+considered in this work. The ramp is followed ﬂushly by a ce-
+ramic tile that ensures thermal insulation during stable operation.
+Optical access to the diffuser section is provided by three fused
+silica windows along the y- and z-directions. The window surfaces
+in contact with the ﬂow are aligned with the upper and side walls,
+respectively, by joining two windows together using a special
+bonding technique. This avoids any stagnation or recirculation
+regions, which could lead to ﬂame anchoring.
+The premixed gases are continuously ignited by two pilot burn-
+ers at the end of the asymmetric diffuser section, which thus act as
+ﬂame holders for two main ﬂames that extend into a combustion
+chamber of 570 mm length after a step change in cross section, as
+indicated on the left-hand side in Fig. 4. The pilot burners run on
+premixed methane and air at near-stoichiometric mixture ratios. In
+order to prevent blow-off, the burner ﬂames impinge on the wall
+of neighboring ceramic tiles, from where the ﬂames subsequently
+emerge perpendicular into the main ﬂow. The lower pilot burner is
+further embedded by the trapezoidal part of a ceramic block,
+which forms a gap of 2 mm together with the opposite ceramic
+tile. The surface of the ceramic block is also inclined toward the
+horizontal by  but is offset below the ramp plane by 4 mm. By
+doing so, the power of the lower pilot burner can be reduced to a
+minimum while still providing a stable ﬂame to ignite the main
+ﬂame. The lower pilot burner has its position still inside the dif-
+fuser section for two reasons: On the one hand, the inﬂuence of
+the shear layer and the recirculation zone behind the trailing edge
+of the ceramic block on the anchor of the lower main ﬂame is
+minimized. On the other hand, the ﬂow displacement by the lower
+main ﬂame causes a contraction of streamlines above it, which
+induces a negative pressure gradient on the upper wall boundary
+layer. When ﬂashback conditions are approached, this conﬁgura-
+tion results in a self-stabilizing system where the ﬂame ﬂashes
+back only on the lower wall of the diffuser.
+It is well known that boundary layer development in rectangu-
+lar channels induces a region of reduced wall friction at the edges
+of the duct 18. Therefore, according to Eq. 1, BLF is likely to
+occur only along the corners in this type of geometry, and, indeed,
+the present experiment showed this behavior as expected. How-
+ever, BLF should only take place in the center region of the ramp
+surface, as otherwise the assumption of a quasi-2D diffuser ﬂow
+would not be feasible anymore. In order to avoid corner ﬂashback,
+air is locally injected into the corner boundary layers in two dif-
+ferent ways. In the upper corners, the air enters through a slot of 2
+mm width perpendicular to the main ﬂow direction. In the lower
+corners, air is blown out along the main ﬂow direction through
+several slots of 1 mm height and 4 mm width. During experi-
+ments, the amount of blowing air was adjusted by volume ﬂow
+meters such that the sum fed to all slots did not exceed 2% of the
+main mass ﬂow. The inﬂuence of the blowing air on the main ﬂow
+development has been investigated quantitatively by numerical
+RANS mixing simulations using ANSYS CFX 12.0 as well as quali-
+tatively by changing the amount of blowing during the running
+experiment. No appreciable inﬂuence, neither on the ﬂow distri-
+bution nor on the ﬂame shape at ﬂashback, was observed inside
+the 2D region of the diffuser within the blowing range mentioned
+above.
+2.3
+Flow Conditioning. The premixed gases downstream of
+the static ﬂow mixer contain substantial swirl and large-scale tur-
+bulent ﬂuctuations. A cascade of ﬂow straightening and settling
+devices downstream of the mixer is thus needed to obtain a ho-
+mogeneous ﬂow distribution, in terms of mean and turbulent
+quantities, at the inlet of the measurement section. For cold ﬂow
+experiments, a lot of experiences exist for the design of such ﬂow
+conditioning setups, which are usually composed of a wide-angle
+diffuser, a settling chamber of a large cross section with several
+honeycombs and grids, and ﬁnally a contraction toward the inlet
+proﬁle. However, when premixed and preheated ignitable mix-
+tures are investigated, a compromise has to be found between
+satisfactory ﬂow conditioning and the safety aspect of avoiding
+large volumes with low mixture velocities. In the present setup,
+the conditioning section is kept at a constant cross section, and a
+combination of stainless-steel honeycombs, perforated plates, and
+wire meshes of different solidities is used as distributed eddy sup-
+pressors and pressure losses, respectively. Downstream of the last
+mesh, two identical rough strips of 5 mm streamwise width at the
+top and bottom of the channel ensure a prompt and even transition
+of the boundary layers.
+Figure 5 shows the mean ﬂow distribution at the combustion
+Fig. 3
+Overview of measurement section and combustion
+chamber
+17.5
+15
+Thermocouples
+Thermocouple
+430
+20
+Pilot burner
+Ceramic block
+Main flames
+Pilot burner
+Wall-aligned windows
+φ
+Flow
+x
+y
+Fig. 4
+Details of the measurement section
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2011, Vol. 133 / 011503-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+chamber inlet for pure air at a mass ﬂow rate of m˙ air=50 g/s,
+which was measured by a constant temperature anemometer
+CTA. The measurement plane was located 148 mm downstream
+of the last wire mesh.
+The velocity distributions along the full channel height 0y
+h and width 0zw are shown in Fig. 5a. The nondimen-
+sional channel height y/h and width z/w are plotted on the x-axis.
+On the y-axis, the nondimensionalized mean ﬂow velocities u¯ /uref
+are shown. The mean velocity at the center of the duct was chosen
+as uref. The velocity distribution along the channel width at half
+channel height y/h=0.5 shows good uniformity. Only close to the
+channel sidewalls, the velocities rise above the center value. This
+fact can be explained by the ﬂow distribution properties of ﬁne
+wire meshes, which produce a distinct velocity overshoot at the
+edge of the boundary layer due to a minimum of the pressure loss
+coefﬁcient in this region 19. The same mechanism is observed
+for the mean velocity proﬁles along the channel height at three
+lateral positions z/w=0.25, 0.5, and 0.75. While the proﬁles again
+show a good uniformity within 1.5%, there exists a symmetric
+peak of velocities above the center value at y/h=0.25 and y/h
+=0.75. The boundary layer thickness amounts to approximately 3
+mm at the top and bottom of the channel. The measurements did
+not extend to the near wall region of the channel sidewalls, as can
+be seen from the different scaling of the x-axis. However, the
+boundary layer thickness there is probably below 3 mm since the
+sidewall regions lack the momentum loss from the rough strips
+upstream.
+According to Ref. 19, the wall friction produced by such mesh
+wake proﬁles tends to lie above the value for an undisturbed tur-
+bulent boundary layer at the same position. In order to check
+whether this is also true for the present ﬂow, the CTA results at the
+center of the lower wall were transformed to the wall coordinates,
+y+ = y
+u
+4a
+u+ = u¯
+u
+4b
+In Eq. 4a,  is the kinematic viscosity of the mixture and u is
+the shear stress velocity, calculated from the wall shear w and the
+mixture density 	 by u=w/	. Figure 5b shows the result from
+the coordinate transformation. The equation for the logarithmic
+region of a fully turbulent boundary layer,
+u+ = 1
+
+lny+ + B
+5
+as well the law of the wall derived by Spalding 20 have been
+included in the ﬁgure. For both correlations, 
+=0.4 and B=5.5
+were assumed. The wall shear stress w was adjusted until a good
+match between the CTA results and the Spalding correlation was
+achieved. The wall shear stress determined in this way amounts to
+w=1.02 Pa, which is close to numerical results for fully devel-
+oped channel ﬂow at the same mass ﬂow and density see the next
+section for simulation details. It can be concluded that the wall-
+near region of the boundary layer at the combustion chamber inlet
+has the self-similar structure of a fully turbulent boundary layer,
+and the wall shear stress is comparable to the results for fully
+developed turbulent channel ﬂow.
+2.4
+Instrumentation. Mixture ratios for each component as
+well as the pilot burner fuel mass ﬂow are controlled by separate
+thermal mass ﬂow controllers with a nominal accuracy of 0.8% of
+the measured value. The mixture inlet temperature and the center
+temperature of the ramp surface plate at three positions are mea-
+sured by thermocouples. For the optical measurements presented
+in this work, an intensiﬁed charge-coupled device ICCD camera
+Hamamatsu C4336-02 with a nominal resolution of 720
+480 pixel and a frame rate of 30 Hz was used. An interference
+ﬁlter with a transmission range of 300–350 nm in combination
+with a UV lens was used to conﬁne the main part of the captured
+signal to the radiation of the OH radical.
+3
+Measurement Procedure
+For the determination of critical velocity gradients gc at turbu-
+lent BLF, a combination of experimental and numerical results
+was used. First, the mean position of the ﬂame tip at ﬂashback
+was calculated from a time series of instantaneous ﬂame images
+for a certain inlet mass ﬂow and equivalence ratio. As described
+before, these images were taken at the pseudostationary new equi-
+librium position of the ﬂame after it had ﬂashed back from its
+original position above the pilot burner. Second, the respective
+mean wall friction distribution along the centerline of the ramp
+surface was extracted from a 2D RANS simulation of the ﬂow
+inside the measurement section, and the value of gc at the mean
+ﬂame tip position was evaluated. This procedure will be explained
+in more detail in the following paragraphs.
+3.1
+Mean Flame Tip Position at BLF. To give an illustration
+of the observed ﬂame conﬁguration, Fig. 6 shows the ﬂame shape
+and position inside the measurement section at BLF for a lean
+H2-air mixture at m˙ air=100 g/s and =0.29. The image repre-
+sents an overlay of the ﬂame chemiluminescence captured with
+the ICCD camera with an image of the measurement section at
+ambient light. Since the depth of focus was large compared with
+the channel width, the ﬂame image represents a line-of-sight inte-
+gration with the optical axis tangential to the ramp surface plane.
+The ﬂame exhibits the expected shape at BLF on the lower dif-
+0.6
+0.7
+0.8
+0.9
+1.0
+1.1
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+y/h, z/w [-]
+u/uref [-]
+z/w = 0.5
+z/w = 0.75
+z/w = 0.25
+y/h = 0.5
+0
+5
+10
+15
+20
+25
+1
+10
+100
+1000
+y+ [-]
+u+ [-]
+CTA
+log-law
+Spalding (1961)
+(a)
+(b)
+Fig. 5
+Mean velocity proﬁles at combustion chamber inlet
+„m˙ =50 g/s, pure air…. „a… Velocity proﬁles across full channel
+height and width. „b… Wall-near velocities at the center of the
+lower wall.
+011503-4 / Vol. 133, JANUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+fuser wall, including a strongly curved leading edge zone and an
+angled, stretched tail toward the inner channel region see Fig. 1.
+A top view on the leading ﬂame front, which is not shown in Fig.
+6, reveals a satisfactorily even mean lateral distribution in the
+center region of the ramp. At the sidewalls of the channel, the
+reaction is quenched since the blowing air produces equivalence
+ratios below the lower explosion limit of the mixture. Since the
+ﬂame tip is not stationary during BLF, but is moving back and
+forth at an oscillation frequency of approximately 1–2 Hz due to
+turbulent ﬂuctuations, a mean ﬂame tip position has been calcu-
+lated from the experimental data. For each operation point, single
+images from two measurement series 30 s duration each were
+binarized with regard to the ﬂame region, and a time averaged
+image normalized between 0 and 1 was produced. Along a line
+parallel to the ramp surface, which intersected the mean ﬂame tip
+region, and approaching this region from upstream, the point of
+0.5 intensity was taken as the mean ﬂame tip position at BLF.
+3.2
+Numerical Simulation of the Diffuser Flow. The wall
+friction distribution for each investigated combination of inlet
+mass ﬂow and mixture composition was simulated using the AN-
+SYS CFX 12.0 code. All simulations were made for cold mixture
+ﬂow without combustion. By doing so, the data evaluation is
+analogous to the procedure used for tube burner experiments in
+the literature, where wall gradients were calculated from tube fric-
+tion correlations, which are only valid for the nonreactive case. A
+hexahedral 2D mesh with 0.35106 nodes was used to represent
+the lateral center region of the measurement section and the com-
+bustion chamber. The ﬂuid was modeled as a constant property
+mixture of ideal gases with the dynamic viscosity taken from pure
+air at 300 K and 1 bar. The domain additionally included a straight
+duct of height h and a length of 50h in order to establish a fully
+developed channel proﬁle before the beginning of the diffuser
+section. As mentioned before, the mean inlet velocity proﬁle in the
+experiments generated a wall velocity gradient, which is close to
+the fully developed channel ﬂow case. Therefore, the numerical
+simulation is expected to be a good representation of the wall
+friction on the lower diffuser wall during the experiments. The
+boundary layers along the diffuser walls were fully resolved dur-
+ing all simulations, with a maximum value of ymax
++
+0.4 at the
+center of the wall cells. It was ensured that the laminar sublayer
+contained more than three grid points and that the whole boundary
+layer contained more than 30 grid points. The pilot burner mass
+ﬂows were neglected due to their vanishing inﬂuence on the ﬂow
+distribution. A constant average pressure outlet was set at the out-
+let of the combustion chamber, while the domain was bounded by
+symmetry planes at both sides. Turbulence modeling was pro-
+vided by the shear stress transport SST two-equation model with
+the default values for all model constants. This choice was based
+on the outcomes of several test cases for wall friction simulations
+21,22, which consistently revealed very good prediction capa-
+bilities of k− based RANS models for turbulent wall friction at
+mild to moderate adverse pressure gradients. Figure 7 shows the
+numerical results for the wall shear distribution on the lower wall
+of the diffuser. On the x-axis, the horizontal coordinate is shown,
+where the point x=0 is located at the start of the diffuser section.
+The curves exhibit the expected shape with a continuous decrease
+in wall shear in the downstream direction. The maximum of the
+wall shear gradient is located at the beginning of the diffuser,
+which is caused by a maximum of the streamwise pressure gradi-
+ent in this region.
+4
+Results and Discussion
+According to the experimental procedure described above, BLF
+experiments were conducted and mean critical gradients g¯c were
+determined for several mixtures of CH4, H2, and air. The inclina-
+tion angle  of the ramp surface was kept constant at 4 deg, which
+resulted in a diffuser ﬂow with no appreciable stall, as predicted
+from corresponding diffuser ﬂow charts 23.
+The time averaged images for the determination of the mean
+ﬂame tip position at turbulent BLF are shown in Fig. 8. As for Fig.
+6, the geometry of the measurement section has been used as a
+background to make the images more instructive. The images
+show very similar shapes, and it can be seen that there is a unique
+mean ﬂame position when approaching the ﬂame tip region from
+upstream. It should be emphasized that the broad bright zone be-
+hind the leading tip of the ﬂame does not indicate a high residence
+probability of the ﬂame tip in this region. It rather represents the
+time average of the chemiluminescence from the tail of the ﬂame.
+The quantitative results from the combined experimental and
+numerical data processing are summarized in Table 1. In each
+line, the fuel as well as the air mass ﬂow rate m˙ air are listed,
+followed by the equivalence ratio BLF at which the position of
+the ﬂame at ﬂashback was recorded. The mean critical gradient g¯c
+is given as extracted from the respective numerical wall friction
+simulation. The last entry, g¯c,t=0.5–1, is the mean critical gradient
+as calculated from the second half of each data set. This variable
+is a measure of the inﬂuence of wall heating during the ﬁrst half
+of the experiments t=0–0.5 on the further ﬂashback position.
+By comparing the results for g¯c and g¯c,t=0.5–1 in each line, it is
+concluded that the heating of the ramp during the experimental
+time had no signiﬁcant effect on the determined mean ﬂashback
+positions.
+The obtained results for the mean critical gradients were sur-
+prising. For all mixtures, the critical gradients lie substantially
+above the tube values reported in the literature. The results for
+CH4-air mixtures can be compared with the turbulent ﬂashback
+data published by Grumer 17, which indicates critical gradients
+below gc=2000 1/s for =0.8. This value is exceeded by the
+present results by a factor of about 3. The results for H2-air mix-
+tures can be directly compared with Fig. 2. It can be seen that at
+such lean mixtures 9.5 vol % H2 for =0.25 and 10.71 vol % H2
+for =0.29, ﬂashback in tube burners was observed at laminar
+Fig. 6
+Instantaneous H2-air ﬂame shape and position at BLF
+„m˙ air=100 g/s, =0.29…
+0,0
+0,5
+1,0
+1,5
+2,0
+2,5
+3,0
+3,5
+4,0
+0,0
+0,1
+0,2
+0,3
+0,4
+0,5
+x [m]
+Wall Shear [Pa]
+H2_120_0.29
+H2_100_0.29
+H2_60_0.25
+H2_50_0.25
+CH4_50_0.8
+CH4_40_0.8
+Fig. 7
+Numerical results for wall shear stress along the lower
+diffuser wall
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2011, Vol. 133 / 011503-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+conditions
+only
+at
+very
+low
+critical
+gradients
+around
+gc
+=100 1/s. The present results exceed this laminar value by two
+orders of magnitude.
+The reasons for the observed deviations of the present results
+from the literature are probably twofold: 1 The pressure rise
+upstream of the reaction zone acts more strongly on the incoming
+boundary layer ﬂow, and 2 the boundary layer resistance to
+ﬂashback is deteriorated by the positive pressure gradient acting
+on it.
+Looking at the ﬁrst point, the conﬁguration between ﬂame and
+incoming ﬂow at conditions approaching ﬂashback is not the same
+Fig. 8
+Time averaged ﬂame images for the determination of mean ﬂame tip position at turbulent BLF. „a… CH4, m˙ air
+=40 g/s, and =0.8. „b… CH4, m˙ air=50 g/s, and =0.8. „c… H2, m˙ air=50 g/s, and =0.25. „d… H2, m˙ air=60 g/s, and 
+=0.25. „e… H2, m˙ air=100 g/s, and =0.29. „f… H2, m˙ air=120 g/s, and =0.29.
+Table 1
+Critical gradients at BLF for different fuel-air mixtures
+at a diffuser angle of 4 deg
+Fuel
+m˙ air
+g/s
+BLF
+g¯c
+1/s
+g¯c,t=0.5–1
+1/s
+CH4
+40
+0.8
+5329
+5336
+CH4
+50
+0.8
+6952
+6952
+H2
+50
+0.25
+8098
+8067
+H2
+60
+0.25
+10,047
+10,121
+H2
+100
+0.29
+31,899
+31,798
+H2
+120
+0.29
+42,576
+42,786
+011503-6 / Vol. 133, JANUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+for tube burners and the experiment presented here. At the exit of
+a tube burner, the ﬂame is stabilized inside the shear layer formed
+in the wake of the burner rim. Consequently, the backpressure of
+the ﬂame is not limited to the boundary layer region upstream of
+the burner rim but is also distributed to regions directly above and
+toward the outward side of the burner rim. In the present experi-
+ment, the lower main ﬂame always stays attached to the edge
+above the pilot burner exit, where its pressure rise acts directly
+against the incoming boundary layer. The induced local decelera-
+tion of the near-wall ﬂow is likely to support the upstream propa-
+gation of the ﬂame dynamically, depending on the dynamic pres-
+sure proﬁle of the boundary layer and the pressure rise in front of
+the ﬂame.
+Regarding the second argument, it is instructive to compare
+values from Table 1 for g¯c at identical  but different m˙ air. It
+becomes obvious that for all three data pairs, which span over
+both fuels and a wide range of g¯c, the critical gradients for high
+m˙ air lie consistently above the data for lower m˙ air. In other words,
+if the mean position at BLF lies more downstream from the dif-
+fuser inlet, as it is the case for higher m˙ air at a given , then the
+boundary layer is more susceptible to ﬂashback compared with
+positions closer to the inlet. An obvious explanation for this ob-
+servation is the integral distance along which the positive pressure
+gradient has acted on the boundary layer. This is an interesting
+observation since turbulent boundary layers subject to an adverse
+pressure gradient only show deviations from the universal nondi-
+mensional proﬁle in the outer layer, which has also been called the
+wake region e.g., Ref. 24. However, according to the classical
+theory explained in the introduction, turbulent BLF is determined
+only by the ﬂow distribution inside the laminar sublayer, which
+should stay the same at different positions along the ramp.
+5
+Conclusions
+An experimental setup has been presented, which allows the
+optical investigation of turbulent BLF during premixed combus-
+tion of CH4–H2-air mixtures. The ﬂame holding has been chosen
+such that it represents the critical situation in gas turbine combus-
+tors, namely, that a wall boundary layer should be resistant against
+ﬂashback even if a ﬂame is directly located inside of it. As a ﬁrst
+series of measurements from the new rig, mean ﬂame tip positions
+during BLF were recorded for different mixture compositions and
+inlet mass ﬂows. The ﬂow was subject to an adverse pressure
+gradient imposed by an asymmetric diffuser at an opening angle
+of 4 deg. The results were expressed as mean critical velocity
+gradients according to the classical ﬂashback theory using numeri-
+cal RANS simulations for the determination of the wall shear
+distributions inside the measurement section. The results deviate
+substantially from the published data for tube burner ﬂashbacks,
+indicating that the investigated combination of the safety-critical
+ﬂame position and the inﬂuence of an adverse pressure gradient
+upon the boundary layer structure leads to a completely different
+interaction between ﬂame and ﬂow than expected. In light of these
+ﬁndings, the concept of a critical velocity gradient as a universal
+measure of ﬂashback propensity in turbulent boundary layers
+seems not to deliver realistic results and has to be replaced by a
+model which also takes into account the outer regions of the
+boundary layer. Future work will be concentrated on the inﬂuence
+of the pressure gradient by varying the diffuser opening angle, on
+mixture preheating, on the interaction between the ﬂame back-
+pressure and the incoming boundary layer as well as the detailed
+ﬂame propagation mechanism inside the boundary layer.
+Acknowledgment
+This publication forms a part of the BIGCO2 project, per-
+formed under the strategic Norwegian research program Climit.
+The authors acknowledge the partners StatoilHydro, GE Global
+Research, Statkraft, Aker Clean Carbon, Shell, TOTAL, Conoco-
+Phillips, ALSTOM, the Research Council of Norway Grant Nos.
+178004/I30 and 176059/I30, and Gassnova Grant No. 182070
+for their support.
+References
+1 Payrhuber, K., Moliére, M., Scholz, M., and Jones, R. M., 2007, “Future
+Energy Challenges in a Carbon Constrained Environment—Fuel Flexibility as
+a Growing Need,” VGB PowerTech, 8710, pp. 23–29.
+2 Lieuwen, T., McDonell, V., Petersen, E., and Santavicca, D., 2008, “Fuel Flex-
+ibility Inﬂuences on Premixed Combustor Blowout, Flashback, Autoignition,
+and Stability,” ASME J. Eng. Gas Turbines Power, 130, p. 011506.
+3 Lieuwen, T., McDonell, V., Santavicca, D., and Sattelmayer, T., 2008, “Burner
+Development and Operability Issues Associated With Steady Flowing Syngas
+Fired Combustors,” Combust. Sci. Technol., 1806, pp. 1169–1192.
+4 Lewis, B., and von Elbe, G., 1943, “Stability and Structure of Burner Flames,”
+J. Chem. Phys., 11, pp. 75–97.
+5 Kurdyumov, V. N., Fern’andez, E., and Liñán, A., 2000, “Flame Flashback and
+Propagation of Premixed Flames Near a Wall,” Proc. Combust. Inst., 28, pp.
+1883–1889.
+6 Kurdyumov, V., Fernández-Tarrazo, E., Truffaut, J.-M., Quinard, J., Wangher,
+A., and Searby, G., 2007, “Experimental and Numerical Study of Premixed
+Flame Flashback,” Proc. Combust. Inst., 31, pp. 1275–1282.
+7 Wohl, K., 1953, “Quenching, Flash-Back, Blow-Off—Theory and Experi-
+ment,” Fourth Symposium International on Combustion, pp. 68–89.
+8 Putnam, A. A., and Jensen, R. A., 1949, “Application of Dimensionless Num-
+bers to Flash-Back and Other Combustion Phenomena,” Third Symposium on
+Combustion, Flame and Explosion Phenomena, The Combustion Institute, pp.
+89–98.
+9 Lee, S. T., and T’ien, J. S., 1982, “A Numerical Analysis of Flame Flashback
+in a Premixed Laminar System,” Combust. Flame, 48, pp. 273–285.
+10 Dugger, G. L., 1955, “Flame Stability of Preheated Propane-Air Mixtures,”
+Ind. Eng. Chem., 47, pp. 109–114.
+11 Fine, B., 1958, “The Flashback of Laminar and Turbulent Burner Flames at
+Reduced Pressure,” Combust. Flame, 2, pp. 253–266.
+12 Fine, B., 1959, “Effect of Initial Temperature on Flash Back of Laminar and
+Turbulent Burner Flames,” Ind. Eng. Chem., 51, pp. 564–566.
+13 France, D. H., 1977, “Flashback of Laminar Monoport Burner Flames,” J. Inst.
+Fuel, 50, pp. 147–152.
+14 Mallens, R. M. M., and De Goey, L. P. H., 1998, “Flash-Back of Laminar
+Premixed Methane/Air Flames on Slit and Tube Burners,” Combust. Sci. Tech-
+nol., 136, pp. 41–54.
+15 Davu, D., Franko, R., and Choudhuri, A., 2005, “Investigation on Flashback
+Propensity of Syngas Premixed Flames,” 41st AIAA/ASME/SAE/ASEE Joint
+Propulsion Conference and Exhibit, Paper No. AIAA 2005-3585.
+16 Khitrin, L., Moin, P., Smirnov, D., and Shevchuk, V., 1965, “Peculiarities of
+laminar- and turbulent-ﬂame ﬂashbacks,” Tenth Symposium International on
+Combustion, pp. 1285–1291.
+17 Grumer, J., 1958, “Flashback and Blowoff Limits of Unpiloted Turbulent
+Flames,” Jet Propul., 28, pp. 756–759.
+18 Schlichting, H., 1982, Grenzschicht-Theorie, Braun, Karlsruhe.
+19 Mehta, R., 1985, “Turbulent Boundary Layer Perturbed by a Screen,” AIAA J.,
+239, pp. 1335–1342.
+20 Spalding, D., 1961, “A Single Formula for the Law of the Wall,” ASME J.
+Appl. Mech., 28, pp. 455–458.
+21 Wilcox, D., 1993, “Comparison of Two-Equation Turbulence Models for
+Boundary Layers With Pressure Gradient,” AIAA J., 318, pp. 1414–1421.
+22 Menter, F. R., 1994, “Two-Equation Eddy-Viscosity Turbulence Models for
+Engineering Applications,” AIAA J., 328, pp. 1598–1605.
+23 Greitzer, E. M., Tan, C. S., and Graf, M. B., 2004, Internal Flow, Cambridge
+University Press, Cambridge, UK.
+24 White, F. M., 2005, Viscous Fluid Flow, McGraw-Hill, New York.
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2011, Vol. 133 / 011503-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

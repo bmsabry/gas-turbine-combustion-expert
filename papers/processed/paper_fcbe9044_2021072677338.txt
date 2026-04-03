@@ -1,0 +1,1221 @@
+
+--- Page 1 ---
+
+ 
+-PUBLIC- 
+ 
+GE Research 
+Technical publication 
+ 
+ 
+Impact of High Hydrogen Operation on 
+Combustor Performance 
+ 
+PUBLIC
+November 2021 
+                                                                                                                
+Bassam Sabry Mohammad Abdelnabi (abdelnab@ge.com) 
+Nicholas Arthur Magina (nicholas.magina@ge.com) 
+Brian Volk (volk@ge.com) 
+Keith McManus (mcmanus@ge.com) 
+Thermosciences 
+ 
+ 
+ 
+Abstract 
+As the interest in high hydrogen operation is gaining momentum, this paper quantifies the impacts 
+associated with switching from natural gas to 100% hydrogen, leveraging both modelling techniques and 
+experimental data. From the modeling standpoint, a perfectly stirred reactor network model was setup in 
+Cantera. Flame speed increases of up to 50 times that of natural gas were observed with increasing 
+hydrogen content, indicating a significant increase in flashback propensity. This suggests that DLE 
+combustion systems might offer an advantage over RQL systems, operating at low equivalence ratios 
+where the flame speed impact is milder. Additionally, the model shows that the blow off time can be used 
+to classify hydrogen operation into three regimes. With increasing hydrogen content, the BOT begins 
+similar to that of propane and declines at different rates in each regime, establishing the added operational 
+challenges associated with high hydrogen content operation. Equivalence ratio dependencies were 
+investigated along with NOx penalties, where a predicted penalty of ~40-65% was observed within the 
+flame temperature range of 1750-1950K. Experimentally, a new advanced mixer was used, enabling 
+operation of the full spectrum of natural gas and hydrogen blends up to 100% hydrogen. The impact of 
+hydrogen content on NOx emissions for a representative operating condition was investigated. 
+Comparisons with the model predictions were made, revealing minor discrepancies, which were 
+investigated and justified thru a mixedness and residence time framework. Finally, the authors show that 
+the proper way to regulate future combustors running with 100% hydrogen should be based on NOx and 
+not NOx15. The findings reported here help clarify and shape the future hydrogen enabling technologies, 
+reaffirming the need for compact and shorter combustors than are used in current technologies. 
+ 
+ 
+Keywords 
+NOx emissions, NOx design curve, Hydrogen, Blow Off time, DLE, DLN, PFR, PSR, Emissions, Flashback, 
+Auto-Ignition 
+ 
+ 
+This publication is intended for external publication: 
+TurboExpo 2022 
+ 
+2021072677338 
+
+
+--- Page 2 ---
+
+ 
+2 
+ 
+ 
+ 
+ 
+CLASSES OF GENERAL ELECTRIC 
+TECHNICAL REPORTS 
+CLASS 1 — PUBLIC (CLASS 1) - GENERAL INFORMATION 
+Available to anyone on request. GEGR management, and relevant Company component 
+reviews are required before publication. 
+CLASS 2 — GE INTERNAL (CLASS 2) - GENERAL COMPANY INFORMATION 
+Available on request to any GE employee or employee of a GE subsidiary company that has 
+executed a non-disclosure agreement with GE. 
+CLASS 3 — GE CONFIDENTIAL (CLASS 3) - LIMITED AVAILABILITY INFORMATION 
+Original distribution limited to those individuals with specific need for the information. 
+Subsequent Company availability requires originating component approval. 
+CLASS 4 — GE RESTRICTED (CLASS 4) - HIGHLY RESTRICTED DISTRIBUTION 
+Original distribution to those individuals personally responsible for the Company’s interests 
+in the subject. Copies are serially numbered and assigned, and the recipients’ names are 
+recorded. Knowledge of existence and material content is restricted to the copy holder. 
+ 
+Class 2, 3, and 4 reports may be subject to Export Control, depending on 
+subject matter. 
+ 
+In addition to the limitations above, distribution of Class 2, 3 and 4 information may be 
+controlled by Export Control laws or Regulations.  Consult your Export Control representative 
+or the GEGR Export Control Manager whenever you have a question in 
+this regard. 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 3 ---
+
+ 
+ 
+3 
+Copyright © 2022 by ASME 
+GE Global Research 
+ 
+ 
+Title: IMPACT OF HIGH HYDROGEN OPERATION ON COMBUSTOR PERFORMANCE 
+ 
+Author(s) 
+ 
+ 
+Bassam Mohammad Abdelnabi 
+ 
+Phone: 518-387-5472 
+ 
+ 
+Nicholas Magina  
+ 
+ 
+Phone: 518-387-5437 
+Keith McManus  
+ 
+ 
+Phone: 518 387 6597 
+ 
+ 
+Brian Volk 
+ 
+ 
+ 
+Phone: 518 387 4675 
+ 
+Report Number 2021GRCXXX 
+Date 
+07/26/2021 
+Number of Pages 15 
+Class 
+GE Public (Class 1) 
+ 
+ 
+ 
+Key Words: NOx emissions, NOx design curve, Hydrogen, Blow Off time, DLE, DLN, PFR, PSR, emissions, flashback, auto-ignition 
+ 
+ 
+
+
+--- Page 4 ---
+
+ 
+ 
+4 
+Copyright © 2022 by ASME 
+Distribution List  
+ 
+Full Name 
+SSO ID 
+Department 
+Location
+John Herbon
+GEA
+US
+Keith R McManus
+200005585
+GEGR-GRC Combustion Systems
+US
+Robert Zacharias
+204019226
+GE Global Research
+US
+Giri Manampathy
+210027548
+GEA
+US
+Nan Zong
+204047377
+GEA
+US
+David Lind
+210027653
+GEA
+US
+ 
+ 
+ 
+
+
+--- Page 5 ---
+
+ 
+ 
+5 
+Copyright © 2022 by ASME 
+Proceedings of ASME Turbo Expo 2022: Power for Land, Sea and Air 
+ASME Turbo Expo 2022 
+June 22-26, 2022, Rotterdam, The Netherlands 
+GT2022-xxxx
+IMPACT OF HIGH HYDROGEN OPERATION ON COMBUSTOR PERFORMANCE 
+ 
+ 
+Bassam S. Mohammad, Nicholas Magina, Brian Volk, and, Keith McManus  
+General Electric Research Center 
+Niskayuna, NY 12309, USA 
+ 
+ 
+ 
+ 
+ABSTRACT 
+As the interest in high hydrogen operation is gaining 
+momentum, this paper quantifies the impacts associated with 
+switching from natural gas to 100% hydrogen, leveraging both 
+modelling techniques and experimental data. From the modeling 
+standpoint, a perfectly stirred reactor network model was setup 
+in Cantera. Flame speed increases of up to 50 times that of 
+natural gas were observed with increasing hydrogen content, 
+indicating a significant increase in flashback propensity. This 
+suggests that DLE combustion systems might offer an advantage 
+over RQL systems, operating at low equivalence ratios where the 
+flame speed impact is milder. Additionally, the model shows that 
+the blow off time can be used to classify hydrogen operation into 
+three regimes. With increasing hydrogen content, the BOT 
+begins similar to that of propane and declines at different rates in 
+each regime, establishing the added operational challenges 
+associated with high hydrogen content operation. Equivalence 
+ratio dependencies were investigated along with NOx penalties, 
+where a predicted penalty of ~40-65% was observed within the 
+flame temperature range of 1750-1950K. Experimentally, a new 
+advanced mixer was used, enabling operation of the full 
+spectrum of natural gas and hydrogen blends up to 100% 
+hydrogen. The impact of hydrogen content on NOx emissions for 
+a 
+representative 
+operating 
+condition 
+was 
+investigated. 
+Comparisons with the model predictions were made, revealing 
+minor discrepancies, which were investigated and justified thru 
+a mixedness and residence time framework. Finally, the authors 
+show that the proper way to regulate future combustors running 
+with 100% hydrogen should be based on NOx and not NOx15. 
+The findings reported here help clarify and shape the future 
+hydrogen enabling technologies, reaffirming the need for 
+compact and shorter combustors than are used in current 
+technologies. 
+ 
+ 
+ 
+1    NOMENCLATURE 
+P3 
+= Combustor feed pressure 
+T3 
+= Combustor inlet air and fuel temperature 
+TC 
+= Thermocouple 
+P/P 
+= Operating pressure drop across nozzle 
+NOx 
+= Nitrogen Oxides 
+CO 
+= Carbon Monoxide 
+O2 
+= Oxygen 
+CO2 
+= Carbon Dioxide 
+H2 
+= Hydrogen 
+ppmvd 
+= Particle per million volume dry 
+Tflame  
+= Flame temperature-based on mixer air only 
+TExit  
+= Combustor exit temperature (overall air/fuel) 
+ms 
+= Combustor residence time in millisecond 
+p’ 
+= Thermo-acoustic instabilities pressure fluctuation 
+in psi 
+pk-pk 
+= Pressure fluctuations peak to peak 
+BOT 
+= Blow off time 
+DLE 
+= Dry Low Emissions combustion systems 
+EPA 
+= Environmental protection agency 
+GER 
+= General Electric Research 
+PSR 
+= Perfectly stirred reactor 
+RQL 
+= Rich-quench-lean combustion systems 
+(     )15 
+= Species corrected to 15% oxygen 
+ 
+2    INTRODUCTION 
+Hydrogen economy is currently being shaped and 
+investigated as an enabler for a greener future. We read in 
+industry the term “zero” associating any discussion on hydrogen 
+as a potential fuel to be widely used in future. It is true that 
+switching to 100% hydrogen means zero carbon dioxide and 
+carbon monoxide, but not necessarily zero pollutant emissions. 
+The primary remaining pollutant is NOx, where literature shows 
+contradictory conclusions on the impact of hydrogen on NOx 
+emissions. Some studies reported an increase, others reported a 
+decrease, and some reported no change.  
+
+
+--- Page 6 ---
+
+ 
+ 
+6 
+Copyright © 2022 by ASME 
+Mohammad et al. [1] reviewed the different studies in the 
+published literature. There work showed limited to no impact at 
+up to 25% Hydrogen using an entitlement combustor (perfectly 
+premixed). York et al. [2] reported a decreased of NOx emissions 
+compared to natural gas operation. Luckerath et al. [3] reported 
+a significant NOx increase with increase in hydrogen in the range 
+of  20% -40%. However, there data shows a wide uncertainty in 
+flame temperature estimation in addition to variation in air 
+preheat temperature. Lantz et al.  [4] reported an increase in NOx 
+emissions but the burner was run at atmospheric conditions 
+which limits the benefit of the data collected. Han S. Kim et  al. 
+[5] reported similar conclusions, but with a non-perfectly 
+premixed system so the impoact of premixing is unknown. Peter 
+Therklsen et  al. [6] did a pathway study in an attempt to pinpoint 
+the reason behind the NOx increase without conclusive results. 
+Griebel et  al. [7] reported that for a perfectly premixed case the 
+NOx emissions are similar. Also, they showed that diffusion 
+flame significantly results in higher NOx concentrations. Cozzi 
+[8] reported similar results on a diffusion flame type combustor. 
+Combustion emissions are sensitive to almost all operating 
+conditions. This paper is focused on NOx and CO, which are 
+both sensitive to operating pressure, temperature, mixedness, 
+residence time, flame temperature, diffusion portion of the 
+flame, fuel composition and non-uniformities in the flow. 
+Several authors documented the impact of pressure on 
+combustion emissions [9-12]. The higher the flame temperature 
+the higher the NOx emissions penalty at elevated pressure. CO 
+decreases with pressure. Residence time effect on NOx emissions 
+is documented in few publications, but was not thoroughly 
+studied in a way that provides combustor designers to make the 
+best selection based on target cycle conditions [6, 13, 14].  
+Perfectly premixed data are of extreme importance in 
+quantifying gas turbine emissions as they isolate the impact of 
+mixing from the data. This concept of entitlement data was 
+introduced by Leonard and Correa [9] in the nineties. The system 
+was simply a perforated flat pate burner running under perfectly 
+premixed conditions. Elkady et. al  [14] used a similar system to 
+study the impact of operating conditions as well as to establish 
+the most representative chemical reactor network model that can 
+be used to model this flame . Mohammad et. al used the same 
+system to show the impact of acoustics on the entitlement curve 
+[15].  Also, Elkady et. al used it to study the impact of  exhaust 
+gas recirculation (EGR) on combustion emissions [16]. The rig 
+data was also used for successful CO modeling close to lean 
+blow out (LBO) [17, 18]. However, perfectly premixed data is 
+not enough to quantify the changes that associates fuel changes 
+in the field since the mixedness also changes. Fuel composition 
+changes are typically associated with fuel jet momentum ratio 
+changes which derives a change in mixing. Using perfectly 
+premixed data to quantify the changes is not sufficient in this 
+case as they don’t capture the impact of mixedness.  
+This paper is focused on reporting the impact of switching 
+from natural gas operation to 100% hydrogen operation on an 
+actual industrial gas turbine DLE system. Recent studies have 
+presented the results for blahblah. Here, two DLE mixers are 
+used in a two-cup rig arrangement to quantify the result of 
+switching from natural gas to 100% hydrogen on NOx and CO 
+emissions. A reactor network perfectly premixed model is also 
+used to quantify the impact and explain the experimental data. 
+As high NOx were observed as the combustor was switched to 
+hydrogen operation, a potential mitigation strategy is presented 
+at the end of the paper. The mitigation for high NOx is suggested 
+to be primarily through residence time reduction. 
+ 
+3     EXPERIMENTAL SETUP AND TEST CONDITIONS: 
+3.1 Test facility capability 
+The experimental data was acquired at the General Electric 
+Research (GER) combustion test facility. This facility is used to 
+develop future combustion technologies, enhance current 
+technologies, as well as diagnose issues for systems in the field. 
+The test facility is comprised of three large air compressors, 
+two gas compressors, a propane vaporizer, fuel blending station,  
+bottle pack and trailer farm, boost air compressor and liquid fuel 
+tank farm with different tanks that fit multiple liquid fuels 
+including crude oil, JetA, Norpar, Diesel, Distillate and empty 
+tanks for any liquid fuel of interest to be studied. The test facility 
+is designed to enable testing for land based or aircraft engine-
+based combustion systems.  
+3.2 Test cell capability 
+An operational schematic of the test cell used for this study 
+is illustrated in Figure 1. The main feed of natural gas can be 
+mixed with other gaseous fuels. In this case, the natural gas 
+stream was mixed with hydrogen from the fuel blending station. 
+The mixing happens on the fly inside the test cell using a set of 
+control valves and flow meters. The mixture is then routed to the 
+combustor through different fuel lines. In this case, only two 
+gaseous fuel circuits were required to run the system. The length 
+of the tubes after mixing is larger than 200 L/D which ensures 
+that the natural gas and hydrogen mixture is homogenous before 
+it reaches the combustion space.  
+The test cell is capable of running liquid fuel and multiple 
+air streams and there are several other gaseous fuel circuits, but 
+they were not needed for this specific test.  
+3.3 Problem definition and combustor design 
+The combustion system utilized in this study is shown in 
+Figure 2. The system is a two-cup based DLE combustion 
+system. The cups are inserted in position through a heat shield 
+assembly. The heat shield is cooled through impingement 
+cooling. The flame tube is a bathtub shaped structure. It is back 
+side cooled to limit the impact of secondary air on combustion 
+emissions [19]. The liner back side cooling starts with a baffle 
+that impinges air on the back of the liner and then the flow 
+develops and flow in the sleeve to cool the liner aft portion down 
+through convective cooling. The secondary air injector shown on 
+the figure is sealed and not used for this study. The igniter on the 
+side is a half inch hydrogen-based igniter that is water cooled. 
+There are four emissions rakes installed at the combustor exit. 
+Each rake has 5 sampling holes. Therefore, there are 20 sampling 
+
+
+--- Page 7 ---
+
+ 
+ 
+7 
+Copyright © 2022 by ASME 
+ports distributed on the combustor exit to enable high quality and 
+spatially diverse emissions sampling.  
+The combustor structure here is maintained constant without 
+any changes while varying the fuel from natural gas to hydrogen. 
+The design is capable of handling any temperature spikes or shift 
+in the heat transfer. It is important to freeze all these variables to 
+isolate the quantified variables to only the variation of natural 
+gas to hydrogen.  
+ 
+ 
+Figure 1. 
+Test cell operational schematic layout  
+ 
+ 
+Figure 2. 
+Combustor layout 
+ 
+3.4 Combustor instrumentation 
+The combustor is instrumented with thermocouples and 
+pressure measurements points to ensure that all parameters of 
+interest are running within the operating range and acceptable 
+operating conditions.  
+There are several thermocouples on the liners to ensure that 
+the metal temperature does not exceed the acceptable operating 
+temperatures for the liner material, Hast Alloy X in this case. 
+Also, the heat shield is instrumented with several thermocouples 
+for the same reason. 
+There are 4 pressure measurement points on the combustor 
+and two quarter inch tubes used for monitoring static and 
+dynamic pressures to ensure that the amplitude of combustion 
+acoustics will not result in mechanical failure. Typically, a limit 
+is set for the high frequency dynamics (1000-6000 Hz) at 5 psi 
+pk-pk and for the low frequency dynamics (0-1000 Hz) at 12 psi 
+pk-pk.  
+The four static pressure measurement points provide an 
+average pressure in the combustion zone that is used to estimate 
+the amount of air flowing in each mixer, based on the mixer 
+pressure drop. Based on these measurement values and the 
+amount of fuel flow prescribed, the fuel-air ratio (FAR) can be 
+estimated, and hence the flame temperature for each mixer. 
+The metered air, metered fuel, estimated mixer air, and 
+emissions, specifically the oxygen and carbon dioxide balance, 
+are used to calculate multiple closures that are used to assess the 
+integrity and quality of the test. The main quality metrics are air 
+closure, fuel closure, oxygen closure and carbon dioxide closure.  
+Also, methane closure is used before light up to ensure that the 
+light up will be safe and within expectations. 
+ 
+ 
+ 
+Figure 3. 
+Flow path, static and dynamic pressure 
+measurement locations 
+3.5 Emissions sampling system 
+The emissions samples collected thru the rake sampling 
+holes flow through an electrically heated hose that help maintain 
+the sample temperature at 422K. This temperature ensures no 
+condensation of the water in the sample gas will occur before 
+feeding the sample to the analyzer. This is important as NO2 is 
+water soluble. If water condensation occurs, then NO2 may be 
+lost and hence the total NOx measured will be in error. The 
+Environmental Protection Agency (EPA) method 7E is of 
+extreme importance to be referred to by researchers and 
+industrial entities performing emissions sampling [20]. 
+The emissions stand is composed of a series of analyzers 
+that are used to measure all major components of the sampled 
+gas stream. Mainly we are interested in oxygen (O2), nitric 
+
+
+--- Page 8 ---
+
+ 
+ 
+8 
+Copyright © 2022 by ASME 
+oxides (NOx), carbon monoxide (CO), unburned hydrocarbons 
+(UHC), methane (CH4) and carbon dioxide (CO2). NOx15 refers 
+to the standard correction of the NOx emissions to 15% oxygen. 
+The same terminology applies for CO. 
+3.6 Operating conditions, data storage and reporting 
+This study, both modeling and experimentally, is performed 
+at representative gas turbine operating conditions summarized in 
+Table 1. The target residence time is ~ 8 ms at the design point 
+operating conditions. An increase of the pressure drop to 8.75% 
+changes the residence time to roughly 5.6 ms, information which 
+will be useful in Section 4.5. The fuel is pumped to the 
+combustion system without pre-heating. There are two mixers 
+installed in the system and both were operated at identical 
+conditions (no burner bias for this study). That is the global FAR 
+per mixer was the same and is equal to the system global FAR. 
+Reported data is logged at a rate of 1 Hz. The data presented here 
+is collected at steady state where each point is an average of at 
+least 10 seconds worth of data.   
+ 
+Table 1.     Baseline Operating Conditions 
+Parameter
+Value
+P3
+23 atm
+T3
+785 K
+P/P
+4% 
+ 
+4     RESULTS AND DISCUSSION 
+4.1 Impact of 100% hydrogen operation on flame speed 
+and Blow Off Time  
+The laminar flame speed (SL) is of prime importance in 
+understanding the propensity of DLE mixers to flashback. In 
+addition, it dictates the flame area and overall length as it 
+describes the consumption rate of the air and fuel mixture. 
+However, the flow is primarily turbulent in practically all 
+industrial combustion systems, therefore a useful quantity is the 
+turbulent flame speed (ST) which is typically correlated to SL. 
+One sample formula is given in Eq.(1) where U’ is the fluctuating 
+component of the velocity [21]. The ratio can be between 2-50 
+depending on the problem being solved. 
+ 
+⁄
+ ~ 	 
+′
+ 
+
+
+
+/   
+           (1) 
+To investigate these trends, a perfectly stirred reactor (PSR) 
+network model was setup in Cantera and exercised at the 
+operating conditions listed in Table 1. The PSR residence time 
+was set to 0.5ms. Figure 4 shows the variation of the laminar 
+flame speed with equivalence ratio for methane and hydrogen 
+flames. An alternate representation, in terms of ratio of hydrogen 
+laminar flame speed to methane laminar flame speed, is shown 
+on the secondary axis. A major challenge of burning hydrogen is 
+apparent from the figure as the hydrogen flame speed velocity is 
+orders of magnitude larger than methane. As equivalence ratio 
+increases so does this flame speed ratio, representing increased 
+sensitivity and susceptibility to flash back. This suggests that 
+leaner combustion systems would have an advantage when 
+switching to burning hydrogen, having more modest flash back 
+characteristics. For example, DLE combustion systems, typically 
+operating at equivalence ratios less than 0.75, will have fewer 
+hydrogen related flash back issues than diffusion based or RQL 
+combustion systems, which operate at the larger equivalence 
+ratios. In addition, combustor part durability is also a concern 
+with increasing flame speed as the flame is expected to sit much 
+closer to the hardware or attachment surfaces. Thus, this is one 
+of the few cases where lean burn systems burning hydrogen can 
+be more advantageous when compared to rich burn systems. 
+ 
+Figure 4. 
+Laminar flame speed of hydrogen (H2) and 
+Methane (CH4) vs equivalence ratio (Phi) 
+ 
+Gas turbine manufacturers typically test mixers in a 
+controlled environment at representative operating conditions of 
+the machine for flame holding. These tests confirm the ability of 
+the mixer to both stabilize a flame in the designed reaction zone 
+and to clear a flame that is induced into the mixer, irrespective 
+of the reason it was induced. Field experience has shown that this 
+is a key performance parameter that can result in millions of 
+dollars in losses if not tackled properly. Blow off time (BOT), 
+defined as the minimum PSR residence time required for the fuel 
+air mixture to have reaction or heat release, can be used to 
+numerically confirm that the mixer will be resistant to flame 
+holding events. Blouch et. al showed that for propane and ethane 
+operation, BOT was a very accurate indicator of flame holding 
+acceptability limits for GE LM2500 and LM6000 machines 
+using DLE1.5 mixers technology [22]. If the BOT is higher than 
+the residence time in the mixer then there is no risk of flame 
+holding, and if BOT is lower than the mixer residence time then 
+flashback or flame holding becomes an issue.  
+The PSR network model was once again leveraged to 
+investigate BOT trends for various fuel blends at the operating 
+conditions listed in Table 1. The equivalence ratio of interest is 
+assumed to be unity to represent flame holding events close to 
+the fuel injection orifices inside the mixer. The model was run 
+for various natural gas blends of propane (serving as a baseline) 
+and hydrogen ranging from 10% to 100%. Figure 5 shows a 
+
+
+--- Page 9 ---
+
+ 
+ 
+9 
+Copyright © 2022 by ASME 
+direct comparison of the BOT for these concentration sweeps. 
+The extremely low values with significant hydrogen 
+concentration indicate large flame holding and flashback risk, 
+being yet another challenge with high hydrogen content 
+combustion. For example, the BOT at 100% propane is 
+equivalent to that at 43% hydrogen (roughly 3.5 micro-seconds). 
+Propane was chosen as the baseline for comparison as it is known 
+to be already sensitive to flashback and flame holding. The data 
+shows that at 80% hydrogen the BOT is roughly 1 micro-second, 
+establishing an extremely aggressive requirement. However, up 
+to as high as 30% hydrogen operation there is no significant 
+difference between propane and hydrogen trends, suggesting that 
+the operation of the combustor free of flame holding or flashback 
+events should be relatively easily achieved in this range.  
+Based on these curves, three operational regimes can be 
+defined. First is the easiest which is up to 30% concentrations, 
+where the trends are almost identical to that of propane. Next, is 
+between 30-80% where both concentration increases lead to 
+decreasing BOT values, albeit at different rates. Finally, at 
+concentration blends higher than 80%, propane seems to level 
+off while hydrogen continues to decline, indicating increasingly 
+challenging operating requirements.  
+ 
+ 
+Figure 5. 
+Hydrogen vs Propane BOT sweeps, where 
+vertical dashed lines denote the regime boundaries 
+ 
+0 shows the sensitivity of BOT to operating pressure and 
+temperature variations well within the realm of possibility for 
+fielded systems. The data shows that the air preheat temperature 
+has a very strong effect on reducing the BOT, and therefore 
+engines running at higher pressure ratios have an added level of 
+difficulty. This becomes an increasing concern as our technology 
+is driving towards higher pressure ratios as we strive for higher 
+efficiencies. The impact of higher operating pressure was much 
+more minor. 
+ 
+ 
+Figure 6. 
+Sensitivity of BOT to operating pressure and 
+temperature for different hydrogen blends 
+ 
+Figure 7 shows the variation of BOT with equivalence ratio for 
+a 100% hydrogen air mixture running at ~23 atm and 785K. In 
+the previous concentration sweep studies, it was mentioned that 
+the PSR network model was set to an equivalence ratio of unity. 
+This curve shows that the BOT only recovers to the value 
+observed for pure propane at equivalence ratio values lower than 
+0.42 or higher than 6. Within the range 0.47-1.5 the BOT is 
+extremely low (less than 1 micro-seconds). This indicates that 
+hydrogen combustion systems running under partially premixed 
+or close to perfectly mixed conditions will require additional 
+hardware design features to avoid flame holding, rather than 
+relying on chemistry as is standard with traditional fuels. The 
+work of York et al. shows one such example of a system 
+redesigned to be able to operate at 100% hydrogen. However, 
+operating pressures and temperatures are also an important factor 
+in the performance evaluation of systems intended to operate 
+under 100% hydrogen [2]. 
+ 
+
+
+--- Page 10 ---
+
+ 
+ 
+10 
+Copyright © 2022 by ASME 
+ 
+Figure 7. 
+Impact of equivalence ratio (Phi) on the BOT 
+for 100% hydrogen at 23 atm and 785K. 
+4.2 Impact of 100% hydrogen operation on NOx 
+emissions using chemical kinetics  
+Previous model results shown so far in this work have 
+leveraged a PSR network model, however, to investigate the 
+chemistry of these simplified combustion systems now a joint 
+PSR and plug flow reactor (PFR) network model will be 
+leveraged. This is a common practice and will be denoted PSR-
+PFR in this work. Elkady et al. used a similar network model to 
+predict the emissions of a perforated entitlement burner running 
+with natural gas (perfectly premixed) [23] and achieved very 
+good agreement with experimental data. The sensitivity of the 
+model was evaluated using different reaction mechanisms and at 
+different operating conditions, having widespread agreement 
+with the experimental data. Mohammad et al. [15] used the same 
+version of this combustion system to study the impact of 
+hydrogen enrichment, however only up to 25% hydrogen by 
+volume and showing very limited impact on NOx emissions. 
+Figure 8 schematically depicts the PSR-PFR network model 
+constructed and leveraged to compare predicted emissions under 
+natural gas and hydrogen operation. Two different chemical 
+mechanisms were initially investigated; an industry standard, 
+GRI3.0, and a more aggressive chemical detailing, MFC2. This 
+was done to gain understanding into the sensitivity of hydrogen 
+content combustion metrics on the mechanism used. Figure 9 
+shows the laminar flame speed computed for each mechanism 
+across hydrogen content sweeps. It can be observed that the 
+flame speed is estimated to increase between 2-6 times as the 
+flame transitions from natural gas to 100% hydrogen content (at 
+this specific flame temperature. Figure 4 shows the general trend 
+with equivalence ratio). Aside from Figure 9, all subsequent 
+results for laminar flame speed throughout this paper will utilize 
+the GRI3.0 mechanism as it is the current industrial standard. 
+ 
+Figure 8. 
+Schematic of the PSR-PFR network model 
+ran at baseline conditions (See Table 1) 
+ 
+ 
+Figure 9. 
+Laminar flame speed vs hydrogen content by 
+volume for different chemical mechanisms at Tflame 
+~1950K and baseline conditions (Table 1) 
+ 
+Along with laminar flame speed, another important 
+parameter in the network model are the residence times. To 
+assess the impact of the PSR-PFR residence time split, the PSR 
+size is assumed to inversely change with the laminar flame speed 
+squared. This results from the chemical time scale, CTS, being 
+inversely proportional to the square of the laminar flame speed 
+as follows:  
+ 
+            τCTS
+ Cp
+
+
+To
+
+  
+ 
+           (2) 
+ 
+For the subsequent model results shown, the residence time 
+split between the PSR and PFR was kept equal, at 0.5ms/7.5 ms 
+each (for an overall system residence time modeled of 8 ms). 
+This was justified with accompanying numerical investigations 
+which showed the impact of the PSR residence time on NOx 
+emissions to be so minor that it was essentially negligible. For 
+example, it was observed that decreasing the size of the PSR, for 
+hydrogen operation, to 20% that of the natural gas operation 
+resulted in roughly a 1% reduction in NOx. Thus, for simplicity 
+they were kept equal. 
+Figure 10 shows the PSR-PFR network model results, 
+comparing NOx values for natural gas and hydrogen flames.  
+These curves show the typical exponential NOx growth, as is 
+common and expected, versus flame temperature (denoted 
+TFlame in the figure). A significant NOx penalty can be observed 
+
+
+--- Page 11 ---
+
+ 
+ 
+11 
+Copyright © 2022 by ASME 
+as the fuel is switched from natural gas to hydrogen. This penalty 
+becomes more obvious when the ratio of NOx is plotted, and thus 
+NOxH2/NOxCH4 is also shown in Figure 10. Most modern DLE 
+combustion systems operate with flame temperatures in the 
+range of 1750-1950 K, corresponding to a model predicted NOx 
+penalty in the range of ~65-40%. Also, it is observed that as the 
+temperature increases the percentage penalty decreases. This 
+effect might be attributed to the decreases in prompt NOx as 
+temperature increases, resulting in decreasing flame lengths. 
+ 
+Figure 10. Model prediction of hydrogen vs natural gas 
+NOx15 operation for a 23.8 atm, 783.1K and 8 ms 
+4.3 Impact of 100% hydrogen operation on DLE 
+combustion systems 
+Having gained some preliminary insight into the impact of 
+hydrogen content on NOx emissions from the network model 
+framework, the next step is to investigate the experimental 
+results. The combustion system shown in Figure 2 was used to 
+experimentally quantify the impact of hydrogen on emissions 
+thru various hydrogen content sweeps; specifically the system 
+was run at hydrogen percentages of 30, 40, 50, 60, 70 and 100% 
+with flame temperature of 1935 K. Additionally, two temperature 
+sweeps were conducted at 50% and 100% hydrogen in order to 
+study the impact of operating temperature on NOx growth. These 
+were performed by varying the flame temperature while keeping 
+everything else the same and collecting data, resulting in curves 
+commonly known as NOx design curves. These NOx design 
+curves provide combustor designers with critical information 
+required to target and achieve emissions requirements and thus 
+are highly sought after in industry.  
+As a brief aside, it is important to recognize that the FAA 
+NOx and CO regulations actually regulate NOx15 and CO15, 
+rather than NOx and CO. These modified emissions metrics 
+represent the respective species emissions corrected to 15% 
+oxygen using the following formula: 
+ 
+!.#$ 
+!.#$% &%( ∗ &**+(  
+          (3) 
+where X denotes the species concentration in ppm and O2 is the 
+nominal oxygen percentage in the original measurement. 
+Therefore, often results will be presented against and discussed 
+with respect to this modified metric. 
+Figure 11 shows the three NOx design curves obtained, one 
+for natural gas and the two hydrogen sweeps at 50% and 100% 
+respectively. It can be observed that as the hydrogen content 
+increases, the NOx emissions increase significantly following a 
+second-degree polynomial. As a note, this figure shows the 
+design curves plotted against TO2, being the temperature 
+measured at the exit of the combustor. In this work we will utilize 
+Tflame, obtained from model results, and TO2, measured from 
+experiments, interchangeably.  
+ 
+ 
+Figure 11. NOX15 Emissions data for natural gas and 
+hydrogen. Shown are three NOx design curves and a 
+hydrogen content sweep at 1935K. 
+ 
+Figure 12 shows the hydrogen content sweep, which is also 
+denoted on Figure 11 by the dashed line, establishing a transfer 
+function for the impact of hydrogen on NOx emissions. Using 
+the regimes defined in Figure 5 for BOT, it can be observed that 
+at low hydrogen percentages there is very limited impact of 
+increasing hydrogen content on NOx. Above this regime 
+however, the impact is significant. In the middle regime, the 
+increase in NOx with hydrogen content seems exponential, while 
+in the final high content regime the increase appears linear.  
+By referring to Figure 10, comparisons between the network 
+modeling framework and experimental data can be made. 
+Extracting the values at 1935 K, the model shows a predicted 
+NOx increase of ~45%, being equivalent to the 100% hydrogen 
+content point in Figure 12,  while the experimental data shows 
+an increase of ~1200%. This massive difference can be attributed 
+to the hydrogen NOx prediction from the model being well 
+below the experimentally observed values. Notice how the 
+natural gas prediction seems reasonable, while the hydrogen 
+prediction is almost an order of magnitude off. Physically, this 
+can be attributed to the model inability to capture the variation 
+
+
+--- Page 12 ---
+
+ 
+ 
+12 
+Copyright © 2022 by ASME 
+in mixing or the flame-flow interaction impact that is associated 
+with hydrogen addition, effects that will be further explored next.  
+ 
+ 
+Figure 12. Impact of hydrogen addition on NOx15 
+emissions measured experimentally 
+ 
+Although NOx is the primary emission discussed when 
+referring to pure hydrogen combustion due to the absence of 
+carbon atoms, however, when dealing with hydrogen blends CO 
+is still a concern requiring attention. Figure 13  shows the impact 
+of hydrogen content (blended with natural gas) on CO. The 
+observed absence of CO at 100% hydrogen was expected and 
+serves as mental grounding, however, at 50% hydrogen the trend 
+is very interesting. With 50% hydrogen, there is just 30 ppm 
+CO15 at 1700K which corresponds to 465K of turn down 
+capability.  The elevated levels of NOx and significant reduction 
+in CO points us towards the solution to enable 100% hydrogen 
+with emissions compliance. It is known that CO levels decrease 
+with longer residence times, however, due to the large margin 
+here with the 50% blend (or complete absence of CO with 100% 
+hydrogen), this points towards using shortened combustors or 
+combustors with faster residence times as to limit the amount of 
+NOx formation.  
+ 
+Figure 13. Impact of hydrogen addition on CO15 at 8.5 
+ms 
+ 
+As a final point on these experimental emissions trends, 
+upon close inspection of Figure 11 and Figure 13, it can be 
+observed that for the natural gas data there are actually two sets 
+of results plotted. Low and high emission branches exist for CO 
+and NOx at low and high temperature values, respectively. For 
+each of these dataset pairs, the same data was acquired, however 
+the temperature sweeps were done from different sides, one 
+increasing and one decreasing. The resulting behavior is the 
+hysteresis phenomena associated with the flame shape changes 
+as the temperature is approached from the lower side or the 
+higher side (also commonly known as bifurcations or bi modal 
+behavior in combustion). It can be seen that the bifurcation point, 
+i.e. temperature, appears to be around 3025F. 
+*Add equivalent of Figure 12 but for CO? 
+4.4 Incorporating effect of un-mixedness in chemical 
+kinetics model 
+Published research has shown that the PSR-PFR reactor 
+network model approach is able to capture, with high accuracy, 
+the NOx emissions of simple natural gas jet flames that are 
+perfectly premixed [14]. From Figure 10 it can be observed that 
+at a flame temperature of 3025F, the reactor network predicts 
+NOx15 to be 12.5 ppm under natural gas operation, while 
+experimental data shows emissions values between 8.5pm-
+12ppm (depending on hysteresis direction or flame shape). This 
+implies that the system with natural gas is running in an 
+operational mode close to perfectly premixed. 
+Recall the previous discission regarding the large deviations 
+between network model NOx predictions and experimental 
+results. The jet momentum ratio of the pure hydrogen fuel, 
+relative to pure natural gas, is 1.25, suggesting that a significant 
+impact on mixing is to be expected when switching from natural 
+gas to hydrogen operation. As a result of this higher fluid 
+momentum, the mixing profile likely becomes more center 
+peaked with hydrogen. While this may help with flash back and 
+flame holding, it will also drive higher NOx emissions due to 
+blahblah.  
+To capture this impact and remedy some of the model 
+deficiencies, we propose a simple framework to estimate and 
+incorporate the un-mixedness effect into the modelling results. 
+The reactor network model can be used to predict NOx for any 
+equivalence ratio of interest if it is assumed to be uniform across 
+the flow. Thus, for the proposed framework, we will assume that 
+the NOx emissions for the combustion system shown in Figure 
+2 are a mixture of perfectly premixed emissions and a hot spot, 
+representing a localized region of high fuel content, operating at 
+an equivalence ratio of unity; chosen as this represents the worst-
+case scenario with maximum adiabatic flame temperature. At the 
+baseline condition, now assuming an equivalence ration of unity, 
+the model predicts NOx values of roughly ~3733.3 ppm while 
+burning pure hydrogen. Experimentally, there is 259.7 ppm NOx 
+generated at the same conditions of interest where the model 
+predicts 43 ppm. The split is roughly 5.75%. Therefore, the 
+deterioration of un-mixedness as we switch from natural gas to 
+hydrogen can be quantified at roughly 6%.  
+This framework assumes that the kinetics model fully 
+captures the proper physics and that deviations can exclusively 
+be attributed to un-mixedness that takes place as a result of the 
+burner design not being intended for 100% hydrogen operation. 
+Another important factor that could contribute is the residence 
+
+
+--- Page 13 ---
+
+ 
+ 
+13 
+Copyright © 2022 by ASME 
+time impact in the post flame zone. One method to confirm this 
+assumption would be to have dynamic fuel orifice holes such that 
+the momentum ratio is constant with various hydrogen content 
+blends; enlarged holes for higher hydrogen contents. However, 
+these hardware modifications and test reruns are beyond the 
+scope of the current work. This work is focused on simply 
+quantifying the changes that associate switching from natural gas 
+operation to hydrogen content blends, up to 100% hydrogen. The 
+results confirm that NOx emissions will increase significantly 
+either way. As was shown by Figure 12, NOx15 can increase as 
+much as 1200% when switching from natural gas to pure 
+hydrogen operation. Restoring the mixedness will help reduce 
+the impact but will never eliminate it fully. In the next section a 
+simple method will be used to show how to reduce NOx15 
+without hardware changes. 
+4.5 Abatement of NOx15 via pressure drop (residence 
+time decrease) 
+The increase in NOx levels associated with moderate to high 
+hydrogen concentrations is of concern. An attempt to reduce the 
+NOx can be made by increasing the pressure drop, i.e.  reducing 
+the residence time, so that thermal NOx has less time to form. 
+However, along with negatively impacting CO for carbon 
+containing fuels, reductions in the residence time also impacts 
+the degree of mixing. Unlike the jet momentum theory, 
+investigating this effect does not require hardware modifications, 
+only an operational condition change. Therefore, another round 
+of experimental data was obtained, for both natural gas and 
+hydrogen content and temperature sweeps, at a larger pressure 
+drop of 8.75%, i.e. reduced residence time. Recall, as was 
+denoted in Table 1, Figure 11 and Figure 13 displayed results for 
+the design point with a pressure drop of 4%. This elevated 
+pressure drop value corresponds to a reactor residence time of 
+5.6ms, which is roughly a 2.5ms reduction from the baseline 
+case. 
+Figure 14 and Figure 15 show the NOx and CO emissions 
+trends for natural gas, hydrogen, and, various representative 
+hydrogen content blends at the elevated pressure drop. As was 
+expected, compared to the baseline conditions the NOx values 
+are significantly lower overall. Additionally, for the partial 
+hydrogen blends and natural gas data, the CO emissions values 
+are higher. However, interestingly the ratio of NOx increase 
+associated with switching from natural gas to pure hydrogen 
+operation is roughly the same under both pressure drops which 
+indicates limited impact on mixing in this case. Figure 16 can be 
+used to estimate the impact of residence time under 100% 
+hydrogen operation. The impact is huge. It is roughly 20 ppm / 
+ms. That is for every ms reduction in residence time there is an 
+equivalent reduction in NOx 15 emissions by 20 ppm. This 
+derivative is at roughly 1900 K. The impact of residence time is 
+expressed in ppm/ms since this rate is function of the flame 
+temperature.  
+ 
+ 
+Figure 14. Impact of hydrogen addition on NOx15 
+emissions at 8.75% DP/P which is equivalent to 5.6ms 
+ 
+Figure 15. Impact of hydrogen addition on CO15 
+emissions at 8.75% DP/P which is equivalent to 5.6ms 
+ 
+Figure 16. Impact of residence time on NOx15 under 
+100% hydrogen operation 
+ 
+4.6 NOx vs NOX15 
+The EPA regulations regulate NOx15 and CO15, rather than 
+NOx and CO. These modified emissions metrics represent the 
+
+
+--- Page 14 ---
+
+ 
+ 
+14 
+Copyright © 2022 by ASME 
+respective species emissions corrected to 15% oxygen using the 
+following formula: 
+ 
+!.#$ 
+!.#$% &%( ∗ &**+(  
+          (3) 
+where X denotes the species concentration in ppm and O2 is the 
+nominal oxygen percentage in the original measurement. 
+Figure 17 shows the oxygen content in the exhaust for 
+natural gas and pure hydrogen flames (data taken from the PSR-
+PFR model results discussed in section 4.2). It is evident that 
+natural gas flames have on average 2% less oxygen than 
+respective hydrogen flames. This means that the actual impact 
+on NOx is lower than the reported impact on NOx15. Figure 18 
+shows the impact of hydrogen addition on NOx vs NOX15. It is 
+approximately 50% of the impact we discussed throughout the 
+paper. Therefore, therefore authors suggest that the emissions 
+regulations should be based on NOx and not NOx15 for 
+combustors burning 100% hydrogen. Eventually, NOx is the 
+final pollutant that is released to atmosphere. In this case, 
+correcting to 15% Oxygen actually penalizes the system with no 
+benefit.  
+ 
+ 
+Figure 17. Oxygen percentage for natural gas vs 
+hydrogen flames under same TFlame.  
+ 
+Figure 18. Impact of hydrogen addition on NOx and 
+NOX15 
+5     CONCLUSIONS 
+Reactor network modelling and experimental data are used to 
+show the challenge that associates hydrogen combustion up to 
+100%. Modelling shows that interms of flash back, DLE systems 
+offers advantages over RQL combustion systems as the flame 
+speed gores significantly with higher equivalence ratio until the 
+ratio to natural gas peaks at around 50:1. Also, Blow Off Time 
+(BOT) shows that the problem of burning hydrogen can be 
+classified into three regions. First region is up to 25% hydrogen 
+where the BOT is very similar to propane. Second region is 25%-
+80% where the BOT significantly drops lower than propane. 
+Finally, more than 80% where the propane BOT levels at 3.5 
+micros seconds but the hydrogen BOT continues to drop to lower 
+than 1 micro seconds. Therefore, the DLE system should be 
+design with features that can enable high hydrogen without flame 
+holding. The model predicts a penalty in emissions that decreases 
+with the increase in flame temperature. It ranges between 65-
+40% within the temperatures of interest. Experimental data on an 
+advanced mixer shows even higher penalty. A proposed frame 
+work shows that a drop in mixedness by ~6% can explain this 
+additional increase in NOx. That is the mixer was used as is 
+without restoring the jet momentum ratio back to the design point 
+under hydrogen operation (the mixer is designed to burn natural 
+gas). The system residence time was dropped from 8 ms to 5.5 
+ms and therefore more than 60% drop in NOx emissions was 
+achieved. The data presented here shows that the future direction 
+for combustors that will enable high hydrogen operation is 
+compactness and short residence time for true near zero 
+emissions or at least to maintain the level of NOx similar to 
+natural gas operation.  
+6     REFRENCES 
+ 
+[1] Mohammad, B. S., McManus, K., Brand, A., Elkady, A. M., 
+and Cuppoletti, D., "Hydrogen Enrichment Impact on Gas 
+Turbine Combustion Characteristics," Proc. ASME Turbo Expo 
+2020: 
+Turbomachinery 
+Technical 
+Conference 
+and 
+ExpositionV04BT04A005. 
+[2] York, W. D., Ziminsky, W. S., and Yilmaz, E., 2013, 
+"Development and Testing of a Low NOx Hydrogen Combustion 
+System for Heavy-Duty Gas Turbines," Journal of Engineering 
+for Gas Turbines and Power, 135(2). 
+[3] Lückerath, R., Meier, W., and Aigner, M., 2008, "FLOX® 
+Combustion 
+at 
+High 
+Pressure 
+With 
+Different 
+Fuel 
+Compositions," Journal of Engineering for Gas Turbines and 
+Power, 130(1). 
+[4] Lantz, A., Collin, R., Aldén, M., Lindholm, A., Larfeldt, J., 
+and Lörstad, D., 2014, "Investigation of Hydrogen Enriched 
+Natural Gas Flames in a SGT-700/800 Burner Using OH PLIF 
+and Chemiluminescence Imaging," Journal of Engineering for 
+Gas Turbines and Power, 137(3). 
+[5] Kim, H., Arghode, V., and Gupta, A., 2009, "Flame 
+characteristics of hydrogen-enriched methane–air premixed 
+swirling flames," International Journal of Hydrogen Energy, 
+34(2), pp. 1063-1073. 
+
+
+--- Page 15 ---
+
+ 
+ 
+15 
+Copyright © 2022 by ASME 
+[6] Therkelsen, P., Werts, T., McDonell, V., and Samuelsen, S., 
+2009, "Analysis of NOx Formation in a Hydrogen-Fueled Gas 
+Turbine Engine," Journal of Engineering for Gas Turbines and 
+Power, 131(3). 
+[7] Griebel, P., Boschek, E., and Jansohn, P., 2007, "Lean 
+Blowout Limits and NOx Emissions of Turbulent, Lean 
+Premixed, Hydrogen-Enriched Methane/Air Flames at High 
+Pressure," Journal of Engineering for Gas Turbines and Power, 
+129(2), p. 404. 
+[8] Cozzi, F., and Coghe, A., 2006, "Behavior of hydrogen-
+enriched 
+non-premixed 
+swirled 
+natural 
+gas 
+flames," 
+International Journal of Hydrogen Energy, 31(6), pp. 669-677. 
+[9] Leonard, G., and Correa, S., "NOx Formation in Premixed 
+High-Pressure Lean Methane Flames," Proc. Fossil Fuel 
+Combustion 
+Symposium: 
+13th 
+Annual 
+Energy-Sources 
+Technology Conference and Exhibition, pp. 69-74. 
+[10] Bhargava, A., Kendrick, D. W., Colket, M. B., Sowa, W. A., 
+Casleton, K. H., and Maloney, D. J., "Pressure Effect on NOx 
+and CO Emissions in Industrial Gas Turbines," Proc. ASME 
+Turbo Expo 2000: Power for Land, Sea, and AirV002T02A017. 
+[11] Rutar, T., and Malte, P. C., 2002, "NOx Formation in High-
+Pressure Jet-Stirred Reactors With Significance to Lean-
+Premixed Combustion Turbines," Journal of Engineering for Gas 
+Turbines and Power, 124(4), p. 776. 
+[12] Biagioli, F., and Guthe, F., 2007, "Effect of pressure and 
+fuel–air unmixedness on NOx emissions from industrial gas 
+turbine burners," Combustion and Flame, 151(1-2), pp. 274-288. 
+[13] Rutar, T., Horning, D. C., Lee, J. C. Y., and Malte, P. C., 
+"NOx Dependency on Residence Time and Inlet Temperature for 
+Lean-Premixed Combustion in Jet-Stirred Reactors," Proc. 
+ASME 1998 International Gas Turbine and Aeroengine 
+Congress and ExhibitionV003T06A036. 
+[14] Elkady, A. M., Herbon, J., Kalitan, D. M., Leonard, G., 
+Akula, R., Karim, H., and Hadley, M., 2012, "Gas Turbine 
+Emission Characteristics in Perfectly Premixed Combustion," 
+Journal of Engineering for Gas Turbines and Power, 134(6). 
+[15] Mohammad, B. S., Balasubramanyam, P., McManus, K., 
+Ruszczyk, J., Elkady, A. M., and Mueller, M. A., "Combustion 
+Dynamics Diagnostics and Mitigation on a Prototype Gas 
+Turbine Combustor," Proc. ASME Turbo Expo 2012: Turbine 
+Technical Conference and Exposition, pp. 383-389. 
+[16] Elkady, A. M., Brand, A. R., Vandervort, C. L., and Evulet, 
+A. T., "Exhaust Gas Recirculation Performance in Dry Low 
+Emissions Combustors," Proc. ASME 2011 Turbo Expo: Turbine 
+Technical Conference and Exposition, American Society of 
+Mechanical Engineers, pp. 1183-1192. 
+[17] Graham, G., Zhuyin, R., Hendrik, F., Liuyan, L., Venkat, T., 
+and Hasan, K., "Modeling CO With Flamelet-Generated 
+Manifolds: Part 2 — Application," Proc. ASME Turbo Expo 
+2012: Turbine Technical Conference and Exposition, American 
+Society of Mechanical Engineers, pp. 1177-1184. 
+[18] Karim, G. G., Zhuyin, R., Hendrik, F., Liuyan, L., Venkat, 
+T., and Hasan, "Modeling CO With Flamelet-Generated 
+Manifolds: Part 1—Flamelet Configuration," Proc. ASME Turbo 
+Expo 2012: Turbine Technical Conference and Exposition, 
+American Society of Mechanical Engineers, pp. 1141-1151. 
+[19] Mohammad, B. S., Volk, B., and McManus, K., "Impact of 
+Secondary Air Flow on Combustor Emissions," Proc. ASME 
+Turbo Expo 2020: Turbomachinery Technical Conference and 
+ExpositionV04BT04A007. 
+[20] 
+Agency, 
+E. 
+P., 
+"Method 
+7e," 
+https://www.epa.gov/sites/production/files/2017-
+08/documents/method_7e.pdf. 
+[21] Kerstein, A. R., and Ashurst, W. T., 1992, "Propagation rate 
+of growing interfaces in stirred fluids," Physical Review Letters, 
+68(7), pp. 934-937. 
+[22] Blouch, J., Li, H., Mueller, M., and Hook, R., 2012, "Fuel 
+Flexibility in LM2500 and LM6000 Dry Low Emission 
+Engines," Journal of Engineering for Gas Turbines and Power, 
+134(5). 
+[23] Elkady, A. M., Kalitan, D. M., Herbon, J., Leonard, G., 
+Akula, R., Karim, H., and Hadley, M., 2012, "Gas Turbine 
+Emission Characteristics In Perfectly Premixed Combustion," 
+Journal of Engineering for Gas Turbines and Power, 134(6). 
+ 
+ 
+ 
+ 
+ 
+ 

@@ -1,0 +1,640 @@
+
+--- Page 1 ---
+
+Massimo Masi
+e-mail: massimo.masi@unipd.it
+Paolo Gobbato
+Andrea Toffolo
+Andrea Lazzaretto
+Department of Mechanical Engineering,
+University of Padova,
+via Venezia, 1-35131 Padova, Italy
+Stefano Cocchi
+GE Oil & Gas—Nuovo Pignone SpA,
+via Felice Matteucci, 2-50127 Firenze, Italy
+e-mail: stefano.cocchi@ge.com
+Numerical and Experimental
+Analysis of the Temperature
+Distribution in a Hydrogen
+Fuelled Combustor for a 10 MW
+Gas Turbine
+Proper cooling of the hot components and an optimal temperature distribution at the
+turbine inlet are fundamental targets for gas turbine combustors. In particular, the tem-
+perature distribution at the combustor discharge is a critical issue for the durability of
+the turbine blades and the high performance of the engine. At present, CFD is a widely
+used tool to simulate the reacting ﬂow inside gas turbine combustors. This paper presents
+a numerical analysis of a single can type combustor designed to be fed both with hydro-
+gen and natural gas. The combustor also features a steam injection system to restrain the
+NOx pollutants. The simulations were carried out to quantify the effect of fuel type and
+steam injection on the temperature ﬁeld. The CFD model employs a computationally low
+cost approach, thus the physical domain is meshed with a coarse grid. A full-scale test
+campaign was performed on the combustor: temperatures at the liner wall and the com-
+bustor outlet were acquired at different operating conditions. These experimental data,
+which are discussed, were used to evaluate the capability of the present CFD model to
+predict temperature values for combustor operation with different fuels and steam to fuel
+ratios. DOI: 10.1115/1.4002017
+1
+Introduction
+A gas turbine combustor must satisfy a wide range of require-
+ments such as high combustion efﬁciency, freedom from ﬂame
+extinction, blowout, and pressure oscillations, low pressure losses
+and proper temperature distribution. In particular, the latter is a
+critical item for the durability of the hot gas turbine components.
+Combustion chamber wall overheating and hot spots at the com-
+bustor discharge must be avoided in order to maximize the opera-
+tional life of the combustor, nozzle vanes, and turbine blades 1.
+Usually, the temperature distribution at the combustor outlet is
+measured directly in experimental tests. The characterization of
+the thermal load on the liner walls is a bit complex due to the
+difﬁculties in carrying out measurements within the combustor
+2. References on liner wall temperatures are reported in Ref. 3.
+The development of computational ﬂuid dynamics CFD codes
+over the past few decades has provided a useful tool for estimat-
+ing the temperature ﬁeld within the combustor including the tem-
+perature distribution on the combustion chamber walls and at the
+turbine inlet as well 4–13. Thus, CFD analyses, validated by
+reliable experimental data, have been used to investigate the liner
+wall thermal load 14,15 and to optimize the combustor outlet
+temperature ﬁeld 16–18. This approach can result in a signiﬁ-
+cant reduction in the amount of experimental testing required
+since design modiﬁcations or new design solutions can be evalu-
+ated in the early stages of combustor development.
+Many combustion models have been implemented into ﬁnite
+volume codes due to the complexity of the reacting ﬂow physics.
+In particular, it is well-known that the temperature ﬁeld within the
+combustion chamber is determined by the interaction between tur-
+bulence, chemistry, and heat transfer. Even though large eddy
+simulation LES has become an affordable tool for modeling
+ﬂame/turbulence interactions 9,10, the traditional Reynolds av-
+eraged Navier–Stokes RANS approach is still the most wide-
+spread tool for gas turbine combustor modeling because it is an
+optimal compromise between accuracy and computational cost
+19.
+This paper presents a computationally low cost CFD analysis of
+the reacting ﬂow inside a single can combustor. The calculations
+are aimed to compute the thermal ﬁeld at different operating con-
+ditions and are carried out with the ﬁnite volume commercial code
+FLUENT® ver.6.2. The numerical model is speciﬁcally conceived
+for a future investigation of the thermoacoustic behavior of the
+combustor, which requires time-dependent analyses. Thus, a
+coarse grid and simpliﬁed numerical models i.e., a hybrid global
+reaction mechanism and a simple two-equation turbulence model
+4,8,11 are adopted in order to reduce the computational time.
+The 3D geometrical model extends from the compressor discharge
+to the gas turbine inlet, coupling the reacting region of the com-
+bustor with the annulus “cold” ﬂow domain. The advantages of
+this type of “coupled” analysis are reported in Ref. 16. Some
+minor geometrical features are neglected so that a rough grid ap-
+proach can be employed 20.
+In the numerical simulations presented in this paper both natu-
+ral gas and hydrogen full load operation are considered with or
+without steam injection “wet” or “dry” operation. Thus the in-
+ﬂuence of the fuel type and steam dilution on the temperature ﬁeld
+can be investigated. The computed temperature distribution along
+the liner wall and at the combustor outlet is compared with the
+experimental values measured during a full-scale test campaign.
+The testing activities were performed at ENEL’s Sesta facility as
+part of a ministerial project coordinated by ENEL Ricerca ENEL
+is the former national power company. The goal of the project
+was the design of a 10 MW class combined cycle gas turbine
+CCGT pilot plant to be fuelled with 100% hydrogen. The project
+was promoted by Hydrogen Park and was partly funded by Re-
+Contributed by the International Gas Turbine Institute IGTI of ASME for pub-
+lication in the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript
+received April 15, 2010; ﬁnal manuscript received April 27, 2010; published online
+October 28, 2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021506-1
+Copyright © 2011 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+gione Veneto; it was developed from 2006 to 2009 and involved
+six academic research partners 21–23. A major research effort
+was focused on the development of the combustor to reduce NOx
+emissions. In particular, two sets of combustor prototypes were
+designed over a 3 years period. All the prototypes were studied by
+means of full-scale test campaigns and CFD analyses. The ﬁrst set
+of prototypes the “base” prototypes was obtained by coupling
+three different burners and two different liners. These prototypes,
+developed by GE Oil & Gas for the diffusive combustion of hy-
+drogen, were tested and analyzed from 2007 to 2008. The results
+of these activities are reported in Refs. 20–22,24,25. At the end
+of this ﬁrst stage of the project, the prototype that showed the best
+performance was selected for installation in the new 10 MW class
+CCGT pilot plant at Fusina near Venice 21,23. This combined
+cycle power plant is built within an existing ENEL coal ﬁred
+power plant and can be fed with fuel blends ranging from pure
+natural gas to pure hydrogen.
+In order to reduce the emission of NOx, a second set of “en-
+hanced” prototypes were conceived during the second stage of the
+project. The partnership between GE Oil & Gas, ENEL Ricerca
+and the other academic institutions resulted in combustor proto-
+types optimized for the injection of fuel and steam, which were
+tested in the summer of 2009 23.
+The combustor layout discussed in the following refers to one
+of the base prototypes, which was tested once again during the
+2009 test campaign. This paper presents a comparison between
+the calculated proﬁles and measured values of temperature along
+the liner wall and the combustor outlet. Despite the usual practice
+in literature 15, the measured liner wall thermal loads are explic-
+itly shown and discussed. All the measured temperatures are ob-
+tained from full load, full-pressure tests performed in operation
+with both pure natural gas and pure hydrogen.
+2
+The GE10 Combustor
+The modeled combustor Fig. 1 is the diffusive ﬂame GE10-1
+gas turbine combustor. It is a reverse ﬂow single can combustor
+designed for diffusive ﬂame, dual gas operation, and features
+steam injection for NOx reduction. The compressor air stream is
+collected into a plenum not represented in the ﬁgure before en-
+tering the “annulus” i.e., the annular enclosure between the liner
+and the casing. Then the air ﬂows into the combustion chamber
+by means of the burner axial swirler, the primary and dilution
+holes and the liner cooling holes grouped in several rows located
+along the entire length of the combustor. Natural gas and hydro-
+gen are separately injected into the swirler slots without signiﬁ-
+cant air premixing. The hot burnt stream reaches the ﬁrst gas
+turbine stage trough a “transition piece” TP placed inside the air
+plenum.
+Dilution steam ﬂow is injected into the outer zone of the com-
+bustor head by a constant pitch series of azimuthal manifolds
+connected to a toroidal rail that surrounds the top of the casing.
+3
+Test Rig Conﬁguration and Instrumentation
+The combustion test rig is located at the ENEL experimental
+facility in Sesta Tuscany, Italy. This facility is suitable for full-
+scale, full-pressure testing of a wide variety of combustion sys-
+tems thanks to its very ﬂexible multifuel supply systems. A train
+of two compressors assures a maximum air ﬂow rate of up to 40
+kg/s, which is employed both for combustion and rig cooling.
+Variable combustion air temperatures are achievable by means of
+electric heaters. During the GE10 combustor testing, the rig oper-
+ates at its full capacity 1100 kg/h for hydrogen and 2500 kg/h for
+natural gas. The combustion air supply system is integrated with
+a special GE10 rig-adapter assembly, designed to reproduce on-
+engine compressor discharge and turbine inlet operating condi-
+tions. The GE10 gas turbine conﬁguration is such that the com-
+bustor axis is perpendicular to the engine axis: hot gases exiting
+the annular section of the combustor are directed to the ﬁrst stage
+turbine nozzles arranged in a proxy conﬁguration having the same
+ﬂow area of the on-engine component. Hot gases exiting the ﬁrst
+stage proxy nozzle are then discharged directly into the exhaust
+duct.
+The combustion test rig is equipped with resident instrumenta-
+tion dedicated to the control of the air and fuel systems and which
+are necessary to ensure proper test rig operation. The mass ﬂow
+rates are measured by standard oriﬁces for compressed air and
+steam and ﬂow meters for natural gas and hydrogen. Pressure
+and temperature transmitters provide continuous monitoring of the
+air and fuel supply conditions. The liner is instrumented with sev-
+eral thermocouples, which give a discrete map of the metal tem-
+perature proﬁle along four different rows parallel to the combustor
+axis Fig. 2a. To measure the hot stream temperature, another
+three circular rows of thermocouples are installed at three differ-
+ent radii on the transition piece outlet. The azimuthal pitch of the
+thermocouples in each row is 30 deg Fig. 2b.
+The instrumentation also includes six dynamic pressure probes,
+a commercial ﬂame detector and a video acquisition system. Pol-
+lutant emissions are measured by gas sampling at two different
+sections along the exhaust path by means of both chemilumines-
+cence and infrared analysers. More rig features are available in
+Ref. 23.
+Fig. 1
+Sectional view of the GE10 gas turbine combustor
+Fig. 2
+„a… Rendering showing the rows of thermocouples in-
+stalled to measure the liner wall temperatures. „b… Detail of the
+thermocouples installed in a 30 deg sector of the combustor
+outlet section.
+021506-2 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+4
+Experimental Results
+The results presented deal with the full speed full load opera-
+tion of the engine since this is the condition associated with the
+highest thermal power and temperatures. The test conditions of
+the four experimental tests considered in this paper pure natural
+gas feed and pure hydrogen feed both with and without steam
+injection were derived from the GE10 gas turbine cycle simula-
+tor, a GE Oil & Gas proprietary tool. The simulator gives the test
+condition parameters mass ﬂow rates and physical properties of
+the inlet ﬂuxes for dry combustion of pure methane. This test
+condition is assumed as the reference for all other engine opera-
+tions using different fuels pure natural gas, pure hydrogen or
+blends of the two and/or steam to fuel SF mass ratio, the op-
+eration parameters of which are derived by keeping the total ther-
+mal input unchanged. Thus, the SF ratio always refers to pure
+methane combustion, and for hydrogen or natural gas or blends
+operation the SF value is related to the amount of steam that
+would have been used to obtain the same heat release as that of
+the reference test condition. In the wet cases, only the SF=1 op-
+erating condition is considered.
+Figure 3 shows the liner metal temperatures against the axial
+coordinate. The markers refer to the data about row D. The values
+of the other rows are presented as error bars each bar ranges
+between the maximum and the minimum temperature measured in
+the four rows for the same axial position.
+All the curves exhibit a temperature peak in the primary zone
+and a further temperature increasing downstream of the dilution
+holes. The temperature spread at the same axial position denotes
+that the reacting ﬂow is not perfectly axisymmetric. This is mainly
+due to the irregular pattern of the primary holes, which causes a
+different interaction between the swirler spot jets and the primary
+air jets. However, the values never reach warning limits. It is not
+Fig. 3
+Temperatures measured along the liner wall
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021506-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+assured that the spread in liner temperatures observed in the pri-
+mary zone about 200°C depends on the malfunction of a ther-
+mocouple.
+The temperatures for 100% natural gas and 100% hydrogen are
+similar Fig. 3a. The small differences are probably due to the
+different ﬂame shapes combined effect of fuel jet’s penetration
+and reactivity and/or slightly different operating conditions. The
+inﬂuence of steam on the metal temperature is low and it is re-
+stricted mainly to the primary zone Figs. 3b and 3c.
+Figure 4 shows the measured temperatures at the combustor
+outlet against the angular coordinate. The data are made nondi-
+mensional using the average value of the measurements in order
+to emphasize both the radial and the azimuthal nonuniformities in
+the temperature distribution. Since half of the thermocouples in
+the inner row red triangular markers were out of order during the
+test, one additional test is included in the graphs to provide the
+missing values red circular markers. This test identiﬁed by an
+asterisk was performed under very similar combustor operating
+conditions some weeks before the tests considered in this paper.
+Both diagrams show a slightly nonuniform temperature distri-
+bution. In particular, a temperature peak appears at the top side of
+the discharge at about 180 deg and two local minima occur near
+90 deg and 270 deg. Moreover, the data show a temperature in-
+crease going from the outer row to the inner row of thermo-
+couples.
+By comparison with Figs. 4a and 4b, it appears that shifting
+from natural gas to hydrogen operation does not change the data
+layout signiﬁcantly. Furthermore, the temperature distribution at
+the combustor outlet is not inﬂuenced substantially by steam in-
+jection, as previously stated for the liner Fig. 3.
+5
+Computational Model
+The geometrical model employed in the simulations is repre-
+sented in Fig. 5a. The model includes the annulus, the burner,
+the liner, the air plenum, and the TP. The overall length of the
+computational domain is about 2700 mm.
+In order to use a rough grid approach, some minor geometrical
+features were simpliﬁed or neglected. In particular the liner cool-
+ing holes and the steam manifolds were not included in the geo-
+metrical model. However, their function is preserved by means of
+a porous wall model, which assures the ﬂow of the cooling air
+stream through the liner. A similar approach is used in Refs.
+18,24. The remaining geometrical details liner wall thickness,
+Fig. 4
+Nondimensional temperatures along the three circular rows indi-
+cated in Fig. 2„b…
+Fig. 5
+„a… Section of the geometrical model. „b… Section of the
+computational grid
+021506-4 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+axial swirler slots, fuel injection channels, plenum and transition
+piece shape are modeled without simpliﬁcations.
+An almost fully hexahedral coarse grid of about 55,000 cells
+was set up Fig. 5b. Tetrahedral, pyramidal, and triangular
+prism cell types were employed at the burner outlet and in the
+zone that links the liner to the transition piece. In addition to the
+already mentioned geometrical modeling constraints, the rough
+grid approach forces the near wall reﬁnement to be neglected.
+Despite the inaccuracies expected in the ﬂow ﬁeld the boundary
+layer viscous stresses are not accurately computed, the air split-
+ting percentages between the several liner and burner passages are
+guaranteed by the proper setup of the porous media inertial resis-
+tance coefﬁcients see the discussion in the following sections.
+Furthermore, the coarseness of the grid does not allow the detailed
+thermal ﬂow ﬁeld inside the combustor to be captured. In fact, the
+grid size might describe only the main effects of turbulence and
+chemistry especially in the primary combustion zone. This re-
+sults in a temperature ﬁeld roughly equivalent to that of the real
+one. However, in the opinion of the authors, the approximation
+level due to this low cost computational approach is consistent
+with the aim of the nonstationary analyses planned for this model.
+The ﬂuid ﬂow is modeled as a compressible ideal gas mixture,
+thus the physical properties are calculated as a weighted sum of
+the mass fraction of the mixture components. The speciﬁc heat of
+each gas is computed using a fourth order polynomial law 26.
+The combustion is modeled by means of the hybrid ﬁnite-rate/
+eddy-dissipation model considering a one-step reaction both for
+the methane1 and the hydrogen.
+CH4 + 2O2 →CO2 + 2H2O
+2H2 + O2 →2H2O
+In this hybrid model both the Arrhenius and eddy-dissipation
+reaction rates are calculated and the net reaction rate is the lower
+of these two rates. Therefore, the Arrhenius model controls the
+ignition and the kinetics of the reaction and the ﬂame is controlled
+by the turbulent mixing through the eddy-dissipation model 27.
+In the Arrhenius model the values of the pre-exponential factor,
+the rate exponents and the activation energy are speciﬁed as sug-
+gested in Refs. 28,29. The temperature exponent is assumed to
+be zero both for the methane and the hydrogen. The eddy-
+dissipation coefﬁcients are set equal to the standard values 4 and
+0.5 30. The combustion model requires the solution of three
+other transport equations for the mass fraction of hydrogen or
+methane, oxygen, carbon dioxide, and water the nitrogen mass
+fraction is derived algebraically. The molecular diffusivity re-
+quired by each of these transport equations is calculated using a
+simpliﬁed model based on the gas kinetic theory 31.
+The turbulence is modeled by means of the k- SST model
+32, also successfully employed in Ref. 11, and the standard
+wall functions for momentum and energy are used. The computa-
+tionally low cost P-1 model 33 is chosen for radiation heat trans-
+fer. The absorption coefﬁcient of the mixture is computed by the
+weighted sum of the gray gases approach 34.
+The four experimental tests already discussed provide the set of
+boundary conditions for the simulations. A mass ﬂow rate condi-
+tion is speciﬁed at the plenum inlet section, at the inlet of the fuel
+channels and at the steam inlet ports, respectively. The tempera-
+ture, the pressure and the composition of all the ﬂuxes are known
+from measurements. A constant pressure condition is imposed at
+the combustor outlet. The outer boundaries of the model casing,
+plenum, fuel channels, and swirler walls are considered to be
+adiabatic this assumption is justiﬁed by the experimental experi-
+ence. Instead, heat transfer occurs through the transition piece
+wall, so the air ﬂowing into the plenum is warmed by the inner hot
+gas stream.
+Both the liner and cap louvered walls are modeled by means of
+an isotropic porous media to take into account the metal cooling.
+In order to correctly estimate the heat exchange between the inner
+hot stream and the annulus air ﬂow, a uniform porosity is speciﬁed
+in the media, which is calculated according to liner design speci-
+ﬁcations. In the solid fraction of the media the conduction heat
+transfer is modeled. The inertial resistance coefﬁcients of the vari-
+ous surface patches are tuned to ﬁt the airﬂow distribution data
+supplied by ENEL along the liner derived by an experimental
+campaign on an isothermal ﬂow test rig.
+The unsteady RANS segregated solver with the SIMPLE algo-
+rithm 35 is used. Convergence is reached by means of a time-
+marching approach with a second order implicit time discretiza-
+tion scheme time step equal to 100 s. For each simulation, the
+solution is judged to be converged when the mass ﬂow rate and
+the temperature at the combustor outlet do not show any appre-
+ciable variation in time. On the average, convergence is reached
+after 10,000 time steps 1 s. The CPU time needed to perform 0.1
+s of simulation is about 6 h with an AMD Athlon® 4600+ Dual
+Core 2.4 GHz processor. For more details on the physical mod-
+els and numerical simulation setup, see Ref. 25.
+6
+Numerical Results
+Figure 6 shows the calculated temperature scalar ﬁeld around
+the liner. The contour plot section plane encloses thermocouple
+rows C and D see Fig. 2a. The temperature ﬁelds help in
+understanding how the development of the reacting ﬂow inﬂu-
+ences the liner wall temperatures. Starting from the top of the
+liner, the wall temperature increases abruptly before the primary
+air holes due to the ignition of the swirling mixture that licks the
+liner inner surface. In the primary zone, the air jets drive the hot
+reacting stream around the combustor axis and the wall tempera-
+tures decrease. The hot axial ﬂow is then partially scattered by the
+deep penetration of the dilution jets. The temperature increase
+downstream of the dilution holes is caused by the spreading of the
+hot axial stream and the lower amount of cooling air delivered to
+this portion of the liner compared with the primary combustion
+section. The temperature maxima are reached with hydrogen op-
+eration due to the higher ﬂame temperature compared with that of
+natural gas. Steam injection Figs. 6b and 6d does not signiﬁ-
+cantly modify the shape of the reacting ﬂow within the ﬁelds.
+However, the reduction in the temperatures both in the ignition
+zone and in the axial stream leaving the primary combustion zone
+is clear.
+1The simpliﬁed global reaction mechanism requires the natural gas to be consid-
+ered as pure methane. The difference in LHV is taken into account in the simulations
+to keep the thermal input unchanged.
+Fig. 6
+Temperature ﬁelds around the liner †K‡
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021506-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+Fig. 7
+Comparison between the experimental data and temperature pro-
+ﬁles along the liner wall „see Fig. 2„a… for the arrangement of the rows… †K‡
+021506-6 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+Figure 7 compares the temperature distribution along the four
+thermocouple rows A–D obtained from the CFD calculation
+lines and the measurements markers. The experimental values
+are quite well ﬁt by the numerical proﬁles in natural gas operation
+see diagrams 7a and 7b. Instead, the calculated proﬁles are
+on the average lower than the measured data when hydrogen is
+used diagrams 7c and 7d. The comparison also shows a dif-
+ference in the axial coordinate of the temperature peaks, which is
+mainly due to the grid coarseness. Moreover, the measured maxi-
+mum in row A is not completely captured by the calculated results
+Fig. 8
+Natural gas: comparison between the experimental data and tem-
+perature proﬁles along the circular rows shown in Fig. 2„b…
+Fig. 9
+Hydrogen: comparison between the experimental data and tempera-
+ture proﬁles along the circular rows shown in Fig. 2„b…
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021506-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+for proﬁle B. Further analysis must be performed to better under-
+stand the causes of this peak value of the liner wall temperature.
+Figures 8 and 9 present the CFD temperatures at the combustor
+outlet. The computed values are made nondimensional using the
+same procedure already employed in Fig. 4. The graphs show
+good agreement between the measured data and numerical proﬁles
+both for natural gas Figs. 8a and 8b and hydrogen Figs. 9a
+and 9b operation. The difference between the average of the
+experimental and the calculated temperatures is 10°C for natural
+gas dry operation. The inspection of the temperature ﬁeld inside
+the TP suggests that the hot zone in the upper part of the combus-
+tor discharge is due to the high temperature axial stream leaving
+the core of the liner.
+7
+Conclusions
+This paper deals with the numerical and experimental analysis
+of the temperature distribution in a hydrogen fuelled combustor
+for a 10 MW gas turbine. Both natural gas and hydrogen full load
+operating conditions with and without steam injection wet or dry
+operation were studied. The computational domain was a 3D
+geometrical model extending from the compressor discharge to
+the gas turbine inlet. A computationally low cost approach was
+employed in view of using the model in time-dependent calcula-
+tions.
+A full-scale test campaign was performed on the combustor:
+temperatures at the liner wall and the combustor outlet were ac-
+quired at many operating conditions. Four sets of experimental
+data were employed for comparison with the CFD results.
+The experimental values measured by four rows of thermo-
+couples along the liner wall showed that the distribution of the
+metal thermal load was not perfectly axisymmetric. At the com-
+bustor outlet, a slightly nonuniform distribution of temperatures
+also occurred.
+The thermal ﬁelds obtained from the simulations clariﬁed the
+inﬂuence of the fuel type and steam injection on the temperature
+distribution. Despite the low accuracy expected from a coarse grid
+calculation, the computed temperature proﬁles showed acceptable
+matching with measurements in the liner wall. Moreover, good
+agreement was found between the CFD proﬁles and experimental
+data at the combustor discharge at all the operating conditions
+considered.
+The agreement with the measured data suggests that the com-
+putationally low cost CFD model presented is able to capture the
+mean temperature ﬁeld within the combustor, which is the funda-
+mental requirement for the planned thermoacoustic characteriza-
+tion of the analyzed combustor.
+Nomenclature
+CCGT  combined cycle gas turbine
+dry  without steam injection
+NG  natural gas
+Ri,Rm,Re  inner, medium and outer radius of the outlet
+thermocouple rows
+SF  steam to fuel mass ratio
+SST  shear stress transport
+TP  transition piece
+wet  with steam injection
+References
+1 Lefebvre, A. H., 1998, Gas Turbine Combustion, 2nd ed., Taylor & Francis,
+Philadelphia.
+2 Jiang, L.-Y., and Campbell, I., 2008, “Radiation Bench-Marking in a Model
+Combustor,” ASME Paper No. GT2008-50179.
+3 Shehata, M., 2009, “Emission and Wall Temperatures for Lean Prevaporized
+Premixed Gas Turbine Combustor,” Fuel, 88, pp. 446–455.
+4 Eggels, R. L. G. M., 2000, “Modelling of the Combustion Process of a Pre-
+mixed DLE Gas Turbine,” ASME Paper No. 2000-GT-0130.
+5 Birkby, P., Cant, R. S., Dawes, W. N., Demargne, A. A. J., Dhanasekaran, P.
+C., Kellar, W. P., Rycroft, N. C., Savill, A. M., Eggels, R. L. G. M., and
+Jennions, I. K., 2000, “CFD Analysis of a Complete Industrial Lean Premixed
+Gas Turbine Combustor,” ASME Paper No. 2000-GT-0131.
+6 Sivaramakrishna, G., Muthuveerappan, N., Venkataraman, S., and Sampathku-
+maran, T. K., 2001, “CFD Modelling of The Aero Gas Turbine Combustor,”
+ASME Paper No. 2001-GT-0063.
+7 Eggels, R. L. G. M., and Brown, C. T., 2001, “Comparison of Numerical and
+Experimental Results of a Premixed DLE Gas Turbine Combustor,” ASME
+Paper No. 2001-GT-0065.
+8 Li, L., Peng, X. F., and Liu, T., 2006, “Combustion and Cooling Performance
+in an Aero-Engine Annular Combustor,” Appl. Therm. Eng., 26, pp. 1771–
+1779.
+9 Boudier, G., Gicquel, L. Y. M., Poinsot, T., Bissières, D., and Bérat, C., 2007,
+“Comparison of LES, RANS and Experiments in an Aeronautical Gas Turbine
+Combustion Chamber,” Proc. Combust. Inst., 31, pp. 3075–3082.
+10 Fureby, C., Grinstein, F. F., Li, G., and Gutmark, E. J., 2007, “An Experimen-
+tal and Computational Study of a Multi-Swirl Gas Turbine Combustor,” Proc.
+Combust. Inst., 31, pp. 3107–3114.
+11 Le Clercq, P., Schlieper, M., Noll, B., and Aigner, M., 2008, “Liquid Fuel
+Flameless Combustion RANS Simulation,” ASME Paper No. GT2008-50552.
+12 Chrigui, M., Sadiki, A., and Janicka, J., 2008, “Numerical Analysis of Spray
+Dispersion, Evaporation and Combustion in a Single Gas Turbine Combustor,”
+ASME Paper No. GT2008-51253.
+13 De Oliveira Rodriguez, L., and Do Nascimento, M. A. R., 2009, “Different
+Fuels Assessment in Gas Turbine Combustion Chamber for Pre-Mixed and
+Diffusive Flame,” Proceedings of 22nd ECOS, Foz do Iguaçu, Paranà, Brazil,
+pp. 1959–1968.
+14 Sierra, F. Z., Kubiak, J., Gonzalez, G., and Urquiza, G., 2005, “Prediction of
+Temperature Front in a Gas Turbine Combustion Chamber,” Appl. Therm.
+Eng., 25, pp. 1127–1140.
+15 Dudebout, R., Reynolds, B., and Molla-Hosseini, K., 2004, “Integrated Pro-
+cess for CFD Modelling and Optimization of Gas Turbine Combustors,”
+ASME Paper No. GT2004-54011.
+16 Malecki, R. E., Rhie, C. M., McKinney, R. G., Ouyang, H., Syed, S. A.,
+Colket, M. B., and Madabhushi, R. K., 2001, “Application of an Advanced
+CFD-Based Analysis System to the PW6000 Combustor to Optimize Exit
+Temperature Distribution—Part I: Description and Validation of The Analysis
+Tool,” ASME Paper No. 2001-GT-0062.
+17 Snyder, T. S., Stewart, J. F., Stoner, M. D., and McKinney, R. G., 2001,
+“Application of an Advanced CFD-Based Analysis System to the PW6000
+Combustor to Optimize Exit Temperature Distribution—Part II: Comparison
+of Predictions to Full Annular Rig Test Data,” ASME Paper No. 2001-GT-
+0064.
+18 Koutsenko, I. G., On egin, S. F., and Sipatov, A. M., 2004, “Application of
+CFD-Based Analysis Technique for Design and Optimization of Gas Turbine
+Combustors,” ASME Paper No. GT2004-53398.
+19 Andreini, A., Cerutti, M., Facchini, B., and Mangani, L., 2008, “Modelling of
+Turbulent Combustion and Radiative Heat Transfer in a Object-Oriented CFD
+Code for Gas Turbine Application,” ASME Paper No. GT2008-51117.
+20 Tiribuzi, S., 2008, “CFD Simulation of Noise in Gas Turbine Combustors by
+Means of Turbulence Reﬂuctuation Method,” ASME Paper No. GT2008-
+50241.
+21 Balestri, M., Sigali, S., Cocchi, S., and Provenzale, M., 2008, “Low-NOx
+Hydrogen Fuelled GT Features and Environmental Performances,” Proceed-
+ings of POWER-GEN Europe, Paper No. ID 112.
+22 Cocchi, S., Provenzale, M., Cinti, V., Carrai, L., Sigali, S., and Cappetti, D.,
+2008, “Experimental Characterization of a Hydrogen Fuelled Combustor With
+Reduced NOx Emissions for a 10 MW Class Gas Turbine,” ASME Paper No.
+GT2008-51271.
+23 Cocchi, S., and Sigali, S., 2010, “Development of a Low-NOx Hydrogen Fu-
+elled Combustor for 10 MW Class Gas Turbines,” ASME Paper No. GT2010-
+23348.
+24 Benovsky, P., Brunetti, I., Sigali, S., Leroy, C., Gheri, P., and Cocchi, S., 2008,
+“NOx Reduction Strategy in GE10 Hydrogen-Fuelled Heavy Duty Gas Tur-
+bine,” ASME Paper No. GT2008-51270.
+25 Gobbato, P., Masi, M., Toffolo, A., and Lazzaretto, A., 2009, “Numerical
+Simulation of a Hydrogen Fuelled Gas Turbine Combustor,” Proceedings of
+HYSYDAYS, Torino, Italy.
+26 McBride, B. J., Gordon, S., and Reno, M. A., 1993, “Coefﬁcients for Calcu-
+lating Thermodynamic and Transport Properties of Individual Species,” NASA
+Report No. TM-4513.
+27 Magnussen, B. F., and Hjertager, B. H., 1976, “On Mathematical Models of
+Turbulent Combustion With Special Emphasis on Soot Formation and Com-
+bustion,” Proceedings of the 16th Symposium on Combustion, the Combustion
+Institute.
+28 Turns, S. R., 2000, An Introduction to Combustion, 2nd ed., McGraw-Hill,
+Singapore.
+29 Marathe, A. G., Mukunda, H. S., and Jain, V. K., 1977, “Some Studies on
+Hydrogen-Oxygen Diffusion Flame,” Combust. Sci. Technol., 15, pp. 49–64.
+30 Obieglo, A., Gass, J., and Poulikakos, D., 2000, “Comparative Study of Mod-
+elling a Hydrogen Nonpremixed Turbulent Flame,” Combust. Flame, 122, pp.
+176–194.
+31 Hirschfelder, J. O., Curtiss, C. F., and Bird, R. B., 1954, Molecular Theory of
+Gases and Liquids, Wiley, New York.
+021506-8 / Vol. 133, FEBRUARY 2011
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 9 ---
+
+32 Menter, F. R., 1994, “Two-Equation Eddy-Viscosity Turbulence Models for
+Engineering Applications,” AIAA J., 32, pp. 1598–1605.
+33 Sazhin, S. S., Sazhina, E. M., Faltsi-Saravelou, O., and Wild, P., 1996, “The
+P-1 Model for Thermal Radiation Transfer: Advantages and Limitations,”
+Fuel, 75, pp. 289–294.
+34 Denison, M. K., and Webb, B. W., 1993, “A Spectral Line-Based Weighted-
+Sum-of-Gray-Gases Model for Arbitrary RTE Solvers,” ASME J. Heat Trans-
+fer, 115, pp. 1004–1012.
+35 Patankar, S. V., and Spalding, D. B., 1972, “A Calculation Procedure for Heat,
+Mass and Momentum Transfer in Three-Dimensional Parabolic Flows,” Int. J.
+Heat Mass Transfer, 15, pp. 1787–1806.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2011, Vol. 133 / 021506-9
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

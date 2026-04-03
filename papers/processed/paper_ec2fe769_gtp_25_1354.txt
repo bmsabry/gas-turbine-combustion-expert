@@ -1,0 +1,819 @@
+
+--- Page 1 ---
+
+Vincent Thielens1
+Thermal Engineering and Combustion Unit,  
+University of Mons,  
+Mons 7000, Belgium;  
+Mechanics and Thermal Processes,  
+Engie R&I Laborelec,  
+Linkebeek 1630, Belgium  
+e-mail: vincent.thielens@umons.ac.be
+Frederiek Demeyer
+Mechanics and Thermal Processes,  
+Engie R&I Laborelec,  
+Linkebeek 1630, Belgium
+Klaus Peter Gleigle
+Institute of Combustion Technology,  
+German Aerospace Center,  
+Stuttgart 70569, Germany
+Peter Kutne
+Institute of Combustion Technology,  
+German Aerospace Center,  
+Stuttgart 70569, Germany
+Ward De Paepe
+Thermal Engineering and Combustion Unit,  
+University of Mons,  
+Mons 7000, Belgium
+Experimental Identification of the 
+Operability Limits in Exhaust Gas 
+Recirculation Rates Under 
+Transient Control for a Microgas 
+Turbine
+Exhaust gas recirculation (EGR) has been identified as a key adaptation for gas turbines to 
+mitigate the efficiency penalty of amine-based postcombustion carbon capture. By reducing 
+the exhaust gas flow rate and increasing CO2 concentration, EGR enhances capture 
+efficiency while also significantly lowering NOx emissions and residual O2, both of which 
+influence amine stability. However, the impact and limitations of EGR in dynamic operation 
+remain largely unexplored, representing a critical gap in operability assessments. 
+Understanding these aspects can facilitate the development of control strategies and 
+optimization algorithms where EGR serves as an additional control variable to mitigate 
+pollutant emission peaks. To address this, a 3 kWe microgas turbine (mGT) setup with 
+enhanced EGR was tested under sudden EGR variations, while monitoring emissions. 
+Additionally, emissions were measured during hot starts with different pre-applied 
+recirculation levels. Results indicate that NOx peaks occur during EGR transitions, and 
+high EGR rates prevent successful turbine startup. Identifying these transient behaviors, in 
+terms of emissions and combustion stability, provides initial insights into defining 
+operability boundaries for EGR application. The development of control algorithms to 
+manage EGR levels is left for future work. [DOI: 10.1115/1.4069725] 
+Keywords: microgas turbine, exhaust gas recirculation, emissions, CO, NOx, transient 
+operation 
+Introduction
+On the technological pathway to carbon neutrality, exhaust gas 
+recirculation (EGR) increases the amine-based carbon capture 
+efficiency by decreasing the mass flow of exhaust gases and 
+increasing the CO2 concentration, as asserted by De Paepe et al. [1]. 
+Additionally, EGR also enables to decrease NOx and O2 levels, both 
+responsible for amine degradation as presented by Fosta˚s et al. [2]. 
+However, high EGR rates are associated with conditions close to 
+stoichiometry leading to carbon monoxide emission and risk of 
+flameout as experimented by Thielens et al. [3]. Even if Verhaeghe 
+et al. [4] have shown the strong benefit of EGR to carbon capture, the 
+transient factors limiting recirculation have still to be investigated.
+The impact of transient operations on gas turbine emissions is not 
+well documented in the literature. Environmental policies, such as 
+those developed by the European Union [5], regulate gas turbine 
+emissions based on daily or monthly averages, even though 
+continuous monitoring is required. As a result, peak emissions 
+receive less attention due to the averaging process, and emissions 
+during transient operations have not been a primary focus. However, 
+growing environmental concerns are likely to increase the 
+monitoring of transient emissions. In the context of carbon capture, 
+peaks in NOx and CO concentrations are particularly relevant as they 
+can affect amine stability and overall system performance.
+Rosfjord and Cohen studied the impact of transient operation on 
+turbine combustors and highlighted the risk of blowout in staged 
+combustors [6]. When staging is used to reduce NOx emissions by 
+distributing the temperature field, reductions in fuel flow can create 
+excessively lean regions, leading to flame blowout. However, their 
+study focused only on monotonic and oscillatory variations of the 
+air/fuel flow rate, without considering exhaust gas recirculation [6].
+In their report, Pavri and Moore [7] stated that while CO 
+emissions can remain below 10 ppmvd during steady-state 
+operation, higher levels are observed during ignition and load 
+increases. However, as the share of renewable in the grid continues 
+to grow, such load variations are expected to become more frequent.
+Tenango-Pirın et al. numerically investigated combustion 
+instabilities under varying operating conditions [8]. Their study 
+revealed that pollutant formation, particularly CO and NOx, is 
+highly sensitive to inlet air pressure. Variations in air mass flow 
+influence flame dynamics, leading to the formation of intermediate 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received July 15, 2025; final manuscript received August 12, 2025; 
+published online October 25, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MARCH 2026, Vol. 148 / 031012-1 
+Copyright V
+C 2026 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+combustion products. Regarding NOx formation, their simulations 
+showed that emissions peak when pressure perturbations are 
+strongest. Consequently, changes in operating conditions increase 
+the frequency of pressure fluctuations, thereby enhancing pollutant 
+generation.
+Thielens et al. [3] experimentally investigated advanced EGR 
+rates up to the point of flameout. Their study first highlighted a key 
+distinction between emissions and concentration. For NOx, the 
+concentration follows a parabolic trend, peaking at around 60% 
+EGR before declining. However, due to the reduction in exhaust 
+mass flow enabled by EGR, total NOx emissions (the product of 
+concentration and exhaust flow rate) continuously decrease as 
+recirculation increases. Regarding carbon monoxide, its concen­
+tration rises steadily with increasing EGR, driven by O2 depletion, 
+which promotes incomplete combustion.
+While some studies have examined pollutant evolution during 
+transient operations, their interaction with exhaust gas recirculation 
+has never been experimentally investigated or documented. To 
+address this gap, a modified microgas turbine (mGT) setup with 
+enhanced EGR capabilities has been equipped with an exhaust gas 
+analyzer to assess the impact of hot startup and EGR variations on 
+emissions. First, the steady-state concentration levels of O2, CO2, 
+NOx, and CO are characterized, followed by an analysis of their 
+evolution across a wide range of operating conditions (e.g., hot start 
+and EGR change).
+Methodology
+Since conducting the experimental campaign on industrial-scale 
+gas turbines is not economically feasible, an mGT was chosen for its 
+adaptability and lower cost. The 3 kWe EnerTwin from MTT
+V
+R is 
+equipped with an EGR valve (11–12 in Fig. 1) controlled by the 
+machine’s internal regulation system. However, this built-in valve 
+alone is insufficient to achieve high EGR rates. To overcome this 
+limitation, the setup was modified with an external EGR loop 
+(13–14) and a back-pressure valve (15–16). The external EGR loop 
+is made with 100 mm diameter spiral tubes to provide a section high 
+enough to decrease pressure losses through the recirculation loop. 
+Both the internal (11–12), external (13–14), and back-pressure 
+(15–16) valves are of the butterfly type. While butterfly valves do not 
+provide precise closure angle or flow control, they offer a compact 
+and cost-effective solution. When fully open, their disk aligns with 
+the flow, minimizing pressure drops.
+In the modified setup described in Fig. 1, incoming air (1) is 
+preheated using an external electric resistor (2–3). The air is then 
+compressed from atmospheric pressure (4) to 2.4 bar (5) and further 
+preheated in the internal recuperator before entering the combustion 
+chamber. Fuel from the gas line (17) is compressed (18) and injected 
+into the combustion chamber. After combustion, the exhaust gases 
+expand through the radial turbine (8), and their residual energy is 
+utilized to heat the inlet water (14) to the desired temperature for 
+cogeneration (15). Following the heat exchanger, the cooled exhaust 
+gases can be recirculated either after the electric resistor (11) or 
+before it (13).
+The mGT setup is equipped with sensors to measure pressure and 
+temperature at various locations. The pressure transmitter comes 
+from Huba Control
+V
+R (Walddorfh€aslach, Germany) while the 
+temperatures are either measured with TasseronV
+R (Nootdorp, The 
+Netherlands) NTC sensor or with OmegaV
+R (Germany Deckenp­
+fronn) K-Type thermocouple. The dry composition of the exhaust 
+gases (16) is analyzed using a Testo 350
+V
+R (Ternat, Belgium) gas 
+analyzer, which measures O2, CO2, NO, NO2, and CO with the 
+accuracies specified in Table 1. Before going to the measurement 
+cells, the gas is extracted in the form of a partial sample that is 
+filtered, cooled, and dried. O2 is measured with an electrochemical 
+sensor with two electrodes. The flue gas reaches the cathode through 
+the gas-permeable membrane where OH− ions are released. The 
+electrical current produced is proportional to the oxygen concen­
+tration, and the voltage across a resistor is measured. CO and NOx 
+concentrations are also measured with an electrochemical sensor but 
+with three electrodes (working, reference, and counter electrodes) 
+where Hþ is produced. CO2 is measured with a nondispersive 
+infrared sensor using a broadband lamp source. To decrease the 
+uncertainty on the steady-state measurements, data are sampled and 
+averaged to reduce the variance as explained by Miller [9].
+The turbine operates with natural gas during the tests, with an 
+average composition provided by Fluxys, expressed as 
+C1:063H4:045N0:020O0:030. Under stoichiometric conditions, the 
+maximum achievable dry molar concentration of CO2 in the exhaust 
+gases is 12.1%, making higher concentrations theoretically 
+unattainable. Given that only an average composition of natural 
+gas is available, the 95% confidence interval for the maximum 
+achievable dry molar concentration of CO2 ranges from 11.85% to 
+12.19%. Since no sensors directly measure the recirculated flow 
+rate, the EGR ratio is determined based on the measured O2 dry 
+concentration in the exhaust gases, assuming that the mass flow 
+Fig. 1 The 3 kWe mGT EnerTwin from MTT
+V
+R has been modified 
+with an electric preheater and an external EGR loop for achieving 
+EGR rates exceeding 80%
+Table 1 Accuracy on the different measurement range of the 
+Testo 350
+V
+R gas analyzer 
+Element
+Accuracy
+Range
+O2
+60:2% of read value
+—
+CO
+610 ppm
+<199 ppm
+65% of read value
+200–2000 ppm
+610% of read value
+2001 ppm <
+NO
+65 ppm
+<99 ppm
+65% of read value
+100–1999.9 ppm
+610% of read value
+2000 ppm <
+NO2
+62 ppm
+<39.9 ppm
+65% of read value
+40 ppm <
+CO2
+60:3% 61% of read value
+0–25%
+60:5% 61:5% of read value
+25% <
+Table 2 Status from 0 to 7 are used to define the different 
+scenarios of valves opening, leading to different calculated EGR 
+ratios 
+Status
+Internal
+External
+Back-pressure
+EGR
+11–12
+13–14
+15–16
+0
+0%
+0%
+100%
+1%
+1
+50%
+0%
+100%
+21%
+2
+100%
+0%
+100%
+30%
+3
+100%
+100%
+100%
+64%
+4
+100%
+100%
+75%
+64%
+5
+100%
+100%
+50%
+66%
+6
+100%
+100%
+25%
+72%
+7
+100%
+100%
+0%
+81%
+031012-2 / Vol. 148, MARCH 2026                                                                                                          
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+through the turbine remains constant. Complete combustion is 
+assumed, as confirmed by the low equivalence ratio and the minimal 
+presence of CO in the exhaust gases.
+The test campaign was conducted to analyze emissions across 
+different EGR rates. Following a 2-h preheating phase, various valve 
+configurations were applied, as detailed in Table 2, to achieve the 
+different scenarios:
+ the inner valve (11–12) was set to fully closed, fully open, or 
+half-open positions;
+ the external valve (13–14) was either fully closed or fully open;
+ the back-pressure valve (15–16) was adjusted through four 
+different closure levels, ranging from fully open to near 
+flameout conditions.
+The combination of the previous states leads to eight status from 
+which it is switched as represented in Table 3.
+Once the mGT components (e.g., the heat exchangers and the 
+turbomachinery) are fully preheated, startup tests are conducted 
+with the eight predefined configurations applied directly. The 
+preheating phase is considered complete when all sensor readings 
+stabilize and show no further variation. Emissions in the exhaust 
+gases (16) are then continuously monitored throughout the process.
+Results and Discussion
+To assess the impact of EGR on transient operations, the exhaust 
+gas composition is first measured in steady-state for each 
+configuration described in Table 2. These steady-state measure­
+ments provide a reference for evaluating the changes induced by 
+transient conditions. Emissions are then monitored during both EGR 
+ratio transitions and hot starts to analyze their dynamic effects.
+Steady-State. After the preheating phase, different EGR levels 
+are applied, according to Table 2, and the concentrations of O2, CO2, 
+CO, NO, and NO2 are measured with the gas analyzer. The dry molar 
+concentrations of CO2 and O2 follow the theoretical law as 
+represented in Figs. 2 and 3, respectively.
+The CO2 concentration starts at 1.3% with no EGR and reaches a 
+maximum of 7.3% at 81% EGR (Fig. 2). Due to the high excess air 
+used (k ¼ 8:5) at 0% EGR, the oxygen content in the exhaust gases 
+remains relatively high, at 18.8%, as shown in Fig. 3. At the highest 
+tested EGR level, the dry molar O2 concentration decreases to 8.5%, 
+resulting in a normalized air-fuel ratio of 1.6. Under stoichiometric 
+conditions, the CO2 concentration could theoretically reach 12.1%, 
+with oxygen levels dropping to zero. However, operating at such 
+rich conditions would be too restrictive for the combustor. The 
+combustor architecture divides the chamber into a primary and a 
+secondary zone, with dilution air introduced in the latter. Supplying 
+the inlet with a stoichiometric air–fuel mixture would lead to locally 
+incomplete conditions in the primary zone, given the air fraction 
+allocated to dilution in the secondary zone [10].
+The evolution of CO emissions is depicted in Fig. 4. Initially 
+measured at 27 ppm, CO concentrations remain below 30 ppm up to 
+60% EGR. Beyond this point, CO levels increase sharply due to 
+oxygen depletion in the combustion chamber, as previously reported 
+Table 3 The EGR transitions experimented between the states 
+described in Table 2 have been represented by a mark “X” 
+Fig. 2 The CO2 dry measurements in the exhaust gases (dots) 
+follow the analytical combustion law (line) among the different 
+EGR rates. Starting from 1.3%, the CO2 dry concentration can 
+theoretically reach 12.1% at stoichiometry. The accuracy of the 
+measurement device is presented in Table 1.
+Fig. 3 The O2 dry measurements in the exhaust gases (dots) 
+follow the analytical combustion law (line) among the different 
+EGR rates. Starting from 18.8%, the O2 dry concentration 
+decreases to zero at stoichiometry. The accuracy of the 
+measurement device is presented in Table 1.
+Fig. 4 The CO concentration increases exponentially in the 
+exhaust gases. Starting from a concentration between 20 and 
+30 ppm, CO reaches 1000 ppm at 80% EGR. The accuracy of the 
+measurement device is presented in Table 1.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MARCH 2026, Vol. 148 / 031012-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+by ElKady et al. [11]. Additionally, CO2 dissociation, following the 
+mechanisms described by Masri et al. [12], has been identified as a 
+contributing factor to CO formation.
+In Fig. 5, the evolution of nitrogen oxides follows a parabolic 
+trend as a function of the recirculation rate. Starting at 22 ppm 
+without EGR, NOx levels increase to a peak of approximately 
+25 ppm at 50% EGR. This rise is attributed to the increased effective 
+residence time caused by exhaust gas recirculation. Since a fraction 
+of the exhaust gases is recirculated, it passes through the combustion 
+chamber multiple times, effectively extending its exposure to high- 
+temperature conditions. The average number of recirculations, nr, is 
+determined by considering the balance between the fresh air fraction 
+(1 −EGR) and the recirculated fraction (EGR). At each iteration i, 
+the flue gases have undergone ni recirculations, as defined in Eq. (1). 
+This sequence converges to the final recirculation number, nr, as 
+shown in Eq. (2). Beyond the peak NOx emissions, oxygen depletion 
+becomes the dominant factor, significantly reducing NOx formation. 
+As seen in Fig. 5, NO2 concentrations remain lower than NO levels, 
+as the oxidation kinetics do not allow complete conversion from NO 
+to NO2 under the given conditions 
+ni ¼ ð1 −EGRÞ þ ðxi−1 þ 1ÞEGR ¼
+X
+i
+j¼0
+EGRj
+(1)   
+nr ¼ lim
+i!1ni ¼
+1
+1 −EGR
+(2)  
+Exhaust Gas Recirculation Transient. During steady-state 
+operation, the exhaust gas recirculation rate is suddenly adjusted 
+between different levels. The changes in EGR rates are detailed in 
+Table 3, and the corresponding O2, CO2, NOx, and CO concen­
+trations in the exhaust gases (16 in Fig. 1) are presented. Both CO2 
+and O2 concentrations do not exhibit peak emissions when the EGR 
+rate is adjusted. Instead, their values increase gradually from one 
+steady-state to the next. However, the time required for stabilization 
+increases as the target EGR level becomes higher. The settling times 
+for these transitions are presented in Table 4, showing the time it 
+takes for the exhaust gas concentrations to stabilize. The settling 
+time, t0:2, is defined as the duration from when the dry O2 
+concentration begins to change until it stabilizes within a 0.2% 
+absolute window around the final steady-state concentration. As 
+shown in Table 4, the settling time t0:2 can reach up to 62 s for the 
+largest transitions and decreases as the change in EGR rate becomes 
+smaller. This increase in stabilization time is linked to the time 
+required for the recirculation process to fully establish itself.
+Changes in the EGR ratios lead to distinct NOx emissions during 
+the transient phase, categorized into one of the three types presented 
+in Fig. 6. Starting from zero recirculation, various EGR levels were 
+applied, and the corresponding NOx emissions are summarized in 
+Table 5. For transitions to EGR rates below 30%, the NOx emissions 
+evolve smoothly from the previous steady-state level to the next, 
+following the behavior depicted by type 1 in Fig. 6. However, 
+experiments revealed a peak in NOx emissions when transitioning 
+from 0% to EGR levels above 60%. This peak increases as the EGR 
+rate is raised. For EGR levels exceeding 70%, resulting in a NOx 
+concentration lower than that observed without EGR at steady-state 
+(as shown in Fig. 5), the emission evolution follows type 3, as 
+defined in Fig. 6. For intermediate levels, before reaching 70% EGR, 
+the emission evolution corresponds to type 2.
+In contrast to the previous results, where transitions occurred from 
+a state with no EGR applied, increasing the EGR level from an 
+already applied recirculation results in different behavior. When 
+transitioning from state 3 (64% EGR) to states 5 (66% EGR), 6 (72% 
+Fig. 5 After an increase, due to the additional residence time 
+implied by EGR, the O2 depletion drastically decreases the NOx 
+production. The accuracy of the measurement device is pre­
+sented in Table 1.
+Table 4 The settling time t0:2 in seconds around 0.2% abs. of the 
+final dry O2 composition decreases as the transition step gets 
+closer 
+The transition states refer to the nomenclature established in Table 2.
+Fig. 6 The NOx transient evolution can be categorized in three 
+different types, depending on the change in steady-state value 
+before and after the peak
+031012-4 / Vol. 148, MARCH 2026                                                                                                          
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+EGR), or 7 (81% EGR), the NOx emission peak decreases. As shown 
+in Table 6, the peak emissions required to reach the same EGR level 
+from state 3 are, on average, 5 ppm lower than those encountered 
+when starting from state 0.
+Looking at carbon monoxide, the emissions evolve from the 
+previous level to the one imposed by the new EGR level according to 
+type 1 (Fig. 6). Risk of CO peak emission is thus not a constraint 
+limiting the EGR change.
+No significant change in electric power production is observed 
+during the transition between EGR levels. Thielens et al. [3] 
+previously demonstrated that increasing EGR can slightly enhance 
+power production due to the cooling effect of exhaust gases when 
+mixed with ambient air. However, in this setup, the preheating 
+system ensures a constant temperature at the compressor inlet, 
+eliminating this effect. Additionally, since no significant pressure 
+drop occurs in the recirculation loop, the power output of the 
+microgas turbine remains unchanged throughout the transition 
+between EGR levels.
+Hot Start. A hot start is defined as the startup of the mGT 
+immediately after a shutdown, meaning that all components (e.g., 
+heat exchangers) remain preheated. Compared to a cold start, hot 
+start testing is more convenient, as no cooling time is required 
+between experiments at different EGR levels. Additionally, hot 
+starts provide a lower bound for CO emissions since the preheated 
+combustion chamber enhances combustion efficiency, reducing the 
+amount of incomplete products.
+During the startup phase, the shaft is driven electrically to 
+pressurize the combustion chamber. Once the required conditions 
+are met, fuel is injected and ignited, causing the oxidizer 
+concentration to drop from the ambient 21%, as illustrated in Fig. 
+7. Following the acceleration phase, the mGT stabilizes at its 
+nominal operating conditions. As the gas flow gradually decreases, 
+the oxygen concentration in the exhaust gases rises until it reaches 
+the steady-state value, as shown in Fig. 3.
+Regarding CO2, its evolution follows an opposite trend to the one 
+of oxygen, as shown in Fig. 8. Before combustion begins, no carbon- 
+containing species are present in the exhaust gases. However, during 
+the acceleration phase, the additional fuel consumption leads to a 
+sharp increase in CO2 concentration, resulting in a peak significantly 
+higher than the steady-state value.
+For both oxygen and carbon dioxide, the stabilization time of their 
+concentrations in the exhaust gases increases as a larger fraction of 
+exhaust gases is recirculated from the startup phase. Additionally, 
+the two-zone architecture of the combustion chamber prevents 
+ignition at extreme EGR rates (e.g., 81%). In the highest EGR case 
+referenced in Table 2, a flameout was observed during startup due to 
+insufficient oxygen availability in the primary combustion zone.
+The evolution of CO emissions is depicted and justified in Fig. 9. 
+Before ignition, CO is absent from the exhaust gases as no 
+combustion occurs. Upon ignition, a sharp peak in CO emissions 
+appears, followed by a rapid decline as fresh air enters the 
+combustion chamber and increased heat release enhances combus­
+tion completeness. This initial CO peak is attributed to the low 
+equivalence ratio at ignition. As the turbine shaft accelerates, more 
+air flows into the mGT, reducing CO formation. Once sufficient air is 
+available to sustain complete combustion, flame dilution and the 
+resulting temperature decrease become the dominant factors 
+influencing CO production. Consequently, CO levels evolve with 
+the air–fuel ratio, as greater combustion dilution lowers flame 
+temperature, promoting incomplete combustion and increased CO 
+formation.
+The impact of EGR on CO emissions is illustrated in Fig. 10, 
+where the initial peak is clearly represented. EGR increases CO 
+emissions during the starting phase. Although no CO should be 
+present before ignition, some was detected at the highest EGR level 
+due to noise in the gas analyzer. Since CO is toxic to the analyzer 
+measurement cells, a dilution factor of five is applied to protect 
+them, which increases baseline noise. Additionally, if residual CO 
+Table 5 The changes from state 0 to higher EGR ratios lead to 
+NOx peaks 
+From
+To
+To  
+EGR
+NOx, inc:
+(ppm)
+NOx, peak  
+(ppm)
+NOx, dec:
+(ppm)
+Type
+0
+1
+21%
+2
+24.8
+0
+1
+0
+2
+30%
+2
+24.9
+0
+1
+0
+3
+64%
+6
+28.2
+3
+2
+0
+4
+64%
+6
+28.2
+3
+2
+0
+5
+66%
+6
+28.3
+4
+2
+0
+6
+72%
+7
+29.4
+8
+3
+0
+7
+81%
+8
+30.6
+16
+3
+Those peaks can be classified in three categories presented in Fig. 6
+depending on the shape of the transient curve.
+Table 6 Starting from an advanced EGR rate (64%) allows a lower 
+NOx peak before the NOx depletion 
+From
+To
+To  
+EGR
+NOx, inc:
+(ppm)
+NOx, peak  
+(ppm)
+NOx, dec:
+(ppm)
+Type
+3
+5
+66%
+0
+23.9
+0
+1
+3
+6
+72%
+1
+24.9
+3
+3
+3
+7
+81%
+1.5
+25.2
+11
+3
+Fig. 7 During the start phase, an oxygen depletion occurs before 
+increasing to reach the steady-state value. The depletion is 
+deeper as the EGR rate gets higher. The accuracy of the 
+measurement device is presented in Table 1.
+Fig. 8 During the start phase, a CO2 peak is observed before the 
+concentration decreases to reach the steady-state value. The 
+accuracy of the measurement device is presented in Table 1.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MARCH 2026, Vol. 148 / 031012-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+remains from the previous operating period, a high EGR rate traps a 
+fraction of these pollutants within the recirculation loop. As shown 
+in Fig. 10, the CO peak height increases with higher recirculation 
+rates.
+The evolution of NOx concentration in the mGT during the startup 
+phase is shown in Fig. 11. A peak in NOx emissions occurs at 
+ignition, primarily due to the extended residence time caused by the 
+low air flow rate and suboptimal combustion conditions. Limited air 
+flow results in poor mixing and the formation of hot spots, both of 
+which contribute to increased NOx production. Following this initial 
+peak, the additional air dilutes the combustion process and lowers 
+the flame temperature. Since NOx formation is primarily governed 
+by the Zeldovich’s mechanism, the temperature reduction directly 
+decreases NOx emissions. Consequently, NOx levels evolve 
+inversely with the equivalence ratio.
+Although exhaust gas recirculation slightly reduces the initial 
+NOx peak during the starting phase (Fig. 12), the effect remains 
+minimal. This is because, at ignition, the combustion process has not 
+yet fully experienced the impact of recirculated exhaust gases, such 
+as the reduction in oxygen concentration and the increased presence 
+of CO2 in the combustion chamber. While considering the 
+maximum EGR of 73%, the reduction in NOx becomes visible due 
+to reduced O2 contents.
+Good Practices on Control Strategies. Environmental policies 
+are expected to become increasingly stringent in the coming years, 
+regulating not only the daily average emissions but also peak 
+emissions. Moreover, the growing share of renewable energy in the 
+grid will force gas turbines to operate more frequently as peak units, 
+significantly increasing transient operations. Additionally, NOx and 
+CO have been identified as pollutants that impact the chemical 
+stability of amines. While their exact influence has yet to be 
+quantified, experimental work has highlighted best practices and key 
+considerations for managing EGR effectively.
+ Maximizing EGR under the CO emission limit in steady-state 
+operation: Achieving the highest feasible level of exhaust gas 
+recirculation during steady-state operation helps reduce the 
+overall exhaust gas mass flow, increase CO2 concentration, and 
+lower O2 and NOx concentrations. These effects benefit amine- 
+based carbon capture but are constrained by CO emission 
+limits.
+ Starting without EGR: Although initiating gas turbine 
+operation with EGR does not impact NOx emissions, it 
+increases the peak in CO emissions. To avoid unnecessary 
+CO peaks, it is preferable to start without EGR and gradually 
+increase the recirculation rate after the initial CO peak has been 
+encountered.
+Fig. 9 After the CO peak produced by the ignition, the highly 
+diluted combustion slightly cools the flame, thus increasing so 
+the CO produced
+Fig. 10 The first CO peak encountered at startup increases with 
+the EGR rate applied. The accuracy of the measurement device is 
+presented in Table 1.
+Fig. 11 The NOx emission faces a peak at the ignition phase due 
+to the nonoptimal condition in the combustion chamber. The NOx 
+level then decreases and stabilizes.
+Fig. 12 Starting with EGR does not bring significant reduction 
+on the first NOx peak. The accuracy of the measurement device is 
+presented in Table 1.
+031012-6 / Vol. 148, MARCH 2026                                                                                                          
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+ Gradually adjusting the EGR rate: While CO emissions are not 
+a limiting factor during EGR transitions, a NOx peak can occur. 
+Therefore, it is more beneficial to adjust the EGR level 
+progressively rather than making abrupt changes.
+Conclusion
+Exhaust gas recirculation is employed in amine-based carbon 
+capture to increase CO2 concentration and reduce the exhaust gas 
+mass flow rate. However, EGR also influences NOx and CO 
+emissions, both in steady-state and transient conditions. To address 
+the lack of experimental data on EGR’s impact on emissions during 
+transient phenomena, a 3 kWe mGT from MTT
+V
+R was modified and 
+equipped with an external EGR loop. Seven operating states, each 
+characterized by a different EGR rate, were defined. Emissions were 
+measured using a gas analyzer during transitions as well as during 
+startup.
+In steady-state operation, the dry molar concentrations of O2 and 
+CO2 in the exhaust gases align with theoretical predictions. However, 
+EGR significantly affects NOx and CO production. Regarding NOx, 
+increasing the EGR rate initially leads to a rise in NOx concentration 
+before a significant reduction due to oxygen depletion. This depletion 
+also causes a sharp increase in CO levels at high EGR rates.
+During transient operation, NOx peaks occur when transitioning 
+between EGR levels, with peak intensity increasing as the difference 
+between EGR levels grows. In contrast, CO emissions transition 
+more gradually between steady-state values corresponding to 
+different EGR levels.
+While no CO2 or O2 peaks are observed during EGR transitions, 
+startup conditions lead to peak emissions. Both CO and NOx exhibit 
+peaks during startup, but while the NOx peak remains unaffected by 
+the initial EGR level, the CO peak intensifies with higher EGR levels.
+These experiments highlight challenges related to CO and NOx 
+emissions during startup and phase transitions when applying EGR. 
+Depending on environmental policies and the tolerance of the 
+carbon capture unit, EGR implementation may need to be 
+constrained to minimize or mitigate transient pollutant emissions.
+Future Work
+While EGR has demonstrated limitations in terms of emissions 
+during transient phases, this study has only focused on the increase 
+in EGR and the startup phase. However, transient phenomena also 
+occur during shutdown and EGR reduction, and they remain 
+unexplored.
+With respect to performance, this study has been limited to 
+emissions, and the impact of transients on combined heat and power 
+production and efficiency has not been investigated. Nevertheless, 
+the impact on the heat production is expected to be limited due to the 
+thermal inertia of the system during transients.
+Furthermore, given the growing interest in hydrogen, future 
+studies should explore how transitioning from natural gas to 
+hydrogen-containing blends affects cycle emissions. Finally, the 
+research could focus on how O2 or H2 enriched combustion could be 
+beneficial toward a further extension of the EGR ratio and as such an 
+enhanced CO2 concentration in the flue gases. A further enhance­
+ment of the CO2 concentration in flue gases will facilitate amine- 
+based post carbon capture systems worldwide.
+Acknowledgment
+Vincent Thielens is a Research Fellow of the Fonds de la 
+Recherche Scientifique—FNRS.
+Funding Data
+ Fonds de la Recherche Scientifique—FNRS (Grant No. 
+J.0033.23 ACCURATE; Funder ID: 10.13039/501100002661).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+Nomenclature
+dec ¼ decrease after the peak value
+e ¼ electric
+inc ¼ increase up to the peak value
+peak ¼ peak value
+th ¼ thermal
+Symbols 
+nr ¼ average number of recirculations
+t0:2 ¼ settling time in seconds to reach a value around 0.2% abs 
+of the steady-state one
+k ¼ dimensionless air–fuel ratio
+Abbreviations 
+EGR ¼ exhaust gas recirculation
+GT ¼ gas turbine
+mGT ¼ microgas turbine
+ppmvd ¼ parts per million volumetric dry 
+References
+0[1] De Paepe, W., Montero Carrero, M., Giorgetti, S., Parente, A., Bram, S., and 
+Contino, F., 2016, “Exhaust Gas Recirculation on Humidified Flexible Micro 
+Gas Turbines for Carbon Capture Applications,” ASME Paper No. GT2016- 
+57265.
+0[2] Fosta˚s, B., Gangstad, A., Nenseter, B., Pedersen, S., Sjøvoll, M., and Sørensen, A. 
+L., 2011, “Effects of NOx in the Flue Gas Degradation of MEA,” Energy Procedia, 
+4, pp. 1566–1573.
+0[3] Thielens, V., Demeyer, F., Geigle, K. P., Kutne, P., and De Paepe, W., 2025, 
+“Experimental Investigation of the Emissions and Performance of a 
+Micro Gas Turbine Setup With Enhanced EGR,” Appl. Therm. Eng., 267, 
+p. 125673.
+0[4] Verhaeghe, A., Mendoza Morales, M. J., Blondeau, J., Demeyer, F., Bricteux, L., 
+and De Paepe, W., 2023, “Thermodynamic Assessment of a Combined Cycle Gas 
+Turbine With Exhaust Gas Recirculation Under Part-Load Operation Toward 
+Carbon Capture Penalty Reduction,” ASME Paper No. GT2023-101902.
+0[5] European Parliament and Council, 2010, “Directive 2010/75/EU on Industrial 
+Emissions (Integrated Pollution Prevention and Control), November,” Official 
+Journal of the European Union, Brussels, Belgium.
+0[6] Rosfjord, T. J., and Cohen, J. M., 1995, “Evaluation of the Transient Operation of 
+Advanced Gas Turbine Combustors,” J. Propul. Power, 11(3), pp. 497–504.
+0[7] Pavri, R., and Moore, G. D., 2001, “Gas Turbine Emissions and Control,” Atlanta: 
+GE Energy Serv., 1, pp. 1–20.
+0[8] Tenango-Pirın, O., Espinosa, S., Garcıa, J. C., and Rodrıguez, J. A., 2024, 
+“Analysis of Gas Turbine Combustor Exhaust Emissions: Effects of Transient 
+Inlet Air Pressure,” Energy Technol., 12(3), p. 2301093.
+0[9] Miller, S., 2012, Probability and Random Processes: With Applications to Signal 
+Processing and Communications, Academic Press, Waltham, MA.
+[10] Cirigliano, D., Grimm, F., Kutne, P., and Aigner, M., 2022, “Oxidation-Induced 
+Damage Modeling in Micro Gas-Turbine Combustion Chambers,” Procedia 
+Struct. Integr., 42, pp. 1728–1735.
+[11] ElKady, A. M., Evulet, A., Brand, A., Ursin, T. P., and Lynghjem, A., 2009, 
+“Application of Exhaust Gas Recirculation in a DLN F-Class Combustion System 
+for Postcombustion Carbon Capture,” ASME J. Eng. Gas Turbines Power, 131(3), 
+p. 034505.
+[12] Masri, A., Dibble, R., and Barlow, R., 1992, “Chemical Kinetic Effects in 
+Nonpremixed Flames of H2/CO2 Fuel,” Combust. Flame, 91(3–4), pp. 285–309.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MARCH 2026, Vol. 148 / 031012-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/3/031012/7536546/gtp-25-1354.pdf by University of Cincinnati user on 31 December 2025

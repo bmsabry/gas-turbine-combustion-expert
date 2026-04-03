@@ -1,0 +1,969 @@
+
+--- Page 1 ---
+
+Arman Ahamed Subash1
+Postdoc Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: arman.subash@forbrf.lth.se
+Haisol Kim
+Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: haisol.kim@forbrf.lth.se
+Sven-Inge M€oller
+Research Administrative Director
+Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: sven-inge.moller@forbrf.lth.se
+Mattias Richter
+Professor
+Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: mattias.richter@forbrf.lth.se
+Christian Brackmann
+Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: christian.brackmann@forbrf.lth.se
+Marcus Alden
+Professor
+Division of Combustion Physics,
+Lund University,
+P.O. Box 118,
+Lund SE-221 00, Sweden
+e-mail: marcus.alden@forbrf.lth.se
+Andreas Lantz
+Siemens Industrial Turbomachinery AB,
+Finspong SE-612 83, Sweden
+e-mail: andreas.lantz@siemens.com
+Annika Lindholm
+Siemens Industrial Turbomachinery AB,
+Finspong SE-612 83, Sweden
+e-mail: annika.lindholm@siemens.com
+Jenny Larfeldt
+Siemens Industrial Turbomachinery AB,
+Finspong SE-612 83, Sweden
+e-mail: jenny.larfeldt@siemens.com
+Daniel L€orstad
+Siemens Industrial Turbomachinery AB,
+Finspong SE-612 83, Sweden
+e-mail: daniel.lorstad@siemens.com
+Investigation of Fuel and Load
+Flexibility in a Siemens Gas
+Turbine-600/700/800 Burner
+Under Atmospheric Pressure
+Conditions Using High-Speed
+Hydroxyl-PLIF and Hydroxyl
+Radical Chemiluminescence
+Imaging
+Fuel and load ﬂexibility have been increasingly important features of industrial gas tur-
+bines in order to meet the demand for increased utilization of renewable fuels and to pro-
+vide a way to balance the grid ﬂuctuations due to the unsteady supply of wind and solar
+power. Experimental investigations were performed using a standard third-generation
+dry low emission (DLE) burner under atmospheric pressure conditions to study the effect
+of central and pilot fuel addition, load variations, and hydrogen (H2) enrichment in a nat-
+ural gas (NG) ﬂame. High-speed kHz planar laser-induced ﬂuorescence (PLIF) of OH
+radicals and imaging of OH chemiluminescence were employed to investigate the ﬂame
+stabilization, ﬂame turbulence interactions, and ﬂame dynamics. Along with the optical
+measurements, combustion emissions were also recorded to observe the effect of chang-
+ing operating conditions on NOX level. The burner is used in Siemens industrial gas tur-
+bines SGT-600, SGT-700, and SGT-800 with minor hardware differences and the study
+thus is a step to characterize fuel and load ﬂexibility for these turbines. Without pilot and
+central fuel injections in the current burner conﬁguration, the main ﬂame is stabilized
+creating a central recirculation zone (CRZ). Addition of the pilot fuel strengthens the
+outer recirculation zone (ORZ) and moves the ﬂame anchoring position slightly down-
+stream, whereas the ﬂame moves upstream without affecting the ORZ when central fuel
+injection is added. The ﬂame was investigated utilizing H2/NG fuel mixtures where the H2
+amount was changed from 0 to 100%. The results show that the characteristics of the
+ﬂames are clearly affected by the addition of H2 and by the load variations. The ﬂame
+becomes more compact, the anchoring position moves closer to the burner exit and the
+OH signal distribution becomes more distinct for H2 addition due to increased reaction
+rate, diffusivity, and laminar burning velocity. Changing the load from part to base, simi-
+lar trends were observed in the ﬂame behavior but in this case due to the higher heat
+release because of increased turbulence intensity. [DOI: 10.1115/1.4049499]
+1Corresponding author.
+Manuscript received August 31, 2020; ﬁnal manuscript received September 11,
+2020; published online March 31, 2021. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+AUGUST 2021, Vol. 143 / 081009-1
+Copyright V
+C 2021 by Siemens Industrial Turbomachinery AB
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+Introduction
+Increasing demand for utilizing a wide range of alternative and
+renewable fuels makes it imperative to consider operational ﬂexi-
+bility, efﬁciency, fuel ﬂexibility, and emissions when designing
+modern industrial gas turbine engines. One key challenge is to
+achieve high efﬁciency combined with low emissions for different
+liquid and gaseous fuels at load variations. Currently, stationary
+gas turbine engines are designed to operate under lean premixed
+conditions in order to reduce thermal NOX production [1,2] by
+lowering the ﬂame temperature. However, this approach can lead
+to undesirable instabilities, which may cause local ﬂame extinc-
+tion, thermoacoustic oscillations, and poor combustion efﬁciency
+[3]. To design an industrial gas turbine, eliminating such instabil-
+ities is a signiﬁcant challenge. The inclusion of a diffusion pilot
+ﬂame or a prechamber combustor can prevent the occurrence of
+such instabilities [4,5]. A range of alternative fuels, such as resid-
+ual product gases from reﬁneries, chemical plants, and petroleum
+industries, particularly renewable fuels derived from biomass,
+have been proposed for use in gas turbines due to a substantial
+cost advantage, changes in the supply and availability of tradi-
+tional fuel, and minimization of the adverse effects on the envi-
+ronment. These fuels commonly contain a signiﬁcant fraction of
+hydrogen (H2) and hydrocarbons (HC). H2, a carbon-free energy
+carrier, can also be produced from renewable energy sources,
+such as solar and wind power, via direct thermal conversion or by
+electrolysis [6,7]. Several combustion relevant properties of H2,
+e.g., high diffusivity, wide ﬂammability range, high laminar and
+turbulent ﬂame speed, are signiﬁcantly different from those of a
+conventional HC fuel and can affect the operational limits, ﬂame
+stabilization, and exhaust gas emissions [8–13]. The enrichment
+of H2 increases the range of ﬂame stability and lowers the lean
+blowout (LBO) limit [8], while it makes the ﬂame more sensitive
+to ﬂashback by enhancing the laminar and turbulent ﬂame speed
+[11]. H2 enrichment can also affect the ﬂame stabilization by
+altering the ﬂame shape and position [12]. The DNS simulation
+by Hawkes and Chen [14] shows that the ﬂame surface area can
+be increased due to the higher burning rate per unit area. An
+increase in NOX and dynamic modes of the combustor were
+observed in the study by Lam and Parsania [15].
+The primary objective of the current study is to experimentally
+investigate the effects of central and pilot fuel addition, load var-
+iations and H2 enrichment in the natural gas (NG) ﬂame in a Sie-
+mens standard third generation dry low emission (DLE) burner
+under atmospheric conditions. Although high pressure is a
+required condition for a real gas turbine, relevant phenomena,
+e.g., ﬂame turbulence interactions and ﬂame stabilization, can
+also be investigated at atmospheric pressure for fundamental
+understanding. In addition, it is much less challenging to evaluate
+designs and combustion conditions using advanced measurement
+tools, such as laser techniques, at atmospheric pressure in order to
+explain phenomena detected but not fully understood at higher
+pressure.
+High-speed
+OH
+planar
+laser-induced
+ﬂuorescence
+(PLIF) and OH chemiluminescence were employed in the current
+investigations for temporally resolved studies of ﬂame structure,
+ﬂame stabilization, and dynamics. The OH chemiluminescence
+images are useful for acquiring information about the overall size
+and shape of the ﬂame while the OH-PLIF images indicate the
+reaction zone and postﬂame regions. Finally, NOX emissions were
+recorded to observe the effect of changing operating conditions.
+This burner is used in the industrial gas turbines SGT-600
+(25 MW), SGT-700 (33 MW), and SGT-800 (62 MW) with minor
+hardware differences. The burner design principle is well-proven
+since its early development history [16] and improvements are
+constantly implemented [17,18]. This type of burner has been
+thoroughly investigated using different methods such as CFD and
+measurements using water rig for investigating the fuel-air mix-
+ing, atmospheric combustion rig tests for fundamental investiga-
+tions with high optical access, high-pressure rig tests to include
+the pressure effect and engine tests for complete engine conditions
+and the effect of neighboring burners. More details of some of the
+performed investigations are presented in Refs. [17–22].
+Experimental Setup
+Burner and Atmospheric Combustion Test Rig. Measure-
+ments were performed in the Siemens standard third generation
+DLE burner and its schematic is presented in Fig. 1. The airﬂow
+enters a swirl generator consisting of four quarter cones shifted
+with respect to each other to create a swirling ﬂow. The swirl gen-
+erator is connected to a circular mixing tube with a secondary air
+inlet by means of ﬁlm air rows. After main fuel injection in the
+swirl generator, the swirling air/fuel mixture passes through the
+mixing tube, after which it enters the combustion chamber where
+it expands in a radial direction and ignites as it mixes with hot
+recirculated combustion gases. The burner conﬁguration also
+allows the injection of additional fuel through pilot outlets, which
+are equidistantly distributed at the circumference around the
+burner tip, and through the central gas nozzle shown in Fig. 1.
+The DLE burner was mounted in an atmospheric test rig also
+used in previous studies [17,18,20]. The experimental setup in the
+atmospheric rig is shown in Fig. 2. The combustion chamber
+located after the burner exit consists of a convectively cooled
+liner. The circular cross section of the combustion chamber has a
+similar expansion ratio as in the real gas turbine annular combus-
+tors; however, the initial section just after the burner exit has
+square cross section with smoothed corners to improve measure-
+ment quality. Access for optical diagnostics in the ﬂame region is
+provided through quartz windows on three sides of the liner.
+Before entering the plenum, the combustion air was preheated up
+to 693 K. The fuel ﬂow rates to the main, pilot, and central gas
+injectors were controlled by means of Coriolis mass ﬂow
+controllers.
+Operating Conditions. The experiments were performed at
+atmospheric pressure conditions while inlet air temperature,
+burner pressure drop, and ﬂame temperature were downscaled and
+altered to engine conditions by matching the reference velocity in
+the mixing tube (based on the mass ﬂow) and the equivalence
+ratio. Three parameters were varied to study their effects on com-
+bustion: Central and pilot fuel addition, load variation, and H2
+addition. At the central fuel to total fuel ratio (CFR) ¼ 2% setting,
+2% of the total fuel amount was injected through the central gas
+nozzle shown at the left of Fig. 1, while at the pilot fuel to total
+fuel ratio (PFR) ¼ 3% setting, 3% of the total fuel amount was
+guided to the pilot outlet so that small diffusion ﬂames were intro-
+duced around the edge of the burner tip. Finally, at PFR ¼ 0,
+CFR ¼ 0 setting, only main fuel was injected in the swirl genera-
+tor without supplying fuel through the pilot and central injectors.
+When changing the fuel route, the bulk airﬂow was kept constant.
+In addition to the effect of guiding fuel to different paths, the
+effects of load variations, from part load (about 80%) to base
+load, were studied by varying the mass ﬂow rate of the gas mix-
+ture. Both the mass ﬂow of the air and the mass ﬂow of the fuel
+Fig. 1
+Schematic of the Siemens third generation DLE burner
+from Ref. [19] with laser beam path and combustion chamber
+added
+081009-2 / Vol. 143, AUGUST 2021
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+were raised by a factor 1.2 to achieve the base load condition
+compared to the part load condition. The inlet air temperature was
+also increased by about 20 K at the base load condition compared
+to the part load. The same adiabatic ﬂame temperature was used
+for all cases including the part load case. The reason for this is
+that the twin shaft engines SGT-600 and SGT-700 have combus-
+tor air bypass system in order to keep similar ﬂame temperature
+despite reduced turbine inlet temperature. For the single shaft
+engine SGT-800, this is also relevant since the turbine inlet tem-
+perature is barely affected down to about 75% load using normal
+settings. The ﬂame was also investigated using pure NG as well as
+pure H2 fuel. In addition to the pure H2 combustion case, H2
+enrichment where the NG fuel was enriched with 30 vol %, 60 vol
+%, and 80 vol % of H2 was studied at the PFR ¼ 3% setting. Here,
+the airﬂow was kept constant, while the mass ﬂow rate of the fuel
+was adjusted at each H2 concentration to achieve a constant global
+adiabatic ﬂame temperature, which is a typical control strategy for
+practical gas turbines. Air-to-fuel ratio (AFR) at each ﬂame condi-
+tion is normalized by the air-to-fuel ratio at the base load (NG)
+case with PFR ¼ 0, CFR ¼ 0 (AFR0) and the normalized values
+are tabulated in Table 1.
+Diagnostics
+As optical measurement techniques, high-speed OH-PLIF, and
+OH chemiluminescence imaging were employed for investigating
+the ﬂame at the burner exit.
+OH-Planar Laser-Induced Fluorescence
+High-speed (kHz) OH-PLIF measurements were performed by
+excitation of the A2Rþ  X2P (1–0) band of the OH radical. A
+frequency-doubled (532 nm) pulsed solid-state diode-pumped Nd:
+YAG laser (Edgewave HD40I-E) was used to pump a tunable dye
+laser (Sirah Credo) operated with Rhodamine 590 dye. The output
+of the dye laser (566 nm) was frequency-doubled and the laser
+wavelength was tuned to the temperature-insensitive Q1(8) transi-
+tion at 283.55 nm. An approximately 50 mm wide laser sheet
+was formed using an f ¼ 40 mm cylindrical lens and an
+f ¼ þ500 mm spherical lens and passed along the midline axis of
+the burner exit. The laser pulse energy varied between 1.75 mJ
+and 1.9 mJ during the measurements. The resulting OH ﬂuores-
+cence signal at wavelength 310 nm was collected perpendicular
+to the laser sheet with a high-speed CMOS camera (Fastcam SA5)
+in combination with a two-stage image intensiﬁer (HiCATT). The
+detector system was ﬁtted with a UV sensitive lens (B. Halle, f#2,
+f ¼ 100 mm). To suppress interference occurring from scattered
+laser light and background radiation, a single-band bandpass ﬁlter
+(315/15 nm BrightLineV
+R ) was mounted in front of the lens. The
+detector was set to a time gate of 40 ns to further limit background
+contributions from ﬂame chemiluminescence. For each of the
+ﬂame conditions, 2728 single-shot images (using max. buffer
+memory of the camera) were collected at 2 kHz frequency. For
+compensation in the average spatial proﬁle of the laser sheet, a
+cuvette with a weak dye solution was used. The scaling factor of
+the acquired images was 0.15 mm/pixel.
+Flame Chemiluminescence. The same detector system was
+used
+to
+acquire
+line-of-sight
+integrated
+chemiluminescence
+images of excited OH radicals (OH*) at wavelength 310 nm. The
+camera was equipped with the same UV sensitive lens (B. Halle,
+f#2, f ¼ 100 mm) and a bandpass ﬁlter centered at 310 nm. For
+each ﬂame condition, 2728 single-shot images were collected at a
+frequency of 2 kHz and with an exposure time of 20 ls.
+Results and Discussion
+Effect of Central Fuel to Total Fuel Ratio and Pilot Fuel to
+Total Fuel Ratio on the Main Flame. In Fig. 3, OH-PLIF images
+show the effects of the pilot and central fuel addition on the NG/
+air ﬂame structure at a base load condition. OH-PLIF measure-
+ments were carried out to provide qualitative information of OH
+radical distributions in the symmetry plane through the center of
+the burner exit and identify the reaction zone and the postﬂame
+region. The high-intensity region indicates OH radicals that are
+formed in the ﬂame front or have been convected a relatively short
+distance [23]. The coordinates of the images are normalized by
+the burner exit inner radius (R) and the ﬂow direction is from left
+to right. In Figure 3, representative single shots and evaluated gra-
+dients of OH are shown in the ﬁrst two rows, while probability
+density maps (PDMs) of the OH gradients and single shots are
+shown in the last two rows. The strongest gradients are good
+markers to indicate the approximate position of the ﬂame front
+[24,25], while weaker gradients correspond to boundary layers
+between hot and cold gases. For each case, the PDM images were
+calculated by binarizing and later normalizing 2728 single shots
+as well as corresponding gradient images, to present the spatial
+distributions of OH radicals and ﬂame fronts. A local thresholding
+scheme was implemented to identify the boundaries of the reac-
+tion layers and to form binarized images. For each column of pix-
+els, 10% of the local maximum (in that column) was selected as a
+threshold for the signal-to-background ratio. The width of PDMs
+of the gradients indicates the ﬂame front ﬂuctuations.
+Previous experimental and LES investigations [18,21] of this
+burner conﬁguration showed that the main ﬂame is stabilized
+downstream of the burner exit due to a central recirculation zone
+(CRZ) induced by the vortex breakdown process. The swirling air
+generated by the swirler and fuel introduced through injectors in
+the swirler can achieve good mixing after passing through the
+mixing tube and then discharge into the combustor through the
+burner nozzle, where it expands radially by the imposed swirl
+[26]. The main ﬂame is anchored at the inner shear layer (ISL)
+formed by the CRZ, which brings heat and radicals from the main
+ﬂame toward the burner exit and initiates reactions with the fresh
+fuel/air mixture. A sharp temperature and OH gradient indicate
+the ﬂame front in the vicinity of the reaction zone. In the current
+results presented in Fig. 3, only the early portion of the NG/air
+ﬂame, covered by the width of the laser sheet, is shown for three
+CFR and PFR settings: (a) PFR ¼ 0, CFR ¼ 0, (b) PFR ¼ 3%,
+CFR ¼ 0, (c) PFR ¼ 3%, CFR ¼ 2%. The conical shape of the OH
+distribution with high intensity, found at the ISL of the swirling
+air/fuel mixture, indicates the leading edge of the CRZ, whereas
+low OH signal found along the outer shear layer (OSL) indicates
+the outer recirculation zone (ORZ). The ﬂame exhibits repeatedly
+large axial displacements with superimposed local ﬂuctuations
+due to various scales of turbulence. An arbitrary cycle of the main
+ﬂame ﬂuctuation is shown in a time sequence in Fig. 4. In the
+sequence, the downstream propagation of the ﬂame is clearly
+observed up to 0.2 ms, after which the ﬂame is almost out of the
+ﬁeld of view. Then, it is found to be pulled back again in the
+Fig. 2
+Schematic of atmospheric combustion test rig assem-
+bly from Ref. [19] with laser beam path and image detection sys-
+tem added
+Journal of Engineering for Gas Turbines and Power
+AUGUST 2021, Vol. 143 / 081009-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+frame from 0.5 ms and to propagate toward the burner exit. These
+repeated displacements of the ﬂame explain why the probability
+values, indicating the probability for occurrence of the ﬂame at a
+speciﬁc position, are small in the PDM images shown in Fig. 3IV.
+Twelve pilot fuel injectors are arranged equidistantly at the cir-
+cumference of the burner exit. Since the pilot fuel and co-airﬂow
+can achieve very limited mixing, the combustion occurs in a diffu-
+sion manner while interacting with the main ﬂame. This pilot
+ﬂame can be very useful to improve the LBO limit or ﬂame stabil-
+ity close to the LBO conditions. Considerable effects on the ﬂame
+structure were observed due to the addition of this pilot fuel. At
+PFR ¼ 3%, CFR ¼ 0 setting, the pilot fuel intensiﬁed reactions at
+the ORZ, and the ﬂame was found to be anchored attaching to the
+burner tip, which is consistent with the observation reported in a
+previous study of an older version of the burner [18]. However,
+the spread of the OH distribution at the ORZ was much higher
+and the ﬂame attachment was much stronger in the previous
+burner [18] as compared to the current one. When adding the pilot
+fuel, the ﬂame was also observed to be stabilized slightly down-
+stream in the combustor as compared to the base case when nei-
+ther pilot nor central fuel was added. In contrast, at the PFR ¼ 3%,
+CFR ¼ 2% setting, the stabilization of the ﬂame moved upstream
+again for the additional injection of the central fuel (cf. Fig. 3(c)
+III/IV). The addition of central fuel enhances the CRZ, without
+affecting the ORZ, by increasing the fuel quantity or the local
+equivalence ratio in the central part of the fuel/air mixing proﬁle
+upstream the main ﬂame. For all cases with PFR ¼ 3%, the
+enhancement of the ORZ was observed only in the lower part of
+the ﬂame images. This effect is not related to the absorption of the
+laser along the beam path through the ﬂame, which can be con-
+ﬁrmed by the symmetric distribution of OH downstream. How-
+ever, one reason could be an asymmetry in the ﬂow distribution of
+the cooling air in the thin channels around the burner. It could cre-
+ate areas in which the local additional air would quench the neigh-
+boring pilot ﬂames. This is more prominent when the PFR values
+are below 3%. Another reason could be the difference in the
+behavior of active pilots while the strength of the pilot ﬂame
+varies over time with signiﬁcantly low frequencies.
+The PDMs of gradients indicate that for all cases, the ﬂame
+front at the ISL ﬂuctuates more in both axial and radial direction
+as compared to that at the OSL. Figure 5 presents the probability
+distributions of OH radicals along the radius at ﬁve different axial
+positions. The probability distributions also indicate that the ORZ
+is not symmetric at different axial positions. The axial distribu-
+tions at r/R < 0.75 and x/R < 0.45 verify again the attachment of
+ﬂame to the burner tip due to the addition of pilot fuel, while the
+radial distributions at 1 < r/R < 1 at different axial positions
+indicate that the ﬂame moves downstream with pilot fuel injection
+and moves upstream with central fuel addition.
+In Fig. 6, time-averaged OH chemiluminescence images, indi-
+cating the shape and position of ﬂame, conﬁrm the ﬂame again to
+be stabilized downstream in comparison to the base case for add-
+ing 3% pilot fuel, while it moves upstream for an additional injec-
+tion of 2% central fuel.
+Effect of Load Variation. Figure 7 presents the effects of load
+variations on the NG/air ﬂame structure. Comparison of the OH
+distribution at two conditions, part load and base load at
+PFR ¼ 3%, CFR ¼ 2%, indicates that the CRZ became more
+intense and compact for increasing the load. With increased load,
+keeping / constant, the turbulence level and turbulent ﬂame speed
+increase with the Reynolds number. The observed movement of
+the CRZ toward the burner exit at the base load condition indi-
+cates an increase in ﬂame speed. At the base load, the ORZ also
+Table 1
+Fuel gas composition and normalized AFR values for different ﬂame conditions
+Fuel gas composition (Vol %)
+AFR/AFR0
+Fuel splitting
+Operating condition
+NG
+H2
+AFR/AFR0
+Main fuel (%)
+Pilot fuel [%]
+Central fuel (%)
+Base load (NG): PFR ¼ 0, CFR ¼ 0
+100
+0
+1
+100
+0
+0
+Base load (NG): PFR ¼ 3%, CFR ¼ 0
+100
+0
+1
+97
+3
+0
+Base load (NG): PFR ¼ 3%, CFR ¼ 2%
+100
+0
+1
+95
+3
+2
+Part load (NG): PFR ¼ 3%, CFR ¼ 2%
+100
+0
+1
+95
+3
+2
+Base load (30% H2): PFR ¼ 3%, CFR ¼ 0
+70
+30
+1.06
+97
+3
+0
+Base load (60% H2): PFR ¼ 3%, CFR ¼ 0
+40
+60
+1.21
+97
+3
+0
+Base load (80% H2): PFR ¼ 3%, CFR ¼ 0
+20
+80
+1.45
+97
+3
+0
+Base load (100% H2): PFR ¼ 0, CFR ¼ 0
+0
+100
+2.36
+100
+0
+0
+The adiabatic ﬂame temperature was the same for all ﬂame conditions.
+Fig. 3
+OH-PLIF results of NG/air ﬂame at base load conditions
+with three CFR and PFR settings: (a) PFR 5 0, CFR 5 0, (b)
+PFR 5 3%, CFR 5 0, and (c) PFR 5 3%, CFR 5 2%. I. Single-shots
+of OH-PLIF; II. Gradients of OH; III. PDMs of OH gradient; IV.
+PDMs of single-shots.
+081009-4 / Vol. 143, AUGUST 2021
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+became thinner (cf. Fig. 7(b) III) due to the faster burning rate of
+the pilot fuel while interacting with the relatively closer located
+main ﬂame as compared to the part load case. Furthermore, the
+PDMs of gradients indicate that the ﬂame front at the OSL ﬂuctu-
+ates more in both axial and radial directions at the part load condi-
+tion as compared to the base load. Like the base load case, the
+axial displacements of the ﬂame including ﬂuctuations were also
+observed for the part load case.
+Similar to the PLIF images, time-averaged OH chemilumines-
+cence images, shown in Fig. 8, indicate higher intensity for the
+ﬂame at base load, which is attributed to a higher production rate
+of OH radicals from chain branching and chain propagation reac-
+tions [27]. The upstream stabilization of the base load ﬂame is
+also observed in the chemiluminescence images.
+Effect of H2 Enrichment. Figure 9 presents the effects of
+changing fuel, from pure NG to pure H2, on the ﬂame structure at
+base load conditions with PFR ¼ 0 and CFR ¼ 0. For a pure H2
+case, the characteristics of the ﬂame are signiﬁcantly affected by
+the faster reaction rate, higher diffusivity, and higher burning
+velocity of H2. Although the ﬂame still follows the same stabiliza-
+tion mechanism as for pure NG, apparent differences are observed
+in the ﬂame shape and anchoring position for the pure H2 fuel.
+The higher reactivity and ﬂame speed associated with H2 cause
+the ﬂame to be shorter and more compact. The single-shot and
+PDM images indicate the ﬂame to be stabilized quite close to the
+burner exit. Despite that the OH signal at both the CRZ and ORZ
+was quite intense, the ﬂame was not observed to be attached to the
+burner tip.
+The PDMs of gradients suggest that the ﬂame front at the ISL
+ﬂuctuates signiﬁcantly less in both axial and radial direction for
+pure H2 ﬂame as compared to the NG ﬂame. Intensity ﬂuctuations
+were also observed in the ﬂame, which is shown in Fig. 10 by the
+variation of the OH signal intensity in a time sequence. Radial dis-
+tributions of probability for OH at different axial positions for NG
+and H2-enriched NG ﬂames are shown in Fig. 11. It also veriﬁes
+that the pure H2 ﬂame at PFR ¼ 0 and CFR ¼ 0 setting is stabi-
+lized by both CRZ and ORZ but is not attached to the burner tip.
+Fig. 4
+The displacement of the ﬂame is shown by OH distribution in time sequence. Base load with PFR 5 0 and CFR 5 0
+setting.
+Fig. 5
+Radial probability distributions of OH at ﬁve different
+axial positions obtained from OH-PLIF images for PFR 5 0–3%
+and CFR 5 0–2% settings
+Fig. 6
+Time-averaged OH chemiluminescence at three CFR
+and PFR settings: (a) PFR 5 0, CFR 5 0, (b) PFR 5 3%, CFR 5 0,
+and (c) PFR 5 3%, CFR 5 2% settings
+Fig. 7
+OH-PLIF results of NG/air ﬂame at different loads: (a)
+part
+load
+PFR 5 3%,
+CFR 5 2%,
+(b)
+base
+load
+PFR 5 3%,
+CFR 5 2%. I. Single-shots of OH-PLIF; II. PDMs of OH gradient;
+III. PDMs of single-shots.
+Journal of Engineering for Gas Turbines and Power
+AUGUST 2021, Vol. 143 / 081009-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+The time-averaged OH chemiluminescence in Fig. 12 and
+single-shot OH-PLIF images in Fig. 9 show stronger OH* and OH
+LIF signal for the H2 ﬂame as compared to the NG ﬂame, which
+is attributed to the higher production rate of OH for burning the
+more reactive H2 fuel promoting radical formation via chain
+branching and chain propagation reactions [27]. The time-
+averaged OH chemiluminescence images also indicate that the H2
+ﬂame is more compact and stabilized quite close to the burner
+exit.
+At base load condition with PFR ¼ 3% and CFR ¼ 0 setting, the
+inﬂuence of H2 enrichment (up to 80 vol %) on NG ﬂame structure
+is shown in Fig. 13. The ORZ became stronger due to addition of
+pilot fuel and therefore, the ﬂame was observed (cf. Fig. 10) to be
+anchored attaching to the burner tip. Besides the pilot fuel effects,
+the stabilization of the H2-enriched NG ﬂame followed the same
+mechanism as the pure H2 ﬂame. The ﬂame became more com-
+pact and shorter as well as anchored closer to the burner exit with
+H2 enrichment. The fact that a variety of ﬂames (pure NG ﬂames,
+H2-enriched ﬂames, and pure H2 ﬂames) could be stabilized in
+this burner demonstrates the improvement and development in
+burner design toward fuel ﬂexibility. In a previous study [17] with
+a similar burner at PFR ¼ 0, CFR ¼ 0, only NG ﬂames enriched
+up to 80 vol % H2 could be stabilized. Also, the ﬂame at 80 vol %
+H2 was stabilized with help of a ﬂame attachment to the burner
+tip, which can cause unwanted increase of the burner surface tem-
+perature and, in worst cases, a triggering of an upstream ﬂame
+propagation. Thus, the current burner design with no ﬂame attach-
+ment to the burner tip (see Figs. 9 and 13) is more optimized for
+fuel ﬂexibility operation than the one used in Ref. [17].
+Flame Fluctuations. For all investigated cases, combustion
+ﬂuctuations were revealed primarily by the sound of combustion
+and OH chemiluminescence. Proper orthogonal decomposition
+(POD), a statistical method, was employed on high-speed OH
+chemiluminescence data to study the ﬂame dynamics. In addition
+to the mean ﬁeld, information about the most energetic modes of
+ﬂame dynamics can be acquired by employing this method [28].
+POD is a procedure to decompose a given ensemble of data G
+(two-dimensional arrays in the present case) into a set of eigenfunc-
+tions. The details of this statistical method are not described here,
+but the outcome of this procedure is a certain number of orthogonal
+spatial eigenfunctions or modes WiðxÞ and time coefﬁcient eiðtÞ so
+that any snapshot G(x,t) taken at a time (t) can be reconstructed
+with a certain number of modes M according to Eq. (1).
+GN x; t
+ð
+Þ ¼ e0W0 x
+ð Þ þ
+X
+M
+i¼1
+eiWiðxÞ
+(1)
+Here, W0 or mode 0 represents the mean ﬁeld. Subsequent
+modes represent ﬂuctuation and thus the dynamics. In this
+method, modes are a linear combination of the snapshots, and the
+time coefﬁcients can be computed projecting the modes onto
+snapshots according to Eq. (2)
+ej tð Þ ¼ Wj x
+ð Þ  G x; t
+ð
+Þ
+(2)
+For further details on the theoretical background and on the imple-
+mentation, the reader is referred to Refs. [29–32].
+Proper orthogonal decomposition analysis revealed signiﬁcant
+inﬂuences on the ﬂame dynamics for changing the load and fuel,
+but not for adding pilot or central fuel. The energy content distri-
+butions of different modes at three conditions: (a) part load (NG)
+case, (b) base load (NG) case, and (c) base load (H2) case are
+shown in Fig. 14 when neither pilot nor central fuel was added.
+Two dominant modes (ﬁrst and second) contain about 29%, 30%,
+and 23% of the total ﬂuctuating variance for the part load (NG),
+base load (NG), and base load (H2) cases, respectively. Figure 15
+presents modes 0–2 for the three cases, where mode 0 is represent-
+ing the mean ﬁeld while subsequent modes represent ﬂuctuations
+to be added on top of it. The energy content of modes 1 and 2 is
+almost one order of magnitude larger than the energy of subse-
+quent modes. The scale and sign of the contour plots are arbitrary
+as the modes are to be multiplied by the time coefﬁcient. Mode 1
+contains the axial ﬂuctuation, while mode 2 indicates the rota-
+tional movement for the part load (NG) case. For the base load
+(NG) case, both modes contain axial and rotational movement.
+Finally, for the base load (H2) case, mode1 represents axial ﬂuctu-
+ation while mode 2 presents rotational movement.
+As the time resolution of acquired data is high enough to cap-
+ture the evolution of the time coefﬁcients, FFT was performed on
+time coefﬁcients, e1ðtÞ and e2ðtÞ, of mode 1 and 2 for the three
+cases to reveal the frequencies of the modes’ oscillations. For
+every case, both modes were found to oscillate with the same fre-
+quencies and therefore, only the frequency spectrum of mode 1
+from each of the cases is considered for discussion. The frequency
+spectrum is plotted in Fig. 16 where frequency is expressed as
+Strouhal number (St), based on the reference velocity through the
+burner and the mixing tube diameter. In addition, the spectral
+Fig. 8
+Time-averaged OH chemiluminescence at different
+loads: (a) part load at PFR 5 3%, CFR 5 2% and (b) base load at
+PFR 5 3%, CFR 5 2%
+Fig. 9
+OH-PLIF results of (a) NG/air and (b) H2/air ﬂame at base
+load with PFR 5 0 and CFR 5 0. I. Single-shots of OH-PLIF; II.
+PDMs of OH gradient; III. PDMs of single-shots.
+081009-6 / Vol. 143, AUGUST 2021
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+intensity is normalized by the maximum intensity value for the
+base load (NG) case.
+For all cases, the frequency band is located at 0.1<St < 0.2. A
+previous study [22] in a similar burner showed the domination of
+acoustic oscillations in this band of frequencies, which was
+revealed by the high power spectrum density of the pressure ﬂuc-
+tuations. Furthermore, the current study shows that the frequency
+of instabilities varies with the load and fuel changes. For the part
+load (NG) case, the axial mode dominates (cf. Fig. 15) over the
+rotational one and the spectral intensity is the maximum. For
+increasing the load, the rotational mode dominates, and the peak
+shifts toward a higher frequency with lower intensity. Combustion
+of H2 further enhances the axial mode resulting in the highest fre-
+quency with the lowest intensity, which is consistent with the
+results found in the previous study [17]. The increase in frequency
+is related to the increase of local temperature which is attributed
+to higher heat release caused by the higher ﬂame speed. With the
+temperature increase, the sound speed and by this, the eigenfre-
+quencies of the combustion chamber increase.
+Emissions. The effects of load variations, pilot, and central fuel
+addition, and H2 enrichment on NOX production are shown in Fig.
+17, even though it is not the main objective of the current study.
+The values for the NOX are normalized by the value of NOX(0) at
+base load (NG) case. For H2 enrichment of the fuel mixture from
+0 to 100 vol %, an increase in NOX production was observed,
+which is attributed to the increase in local ﬂame temperature and
+the size of the postﬂame zone. By H2 enrichment, the ﬂame
+becomes more compact and intense due to the increase in ﬂame
+speed and consequently, the local ﬂame temperature and the size
+of the postﬂame zone increase. Higher temperatures and longer
+residence time in an extended hot postﬂame zone promote forma-
+tion of thermal NOX. Similar results were also observed previ-
+ously [17]. For all the base load cases using NG and H2, it may be
+seen that the upstream ﬂame position increases NOX, either it is
+Fig. 10
+The intensity ﬂuctuation of the H2 ﬂame is shown by OH distribution in time sequence. Base load (H2) case with
+PFR 5 0 and CFR 5 0.
+Fig. 11
+Radial probability distributions of OH at ﬁve different
+axial positions obtained from OH-PLIF images for NG and H2-
+enriched NG ﬂame at base load
+Fig. 12
+Time-averaged OH chemiluminescence of (a) NG/air
+and (b) H2/air ﬂame at base load with PFR 5 0 and CFR 5 0
+Fig. 13
+OH-PLIF results of (a) NG/air, (b) 30 vol%, (c) 60 vol%,
+and (d) 80 vol% H2 enriched NG ﬂame at base load with
+PFR 5 3%, CFR 5 0 setting. I. Single-shots of OH-PLIF; II. PDMs
+of single-shots.
+Fig. 14
+POD variance distributions of modes 1–16
+Journal of Engineering for Gas Turbines and Power
+AUGUST 2021, Vol. 143 / 081009-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+due to CFR or H2 content. In addition, for the part load (NG) con-
+dition, NOX increased somewhat compared to the base load (NG)
+using the same PFR and CFR setting that may be due to the
+slightly higher residence time. In an engine, the reduced pressure
+for part load acts to reduce NOX, which is not captured in an
+atmospheric rig.
+Conclusion
+The effects of load and fuel variations on ﬂame structure were
+investigated in a Siemens standard third generation DLE burner
+under atmospheric pressure conditions. High-speed kHz OH-PLIF
+and OH chemiluminescence imaging were employed to study the
+ﬂame. Temporally resolved investigations of the ﬂame structure
+revealed insights regarding the ﬂame stabilization and dynamics.
+The main ﬂame was observed to be stabilized creating a CRZ.
+Addition of pilot fuel affected the ORZ signiﬁcantly by strength-
+ening the reaction process and therefore, the ﬂame was found to
+be attached to the burner tip. When fuel was added at the central
+injector, the ﬂame moved upstream without affecting the ORZ.
+For changing the load from part to base, the CRZ became stronger
+and more compact. The ﬂame was stabilized close to the burner
+exit.
+The higher reactivity and higher ﬂame speed associated with
+H2 affect the ﬂame structure signiﬁcantly. For H2 enrichment in
+NG or replacing pure NG fuel with pure H2, the CRZ that anch-
+ored the ﬂame moved quite close to the burner exit. Without pilot
+fuel, even though the CRZ and ORZ became quite intense, the
+ﬂame was not stabilized attaching to burner tip, whereas this
+attachment of the ﬂame was observed for the pilot fuel addition.
+The ﬂame dynamics were affected by the variation of load and
+fuel type but not by the addition of pilot and central fuel. Applica-
+tion of the proper orthogonal decomposition reveals that the fre-
+quency of instability shifts toward higher values with decreasing
+spectral intensity for increasing the load part to base using NG
+and substituting fuel from NG to H2.
+In addition, an increase in NOX was observed with enrichment
+of H2 in the fuel mixture while a small change in NOX was found
+for addition of pilot or central fuel as well as between part and
+base load.
+Acknowledgment
+This research was funded by the Swedish Energy Agency and
+by Siemens Industrial Turbomachinery AB, within the Centre of
+Competence in Combustion Science and Technology (KC-
+CECOST). The authors gratefully acknowledge the work of Arne
+Irewall and Peter Magnusson at Siemens for the maintenance and
+operation of the test rig.
+Funding Data
+ Swedish
+Energy
+Agency
+(Funder
+ID:
+10.13039/
+501100004527).
+Permission for Use Statement
+The content of this paper is copyrighted by Siemens Industrial
+Turbomachinery AB and is licensed to ASME for publication and
+distribution only. Any inquiries regarding permission to use the
+content of this paper, in whole or in part, for any purpose must be
+addressed to Siemens Industrial Turbomachinery AB directly.
+Nomenclature
+AFR ¼ air-to-fuel ratio
+CFR ¼ central fuel to total fuel ratio
+CMOS ¼ complementary metal oxide semiconductor
+CRZ ¼ central recirculation zone
+DLE ¼ dry low emission
+f ¼ focal length
+FFT ¼ fast Fourier transform
+H2 ¼ hydrogen
+HC ¼ hydrocarbon
+ISL ¼ inner shear layer
+Fig. 15
+Mode 0–2 are shown for three cases: I. Part load (NG),
+II. base load (NG), and III. base load (H2) with contour plot of the
+intensity signal
+Fig. 16
+Intensity versus Strouhal number for three cases: I.
+part load (NG), II. base load (NG), and III. base load (H2)
+Fig.
+17
+Relative
+change
+in
+NOX
+at
+different
+operating
+conditions
+081009-8 / Vol. 143, AUGUST 2021
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+K ¼ kelvin
+LBO ¼ lean blowout
+MW ¼ megawatts
+NG ¼ natural gas
+NOX ¼ NO and NO2 (nitric oxide and nitrogen dioxide)
+OH ¼ hydroxyl
+ORZ ¼ outer recirculation zone
+OSL ¼ outer shear layer
+PDM ¼ probability density map
+PFR ¼ pilot fuel to total fuel ratio
+PLIF ¼ planar laser-induced ﬂuorescence
+POD ¼ proper orthogonal decomposition
+R ¼ burner exit inner radius
+SGT ¼ Siemens gas turbine
+St ¼ Strouhal number
+UV ¼ ultraviolet
+/ ¼ equivalence ratio
+References
+[1] Warnatz, J., Maas, P.-D., and Dibble, R. W., 1996, Formation of Nitric Oxides
+Combustion. Springer, Berlin, pp. 219–236.
+[2] Michaud, M. G., Westmoreland, P. R., and Feitelberg, A. S., 1992, “Chemical
+Mechanisms of NOx Formation for Gas Turbine Conditions,” Symp. (Int.)
+Combust., 24(1), pp. 879–887.
+[3] Lieuwen, T. C., and Yang, V., 2005, Combustion Instabilities in Gas Turbine
+Engines: Operational Experience, Fundamental Mechanisms, and Modeling,
+American Institute of Astronautics and Aeronautics, Reston, VA.
+[4] Gussak, L. A., Ryabikov, O. B., Politenkova, G. G., and Furman, G. A., 1973,
+“Effect of Adding Individual Combustion Products on Combustion of
+Methane—Air Mixture,” Bull. Acad. Sci. USSR, Div. Chem. Sci., 22(9), pp.
+2128–2128.
+[5] Lefebvre, A. H., 2010, Gas Turbine Combustion: Alternative Fuels and Emis-
+sions, CRC Press, Boca Raton, FL.
+[6] Kreutz, T., Williams, R., Socolow, R., Chiesa, P., and Lozza, G., 2003,
+“Production of Hydrogen and Electricity From Coal With CO2 Capture,”
+Greenhouse Gas Control Technologies-Sixth International Conference, Kyoto,
+Japan, Oct. 1–4, pp. 141–147.
+[7] Gazzani, M., Chiesa, P., Martelli, E., Sigali, S., and Brunetti, I., 2014, “Using
+Hydrogen
+as
+Gas
+Turbine
+Fuel:
+Premixed
+Versus
+Diffusive
+Flame
+Combustors,” ASME J. Eng. Gas Turbines Power, 136(5), p. 051504.
+[8] Schefer, R. W., Wicksall, D., and Agrawal, A., 2002, “Combustion of
+Hydrogen-Enriched Methane in a Lean Premixed Swirl-Stabilized Burner,”
+Proc. Combust. Inst., 29(1), pp. 843–851.
+[9] Dong, C., Zhou, Q., Zhang, X., Zhao, Q., Xu, T., and Hui, S., 2010,
+“Experimental Study on the Laminar Flame Speed of Hydrogen/Natural Gas/
+Air Mixtures,” Front. Chem. Eng. China, 4(4), pp. 417–422.
+[10] Brower, M., Petersen, E. L., Metcalfe, W., Curran, H. J., F€uri, M., Bourque, G.,
+Aluri, N., and G€uthe, F., 2013, “Ignition Delay Time and Laminar Flame Speed
+Calculations for Natural Gas/Hydrogen Blends at Elevated Pressures,” ASME
+J. Eng. Gas Turbines Power, 135(2), p. 021504.
+[11] Venkateswaran, P., Marshall, A. D., Seitzman, J. M., and Lieuwen, T. C., 2014,
+“Turbulent Consumption Speeds of High Hydrogen Content Fuels From 1–20
+Atm,” ASME J. Eng. Gas Turbines Power, 136(1), p. 011504.
+[12] Guiberti, T. F., Durox, D., Scouﬂaire, P., and Schuller, T., 2015, “Impact of
+Heat Loss and Hydrogen Enrichment on the Shape of Conﬁned Swirling
+Flames,” Proc. Combust. Inst., 35(2), pp. 1385–1392.
+[13] Griebel, P., Boschek, E., and Jansohn, P., 2007, “Lean Blowout Limits and
+NOx Emissions of Turbulent, Lean Premixed, Hydrogen-Enriched Methane/Air
+Flames at High Pressure,” ASME J. Eng. Gas Turbines Power, 129(2), pp.
+404–410.
+[14] Hawkes, E. R., and Chen, J. H., 2004, “Direct Numerical Simulation of
+Hydrogen-Enriched Lean Premixed Methane–Air Flames,” Combust. Flame,
+138(3), pp. 242–258.
+[15] Lam, K.-K., and Parsania, N., 2016, “Hydrogen Enriched Combustion Testing
+of Siemens SGT-400 at High Pressure Conditions,” ASME Paper No. GT2016-
+57470.
+[16] D€oBbeling, K., Hellat, J., and Koch, H., 2005, “25 Years of BBC/ABB/ALS-
+TOM Lean Premix Combustion Technologies,” ASME Paper No. GT2005-
+68269.
+[17] Lantz, A., Collin, R., Alden, M., Lindholm, A., Larfeldt, J., and L€orstad, D.,
+2015, “Investigation of Hydrogen Enriched Natural Gas Flames in a SGT-700/
+800 Burner Using OH PLIF and Chemiluminescence Imaging,” ASME J. Eng.
+Gas Turbines Power, 137(3), p. 031505.
+[18] L€orstad, D., Lindholm, A., Barhaghi, D. G., Bonaldo, A., Fedina, E., and
+Fureby, C., 2012, “Measurements and LES of a SGT-800 Burner in a Combus-
+tion Rig,” ASME Paper No. GT2012-69936.
+[19] L€orstad, D., Lindholm, A., Pettersson, J., Bj€orkman, M., and Hultmark, I.,
+“Siemens SGT-800 Industrial Gas Turbine Enhanced to 50 MW: Combustor
+Design Modiﬁcations, Validation and Operation Experience,” ASME Paper No.
+GT2013-95478.
+[20] Mo€ell, D., L€orstad, D., and Bai, X.-S., 2016, “Numerical Investigation of Meth-
+ane/Hydrogen/Air Partially Premixed Flames in the SGT-800 Burner Fitted to a
+Combustion Rig,” Flow, Turbul. Combust., 96(4), pp. 987–1003.
+[21] L€orstad, D., Lindholm, A., Alin, N., Fureby, C., Lantz, A., and Collin, R., 2010,
+“Experimental and LES Investigation of a SGT-800 Burner in a Combustion
+Rig,” ASME Paper No. GT2010-22688.
+[22] Mo€ell, D., Lantz, A., Bengtson, K., L€orstad, D., Lindholm, A., and Bai, X.-S.,
+2019, “Large Eddy Simulation and Experimental Analysis of Combustion
+Dynamics in a Gas Turbine Burner,” ASME J. Eng. Gas Turbines Power,
+141(7), p. 071015.
+[23] Bechtel, J., and Teets, R., 1979, “Hydroxyl and Its Concentration Proﬁle in
+Methane-Air Flames,” Appl. Opt., 18(24), pp. 4138–4144.
+[24] Sadanandan, R., St€ohr, M., and Meier, W., 2008, “Simultaneous OH-PLIF and
+PIV Measurements in a Gas Turbine Model Combustor,” Appl. Phys. B Lasers
+Opt., 90(3–4), pp. 609–618.
+[25] Donbar, J. M., Driscoll, J. F., and Carter, C. D., 2000, “Reaction Zone Structure
+in Turbulent Nonpremixed Jet Flames—From CH-OH PLIF Images,” Combust.
+Flame, 122(1–2), pp. 1–19.
+[26] Hellat, J., and Koch, H., 2007, “25 Years of BBC/ABB/Alstom Lean Premix
+Combustion Technologies,” ASME J. Eng. Gas Turbines Power, 129(1),
+pp. 2–12.
+[27] Coffee, T. P., 1984, “Kinetic Mechanisms for Premixed, Laminar, Steady State
+Methane/Air Flames,” Combust. Flame, 55(2), pp. 161–70.
+[28] Iudiciani, P., Duwig, C., Husseini, S. M., Szasz, R. Z., Fuchs, L., and Gutmark,
+E. J., 2012, “Proper Orthogonal Decomposition for Experimental Investigation
+of Flame Instabilities,” AIAA J., 50(9), pp. 1843–1854.
+[29] Berkooz, G., Holmes, P., and Lumley, J. L., 1993, “The Proper Orthogonal
+Decomposition in the Analysis of Turbulent Flows,” Annu. Rev. Fluid Mech.,
+25(1), pp. 539–575.
+[30] Smith, T. R., Moehlis, J., and Holmes, P., 2005, “Low-Dimensional Modelling
+of Turbulence Using the Proper Orthogonal Decomposition: A Tutorial,” Non-
+linear Dyn., 41(1–3), pp. 275–307.
+[31] Duwig, C., and Iudiciani, P., 2010, “Extended Proper Orthogonal Decomposi-
+tion for Analysis of Unsteady Flames,” Flow, Turbulence Combust., 84(1), pp.
+25–47.
+[32] Weinberg, F. J., 1986, Advanced Combustion Methods, Imperial College of
+Science and Technology, London, UK.
+Journal of Engineering for Gas Turbines and Power
+AUGUST 2021, Vol. 143 / 081009-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/143/8/081009/6674560/gtp_143_08_081009.pdf by University of Cincinnati user on 31 December 2025

@@ -1,0 +1,1101 @@
+
+--- Page 1 ---
+
+Satyendra Rana
+School of Mechanical, Aerospace, and 
+Manufacturing Engineering,  
+University of Connecticut,  
+Storrs, CT 06269
+Paul Papas1
+RTX Technology Research Center,  
+East Hartford, CT 06118  
+e-mail: paul.papas@rtx.com
+Lance L. Smith
+RTX Technology Research Center,  
+East Hartford, CT 06118
+Chih-Jen Sung
+School of Mechanical, Aerospace, and 
+Manufacturing Engineering,  
+University of Connecticut,  
+Storrs, CT 06269
+Reducing NOx Emissions 
+in Ammonia Combustors
+Ammonia continues to attract growing interest as a carbon-neutral replacement fuel, 
+motivating numerous research efforts toward understanding fundamental ammonia 
+combustion characteristics. A major challenge for the use of ammonia is the development 
+of combustor technologies for mitigating potentially high NOx emissions from the fuel-bound 
+nitrogen chemical pathways to acceptable levels. Our work focuses on a staged rich-burn/ 
+quick-quench/lean-burn (RQL) combustor architecture for minimizing the NOx emission 
+levels through burning fuel-rich in the primary stage to form combustion products 
+containing significant levels of hydrogen in addition to nitrogen and water with minimal NOx 
+formation. The subsequent quench and burnout stages of the combustor must then quickly 
+burn residual hydrogen with flame-temperatures moderated by nitrogen and water forming 
+in the first stage. Chemical reactor network (CRN) modeling was used to understand and 
+identify optimal stoichiometry and residence times in each stage for minimizing NOx 
+emissions and to quantify pressure and temperature effects. Reducing the overall NOx 
+emissions requires relatively long residence times in the primary stage to achieve near 
+equilibrium NO levels due to kinetically controlling processes. For conditions relevant to 
+gas turbines (e.g., 30 atm), our work indicates that NOx emissions below 20 ppm are 
+theoretically achievable in a staged RQL combustor architecture. However, these emission 
+predictions significantly depend on the accuracies of currently available chemical kinetic 
+mechanisms which have not been extensively validated under elevated pressure and 
+temperature conditions relevant to gas turbines. [DOI: 10.1115/1.4069539] 
+Keywords: ammonia combustion, NOx emission, chemical reactor network modeling 
+1 Introduction
+Ammonia-fueled combustors are increasingly explored as a 
+means to reduce carbon emissions in gas turbines, given ammonia’s 
+potential as a carbon-free alternative to hydrocarbon fuels. 
+However, one of the key challenges associated with the combustion 
+of ammonia in gas turbines is the emission of nitrogen oxides (NOx), 
+which in the atmosphere react with water vapor and solar radiation to 
+form nitric acid, a component of acid rain, and ground level ozone, a 
+component of smog. To achieve key performance metrics such as 
+efficiency, ultralow NOx emissions, and stability in both low- and 
+high-power conditions, the rich-burn/quick-quench/lean-burn 
+(RQL) combustor design for aircraft turbines is firmly established 
+[1,2]. Although the RQL design was initially developed for 
+hydrocarbon fuels and their blends with low heating value fuels 
+[3–7], it is now increasingly being explored as a potential option for 
+ammonia combustion [8–10].
+The two most significant parameters that influence both power 
+performance requirements and NOx formation in an NH3-fired gas 
+turbine are the equivalence ratio and the residence time of the 
+fuel–air mixture. In the RQL design, combustion is initiated in the 
+fuel-rich primary zone (front-end) and the fuel–air mixture is 
+quickly reacted and diluted (quenched) with additional airflow in the 
+secondary zone (downstream section) of the combustor to reach the 
+fuel-lean conditions at the combustor exit. The concept underlying 
+the RQL combustor for NH3 combustion is depicted in Figs. 1(a)
+and 1(b), which are described further below in the context of 
+emissions and how NH3 chemical kinetics determine the approach 
+to equilibrium levels. All simulation results shown in these 
+figures for NH3 combustion are performed using the Stagni 
+mechanism [11].
+The initial fuel-rich combustion process, denoted as “rich burn” in 
+Fig. 1(a), effectively suppresses NOx formation by limiting the 
+availability of oxygen for NOx formation, resulting in oxygen 
+preferentially being consumed to form the low-energy product 
+species H2O rather than NOx. To illustrate the important effects of 
+equivalence ratio and residence time, Fig. 1(a) shows the computed 
+peak NO levels in adiabatic freely propagating flames for conditions 
+relevant to gas turbine combustors—35 atm and initial reactant 
+temperature of 850 K. The peak NO concentrations within the flame 
+zones at these conditions drop precipitously with increasing 
+equivalence ratio (/) on the rich side, and increasing residence 
+time (s) in the postflame region toward lower equilibrium levels. For 
+a flame residence time of about 40 ms from the maximum heat 
+release location, the local NO concentration within the postflame 
+zone already drops to near equilibrium levels.
+Figure 1(b) plots the variation for the NH3 concentration with 
+equivalence ratio in comparison to equilibrium NO and NH3 levels. 
+As the equivalence ratio increases, the NO levels decrease, whereas 
+the NH3 levels in the postflame zone increase with rising /. At a 
+residence time of 40 ms in the postflame region, the local NH3 levels 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received July 3, 2025; final manuscript received July 29, 2025; published 
+online October 8, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011015-1 
+Copyright V
+C 2026 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+correspond closely with equilibrium levels until about / ¼ 1:5, 
+beyond which local NH3 levels significantly exceed equilibrium 
+concentrations. Subsequently, the optimum combustor performance 
+in terms of overall equivalence ratio for lowest emissions manifests 
+from the trade between NO reduction and NH3 slippage, and 
+Fig. 1(b) shows that this optimum occurs in the vicinity of / ¼ 1:4. 
+Consequently, in the fuel-lean secondary zone for RQL-type 
+architectures, NOx concentrations rise because of elevated temper­
+atures and the presence of unburned NH3 along with abundance of 
+O/H radicals and available oxygen. Additionally, the emissions in 
+both the primary and secondary zones are also affected by the 
+residence time of the fuel–air mixture. While the optimal operating 
+conditions for low NOx emissions in RQL-type, gas turbine 
+combustors using hydrocarbon fuels are relatively well established, 
+the ideal conditions for NH3-fired systems to minimize NOx 
+emissions—such as equivalence ratio, pressure, exit temperature, 
+and residence time—are an area of active research. A deeper 
+understanding of ammonia combustion kinetics is essential to 
+determine the optimal conditions for reducing NOx emissions in 
+high-pressure turbine operations [10,12,13].
+The chemical kinetic studies and validation of RQL-staged 
+combustion strategy in terms of pollutant predictions can be 
+accomplished using the widely adopted chemical reactor network 
+(CRN) method. Several recent studies [14–16] have confirmed the 
+effectiveness of the RQL design approach for the combustion of 
+NH3 and its blends with other fuels through the application of CRN 
+modeling. Gubbi et al. [14] used a two-stage reactor network model 
+comprised of freely propagating flame models in combination with 
+perfect mixers to evaluate the theoretical minimum achievable NO 
+emissions for constrained combustor exit H2 values. By determining 
+the minimum NO concentrations, they identified the optimal fuel- 
+rich stage equivalence ratio (/r) and fuel-lean stage residence time 
+for a given total residence time. Their studies predicted a monotonic 
+increase in NO concentrations at the combustor exit with increasing 
+fuel-lean stage residence times, at all temperatures. Additionally, 
+their research indicates that an increase in pressure will monotoni­
+cally decrease total NO levels at the combustor exit for a given 
+temperature.
+Li et al. [15,16] used two-stage CRN modeling to elucidate the 
+effects of oxygen enrichment and hydrogen addition on NOx 
+emissions for NH3 combustion in a typical E-class turbine at a given 
+design pressure, as well as inlet and outlet temperatures. Their 
+studies showed that the rich-stage equivalence ratio is the primary 
+factor in minimizing NOx emissions. The concentrations of NHi and 
+OH/H radicals in the rich-stage determine the dominant mechanisms 
+for NO formation and destruction. However, the aforementioned 
+studies lack a systematic and parametric analysis of the effects of 
+residence times, pressure, temperature, and NH3-slip on NOx 
+formation under gas turbine conditions. Moreover, they lack 
+essential reaction path and sensitivity analyses for a range of gas 
+turbine design parameters required to optimize the design for 
+ammonia combustion. These chemical kinetic analyses are crucial 
+for devising strategies to enhance turndown and reduce NOx 
+emissions in ammonia–air combustors.
+This study aims to address this gap by further investigating NOx 
+emission control mechanisms in RQL combustors using CRN 
+modeling. It involves the CRN simulations for varied combustion 
+parameters relevant to gas turbines to investigate effects of varying 
+equivalence ratio and residence times in the rich and lean stage, exit 
+temperature, and design pressure on the NOx concentration. 
+Additionally, rate-of-production (ROP) and sensitivity analyses 
+were performed to identify the major reaction pathways critical to 
+production or consumption of NOx and NH3 at critical instants in the 
+reactor network.
+2 Modeling
+The chemical reactor network modeling method is widely used 
+for the chemical kinetic studies of NOx emissions in RQL staged 
+NH3-fired gas combustor architectures. CRN modeling offers an 
+optimum approach with the detailed chemical kinetics of complex 
+combustion processes and consequently, good accuracy in predict­
+ing NOx emissions in gas turbine combustors. In this paper, a CRN 
+modeling study on the NOx emission characteristics for a two-stage 
+RQL ammonia–air combustion was conducted using CANTERA [17] 
+and PYTHON interface. CANTERA is an open-source flame/chemical 
+kinetics software tool. Simulations for multiple design cases were 
+performed for different combustion parameters to estimate the 
+overall NOx conversion rate under varying conditions.
+2.1 Chemical Reactor Network Model. The CRN model 
+consists of a fuel-rich stage and a fuel-lean stage combustion 
+regions, as illustrated in Fig. 2. The model consists of a pair of 
+perfectly stirred (PSR) and plug-flow (PFR) reactors connected in 
+series for both the fuel-rich and fuel-lean stages. For the fuel-rich 
+stage, a PSR was used to represent the fuel–air mixing and flame 
+anchoring region, whereas a PFR was used to represent the 
+combustion region downstream of the flame anchoring zone. In 
+the case of the fuel-lean stage, quick mixing of the secondary air 
+stream with fuel-rich stage combustion products was modeled using 
+Fig. 1 Illustration of pollutant species NH3 and NO at varying 
+equivalence ratios, showing basis for RQL combustion of pure 
+NH3 fuel with low NOx emissions. (a) Concentration of peak NO in 
+flame at <1 ms from maximum heat release location (solid line); 
+NO concentration in flame at 40 ms from maximum heat release 
+location (solid square symbols); and NO concentration at 
+equilibrium (dashed line). Equilibrium temperature (adiabatic 
+flame temperature) is shown using the right-hand axis. (b) 
+Concentration of NH3 illustrated using the right-hand axis, with 
+the solid line indicating NH3 concentration after 40 ms from 
+maximum heat release location, and the dashed line indicating 
+NH3 concentration at equilibrium. All values are calculated by the 
+authors using the Stagni mechanism [11] for ammonia combus­
+tion, for ammonia–air freely propagating premixed flames at 
+850 K inlet temperature and 35 atm pressure.
+011015-2 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+a PSR, and the postmixing combustion was simulated through PFR 
+modeling. Using CANTERA’s IdealGasReactor construct, an 
+adiabatic reactor model at constant pressure was used to simulate the 
+PSR, while the PFR was modeled using ConstantPressureR­
+eactor class object which is an adiabatic constant-pressure 
+system. To incorporate the thermodynamic properties and reaction 
+rates in the calculation of evolution of species, a mechanism file in. 
+YAML format is required for the CANTERA transient simulations. 
+Separate gas phase “objects” (using the same mechanism) were 
+created for the fuel-rich and fuel-lean stages to calculate the 
+concentration, rate of production, rate of reaction, and other 
+thermodynamic properties of species at each instant of time. Along 
+with the design residence times and inlet temperature and pressure, a 
+range of fuel-rich stage equivalence ratios were selected as input 
+parameters, and the amount of secondary air (and fuel-lean stage 
+equivalence ratio, /l) was determined by iteration to maintain the 
+given design combustor outlet or exhaust temperature.
+2.2 Chemical Kinetic Mechanism. A comparative CRN 
+analysis was conducted through simulation of a particular set of 
+input parameters using various published N/H mechanisms. The 
+four published ammonia mechanisms examined here include 
+Glarborg [18], Powell [19], Mei [20], and Stagni [11]. The results 
+of this analysis are depicted in Fig. 3 by plotting NOx as a function of 
+global residence time (sg). The NOx concentration at the exit of PFR- 
+2 in these simulations ranges from 12:12 ppm to 13:05 ppm for 
+/r ¼ 1:45. In this paper, NOx is defined as the total concentration of 
+NO, NO2, and N2O. All the NOx levels have been corrected to dry 
+15 % vol. O2. The time scale for NOx reduction at early time in PFR- 
+1 is kinetically driven; as a result, significant variations are expected 
+in this region across different N/H chemical kinetic mechanisms in 
+the literature, as well as in their respective relaxation rates toward 
+equilibrium. Previous work has [21] shown that the Stagni 
+mechanism gives reasonable predictions for laminar flame speeds 
+and counterflow extinction strain rates for NH3–air flames at 
+elevated pressure. Therefore, the detailed Stagni mechanism with 31 
+species and 203 reactions was selected here to study the NOx 
+emission characteristics and reaction pathways analyses of NH3–air 
+combustion.
+2.3 Model Parameters. A parametric study was performed 
+over a range of conditions relevant to gas turbine cycles, including 
+operating pressures, temperatures, and residence times characteris­
+tic of a typical aeroderivative cycle. Table 1 provides the 
+combustion parameters used for simulating the various study sets 
+considered in this study. The baseline combustor inlet conditions 
+were selected as Pin ¼ 35 atm and Tin ¼ 850 K to be representative 
+of an aeroderivative gas turbine [22], and the baseline combustor 
+exit temperature was selected as Tout ¼ 1800 K (with 6100 K case 
+variations) to be representative of low-NOx combustor design 
+practice in both aeroderivative and frame engines [23]. In addition, 
+the mixing residence times for flame-anchoring (sPSR−1 ¼ 0:5 ms) 
+and for secondary-air mixing (sPSR−2 ¼ 1:0 ms) were selected to be 
+consistent with aeroderivative engine design practice [2]. By 
+definition, each perfectly stirred reactor model assumes an ideal 
+steady-state reactor with instantaneous and perfectly uniform 
+concentrations throughout the control volume. In contrast, a plug- 
+flow reactor represents a one-dimensional, steady-state ideal reactor 
+with varying concentrations along the spatial coordinate in our CRN 
+model. In all results reported here, a residence time of 0 ms 
+corresponds to the beginning of PSR-1.
+Initial simulations suggest that the optimal NOx emissions at the 
+RQL system outlet are significantly influenced by the residence time 
+in the PFR-1, as shown in Fig. 4. The trend lines in the figure 
+correspond to a total of 16 simulations for a range of total residence 
+times. These simulation lines are grouped based on sPFR−1 ¼
+5 ms, 10 ms, 15 ms, and 20 ms under baseline conditions, with 
+sPFR−2 ¼ 5 ms, resulting in overlapping plotted lines within each 
+group. These initial and subsequent simulations also indicate that the 
+Fig. 2 The CRN model for a two-stage RQL combustor 
+Fig. 3 Prediction of NOx from different mechanisms for baseline 
+conditions
+Table 1 Combustion parameters used in the CRN modeling 
+stotal
+sPSR−1 sPFR−1 sPSR−2 sPFR−2
+Pin
+Tin
+Tout
+Study set
+(ms)
+(ms)
+(ms)
+(ms)
+(ms) (atm) (K) (K)
+/r
+A
+38.5
+0.5
+35
+1
+2
+35
+850 1800 1.0–1.8
+B
+11.5–41.5
+0.5
+5–35
+1
+2–5
+35
+850 1700 1.0–1.8
+C
+11.5–41.5
+0.5
+5–35
+1
+2–5
+35
+850 1800 1.0–1.8
+D
+11.5–41.5
+0.5
+5–35
+1
+2–5
+35
+850 1900 1.0–1.8
+E
+11.5–41.5
+0.5
+5–35
+1
+2–5
+20
+850 1800 1.0–1.8
+F
+11.5–41.5
+0.5
+5–35
+1
+2–5
+30
+850 1800 1.0–1.8
+G
+11.5–41.5
+0.5
+5–35
+1
+2–5
+40
+850 1800 1.0–1.8
+Highlighted areas are the key parametric changes.
+Fig. 4 Effects of residence times and rich-stage equivalence 
+ratio on prediction of NOx at the outlet. The simulations are 
+presented for a range of total residence times under baseline 
+conditions, grouped by sPFR2155 ms, 10 ms, 15 ms, and 20 ms.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011015-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+optimum (corresponding to minimum NOx emission) rich-stage 
+equivalence ratio increases with total residence time, ranging from 
+1.30 to 1.45. Therefore, a range of residence time for PFR-1 was 
+selected to investigate its effect on NOx concentration in additional 
+simulations. The range of conditions for these additional simulations 
+are shown in Table 1.
+3 Results and Discussion
+This section systematically presents the simulation results, 
+highlighting the influence of various operational parameters on 
+NOx emissions in the RQL combustor. Parameters such as 
+equivalence ratio, design pressure, exit or outlet temperature, and 
+residence time are examined to determine the contributions to NOx 
+formation.
+Table 2 summarizes the results of selected simulations. In all 
+cases, the residence times for PSR-1 and PSR-2 are 0.5 ms and 
+1.0 ms, respectively. Additionally, in all cases, the concentration of 
+NH3 decreases significantly from the rich-stage to the lean-stage. 
+Cases A1 and A2 illustrate the considerable increase in NH3-slip and 
+NOx concentrations in the rich and lean stages, respectively, due to 
+an increase in the rich-stage equivalence ratio from 1.45 to 1.80. In 
+cases C1 to G2, the listed /r values are the optimal equivalence ratio 
+(/r, opt) values yielding the corresponding minimum NOx emission 
+values. The effects of exit temperature and residence times on NH3- 
+slip and NOx concentration are demonstrated by cases C1 to D2. 
+Cases C1 and C2 show that, at the same exit temperature, increasing 
+the residence time of PFR-1 reduces the NOx concentration at the 
+exit of PFR-2. A comparison of cases C2 and D1 reveals that both 
+NOx and NH3-slip increase at the exit of PFR-2 with a rise in exit 
+temperature. Note that the NH3 concentrations at the lean-stage exit 
+are negligible for all cases and are reported in the table as parts per 
+billion. Furthermore, increasing the residence time of PFR-2 leads to 
+a higher NOx concentration at the combustor exit, as shown by the 
+data for cases D1 and D2. A comparison of cases E1 and E2 shows 
+that, at the same design pressure, NOx concentration at the 
+combustor exit decreases with an increase in the residence time of 
+PFR-1. The impact of pressure and residence times on NH3-slip and 
+NOx concentration is illustrated by cases E1 to G2. For a given total 
+residence time, increasing the design pressure leads to a significant 
+decrease in exit NOx concentration for short sPFR−1, as shown by the 
+comparison of cases E1 and G1. By increasing the sPFR−1 from 
+5 ms to 35 ms, which in turn increase the total residence time from 
+11:5 ms to 41:5 ms, the NOx emission levels of E2 and G2 are 
+substantially reduced in comparison to E1 and G1. However, for E2 
+and G2, the increase in operating pressure results in a minor increase 
+in outlet NOx concentration. A more detailed discussion on these 
+trends is provided in Sec. 3.3.
+In addition to the above parametric variations, this study will also 
+examine the rate of production and consumption analysis, sensitivity 
+analysis, and the role of reaction pathways that influence NOx 
+formation and NH3 concentration under various operating 
+conditions.
+3.1 Dependence of Rich-Stage Equivalence Ratio. To inves­
+tigate the impact of the rich-stage equivalence ratio on NOx 
+emissions, /r was varied between 1.0 and 1.8, while the combustor 
+exit temperature was maintained at a constant value by adjusting the 
+secondary air flow into the second stage. Figure 5 shows the 
+variation of NOx and NH3 concentrations throughout the chemical 
+reactor network as a function of the global residence time for the 
+baseline case for selected rich-stage equivalence ratios. Again, all 
+the NOx emission levels have been corrected to dry 15 % vol. O2. At 
+the start of the PFR-1 reactor, a rapid decrease in NOx concentration 
+is observed for all rich-stage equivalence ratios, with the initial 
+decay rate increasing as the equivalence ratio is increased. In 
+contrast, while a rapid decrease in NH3 concentration is also 
+observed in PFR-1 for all rich-stage equivalence ratios, the initial 
+NH3 decay rate decreases as the equivalence ratio is increased. 
+Figures 5(a) and 5(b) show a rapid increase in NOx concentrations 
+and a decrease in NH3 concentrations at the end of PSR-2, 
+respectively, in the reactor network across all /r, following the 
+Table 2 Summary of results from selected simulations 
+Rich stagea
+Lean stageb
+stotal sPFR−1 sPFR−2
+Pin
+Tout
+NH3
+d NOx
+e NH3
+d NOx
+e
+Case (ms) (ms)
+(ms) (atm) (K)
+/r
+/l
+c (ppm) (ppm) (ppb) (ppm)
+A1
+38.5
+35
+2
+35
+1800 1.45 0.45
+17.5
+4.7
+0.023 12.1
+A2
+38.5
+35
+2
+35
+1800 1.80 0.45 6384.3
+2.6
+0.013 895.4
+A3
+38.5
+35
+2
+35
+1800 1.10 0.45
+1.7
+120.4 0.021 118.3
+C1
+11.5
+5
+5
+35
+1800 1.30 0.45
+12.6
+23.2 0.022 28.3
+C2
+41.5
+35
+5
+35
+1800 1.45 0.45
+17.5
+4.6
+0.023 12.9
+D1
+41.5
+35
+5
+35
+1900 1.45 0.51
+17.5
+4.6
+0.073 19.4
+D2
+38.5
+35
+2
+35
+1900 1.45 0.51
+17.5
+4.6
+0.073 15.3
+E1
+11.5
+5
+5
+20
+1800 1.35 0.45
+14.7
+36.2 0.017 40.0
+E2
+41.5
+35
+5
+20
+1800 1.45 0.45
+10.5
+6.5
+0.018 11.9
+G1
+11.5
+5
+5
+40
+1800 1.30 0.45
+13.7
+20.3 0.024 26.2
+G2
+41.5
+35
+5
+40
+1800 1.40 0.45
+15.4
+6.0
+0.024 13.4
+Highlighted areas are the key parametric changes.
+aAt the end of fuel-rich stage.
+bAt the end of fuel-lean stage.
+cLean-stage equivalence ratio is same as global equivalence ratio.
+dWet basis.
+e15% O2 dry basis.
+Fig. 5 Evolution of NOx and NH3 with global residence time in the 
+combustor for baseline conditions (Pin535 atm, Tin5850 K, 
+Tout51800 K,  sPSR2150:5 ms,  sPFR21535:0 ms,  sPSR2251:0 ms,  
+and sPFR2252:0 ms). The dashed lines show the equilibrium NOx 
+or NH3 for the corresponding rich-stage equivalence ratio. (a) 
+Evolution of NOx with global residence time and (b) evolution of 
+NH3 with global residence time.
+011015-4 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+introduction of secondary air. For the conditions examined, the 
+maximum and minimum concentrations of NOx at the combustor 
+exit were observed at /r ¼ 1:80 and /r ¼ /r, opt ¼ 1:45, respec­
+tively. The increased NOx formation for /r > /r, opt can be 
+attributed to increased NH3-slip and fuel NOx pathways in the 
+fuel-lean stage. The dashed lines, which extend only to the end of 
+the fuel-rich stage (sg ¼ 35:5 ms) for each case, represent the 
+equilibrium NOx or NH3 for the rich-stage equivalence ratio. These 
+equilibrium NOx emission levels have also been corrected to dry 
+15 % vol. O2. As demonstrated in Fig. 5(b), for /r > 1:5, the 
+approach to equilibrium for NH3 concentration is considerably 
+slower than for /r < 1:5. Figure 5(a) shows that in the NOx-optimal 
+case (/r ¼ 1:45), NOx levels decline rapidly during the fuel-rich 
+stage as the sg in PFR-1 increases, eventually approaching 
+equilibrium NOx concentrations by the end of PFR-1. Additionally, 
+the NOx concentration remains nearly constant between residence 
+times of approximately 25 ms and 35:5 ms in PFR-1. This suggests 
+that the residence time of PFR-1 can be reduced for the optimum 
+case for minimizing NOx emissions. For /r < 1:45, the NOx 
+concentrations for each /r tend to quickly approach their 
+equilibrium values as sg increases.
+3.2 Dependence of Exit Temperature. Simulations were 
+carried out under baseline conditions to examine the effect of 
+changing the combustor exit temperature on NOx concentration. 
+Figure 6 illustrates the NOx emission levels for the combination of 
+sPFR−1 and sPFR−2 at the outlet temperatures of 1700 K, 1800 K, and 
+1900 K. For each combination of sPFR−1 and sPFR−2, the residence 
+times of PSR-1 and PSR-2 were fixed at 0:5 ms and 1:0 ms, 
+respectively. The figure presents a compilation of several individual 
+graphs. In each subplot, corresponding to a given sPFR−1, the optimal 
+NOx is displayed as a function of sPFR−2, which varies from 
+0:05msto 5 ms. The optimum equivalence ratio for Fig. 6 ranges 
+from 1.30 to 1.45 across all the conditions and residence times 
+shown. The lean-stage or overall equivalence ratios corresponding 
+to Tout ¼ 1700 K, 1800 K, and 1900 K are 0.38, 0.45, and 0.51, 
+respectively. The relatively small increase in /l is attributed to the 
+decrease in the amount of secondary air added to the lean stage, 
+which increases the exit temperature. The figure illustrates that for 
+all three exit temperatures, NOx concentrations exhibit a slight 
+initial decline, followed by an increase, as the residence time of 
+PFR-2 increases. The rise in NOx concentration over time is most 
+significant for Tout ¼ 1900 K, whereas for the other two 
+temperatures (1700 K and 1800 K), the rise is minimal. These 
+results suggest that the residence time in PFR-2 has little to no 
+impact on NOx concentration for Tout < 1800 K. NOx formation at 
+Tout > 1800 K is driven by the Zel’dovich mechanism which is 
+controlled in large part by the high activation energy rate-limiting 
+reaction N2 þ O 
+ NO þ N. An increase in temperatures enhances 
+the O/H radical pool by accelerating the temperature-sensitive chain 
+branching reactions. As a result, elevated NOx emission levels are 
+observed in PFR-2 as the residence time increases. Furthermore, the 
+HNO intermediate pathway serves as the primary route for NO 
+formation in NH3–air flames under all conditions [12]. HNO is 
+primarily converted to NO through its reactions with H, OH, and O2 
+as well as via thermal dissociation.
+3.3 Dependence of Design Pressure. To evaluate the effect of 
+varying the combustor design pressure, simulations were conducted 
+under baseline conditions with adjustments to the pressure to 
+examine its impact on NOx concentration. Figure 7 presents the NOx 
+emission levels for the combination of sPFR−1 and sPFR−2 at design 
+pressures of 20 atm, 30 atm, and 40 atm. For each combination of 
+sPFR−1 and sPFR−2, the residence times of PSR-1 and PSR-2 were 
+fixed at 0:5 ms and 1:0 ms, respectively. The figure presents a 
+compilation of several individual graphs. In each subplot, 
+corresponding to a given sPFR−1, the optimal NOx is displayed as a 
+function of sPFR−2, which varies from 0.05 ms to 5 ms. The optimum 
+equivalence ratio for Fig. 7 ranges from 1.30 to 1.45 across all the 
+conditions and residence times shown. As the residence time in PFR- 
+2 increases, the NOx concentration initially shows a slight decrease, 
+followed by a gradual rise with increase in sPFR−2. The figure 
+indicates that at shorter sPFR−1, NOx emissions decrease with 
+increasing design pressure. However, for longer sPFR−1, a crossover 
+occurs around 25–30 ms, after which NOx emissions become higher 
+at greater pressures. For sPFR−1 > 25 ms, the NOx concentrations do 
+not vary significantly across the simulated design pressure range. 
+The graph illustrates the importance of elevated pressure for 
+reducing NOx emissions in the fuel-rich stage for shorter PFR-1 
+residence times below about 20 ms. The O/H radical pool is reduced 
+with increasing pressure due to the three-body pressure sensitive 
+reactions H þ OH þ M 
+ H2O þ M and H þ O2 (þM) 
+ HO2 
+(þM). The former reaction is a chain terminating reaction, whereas 
+the latter results in the formation of less active HO2 radicals. 
+Consequently, the active O/H radical pool is reduced, leading to a 
+net decrease in NO production at high pressures, while NO 
+Fig. 6 Effects of exit temperature on optimal NOx levels for 
+different combinations of sPFR21 and sPFR22. The figure shows a 
+collection of several individual graphs, where in each subplot, 
+sPFR22 varies from 0:05msto 5 ms for a given value of sPFR21, 
+indicated at the left edge of each subplot. sPFR21 ranges from 5 ms 
+to 35 ms across the subplots. The conditions are Pin535 atm, 
+Tin5850 K, sPSR2150:5 ms, and sPSR2251:0 ms.
+Fig. 7 Effects of pressure variation on optimal NOx levels for 
+different combinations of sPFR21 and sPFR22. The figure shows a 
+collection of several individual graphs, where in each subplot, 
+sPFR22 varies from 0.05 ms to 5 ms for a given value of sPFR21, 
+indicated at the left edge of each subplot. sPFR21 ranges from 5 ms 
+to 35 ms across the subplots. The conditions are Tin5850 K, 
+Tout51800 K, sPSR2150:5 ms, and sPSR2251:0 ms.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011015-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+consumption rates by NHi species remain high [12]. As the residence 
+time in PFR-1 increases, the net production rate of NOx increases 
+under fuel-lean conditions and elevated temperatures. This increase 
+is attributed to the combined effects of increased concentrations of 
+O/H/OH radicals, the activation of Zel’dovich mechanism path­
+ways, and the accelerated reaction rates at higher pressures. These 
+effects account for the higher concentration of NOx at 40 atm 
+compared to 20 atm at longer residence times.
+3.4 Rate-of-Production Analysis. A local reaction flow anal­
+ysis examines the formation and destruction of species at specific 
+points, either in time for time-dependent problems or in space for 
+steady, spatially dependent problems. To examine the primary NOx 
+reaction pathways contributing to its production or destruction in 
+both the rich and lean burn stages, net ROP analyses were conducted 
+to identify the dominant NOx reaction steps. As NO is the primary 
+contributor (with N2O being the second most significant contributor) 
+to NOx concentrations in all simulations, the ROP analysis focuses 
+primarily on NO for brevity. Examples of proportions of NOx 
+constituents are given at the end of Sec. 3.5. A rate-of-production 
+analysis considers the percentage contributions of different 
+reactions to the formation or destruction of a particular chemical 
+species [24]. The normalized production contribution of a given 
+reaction i to a particular species j for a mechanism that considers N 
+species and L elementary reactions is given by 
+Cp
+ji ¼
+max jiqi, 0
+ð
+Þ
+X
+L
+i¼1
+max jiqi, 0
+ð
+Þ
+(1)  
+The normalized destruction contribution is given by 
+Cd
+ji ¼ −
+min jiqi, 0
+ð
+Þ
+X
+L
+i¼1
+min jiqi, 0
+ð
+Þ
+(2)  
+where p and d indicate production and destruction of species, ji 
+represents the net stoichiometric coefficient of the jth species in the 
+reaction i, and qi denotes the rate of progress of the ith reaction. A 
+negative sign has been added to the expression for normalized 
+destruction (Eq. (2)) to emphasize that it is a consumption reaction.
+The effect of rich-stage equivalence ratio on the dominant NO and 
+NH3 pathways for the baseline conditions is presented in Figs. 8 and 
+9, using normalized production and destruction contribution values. 
+These values are calculated at a critical time instant (sg ¼ 0:60 ms) 
+when the rate of change in NO concentration is highest as shown in 
+Fig. 5(a). To examine the primary reaction pathways for NOx 
+formation and destruction, a comparison was made between /r ¼
+1:10 and /r ¼ 1:80 at sg ¼ 0:60 ms in Fig. 8. At the start of PFR-1 
+(sg ¼ 0:60 ms), the net NO production rate is dominated by HNO 
+(R142, R143, R148) and Zel’dovich (R88) pathways for /r ¼ 1:80, 
+whereas for /r ¼ 1:10 the NO2 reaction (R180) is the main 
+contributor. At the same instant, NO destruction is primarily driven 
+by the Zel’dovich (R90, R88), HNO (R142), and N2O (R84) 
+pathways for /r ¼ 1:10. In contrast, for /r ¼ 1:80, the NH2 and NH 
+radicals are the main contributors to the destruction of NO 
+concentration. To highlight the interplay between NO formation 
+and unburned NH3 (slippage), Fig. 9 gives the normalized NH3 
+production and destruction contributions for important reactions at 
+/r ¼ 1:10 and /r ¼ 1:80 near the start of PFR-1 (sg ¼ 0:60 ms). 
+The net NH3 production rate at /r ¼ 1:10 is primarily governed by 
+the recombination reaction (R23) NH2 þ H 
+ NH3, whereas NH2 
+recombination and several NH2/N2Hi interactions are important at 
+/r ¼ 1:80. These latter NHi/N2Hi chemical interactions are also 
+particularly important for determining the overall rate of reaction for 
+ammonia combustion systems under fuel-rich conditions [19,21], as 
+well as contribute to the relatively slow NH3 relaxation to 
+equilibrium shown previously in Fig. 1(b) for /r > 1:50. This 
+Fig. 8 Normalized NO production and destruction contributions 
+of reactions at sg50:60 ms (beginning of fuel-rich PFR-1 stage) for 
+cases A3 and A2: (a) normalized NO production and (b) 
+normalized NO destruction
+Fig. 9 Normalized NH3 production and destruction contribu­
+tions of reactions at sg50:60 ms (beginning of fuel-rich PFR-1 
+stage) for cases A3 and A2: (a) normalized NH3 production and (b) 
+normalized NH3 destruction
+011015-6 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+increased NH3 slippage explains the increased NOx formation in the 
+fuel-lean stage when air is introduced for /r > /r, opt due to fuel NOx 
+pathways.
+Figure 10 gives the normalized NO production and destruction 
+contributions for important reactions in the fuel-lean stage. 
+Comparisons were made for /r ¼ 1:45 and /r ¼ 1:80 at the exit 
+of PSR-2 (sg ¼ 36:50 ms). The net NO production rate is primarily 
+governed by the HNO (R147), Zel’dovich (R89), and NO2 (R180, 
+R181) pathways for both /r ¼ 1:45 and /r ¼ 1:80. In contrast, NO 
+destruction is predominantly driven by the NO2 (R140, R139) 
+pathways in both cases. The abundance of the NH2 and NH radicals 
+becomes important to destruction of NO in the case of /r ¼ 1:80.
+The relative importance of the major reaction pathways 
+responsible for the production or destruction of NO is also 
+determined through sensitivity analysis. This analysis, correspond­
+ing to the aforementioned critical time instants under different 
+design conditions, is discussed in Sec. 3.5.
+3.5 Sensitivity Analysis. Sensitivity analyses are used in 
+chemical kinetic studies for identifying the rate-limiting reaction 
+steps and to understand the relative importance of the reactions in the 
+system. This analysis helps determine the effect of uncertainties in 
+parameters and initial conditions on the solution of the set of 
+ordinary differential equations commonly encountered in chemical 
+kinetic studies. It is often convenient, for comparative analysis, to 
+compute normalized sensitivity coefficients as [17,24–26] 
+Eji ¼ ai
+Mj
+½
+  @ Mj
+½
+
+@ai
+¼ @ ln Mj
+½
+
+@ ln ai
+(3)  
+The first-order elementary sensitivities in Eq. (3) represent the 
+percentage change in a species concentration (½Mj) resulting from a 
+percentage change in the parameter ai at a given sg. Normalized 
+sensitivity coefficients are dimensionless and their values are 
+independent of the units of the ½Mj and ai. The interpretation of 
+system sensitivity through the first-order elementary sensitivity 
+coefficients is referred to as local sensitivity analysis. In this study, 
+using CANTERA, normalized sensitivity coefficients for species NO 
+are determined by varying the forward rate constant of the ith 
+reaction, which inherently affects the backward rate as well due to 
+the equilibrium relationship. This sensitivity accounts for the net 
+effect of both forward and backward rates, as the overall rate of 
+progress in a reversible reaction depends on both.
+For the baseline conditions corresponding to simulation output 
+shown in Fig. 5(a), the local sensitivity coefficients are given in Fig. 
+11 at two critical time instants, where the net destruction and 
+formation rates of NO concentration are highest, respectively. 
+Figure 11(a) shows that reactions involving NHi radicals (R76, R75, 
+R84) have large negative sensitivity coefficients for /r ¼ 1:80, 
+whereas for /r ¼ 1:10, the sensitivity magnitude for R84 is much 
+higher than R76 and R75. This suggests that the destruction of NO 
+concentration is very sensitive to rate coefficients of these reactions 
+at sg ¼ 0:60 ms (beginning of fuel-rich PFR-1 stage). Additionally, 
+the Zel’dovich pathways R88 and R90 exhibit positive and negative 
+sensitivity coefficients for both equivalence ratios, respectively, 
+emphasizing the role of their kinetic rate constant in the production 
+and destruction of NO. For the fuel-lean PFR-2 stage at sg ¼
+36:50 ms and /r ¼ 1:80 (Fig. 11(b)), NO destruction is predom­
+inantly influenced by the R84 (NH þ NO 
+ H þ N2O) pathway, 
+along with reactions involving NHi radicals (R76, R75, R85) and 
+Zel’dovich (R90) pathway. Meanwhile, NO production is primarily 
+governed by the Zel’dovich (R89) and R78 (NH þ O 
+ H þ NO) 
+pathways under the temperature/species conditions at the end of 
+PSR-2. At the same time instant for fuel-lean PFR-2 stage and 
+/r ¼ 1:45, NO production is sensitive to the reaction rate constant of 
+the N2O (R190), Zel’dovich (R90), and NH (R84) pathways. In 
+contrast, NO destruction is primarily influenced by the three-body 
+NO2 pathway (R140).
+The sensitivity coefficients for NO formation at the end of the 
+fuel-lean PFR-2 stage, corresponding to simulations conducted 
+under different exit temperature conditions shown in Fig. 6, are 
+presented in Fig. 12. For both temperature values (1800 K and 
+Fig. 10 Normalized NO production and destruction contribu­
+tions of reactions at sg536:50 ms (end of fuel-lean PSR-2 stage) 
+for cases A1 and A2: (a) normalized NO production and (b) 
+normalized NO destruction
+Fig. 11 Normalized sensitivity coefficients for NO for (a) fuel- 
+rich stage of cases A3 and A2 and (b) fuel-lean stage of cases A1 
+and A2. (a) Fuel-rich stage at sg50:60 ms (beginning of PFR-1) and 
+(b) fuel-lean stage at sg536:50 ms (end of PSR-2).
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011015-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+1900 K), the Zel’dovich pathway (R90) exhibits the highest positive 
+sensitivity coefficients, with the values at 1900 K being significantly 
+larger than those at 1800 K. Thus, the rate constant for the high 
+activation energy step (N2 þ O 
+ NO þ N) in the Zel’dovich 
+mechanism plays a critical role in NO production under the given 
+thermodynamic conditions in the fuel-lean PFR-2 stage. The same 
+trend of higher sensitivity values at elevated temperatures is observed 
+for N2O and HNO reactions (R190, R149, R84, R85) as well.
+The sensitivity coefficients for NO production and destruction at 
+the end of the fuel-rich PFR-1 and fuel-lean PFR-2 stages, 
+corresponding to simulations conducted under different design 
+pressure conditions shown in Fig. 7, are presented in Figs. 13 and 14. 
+The results correspond to the respective /r, opt for cases E1 and G1 
+with shorter sPFR−1 ¼ 5 ms (Fig. 13), as well as for cases E2 and G2 
+with long sPFR−1 ¼ 35 ms (Fig. 14). At the end of the fuel-rich PFR- 
+1 stage for short sPFR−1, Fig. 13(a) shows that NHi radical pathways 
+(R76, R84, R75, R85) and the Zel’dovich pathway (R90) exhibit 
+negative sensitivity coefficients for NO. These sensitivity 
+coefficients are comparable at Pin ¼ 20 atm and Pin ¼ 40 atm. In 
+contrast, for long sPFR−1, Fig. 14(a) illustrates that NHi radical 
+pathways (R76, R84, R75, R85) along with the Zel’dovich pathway 
+(R90) exhibit larger negative sensitivity coefficients at Pin ¼ 20 atm 
+compared to Pin ¼ 40 atm, highlighting the greater influence of their 
+rate constants on NO formation under the lower pressure condition.
+At the end of fuel-lean PFR-2 stage, Figs. 13(b) and 14(b) show 
+that, for both short and long sPFR−1, the Zel’dovich pathway (R90) 
+exhibits the highest positive sensitivity coefficients for both 20 atm 
+and 40 atm pressure conditions. For short sPFR−1, the relative 
+proportions for NOx at combustor outlet for the design pressure of 
+20 atm are given by NO : N2O : NO2 ¼ 94:62 % : 4:64 % : 0:74 %, 
+whereas the corresponding percentages for 40 atm are 
+93:3 % : 5:7 % : 1:0 %. Similarly, for long sPFR−1, the relative 
+proportions for NOx at combustor exit for the design pressure of 
+20 atm are given by NO : N2O : NO2 ¼ 97:8 % : 0:8 % : 1:4 %, 
+whereas the corresponding percentages for 40 atm are 
+96:0 % : 1:1 % : 2:9 %. This suggests that pressure variation may 
+not significantly impact relative proportions of the NOx constituents 
+for a given sPFR−1.
+4 Conclusion
+The NOx emission characteristics of an NH3–air RQL-staged gas 
+turbine combustor were evaluated using CRN modeling across a 
+range of conditions representative of modern gas turbines, including 
+variations in pressure, exit temperature, and fuel-rich stage 
+equivalence ratio. The simulations identified the optimal stoichi­
+ometry and residence times for each stage to minimize NOx 
+emissions while also quantifying the effects of pressure and 
+temperature. Reaction pathway and sensitivity analyses were con­
+ducted to identify the key elementary reaction steps involved in NOx 
+formation and reduction for the given reaction mechanism. Our results 
+show that ammonia combustion with minimal emissions is theoret­
+ically achievable and can enable zero-carbon power generation at low 
+NOx emissions levels (e.g., < 20 ppm) meeting site requirements with 
+zero or minimal selective catalytic reduction cleanup.
+Fig. 12 Normalized sensitivity coefficients for NO for different 
+exit temperatures at sg541:50 ms (end of fuel-lean PFR-2 stage) 
+for cases C2 and D1
+Fig. 13 Normalized sensitivity coefficients for NO at different 
+design pressures for short sPFR21 of 5 ms for cases E1 and G1: (a) 
+fuel-rich stage at sg55:50 ms (end of PFR-1) and (b) fuel-lean 
+stage at sg511:50 ms (end of PFR-2)
+Fig. 14 Normalized sensitivity coefficients for NO at different 
+design pressures for long sPFR21 of 35 ms for cases E2 and G2: (a) 
+fuel-rich stage at sg535:50 ms (end of PFR-1) and (b) fuel-lean 
+stage at sg541:50 ms (end of PFR-2)
+011015-8 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+The results of this study highlight that the residence time in PFR- 
+1, exit temperature, rich-stage equivalence ratio, design pressure, 
+and residence time in PFR-2 are the primary factors influencing NOx 
+emissions at the combustor outlet. Simulations under varying exit 
+temperature conditions indicate that selecting the residence time in 
+PFR-2 is crucial for reducing overall NOx emissions for a given 
+sPFR−1. For a given exit temperature, NOx concentrations exhibit a 
+slight initial decline, followed by an increase, as the residence time 
+of PFR-2 increases. The rise in NOx concentrations with increasing 
+PFR-2 residence time is more pronounced at higher exit temper­
+atures. The effectiveness of high pressure in varying NOx emissions 
+also depends on the sPFR−1. For short sPFR−1, the emission levels are 
+significantly higher, and the optimal-NOx decreases with increasing 
+design pressure. On the other hand, for long sPFR−1, the emissions 
+are substantially lower, and NOx increases slightly with pressure, 
+but the difference in optimal-NOx concentrations between the 
+studied design pressures is minimal. For baseline conditions, NOx 
+production/consumption are mainly controlled by HNO, NO2, N2O, 
+and Zel’dovich pathways, with a notable contribution from NHi radical 
+reactions, particularly at higher values of /r. Sensitivity analysis 
+highlights the importance of the kinetic rate constants of reactions 
+involving NHi radicals and Zel’dovich pathways under gas turbine- 
+relevant conditions for predicting overall NOx emissions at the exit.
+Acknowledgment
+This material is based upon work supported by the Department of 
+Energy under Award No. DE-FE0032169.
+Disclaimer
+This document was prepared as an account of work sponsored by 
+an agency of the United States Government. Neither the United 
+States Government nor any agency thereof, nor any of their 
+employees, makes any warranty, express or implied, or assumes any 
+legal liability or responsibility for the accuracy, completeness, or 
+usefulness of any information, apparatus, product, or process 
+disclosed, or represents that its use would not infringe privately 
+owned rights. Reference herein to any specific commercial product, 
+process, or service by trade name, trademark, manufacturer, or 
+otherwise does not necessarily constitute or imply its endorsement, 
+recommendation, or favoring by the United States Government or 
+any agency thereof. The views and opinions of authors expressed 
+herein do not necessarily state or reflect those of the United States 
+Government or any agency thereof.
+Funding Data
+ U.S. Department of Energy (DOE Award No. DE-FE0032169; 
+Funder ID: 10.13039/100000015).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+Nomenclature
+Cd
+ji ¼ normalized destruction of the jth species of the ith reaction 
+Cp
+ji ¼ normalized production of the jth species of the ith reaction
+Eji ¼ normalized sensitivity coefficient of the jth species of the ith 
+reaction
+Pin ¼ inlet pressure (atm)
+Tin ¼ inlet temperature (K)
+Tout ¼ outlet temperature (K)
+Greek Symbols 
+s ¼ residence time (ms)
+/l ¼ lean-stage equivalence ratio
+/r ¼ rich-stage equivalence ratio
+Superscripts and Subscripts 
+d ¼ destruction
+g ¼ global
+in ¼ inlet
+ji ¼ jth species of the ith reaction
+l ¼ lean
+opt ¼ optimum
+out ¼ outlet
+p ¼ production
+r ¼ rich
+References
+0[1] Lieuwen, T. C., and Yang, V., 2013, Gas Turbine Emissions, Cambridge 
+University Press, New York.
+0[2] Lefebvre, A. H., and Ballal, D. R., 2010, Gas Turbine Combustion—Alternative 
+Fuels and Emissions, 3rd ed., CRC Press, Boca Raton, FL.
+0[3] Rizk, N. K., and Mongia, H. C., 1990, “Ultra-Low NOx Rich-Lean Combustion,” 
+ASME Paper No. 90-GT-087.
+0[4] Rizk, N. K., and Mongia, H. C., 1995, “NOx Model for Lean Combustion 
+Concept,” J. Propul. Power, 11(1), pp. 161–169.
+0[5] Nakata, T., Sato, M., Ninomiya, T., and Hasegawa, T., 1996, “A Study on Low 
+NOx Combustion in LBG-Fueled 1500 C-Class Gas Turbine,” ASME J. Eng. Gas 
+Turbines Power, 118(3), pp. 534–540.
+0[6] Feitelberg, A. S., and Lacey, M. A., 1998, “The GE Rich-Quench-Lean Gas 
+Turbine Combustor,” ASME J. Eng. Gas Turbines Power, 120(3), pp. 
+502–508.
+0[7] Li, S., Zhang, S., Zhou, H., and Ren, Z., 2019, “Analysis of Air-Staged 
+Combustion of NH3/CH4 Mixture With Low NOx Emission at Gas Turbine 
+Conditions in Model Combustors,” Fuel, 237, pp. 50–59.
+0[8] Somarathne, K. K. A., Hatakeyama, S., Hayakawa, A., and Kobayashi, H., 2017, 
+“Numerical Study of a Low Emission Gas Turbine Like Combustor for Turbulent 
+Ammonia/Air Premixed Swirl Flames With a Secondary Air Injection at High 
+Pressure,” Int. J. Hydrogen Energy, 42(44), pp. 27388–27399.
+0[9] Kurata, O., Iki, N., Inoue, T., Matsunuma, T., Tsujimura, T., Furutani, H., Kawano, 
+M., et al., 2019, “Development of a Wide Range-Operable, Rich-Lean Low-NOx 
+Combustor for NH3 Fuel Gas-Turbine Power Generation,” Proc. Combust. Inst., 
+37(4), pp. 4587–4595.
+[10] Okafor, E. C., Somarathne, K. K. A., Hayakawa, A., Kudo, T., Kurata, O., Iki, N., 
+and Kobayashi, H., 2019, “Towards the Development of an Efficient Low-NOx 
+Ammonia Combustor for a Micro Gas Turbine,” Proc. Combust. Inst., 37(4), 
+pp. 4597–4606.
+[11] Stagni, A., Cavallotti, C., Arunthanayothin, S., Song, Y., Herbinet, O., Battin- 
+Leclerc, F., and Faravelli, T., 2020, “An Experimental, Theoretical and Kinetic- 
+Modeling Study of the Gas-Phase Oxidation of Ammonia,” React. Chem. Eng., 
+5(4), pp. 696–711.
+[12] Kobayashi, H., Hayakawa, A., Somarathne, K. K. A., and Okafor, E. C., 2019, “Science 
+and Technology of Ammonia Combustion,” Proc. Combust. Inst., 37(1), pp. 109–133.
+[13] Rocha, R. C., Costa, M., and Bai, X.-S., 2021, “Combustion and Emission 
+Characteristics of Ammonia Under Conditions Relevant to Modern Gas 
+Turbines,” Combust. Sci. Technol., 193(14), pp. 2514–2533.
+[14] Gubbi, S., Cole, R., Emerson, B., Noble, D., Steele, R., Sun, W., and Lieuwen, T., 
+2024, “Evaluation of Minimum NOx Emission From Ammonia Combustion,” 
+ASME J. Eng. Gas Turbines Power, 146(3), p. 031023.
+[15] Li, Z., Zhang, Y., and Zhang, H., 2024, “Kinetics Modeling of NOx Emission of 
+Oxygen-Enriched and Rich-Lean-Staged Ammonia Combustion Under Gas 
+Turbine Conditions,” Fuel, 355, p. 129509.
+[16] Li, Z., and Li, S., 2021, “Kinetics Modeling of NOx Emissions Characteristics of a 
+NH3/H2 Fueled Gas Turbine Combustor,” Int. J. Hydrogen Energy, 46(5), 
+pp. 4526–4537.
+[17] Goodwin, D. G., Moffat, H. K., Schoegl, I., Speth, R. L., and Weber, B. W., 2023, 
+“Cantera: An Object-Oriented Software Toolkit for Chemical Kinetics, 
+Thermodynamics, and Transport Processes,” Version 3.0.0, Zenodo, Switzerland, 
+accessed Aug. 22, 2025, https://www.cantera.org
+[18] Glarborg, P., Miller, J. A., Ruscic, B., and Klippenstein, S. J., 2018, 
+“Modeling Nitrogen Chemistry in Combustion,” Prog. Energy Combust. Sci., 
+67, pp. 31–68.
+[19] Powell, O. A., Papas, P., and Dreyer, C. B., 2010, “Hydrogen and C1–C3 
+Hydrocarbon Nitrous Oxide Kinetics in Freely Propagating and Burner-Stabilized 
+Flames, Shock Tubes, and Flow Reactors,” Combust. Sci. Technol., 182(3), 
+pp. 252–283.
+[20] Mei, B., Ma, S., Zhang, X., and Li, Y., 2021, “Characterizing Ammonia and Nitric 
+Oxide Interaction With Outwardly Propagating Spherical Flame Method,” Proc. 
+Combust. Inst., 38(2), pp. 2477–2485.
+[21] Fang, R., Papas, P., Sung, C.-J., Stevens, J. F., and Smith, L. L., 2024, “Effects of 
+Radiative Heat Loss on Extinction Limits of Counterflow Premixed Ammonia-Air 
+Flames,” Proc. Combust. Inst., 40(1–4), p. 105569.
+[22] Locke, J., Kim, W., Smith, L., Snyder, T., and Dayton, J., 2024, “Operation of 
+FT4000
+V
+R Single Nozzle Combustor With High Hydrogen,” ASME Paper No. 
+GT2024-121321.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011015-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+[23] Leonard, G., and Stegmaier, J., 1994, “Development of an Aeroderivative Gas 
+Turbine Dry Low Emissions Combustion System,” ASME J. Eng. Gas Turbines 
+Power, 116(3), pp. 542–546.
+[24] Glassman, I., Yetter, R. A., and Glumac, N. G., 2015, Combustion, 5th ed., 
+Academic Press, Waltham, MA.
+[25] Warnatz, J., Mass, U., and Dibble, R. W., 2006, Combustion—Physical and 
+Chemical Fundamentals, Modeling and Simulation, Experiments, Pollutant 
+Formation, 4th ed., Springer-Verlag, Berlin, Heidelberg, Germany.
+[26] Turanyi, T., and Tomlin, A. S., 2014, Analysis of Kinetic Reaction Mechanisms, 
+Springer-Verlag, Berlin, Heidelberg, Germany.
+011015-10 / Vol. 148, JANUARY 2026                                                                                                     
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011015/7533390/gtp-25-1283.pdf by University of Cincinnati user on 31 December 2025

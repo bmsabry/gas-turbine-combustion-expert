@@ -1,0 +1,925 @@
+
+--- Page 1 ---
+
+AIAA-2003-1203
+1
+American Institute of Aeronautics and Astronautics
+SWIRL CUP MODELING – PART VI: DILUTION JET MODELING
+Manampathy G. Giridharan* and Hukam C. Mongia†
+GE Aircraft Engines, Cincinnati, OH 45215
+and
+Ghanshyam Singh 
+John F. Welch Technology Center, Bangalore, India 
+ABSTRACT
+CFD 
+simulations 
+of 
+gas 
+turbine 
+combustors, 
+typically, do not include the inner and outer passages 
+of the diffuser in the models for design analyses.  
+This necessitates the specification of boundary 
+conditions at the exit of the dilution holes into the 
+combustor domain.  This paper explores an approach 
+for specifying this boundary condition that is 
+applicable for combustor operating conditions at 
+different power levels.  First, the predictions for 
+discharge coefficient are validated against the NACA 
+benchmark data for different circular hole sizes and 
+wall thickness.  The agreement with data is within 
+5%.  For this configuration, simulations are also 
+performed to understand the effects of cross-flow on 
+discharge coefficient and jet angle.  Results indicate 
+that these parameters are not very sensitive to the 
+crossflow momentum ratio.  Simulations are also 
+performed for a CFM-56 swirl cup package in a 3-
+inch square flame tube.  To understand the flow 
+characteristics at dilution hole, the configuration 
+included an outer flow passage.  Results for this case 
+indicate that distributions of flow variables at the 
+dilution holes are two-dimensional and complicated 
+due to existence of reverse flow regions.  The 
+swirling flow in the flame tube also has an impact on 
+the dilution jet as the flow is subsonic.  Since the 
+flow variables distributions do not follow a pattern 
+amenable for developing scaling rules, accurate 
+modeling of dilution flow requires integrated 
+diffuser-combustor analysis.  
+INTRODUCTION
+Gas 
+turbine 
+combustion 
+systems 
+are 
+being 
+designed/optimized through the aid of CFD tools1-3.  
+Though modern computers afford higher fidelity in 
+CFD models in terms of resolving finer geometric 
+and flow features, integrated modeling of diffuser-
+combustor system is still expensive for design 
+analyses.  Combustor modeling, then, requires 
+specification of inlet conditions for swirlers, dilution 
+and cooling hole boundaries.  In rich-dome 
+combustors, the penetration and mixing of primary 
+and secondary dilution flows are critical to the 
+predictions of emissions and pattern factors.  The 
+flow around the dilution jet is quite complex as it 
+interacts with the dome swirling jet and the central 
+recirculation bubble.  The heat release often reaches a 
+maximum just upstream of the primary dilution jets, 
+resulting in high density gradients around the jets.  
+Several studies on mixing of dilution jets have been 
+reported4-6 due to its importance for RQL concept to 
+achieve 
+low 
+NOx 
+emissions 
+in 
+rich-dome 
+combustors.  The equivalence ratio of primary 
+reaction zone including the primary dilution air is 
+adjusted to achieve complete combustion of fuel/air 
+mixture.  The dilution flow rates are also controlled 
+to achieve a desired exit temperature profile.  
+For a typical combustor mesh with less than half a 
+million nodes, the dilution holes are meshed with 
+roughly 4X4 cells.  The current practice is to assume 
+a plug flow boundary condition over the effective 
+diameter of the hole and the jet angle interpolated 
+from data10.  For this, the discharge coefficient is 
+needed 
+apriori 
+and 
+it 
+is 
+interpolated 
+from 
+experimental data.  Since the dilution holes are on a 
+curved surface and the dilution jets enter the 
+combustor domain at an angle, calculation of 
+boundary conditions becomes complex even for the 
+plug flow assumption.  For specifying a profile 
+condition, at least a 10X10 mesh would be needed.  
+This could be achieved by refining the coarse mesh 
+locally in the dilution hole region.  As will be shown 
+later, the flow through the dilution hole is not 
+symmetric about the center of the hole.  Hence the 
+boundary condition will not be a radial profile, but a 
+two-dimensional mapping on a curved surface.  This 
+paper explores a methodology for specifying the 
+dilution hole inlet conditions that is better than the 
+current plug flow assumption.  This problem has not 
+been addressed in the literature. 
+The critical parameters in the flow through dilution 
+hole problem are: pressure loss parameter (K) 
+through the hole, hole size, wall thickness, boundary 
+layer thickness, and cross-flow momentum ratio.  The 
+pressure loss parameter is defined as
+* Lead Engineer, AIAA member
+† Section Manager, AIAA Senior member
+41st Aerospace Sciences Meeting and Exhibit
+6-9 January 2003, Reno, Nevada
+AIAA 2003-1203
+Copyright © 2003 by General Electric Company. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+AIAA-2003-1203
+2
+American Institute of Aeronautics and Astronautics
+d
+d
+j
+d
+p
+P
+p
+P
+K
+−
+−
+=
+where subscripts d and j refer to the duct and jet 
+conditions and P represents the total pressure and p 
+represents the static pressure.  CFD simulations are 
+performed 
+for 
+flow 
+through 
+circular 
+holes 
+corresponding to the experimental conditions of 
+Dittrich and Graves7.  CFD predictions for discharge 
+coefficient and jet angle have been validated for 
+several K values and geometric configurations.  The 
+predictions 
+are 
+also 
+compared 
+with 
+existing 
+correlations8.  A database of predicted flow 
+conditions at the exit of the hole have been compiled.  
+The flow conditions at the exit of the dilution hole 
+are analyzed for identifying procedures to enable 
+accurate modeling of dilution holes.
+APPROACH
+Fluent CFD code9 is used to perform all the 
+simulations presented in this paper.  A sequential 
+pressure-based algorithm is selected to solve the 
+Favre averaged Navier-Stokes equations.  Since the 
+jet velocities would be high for high pressure ratio 
+parameter cases, the compressibility effects are 
+included in the model.  Though Fluent offers several 
+turbulence models, earlier studies have indicated that 
+standard and realizable k-ε models provided the best 
+results for the swirling and mixing flows.  Compared 
+to the standard k-ε model, the realizable k-ε model 
+converges faster and hence it is selected for all the 
+calculations. 
+VALIDATION
+In order to validate the dilution hole effective areas, 
+the 
+Fluent 
+predictions 
+are 
+validated 
+against 
+benchmark data of Dittrich and Graves7.  In this 
+NACA experimental study, the discharge coefficients 
+for circular holes were measured for various flow 
+parameters.  The parameters considered were hole 
+diameter, wall thickness at the hole, boundary layer 
+thickness, and pressure ratio across the hole.  The 
+measurements showed that the corrected discharge 
+coefficient correlated well with the pressure ratio 
+parameter.  The effects of boundary layer thickness 
+and wall thickness were found to be small.
+The computational domain for this case extended 12 
+diameters upstream of the hole and 5 diameters 
+downstream of the hole.  The height of the duct is 
+taken to be 5 diameters to minimize any effect of the 
+boundary layer on the duct wall above the hole.  The 
+plenum below the hole is made very large in order to 
+prevent any influence of boundary condition on the 
+flow near the hole.  A total pressure boundary 
+condition is applied at duct inlet.  The total pressure 
+can be calculated for a given value of pressure 
+parameter (K).  A static pressure condition is 
+imposed at the free boundaries of the plenum below 
+the hole as well as at the exit of the duct.      
+Grid Independence Study
+First a grid sensitivity study has been carried out to 
+select the optimum mesh size for parametric 
+calculations.  A hexahedral baseline mesh with about 
+600,000 cells was generated.  The computational 
+cells are clustered near the walls and inside the hole.  
+Four cells were used to resolve the wall thickness of 
+the hole.  Two levels of adaptive mesh refinements 
+were performed to generate additional meshes with 
+velocity gradient as the adaptation criteria.  In this 
+study the value of K was taken as 10, the liner wall 
+thickness and dilution hole diameter were taken as 
+0.04 and 0.75 inches, respectively.  The computed 
+mass flow rates through the dilution hole using the 
+three levels of grids are shown in Table 1.  The 
+variation in mass flow rates is within 1%.  For further 
+study, depending upon the hole diameter, a typical 
+baseline mesh size of 600,000 to 750,000 cells was 
+used.
+Table 1  Mass Flow Rate Through the Hole as 
+Function of Mesh Size
+Validation of Discharge Coefficient and Jet Angle 
+Predictions
+In order to validate the discharge coefficient 
+predictions, four different cases with values of K: 10, 
+20, 50, and 100 have been taken for which 
+experimental data from NACA7 are available. The 
+theoretical mass flow rate through the dilution hole is 
+calculated as the product of ideal jet velocity, density, 
+and geometric area.  Assuming isentropic flow, the 
+ideal jet velocity and density are calculated from 
+compressible-flow relationships using the duct total 
+pressure and temperature.  Table 2 shows a 
+comparison between predicted and experimental 
+values of discharge coefficients, the maximum 
+deviation from experimental data has been observed 
+to be less then 6% (for K = 10).  Jet deflection angle 
+Mesh Size 
+Mass flow rate 
+(Kg/s)
+629095
+0.00786
+945406
+0.00792
+1011540
+0.00779
+
+
+--- Page 3 ---
+
+AIAA-2003-1203
+3
+American Institute of Aeronautics and Astronautics
+is another important parameter in the present study.  
+The jet angle is calculated from mass averaged 
+velocity components at dilution hole.  The NACA 
+experiment did not include measurements of jet 
+angle.  Kaddah8 proposed correlations for discharge 
+coefficient and jet angle as a function of K as8:
+{
+}
+5.0
+2
+2
+)
+2
+(
+4
+)1
+(
+25
+.1
+α
+−
+−
+−
+=
+K
+K
+K
+CD
+and
+∞
+=
+D
+D
+C
+C
+θ
+2
+sin
+where α is the ratio of mass flow rate through the 
+hole to mass flow rate through the duct, and subscript 
+α represents value when K tends to infinity.  The jet 
+angle is defined with respect to the plane containing 
+the dilution hole.  The jet angle predictions are 
+compared with estimates from this correlation and the 
+results are presented in tables 2 and 3.  The CFD 
+calculations 
+underpredict 
+the 
+jet 
+angle 
+when 
+compared with the estimates from the correlation. 
+Table 2  Comparison of Discharge Coefficient 
+Predictions with NACA Data
+Table 3  Comparison of Jet Angle Predictions with 
+Correlation
+Effect of Crossflow
+In order to study the effect of cross flow on jet exit 
+angle and discharge coefficient, for a constant 
+pressure ratio parameter (K = 20), three different 
+values of cross flow momentum ratios (defined as 
+ratio of jet momentum to crossflow momentum) are 
+taken i.e. 0.1, 0.2 and 0.3.  For these cases, dilution 
+hole diameter is taken as 0.125 inches. The wall 
+thickness has also been varied between 0.04 inch and 
+0.1 inch.  In table 4 the first row corresponds to a 
+case with no cross flow, and it has been included for 
+the sake of comparison.  It is noted that the discharge 
+coefficient is almost independent of cross flow.  The 
+jet angle, however, decreases for low momentum 
+ratios and remains constant for higher momentum 
+ratios.  The crossflow sets up a streamwise pressure 
+gradient as it flows around the dilution jet.  This 
+causes additional deflection of the jet.  It is clear that 
+the effect of cross flow on jet angle is less prominent 
+for the case of 0.1 inch wall thickness.
+Table 4  Effect of Cross Flow on Discharge 
+Coefficient and Jet Angle
+Effect of wall thickness and hole diameter
+Present work has been extended to study the effect of 
+liner wall thickness on discharge coefficient and jet 
+angle.  Two different values of wall thickness were 
+taken i.e. 0.04 and 0.1 inch.  For each wall thickness 
+the hole diameter has been varied: 0.125, 0.25, 0.75 
+and 1.5inch.  During this study the value of K was 
+kept constant at 20 and the results are summarized in 
+Table 5.  It can be seen from this table that as wall 
+thickness increases, discharge coefficient as well as 
+jet angle increases.  This is because increasing the 
+wall thickness enables more pressure recovery after 
+the flow makes the turn.  It can also be noted that the 
+increment in the discharge coefficient as well as jet 
+angle decreases with respect to the hole diameter.  
+Therefore, there should be an optimum wall thickness 
+to diameter ratio for which maximum discharge 
+coefficient and jet angle can be obtained.
+Table 5  Effect of Wall Thickness and Hole Diameter 
+on Discharge Coefficient and Jet Angle
+K
+CD
+Fluent
+CD
+NACA
+% 
+Error
+CD
+Correlation
+10
+0.56
+0.598
+5.95
+0.58
+20
+0.59
+0.599
+1.50
+0.60
+50
+0.60
+0.603
+0.05
+0.62
+100
+0.61
+0.61
+0.36
+0.62
+K
+Jet Angle
+Correlation
+10
+64.92
+72.29
+20
+69.95
+77.33
+50
+77.65
+80.43
+100
+80.36
+83.60
+J
+Wall thickness 
+0.04in
+Wall thickness 
+0.1in
+CD
+Fluent
+Jet
+Angle
+CD
+Fluent
+Jet
+Angle
+0
+0.625
+82.160
+0.666
+88.860
+0.1
+0.624
+81.850
+0.666
+80.889
+0.2
+0.625
+81.059
+0.667
+80.738
+0.3
+0.628
+79.862
+0.666
+80.586
+Hole dia -
+thickness (in)
+Jet 
+Angle
+CD
+Fluent
+CD
+Correlation
+0.125 - 0.04
+82.160
+0.625
+0.601
+0.125 - 0.1
+88.860
+0.666
+0.601
+0.25 - 0.04
+77.880
+0.662
+0.601
+0.25 - 0.1
+84.100
+0.692
+0.601
+0.75 - 0.1
+74.680
+0.647
+0.601
+1.5 - .04
+65.230
+0.564
+0.601
+1.5 - 0.1
+68.820
+0.583
+0.601
+
+
+--- Page 4 ---
+
+AIAA-2003-1203
+4
+American Institute of Aeronautics and Astronautics
+J=0.0
+J=0.3
+(a)  Contours of Static Pressure
+(b)  Contours of velocity magnitude
+(c)  Contours of turbulent kinetic energy
+Figure 1 Flow Distributions at the Exit of the Dilution Hole for Cases with and without Crossflow
+
+
+--- Page 5 ---
+
+AIAA-2003-1203
+5
+American Institute of Aeronautics and Astronautics
+Flow Distribution at Dilution Hole Exit 
+In order to explore the possibility of scaling the 
+boundary conditions, the flow through the dilution 
+hole has been analyzed.  The distributions of 
+pressure, velocity magnitude and turbulent kinetic 
+energy are shown in figure 1 for the cases of J = 0.0 
+and J = 0.3.  Figure 2 shows the velocity distribution 
+on a cross-sectional plane.  As can be seen, flow is 
+drawn from downstream of the dilution hole causing 
+a reverse flow in the duct.  This reverse flow 
+becomes stronger as the pressure drop through the 
+hole increases.  Because of the high shear caused by 
+this reverse flow, the turbulent kinetic energy is high 
+in that region.  Since the flow is unable to make a 
+sharp 90-degree turn, there is also a reverse flow 
+inside the hole for high pressure drops.  The velocity 
+magnitude peak on the exit plane occurs downstream 
+of the geometric center of the hole.  As shown in 
+figure 3, the offset between the location of peak 
+Figure 2  Velocity Distribution on a Cutting Plane 
+Through Center of Dilution Hole for the Case of: 
+Hole Diameter = 1.5”, Wall Thickness = 0.1” and No 
+Crossflow
+Figure 3  Variation of Dilution Hole Maximum 
+Velocity Off-Center with Pressure Parameter
+Figure 4  Variation of Dilution Hole Maximum 
+Velocity with Pressure Parameter
+velocity and geometric center of the hole decreases 
+with pressure parameter.  As expected, the magnitude 
+of the peak velocity increases almost linearly with the 
+K value.
+Based on figures 3 and 4, several attempts were made 
+to develop an equation for flow distribution at 
+dilution hole exit.  The independent variables in this 
+procedure are the distance from the location of peak 
+velocity and the angle from the duct streamwise 
+direction.  Though some success was realized for the 
+velocity and pressure distributions, this procedure 
+completely failed for describing the turbulence 
+quantities.  As can be seen in figure 5, the flow 
+distribution is even more complicated for noncircular 
+dilution holes used in the CFM56 combustor.  It is 
+concluded that the only way to adequately capture the 
+details of the flow through dilution holes is to 
+perform an integrated diffuser-combustor analysis.
+Figure 5  Velocity distribution at the Noncircular 
+Dilution Hole of CFM56 Combustor.
+0.00
+1.00
+2.00
+3.00
+4.00
+5.00
+6.00
+7.00
+0
+20
+40
+60
+80
+100
+120
+K
+U_cen/U_in
+Simulation
+Correlation
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0
+20
+40
+60
+80
+100
+120
+K
+X_off/dj
+Simulation
+Correlation
+
+
+--- Page 6 ---
+
+AIAA-2003-1203
+6
+American Institute of Aeronautics and Astronautics
+DILUTION JET MIXING
+Holdeman presented a review5 of dilution jet mixing 
+studies under subsonic cold and hot crossflow 
+conditions.  These studies have indicated that jet 
+penetration and mixing were mainly influenced by 
+momentum flux ratio, hole size, and spacing.  To 
+understand the mixing characteristics of the CFM-56 
+combustor 
+dilution 
+jets, 
+a 
+nonreacting 
+flow 
+simulation was performed for a simpler configuration 
+of a CFM-56 swirl cup in a 3-inch square flame tube.  
+This configuration corresponds to an experimental 
+setup in which cold and reacting flow measurements 
+were obtained11,12.  Outer diffuser passage is modeled 
+as a square duct around the flame tube.  The 
+computational domain for this case is shown in figure 
+6.  A tetrahedral mesh with about 400,000 cells was 
+generated for this model.  The operating conditions 
+for this study correspond to the maximum power 
+condition of the CFM-56 combustor.  The primary 
+jets and secondary swirler inlet conditions were 
+obtained from through-the-vane (TTV) calculations13.  
+A uniform velocity condition was specified at the 
+duct inlet.  A fixed pressure condition was imposed at 
+both the flame tube and duct outlets.  The duct outlet 
+static pressure was adjusted to get the correct amount 
+of air flow through the dilution hole.
+Figure 6  Geometry for the Dilution Jet Mixing Study
+Figure 7 shows the axial velocity contours on a 
+cutting plane through the center of the cup.  As can 
+be seen, there is a large central recirculation zone 
+confined between the dilution and secondary swirler 
+jets.  Figure 8 shows the radial velocity distribution at 
+the dilution hole exit plane.  This velocity distribution 
+is asymmetric about the duct streamwise direction 
+and it is quite different from those shown in figure 1.  
+This could only be due to the effect of swirling flow
+in the flame tube.  Based on the calculated mass flow 
+rate through the dilution hole, the discharge 
+coefficient is predicted to be 0.63.  For the calculated 
+K value of 10 for this case, the predicted discharge 
+coefficient is in good agreement with the data shown 
+in Lefebvre’s book8.  Based on the velocity 
+components at a location of maximum radial velocity 
+in the jet, the jet angle (θ) is predicted to be 74o.  
+Again this is in good agreement with the data shown 
+in Lefebvre’s book8.  The jet penetration appears to 
+be at least 3 diameters.  Due to the presence of the 
+recirculation zone, it is difficult to estimate the 
+momentum flux ratio (J) relevant for jet penetration 
+correlation.  Crossflow velocity based on the total air 
+flow from primary jets and secondary swirler and the 
+cross-sectional area of flame tube is very low 
+resulting in very high momentum flux ratio.  If the 
+crossflow velocity is taken to be the velocity just 
+upstream of the jet, the momentum flux ratio is 
+calculated to be 4.  The correlation for jet 
+penetration8:
+θ
+sin
+15
+.1
+J
+d
+Y
+j
+j =
+Figure 7  Axial Velocity Distribution on a Cutting 
+Plane Through the Dilution Hole
+Figure 8  Radial Velocity Distribution on the Dilution 
+Hole Plane.
+Primary
+Jets
+Inlet
+Secondary
+Swirler
+Inlet
+Duct
+Inlet
+Dilution
+Hole
+Duct
+Outlet
+Flame
+Tube
+Outlet
+Primary
+Jets
+Inlet
+Secondary
+Swirler
+Inlet
+Duct
+Inlet
+Dilution
+Hole
+Duct
+Outlet
+Flame
+Tube
+Outlet
+
+
+--- Page 7 ---
+
+AIAA-2003-1203
+7
+American Institute of Aeronautics and Astronautics
+yields a value of 2.2.  Thus the jet penetration in this 
+case is higher than the correlation value, but there is 
+uncertainty in determining the appropriate J value.
+To understand the extent of jet mixing, a scalar 
+transport equation was solved.  An additional 
+equation for scalar fluctuations due to turbulence was 
+also solved.  The value of the scalar was set to unity 
+at the duct inlet and set to zero at all other inlets.  
+Earlier studies2,14 have indicated that k-ε turbulence 
+models underpredict scalar mixing.  Reacting flow 
+simulations performed for different combustors 
+showed that combustor exit temperature profile 
+predictions were in agreement with data when 
+Schmidt number for scalar equation was set to 0.3.  
+Hence this value is used in the results shown here.  
+Figure 9 shows the scalar distribution indicating the 
+penetration and mixing of the dilution jet.  The 
+maximum value of scalar in the bubble is about 0.5.  
+The dilution air is observed to reach up to the venturi 
+exit plane upstream of the jet.  The scalar variance 
+shown in figure 10 indicates large fluctuations in 
+scalar concentration on the upstream side of the jet.  
+The air flow from the primary jets and secondary 
+swirler is squeezed between the dilution jet and the 
+central recirculation bubble, creating high shear and 
+turbulence kinetic energy (see figure 11) around the 
+jet.  This enhances mixing of dilution air into the 
+bubble.  The turbulent kinetic energy is observed to 
+be maximum at the eye of the recirculating bubble.             
+Figure 9  Scalar Distribution Showing Dilution Jet 
+Penetration and Mixing.
+Liscinsky et al.6 define an unmixedness variable as:
+)
+1(
+C
+C
+Cv
+−
+=
+χ
+where 
+v
+C is the variance from the fully mixed state 
+and C is the mean scalar value at the fully mixed   
+Figure 10  Scalar Variance Distribution Near the 
+Dilution Jet.
+Figure 11  Turbulent Kinetic Energy Distribution on 
+a Cutting Plane Through the Dilution Hole.
+state.  For the unmixedness variable, a value of zero 
+indicates fully mixed state and a value of one 
+indicates fully segregated state.  Figures 12 (a) – (d) 
+show the spatial distribution of unmixedness at 
+several axial planes.  To better visualize the mixing 
+pattern, the ranges for different axial locations are not 
+kept the same.  It is clear from these figures that 
+mixing is fast at the outer envelop of the recirculating
+(a) x = -1 dj (range: 0 – 0.1)
+
+
+--- Page 8 ---
+
+AIAA-2003-1203
+8
+American Institute of Aeronautics and Astronautics
+bubble.  At an axial location of one diameter from 
+dilution hole center, the unmixedness pattern has an 
+elliptical shaped jet region and the variable reaches a 
+maximum value away from the center of the flame 
+tube. 
+ 
+Eventually, 
+the 
+maximum 
+value 
+for 
+unmixedness shifts to the center of the flame tube.  
+Clearly, the mixing pattern is not symmetric about 
+the center of the dilution hole due to the swirling 
+flow.  Results show that mixing is complete to within 
+1% only at five diameters from the dilution hole.  
+Most of the GE rich-dome combustors have two rows 
+of dilution holes, some have dilution holes on the 
+first and third liner panels while others have them on 
+first and second panels.  For complete mixing, axial 
+spacing between the rows of dilution holes needs to 
+be five diameters for an inline pattern.  For axial 
+spacing smaller than five diameters, to improve the 
+mixing pattern, the flow rates through the dilution 
+holes could be adjusted to have lower jet penetration 
+for the second row holes.
+(b) x = 0 dj (range: 0 – 0.5)
+(c) x = 1 dj (range: 0 – 0.5)
+Calculations show that roughly 30% of the dilution 
+air is mixed upstream of the jet.  This provides an 
+estimate for the amount of dilution air that 
+participates in the combustion of the rich mixture 
+from the swirl cup.
+(d) x = 2 dj (range: 0 – 0.15)
+(d) x = 3 dj (range: 0 – 0.075)
+Figure 12  (a) – (d)  Mixing Patterns at Various Axial 
+Locations Relative to Dilution Hole Diameter.
+CONCLUSIONS
+In this paper, an attempt was made to develop a 
+methodology for specifying the dilution hole inlet 
+conditions that would be applicable for a wide range 
+of combustor operating conditions.  As a first step, 
+the discharge coefficient predictions for various 
+pressure parameters were validated with benchmark 
+NACA data.  The flow distribution for circular 
+dilution holes was found to be complex due to 
+existence of two recirculation regions in the 
+proximity of the dilution hole.  At high pressure ratio 
+parameters, flow was drawn from downstream of 
+hole in the duct creating high shear regions.  For 
+noncircular dilution holes, the flow pattern was even 
+more complex.  Since the jet Mach number is 
+subsonic, the swirling flow within the combustor also 
+has an impact on the dilution hole flow distribution.  
+Attempts to develop a two-parameter mapping profile 
+have failed.  It is concluded that the only way to 
+capture the details of the flow through the dilution 
+holes is to perform integrated diffuser-combustor 
+analyses.  Such analyses have already been 
+demonstrated2,3,14.  The integrated analysis, however, 
+
+
+--- Page 9 ---
+
+AIAA-2003-1203
+9
+American Institute of Aeronautics and Astronautics
+increases the mesh size of the model perhaps to more 
+than a million cells.  For reacting flow calculations, 
+there 
+are 
+additional 
+memory 
+and 
+processing 
+overheads in the nonreacting regions of the diffuser 
+with inner and outer passages.  Local mesh 
+refinement and parallel processing offers the hope of 
+resolving all the details of flow through dilution holes 
+and yet achieve an overnight simulation turnaround 
+time so as to be relevant for design analyses.
+The dilution jet mixing characteristics has been 
+studied for the simpler configuration of a square 
+flame tube.  The curvature effect of annular 
+combustors, hence, has not been modeled.  Also, the 
+effect of multiple holes has not been included in the 
+present analysis.  The results presented here indicate 
+a significant impact of the crossflow that is swirling.  
+In a reacting flow, the density gradients may also 
+have an impact on the mixing patterns.  Due to these 
+reasons, the dilution jet mixing studies should be 
+carried out for the annular combustor configurations 
+with combustion model turned on.  These studies are 
+currently being pursued and the results will be 
+published in the near future.   
+REFERENCES
+1.
+H. C. Mongia, “Aero-Thermal Design and 
+Analysis of Gas Turbine Combustion Systems: 
+Current Status and Future Direction,” AIAA 
+Paper: 98-3982, 1998.
+2.
+R. E. Malecki, C. M. Rhie, R. G. McKinney, H. 
+Quyang, S. A. Syed, M. B. Colket, and R. K. 
+Madabhushi, “Application of an Advanced CFD-
+Based Analysis System to the PW6000 
+Combustor to Optimize Exit Temperature 
+Distribution – Part I: Description and Validation 
+of the Analysis Tool,” 2001-GT-0062, Proc. 
+ASME Turbo Expo, New Orleans, LA, 2001.
+3.
+T. S. Snyder, J. F. Stewart, M. D. Stoner, R. G. 
+McKinney, “Application of an Advanced CFD-
+Based Analysis System to the PW6000 
+Combustor to Optimize Exit Temperature 
+Distribution – Part II: Comparison of Predictions 
+to Full Annular Rig Test Data,” 2001-GT-0064, 
+Proc. ASME Turbo Expo, New Orleans, LA, 
+2001.
+4.
+J. D. Holdeman and R. Srinivasan, “Modeling of 
+Dilution Jet Flowfields,” Jl. Propulsion and 
+Power, Vol. 2, No. 1, pp. 4-10, 1986.
+5.
+J. D. Holdeman, “Mixing of Multiple Jets with a 
+Confined Subsonic Crossflow,” Prog. Energy 
+and Combustion Science, Vol. 19, No. 1, pp. 31-
+70, 1993.
+6.
+D. S. Liscinsky, B. True, and J. D. Holdemann, 
+“Crossflow Mixing of Noncircular Jets,” Jl. 
+Propulsion and Power, Vol.12, No. 2, pp. 225-
+230, 1996.
+7.
+R. T. Dittrich and C. C. Graves, “Discharge 
+Coefficients for Combustor-Liner Air-Entry 
+Holes: 1 – Circular Holes with Parallel Flow,” 
+NACA Technical Note 3663, 1956.
+8.
+A. H. Lefebvre, Gas Turbine Combustion, 
+Taylor & Francis, 1998.
+9.
+Fluent CFD Code User Manual, Version 6.0, 
+2002.
+10. W. F. Venneman, “Flow Coefficients and Jet 
+Deflection Angles for Combustor – Liner Entry 
+Holes,” GE Technical Information Series, No: 
+59GL25, 1959.
+11. H. C. Mongia, M. Al-Roub, A. Danis, D. Elliot-
+Lewis, S. M. Jeng, A. Johnson, V. G. McDonell, 
+G. S. Samuelsen, and S. Vise, “Swirl Cup 
+Modeling Part I,” AIAA Paper 2001-3576.
+12. M. G. Giridharan, H. Mongia, S. M. Jeng, “Swirl 
+Cup Modeling – Part VIII: Spray Combustion in 
+CFM-56 Single Cup Flame Tube,” AIAA Paper 
+2003-0319,2003.
+13. G. Hsiao, H. Mongia, and A. Vij, “Swirl Cup 
+Modeling – Part II: Inlet Conditions,” AIAA 
+Paper 2003-1350.
+14. D. S. Crocker, D. Nickolaus, and C. E. Smith, 
+“CFD Modeling of a Gas Turbine Combustor 
+From Compressor Exit to Turbine Inlet,” ASME 
+Paper 98-GT-184, 1998.

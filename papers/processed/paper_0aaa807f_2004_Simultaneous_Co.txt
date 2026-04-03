@@ -1,0 +1,1019 @@
+
+--- Page 1 ---
+
+American Institute of Aeronautics and Astronautics
+1
+Simultaneous Combustion Instability and Emissions Control Using Air and Fuel 
+Modulation
+Adam Wachsman∗, Sungbae Park∗, Ziaieh C. Sobhani∗, Anuradha M. Annaswamy†
+and Ahmed F. Ghoniem‡
+Department of Mechanical Engineering, MIT, Cambridge, MA 02139
+Abstract
+We study experimentally the impact of static and 
+modulated transverse jet injected near the flame 
+anchoring zone on the stability and emissions in a 
+premixed backward facing step combustor. The 
+combustor shows strong pressure oscillations at 38 Hz. 
+Parametric studies using multiple sensors indicate that 
+flame-vortex interactions are responsible for the heat 
+release dynamics under unstable conditions. We 
+demonstrate that with sufficient momentum, a static air 
+jet injected perpendicular to the incoming flow near the 
+step favorably modifies the flame-vortex interactions 
+and reduces the pressure oscillations by up to 14 dB 
+(OASPL), and the NOx emission by an order of 
+magnitude. Adding small amount of hydrogen to the 
+primary fuel further reduces the pressure oscillations. 
+We also investigate the impact of the transverse jet 
+modulation. Result shows that one can reduce the 
+amount of air necessary for stabilization by 50% from 
+the static case by using closed-loop control and jet 
+modulation.
+1.
+Introduction
+Continuous combustion systems common in propulsion 
+and power generation applications are susceptible to 
+thermoacoustic instability, which occurs under lean 
+burn conditions close to the flammability where most 
+emissions and efficiency benefits are achieved, and near 
+stoichiometry where high power density is the 
+objective. Resonance between the acoustic field of the 
+combustion chamber and the heat-release rate has been 
+shown under these conditions. Pressure oscillations 
+inside the combustor cause fluctuations in the heat-
+release rate through several mechanisms, including
+∗ Graduate research assistant.
+† Principal Research Scientist and Lecturer.
+‡ Professor, Associate fellow, AIAA.
+equivalence ratio fluctuations [1,2], flame surface 
+oscillation [3], flame-vortex interactions [4-8], either 
+individually or simultaneously [9]. Under certain 
+conditions the pressure and heat-release fluctuations are 
+in phase, causing an unstable feedback between the 
+hear release and the acoustics [10].  
+Active control of combustion dynamics is an attractive 
+approach for achieving desired performance goals, such 
+as reduced overall sound pressure level, reduced 
+emissions, and increased efficiency. Typically, active 
+combustion control has been implemented using 
+pressure or heat release rate sensors, and an actuator 
+that modulates the fuel [11-14] or air streams [15].  
+Fuel modulation suffers from a possible emission’s 
+penalty associated with fuel injection into the 
+combustion zone, where maximum authority is 
+expected.  Moreover, modulating the primary fuel in the 
+upstream may be ineffective if the heat-release 
+dynamics are governed by flame-vortex interactions 
+rather than equivalence ratio oscillations.
+In this paper, we first investigate the thermoacoustic 
+instability mechanism in an 80 kW premixed backward-
+facing step combustor in order to determine the 
+appropriate actuation technique. Parametric studies and 
+flame images from various sensors confirm that the 
+dominant mechanism is flame-vortex interactions 
+throughout the entire range of operating conditions.
+Secondly, we examine the use of steady and modulated 
+transverse jets, injected near the combustion zone, as 
+means of simultaneously suppressing the pressure 
+oscillations and reducing NOx. We show that the 
+transverse jet, under certain conditions, favorably 
+modifies 
+flame-vortex 
+interactions, 
+suppressing 
+pressure fluctuations by up to 14 dB with an order of 
+magnitude reduction in NO emissions. Under different 
+conditions, using a transverse air jet near the lean 
+flammability limit makes the flame more susceptible to 
+blow out. Next, we experiment with the addition of 
+small amounts of hydrogen in the primary fuel and in 
+the air jet. It has been shown that adding a small 
+amount of hydrogen to other hydrocarbons can extend 
+42nd AIAA Aerospace Sciences Meeting and Exhibit
+5 - 8 January 2004, Reno, Nevada
+AIAA 2004-633
+Copyright © 2004 by A. Wachsnam, S. Park, Z. C. Sobhani, A.M. Annaswamy and A.F. Ghoniem. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+American Institute of Aeronautics and Astronautics
+2
+their flammability limit and increase their resistance to 
+flame extinction [16-21].
+In Section 2, the experimental apparatus, the sensors 
+and actuators are described.  In Section 3, we discuss an 
+overall combustion dynamics model that describes the 
+interactions between the heat-release dynamics, the 
+acoustics, and the hydrodynamics.
+A preliminary 
+parametric study that sheds light on the flame-vortex 
+interactions and their impact on instability is presented 
+in this section. We conclude with open-loop and closed-
+loop control results using air jet injection and H2 
+addition in Section 4. 
+2.
+Combustor Description
+The experimental tests are conducted in a backward-
+facing step combustor, in which a sudden expansion is 
+used to anchor the flame, as shown in Fig. 1. The 
+combustor consists of a stainless steel duct with a 
+rectangular cross section.  The duct is 160 mm wide. At 
+the test section, its height expands suddenly from 20 
+mm to 40 mm forming a backward-facing step. The 
+overall length of the combustor is 1.9 m, with the step 
+located at the middle. The test section is equipped with 
+quartz viewing windows for optical access. The air inlet 
+is choked. The exhaust goes through a sudden 
+expansion at the end of the tunnel with an expansion 
+ratio of 1 to 5. For more detail, we refer the reader to 
+Ref. [22]. The sensors and actuators are positioned as 
+indicated in Fig. 1, where p′  is pressure fluctuations 
+measured at 74 cm upstream of the step, U  is the mean 
+air velocity in the upstream section, 
+′
+1u  and 
+′
+2
+u
+ are the 
+velocity fluctuations at the point of fuel injection and 
+the step, respectively, Q′ is the fluctuation in the heat 
+release rate, ω′  is vorticity fluctuations downstream 
+the step, φ ′ is equivalence ratio fluctuations measured 
+at 12 cm upstream of the step, and NOx is measured 62 
+cm downstream the step. Afuel and Aair are the locations 
+for fuel and air forcing used. AH2f and AH2a are the 
+locations for H2 forcing in the upstream and at the air 
+injection slot, all used for control. Figure 2 is a 
+photograph of the test section of the combustor with 
+key sensors and actuators identified by the symbols 
+defined above.
+2.1 Sensors 
+Here, we describe the sensors used to identify the state. 
+Pressure fluctuation is measured using a Kistler 
+pressure sensor (S1). CH* chemiluminescence, which 
+can be related to heat-release fluctuation [23,24], is 
+measured using a linear photodiode array (S2). The 2D 
+flame structure is visualized using a high speed camera 
+(S3). Equivalence ratio fluctuations are characterized 
+using a He-Ne laser and an In-As detector arrangement 
+(S4) [25]. The air mass flow is measured using a Sierra 
+Instruments 780S-Flat-Trak (S5). NOx is measured 
+using the Thermo Environmental Instruments Model 
+42C High Level NO-NO2-NOX Analyzer (S6). The 
+pressure, equivalence ratio, air mass flow and NOx 
+measurements are logged at 500 Hz into a Pentium III 
+computer equipped with a dSPACE data acquisition 
+board. The linear photodiode array voltages are 
+captured by a Pentium IV computer equipped with 
+National Instruments data acquisition hardware. The 
+overall sampling rate from the photodiodes is 64 kHz, 
+and each snapshot is captured at 500 Hz.
+Sensors
+Variables
+S1
+Pressure Sensor (p′)
+ p′
+Pressure 
+Fluctuations
+S2
+Linear Photodiode 
+128-array (Q′)
+Q′
+Heat Release 
+Fluctuations
+S3
+High Speed Camera
+ω'
+Vorticity
+S4
+Equivalence Ratio 
+Sensor (φ ′)
+φ ′
+Equivalence Ratio 
+Fluctuations
+S5
+Air Flow Meter (Ū)
+Ū
+Mean Air Flow 
+Rate
+S6
+Emissions (NOX)
+Actuators
+u1'
+Velocity 
+Perturbations at 
+the step
+Aair
+Air Forcing
+Afuel
+Fuel Forcing 
+u2'
+Velocity 
+Perturbations at 
+the fuel bar
+AH2f
+H2 Forcing with the 
+Fuel
+AH2a
+H2 Forcing with Air
+Fig. 1 Schematic diagram of the backward-facing step 
+combustor with various sensors and actuators
+
+
+--- Page 3 ---
+
+American Institute of Aeronautics and Astronautics
+3
+Fig. 2 Photograph of the backward-facing step 
+combustor and some of the sensors used.
+2.2 Actuators 
+As indicated in Fig. 1, the primary fuel injection occurs 
+several step heights upstream of the step through a bar 
+aligned in the spanwise direction, with multiple fuel jets 
+pointing upstream to improve the streamwise mixing. 
+While the primary fuel can be modulated at an order of 
+magnitude higher than the fundamental unstable 
+frequency, downstream mixing between the injection 
+location and the flame anchoring position reduces the
+fuel modulation authority. Moreover, actuation far 
+upstream introduces a time delay between fuel 
+modulation and the combustion event. Alternatively, air 
+forcing through a spanwise slot located 12 mm
+upstream of the step occurs much closer to the dump 
+plane, and can deliver higher authority.  Furthermore, 
+adding additional air through the slot near the step, 
+besides its significant fluid dynamic effect, tends to 
+decrease the local temperature, which is favorable for 
+NOx reduction but may endanger flame stability.  To 
+overcome this limitation, a small amount of hydrogen 
+maybe introduced either with the primary fuel or at the 
+air forcing location. The following provides detailed 
+description of the air and fuel actuation. Control results
+with air actuation will be shown in Section 4.
+Air Forcing(Aair) The air jet, introduced through a 
+spanwise 2 mm slot located 12 mm upstream the step, is 
+actuated using four Dynamco D1B2204 Dash 1 direct 
+solenoid poppet air valves. Each valve can supply 1.8 
+g/s of air when driven by 689 kPa.  The valves are 
+connected to a plenum beneath the slot.
+Primary Fuel Forcing (Afuel) Propane modulation is 
+accomplished using a Moog D633-7315 AIC Direct 
+Drive Valve (DDV), which has its own built-in 
+feedback loop to ensure the spool position using an 
+LVDT with a bandwidth of 450Hz.  
+H2 (AH2f & AH2a)  To extend the flammability limit and 
+increase the resistance of the flame to extinction, 
+hydrogen is delivered at 0-9 mg/s through a Sierra 
+Instrument mass flow controller. Hydrogen is either
+mixed with propane and introduced through the fuel 
+bar, AH2f, or mixed with the air jet and introduced 
+through the slot, AH2a.
+3.
+Modeling of the Combustion Dynamics
+Figure 3 shows schematically how various flow, 
+combustion and acoustics mechanisms interact, and 
+their contributions to the combustion dynamics and 
+emissions. This model features the following:
+1.
+The feedback mechanism that contributes to 
+combustion dynamics, which couples heat-
+release dynamics and acoustics.
+2.
+The heat-release perturbations that arise due to 
+fluctuations in the equivalence ratio, φ′ , and 
+hydrodynamic perturbations, ω′ .  
+Optimal actuation for control depends on the 
+mechanism leading to combustion instability. For 
+example, if equivalence ratio fluctuations play a 
+significant role, upstream fuel modulation may work 
+best. On the other hand, if flame-vortex interaction is 
+the 
+governing 
+mechanism, 
+hydrodynamic-based 
+actuation near the step, such as spanwise air injection, 
+would be more effective.  A parametric study of the 
+impact of the inlet conditions and the hydrodynamics
+on the combustion instability is shown in the following 
+sections.
+Fig. 
+3 
+Schematic 
+diagram 
+of 
+the 
+acoustics, 
+hydrodynamics and heat release dynamics and their 
+interactions.
+3.1 The Role of the Inlet Dynamics (Mixture 
+Inhomogeneity)
+We first examine the role of fuel/air mixture 
+inhomogeneity, φ ′ , in the combustion dynamics. 
+Equivalence ratio fluctuation occurs due to velocity
+perturbations, 
+1u′ , at the point of fuel injection 
+
+
+--- Page 4 ---
+
+American Institute of Aeronautics and Astronautics
+4
+according to 
+U
+u '
+1
+1
+1
++
+=
+′
+φ
+φ
+ (if 
+U
+u /
+1′
+<1).  φ ′
+appears at the burning zone following a convective 
+transport time delay, 
+tot
+τ
+, determined by the mean 
+mixture velocity, U , and the distance from the point of 
+fuel injection to the burning zone, L , 
+U
+L
+tot =
+τ
+ [1,2].  
+Fluctuations in fuel/air mixture produce heat release 
+fluctuations,Q′, proportional to φ ′ .  
+The convective delay from the point of fuel injection to 
+the burning zone determines the phase between 
+φ ′ and 
+1u′  (and hence p′). The time delay can be 
+modified by changing the fuel injection location.  To 
+determine the impact of the mixture inhomogeneity, or 
+φ ′  on stability, the location of the fuel bar was varied 
+and the pressure was measured at various air and fuel 
+flow rates. Moving the fuel injection further upstream 
+has the following effects: 1) the convective time delay 
+is increased, and 2) the amplitude of mixture 
+inhomogeneity is decreased due to diffusion and 
+reduction in 
+1u′  (the fundamental acoustic mode in the 
+combustor is a quarter-wave mode with a closed end 
+upstream and an open end downstream). Note that the 
+hydrodynamic characteristics do not change by 
+changing the fuel injection location.
+We now consider two cases: I and II, where the fuel bar 
+was located 17.5 cm and 35 cm upstream from the step, 
+respectively. In both cases, the uncontrolled combustor 
+was operated at different air-flow rates.  The resulting 
+stability maps are shown in Fig. 4, which depicts the 
+effect of varying the equivalence ratio and Reynolds 
+number on the overall sound pressure level (OASPL). 
+In all these experiments, the excited acoustic mode 
+frequency, 
+ac
+f
+, was 38 Hz.  The convective time delay 
+from the fuel injection point to the step, 
+tot
+τ
+, is shown 
+in the figure as multiples of τ ,  where τ  is the 
+acoustic time scale, 
+ac
+f
+/
+1
+ = 26.3 ms.  It is interesting 
+to note that strong instability (over 160dB) occurs at or
+near τ
+n
+ where n is an integer. If the instability was 
+controlled by the mixture inhomogeneity only, a 
+stability band should appear in these maps as the time 
+delay is varied as follows: stable zones when the 
+transport delay is between nτ  and (n+0.5)τ  and 
+unstable zones when the delay is between (n+0.5)τ
+and (n+1)τ  [1,2]. Changes in the pressure fluctuations 
+were relatively small during these transitions, and data 
+scatter was almost uniform in both regimes, indicating 
+that the equivalence ratio oscillation is not the primary 
+mechanism of heat release oscillations, although it may 
+have a secondary role, as seen next. 
+We further investigated the extent to which the mixture 
+inhomogeneity contributes to combustion instability. 
+Equivalence 
+ratio 
+oscillations 
+(S4) 
+and 
+the 
+corresponding pressure signal (S1) are compared in 
+Cases I and II at two different operating conditions. 
+First, at Re = 5300 and φ  = 0.85, as shown in Fig. 5a, 
+negligible equivalence ratio fluctuations are observed in 
+Case II due to streamwise diffusion, while significant 
+equivalence ratio fluctuations are observed in Case I. 
+The pressure amplitude is higher in Case I indicating 
+that the equivalence ratio fluctuation increases the 
+pressure oscillations at this operating condition. Note 
+that Case I is in the band between (n+0.5)τ  and 
+(n+1)τ . On the other hand, even without equivalence 
+ratio fluctuations, pressure oscillations are still 
+significant in Case II.
+(a) Case I (fuel bar at 17.5 cm)
+(b) Case II (fuel bar at 35 cm)
+Fig. 4 Stability maps in Cases I and II. Values indicate 
+the overall sound pressure level (OASPL)
+
+
+--- Page 5 ---
+
+American Institute of Aeronautics and Astronautics
+5
+The power spectra obtained at a second operating 
+condition, at Re = 6300 and φ  = 0.85, are shown in 
+Fig. 5b. This condition corresponds to a band between 
+nτ  and (n+0.5)τ  in both cases, where equivalence 
+ratio oscillations may damp out pressure oscillations. 
+While significant equivalence ratio fluctuations are 
+present, Case II has lower values since the fuel bar is 
+positioned further upstream, similar to the Re=5300 
+experiment. Since the equivalence ratio fluctuations, 
+under these conditions, provide negative feedback, Case 
+I exhibits a lower pressure amplitude. However, both 
+cases show significant pressure oscillations, indicating 
+that the essential mechanism here is not mixture 
+inhomogeneity.
+(a) Re=5300, φ =0.85
+(b) Re=6300, φ =0.85
+Fig. 5 Pressure (S1) and equivalence ratio (S4) 
+frequency spectra at (a) Re=5300 and φ =0.85 and (b) 
+Re=6300, φ =0.85 in Cases I and II.
+3.2 The Role of Hydrodynamics and Flame-
+Vortex Interactions. 
+Velocity perturbations can cause repeated shedding of 
+vortical structures at the step. This, in turn, causes the 
+flame shape to change, thereby generating large 
+amplitude of heat release fluctuation. This vortex 
+shedding has a preferred frequency quantified by a 
+Strouhal number St = 
+U
+H
+f H
+/
+= O(0.1) where H is 
+the step height and fH is the frequency in Hz [5]. If the 
+preferred vortex shedding frequency is near the acoustic 
+mode frequency, 
+ac
+f
+, the system is more prone to 
+combustion instability. 
+The strong dependency of combustion instability on the 
+Reynolds number or the mean velocity described above 
+suggests 
+that 
+the 
+primary 
+mechanism 
+causing 
+combustion instability is the hydrodynamics and its 
+interaction 
+with 
+flame. 
+As 
+mentioned 
+before, 
+hydrodynamics has a preferred frequency around 
+)
+/
+1.0
+(
+H
+U
+O
+f H =
+. Interestingly, strong instability 
+occurs above Re=9500 in Case I, and Re=7400 in Case 
+II, as shown in Fig. 4, in which the preferred frequency 
+is 
+H
+f
+=33Hz and 25Hz, respectively, both of which are 
+close to the acoustic frequency, 
+ac
+f
+=38Hz. High speed 
+CCD images in Fig. 6, captured at 500 frames/s, show 
+strong flame–vortex interactions with no noticeable 
+difference in the flame structure between the two cases.  
+These images confirm the role of flame-vortex 
+interactions in the combustion instability mechanism. 
+4.
+Control of Combustion Instability and 
+Emissions
+In this section, we show open and closed-loop control 
+results using the air jet and H2 addition, in order to 
+simultaneously reduce pressure oscillations and NOx 
+emissions. The fuel bar is located 35 cm upstream of 
+the step. In Section 4.1, we consider a static air jet (Aair) 
+near the step and H2 addition to the primary fuel (AH2f). 
+In Section 4.2, we show the impact of modulating the 
+air jet (Aair) when it is mixed with hydrogen (AH2a). 
+Primary fuel modulations (Afuel) at the fuel bar were 
+also attempted, but, as expected from the results of 
+Section 3, its impact on combustion instability was 
+negligible. 
+4.1  Static Air (Aair) and H2 injection (AH2f)
+The effect of a steady transverse air jet (Aair), 
+introduced a short distance upstream of the step, on the 
+pressure fluctuations, and the impact of hydrogen 
+addition to the primary fuel (AH2f) in the presence of the 
+transverse air jet as well are now examined. In these 
+tests, the Reynolds number was 6300, with a 
+corresponding average velocity, U = 4.4 m/s. The 
+primary fuel supply was fixed. The transverse jet air 
+
+
+--- Page 6 ---
+
+American Institute of Aeronautics and Astronautics
+6
+Case I (fuel bar at 17.5cm upstream)                             Case II (fuel bar at 35cm upstream)
+        (a)
+        (b)
+        (c)
+        (d)
+Fig. 6 High speed CCD images of the flame (Blue) in the backward-facing step combustor (green) at Re=6300 and 
+φ =0.85, in Cases I and II at different moments in the cycle. (a) p′=0 and dropping, (b) minimum p′, (c) p′=0 and 
+rising, and (d) maximum p′.
+velocity, 
+j
+u , was varied from 0-8.4 m/s. The hydrogen 
+addition was at 1.6 and 3.2 % of the primary fuel, based 
+on the lower heating value. The baseline equivalence 
+ratio, φ =0.57. The overall equivalence ratio ranged 
+from 0.58 to 0.47, depending on the amount of air jet 
+and H2.
+Figure 7 shows OASPL as a function of 
+U
+u j /
+, at 
+different H2 flow rates. For all cases, the pressure 
+oscillations first increased for 
+U
+u j /
+< 1, where they 
+reached a maximum.  Above this value, the OASPL 
+dropped rapidly. Without hydrogen, the flame blows 
+out for 
+U
+u j /
+<1.2, however, with 
+U
+u j /
+>1.3 the 
+flame became sustainable again, 
+with pressure
+reduction of up to 14 dB from the baseline case. With 
+air addition, the overall equivalence ratio was mostly 
+below the nominal flammability limit of propane/air 
+mixture.  Moreover, a relatively large air flow rate in 
+the transverse jet was necessary to reduce the pressure 
+fluctuations and stabilize a flame near the step at yet 
+lower equivalence ratio.  Thus, it appears that the 
+impact of the transverse jet is aerodynamic.  Studies of 
+simple jet in cross flow show that at small velocity 
+ratios, the jet hardly penetrates into the stream, while as 
+the jet velocity increases, the jet penetration is 
+pronounced and its impact is sustained several jet 
+widths downstream [26].  At high velocity ratios, the jet 
+deflects the primary stream upwards, keeping it away 
+from the lower walls.  We speculate that a similar 
+mechanism is in action here.  By deflecting the stream 
+away from the lower wall, less heat is lost to the lower 
+wall and combustion is more adiabatic.  Since the 
+transverse jet reduces heat loss, and lowering the heat 
+loss promotes burning of lean to very lean mixtures 
+[27], the air jet enables burning at a lower overall 
+equivalence ratio.
+Figure 7 shows that adding H2 to the primary air 
+stream, in the presence of the transverse jet, has a weak 
+impact on the pressure level before the point of 
+maximum pressure oscillation is reached.  Beyond this 
+point, the effect of H2 addition is to support a more 
+stable flame, lowering pressure oscillation and 
+preventing blowout.  Moreover, adding hydrogen 
+enables burning over the entire range of the jet mass 
+flow rate (we no longer see blowout around 
+
+
+--- Page 7 ---
+
+American Institute of Aeronautics and Astronautics
+7
+U
+u j /
+=1). 
+This 
+is 
+consistent 
+with 
+previous 
+observations that doping hydrocarbons with small 
+amounts of H2 extends their flammability limits and 
+reduces their tendencies to extinguish under the 
+influence of strong strains [16-21].  It is interesting to 
+observe that while 1.6 % H2, measured as a percentage 
+of the primary fuel based on the lower heating value, 
+improves flame stability, doubling that amount did not 
+prove to be more effective. 
+Fig. 7 Dependence of the Overall Sound Pressure Level 
+on the flow rate of the static air injected near the step, 
+for primary air flow velocity of 4.4 m/s, and a fixed fuel 
+flow. The overall equivalence ratio ranged from 0.58 to 
+0.47 depending on the flow rate of the air jet and H2. 
+Figure 8 shows that the introduction of an air jet 
+generally reduces NO levels.  The data also show that 
+the impact of the air jet may be non-monotonic when 
+hydrogen is added to the primary fuel; only beyond the 
+point of maximum pressure oscillations does a further 
+increase of the air jet velocity guarantee substantial 
+reduction in NOx.  Before that, there is a complex 
+dependence of NOx on the transverse jet velocity, 
+mostly because of the competing effects of the dynamic 
+flame structure, the equivalence ratio and the 
+temperature fluctuations. Stable combustion, associated 
+with both leaner and more aerodynamically compact 
+flame in the presence of a transverse air jet, leads to a 
+faster drop in NO. As in the case of pressure 
+fluctuations, it appears that high transverse jet velocity 
+is necessary to achieve a measurable reduction in NO 
+formation.  It is interesting to note that hydrogen 
+addition under the same conditions boosts NO levels 
+over the entire range, as the temperature rises in the 
+combustion zone and in the products.  Thus, if H2 is to 
+be used to lower NOx, it must be supplemented with 
+additional air, to be introduced strategically into the 
+burning zone so as not to jeopardize the flame stability. 
+In Ref [28], we were able to extend the flammability 
+limit by using an air jet and H2 addition to stabilize the 
+flame, all the way down to φ  = 0.41.  Combustion 
+remained stable, with sub ppm NOx and 145 dB
+OASPL.  This is ideal for applications requiring low 
+NOx and stable operation without much product after 
+treatment.
+Fig. 8 NO level dependence on the velocity of the static 
+air jet near the step for primary air flow velocity of 4.4 
+m/s, and a fixed fuel flow. The overall equivalence ratio 
+ranged from 0.58 to 0.47 depending on the flow rate of 
+air jet and H2. 
+4.2 Modulating the Air Jet (Aair) and H2 
+Injection (AH2a) at the Step
+Next, we investigate the impact of the transverse jet 
+modulation on the pressure fluctuations. We show that 
+one advantage of using modulation is to minimize the 
+mass flow rate of the jet by controlling the phase using 
+pressure feedback. We use a phase-shift controller to 
+modulate the mass flow rate of the transverse jet. In 
+these tests, the Reynolds number was fixed at 6300 with 
+a nominal equivalence ratio of 0.57.  The transverse jet 
+to the primary air velocity ratios were 0.8, 1.25 and 1.7. 
+Pure air, or an air-hydrogen mixture in which H2 
+contributed 1.6 % of the total heat addition, were used 
+in the transverse jet. Hydrogen was premixed with air 
+and injected through the slot. With air jet modulation, 
+adding H2 to the transverse jet at the slot was more 
+effective than adding hydrogen to the primary fuel. 
+Paradoxically, without modulation, the opposite was 
+true, i.e., adding H2 to the primary fuel stream was 
+more effective.
+To examine the response of combustion dynamics to 
+the transverse jet modulation, we used a simple phase-
+shift controller with pressure feedback. A high pass 
+filter with a cutoff-frequency at 5 Hz was incorporated 
+to eliminate the drift in the pressure measurement and 
+ensure that the duty cycle was always at 50%. 
+
+
+--- Page 8 ---
+
+American Institute of Aeronautics and Astronautics
+8
+Figure 9 shows the OASPL as a function of 
+U
+u j /
+and the phase, with pure air injected at the slot.  For
+U
+u j /
+> 1.25 substantial reduction in OASPL could 
+be achieved, but the performance is strongly dependent 
+on the phase. Optimal phase angle in the phase-shift 
+controller was found to be around 200 degrees. In the 
+case with 
+U
+u j /
+= 1.25 the flame blew out at 60 and 
+120 degrees phase, as indicated by the dotted line in the 
+Fig. 9.  This is similar to the results observed previously 
+where a small amount of cross jet was detrimental to 
+stability and caused flame blowout. With 
+U
+u j /
+= 1.7 
+a pressure reduction up to 14dB is realized at the same 
+phase angle of 200. Increasing the air jet velocity to 
+U
+u j /
+= 1.7 reduced pressure fluctuations throughout 
+the entire range of phase angles, widened the stability 
+band around 250 degrees and eliminated the flame 
+blowout observed at lower velocities. It is interesting to 
+observe that the maximum pressure reduction is 
+comparable to that obtained with a static transverse air 
+jet, showing some saturation effect. This was also 
+observed in Fig. 7, where at high velocity ratios, the 
+pressure level reached a plateau. Thus, regardless of the 
+flow rate of the transverse jet, whether it is static or 
+modulated, there appears to be limit on performance.
+Fig. 9 Dependence of the Overall Sound Pressure Level 
+on the flow rate of the modulated air jet without H2 
+addition injected near the step and the phase angle, for 
+primary air flow rates of 4.4 m/s, and a fixed fuel flow. 
+The overall equivalence ratio ranged from 0.52 to 0.48 
+depending on the flow rate of the air jet. 
+Adding H2 in the transverse jet significantly increases 
+the effectiveness of control, as shown in Fig. 10. With 
+H2 addition, the transverse jet velocity required for 
+flame stabilization dropped by one half. By adding H2 
+at 1.6 % of the total heat release, the flame was 
+stabilized at a velocity ratio of only 0.8, with a pressure 
+drop up to 13 dB from the unstable case.  Note that the 
+optimal phase angle is now 300 degree. While a pure 
+air jet reduces the burning velocity, the jet with H2 
+increases it, and we observed that H2 addition moves 
+the burning zone closer to the step [28]. 
+Fig. 10 Dependence of the Overall Sound Pressure 
+Level on the flow rate of the modulated air jet with H2 
+addition injected near the step and the phase angle, for 
+primary air flow rates of 4.4 m/s, and a fixed fuel flow 
+rate. The overall equivalence ratio ranged from 0.52 to 
+0.49 depending on the flow rate of the air jet.
+Fig. 11 Dependence of the mean CH* distributions on 
+the phase angle of the controller for 
+U
+u j /
+= 1.7 with 
+the overall equivalence ratio of 0.48 and without H2 
+addition. 
+Figure 11 shows the mean CH* distribution for the case 
+of 
+U
+u j /
+= 1.7, over a range of the controller phase 
+angles. Clearly, the burning characteristics change 
+significantly with the phase-shift controller. At the 
+optimal phase angles of 180 and 240 degrees, the 
+burning zone is closest to the step and the burning rate 
+Higher 
+U
+u j /
+Higher 
+U
+u j /
+
+
+--- Page 9 ---
+
+American Institute of Aeronautics and Astronautics
+9
+falls rapidly further downstream. In the most unstable 
+case at 60 degree lag, burning extends much further 
+downstream, the peak drops by one half and is located 
+about 2 step heights downstream of the step.
+5.
+Conclusion
+In this paper, we address emission reduction in addition 
+to instability suppression in a premixed backward-
+facing step combustor using a transverse air jet near the 
+burning zone, and H2 addition to the air jet.  We first 
+develop an insight into the interactions between 
+hydrodynamics, fuel/air mixture inhomogeneity and 
+heat-release dynamics, and their impact on the 
+instability of the combustion system. A parametric 
+study was conducted to investigate the impact of flame-
+vortex interactions and fuel/air mixture inhomogeneity 
+on the combustion instability. The location of the fuel 
+injection was varied, which changed the total 
+convective time delay and the level of fuel/air mixture 
+inhomogeneity. Results show that when the primary 
+fuel injection is moved further upstream, the impact of 
+fuel/air mixture inhomogeneity is negligible and 
+amplitude 
+of 
+pressure 
+oscillations 
+increase 
+monotonically with increasing the Reynolds number. 
+High speed CCD images of the flame confirm that a 
+strong flame-vortex interaction is the dominant 
+mechanism for heat release dynamics in all cases. For 
+this reason, we focus the control effort on modifying 
+the flame-vortex interactions in the combustion zone 
+using a transverse jet of pure air or air-hydrogen 
+mixture near the step.
+We study experimentally the impact of a static and 
+modulated transverse jet on stability and emissions. We 
+demonstrate that with sufficient momentum, a static air 
+jet injected perpendicular to the incoming flow near the 
+step favorably modifies flame-vortex interactions and 
+reduces pressure oscillations by up to 14 dB, while 
+reducing NOx emission by an order of magnitude.  We 
+also investigate the impact of the transverse jet 
+modulation using closed-loop control with pressure 
+feedback.  We show that modulating the air jet can 
+achieve the same level of pressure reduction with 50% 
+of the air flow rate required in the static air jet case, but 
+the control effectiveness is strongly dependent on the 
+phase angle. In both cases, adding small amounts of H2 
+leads to further reduction in OASPL.
+Acknowledgements
+This work is supported by the Propulsion Program of 
+the Office of Naval Research, grant No. N00014-99-
+0448, 
+and 
+the 
+Defense 
+University 
+Research 
+Instrumentation Program of the Army Research Office, 
+Grant No. DAAD19-01-1-0398.
+References
+[1] J.P.Hathout, M.Fleifil, A.M.Annaswamy, and 
+A.F.Ghoniem, “Combustion instability and active 
+control using periodic fuel injection,” AIAA Journal of 
+Propulsion and Power, Vol. 18, No. 2, pp.390 -399, 
+2002.
+[2] T. Lieuwen, H. Torres, C. Johnson and B.T. Zinn, 
+“A mechanism of combustion instability in lean 
+premixed 
+gas 
+turbine 
+combustors,” 
+Journal 
+of 
+Engineering for Gas Turbine and Power, Vol. 123, No. 
+1, pp. 182-189, 2001.
+ [3]  M. Fleifil, A.M. Annaswamy, Z.A. Ghoneim, and 
+A.F. Ghoniem, “Response of a laminar premixed flame 
+to 
+flow 
+oscillations: 
+A 
+kinematic 
+model 
+and 
+thermoacoustic instability results,” Combustion and 
+Flame, Vol. 106, pp. 487-510, 1996.
+[4] C.O. Paschereit, E. Gutmark and W. Weisenstein, 
+“Structure and control of thermoacoustic instabilities in 
+a gas-turbine combustor,” Combustion Science and 
+Technology, Vol.138, No. 1-6, pp. 213-232, 1998.
+[5] H. Najm and A. F. Ghoniem, “Modeling pulsating
+combustion due to flow-flame interactions in vortex-
+stabilized pre-mixed flames,” Combustion Science and 
+Technology, Vol. 94, pp.259-278, 1993.
+[6] C. Fureby, “A computational study of combustion 
+instabilities due to vortex shedding,” Proceedings of the  
+Combustion Institute, Vol.28, pp.783-791, 2000.
+[7] W.H. Jou and S. Menon, “Numerical simulation of 
+the vortex-acoustic wave interaction in a dump 
+combustor,” AIAA 24th Aerospace Sciences Meeting, 
+Reno, Nevada, 1986
+[8] T.J. Poinsot, A. C. Trouve, D. P. Veynante, S. M. 
+Candel and E. J. Esposito, “Vortex-driven acoustically 
+coupled combustion instabilities,” Journal of Fluid 
+Mechanics, Vol. 177, pp.265-292, 1987.
+[9] K.K. Venkataraman, L.H. Preston, D.W. Simons, 
+B.J. Lee, J.G. Lee, D.A. Santavicca, “Mechanism of 
+combustion instability in a lean premixed dump 
+combustor,” Journal of Propulsion and Power, Vol.15, 
+No.6, pp.909-918, 1999.
+[10] J.W.S. Rayleigh, The theory of Sound, Vol. 2, 
+Dover, New York, 1945.
+
+
+--- Page 10 ---
+
+American Institute of Aeronautics and Astronautics
+10
+[11] S. Sattinger, Y. Neumeier, A. Nabi, B. T. Zinn, D. 
+Amos and D. Darling, “Sub-scale demonstration of the 
+active feedback control of gas-turbine combustion 
+instabilities,”  Journal of Engineering for Gas Turbine 
+and Power,  Vol.122, No.2 , pp. 262-268, 2000.
+[12] J.M. Cohen, J.H.  Stufflebeam and W. Proscia, 
+“The effect of fuel/air mixing on actuation authority in 
+an active combustion instability control system,” 
+Journal of Engineering for Gas Turbine and Power, 
+Vol. 123, No. 3 , pp.537-542, 2001.
+[13] C.M. Jones, J.G. Lee and D.A. Santavicca, 
+“Closed-loop active control of combustion instabilities 
+using subharmonic secondary fuel injection,” Journal 
+of Propulsion and Power, Vo.15, No.4, pp. 584-590, 
+1999.
+[14] K. H. Yu, K.J. Wilson, K.C. Shadow, “Active 
+combustion 
+control 
+in 
+a 
+liquid-fueled 
+dump 
+combustor,” AIAA 97-0462, 35th Aerospace Sciences 
+Meeting & Exhibit, Reno, NV, 1997.
+[15] K.R. McManus, U. Vandsburger, C.T. Bowman, 
+“Combustor performance enhancement through direct 
+shear layer excitation,” Combustion and Flame, Vol. 
+82, pp.75-92, 1990.
+[16] J.-Y. Ren, W. Qin, F. N. Egolfopoulos and T.T. 
+Tsotsis, “Strain-rate effects on hydrogen-enhanced lean 
+premixed 
+combustion,”
+Combustion 
+and 
+Flame, 
+Vol.124, pp.717-720, 2001.
+[17] R. W. Schefer, “Hydrogen enrichment for 
+improved lean flame stability,” International Journal of 
+Hydrogen Energy, Vol.23, pp.1131-1141, 2003.
+[18] G.S. Jackson, R. Sai, J.M. Plaia, C.M. Boggs, K.T. 
+Kiger, “Influence of H2 on the response of lean 
+premixed CH4 flames to high strained flows,” 
+Combustion and Flame, Vo.132, pp.503-511, 2003.
+[19] G. J. Rortveit, K. Zepter, O. Skreiberg, M Fossum, 
+J. E. Hustad, “A comparison of low-NOx burners for 
+combustion of methane and hydrogen mixtures,” 
+Proceedings of the Combustion Institute Vol.29, pp. 
+1123-1129. 2002.
+[20] J.R. Maughan, J.H. Bowen, D.H. Cooke and J.J. 
+Tuzcon, “Reducing Gas Turbine Emissions Through 
+Hydrogen-Enhanced 
+Steam-Injected 
+Combustion,” 
+Journal of Engineering for Gas Turbines and Power, 
+Vol.118, pp. 78-85, 1996.
+[21] J.L. Gauducheau, B. Denet, G. Searby, “A 
+Numerical Study of Lean CH4/H2/Air Premixed 
+Flames at High Pressure,” Combustion Science and 
+Technology, Vol.137, pp. 81-99, 1998.
+[22] A. Wachsman, “Experimental verification of 
+model-based control strategies using a backward-facing 
+step combustor,” MS thesis, Massachusetts Institute of 
+Technology, 2003.
+[23] B. Higgins, M. Q. McQuay, F. Lacas, and S. 
+Candel, “An experimental study on the effect of 
+pressure and strain rate on CH chemiluminescence of 
+premixed fuel-lean methane/air flames,” Fuel, Vol.80, 
+pp. 1583-1591, 2001.
+[24] H.N. Najm, O.M. Kino, P.H. Paul and P.S. 
+Wyckoff, “A study of flame observables in premixed 
+methane-air 
+flames,” 
+Combustion 
+Science 
+and 
+Technology , Vol.140, pp.369-403, 1998.
+[25] J. G. Lee, K. Kim, and D. A. Santavicca, 
+“Measurement of Equivalence Ratio Fluctuations and 
+Its 
+Effect 
+on 
+Heat 
+Release 
+During 
+Unstable 
+Combustion,” Proceedings of the Combustion Institute, 
+Vol. 28, 2000.
+[26] S. H. Smith and M. G. Mungal, “Mixing, structure 
+and scaling of the jet in crossflow,” Journal of Fluid 
+Mechanics, Vol. 357, pp. 83-122, 1998
+[27] K. Hanamura, K. Bohda and Y.Miyairi, “A study 
+of 
+super-adiabatic 
+combustion 
+engine,” 
+Energy 
+Conversion and Management, Vol. 38, No. 10-13, 
+pp.1259-1266, 1997.
+[28] A.F. Ghoniem, A.M. Annaswamy, S. Park, Z. C. 
+Sobhani, “Stability and emissions control using air 
+injection and H2 addition in premixed combustion,” 
+Submitted to the 30th International Symposiumon 
+Combustion, 2003.

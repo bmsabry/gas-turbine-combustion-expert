@@ -1,0 +1,1712 @@
+
+--- Page 1 ---
+
+Fiamelet-Based Modeling of NO Formation in Turbulent 
+Hydrogen Jet Diffusion Flames 
+J. P. H. SANDERS,* J.-Y. CHEN, AND I. GOKALP 
+Laboratoire de Combustion et Syst~mes R~acttfs, Centre National de la Recherche Scientifique, 45071 Orldans, 
+Cedex 2, France (J.P.H.S., L G.); Department of Mechanical Engineering, University of California at Berkeley, 
+Berkeley, CA 94720, USA (J.-Y C.) 
+The potential of using the laminar flamelet model for predictions of NO x emissions from turbulent hydrogen 
+jet diffusion flames with various amounts of helium dilution is explored in this study. The flamelet approach 
+treats turbulent flames as an ensemble of laminar flames subject to local fluid dynamic stretch which causes 
+chemical kinetics to deviate from equilibrium. This flame stretch rate can be described as the scalar 
+dissipation rate or as the strain rate. Numerical modeling is performed to assess the merits of these two 
+choices by comparing predicted scaling behavior of NO x emission index with the experimental data of 
+Driscoll and co-workers [1, 2]. The present study reveals that only with the scalar dissipation rate as the 
+nonequilibrium parameter will the predicted NO x emission indices exhibit a clear scaling relation vs the 
+Damkfihler number. The flamelet predictions are found to improve when the Damkibhler number increases. 
+However, the absolute NO x levels are overpredicted, which is attributed to differential diffusion effects. 
+© 1997 by The Combustion Institute 
+INTRODUCTION 
+Regulations on emissions of nitrogen oxides, 
+NOx, from combustion processes are becoming 
+more stringent in many countries in efforts to 
+improve urban air quality. Since most practical 
+burners utilize turbulent flows to enhance the 
+combustion rate, it is important to understand 
+the complex interactions between the turbu- 
+lent flow and the chemical reactions in order 
+to better identify the controlling parameters 
+that lead to reduction in NOx emissions. The 
+amount of NO x emission is conventionally 
+quantified by the NO x emission index EINOx, 
+which is defined as the total mass of NOx 
+emitted per unit mass of fuel burned. In com- 
+bustion processes, most NOx is formed near 
+the reaction zone in the form of nitric oxide, 
+NO. The formation of NO is a relatively slow 
+process compared to the principal combustion 
+reactions. This implies that a large range of 
+chemical time scales, and consequently Dam- 
+k6hler numbers, needs to be properly treated 
+by the turbulent combustion model. The Dam- 
+kiShler number is the ratio between a typical 
+* Corresponding author. 
+COMBUSTION AND FLAME 111:1-15 (1997) 
+© 1997 by The Combustion Institute 
+Published by Elsevier Science Inc. 
+flow time scale and a chemical time scale. 
+Since most turbulent combustion models are 
+developed for a limited regime where the 
+Damk6hler number is either large or small, 
+modeling of turbulent combustion with a large 
+disparity of Damk/Shler numbers is a challeng- 
+ing task. Turbulence-chemistry interactions 
+can be studied most conveniently when chem- 
+istry is relatively simple, as in the case of 
+hydrogen combustion. In hydrogen flames at 
+ambient pressure, NO is formed principally by 
+the thermal Zeldovich mechanism. Prompt NO 
+is not generated, and the combustion reactions 
+are well known [3]. 
+Many experiments have been performed in 
+the past to study the characteristics of NOx 
+emissions from turbulent jet diffusion flames 
+providing the basic understanding of NO x for- 
+mation in turbulent flames; see Refs. [1, 2, 
+4-10] and the review paper by Turns [11]. In 
+particular, 
+the experiments by Chen and 
+Driscoll [1] on free turbulent hydrogen jet 
+flames showed that the EINO x normalized by 
+a flame residence time scales with (UJD) 1/2, 
+which corresponds to a slope of 0.5 on a log-log 
+plot. The flame residence time is defined as 
+r u = Lv3/(D2Uj), 
+where L v is the visible flame length, D is the 
+nozzle diameter, and Uj is the jet exit velocity. 
+0010-2180/97/$17.00 
+PII S0010-2180(97)00094-1 
+
+
+--- Page 2 ---
+
+2 
+J.P.H. 
+SANDERS ET AL. 
+In the present study, plots of EINO x vs the 
+Damk/Shler number Da = ~-u/zc will be com- 
+pared. The characteristic chemical time 7 c can 
+be defined as rNo [12]: 
+[NO]eq 
+"/'NO -- SNO,eq 
+(1) 
+where [NO]eq is the equilibrium NO concen- 
+tration and SNO.e q is the NO production rate 
+at stoichiometry. In the study of Driscoll et al. 
+[2], the range of Damk/Shler numbers based on 
+the NO time scale was varied over four decades 
+by adding various amounts of helium to the 
+fuel. For a given dilution, Da increases with D 
+and it decreases with Uj because the normal- 
+ized flame length Lst/D is approximately con- 
+stant. However, with increasing amount of di- 
+lution, LsJD decreases and rNo increases. 
+These two combined effects cause a large vari- 
+ation in Damk6hler numbers. 
+The scaling behavior of EINO x has been the 
+subject of many modeling studies in the litera- 
+ture. Early theoretical studies of NO formation 
+in turbulent jet diffusion flames were based on 
+the assumption of chemical equilibrium [6, 13, 
+14, 15]. Here, a conserved scalar (e.g., the 
+mixture fraction) is introduced to describe the 
+mixing field. With the equal diffusivity assump- 
+tion, mass fractions of chemical species and 
+the flame temperature are directly related to 
+the conserved scalar. Given the distribution of 
+the conserved scalar, all thermochemical prop- 
+erties can be determined. This fast chemistry 
+approach avoids solving transport equations 
+for mean mass fractions and temperature. 
+These are obtained by using an assumed shape 
+probability density function (PDF) for the mix- 
+ture fraction. The NO mass fraction is ob- 
+tained from its own transport equation in which 
+the source term only depends on the mixture 
+fraction. Past studies showed that the NO x 
+emissions predicted by the fast chemistry model 
+scale linearly with a global flame residence 
+time, which implies a slope of 1. This is not 
+supported by the experiments of Refs. 1, 2, 7, 
+9, 10, 16, 17. 
+Attempts at improving the fast chemistry 
+model have been made by invoking the partial 
+equilibrium assumption for the 
+two-body 
+"shuffle" reactions. The overall chemical pro- 
+gress is controlled by the three-body recombi- 
+nation steps, and it is tracked with a reaction 
+progress variable [18]. The chemical source 
+terms are a function of the mixture fraction 
+and the reaction progress variable. This method 
+generates a slope which is much smaller than 
+0.5 [19]. Apparently, the method is inadequate 
+for describing a large degree of nonequilib- 
+rium. 
+The conditional moment closure (CMC) 
+method does give a slope close to 0.5 [20]. In 
+the 
+CMC method, mean thermochemical 
+quantities conditioned on the mixture fraction 
+are determined for each axial station. Subse- 
+quently, the mean values are computed using 
+an assumed shape PDF. The CMC method has 
+been applied to flames with small departure 
+from equilibrium, but it can be used with a 
+detailed chemical mechanism. The CMC meth- 
+od gives absolute levels of EINOx that are 
+close to the experimental data, except for highly 
+strained flames, where the method underpre- 
+dicts the EINO x. 
+A turbulent combustion model that does not 
+rely on the assumption of high Damk/Shler 
+numbers is the joint PDF transport equation 
+method [21]. A joint PDF of all scalar variables 
+can be solved using a stochastic Monte Carlo 
+method, and the chemical source terms in the 
+transport equations for the mean mass frac- 
+tions are treated without modeling, in contrast 
+to the mixture-fraction-based methods. Due to 
+the large computational cost of the Monte 
+Carlo method, reduced chemistry has to be 
+used. Also, the term describing molecular dif- 
+fusion needs modeling, and current models still 
+pose difficulties when the reaction zone is thin. 
+With this constraint, the PDF method is con- 
+sidered more appropriate for chemistry with a 
+broad reaction zone [22, 23]. Chen and Koll- 
+mann [24] and Chen et al. [12] applied this 
+method to the flames of Chen and DriscoU, 
+and were able to reproduce the measured 0.5 
+slope over the whole range of four decades of 
+the DamkiShler number when a sufficiently ac- 
+curate reduced mechanism was used. The ab- 
+solute EINOx values are overpredicted by a 
+factor of about 2 for high Damk6hler number 
+
+
+--- Page 3 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+3 
+flames, which may be due to radiation heat 
+loss. 
+So far, the potential of using the laminar 
+flamelet method [25, 26] for predicting the 
+EINO x scaling behavior in turbulent jet flames 
+has not been extensively evaluated, In the 
+flamelet method, the turbulent flame is repre- 
+sented by an ensemble of laminar steady-state 
+stretched one-dimensional flames. The flamelet 
+model is assumed to be applicable when 
+Damk6hler numbers are large. Laminar flame 
+calculations with a detailed chemistry are per- 
+formed to generate a flamelet library in which 
+mass fractions and the temperature are given 
+in terms of the mixture fraction and a parame- 
+ter that describes the stretch rate. The stretch 
+rate quantifies the state of nonequilibrium of 
+the flamelet. Two parameters currently are in 
+use to quantify the stretch rate: the scalar 
+dissipation rate and the strain rate. The theo- 
+retically correct parameter is the scalar dissi- 
+pation rate [26]. However, recent studies sug- 
+gest that the strain rate appears to be more 
+appropriate [27-31]. The rationale for using 
+the strain rate, for instance Refs. 27, 30, was 
+that only with this parameter could the lift-off 
+height be predicted with the laminar diffusion 
+flamelet method in turbulent diffusion flames. 
+Mueller et al. [31] included partial premixing 
+in their model, and successfully predicted the 
+lift-off height using the scalar dissipation rate. 
+However, they computed the mean mass frac- 
+tions still using the strain rate as the nonequi- 
+librium parameter. Consequently, the question 
+of which parameter is responsible for nonequi- 
+librium effects, the scalar dissipation rate or 
+the strain rate, is still open, and it is addressed 
+in the present study. 
+To compute the mean NO mass fractions in 
+the turbulent flame, the instantaneous NO 
+source terms from the laminar flamelets can be 
+used. In Ref. 32, it was shown semianalytically 
+that using the strain rate as the nonequilib- 
+rium parameter, the 0.5 slope would not be 
+reproduced with the flamelet method. More- 
+over, using the strain rate, the slope of the 
+curve would increase with respect to the equi- 
+librium value of 1. This was concluded from 
+flow and temperature field similarity in high 
+Reynolds and high Froude number flames in 
+combination with the behavior of the maxi- 
+mum NO production rate as a function of the 
+strain rate in laminar flamelets. In the present 
+study, complete flame calculations are pre- 
+sented in which the scalar dissipation rate, the 
+small eddy strain rate, and the large eddy 
+strain rate are used as the mean nonequilib- 
+rium parameter. Computations are performed 
+for the flames of Driscoll and co-workers [1, 2], 
+who investigated pure and helium diluted hy- 
+drogen flames with various amounts of helium 
+from 20 to 70% by volume. The fuel jet nozzle 
+diameters used were d = 1.6, 2.6, and 3.75 
+mm, and the calculations are done without 
+gravity and radiation effects, which are be- 
+lieved of secondary importance for turbulent 
+hydrogen jet flames at a high Froude number. 
+With these calculations, the effect of choosing 
+different nonequilibrium parameters on the 
+predicted slope of the EINO x curve will be 
+explored. Two types of implementations of the 
+flamelet method are compared: one in which 
+transport equations for the mean mixture frac- 
+tion and its variance are solved, and one in 
+which a PDF transport equation for the mix- 
+ture fraction is solved using the Monte Carlo 
+method. The latter model was used by Chen 
+et al. [12] with the joint PDF approach that 
+reproduces the 0.5 slope, as mentioned earlier. 
+Implementation of the flamelet model into the 
+same stochastic model is useful for comparison 
+with the traditional flamelet model. Such a 
+comparison will indicate whether or not the 
+predicted slope is sensitive to the implementa- 
+tion of the turbulent combustion model. 
+In the next section, the EINOx scaling be- 
+havior in turbulent hydrogen flames is ana- 
+lyzed, and it is related to the characteristics of 
+NO formation in laminar flamelets. From this 
+analysis, it is tentatively concluded that the 
+strain rate would not be the nonequilibrium 
+parameter that is able to reproduce the experi- 
+mental 0.5 slope of EINO x vs Da. Subsequent 
+detailed flame calculations, using the two im- 
+plementations of the flamelet method, are pre- 
+sented to confirm the previous analysis. The 
+impact of differential diffusion effects on the 
+predicted slope and on the absolute value of 
+EINO x is discussed, and finally, the conclu- 
+sions are presented. 
+
+
+--- Page 4 ---
+
+4 
+J.P.H. 
+SANDERS ET AL. 
+ANALYSIS OF THE SCALING BEHAVIOR 
+OF THE EMISSION INDEX 
+The emission index EINO x is conventionally 
+defined as 
+MNO 2 
+EINO x = EINO 
++ EINO 2 
+(2) 
+MNO 
+where M~ are the molecular masses. As NO 2 is 
+produced from NO, it is only necessary to 
+model NO formation in order to determine 
+EINO x from hydrogen flames. The definition 
+of EINO is the total mass of NO produced in 
+the flame per kg of fuel: 
+EINO= 27rD3fTd(D)f°~D~N°d(D) 
+8 
+D 
+1 
+-~ ~pfUjD2~ 
+--I 
+(3) 
+where pf is the density of the nozzle gas (fuel) 
+and Yf is the fuel mass fraction in the fuel 
+stream. Here, the integral I is proportional to 
+I ~ (1/D3)Jff~No dV. The effect of nonequi- 
+librium chemistry is contained in the term ~No. 
+The main contribution to the integral I comes 
+from the region where the mean centerline 
+mixture fraction is near stoichiometric [20, 32]. 
+Therefore, the mean value of the nonequilib- 
+rium parameter in the stoichiometric region 
+determines, to a large extent, the amount of 
+NO formed in the flame. If combustion chem- 
+istry is assumed to be at equilibrium, I is 
+constant when the flames obey Reynolds simi- 
+larity [32]. Similarity only exists without coflow, 
+and if either the Froude number is constant or 
+there is no gravity force. When similarity is 
+established, the profiles of all variables normal- 
+ized by appropriate powers of Uj and D are 
+identical and independent of Uj and D. Hence, 
+assuming similarity and chemical equilibrium, 
+I will be constant. The flames investigated by 
+Chen and Driscoll are believed to satisfy the 
+similarity criteria, but their experiments showed 
+that EINO x ~ (D/Uy) 1/2, and hence, I ~ 
+(UJD) 1/2. This implies that the equilibrium 
+chemistry assumption, in which case I would 
+be constant and EINOx, eq ~ D/Uj, is not valid. 
+Note that the ratio Uj/D can be interpreted as 
+a global flame strain rate. 
+As argued above, the main contribution to I 
+comes from the region where the mean mix- 
+ture fraction is around stoichiometric. This is 
+consistent with the fact that the NO produc- 
+tion rate in each laminar flamelet is maximal 
+around the stoichiometric mixture fraction. 
+Therefore, the integral I is approximately pro- 
+portional to I ~ I~NO, max( ff = (c. st ), where (c,~t 
+is the mean centerline value of the nonequilib- 
+rium parameter at the axial location where the 
+mean mixture fraction is stoichiometric. The 
+question is whether or not this leads to the 
+(experimental) scaling relation I ~ (UJD) 1/z. 
+If ~" is associated with either the mean scalar 
+dissipation rate ef or with the large eddy strain 
+rate e/k, 
+then ~ ~ Uj/D [32]. Therefore, 
+~;NO, max(~ =~(c, st ) needs to be an increasing 
+function of ~c, st, according to the experiments. 
+This implies that 
+l~NO. max(if) should be an 
+increasing function of ~ for values of ff = ~:c, st 
+in the turbulent flames considered here. This is 
+a remarkable constraint since, in general, the 
+NO production rate decreases with increasing 
+strain. This is due to the decrease of tempera- 
+ture with the strain rate in adiabatic flames. 
+However, the NO production rate also de- 
+pends on the oxygen radical concentration 
+which can modify this behavior. In the pure 
+hydrogen-air flamelet library, ~i, No ' max exhibits 
+a maximum at ffmax, as presented in Fig. 1. This 
+maximum is due to the competitive effect be- 
+tween temperature and the oxygen radical con- 
+centration in the most important, rate-limiting, 
+NO-producing reaction N 2 + O --, NO + N: 
+WNO ~ CoCN2 exp(- Ta/T) 
+(4) 
+where C o and CN2 are the oxygen radical and 
+nitrogen molecule concentrations, respectively, 
+and T a is the activation temperature of about 
+38,000 K. The maximum temperature in the 
+flamelets decreases with increasing strain rate. 
+This temperature decrease reduces the NO 
+production substantially at high strain rates 
+due to the high activation temperature. How- 
+ever, as can be seen in Fig. 1, the maximum 
+oxygen radical concentration increases with the 
+
+
+--- Page 5 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+5 
+E 
+I-- 
+3000 
+2500 
+2000 
+1500 
+1000 
+500 
+0 
+1 
+10 
+100 
+1000 
+10000 
+0.10 
+0.08 
+o 
+I 
+>¢ 
+"o 
+t- 
+ml 
+0.06 
+,,, 
+Q 
+4 
+E 
+O.04 
+~ 
+0 
+! 
+0.02 
+~ 
+0.00 
+Strain rate (118) 
+Fig. 1. Maximum NO production rate WNo is kg/m 3, maximum temperature, 
+and O radical mole fraction vs strain rate in pure H2-air flamelets. 
+strain rate; only near extinction does the O 
+atom concentration start to decrease. High 
+oxygen radical concentrations favor NO pro- 
+duction. The dependence of NO production 
+rate on the strain rate is a result of these two 
+competing effects, which lead to a maximum of 
+the NO production rate at ~max as shown in 
+Fig. 1. For pure hydrogen flames, ~max corre- 
+sponds to a value of the strain rate Smax ~" 25 
+s- 1 and a value of the scalar dissipation rate at 
+stoichiometric mixture ;(max = 0.1 s -1. Note 
+that instantaneous values of the scalar dissipa- 
+tion rate are denoted by X, while the mean 
+value is denoted by el. Now, the nonequilib- 
+rium parameter g" needs to be identified. It can 
+be defined either as the scalar dissipation rate 
+or as the strain rate. Subsequently, the mean 
+value of this parameter in the turbulent flame 
+must be specified. The mean strain rate can be 
+determined either by the large eddy strain rate 
+st or by the small eddy strain rate gs. If ~c, st < 
+~max, the integral I will increase with ~, and 
+therefore it will increase with UJD, which is a 
+necessary condition to reproduce the experi- 
+mental trend. Here, fluctuations in ~" are ne- 
+glected for simplicity. In Ref. 32, it was shown 
+that when ~ is assigned as the strain rate, the 
+integral I decreases with UJD, which is oppo- 
+site to the observed trend. This is because all 
+mean strain rates gc, st were larger than the 
+strain rate Smax in the main NO production 
+regions of the flames investigated by Chen and 
+Driscoll. The strain rate and the scalar dissipa- 
+tion rate differ in their scaling behaviors in 
+terms of downstream distance. In a turbulent 
+jet, the strain rate scales as x -z while the 
+scalar dissipation rate scales as x -4. Unlike 
+the strain rate, the mean scalar dissipation rate 
+may decrease well below Xmax in .the main NO 
+production region. Under this condition, I in- 
+creases with El, and therefore it also increases 
+with UJD, 
+as observed experimentally. 
+Whether or not the 0.5 slope can be repro- 
+duced by the flamelet approach will be investi- 
+gated by a series of numerical simulations over 
+seven decades of the Damk6hler number. 
+NUMERICAL MODELS 
+The turbulent flames are computed using two 
+numerical codes, called code A and code B, 
+which differ in the second-order turbulence 
+model and the implementation of the laminar 
+flamelet model. Transport equations for mean 
+velocity, mixture fraction, Reynolds stresses, 
+scalar fluxes, and the kinetic energy dissipation 
+rate are solved for turbulent jet diffusion flames 
+using the parabolic flow assumption. 
+All variables, except the density and pres- 
+sure, are Favre-averaged (mass-weighted) to 
+prevent the appearance of too many density 
+
+
+--- Page 6 ---
+
+6 
+J. P. H. SANDERS ET AL. 
+fluctuation correlation terms. Favre-averaged 
+variables are either denoted by a tilde ~ or 
+simply by capitals. Conventional averages are 
+denoted by the overbar ~. Favre fluctuations 
+are denoted by ~b", while conventional fluctua- 
+tions are indicated by ~b'. The continuity equa- 
+tion is given by 
+O~U 
+10r~V 
++ 
+o 
+(5) 
+Ox 
+r 
+Or 
+where x is the axial distance in the direction of 
+the jet and r is the radial distance. The equa- 
+tion for axial momentum is 
+O} UU 
+1 Or }UV 
+Ox 
+r 
+Or 
+@ 
+1 OrTm"v" 
+Ox 
+r 
+Or 
++ Mol.Dif. 
+(6) 
+where the molecular diffusion term is desig- 
+nated by Mol.Dif. Buoyancy effects are omit- 
+ted, and the mean pressure gradient is as- 
+sumed 0. 
+The mixture fraction F obeys a convection- 
+diffusion equation of the form 
+O~ UF 
+1 Or ~VF 
+- - +  
+Ox 
+r 
+dr 
+1 Or~v"f" 
+r 
+0r 
++ Mol.Dif. 
+(7) 
+The Reynolds stress equations are 
+O 
+_ 
+Oxk ( pUkUiUj) 
+= Pij + Dq + p'( 
+2 
+3 6ij pe 
+ou; 
+ou'; ] 
+8x i + ~ 
+] 
+(8) 
+in which local isotropy in the smallest scales 
+has been assumed to model the dissipation 
+term (last term). The first term on the right- 
+hand-side is the production term due to mean 
+strain, which needs no modeling: 
+-[7 °E 
+) 
+Pij = 
+--plUiUk-- 
+-4- 
+. 
+- -  
+(9) 
+OXk 
+u; k Oxk ." 
+The diffusion (Dq) and pressure strain terms 
+in Eq. 8 need modeling. Equation 8 is solved 
+for u" u", v" v", and u" c". The tangential fluctu- 
+ations w"w" are assumed equal to v"v". Now, 
+the turbulence and combustion models in both 
+codes will be described. 
+Model A 
+The diffusion term in Eq. 8 is modeled as 
+0 
+k ~  
+o~iu j ] 
+o,j = Cs- x ' 
+i,-;,,"..; + 
+--iUx, ] 
+(10) 
+where k is the turbulent kinetic energy per 
+unit mass: 
+k = ~uiu i 
+(11) 
+using the summation convention and v is the 
+molecular kinematic viscosity. 
+The pressure-strain correlation is 
+0u7 ou; ) 
+P'( 
++ 
+= ¢~ij, 1 + ~ij,2" 
+(12) 
+•X i 
+8Xj 
+In code A, the Launder-Reece-Rodi (LRR) 
+model [33] is used for this term. The "return to 
+isotropy" term 4~u, 1 is expressed in the aniso- 
+tropy tensor bu which is defined as 
+It t! 
+u i uj 
+1 
+bij 
+2k 
+3 6ij" 
+(13) 
+The return term thus becomes 
+ehij,1 = - C1 pE2bo. 
+(14) 
+The mean strain, also called the "rapid term," 
+is modeled as 
+6ij,2 
+= -- °l( eij - 2 ~ijP) 
+(]5) 
+where the production P of turbulent kinetic 
+energy is 
+p= , ~Pkk. 
+(16) 
+
+
+--- Page 7 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+7 
+The dissipation rate equation is exactly the 
+same as in the standard k-e model, except for 
+the diffusion term, which in the Reynolds stress 
+model is the same as in Eq. 10 with a coeffi- 
+cient C,,~ instead of C r 
+The scalar turbulence equations are given by 
+,~ 
+,~f" 
+(~U~) = ei + Di + P'-- 
+(17) 
+3x k 
+o~x i 
+with shear production defined as 
+_[~0U/ 
++~ 0FI 
+ei 
+= 
+--p[Ukf 
+CgXk 
+i 
+k'~x k ]" 
+(18) 
+The diffusion term is modeled as 
+,9 
+k~Ouif 
+Oi = Csf 
+P~ u~pku7 
+cgX-----~ " 
+(19) 
+The pressure-scalar gradient correlation is de- 
+fined by 
+3f" 
+P' -- 
+= 
+(~i,1 "}- ~)i, 2 
+Ox~ 
+(20) 
+in which the return term is modeled as 
+~i2i,1 = -Clf~-~u'[f"- C~f~bi~'kf". 
+(21) 
+The mean strain or rapid term is modeled as 
+-- tt 
+11 
+~ tt 
+It 
+4i,2 = 0.8PUkf 
+-- 0.2pUkf -- 
+(22) 
+OXk 
+3Xi 
+From the foregoing, we can deduce the 
+parabolized set of equations in cylindrical co- 
+ordinates where the generalized equation is 
+1± 
+j-~( ~U~b) + r Or (r~V~) 
+_ lr OrO (rP'~O-~¢) 
++seat 
+(23) 
+with S, given in Table 1, P = - ~u" v"( O U/ Or). 
+The model constants used in code A are given 
+in Table 2. 
+The scalar dissipation rate is obtained from 
+the algebraic relationship 
+E, = 2f""~ k 
+(24) 
+TABLE 1 
+Source Terms for the Second-Order Model in Code A in the Generalized Equation 23. The "Turbulent Diffusion" 
+Coefficient D is Cdiff(k/e)v" v". For All Reynolds stresses Cdiff = Cs, for the Scalar Fluxes and the Scalar Variance 
+Cdiff = Csf, and for the Dissipation Rate Col ff = C~, s. 
+Variable 
+$4, 
+U # U # 
+V # U # 
+W # W # 
+U # U n 
+u" f" 
+v"f" 
+f. 2 
+~aU 
+2 
+E ~ 
+2 
+2 
+-2(1 
+- 
+a)7~u"v . . . . .  
+Or 
+3 pE - C 1 p--~(u#u # - 
+-~k) + -~oIP 
+2 
+• ~ 
+2 
+2 
+2C s k 
+. 
+-- -~p~ -- C 1 [)-~(v#u" - -~k) + -~aP - -- 
+-~w"w"(v" v" - w"w") 
+r 2 
+• 
+2 ~E - C 1 ~E-(w"w'~'7 
+2 
+2 
+2C s k 
+........ 
+--3 
+k 
+- a-k)+ 3--aP + 
+r--5--~w•__ w (v v - W# W ") 
+O U 
+• ~ 
+C s k T Jw" w" u" v" 
+-(1 - ot)~v"v .
+.
+.
+.
+.
+.
+.
+.
+.
+.
+ 
+Or - CI Pk u v 
+"7 • 
+~(C,,1P - C¢, 2 pc) 
+OU 
+~ 
+OF 
+• ~ 
+• 
+~ 
+~ 
+~ 
+BU 
+Tw"f" 
+pu"v . . . . .  
+- 
+-~r 
+Or 
+C1;PkU"f" - C~fP-k (buuu'f" + buoY"f") + 0.8~w"f"--0r 
+OV 
+~ 
+OF 
+k 
+w"w" 
+~ 
+~ 
+-~v"f"~r 
+~v"v .... Or 
+Csfp-~--~--v 
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
+ 
+J 
+-- ClfP~V f 
+• 
+~ 
+~ 
+~OU 
+- C' - 
+" b 
+u .......... 
+0.2 ~u" f" -- 
+lfP~[ 
+vu 
+f 
++ bvv v f ) 
+Or 
+OF 
+-2~v"f .... Or P•I 
+
+
+--- Page 8 ---
+
+8 
+J.P.H. 
+SANDERS ET AL. 
+TABLE 2 
+Model Coefficients in the Reynolds Stress Model of Code A. The Constants for the Velocity Turbulence, except C~, are 
+from Ref. 37, and the Constants in the Scalar Turbulence are from Ref. 38. Coefficient C~ has been Adapted to have a 
+Correct Round Jet Spreading Rate, and the Above Values Correspond to "Model RSM II" in Ref. 34. 
+C 1 
+ol 
+C s 
+C~, 1 
+C¢, 2 
+Ce. s 
+C 1 f 
+CII f 
+Cs f 
+2.3 
+0.6 
+0.22 
+1.45 
+1.90 
+0.18 
+5.7 
+- 6.1 
+0.22 
+using a constant time scale ratio of 2 between 
+scalar and mechanical fluctuations [35]. Trans- 
+port equations for Ef have also been imple- 
+mented in code A, but they do not change the 
+predicted slope of the EINO x curve. 
+The Favre-averaged mean of a thermochem- 
+ical variable ~b, such as p, T, Y/, or ~by o (but 
+not I2yo), is obtained by 
+(b = fol df fo~d;~ lS( f , ~ )cb( f , ~ ); 
+(a) 
+1 foldffo'~d~p(f,~)/o(f,~). 
+(25) 
+Here, /5(f, ~-) is the joint PDF of the mixture 
+fraction f and ~" is the stretch rate. The joint 
+PDF P(f, ~) is approximated as P(f)P(~) 
+assuming statistical independence between f 
+and ~'. P(f) is modeled by a /3 function with 
+its two parameters determined by the first two 
+moments of the mixture fraction, namely )¢ and 
+f,,2 both of which are obtained from their 
+respective transport equations. P(~') is as- 
+sumed to have a lognormal distribution when ~" 
+equals the scalar dissipation rate X. Local flame 
+extinction is not considered in code A. Flame 
+extinction is considered unimportant for NOx 
+emissions because the largest contribution to 
+the NO levels comes from the downstream 
+regions where local extinction is not expected. 
+Model B 
+Code B differs from code A in the turbulence 
+model and in the solution algorithm of the 
+mixture fraction field. The turbulence model is 
+also a second-order model, based on the work 
+of Lumley [36], and it is described in Ref. 39. 
+In this model, nondimensional groups consist- 
+ing of the anisotropy tensor and its principal 
+(nonzero) invariants (II and III) and the turbu- 
+lence Reynolds number Re t = 4k2/(9~v) are 
+introduced. Then, the pressure-strain correla- 
+tion is modeled with these variables as param- 
+eters. The principal differences with model A 
+are the following. The coefficient C~ is given 
+by 
+C 1 = 1 + 0.5exp(-7.77/Re//2) 
+(26) 
+[72/Ret 1/2 
++ 62.4(-II + 2.3III))] 
++80.1 In(1 
+× (1/9 + 9II + 27III) 
+(27) 
+with II and III defined as 
+ii = 
+ 
+r(bi,2)) 
+= --ITr(bij 2) = -lbijbji 
+(28) 
+1 (biibjjbkk _ 3biiTr (bij2) 
+III = 
++2Tr(bij3) ) = 2 
+3 
+rr(b,, ) 
+(29) 
+1 
+= -~bijbjkbki 
+where bij 2 = bikbkj and bi9 = bikbklbtj. 
+The rapid term is 
+= 20~Up [X qi 
+6,,,2 
+-gTx , p, + xqj) 
+(30) 
+Here, xqj is split into an isotropic and an 
+anisotropic part with 
+2k 
+gq;,iso = -'~(4~pj~iq 
+- 
+~ip~jq - 
+~pq~jp) 
+(31) 
+( 
+4 
+qi 
+: 
+~iqbpj q_ 
+X, j,a° s 
+Cro 
+ a,,jb q 
+W 
+2k 
++ l_...~(5~pjbi q _ yq.i) 
+(32) 
+
+
+--- Page 9 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+9 
+with 
+Ypq'= t~ipbjq -F t~pqbij -.F t~ijbpq 4- t~jqbip 
+(33) 
+and Cra = 0.55k. 
+The source term $6 in the generalized equa- 
+tion 23 for the dissipation rate e is 
+S~, 
+2k air° -t- a¥1bij---- 
+(34) 
+E dxj 
+with 
+~0 = 2.8 + 0.98exp(-2.83Ret -1/2) 
+× (1 - 0.33 In(1 - 5511)) 
+(35) 
+and ~I't 1 : 
+2.42. 
+For the mixture fraction field, a PDF trans- 
+port equation is solved using a Monte Carlo 
+method. This means that no equations for the 
+mean mixture fraction, mixture fraction vari- 
+ance, or scalar fluxes are solved. In each grid 
+cell, an ensembJe of statistics of the mixture 
+fraction is used to describe the mixing field. 
+The mean scalar dissipation rate is modeled by 
+a transport equation, and its PDF is a lognor- 
+mal distribution. The mean thermochemical 
+variables are determined by 
+1 N. 
+= Nppi=~ ~b(f,-,~ i) 
+(36) 
+where Np is the number of statistical "par- 
+ticles" and ~b(fi, ~i) is obtained using interpo- 
+lation of the data ~b(f, ~) in the flamelet li- 
+brary. 
+Chemistry 
+Despite the many differences in codes A and 
+B, both models are based on second-order 
+moment closure approaches. When combined 
+with a joint scalar PDF approach, code B 
+reproduces the observed 0.5 slope [24]. Substi- 
+tution of the joint scalar PDF model in code B 
+by the flamelet approach allows us to assess 
+the sensitivity of the predicted NO x trend on a 
+different implementation of the turbulent com- 
+bustion model. To this end, the same flamelet 
+library is used in both codes. The flamelet 
+library is generated by calculating opposed pla- 
+nar jet flames at various strain rates using a 
+computer code that is a precursor of Rogg's 
+RUN1DL [40]. The detailed chemical mecha- 
+nism used here is given in Ref. 3. The strain 
+rate is evaluated at the oxidizer side, and the 
+scalar dissipation rate is determined at the 
+stoichiometric point. The latter is defined as 
+g = 2D(af/Oxj)(Of/(gxj) with D being the 
+mixture diffusivity. Chemical equilibrium is 
+used when ff approaches 0. The equilibrium 
+values are obtained using the Chemkin PSR 
+code [41]. Boundary conditions correspond to 
+pure fuel and pure oxidizer, both at T = 300 
+K. This corresponds to the classical flamelet 
+approach [26]. Bish and Dahm [44] consider 
+flamelets with boundary conditions on the rich 
+side that are different from the pure fuel case, 
+in view of the fact that in the far field of a jet 
+flame, no pure fuel at 300 K exists. An alterna- 
+tive would be to take equilibrium values for 
+mass fractions and temperature at the rich side 
+(a mix of fuel and hot products). However, this 
+would be equivalent to the present approach 
+using unity Lewis numbers in the fiamelets. 
+When the scalar dissipation rate in the tur- 
+bulent flame calculations is used as the stretch 
+parameter, the value Xst, i.e., the stoichiomet- 
+ric scalar dissipation rate in the laminar 
+flamelets, corresponds to the instantaneous 
+scalar dissipation rate in the turbulent flame. 
+If, of the other hand, the strain rate is used, 
+the strain rate at the oxidizer side in the lami- 
+nar flamelets is associated with the instanta- 
+neous strain rate in the turbulent flame. 
+RESULTS AND DISCUSSIONS 
+A series of explorat!on runs have been con- 
+ducted to evaluate the differences in the pre- 
+dicted results from the two codes, and a brief 
+discussion is provided here. Unlike code B, 
+local flame extinction is not considered in code 
+A. When local extinction is not incorporated 
+into code B, the predicted emission indices 
+change insignificantly for the 60% helium-di- 
+luted flames in which flame extinction is most 
+likely to occur. This suggests that possible flame 
+extinction has little effect on the predicted 
+NO x emissions under the flame conditions 
+studied by Chen and Driscoll. 
+
+
+--- Page 10 ---
+
+10 
+J.P.H. 
+SANDERS ET AL. 
+The effect of modeling the distribution of 
+the scalar dissipation rate is considered next. 
+Two PDF shapes are explored. The first one 
+simply assumes a delta function at the mean 
+scalar dissipation rate, i.e., there is no fluctua- 
+tion. The second one assumes a lognormal 
+PDF with variance determined by tr = 1. Com- 
+pared to the results obtained with the delta 
+function, the predicted NO~ emissions de- 
+crease by about 14% with code A, and by 4% 
+with code B when the lognormal distribution is 
+used. The predictions with code A with the 
+two PDFs are plotted in Fig. 2. Judging from 
+the differences being less than 15%, we will 
+not include the lognormal distribution in all 
+calculations with code A when performing 
+parametric studies to save time. However, a 
+series of runs, but with limited changes in the 
+parameters, has been conducted using code B 
+with the lognormal distribution, and the results 
+will be compared to those from code A. 
+Emission Index 
+Predictions with the Scalar Dissipation Rate 
+Figure 2 shows the predicted and measured 
+emission indices for all diameters and helium 
+dilutions against the Damk~hler number Da = 
+(Lst/D*)3(D*/UjTNO) where Lst is the "flame 
+length" defined as the axial distance at which 
+the mean mixture fraction is stoichiometric 
+and D* is an effective diameter 
+D* = D~/-pj// pa 
+where pj and Pa are the fuel jet and air 
+density, respectively. The solid line in Fig. 2 
+denotes a fitted correlation, 
+EINO x = 0.139 Da 1/2, 
+based on the measurements by Driscoll and his 
+co-workers [1, 2]. Since only visible flame 
+heights were measured, we have converted the 
+visible flame heights L~. into stoi~chiometric 
+flame heights Lst with the empirical relation- 
+ship LsJL,. = 0.75 from the experimental ob- 
+servation by Barlow and Carter [10]. 
+From the above scaling analysis of EINO x vs 
+DamkiShler number, it was concluded that 
+when equilibrium chemistry is assumed, EINOx 
+scales linearly with Damk6hler number. As 
+seen in the logarithmic plot in Fig. 2, the 
+predictions with equilibrium chemistry using 
+code A for different conditions indeed col- 
+lapse onto one curve with a slope of unity. 
+Next, we consider the slope of EINO x vs 
+Damk6hler number predicted with the flamelet 
+model. If the mean value of the nonequilib- 
+rium parameter near the mean stoichiometric 
+is larger (smaller) than ~'max, the slope will be 
+X 
+0 
+z m 
+U.I 
+500 
+100 
+10 
+0.1 
++++ 
+++ 
+0.01 
+0.001 
+........................... 
+1 
+10 
+100 
+1000 
+Scalar dissipation rate 
+~ 
+o 
+_+ 
+.~.~.A ~ 
+o 
+(39 
+++ + 
+• 
+..~ 
+/\ 2.O ° 
+j~ ~ E q u l l l b r l u m  
+.~:To 
+o'. 
+~
++
+~
+ 
+4s~ ~ 
+++ 
+~ CodeA 
+A A~ 
+A 
+~ 
+• 
+o 
+Code B 
+A A 
+. 
+,. ........ 
++ 
+Code A+pdf 
+• 
+Code A:Le-1 
+• 
+Code B:Le-1 
+Experiments 
+Chen&Drllcoll 
+........ 
+i 
+........ 
+10000 
+100000 
+Dsmkohler number 
+Fig. 2. Emission index vs DamkiShler number, predicted with the scalar dissipation rate. 
+The Damk/Shler number is defined as Da = (L/D*)3(D*/U'rNo ). The solid line is a fit 
+through the measurements of Chen and Driscoll [1]. 
+
+
+--- Page 11 ---
+
+FI_,AMELET-BASED MODELING OF NO FORMATION 
+11 
+greater (smaller) than 1. With the scalar dissi- 
+pation rate as the nonequilibrium parameter, 
+the flamelet predictions using both codes A 
+and B show that the predicted emission in- 
+dices do collapse approximately on one curve 
+as seen in Fig. 2. The predicted slope is smaller 
+than 1 over seven decades of Da numbers. This 
+means that the effect of nonequilibrium chem- 
+istry, when parameterized with the scalar dissi- 
+pation rate, shows the same trend as seen in 
+experiments. Closer examination shows that 
+the predicted slope approaches the experimen- 
+tally observe value of 0.5 for large Da cases, 
+but it increases at low Da conditions. 
+As shown in Fig. 2, the differences between 
+the predictions with codes A and B are rela- 
+tively small. This is remarkable given the many 
+differences between the two codes in turbu- 
+lence modeling, as well as in the implementa- 
+tion of the flamelet model. The differences in 
+the absolute values of EINOx between the 
+flamelet model and the experiments are quite 
+large. Three possible causes are considered 
+here. On possibility is associated with the un- 
+certainty in predicting the scalar dissipation 
+rate. A test calculation with code A is per- 
+formed to study the sensitivity of NO x predic- 
+tion on the scalar dissipation rate. In this cal- 
+culation, the flamelet stretch parameter ff was 
+reduced by a factor of 10, but with the mean 
+scalar dissipation rate kept unchanged in the 
+equation for scalar variance. This decreases 
+EINO~ by a factor of 3, which is still too high 
+compared to the experimental value. This ten- 
+fold decrease in the scalar dissipation rate 
+would lead to significant changes in the pre- 
+dicted scalar variance, which is well predicted. 
+Therefore, changing the scalar dissipation rate 
+alone does not explain the large discrepancy 
+between model predictions and measurements. 
+The second possibility is thermal radiation, 
+which leads to lower flame temperatures and 
+consequently lower NO production rates. A 
+radiation model has been used in code B which 
+uses the optically thin limit approximation, and 
+which therefore gives the upper limit regarding 
+radiation effects. Typical reductions in EINO x 
+for pure and He-diluted hydrogen flames are: 
+48% for a pure flame, 31% for a 20% He 
+flame, and 8% for a 40% He flame. All flames 
+correspond to Barlow and Carter's experiment 
+[10] at D = 3.7 mm and Uj = 297 m/s for the 
+pure and 20% He flames and Uj = 257 m/s for 
+the 40% He flame. According to these upper 
+limits, radiation can only account for a differ- 
+ence of a factor of 2 in EINOx, while a factor 
+of 10 has to be accounted for. The third possi- 
+ble cause is differential diffusion among species 
+and heat, which is known to cause superequi- 
+librium temperatures in laminar hydrogen 
+flames. This is due to the high diffusivity of H 2 
+molecules which leads to a higher diffusion 
+flux of fuel (H 2) to the flame zone compared 
+to a hypothetical case where all diffusivities 
+are equal. However, experiments of turbulent 
+hydrogen jet flames indicate that these differ- 
+ential diffusion effects diminish with axial dis- 
+tance as well as with jet exit velocity [10, 42], 
+and therefore also with the strain rate. The 
+effect of differential diffusion in the flamelet 
+library is nearly invariant with the strain rate, 
+as reported by Vranos et al. [43]. Therefore, at 
+downstream regions, the flamelet model tends 
+to overpredict the effect of differential diffu- 
+sion which can have a profound impact on NO 
+predictions as they are quite sensitive to tem- 
+perature. As suggested by Vranos et al. [43], 
+overprediction of differential diffusion effects 
+is one of the possible reasons for their overpre- 
+diction in NO level of a turbulent jet diffusion 
+flame with a fuel mixture of 31% CH 4 and 
+69% H 2. The effect of differential diffusion on 
+NO production now is investigated parametri- 
+cally by using the assumption of unity Lewis 
+number for all species: Le i = A/pcpDi, mix : I. 
+Here, A is the mixture conductivity, which is 
+taken to be A = AN2. With Lei = 1, all diffu- 
+sion coefficients for all species are equal to a 
+common coefficient ~. To ensure the condi- 
+tion EiY/V/= 0, the diffusion velocity V/ is 
+evaluated using the Fickian expression V~ = 
+-(D/Y~)(dYi/dx). By setting Le i = 1, the dif- 
+fusion flux of H 2 to the flame zone is reduced, 
+which reduces the peak flame temperature and 
+therefore the NO production rate, as pre- 
+sented in Fig. 3. These calculations show that 
+the Le = 1 flamelets also exhibit a local maxi- 
+mum. For the full diffusion flamelets, the scalar 
+dissipation rate at this maximum increases 
+somewhat with increasing dilution, while for 
+the Le = 1 flamelets, it decreases with increas- 
+ing dilution. The pure hydrogen "equal-diffu- 
+
+
+--- Page 12 ---
+
+12 
+J.P.H. 
+SANDERS ET AL. 
+sivity" flamelets extinguish at a strain rate of 
+Sq ~ 15 x 10 3 s -1, which is slightly higher than 
+the value obtained for full diffusion flamelets: 
+Sq = 14 × 10 3 S -1. The corresponding scalar 
+dissipation rates are Xq "= 130 s -1 and Xq ~ 85 
+s 1, respectively. The higher extinction values 
+of the strain rate and the scalar dissipation 
+rate for the case Le = 1 require some explana- 
+tions since the fuel flux towards the flame zone 
+is reduced by the Le = 1 assumption. As the 
+mixture conductivity was set equal to that of 
+pure nitrogen, which is lower than that when 
+H: contributions were included, less heat is 
+transferred away from the flame zone, and 
+therefore flame stability is enhanced. 
+The maximum value of Wrqo, max in the equal 
+diffusivity flamelets is lower than in the full 
+diffusion cases for all dilutions considered. This 
+will have a profound impact on the absolute 
+NO level in turbulent flames. Indeed, in Fig. 2, 
+the predictions using the equal diffusivity 
+flamelets show lower absolute EINO x levels 
+closer to the experimental data than the full 
+diffusion flamelet runs. This same trend is pre- 
+dicted by both codes A and B. Again, the 
+slope is close to 0.5 for large DamkiShler num- 
+bers and higher for lower DamkiShler numbers. 
+However, predicted results for different dilu- 
+tions appear to collapse on their own branches 
+instead of forming one single curve as sug- 
+gested by the experimental data. 
+Predictions with the Strain Rate 
+Although it has been shown analytically in Ref. 
+32 that the experimental 0.5 slope would not 
+be predicted when the strain rate is used as the 
+nonequilibrium parameter, in this section, this 
+statement is verified by performing detailed 
+flame calculations. The small eddy and the 
+large eddy strain rates are defined as 
+ss = 0.071 -e tl/2 
+[ 
+gt = 6Elk 
+(37) 
+u] 
+' 
+\ 
+where v is the kinematic viscosity. The coef- 
+ficients in these expressions are taken from 
+Ref. 30 where they were determined from 
+computations of turbulent lifted methane dif- 
+fusion flames. Fluctuations of the strain rate 
+are neglected, and the mean values given in 
+Eq. 37 are associated with the strain rate at the 
+oxidizer side of the laminar flamelets. So in 
+each grid cell, the mean strain rate determines 
+which single flamelet is used to compute the 
+mean thermochemical variables. The com- 
+E 
+0 
+Z 
+0.1 
+0.01 
+0.001 
+0.0001 
+104 
+-
+-
+ 
+Full diffusion 
+Incr,~r,-qinn 
+................ Le=l 
+dilution 
+.....i 
+,, .... ,,, 
+10-4 
+lO-S 
+10"= 
+10-1 
+10 0 
+101 
+10 = 
+10 s 
+Scalar dissipation rate (1Is) 
+Fig. 3. Maximum NO production rate WNO in kg/m 3 vs scalar dissipation rate Xmax in 
+pure and diluted (0, 20, 40, and 60% He), H2/He-air flamelets predicted with full 
+diffusion (solid lines) and with Le i = 1 (dashed lines). The curves are in descending 
+order with increasing helium content. 
+
+
+--- Page 13 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+13 
+puted emission indices with the small and large 
+eddy strain rates are shown in Figs. 4 and 5, 
+respectively. The predicted slopes with both 
+strain rates are larger than 1, consistent with 
+the conclusions of Ref. 32. Moreover, the pre- 
+dicted data do not fall on one curve; every 
+branch corresponds to a different helium dilu- 
+tion. There are two major differences between 
+the characteristics of the flamelets parameter- 
+ized by the scalar dissipation rate and by the 
+strain rate. First, the strain rate decays with 
+downstream distance as x -2, while the scalar 
+dissipation rate decays as x -4. As the flame 
+length becomes shorter with increasing dilu- 
+tion, the mean scalar dissipation rate and the 
+strain rate in the main NO production region 
+vary differently with increasing dilution. The 
+second difference is that the extinction values 
+of the scalar dissipation rate increase with in- 
+creasing dilution, while the values of the strain 
+rate at extinction decrease with increasing di- 
+lution. This was also observed in Ref. 30; how- 
+ever, extinction has little impact on NOx, and 
+the second difference is probably not impor- 
+tant to NOx emissions. 
+Bray and Peters [27] argued that the scalar 
+fluctuations the flamelet is subjected to are on 
+the order of the flame thickness squared (A f) 2. 
+The effective mean scalar dissipation rate on 
+the flamelets is then E/--2(2fst)2e/k, using 
+A f--2fs t. Predictions of code A with this 
+model for the pure hydrogen flames are shown 
+in Fig. 5. The results are close to the predic- 
+tions using the large eddy strain rate, as in Eq. 
+37, showing a slope larger than 1. 
+A different type of flamelet model for turbu- 
+lent combustion is the strained dissipation and 
+reaction layer (SDRL) model proposed by Bish 
+and Dahm [44]. In the SDRL model, chemical 
+reactions are assumed to take place in locally 
+one-dimensional strained dissipation layers. 
+The mathematical formulation of the model is 
+analogous to the classical flamelet model, ex- 
+cept for the boundary values in the flamelets 
+which do not correspond to pure fuel or pure 
+air. This leads to a four-dimensional flamelet 
+library with the mixture fraction, the strain 
+rate, and the two boundary conditions as pa- 
+rameters. Distinct features in the SDRL model 
+are its description of the strain rate through 
+the scalar dissipation rate and the use of local 
+maximum and minimum mixture fractions. To 
+explore this alternative for prescribing the 
+strain rate under the current modeling frame- 
+work, we set the strain rate as g = E//~ 2, and 
+the flamelet boundary conditions are set by the 
+X 
+0 
+Z [] 
+5000 
+1000 
+100 
+10 
+1 
+0.1 
+0.01 
+0.001 
+0.0001 
+10-1 
+Small eddy strain rate 
+Code A 
+~ 
+v~v[] 
+........ 
+i 
+........ 
+i 
+, 
+, 
+.,,,,,k 
+. . . . . .  
+,,i 
+101 
+10 2 
+10 8 
+10 4 
+........ 
+i 
+10 0 
+0% He 
+20% Ha 
+40% He 
+60% He 
+Blsh&Dahm 
+Experimental 
+Chen&Drieooll 
+10 s 
+10 a 
+Damkohler number 
+Fig. 4. Emission index vs DamkiShler number, predicted with the small eddy strain 
+rate. Predictions with the simplified model of Bish and Dahm [44] are also included. 
+The helium dilution and the nozzle diameter (in mm) are indicated. See also legend of 
+Fig. 2. 
+
+
+--- Page 14 ---
+
+14 
+J.P.H. SANDERS ET AL. 
+5000 
+x 
+0 z 
+1000 
+1 O0 
+10 
+1 
+0.1 
+0.01 
+0.001 ~- 
+10 o 
+Large eddy strain rate 
+~ 
+Code A 
+~ []o~ ~ 
+v W~ O ~  ~
+'
+~
+~
+H
+ 
+e 
+v 
+40% He 
+,e 
+• 
+• 
+60% He 
+t 
+• 
+• 
+Bray&Peter,, 
+-- 
+Experiments 
+Chen&Drlscoll 
+= 
+, 
+i~,l=ll 
+= 
+J 
+, 
+i:ll,I 
+, 
+, 
+, 
+r=,,,i 
+i 
+i 
+, 
+=J,,=i 
+, 
+, 
+L 
+,,=,, 
+101 
+10 = 
+10 g 
+104 
+106 
+Dsmkohlet number 
+Fig. 5. Emission index vs DamkiShler number, predicted with the large eddy strain 
+rate. Predictions with the simplified model given by Bray and Peters [27] are also 
+included. See also legend of Fig. 2. 
+centerline value and zero. In Fig. 4, the com- 
+puted results with such a strain rate prescrip- 
+tion show a slope of about -0.05. Since this 
+implementation is not exactly the same as the 
+SDRL model, future research is needed to 
+assess the potential of SDRL in predicting 
+NO x emissions from turbulent jet diffusion 
+flames. 
+CONCLUSIONS 
+The present study on flamelet modeling re- 
+veals that when the nonequilibrium parameter 
+is assigned by the scalar dissipation rate, the 
+predicted EINO x vs Da curves collapse onto 
+one curve, as observed in the experiments of 
+Chen and Driscoll [1]. Although the model 
+overpredicts the NO x emission levels, the pre- 
+dicted slope of EINOx vs Da on a logarithmic 
+plot is close to the experimental value of 0.5 at 
+large Da numbers. The flamelet predictions 
+start to deviate from the 0.5 slope for, small 
+Damk6hler numbers, consistent with the no- 
+tion that the flamelet approach is appropriate 
+for high DamkiShler number turbulent flames. 
+The overpredicted NO x levels are likely at- 
+tributed to the overpredicted differential dif- 
+fusion effect by the flamelet model. This has 
+been shown by artificially setting all diffusitivi- 
+ties equal to a common value based on unity 
+Lewis number. This lowered the absolute 
+EINOx significantly, while preserving an ap- 
+proximately correct slope for large Damk~Shler 
+numbers. Different dilutions, however, seem to 
+generate different branches, which is not in 
+agreement with the experiments. More re- 
+search is needed to understand the implica- 
+tions and utility of setting Le = 1 in the 
+flamelets. 
+Using the small-scale or the large-scale strain 
+rate as the nonequilibrium parameter gives 
+much too high values for the slope, and more- 
+over, the predicted results do not collapse onto 
+one curve. When compared to other turbulent 
+combustion methods that reproduce the exper- 
+imental 0.5 slope, the current flamelet model 
+gives the largest deviation regarding absolute 
+EINO x values. This has been shown to be 
+caused by the differential diffusion effects, 
+which will be investigated in more detail in 
+future work. 
+The French Ministry of Foreign Affairs is grate- 
+fully acknowledged for the postdoctoral fellow- 
+ship of Hans Sanders. 
+REFERENCES 
+1. Chen, R.-H., and Driscoll, J. F., Twenty-Third Sympo- 
+sium (International) on Combustion, The Combustion 
+Institute, Pittsburgh, 1990, p. 281. 
+
+
+--- Page 15 ---
+
+FLAMELET-BASED MODELING OF NO FORMATION 
+15 
+2. Driscoll, J. F., Chen, R.-H., and Yoon, Y., Combust. 
+Flame 88:37 (1992). 
+3. Peters, N., and Rogg, B., Eds., Reduced Kinetic Mech- 
+anisms for Applications in Combustion Systems, 
+Springer, Berlin, 1993. 
+4. Bilger, R. W., and Beck, R. E., Fifteenth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, Pittsburgh, 1974, p. 541. 
+5. Lavoie, G. A., and Schlader, A. F., Combust. Sci. 
+Technol. 8:215 (1974). 
+6. Peters, N., and Donnerhack, S., Eighteenth Sympo- 
+sium (International) on Combustion, The Combustion 
+Institute, Pittsburgh, 1981, p. 33. 
+7. Turns, S. R., and Lovett, J. A., Combust. Sci. Technol. 
+66:233 (1989). 
+8. Turns, S. R., and Myhr, F. H., Combust. Flame 87:319 
+(1991). 
+9. Turns, S. R., Myhr, F. H., Bandaru, R. V., and Maund, 
+E., Combust. Flame 93:255 (1993). 
+10. Barlow, R. S., and Carter, C. D., Combust. Flame 
+97:261 (1994). 
+11. Turns, S. R., ProgressEn. Combust. Sci. 21:361 (1995). 
+12. Chen, J.-Y. Chang, W.-C., and Koszykowski, M., 
+Combust. Sci. Technol. 110:505 (1996). 
+13. Bilger, R. W., Combust. Flame 26:115 (1976). 
+14. Peters, N., Combust. Sci. Technol. 19:39 (1978). 
+15. Janicka, J., and Peters, N., Combust. Sci. Technol. 
+22:93 (1980). 
+16. Kent, J. H., and Biiger, R. W., Fourteenth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, 1973; p. 615. 
+17. Drake, M. C., Correa, S. M., Pitz, R. W., Shyy, W., 
+and Fenimore, C. P., Combust. Flame 69:347 (1987). 
+18. Janicka, J., and KoUmann, W., Seventeenth Sympo- 
+sium (International) on Combustion, The Combustion 
+Institute, Pittsburgh, 1992, p. 421. 
+19. Chen, C. S., Chang, K. C., and Chen, J.-Y., Combust. 
+Flame 98:375 (1994). 
+20. Smith, N. S. A., Bilger, R. W., and Chen, J.-Y., 
+Twenty-Fourth Symposium (International) on Combus- 
+tion, The Combustion Institute, Pittsburgh, 1992, p. 
+263. 
+21. Pope, S. B., Progress En. Combust. Sci. 11:119 (1985). 
+22. Chen, J.-Y., and Kollmarm, W., Mixing Models for 
+Turbulent Flows with Exothermic Reactions. Turbulent 
+Shear Flows, 7, Springer-Verlag, Berlin Heidelberg, 
+1991, p. 277. 
+23. Peters, N., in Numerical Approaches to Combustion 
+Modeling (E. S. Oran and J. P. Boris, Eds.), Progress 
+in Astronautics and Aeronautics, vol. 135, 1991. 
+24. Chen, J.-Y., and Kollmann, W., Combust. Flame 
+88:397 (1992). 
+25. Liew, S. K., Bray, K. N. C., and Moss, J. B., Combust. 
+Flame 56:199 (1984). 
+26. Peters, N., Twenty-First Symposium (International) on 
+Combustion, The Combustion Institute, Pittsburgh, 
+1986, p. 1231. 
+27. Bray, K. N. C., and Peters, N., in Turbulent Reacting 
+Flows (P. A. Libby and F. A. Williams, Eds.), Aca- 
+demic Press, 1993, p. 63. 
+28. Bradley, D., Gaskell, P. H., and Lau, A. K. C., 
+Twenty-Third Symposium (International) on Combus- 
+tion, The Combustion Institute, Pittsburgh, 1990, p. 
+685. 
+29. Fairweather, M., Jones, W. P., Lindstedt, R. P., and 
+Marquis, A. J., Combust. Flame 84:361 (1991). 
+30. Sanders, J. P. H., and Lamers, A. P. G. G., Combust. 
+Flame 96:22 (1994). 
+31. Miiller, C. M., Breitenbach, H., and Peters, N., 
+Twenty-Fifth Symposium (International) on Combus- 
+t/on, The Combustion Institute, Pittsburgh, 1994, p. 
+1099. 
+32. Sanders, J. P. H., and G6kalp, I., Proceedings of 8th 
+International Symposium on Transport Phenomena in 
+Combustion, San Francisco, CA, 1995, Taylor and 
+Francis, 1996, p. 286. 
+33. Launder, B. E., Reece, G. J., and Rodi, W., J. Fluid 
+Mech. 68:537 (1975). 
+34. Sanders, J. P. H., Sarh, B., and G6kalp, I., Int. J. 
+Heat Mass Transfer 40:823 (1997). 
+35. Beguier, C. Dekeyser, I., and Launder, B. E., Phys. 
+Fluids 21:307 (1978). 
+36. Lumley, J. L., Adv. Appl. Mech. 18:123 (1978). 
+37. el Baz, A., Craft, T. J., Ince, N. Z., and Launder, 
+B. E., Int. J. Heat and Fluid Flow 14:165 (1993). 
+38. Gibson, M. M., and Launder, B. E., J~ Fluid Mech. 
+86:491 (1978). 
+39. Chen, J.-Y., Combust. Flame 69:1 (1987). 
+40. Rogg, B., Run-IDL: A Computer Program for Simu- 
+lation of One-Dimensional Chemically Reacting 
+Flows, Cambridge University Report CUED/A- 
+THERMO/TR39, 1992. 
+41. Glarborg, P., Kee, R. J., Grcar, J. F., and Miller, J. A., 
+PSR: A FORTRAN Program for Modelling Well- 
+Stirred Reactors, SAND86-8209, 1986. 
+42. Meier, W., Vyrodov, A. O., Bergmann, V., and 
+Stricker, W., Appl. Phys. B 63:79 (1996). 
+43. Vranos, A., Knight, B. A., Proscia, W. M., Chiapetta, 
+L and Smooke, M. D., Twenty-Fourth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, 1992, p. 377. 
+44. Bish, E. S., and Dahm, W. J. A., Combust Flame 
+100:457, (1995). 
+Received 21 June 1996; revised 7 November 1996; accepted 
+12 December 1996 

@@ -1,0 +1,1094 @@
+
+--- Page 1 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+1
+Acoustic Sensing and Mitigation of Lean Blow Out in 
+Premixed Flames 
+Shashvat Prakash*, Suraj Nair†, T. M. Muruganandam†, Yedidia Neumeier‡, 
+Tim Lieuwen§, Jerry Seitzman** and Ben T. Zinn†† 
+Georgia Institute of Technology, Atlanta, GA, 30332-0150 
+This paper describes a method for detecting and preventing lean blow out (LBO) in a 
+premixed, swirl stabilized combustor.  The acoustic signal is filtered to detect localized 
+extinction ‘events’, which increase in frequency as the flame equivalence ratio, φ, approaches 
+the LBO limit, φLBO.  As the flame becomes leaner, φLBO can be effectively shifted to lower 
+equivalence ratios by redirecting a fraction of the total fuel into a central, premixed pilot.  
+This actuation can increase the equivalence ratio in the stabilization region at a constant 
+power setting and counter the flame lift associated with LBO.  The resulting control system 
+maintains lean flame stability in the presence of flow fluctuations.  The combustor can 
+therefore operate with an improved safety margin at lower temperatures and less NOx 
+(nitrous oxides) emissions. 
+Nomenclature 
+LBO 
+= lean blow out 
+φ 
+= flame equivalence ratio, i.e. ratio of flame fuel air ratio to the stoichiometric fuel air ratio 
+φLBO 
+= equivalence ratio at lean blow out limit 
+τ1sec 
+= number of threshold crossings over the previous 1 second (moving window summation) 
+τ1sec, LBO 
+= number of threshold crossings per second at the LBO limit 
+I. 
+Introduction 
+EAN, premixed combustion presents a method to burn fuel at lower temperatures and reduce NOx (nitrous 
+oxides) emissions.  However, with such approaches lies the inherent risk of lean blow out (LBO) as combustors 
+are made to operate near their LBO limit (φLBO).  When sufficiently lean flames are subject to power setting changes, 
+flow disturbances, or variations in fuel composition, the resulting equivalence ratio perturbations may cause loss of 
+combustion.  Such a blowout could cause loss of power and expensive down times in stationary turbines.  In aircraft 
+engines, a blowout could result in engine loss during critical military maneuvers or approach and landing phases in 
+flight.  To avoid such scenarios, current systems are typically operated at sufficiently rich conditions and over-
+conservatively schedule changes in load and/or operating conditions.  These techniques provide greater safety 
+margins but result in high temperature flames (with higher NOx) and restrict the rate at which settings can be 
+adjusted.  Thus, there is a need for more optimum LBO mitigation approaches that would both reduce emissions and 
+increase efficiency without compromising safety over the whole range of the engine’s operating conditions. 
+ 
+Effective LBO mitigation techniques are required to satisfy emissions and efficiency criteria while allowing for 
+safe, lean operation of a flame subject to unanticipated flow disturbances.  This requires sensing, in real time, the 
+probability of LBO and actuating to prevent LBO.  The sensing and actuation must be part of a capable, coherent 
+control system which can stabilize the flame for a variety of operating conditions and disturbances. 
+This paper presents an LBO mitigation control scheme replete with actuation and sensing approaches.  The 
+objective is to stabilize a lean premixed flame by increasing the safety margin – i.e. the difference between φ and 
+                                                           
+* Graduate Research Assistant, School of Mechanical Engineering, 0405, AIAA Student Member. 
+† Graduate Research Assistant, School of Aerospace Engineering, 0150, AIAA Student Member. 
+‡ Adjunct Professor, School of Aerospace Engineering, 0150, AIAA Member. 
+§ Assistant Professor, School of Aerospace Engineering, 0150, AIAA Member. 
+** Associate Professor, School of Aerospace Engineering, 0150, AIAA Associate Fellow. 
+†† Regents Professor, Schools of Aerospace and Mechanical Engineering, 0150, AIAA Fellow. 
+L 
+Copyright © 2005 by S. Prakash, S. Nair , T. Muruganandam, Y. Neumeier, T. 
+Lieuwen , J. Seitzman  and B.  Zinn. Published by the AIAA, Inc. with permission. 
+AIAA 2005-1420 
+43rd Aerospace Sciences Meeting, Reno, NV, Jan. 2005 
+ 
+
+
+--- Page 2 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+2
+φLBO for a given operating condition.  In this study, we investigate filtering the acoustic signal to detect LBO 
+precursors and provide a measure of real time LBO probability.  A valve actuator is employed to redistribute the 
+injected fuel between the main swirl injector and a premixed, pilot injector that supplies fuel to the flame 
+stabilization region. The objective of the mitigation scheme is to allow for safe, lean operation of a flame in the 
+presence of disturbances that are excited in the system as the LBO limit is approached. 
+II. 
+Background 
+Lean blow out precursors, which occur in sufficiently lean flames and manifest as flow and combustion 
+variations, have been studied by Nicholson and Field1 and Chao et al.2.  These studies observed large scale, low 
+frequency flame pulsations and periodic detachment of the flame from its flame holder near the LBO limit.  These 
+LBO precursors were determined to consist of brief, 
+localized extinguishment ‘events’ which last from a 
+few short cycles up to several seconds. 
+LBO precursors were used by Muruganandam et. 
+al.3 to determine the proximity of LBO.  As the flame 
+became leaner, the frequency of the extinguishment 
+events increased.  The study examined both optical 
+OH chemiluminescence and acoustical signals as 
+methods to detect precursors; events were manifest as 
+‘dips’ in the OH chemiluminescence signal and 
+threshold crossings of a statistically normalized 
+acoustic signal.  The investigation noted that the low 
+frequency (10 Hz - 200 Hz) power content of both the 
+acoustic (Figure 1) and optical OH signals increased as 
+the flame became leaner.  Muruganandam et. al. 
+postulated that this increase in low frequency power 
+was due to a combination of localized extinction time 
+scales (of the order of 10 ms) and the mean time 
+between such events (of the order of 1s).  Both time 
+scales increased to their upper limits as the flame 
+approached its LBO limit.  Although the study presented a method for detecting LBO precursors from the acoustic 
+signal, the statistical methods employed involved computing the signal standard deviation over a set time scale.  
+This procedure imposed delays which made the method unsuitable for real time active control implementation, and 
+it was suggested by the authors that optical sensing of ‘dips’ is ‘faster’ than the statistical acoustic based sensing. 
+Other acoustic LBO precursor sensing methods have been pursued as well.  Nair and Lieuwen4 demonstrated 
+that when LBO precursors are present, the acoustic signal exhibits a repeated pattern, which can be extracted with a 
+wavelet whose shape resembles that of the ‘event’. This approach was also unsuitable, however, for real time LBO 
+detection due to the excessive computation time involved. 
+Control of lean flames has been previously pursued as a means for NOx reduction. Nakae et. al.5 demonstrated 
+low NOx operation in a lean, premixed, prevaporized  (LPP) combustor where the equivalence ratio was varied 
+based on CO emissions feedback. The controller varied the air distribution in the combustion chamber by 
+modulating the air flow through an inlet downstream of the injection plane.  Although emissions feedback provided 
+a failsafe estimate of equivalence ratio, gathering emissions data is a slow process which severely limits control 
+capabilities due to the delay involved. 
+Higher speed LBO mitigation was demonstrated by Muruganandam et al.6 using optical, OH-based, sensing and 
+fuel split ratio actuation which distributed the fuel between a swirler and a central, premixed pilot.  The optical 
+signal was compared with a threshold to detect and count ‘dips’.  The dip frequency over a one second moving 
+window was used to determine whether to increment actuation.  Fuel was redistributed from the annular swirler to a 
+central port, maintaining overall combustor equivalence ratio (φ) but increasing the equivalence ratio in the 
+stabilization zones.   
+This paper describes a study that was undertaken to investigate whether acoustic sensing can be effectively used 
+in LBO control and, thus, provide an alternative to optical sensing. Specifically, this study investigated whether 
+acoustic sensing could sense, in real time, LBO precursors for active control implementation. 
+10
+-1
+10
+0
+10
+1
+10
+2
+10
+3
+10
+-6
+10
+-5
+10
+-4
+10
+-3
+10
+-2
+10
+-1
+Frequency [Hz]
+Acoustic PSD [arb. units]
+φ = 0.81
+φ = 0.75
+φ = 0.748
+Figure 1. Fourier spectra of the acoustic signal from a 
+premixed flame at varying equivalence ratios. 
+
+
+--- Page 3 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+3
+III. 
+Experimental Setup 
+The experiments were performed on a setup intended to 
+serve as a simple simulator of a lean, premixed gas turbine 
+combustor that includes a swirling premixer section.  The 
+intention was to study the nature of lean blow out and LBO 
+precursors. 
+The atmospheric pressure combustor consisted of a 
+cylindrical quartz tube with a 70 mm inner diameter and 190 
+mm in length (Figure 2).  An annular opening at the base of 
+the tube supplied a swirling, combustible mixture of fuel 
+(CH4) and air into the combustor and a secondary stream of 
+combustible, richer air-fuel mixture, was supplied through a 
+pilot at the center of the injection plane. 
+A valve manifold governed the proportions of total fuel 
+that were directed to the main (annular) and pilot ports (Figure 
+3). The manifold consisted of ten Asco Scientific solenoid 
+valves with a response time of 20 ms.  The valves were driven 
+from a control computer running QNX real time operating 
+system with a Power DAQ I/O board running at 2 kHz.  
+Generally, all the fuel and air were supplied to the 
+combustor through the annular supply ring. When LBO 
+precursors were detected, the valve manifold redirected a 
+portion of the total fuel that depended upon the amount of 
+actuation required into the center pilot port. During testing, the 
+air supply rate was externally perturbed by the operator to 
+simulate disturbances. 
+Acoustic oscillations were measured with a calibrated, 
+Bruel and Kjaer type 4191 condenser microphone that has a 
+flat frequency response up to 40 kHz. The microphone was 
+located ~61 cm from the combustor exit at ~90o from the flow 
+axis. Since the flame noise exhibited little directivity, the 
+results demonstrated weak dependence upon the microphone 
+location. The principal exception to this occurred when the 
+microphone was placed in the combustion chamber exhaust. In 
+this case, hydrodynamic pressure fluctuations 
+substantially increased background noise levels.  
+For analysis, all sensing and control signals were 
+fed into a 12 bit National Instruments A/D board 
+connected to a computer running LabVIEW.  
+IV. 
+Flame Structure 
+The combustor geometry allowed for various 
+flame configurations as the operating conditions 
+varied.   Several flame transitions were especially 
+noted as air flow into the combustor was gradually 
+increased, affecting velocity and equivalence ratio 
+throughout the combustion region. 
+At sufficiently high equivalence ratios, two 
+flames were visible in the combustor; a primary 
+flame with a ‘v-shaped’ base centered near the 
+swirlers and a secondary torus-shaped flame in the 
+dump region around the primary flame’s base. At 
+lower equivalence ratios, such as those immediately 
+above blowout, only the primary flame remained.  
+When the flame transitioned between the two flame 
+0
+5
+10
+15
+0
+0.5
+1
+Optic OH
+0
+5
+10
+15
+-20
+0
+20
+Acoustic (Pa)
+0
+5
+10
+15
+-10
+0
+10
+Filt. Acoustic (Pa)
+Time (ms)
+Extinction 
+Reignition 
+Threshold Crossing (Alarm)
+ 
+Figure 4. Anatomy of an extinction event, as captured by 
+OH chemiluminescence (top), acoustic (middle), and 
+bandpass filtered acoustic, 10.6 Hz to 95.5 Hz (bottom). 
+ 
+FLAME
+VALVE
+CH4
+MIC
+PILOT
+MAIN
+ACOUSTIC
+PROCESSING AND CONTROL
+AIR
+FLAME
+VALVE
+CH4
+MIC
+PILOT
+MAIN
+ACOUSTIC
+PROCESSING AND CONTROL
+AIR
+ 
+Figure 3. Schematic of fluid and signal flow. 
+Main mixture
+Dump 
+region
+Hot 
+walls
+Central pre-
+injection pilot
+Swirlers
+Main mixture
+Dump 
+region
+Hot 
+walls
+Central pre-
+injection pilot
+Swirlers
+ 
+ 
+Figure 2. A schematic of the utilized combustor.
+
+
+--- Page 4 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+4
+and single flame modes, the secondary flame pulsed, vanishing and reappearing at random intervals.  When the 
+secondary flame existed the primary flame was situated lower in the tube, most likely due to the extra heat and 
+radicals generated by the secondary flame.  Likewise, when there was no secondary flame, the primary flame shifted 
+higher.  Near LBO, the single primary flame would lift even higher and also exhibit large scale pulsations, of the 
+same type observed in earlier studies1,2. 
+V. 
+Sensing 
+Although previous LBO mitigation schemes have employed optical chemiluminescence to detect precursors, 
+acoustic methods offer several advantages.  Many land based gas turbines are already instrumented with dynamic 
+pressure transducers, which can be easily installed and 
+shielded in a harsh engine environment.  Furthermore, 
+unlike optical methods, acoustic sensors are not 
+subject to field of view limitations, i.e. they can sense 
+attributes of the entire combustion region. 
+A. Acoustic Signal 
+Analysis of acoustic emissions provides means for 
+detecting transient flame holding events because they 
+are proportional to the temporal rate of change of heat 
+release. Since combustion noise is generated by the 
+unsteady expansion of reacting gases, the acoustic 
+emissions of turbulent flames are dominated by 
+unsteady heat release7 processes (as opposed to flow 
+noise) that excite acoustic waves over a broad range of 
+frequencies, typically between ~10 Hz – 25 kHz8. 
+Thus, acoustic measurements can be used to detect 
+either global changes in heat release rate or 
+fluctuations in heat release at certain time scales by 
+measuring 
+their 
+acoustic 
+emissions 
+in 
+the 
+corresponding frequency bands.   
+Earlier studies3 have determined that as a lean 
+flame approaches its LBO limit, the frequency of 
+localized extinction – reignition “events” increases 
+and that such events typically last from 10-15 
+milliseconds. An optical sensor sensing such an event 
+will detect an abrupt drop in OH chemiluminescence 
+during the extinction phase followed by a sharp 
+increase during reignition (Figure 4, top plot). On the 
+other hand, the acoustic signal’s amplitude slightly 
+increases 
+during 
+extinction, 
+but 
+with 
+reduced 
+amplitude fluctuation and the reignition phase is 
+distinguished by a sudden “appearance” of a large 
+amplitude oscillation as the flame deficient region is 
+reignited with a noticeable ‘pop’ (Figure 4, middle 
+plot). As the flame becomes leaner, the extinction 
+regions may grow larger, and event durations may 
+become longer. 
+Prior studies of acoustic sensing of extinction 
+events have investigated the statistical kurtosis3 and 
+wavelet analysis4 approaches. It was noted that while these methods can capably detect extinction events, they 
+require excessive computation cycles and would not be suitable for use in real time control.  
+B. Filtering Scheme 
+It has been determined3 that localized extinction events boost the low frequency (10 Hz – 200 Hz) content of the 
+acoustic signal. By selectively filtering the excited frequencies, precursor ‘signatures’ could be extracted from the 
+10
+-2
+10
+0
+10
+2
+10
+4
+-350
+-300
+-250
+-200
+-150
+-100
+-50
+0
+50
+Frequency (Hz)
+Magnitude (dB)
+5.30 Hz - 47.7 Hz
+10.6 Hz - 95.5 Hz
+21.2 Hz - 191 Hz
+Figure 6. Magnitude plot of the bandpass filters used 
+to detect precursor events. 
+0.7
+0.71
+0.72
+0.73
+0.74
+0.75
+0.76
+0.77
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Equiv. Ratio Φ
+τ1sec / τ1sec,LBO
+5.305 - 47.75 Hz
+10.61 - 95.49 Hz
+21.22 - 191 Hz  
+0.7
+0.71
+0.72
+0.73
+0.74
+0.75
+0.76
+0.77
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+Equiv. Ratio Φ
+τ1sec / τ1sec,LBO
+5.305 - 47.75 Hz
+10.61 - 95.49 Hz
+21.22 - 191 Hz  
+ 
+Figure 5. Dependence of the number of threshold 
+crossings (alarms) per second (τ1sec) normalized with 
+the number of alarms at LBO (τ1sec,LBO) upon the filter 
+frequency range and equivalence ratio (φ). 
+
+
+--- Page 5 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+5
+acoustic signal, thereby attenuating noise from 
+combustion and flow processes. To study this 
+method, the measured acoustic data were 
+analyzed by three different bandpass filters. The 
+filters were Butterworth 8th order (4th order high 
+pass and 4th order low pass) with center 
+frequencies of 15.9, 31.8 and 63.7 Hz and a 
+bandpass ratio of 3 (Figure 6).  These filters 
+spanned 5.30-47.7, 10.6-95.5 and 21.2–191 Hz. 
+frequency ranges, respectively. 
+The filtered signal was compared with a 
+threshold set at 4σ, where σ is the standard 
+deviation of the absolute value of the acoustic 
+signal from a flame with equivalence ratio 0.75.  
+When the signal exceeded the threshold, an alarm 
+was counted.  With this criterion, the dependence 
+of the average number of threshold crossings (or 
+“alarms”) per second (τ1sec), normalized by the 
+corresponding value of crossings at LBO, upon 
+the equivalence ratio was determined (Figure 5). 
+Figure 5 shows that while the low frequency filter 
+exhibited the greatest overall (relative) increase in 
+alarm ratio, the rate of increase did not become 
+significant until the equivalence ratio was below 
+0.72. The middle frequency filter (10.6 – 95.5 Hz) was comparatively more linear and also exhibited a large increase 
+in alarm ratio over the equivalence ratio range. The bottom plot of Figure 4 shows how an acoustic signal passed 
+through this filter (10.6-95.5 Hz) behaves during an event cycle. The extinction and reignition phases combined last 
+approximately 15 ms, corresponding to a 66.67 Hz event ‘cycle’.  Since this frequency lies within the range allowed 
+by the employed bandpass filter, a threshold crossing occurs in the filtered signal. 
+C. Sensing Performance 
+A bandpass filtered acoustic signal, by 
+allowing only frequencies associated with LBO 
+precursors, should, in amplitude, reflect a 
+flame’s proximity to its LBO limit.  The 
+resulting signal should provide a reliable 
+measurement on which to base LBO mitigation 
+control response. 
+Results of the effect of varying the air flow 
+rate to the combustor are shown in Figure 8.  
+The top plot shows the equivalence ratio 
+variation over time, and the middle plot 
+displays the bandpass filtered acoustic signal.  
+The 
+threshold 
+crossing 
+frequency 
+was 
+computed in a moving window summation.  
+The ‘alarms per second’ value (τ1sec) was 
+computed at a given time instant by summing 
+the total threshold crossings over the previous 1 
+second.  This parameter is displayed in bottom 
+plot of Figure 8. 
+Generally, the frequency of threshold 
+crossings (events) increases as the flame 
+approaches its LBO limit and vice versa.  
+However, there is an intermediary increase in the events per second as the secondary flame in the recirculation zone 
+also exhibits LBO precursors.  After the secondary flame extinguishes (below an equivalence ratio of approx. 0.75) 
+the relationship between events per second and equivalence ratio becomes linear again. 
+0.68
+0.7
+0.72
+0.74
+0.76
+0.78
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Equiv. Ratio Φ
+Alarms per Second (τ1sec)
+0% Pilot
+10% Pilot
+15% Pilot
+20% Pilot
+Shifting LBO Limit
+0
+10
+15
+20
+0.68
+0.7
+0.72
+0.74
+0.76
+0.78
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Equiv. Ratio Φ
+Alarms per Second (τ1sec)
+0% Pilot
+10% Pilot
+15% Pilot
+20% Pilot
+Shifting LBO Limit
+0
+10
+15
+20
+Figure 7. Effect of pilot fraction on the LBO limit, as 
+determined by acoustic based sensing. Increasing the 
+fraction of fuel directed to the pilot effectively shifts the LBO 
+0
+10
+20
+30
+40
+50
+60
+0.7
+0.75
+0.8
+Equiv. Ratio
+0
+10
+20
+30
+40
+50
+60
+-1
+0
+1
+Filt. Acoustic
+0
+10
+20
+30
+40
+50
+60
+0
+50
+100
+τ1sec
+Time, sec
+0
+10
+20
+30
+40
+50
+60
+0.7
+0.75
+0.8
+Equiv. Ratio
+0
+10
+20
+30
+40
+50
+60
+-1
+0
+1
+Filt. Acoustic
+0
+10
+20
+30
+40
+50
+60
+0
+50
+100
+0
+10
+20
+30
+40
+50
+60
+0.7
+0.75
+0.8
+Equiv. Ratio
+0
+10
+20
+30
+40
+50
+60
+-1
+0
+1
+Filt. Acoustic
+0
+10
+20
+30
+40
+50
+60
+0
+50
+100
+τ1sec
+Time, sec
+Figure 8. Characteristics 
+of 
+an 
+unpiloted 
+flame 
+undergoing equivalence ratio variations over time. The 
+equivalence ratio is shown in the top plot and the bandpass 
+filtered acoustic signal (10.61 to 95.49 Hz) with thresholds 
+is shown in the middle plot. The bottom plot displays the 
+total events over the past 1 second. 
+
+
+--- Page 6 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+6
+The results indicate that, below a certain equivalence ratio, the threshold crossings increase linearly with 
+proximity to the LBO limit, causing the events per second signal to mirror the time dependence of he equivalence 
+ratio.  The events per second signal can now be used as a basis of mitigation techniques that sense the onset of LBO 
+and improve safety margin. 
+VI. 
+Control 
+A viable LBO mitigation control approach should incorporate sensing and actuation in a coherent system that 
+capably stabilizes a lean flame subject to equivalence ratio variations.  The control scheme must provide actuation 
+when the flame approaches its LBO limit and reduce actuation when the number of precursors subsides.  The 
+scheme must ensure that the actuation can capably improve safety margin for a given equivalence ratio, and that the 
+commanded actuation is just large enough to ensure proper safety margin. 
+A.  Actuation 
+The objective of actuation is to counter the lift and detachment mechanism associated with LBO without 
+increasing the input power.  Muruganandam et al.6 have shown that redistributing part of the fuel in a premixed swirl 
+stabilized combustor to a central premixed pilot can effectively shift the LBO limit to lower equivalence ratios.  As 
+the lean flame lifts from the flame holding device, an increase of the equivalence ratio at the central flame 
+stabilization region reattaches the flame. When the pilot is activated, the total fuel flow supplied to the combustor 
+remains constant. 
+The LBO control experiments of this study were conducted on the same apparatus as in the referenced 
+studies3,4,6. The objective of this study was to determine whether acoustic sensing methods could also be used to 
+detect LBO precursors and stabilize a combustor operating near the LBO limit. Figure 7 presents some of the results 
+of this study.  It shows that increasing pilot fraction shifts the LBO limit to a lower equivalence ratio and also 
+decreases the number of alarms detected, indicating that the flame has become more stable. 
+The threshold crossing parameter (τ1sec) may be further considered as an overall gauge of flame stability, as LBO 
+occurs, regardless of pilot, at approximately the same alarm frequency (65-75 alarms per second). 
+Although piloting at a fixed equivalence ratio 
+increases NOx (nitrous oxides) emissions by creating 
+a localized region of high temperature, it enables 
+operation at leaner equivalence ratio where overall 
+NOx emissions are at a minimum.  Furthermore, for a 
+given safety margin (i.e. the difference between 
+operating 
+and 
+LBO 
+equivalence 
+ratios), 
+Muruganandam et. al.6 have shown that the pilot-
+stabilized combustor produces less NOx than the 
+unpiloted combustor. Hence, we require a control 
+algorithm which maintains safety margin (during lean 
+operation) across a range of power settings. 
+B. Control Algorithm 
+The control algorithm is tuned to move the system 
+gradually towards a no pilot (minimum NOx) 
+operation while allowing for rapid corrections when 
+excessive precursors are detected.  This requires two 
+logic modes (Figure 9): one for steadily decreasing the 
+valve parameter (i.e. pilot fraction) and one for rapid 
+increase in case excessive precursors are detected.  
+The number of events per second was described above 
+as a method for gauging a flame’s proximity to its LBO limit, and it was also described above how a filtered 
+acoustic signal will exhibit a ‘spike’ during the reignition phase of an event.   The control algorithm counts the 
+number of signal spikes over a fixed time window and, if the sum is greater than a prescribed limit, corrective 
+measures are taken (piloting is increased).  If no threshold crossings occur over a set time period, the pilot fraction is 
+incrementally decreased. 
+To minimize the effect of noise, two thresholds are employed to detect acoustic signal spikes.  The ‘start’ of an 
+event is declared if the signal crosses above the higher threshold and the ‘end’ is declared once it returns below the 
+No
+Yes
+Below LOW
+Threshold?
+Declare Start of Event:
+•Reset TIMER
+•Declare Alarm
+Alarm Limit
+Reached?
+Yes
+Acoustic 
+Signal
+Increment
+Valve PWM
+Event 
+Declared?
+No
+No
+Yes
+Yes
+No
+•Decrement Valve PWM
+•Reset TIMER
+TIMER
+Elapsed?
+Yes
+No
+No
+Yes
+Declare End
+of Event
+Event 
+Declared?
+Below HIGH
+Threshold?
+No
+Yes
+Below LOW
+Threshold?
+Declare Start of Event:
+•Reset TIMER
+•Declare Alarm
+Alarm Limit
+Reached?
+Yes
+Signal
+Increment
+Valve PWM
+Event 
+Declared?
+No
+No
+Yes
+Yes
+No
+•Decrement Valve PWM
+•Reset TIMER
+TIMER
+Elapsed?
+Yes
+No
+No
+Yes
+Declare End
+of Event
+Event 
+Declared?
+Below HIGH
+Threshold?
+No
+Yes
+Below LOW
+Threshold?
+Declare Start of Event:
+•Reset TIMER
+•Declare Alarm
+Alarm Limit
+Reached?
+Yes
+Acoustic 
+Signal
+Increment
+Valve PWM
+Event 
+Declared?
+No
+No
+Yes
+Yes
+No
+•Decrement Valve PWM
+•Reset TIMER
+TIMER
+Elapsed?
+Yes
+No
+No
+Yes
+Declare End
+of Event
+Event 
+Declared?
+Below HIGH
+Threshold?
+No
+Yes
+Below LOW
+Threshold?
+Declare Start of Event:
+•Reset TIMER
+•Declare Alarm
+Alarm Limit
+Reached?
+Yes
+Signal
+Increment
+Valve PWM
+Event 
+Declared?
+No
+No
+Yes
+Yes
+No
+•Decrement Valve PWM
+•Reset TIMER
+TIMER
+Elapsed?
+Yes
+No
+No
+Yes
+Declare End
+of Event
+Event 
+Declared?
+Below HIGH
+Threshold?
+Figure 9. Flow chart of control algorithm 
+
+
+--- Page 7 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+7
+lower threshold.  This dual threshold technique minimizes false alarms, especially for the case where signal noise 
+near a single threshold can result in erroneously detected crossings.  
+Actuation is commanded in increments of 1/10 of a valve, over a total of 10 valves.  Fractionally open valves are 
+operated in pulse width modulation (PWM) mode at 20Hz with a duty cycle corresponding to the commanded 
+fraction plus the valve response time of 20ms, with a maximum duty cycle of 50%.  Commanded fractions greater 
+than 50% were distributed among two PWM valves to prevent response delays from interfering with performance.  
+C. Control Results 
+The control system should adequately sense precursors, actuate to improve safety margin, and reduce the 
+probability of LBO for a desired equivalence ratio setting.  To investigate the performance of the control system, the 
+air flow to the combustor was varied over time 
+manually to test the control system response to 
+external disturbances. 
+Figure 10 shows the time dependence of 
+various parameters associated with the control 
+system’s response to varying air flow rate.  The top 
+plot shows how the equivalence ratio varies as air 
+flow changes with time.  The next two plots are the 
+filtered acoustic signal and the alarm count signal.  
+As the filtered acoustic signal crosses thresholds, 
+alarms are counted.  The alarm sum over a previous 
+1 second window is the overall alarm level (τ1sec), 
+which determines the actuation (valve counts, 
+bottom plot of Figure 10).  Valve counts are given 
+in whole numbers from 0 to 1000, with 1000 
+corresponding to 10 valves open and 20% pilot fuel 
+fraction.  Each 100 counts correspond to a fully 
+open valve, and the remainder fractions are sent as 
+pulse width modulation (PWM) commands to the 
+next valve or valves. 
+The results show that as valves are opened to 
+increase the pilot fuel split, the alarms subside.  This 
+indicates the flame was made more stable (i.e., 
+safety margin increased) as a result of the actuation.  
+Also evident are the two logic modes.  When 
+excessive alarms are detected, the actuation rises 
+rapidly.  In contrast, as the flame becomes richer, actuation declines at a steady rate. 
+The control system has thus been shown to capably detect the onset of LBO and command the appropriate 
+actuation only when necessary.  Piloting can now be utilized to operate a flame closer to its LBO limit and reduce 
+emissions. 
+VII. 
+Conclusion 
+A viable control system was developed for LBO mitigation, thus allowing for lean operation at lower 
+temperatures and lower NOx emissions.  The acoustic signal was used to detect LBO precursor ’events’ by taking 
+into consideration that leaner flames emit more acoustic power at low frequencies (<200 Hz). This low frequency 
+rise is mainly the result of an increasing number of localized extinction-reignition ‘events’. 
+The study showed that these events are amplified in an acoustic signal bandpassed from 10.6-95.5 Hz.  The 
+filtered signal can be compared with a double threshold (for noise rejection) to determine the frequency of threshold 
+crossings.  The alarms per second parameter (t1sec) summed the total threshold crossings over the previous 1 second 
+in a moving window.  It was further determined that τ1sec is a reliable gauge of flame stability, regardless of piloting 
+conditions.  
+This study also verified that splitting the total fuel between a swirling, premixed annual port and a central, 
+premixed pilot in increasing pilot fractions can improve safety margin by shifting φLBO to leaner values.  Although 
+NOx at a given equivalence ratio increases with pilot, piloting enables safe operation at lower equivalence ratios, 
+0
+10
+20
+30
+40
+60
+0.7
+0.75
+0.8
+Equiv. Ratio
+0
+10
+20
+30
+40
+60
+-1
+0
+1
+Filt. Acoustic
+0
+10
+20
+30
+40
+60
+0
+50
+100
+τ1sec
+0
+10
+20
+30
+40
+60
+0
+500
+1000
+Valve Counts
+Time, sec
+50
+50
+50
+50 Threshold 
+for alarms
+Threshold 
+for 
+actuation
+Unpiloted
+LBO Limit
+0
+10
+20
+30
+40
+60
+0.7
+0.75
+0.8
+Equiv. Ratio
+0
+10
+20
+30
+40
+60
+-1
+0
+1
+Filt. Acoustic
+0
+10
+20
+30
+40
+60
+0
+50
+100
+τ1sec
+0
+10
+20
+30
+40
+60
+0
+500
+1000
+Valve Counts
+Time, sec
+50
+50
+50
+50 Threshold 
+for alarms
+Threshold 
+for 
+actuation
+Unpiloted
+LBO Limit
+Figure 10. 
+Results from varying the air flow rate to the 
+combustor.  The top plot shows the equivalence ratio 
+variation, the second plot shows the filtered acoustic signal 
+with thresholds, the third plot shows the number of 
+threshold crossings over the past 1 second, and the bottom 
+plot displays the valve actuation, with 1000 corresponding 
+to 20% pilot. 
+
+
+--- Page 8 ---
+
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+8
+thereby minimizing overall NOx6.  Hence, the need for comprehensive control strategies which provide actuation 
+only to improve safety margin when needed to allow for overall lean, low NOx combustion. 
+An LBO mitigation control strategy was developed with two logic branches.  One branch allowed for rapid pilot 
+response to decreasing equivalent ratio, while the other branch, in the absence of precursors, gradually reduced pilot 
+fraction to minimize NOx.  The resulting system was shown to stabilize a flame driven to a level leaner than its 
+unpiloted LBO limit. 
+The described technique can allow for lean, low NOx combustor operation with a nominally reduced safety 
+margin.  The control system can boost safety margin (by increasing the fraction of total fuel sent to the pilot) as 
+needed when flame disturbances are present, and reduce this actuation when it is no longer needed. 
+Acknowledgments 
+This work was supported by a grant from NASA Ames Research Center (NAG 2-1488), Dr. L. Fletcher, 
+technical monitor. 
+References 
+                                                           
+1 Nicholson, H., and Field, J., “Some Experimental Techniques in for the Investigation of Mechanism of Flame 
+Stabilization in the Wakes of Bluff Bodies”, Third Combustion Institute Symposium, 1951. 
+2 Chao, Y.C., Chang, Y.L., Wu, C.Y., and Cheng, T.S., “An Experimental Investigation of the Blowout Process of a 
+Jet Flame”, Twenty Eighth Combustion Institute Symposium, 1976. 
+3 Muruganandam, T.M., Nair, S., Neumeier, Y., Lieuwen T., and Seitzman, J. M., “Optical and Acoustic Sensing of 
+Lean Blow Out Precursors”, AIAA 2002-3732, Joint Propulsion Conference, Indianapolis, IN July 7-10, 2002. 
+4 Nair, S., and Lieuwen, T., “Acoustic Detection of Imminent Blowout in Pilot and Swirl Stabilized Combustors”, 
+GT 2003-38074, Proceedings of ASME/IGTI Turbo Expo 2003 Atlanta, Georgia, June 16-19, 2003. 
+5 Nakae, T., Tamugi, A., Minemura, A., Ikawa, H., and Yoshida, M., “Combustion Control for Low NOx 
+Combustor”, AIAA 2002-3726, 38th AIAA/ASME/ASEE joint Propulsion Conference & Exhibit, Indianapolis, IN, 7-
+10 July, 2002. 
+6 Muruganandam, T. M., Nair, S., Prakash, S., Scarborough, D., Neumeier, Y., Lieuwen, T., Jagoda, J., Seitzman, J., 
+and Zinn, B., “An Active Control System for LBO Margin Reduction in Turbine Engines”,   AIAA 2003-1008, 41st 
+Aerospace Sciences Meeting & Exhibit, Reno, NV, January 6-9, 2003. 
+7 Strahle, W., “On Combustion Generated Noise”, Journal of Fluid Mechanics, Vol. 49(2), 1971, pp. 399-414. 
+8 Kotake, S., and Takamoto, K., “Combustion Noise: Effects of the Velocity Turbulence of Unburned Mixture”, 
+Journal of Sound and Vibration, Vol. 139, 1990, pp. 9-20. 

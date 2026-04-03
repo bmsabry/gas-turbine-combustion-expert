@@ -1,0 +1,791 @@
+
+--- Page 1 ---
+
+Numerical study for enhancement of laminar ﬂow mixing
+using multiple conﬁned jets in a micro-can combustor
+Peter L. Woodﬁeld a,1, Kazuyoshi Nakabe b,2, Kenjiro Suzuki a,*
+a Heat Transfer Laboratory, Department of Mechanical Engineering, Kyoto University, 4-6-1 Komaba,
+Meguro-ku, Kyoto 606-8501, Japan
+b Applied Energy Science Laboratory, Department of Energy System Engineering, Osaka Prefecture University,
+Sakai, Osaka 599-8531, Japan
+Received 27 September 2002; received in revised form 28 November 2002
+Abstract
+To meet demands arising as a result of present trends towards miniaturization, an innovative design for promoting
+mixing enhancement in a miniature can combustor is investigated using an unstructured ﬁnite-volume technique. A
+multi-holed baﬄe plate is employed to create a ring of oxidizer jets surrounding a single fuel jet in parallel with the axis
+of the cylindrical chamber. The baﬄe plate is found to produce a dramatic improvement to the mixing performance
+when compared with simpler co-axial jet cases. Relatively small changes in geometry are found to have a major in-
+ﬂuence on mixing for laminar isothermal ﬂow.
+ 2003 Elsevier Science Ltd. All rights reserved.
+1. Introduction
+As a result of the present global trend towards min-
+iaturization, increasingly more attention is being given
+to the behavior of ﬂows at low Reynolds number [1–5].
+For mini-scaled combustion systems one of the key is-
+sues is the mixing of fuel and oxidizer streams or the
+mixing of incoming reactants with high temperature
+gases resident in the combustor. To realize a practical
+device for this situation, it is necessary to ﬁnd a method
+for enhancing mixing within miniature chambers.
+The challenge to rapidly mix or entrain ﬂuids at low
+Reynolds number has been a source of innovation in the
+open literature. It has been shown that crossing two
+laminar jets at a small angle can aid mixing by invoking
+a transition to turbulent ﬂow and can hence improve the
+performance of a miniature jet pump [6]. Directly op-
+posed jets have been proposed for small combustors and
+in the design of low Reynolds number mixers for reac-
+tion injection molding (RIM) [7,8]. Acoustic excitation
+of jets at low Reynolds number [6] oﬀers another rela-
+tively unexplored means of achieving higher mixing rates
+by inducing an early transition to turbulent ﬂow. In the
+present study a new solution to this problem is presented
+whereby convective mixing enhancement is achieved
+through the introduction of a multi-holed baﬄe plate in
+a cylindrical can combustor as shown in Fig. 1.
+The present investigation is a part of a much larger
+project to develop a combustor for a micro-gas turbine
+(MGT) to be used within a distributed hybrid solid
+oxide fuel-cell/MGT energy generation system [1]. Al-
+though the authors primarily are interested in the per-
+formance of the above design for turbulent ﬂow at low
+Re, this paper focuses on the laminar regime which may
+be applicable during the start-up phase of the system
+and for applications where size limitations necessitate
+laminar ﬂow (for example Ref. [2]). In addition, the
+laminar study provides valuable insight into the con-
+vective mixing process associated with this design with-
+out the additional complication due to turbulence. The
+present work extends the previous work of the authors
+* Corresponding author. Tel.: +81-75-753-5250; fax: +81-75-
+753-5851.
+E-mail
+addresses:
+peter@htlab.mbox.media.kyoto-u.ac.jp
+(P.L. Woodﬁeld), nakabe@energy.osakafu-u.ac.jp (K. Nak-
+abe), ksuzuki@mech.kyoto-u.ac.jp (K. Suzuki).
+1 Tel.: +81-75-753-5218; fax: +81-75-753-5251.
+2 Tel.: +81-72-254-9224 (oﬀ.); fax: +81-72-254-9905 (admin.
+oﬀ.).
+0017-9310/03/$ - see front matter  2003 Elsevier Science Ltd. All rights reserved.
+doi:10.1016/S0017-9310(03)00014-0
+International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+www.elsevier.com/locate/ijhmt
+
+
+--- Page 2 ---
+
+[3] to include the region upstream of the baﬄe plate
+within the calculation domain and to investigate more
+thoroughly the mixing performance of the device for a
+wider range of possible conﬁgurations of the holes.
+In order to separate the eﬀects of chemical reaction
+from those of convective mixing, but yet include the
+mixing of two diﬀerent chemical species, fuel and oxi-
+dizer, the ﬂow investigated is taken to be non-reacting,
+isothermal and of constant density. This allows the
+energy equation to be decoupled from the system.
+Although only constant property cases are considered
+in the present work, the mathematical and numerical
+formulations allow for straight forward extension to
+variable property problems.
+2. Mathematical model
+2.1. Governing equations
+Eqs. (1) and (2) show unsteady mass and momentum
+conservation equations for incompressible ﬂow.
+oðqujÞ
+oxj
+¼ 0
+ð1Þ
+oðquiÞ
+ot
+þ o
+oxj
+ðqujuiÞ ¼  op
+oxi
+þ o
+oxj
+l oui
+oxj
+
+
+ð2Þ
+Eq. (3) represents species conservation where n is the
+mass fraction of gas originating in the primary (fuel)
+stream and rn is the Schmidt number, here taken to be
+0.7.
+oðqnÞ
+ot
+þ o
+oxj
+ðqujnÞ ¼ o
+oxj
+l
+rn
+on
+oxj
+
+
+ð3Þ
+2.2. Generalized form
+Using the divergence theorem, Eqs. (2) and (3) can be
+expressed conveniently in integral form for an arbitrary
+control volume as given in Eq. (4).
+Z Z Z
+Vol
+oðq/Þ
+ot
+
+
+dv þ
+Z Z
+Surf
+ðquj/njÞds
+¼
+Z Z
+Surf
+C o/
+oxj
+nj
+
+
+ds þ
+Z Z Z
+Vol
+ðbð/ÞÞdv
+ð4Þ
+3. Numerical method
+To accurately handle the complex geometry shown in
+Fig. 1, a vertex-centered unstructured ﬁnite-volume
+method is employed to discretize Eq. (4) over the com-
+putational domain. The computer code used in the
+simulation was written by the ﬁrst author and full details
+of the method are given elsewhere [5]. For clarity of the
+discussion the main features of the code are summarized
+in the following.
+Nomenclature
+bð/Þ
+source term
+Bi
+ith component of unit vector in direction I–
+J in Fig. 2
+c
+mid-point of line I–J
+D
+diameter
+Nu
+Nusselt number
+p
+pressure
+Re
+Reynolds number, qUD=l
+~SðcÞ
+vector representing all facets of the control
+volume connected to point c
+Si
+ith component of the vector SðCÞ
+U
+mean velocity over cross-section
+ui
+ith component of velocity
+xi
+Cartesian coordinate
+X
+locally rotated Cartesian coordinate aligned
+with edge direction
+x
+Cartesian coordinate ð¼ x1Þ
+y
+Cartesian coordinate ð¼ x2Þ
+z
+Cartesian coordinate ð¼ x3Þ
+Greek symbols
+C
+diﬀusion coeﬃcient
+DðIJÞ
+distance from point I to point J
+l
+dynamic viscosity
+n
+mixture fraction
+q
+density
+r
+Schmidt number
+/
+dependent variable
+Fig. 1. Chosen design for investigation.
+2656
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+
+
+--- Page 3 ---
+
+3.1. Deﬁnition of control volume for integration
+The computational domain is constructed entirely of
+hexahedrons with the unknowns being solved at the
+vertices. The median dual of the hexahedral mesh deﬁnes
+the control volumes surrounding each vertex as is shown
+for a typical case in Fig. 2.
+The geometry shown in Fig. 2 is neatly summarized
+in the computer program as a set of three component
+vectors, assuming that the value of any variable or
+property interpolated to the mid-point of a line con-
+necting the grid point I to its neighbor J is represen-
+tative for all facets of the control volume which have a
+corner at c. Only one vector, ~SðcÞ is required for each
+edge as is shown for edge I–J in Fig. 2. ~SðcÞ equals the
+sum of the facet-area vectors for all facets of the control
+volume which have a corner at c (where a facet-area
+vector is deﬁned as a vector normal to the facet having a
+magnitude equal to the area of the facet [5]).
+3.2. Treatment of convection terms
+The convection term in Eq. (4) is discretized as given
+in Eq. (5) where for the control volume surrounding a
+single point I, the summation includes all edges con-
+necting I to neighboring points J.
+Z Z
+Surf
+quj/nj ds 
+X
+NIneighbors
+qjC/jC~ujC ~SðCÞ
+ð5Þ
+To determine /jC in Eq. (5) both the value of / and its
+gradient at the upstream end of the line I–J are used in
+the interpolation. For example, if I is the upwind point,
+/jC is given by Eq. (6) where uppercase X denotes the
+direction I–J.
+/jC ¼ /jI þ DðIJÞ
+2
+	
+o/
+oX
+
+
+I
+ð6Þ
+The gradient of / at the grid point I is approximated
+using a numerical discretization of the divergence theo-
+rem with a linear interpolation to the edge mid-point as
+given in Eq. (7).
+o/
+oxi
+
+I
+
+1
+VolðIÞ
+X
+NIneighbors
+1
+2 ð/jI
+ 
+þ /jJÞSijC
+!
+ð7Þ
+In this equation, SijC is the ith component of the
+vector, ~SðcÞ, shown in Fig. 2 and VolðIÞ is the volume of
+the control volume surrounding the point I.
+In order to prevent non-physical grid related over-
+shoots appearing in the solution as a result of the
+second-order upwind interpolation, the criteria for pre-
+serving boundedness given by Gaskell and Lau [9] are
+implemented in the same manner as the previous work
+of the authors [5]. Thus, to show that the slope has been
+controlled by a limiter an over-bar is included in Eq. (6).
+The remaining parameter to be determined in Eq. (5)
+at c is the volumetric ﬂow rate, ðujSjÞjC. To avoid
+odd–even decoupling of the pressure ﬁeld due to the co-
+located grid, a variation of the pressure adjusted inter-
+polation originally proposed by Rhie and Chow [10] is
+employed in the present work.
+3.3. Treatment of diﬀusion terms
+The diﬀusion terms appearing in Eq. (4) are ap-
+proximated using Eq. (8).
+Z Z
+Surf
+C o/
+oxj
+nj
+
+
+ds 
+X
+NIneighbors
+CjC
+o/
+oxj
+
+C
+SjjC
+ð8Þ
+In Eq. (8) a linear interpolation is used for Cjc and the
+gradient of / is determined using Eq. (9).
+o/
+oxi
+
+C
+ /jJ  /jI
+DðIJÞ
+Bi þ 1
+2
+o/
+oxi
+
+I
+
+þ o/
+oxi
+
+J
+
+ 1
+2
+o/
+oxj
+
+
+I
+þ o/
+oxj
+
+J
+
+BjBi
+ð9Þ
+3.4. Pressure and velocity coupling
+To couple the momentum and continuity equations,
+the pressure algorithm, SIMPLE [11], is adapted for the
+co-located grid and whole system is solved iteratively.
+Fig. 2. Three-dimensional median-dual control volume for a
+typical grid point I (c is the mid-point of the line I–J; a and
+b are face centers and d is the center of the hexahedron).
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+2657
+
+
+--- Page 4 ---
+
+4. Computational domain, grids and boundary conditions
+Fig. 3 gives the details of the computational domain
+and Table 1 the geometry and ﬂow conditions for the
+base case in this study. As can be seen in Table 1, the
+domain extends one diameter upstream of the baﬄe
+plate where uniform velocity proﬁles are assumed. Non-
+slip boundary condition is applied to all walls and sur-
+faces of the baﬄe plate. A zero normal gradient
+boundary condition is assumed at the exit which from
+Table 1 is located 15 diameters downstream of the baﬄe
+plate.
+Reynolds number, ReD is based on the can diameter
+and the mean velocity over the cross-sectional area
+of the can. It should be emphasized that all cases con-
+sidered have the same mass ratio of fuel and oxidizer
+streams so that comparisons of the mixing ﬁelds show
+directly the performance of the baﬄe plate design. The
+value of m1=m2 ¼ 0:0488 was chosen to approximately
+correspond to a methane/air combustor operating with
+about 18% excess air.
+The computational grid for the base case is shown in
+Fig. 4. As can be seen, the ﬂexibility of the unstructured
+method allows very accurate representation of the
+complex geometry. The adopted computational domain
+includes the whole of the full 360 in the peripheral
+direction. This provides a check on the symmetry and
+allows for the possibility that the ﬂow may become
+asymmetrically unsteady. Control volumes are allocated
+ﬁnely on the edges of the jets and in the close vicinity of
+the baﬄe plate. Using ﬁner grid spacing than that shown
+in Fig. 4 was found to produce little change to predicted
+ﬂow and mixing patterns indicating low grid dependency
+for the cases considered in the present study.
+5. Overall eﬀect of baﬄe plate
+To assess the overall performance of the design, it is
+useful to compare the present geometry with the much
+simpler co-axial jet case where no baﬄe plate is used.
+Fig. 5a and b show the mixture fraction distribution for
+these two cases where ReD ¼ 100 (cf. Table 1). In Fig. 5a
+it is apparent that the downstream end of the mixture
+fraction iso-surface n ¼ 0:055 is less than one can di-
+ameter from the baﬄe plate. This is a remarkable im-
+provement on the co-axial jet case where the tip of this
+surface is over four diameters downstream of the inlet
+for the same ﬂow rates of fuel and oxidizer.
+The reason for this dramatic improvement to the
+mixing performance can be established by examining the
+ﬂow ﬁelds for the two cases. Fig. 6 gives three-dimen-
+sional representations of the ﬂow ﬁelds together with the
+mixture fraction iso-surfaces for the cases shown in Fig.
+5a and b. Outer surfaces of the cylindrical sections given
+in Fig. 6 show the results at r=D ¼ 0:47 and the front
+surface illustrates a slice of the domain at a position just
+downstream of the baﬄe plate where z=D ¼ 0:15.
+Fig. 6a shows the very complex nature of the ﬂow
+ﬁeld in the baﬄe plate case. A large region of reverse
+ﬂow appears in the center of the can in front of the fuel
+jet. This produces a stagnation point immediately in
+front of the fuel inlet and forces the fuel stream to ﬂow
+outwards in the positive radial direction. In particular it
+is apparent that the fuel stream ﬂows into the regions
+Fig. 3. Details of computational domain and location of Car-
+tesian frame of reference.
+Table 1
+Flow conditions and geometry of computational domain for base case
+d1=D
+d2=D
+R2=D
+bth=D
+d3=D
+L=D
+Lup=D
+ReD
+m1=m2
+Inlet-proﬁles
+0.182
+0.182
+0.341
+0.05
+0.282
+15
+1
+100
+0.0488
+Flat
+Fig. 4. Computational grid on the boundary of the domain
+from the upstream side of the baﬄe plate (base case).
+2658
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+
+
+--- Page 5 ---
+
+between neighboring oxidizer jets. The complex ﬂow
+structure promotes rapid mixing as can be seen by the
+close proximity of the mixture fraction contours to the
+combustion chamber inlet. In contrast, the ﬂow ﬁeld for
+the co-axial case in Fig. 6b is relatively simple with no
+recirculation and very little change in the radial com-
+ponents of the velocity vectors. Thus in the co-axial case,
+mixing of fuel and oxidizer streams is dominated by the
+time scale for molecular diﬀusion with little enhance-
+ment due to the convective ﬁeld.
+6. Eﬀect of fuel jet diameter
+From a close examination of Fig. 6 one might expect
+that if the velocity of the fuel stream is increased, the
+region of reverse ﬂow in the center of the can may be-
+come less dominant and thus alter the convective en-
+hancement to the mixing process. To examine this
+possibility and yet maintain the same ﬂow rate of fuel
+and oxidizer, we have reduced the diameter of the fuel
+jet whilst keeping all other parameters constant. Fig. 5a,
+c and d show calculated mixture fraction ﬁelds for three
+diﬀerent diameters of the fuel tube. Clearly, as the dia-
+meter is decreased, the enhancement to mixing is di-
+minished. In fact in the case of a very small diameter,
+Fig. 5d, the overall mixing pattern is not much of an
+improvement on the co-axial jet case shown in Fig. 5b.
+Fig. 7 gives velocity vectors for the three diﬀerent fuel
+jet diameters. The solid lines in Fig. 7 represent the
+mixture fraction surface n ¼ 0:055. In Fig. 7a (the base
+case) the ﬂow ﬁeld is highly recirculating with a large
+region of reverse ﬂow in the center of the can as men-
+tioned above. The stagnation point in front of the fuel
+jet moves further downstream in Fig. 7b and the velocity
+of the reverse ﬂow diminishes. In Fig. 7c the stagnation
+point has disappeared altogether. There is still some
+reverse ﬂow between the jets in Fig. 7c in order to satisfy
+the entrainment appetite of the jets. However this minor
+recirculation appears to do little towards enhancing the
+mixing as is evident in Fig. 5d. The ratios of fuel velocity
+to mean oxidizer velocity through the holes are 0.293,
+Fig. 5. Mixture fraction distributions for various conﬁgura-
+tions of the baﬄe plate (x ¼ 0 plane).
+Fig. 6. Overall performance of baﬄe plate. Velocity vectors and mixture fraction contours.
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+2659
+
+
+--- Page 6 ---
+
+1.17 and 2.08 for Fig. 7a, b and c, respectively. Hence we
+can observe that the stagnation point in front of the fuel
+jet moves further downstream as the fuel velocity ap-
+proaches the oxidizer jet velocity and this point disap-
+pears for the case where the fuel velocity has exceeded
+twice the oxidizer jet velocity.
+From Figs. 7 and 5a, c and d we can conclude two
+things. Firstly, in terms of mixing enhancement it is
+valuable to have a low velocity fuel jet in comparison to
+the oxidizer jet velocity. Hence it is desirable to have a
+large diameter fuel injection tube at the inlet to the
+combustor. Secondly, the stagnation point and strong
+recirculation region in the center of the can shown in
+Fig. 7a are valuable ﬂow features for convective mixing
+enhancement.
+7. Eﬀect of oxidizer hole diameter
+Having considered the eﬀect of the fuel jet diameter,
+an alternative method for adjusting the velocity ratio of
+fuel and oxidizer streams is to change the diameters of
+the holes in the baﬄe plate for the same total ﬂow rate
+and a ﬁxed fuel jet diameter. Fig. 8 shows the resulting
+ﬂow and mixing patterns for both larger (a) and smaller
+(b) hole diameters. For the larger hole diameter, the
+velocity through the holes is greatly reduced and so is
+the reverse-ﬂow velocity in the center of the can. The
+extent of the recirculation region also is reduced signif-
+icantly in comparison with Fig. 7a. The stagnation point
+in front of the fuel jet is a little further downstream in
+Fig. 8a relative to the base case, but not as far down-
+stream as that in Fig. 7b. This might be expected as the
+velocity ratio of fuel to oxidizer jets is 0.46 in Fig. 8a
+which is greater than that for Fig. 7a (0.29) but less than
+that for Fig. 7b (1.17).
+Conversely, reducing the oxidizer hole diameters
+produces an increase in the velocities and an expansion
+of the reverse-ﬂow region as shown in Fig. 8b. The
+mixture fraction contour in Fig. 8b comes to an almost
+rectangular shape at z=D ¼ 0:15 just in front of the fuel
+jet indicating very abrupt changes in gas composition. In
+comparison with Fig. 7a, it appears that more fuel has
+been forced out into the region between the oxidizer jets
+Fig. 7. Velocity vectors for diﬀerent fuel jet diameters (x ¼ 0
+plane). The solid line represents the mixture fraction iso-surface
+n ¼ 0:055.
+Fig. 8. Eﬀect of: (a) enlarging and (b) reducing the oxidizer
+hole diameters whilst maintaining the same total ﬂow rates of
+fuel and oxidizer (x ¼ 0 plane). The solid line represents the
+mixture fraction contour n ¼ 0:055.
+2660
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+
+
+--- Page 7 ---
+
+and the wall of the combustor. This is apparent as the
+mixture fraction contour at the wall extends to about
+z=D ¼ 0:9 in Fig. 8b and to z=D ¼ 0:4 in Fig. 7a. The
+tendency in Fig. 8b to push too much fuel into the near-
+wall region indicates that for rapid mixing there is an
+optimum velocity ratio for the fuel and oxidizer streams.
+We may expect from the cases considered in this present
+work that this ratio will fall between cases (b) 0.165 and
+(a) 0.457 in Fig. 8 and is probably close to that of the
+base case (Fig. 7a). In summary, the overall mixing
+performance appears to be similar or slightly better in
+the base case (Fig. 7a) than in either of the cases shown
+in Fig. 8.
+8. Eﬀect of oxidizer hole radial position
+A further parameter that requires examination is the
+eﬀect of the radial location of the holes in the plate. Fig.
+5e shows the eﬀect on the mixing ﬁeld of moving the
+holes a little closer to the center. Again this relatively
+small change in the geometry produces a surprisingly
+large change in the mixing pattern.
+The reason for the vast diﬀerence between cases (a)
+and (e) in Fig. 5 again can be established through an
+examination of the ﬂow ﬁelds. Fig. 9 shows velocity
+vectors in a plane cut between neighboring oxidizer jets.
+The ﬂow structure for the two cases is considerably
+diﬀerent. In Fig. 9a, which shows the base case, there is a
+very large region of reverse ﬂow in the center of the can
+compared with the tiny region appearing at about
+z=D ¼ 0:5 in Fig. 9b. The fact that neighboring jets are
+closer together in case b is evidenced by the much higher
+velocities in the regions around x=D ¼ 
+0:2 from
+z=D ¼ 0:5 to 1.5. Also there is a pair of counter rotating
+recirculation regions having eyes positioned 0.2 diame-
+ters downstream of the baﬄe plate and at x=D ¼ 
+0:3 in
+Fig. 9a. In Fig. 9b these structures are not present and a
+pair of recirculating structures that are rotating in the
+opposite direction appear near the combustion chamber
+wall. As a result of this diﬀerence we can see in Fig. 9a
+the fuel stream ﬂows directly into the region between the
+oxidizer jets whereas in Fig. 9b the velocity in this region
+is in the negative radial direction, thus inhibiting the
+convective enhancement to mixing. As an overall ob-
+servation from Fig. 9 we can conclude that the en-
+trainment appetite of the oxidizer jets is satisﬁed largely
+from fuel rich ﬂuid in the center of the can in Fig. 9a but
+from leaner ﬂuid in the region nearer the wall in Fig. 9b.
+Thus it is advantageous to place the holes in the baﬄe
+plate nearer the wall for mixing enhancement in the
+laminar regime.
+9. Eﬀect of Reynolds number
+As one may wish to operate the combustor for a
+range of ﬂow rates with a similar fuel/oxidizer ratio, it is
+constructive to consider the eﬀects of Reynolds number
+based on the diameter of the can and the mean velocity
+over the full cross-sectional area of the can.
+Many laminar ﬂow ﬁelds such as sudden expansion
+duct ﬂow [12], backward facing step ﬂow [13] and lam-
+inar free jets [14] expand almost linearly in the stream-
+wise direction in proportion to an increase in Reynolds
+number. The same is found true for laminar conﬁned co-
+axial jets as can be seen by comparing the mixture
+fraction ﬁelds shown in Figs. 10a, b and 5b. Thus gen-
+erally the laminar mixing problem also increases in
+proportion to Reynolds number until a transition to
+unsteady or turbulent ﬂow is achieved.
+Fig. 10c and d show the mixture fraction ﬁelds for the
+baﬄe plate case for an increase from Re ¼ 50 to 200
+whilst maintaining a ﬁxed fuel/oxidizer ratio. For both
+cases the mixing is greatly enhanced in comparison with
+Fig. 9. Flow and mixing patterns for diﬀerent radial positions
+of holes (y ¼ 0 plane). The solid line represents the mixture
+fraction contour n ¼ 0:055.
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+2661
+
+
+--- Page 8 ---
+
+the cases without the baﬄe plate shown in Fig. 10a and
+b. Clearly from Fig. 10, while the mixing ﬁeld expands
+linearly with Reynolds number in the axial direction for
+the co-axial jet cases, the same is not true for the baﬄe
+plate cases.
+Fig. 11 shows the ﬂow and mixing patterns for the
+present geometry at Reynolds numbers of 50 and 200 in
+the x ¼ 0 plane. Comparing Fig. 11a with Fig. 11b, in-
+creasing Reynolds number from 50 to 200 does in fact
+produce a general expansion of the ﬂow ﬁeld in the axial
+direction. However, in contrast to the co-axial jet case,
+not all features expand directly in proportion to Re over
+this range. In particular, the stagnation point in front of
+the fuel jet is located at a similar axial position for
+Re ¼ 50 (Fig. 11a), Re ¼ 100 (Fig. 9a) and Re ¼ 200
+(Fig. 11b). Also, the mixture fraction contour n ¼ 0:055
+at the center of the can moves closer to the baﬄe plate as
+Reynolds number is increased. On the other hand, the
+downstream stagnation point at around z=D ¼ 1:25 in
+Fig. 9a appears at z=D ¼ 0:7 in Fig. 11a and at
+z=D ¼ 2:3 in Fig. 11b. Also the point where the mixture
+fraction contour n ¼ 0:055 touches the wall moves up or
+downstream roughly in proportion to Reynolds number
+comparing Fig. 11a and b with Fig. 9a.
+The diﬀerences between the co-axial case and the
+baﬄe plate case can be explained by a consideration of
+the meaning of Reynolds number. Reynolds number
+gives a measure of the importance of convection or
+inertial terms with respect to diﬀusion terms. In the case
+of the co-axial jet, cross-stream transport is dominated
+by diﬀusion and stream-wise transport by convection.
+Thus Reynolds number for the co-axial jet case gives a
+measure of the ratio of stream-wise transport with re-
+spect to cross-stream transport. In such a case it is easy
+to see that an increase in Reynolds number will produce
+a corresponding increase in the length of the ﬂow ﬁeld
+in the stream-wise direction. In the baﬄe plate case
+however, particularly in the vicinity of the stagnation
+point and near the tight recirculation zones, transport
+in the radial direction is clearly a combination of both
+convection and diﬀusion. Moreover, due to the steep
+gradients appearing in the axial direction, transport by
+diﬀusion in the axial direction will also play a role.
+Thus Reynolds number is no longer a clear cut measure
+of the ratio of axial transport with respect to radial
+transport and the proportional expansion of the ﬂow
+ﬁeld with Re is not so obviously apparent in the baﬄe
+plate case. As a result, the mixing performance of the
+present design is less sensitive to an increase in Re from
+50 to 200 than what is observed of the corresponding
+co-axial jet case.
+10. Conclusions and closing remarks
+The main ﬁndings and conclusions of this present
+work on the chosen geometry with isothermal, constant
+density ﬂow can be summarized as follows.
+1. The baﬄe plate can produce a dramatic improvement
+to mixing when compared with the co-axial jet case.
+2. Relatively small changes in the geometry of the baﬄe
+plate can have a major eﬀect on the mixing perfor-
+mance of the design for laminar jets.
+Fig. 10. Eﬀect of Reynolds number––Mixture fraction ﬁelds
+(x ¼ 0 plane)
+Fig. 11. Eﬀect of Reynolds number based on the can diameter
+and mean velocity over cross-section; (y ¼ 0 plane). The solid
+line represents the mixture fraction contour n ¼ 0:055.
+2662
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+
+
+--- Page 9 ---
+
+3. To promote mixing it is desirable to reduce the veloc-
+ity of the fuel stream by enlarging the diameter of the
+fuel jet or increase the oxidizer jet velocity by decreas-
+ing the diameters of the holes in the baﬄe plate.
+4. The velocity ratio of fuel and oxidizer streams at the
+baﬄe plate appears to be an important consideration
+in characterizing the ﬂow ﬁeld.
+5. To promote convective enhancement of mixing for
+the laminar conditions considered, it is advantageous
+to place the holes in the baﬄe plate nearer the wall of
+the combustion chamber.
+6. For the range of Reynolds number from 50 to 200,
+the multi-hole baﬄe plate design was found less sen-
+sitive to an increase in Re than a conﬁned co-axial jet
+with the same ﬂow ratio of fuel and oxidizer.
+Acknowledgements
+This work was supported through the project ‘‘Micro
+Gas Turbine/Fuel Cell Hybrid-Type Distributed Energy
+System’’ by the Japan Science and Technology Corpo-
+ration (JST) as Core Research of Evolutional Science
+and Technology (CREST). The support of the Japan
+Society for the Promotion of Science (JSPS) for the ﬁrst
+author also is gratefully acknowledged.
+References
+[1] K. Suzuki, J.H. Kim, K. Teshima, Solid oxide fuel cell and
+micro gas turbine hybrid cycle for a distributed energy
+generation system, Key-note, in: Proceedings of the Fourth
+KSME-JSME Thermal Engineering Conference 3, Kobe,
+Japan, 2000, pp. 1–7.
+[2] I.A. Waitz, G. Gauba, Y. Tzeng, Combustors for micro-
+gas turbine engines, Trans. ASME, J. Fluids Eng. 120
+(1998) 109–117.
+[3] P.L. Woodﬁeld, K. Nakabe, K. Suzuki, The eﬀect of three-
+dimensional recirculation ﬂow structures on ﬂow mixing of
+micro-scaled conﬁned jets, in: Proceedings of the 13th
+International Symposium Transport Phenomena, Elsevier,
+Victoria, Canada, 2002, pp. 381–386.
+[4] T.A. Ameel, R.O. Warrington, R.S. Wegeng, M.K. Drost,
+Miniaturization technologies applied to energy systems,
+Energy Convers. Manage. 38 (1997) 969–982.
+[5] P.L. Woodﬁeld, K. Nakabe, K. Suzuki, Performance of a
+three-dimensional pressure-based unstructured ﬁnite-vol-
+ume method for low Reynolds number ﬂow and wall heat
+transfer rate prediction, Numer. Heat Transfer, Part B, in
+press.
+[6] D.K. Milojevic, W. Schneider, Free and conﬁned jets at
+low Reynolds numbers, Fluid Dynam. Res. 12 (1993) 307–
+322.
+[7] S.M. Hosseinalipour, A.S. Mujumdar, Flow and thermal
+characteristics of steady two dimensional conﬁned laminar
+opposing jets: Part 1. Equal jets, Int. Commun. Heat Mass
+Transfer 24 (1) (1997) 27–38.
+[8] D.A. Johnson, Experimental and numerical examination
+of conﬁned laminar opposed jets, Part 1: Momentum
+imbalance, Int. Commun. Heat Mass Transfer 27 (4) (2000)
+443–454.
+[9] P.H. Gaskell, A.K.C. Lau, Curvature-compensate convec-
+tive transport: SMART, a new boundedness-preserving
+transport transport algorithm, Int. J. Numer. Meth. Fluids
+8 (1988) 617–641.
+[10] C.M. Rhie, W.L. Chow, Numerical study of the turbulent
+ﬂow past an airfoil with trailing edge separation, AIAA J.
+21 (11) (1983) 1525–1532.
+[11] S.V. Patankar, Numerical Heat Transfer and Fluid Flow,
+Hemisphere Publishing Corporation, 1980.
+[12] E.O. Macagno, T. Hung, Computational and experimental
+study of a captive annular eddy, J. Fluid Mech. 28 (1967)
+43–64.
+[13] B.F. Armaly, F. Durst, J.C.F. Pereira, B. Schonung,
+Experimental and theoretical investigation of backward-
+facing step ﬂow, J. Fluid Mech. 127 (1983) 473–496.
+[14] S.I. Pai, T. Hsieh, Numerical solution of laminar jet mixing
+with and without free stream, Appl. Sci. Res. (The Hague)
+27 (1) (1972) 39–62.
+P.L. Woodﬁeld et al. / International Journal of Heat and Mass Transfer 46 (2003) 2655–2663
+2663

@@ -1,0 +1,1405 @@
+
+--- Page 1 ---
+
+Full Length Article
+Effects of hydrogen enrichment on flame stability, thermoacoustic 
+oscillations, and combustion characteristics in premixed propane swirl 
+flames: An experimental study
+Ahmed Gaber H. Saif a
+, Md. Imteaz Ahmed a, Qazi Talal a, Esmail M.A. Mokheimer a,b,*
+a Mechanical Engineering Department, King Fahd University of Petroleum & Minerals (KFUPM), Dhahran 31261, Saudi Arabia
+b Interdisciplinary Research Centre for Sustainable Energy Systems (IRC-SES), King Fahd University of Petroleum & Minerals, Dhahran 31261, Saudi Arabia
+A R T I C L E  I N F O
+Keywords:
+Hydrogen enrichment
+Flame stability
+Swirl combustion
+Thermoacoustic instability
+Dual annular swirl
+A B S T R A C T
+This paper depicts the results and analysis of experimental investigations on the effect of hydrogen enrichment 
+on the combustion characteristics of premixed C3H8/air flames in a Dual Annular Counter Rotating Swirl 
+(DACRS) combustor. The novelty of the burner, developed for this experimental study, lies in its ability to 
+independently regulate swirl and jet flows in concentric annuli. This design enables operation in multiple modes: 
+swirl, jet, partially swirling, or stratified, thus effectively mimicking practical gas turbine conditions. In this 
+work, the burner was operated under fully premixed swirl conditions. Hydrogen enrichment (0–50 % by volume) 
+and global equivalence ratios (from blowout limits up to 1.0) were systematically evaluated. The primary ob­
+jectives were to quantify the effects of hydrogen addition on flame stability, thermoacoustic dynamics, tem­
+perature distributions, and emissions performance. Experimental results demonstrated that hydrogen enrichment 
+significantly extends lean blowout limits up to 21 %. This improvement is attributed to increased flame speed, 
+diffusivity, and OH radical production. Thermoacoustic analysis, utilizing Fast Fourier Transform (FFT) and 
+Phase Space Reconstruction (PSR), revealed a clear transition from stable to unstable combustion regimes with 
+increasing hydrogen content. This instability was characterized by enhanced pressure-heat release coupling and 
+limit-cycle oscillations. Temperature profiles exhibited limited sensitivity to hydrogen fraction, showing stronger 
+dependence on equivalence ratio. Emission analysis revealed substantial reductions in CO2 (10.5 %) and CO 
+(33.3 %). However, these benefits were accompanied by a moderate increase (21 %) in NOx emissions. This 
+increase in NOx is attributed to elevated flame temperatures and radical formation. Overall, these findings 
+highlight hydrogen’s potential to improve flame stability and combustion efficiency. They provide critical 
+experimental benchmarks for modeling and advancing low-emission, hydrogen-enriched combustion 
+technologies.
+1. Introduction
+The global drive toward decarbonization has accelerated the devel­
+opment of cleaner and more efficient combustion technologies. 
+Hydrogen, a zero-carbon fuel at the point of combustion, offers high 
+energy density and rapid reaction kinetics, producing only water vapor 
+as a combustion byproduct [1–3]. Blending hydrogen with hydrocar­
+bons like propane or methane not only reduces carbon emissions but 
+also enhances flame stability and extends lean combustion limits, 
+making it particularly suitable for retrofitting existing infrastructure in 
+power generation and transportation [4–8]. Nevertheless, the practical 
+implementation of hydrogen-enriched fuels faces significant challenges, 
+including elevated flame temperatures, increased NOx emissions, and 
+greater susceptibility to flashback and flame instability [9,10]. To 
+address these challenges, hydrogen is typically blended gradually with 
+conventional fuels, a strategy that improves flame characteristics and 
+ensures safety and emission control [11]. This approach is particularly 
+beneficial in lean premixed combustion (LPC) systems, widely utilized in 
+gas turbines for their high efficiency and low NOx emissions [12,13]. 
+However, LPC systems operating under ultra-lean conditions can expe­
+rience flame blowout and thermoacoustic oscillations [14]. Previous 
+research indicates that hydrogen addition in swirl-stabilized combustion 
+enhances flame anchoring and propagation due to its high laminar flame 
+speed, diffusivity, and reactivity, but simultaneously necessitates 
+effective 
+strategies 
+to 
+control 
+NOx 
+emissions 
+and 
+mitigate 
+* Corresponding author at: Mechanical Engineering Department, King Fahd University of Petroleum & Minerals (KFUPM), Dhahran 31261, Saudi Arabia.
+E-mail address: esmailm@kfupm.edu.sa (E.M.A. Mokheimer). 
+Contents lists available at ScienceDirect
+Fuel
+journal homepage: www.elsevier.com/locate/fuel
+https://doi.org/10.1016/j.fuel.2025.136373
+Received 15 May 2025; Received in revised form 19 July 2025; Accepted 22 July 2025  
+Fuel 404 (2026) 136373 
+Available online 24 July 2025 
+0016-2361/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+thermoacoustic instability [15,16].
+Extensive studies have investigated hydrogen-enriched combustion 
+across various burner geometries, fuel types, and conditions. Gee et al. 
+[17] showed that hydrogen addition to low-swirl natural gas flames 
+reduced radiant heat loss by 33 % and improved flame stability by 
+decreasing lift-off height, although NOx emissions increased by up to 30 
+%. De Persis et al. [18], using laser-induced fluorescence (LIF), found 
+that hydrogen enrichment increased flame temperature and NO pro­
+duction due to intensified thermal and NNH pathways; however, it 
+enabled leaner operation, potentially reducing NO emissions at com­
+parable temperatures. Guo et al. [19] and Schefer [20] demonstrated 
+that hydrogen enrichment promotes key radicals (OH, H) formation, 
+accelerating reaction rates, stabilizing flames, and anchoring them 
+closer to stable flow regions. Collectively, these findings highlight hy­
+drogen’s significant potential to enhance reactivity and stability in lean 
+premixed combustion systems, provided that NOx emissions are effec­
+tively managed.
+Complementing the discussion on flame stability, several studies 
+have highlighted the effects of hydrogen enrichment on thermoacoustic 
+instabilities in premixed flames. Day et al. [21] identified that higher 
+hydrogen contents in turbulent premixed flames lead to increased flame 
+curvature, intensified heat-release fluctuations, and cellular flame 
+structures, primarily due to differential diffusion rates of hydrogen 
+relative to methane. Similarly, Patel and Shah [22] reported shorter 
+flames and notable changes in acoustics, noise generation, and emission 
+profiles for both swirling and non-swirling inverse diffusion flames 
+depending on the hydrogen blending strategy. Additionally, Zhang et al. 
+[23] demonstrated that hydrogen enrichment enhances turbulent 
+burning velocities and flame wrinkling due to stronger flame turbulence 
+interactions, ultimately improving flame propagation and stability in 
+lean premixed combustion. These findings collectively underscore the 
+necessity of managing thermoacoustic phenomena when employing 
+hydrogen-enriched fuels.
+Fuel staging and stratification significantly influence flame dy­
+namics, affecting local equivalence ratios, anchoring positions, and 
+combustion intensity. Wang et al. [24] investigated staged methane 
+combustion and identified various flame topologies, such as lifted, 
+attached, and V-shaped flames, influenced strongly by stratification. 
+Although their study did not directly consider hydrogen, it provides 
+valuable insights into how mixing strategies affect flame stability in 
+swirl-stabilized systems. Cozzi and Coghe [25] showed that adding 
+hydrogen to non-premixed natural gas flames enhanced lean stability, 
+enabling operation at lower equivalence ratios but increasing NOx and 
+soot emissions due to higher flame temperatures. Kim et al. [26] simi­
+larly found that hydrogen enrichment improved blowout limits and 
+reduced CO emissions in swirl-stabilized methane flames, though this 
+was accompanied by elevated NOx emissions and upstream shifts in 
+flame anchoring locations. These studies collectively emphasize the 
+importance of carefully balancing hydrogen enrichment strategies with 
+emission control and flame stability objectives.
+From safety and operational perspectives, hydrogen blending 
+significantly impacts flammability limits and flame resilience. Miao 
+et al. [27] reported that hydrogen enrichment substantially increases the 
+upper flammability limit. Jackson et al. [28], and Gauducheau et al. 
+[29] found that hydrogen enhances strain resistance in laminar pre­
+mixed flames, a critical advantage for stable combustion in high-strain 
+environments like gas turbines. Their studies indicate that even small 
+hydrogen additions improve flame robustness under challenging con­
+ditions without significantly increasing ignition delays or exhaust tem­
+peratures. Similarly, El-Ghafour et al. [30] demonstrated improved 
+flame attachment and notable reductions in CO2 emissions in natural gas 
+hydrogen flames, attributed to enhanced combustion efficiency and 
+flame stabilization near the burner exit, supporting the practical adop­
+tion of hydrogen-enriched fuels.
+In swirl-stabilized combustion systems, hydrogen enrichment results 
+in more compact and brighter flames, thereby broadening the limits of 
+flame stability. These effects are particularly pronounced when 
+hydrogen is premixed rather than separately injected into the primary 
+fuel stream. Several studies have emphasized the critical importance of 
+DACRS burner configuration and flow aerodynamics in enabling effec­
+tive hydrogen enrichment strategies. Kim et al. [31] demonstrated that 
+swirl-stabilized combustors operating with independently controlled 
+dual swirlers significantly improve flame stabilization by shortening 
+flame lengths and enhancing combustion intensity under hydrogen 
+enrichment conditions. Han et al. [32] further showed the beneficial 
+impact of controlled stratification ratios in DACRS configurations, 
+illustrating how precise stratification influences flame anchoring, 
+structure, and overall stability. The DACRS configuration’s ability to 
+create distinct recirculation zones and finely controlled mixing regions 
+strongly contributes to stable combustion and effective flame anchoring. 
+These burner features are particularly advantageous for mitigating 
+flashback risks and managing thermoacoustic instabilities associated 
+with highly reactive, hydrogen-rich fuel blends. Collectively, these 
+recent studies underscore the DACRS combustor’s suitability for diverse, 
+fuel-flexible, and low-emission combustion applications [24,33].
+To address the emerging challenges of hydrogen-enriched combus­
+tion, recent studies have explored innovative strategies such as Colorless 
+Distributed Combustion (CDC) and staged fuel injection, which show 
+potential in mitigating thermoacoustic instabilities and reducing emis­
+sions. These methods redistribute heat release and acoustic coupling 
+within the combustor, minimizing hotspots and pressure fluctuations 
+and consequently reducing thermal NOx formation. Alabas et al. [34] 
+Nomenclature
+AFT
+Adiabatic flame temperature
+CH4
+Methane
+CO
+Carbon monoxide
+CO2
+Carbon dioxide
+DACRS
+Dual annular counter-rotating swirl
+DAQ
+Data acquisition
+F/A
+Fuel-to-air ratio
+FFT
+Fast Fourier transform
+FSV
+Full-scale value
+H2
+Hydrogen
+HF
+Hydrogen fraction
+LHV
+Lower heating value
+LPC
+Lean premixed combustion
+M
+Molar mass
+MFC
+Mass flow controller
+MIC
+Microphone
+NOx
+Nitrogen oxides
+PMT
+Photomultiplier tube
+PSR
+Phase space reconstruction
+Re
+Reynolds number
+SR
+Stratification ratio
+y
+Mole fraction
+ϕɡ
+Global equivalence ratio
+μ
+Dynamic viscosity
+ρ
+Density
+˙m
+Mass flow rate
+˙V
+Volume flow rate
+C3H8
+Propane
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+2 
+
+
+--- Page 3 ---
+
+demonstrated that nitrogen dilution under CDC conditions significantly 
+reduced dynamic pressure amplitudes and NOx emissions by promoting 
+uniform temperature fields. Tao and Zhou [35] observed that hydrogen 
+enrichment lowered the thermoacoustic instability threshold and 
+increased flashback risks above 20 % hydrogen fraction, emphasizing 
+careful control of swirl number and equivalence ratio. Conversely, Liu 
+et al. [4] achieved stable combustion across a wide hydrogen range in a 
+staged multi-nozzle combustor, maintaining NOx emissions below 15 
+ppm through advanced staging and micro-mixing techniques. Collec­
+tively, these studies underscore the importance of innovative fuel 
+management strategies to effectively leverage hydrogen-enriched com­
+bustion systems while controlling emissions and instabilities.
+This study presents a comprehensive experimental investigation into 
+the effects of hydrogen enrichment on premixed propane-air swirl 
+flames using a Dual Annular Counter-Rotating Swirl (DACRS) burner. 
+Although hydrogen enrichment in methane-air and natural gas com­
+bustion systems is well-documented, propane-based swirl combustion 
+remains relatively unexplored, particularly regarding flame stability, 
+thermoacoustic behavior, and emissions under varying hydrogen frac­
+tions. The primary objectives of this work are to: 
+• Characterize the influence of hydrogen enrichment (0–50 %) on lean 
+premixed propane flames across equivalence ratios spanning from 
+blowout to near stoichiometric (ϕg = 1.0).
+• Investigate the impacts of hydrogen enrichment on flame macro­
+structure, lean blowout limits, thermoacoustic instabilities, and 
+emissions formation.
+• Provide comprehensive experimental benchmarks essential for vali­
+dating numerical models and optimizing hydrogen-enriched com­
+bustion strategies for advanced gas turbine applications.
+To achieve these objectives, a multi-diagnostic approach is adopted, 
+incorporating high-fidelity sound pressure measurements, CH* and OH* 
+chemiluminescence diagnostics, spectral analysis (FFT), and nonlinear 
+phase-space characterization. This robust methodology provides 
+multidimensional insights into flame dynamics and combustion acoustic 
+interactions. The findings from this research fill critical knowledge gaps 
+and offer practical guidelines for developing stable, efficient, and low- 
+emission propane-based combustion technologies utilizing hydrogen- 
+enriched fuels.
+2. Experimental setup and methodology
+2.1. Combustor configuration and instrumentation
+The experimental investigation was conducted using a DACRS 
+burner, a configuration that closely replicates modern gas turbine 
+combustor designs. The DACRS combustor enables the formation of 
+strong recirculation zones, promoting enhanced fuel–air mixing and 
+robust flame stabilization in lean premixed combustion. Its design is 
+particularly well-suited for investigating flame stability, low-emission 
+combustion strategies, and fuel flexibility scenarios, including 
+hydrogen enrichment. The configuration has been detailed in prior 
+studies involving jet and swirling flames [36,37].
+A schematic of the experimental setup and detailed burner layout are 
+shown in Fig. 1 and Fig. 2. The combustor consists of three concentric 
+stainless-steel tubes. The combustor comprises three concentric 
+stainless-steel tubes that create inner, middle, and outer channels. The 
+inner tube (12.7 mm) does not convey any fluid but supports a ceramic 
+bluff body, which acts as a flame stabilizer. The middle tube (25.7 mm) 
+and the outer tube (38.1 mm) deliver premixed fuel–air mixtures into 
+the inner and outer annuli, respectively.
+A key feature of this combustor is its dual-swirling capability, in 
+which both annular streams are imparted with a swirl collar. Each collar 
+contains eight equally spaced guide channels, each inclined at 30◦to the 
+horizontal. The channels have a diameter of 2.5 mm and are designed to 
+enable either co-swirl or counter-swirl operation, depending on their 
+orientation. Notably, the novelty of this dual annular burner lies in its 
+ability to operate in three distinct aerodynamic modes: (i) jet flame 
+mode, where both annulus supply axial (non-swirling) flows; (ii) swirl 
+Fig. 1. Schematic diagram of the experimental setup.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+3 
+
+
+--- Page 4 ---
+
+flame mode, where both annuli introduce swirling flows; and (iii) 
+partially swirling mode, in which one or both annulus have partial swirls 
+while the other supplies axial flow. Each of these modes can also be 
+configured for either stratified or without stratification operation, where 
+the fuel–air ratio differs between the two annuli. In the present study, a 
+full swirl configuration with premixed reactants was employed. Swirling 
+flow was introduced through both annuli g. The swirl and jet are ach­
+ieved via four independent plenums: two supply swirling flow (Plenums 
+F and H) and two provide straight flow (Plenums G and I). Flow 
+straighteners (M and O) are positioned downstream of the axial ple­
+nums. Their purpose is to homogenize the velocity profiles when non- 
+swirling flow is required. The combustion is confined within an opti­
+cally accessible quartz glass tube acting as the combustion chamber. 
+This provides a sealed combustion volume with full visual access for 
+diagnostic techniques.
+Fuel and oxidizer delivery is controlled by ALICAT mass flow con­
+trollers with certified accuracy of ± 0.2 % of full scale and ± 0.8 % of 
+reading. Propane and hydrogen (purity ≥99.999 %) are used as fuels, 
+while air is supplied by a compressor and passed through a moisture 
+removal unit to maintain consistent humidity levels. All gases are pre­
+mixed upstream of the burner inlets using 12.7 mm stainless steel 
+pipelines. The controllers were operated through a LabVIEW interface. 
+This LabVIEW was integrated with MATLAB and EES back-end routines 
+to enable automated flow setpoint computation and real-time adjust­
+ment. Thermoacoustic pressure oscillations are captured using Kulite 
+MIC-093 microphones. Two microphones are positioned 50 mm and 90 
+mm upstream of the bluff body, while a third serves as a reference 
+microphone placed remotely to account for background noise. Micro­
+phone signals are amplified using a Kulite signal conditioner and ac­
+quired through a high-speed DAQ system synchronized via LabVIEW. 
+Heat release rate fluctuations are captured using a Photomultiplier Tube 
+(PMT) equipped with narrow-band optical filters targeting CH* and OH* 
+chemiluminescence (centered at 430 ± 5 nm and 310 ± 5 nm, respec­
+tively). The PMT is aligned to the flame axis to monitor radical emissions 
+correlated with unsteady combustion.
+The flame images were captured using a Nikon D5200 DSLR camera, 
+configured with a 1/40 s shutter speed, f/2.2 aperture, and ISO 250. This 
+setup enabled time-resolved imaging of flame structure and dynamics 
+across different operating regimes. Temperature measurements were 
+obtained using a B-type thermocouple (Pt-30 %Rh, Pt-6 %Rh). The 
+thermocouple was mounted on a precise traversing mechanism, allow­
+ing accurate axial and radial positioning within the flow field. The 
+thermocouple was integrated with a LabVIEW data acquisition system 
+that recorded and averaged temperature readings once steady-state 
+conditions were reached. Temperature readings were corrected for 
+radiative heat loss to the surroundings following the well-established 
+method developed by Shaddix [38,39]. Flue gas emissions are 
+analyzed downstream using a Testo 350 gas analyzer, providing real- 
+time measurements of CO2, CO, NOx, and O2 under varying hydrogen 
+fractions and equivalence ratios. The sensor specifications were as fol­
+lows: CO (0–500 ppm ± 0.5 ppm with 1 ppm resolution), NO (0–4000 
+ppm ± 5 ppm with 1 ppm resolution), O2 (0–25 vol% ± 0.8 % FSV with 
+0.01 vol% resolution), and CO2 (0–50 vol% ± 0.3 vol% with 0.1 vol% 
+resolution). This setup allowed for the accurate evaluation of combus­
+tion performance and pollutant formation throughout all test conditions. 
+All flow controllers, data acquisition systems, and thermocouples were 
+fully integrated and connected to a central PC-based control system. 
+Monitoring and real-time adjustments were performed through a Lab­
+VIEW interface, ensuring synchronized operation and automated data 
+logging across all subsystems.
+Fig. 2. Schematic diagram of detailed combustor layout.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+4 
+
+
+--- Page 5 ---
+
+2.2. Test conditions and parameter definitions
+All experiments were conducted under ambient conditions of 1 atm 
+pressure and room temperature (25 ◦C). The main objective was to 
+investigate how hydrogen enrichment (HF%) and global equivalence 
+ratio (ϕɡ) affect combustion performance in premixed C3H8/H2/air swirl 
+flames. Key combustion parameters examined included flame stability 
+(lean blowout limits), flame macrostructure, thermoacoustic behavior, 
+and pollutant emissions under controlled flow conditions.
+Experiments were designed to cover a broad range of hydrogen 
+enrichment levels and equivalence ratios, ensuring consistent flow dy­
+namics by fixing the inner annulus Reynolds number (Rein) and main­
+taining fully premixed conditions (SR = 1). While hydrogen enrichment 
+is defined by volume fraction (HF%), it corresponds to varying energy 
+contributions; for example, a 50 vol% hydrogen blend represents 
+approximately 10.6 % of the total fuel energy (power) input based on the 
+lower heating values of hydrogen and propane. Detailed equations and 
+methodologies used for calculating flow rates and mixture compositions 
+are provided in Appendix A. A concise summary of the complete set of 
+experimental conditions, including parameter values and ranges, is 
+presented in Table 1.
+3. Results and discussion
+3.1. Effect of hydrogen enrichment on static stability
+The static stability of premixed flames in swirl-stabilized combustors 
+is primarily governed by the balance between flame propagation speed 
+and local flow velocity at the stabilization zone. The blowout was 
+determined by performing an equivalence ratio sweep test, in which the 
+global equivalence ratio (ϕɡ) was gradually decreased in increments of 
+0.01 from a stable condition until blowout [40]. Blowout occurs when 
+the flame cannot propagate upstream to anchor within the recirculation 
+zone, a phenomenon strongly influenced by fuel composition and 
+mixture properties [41]. Hydrogen, as a highly reactive additive, alters 
+this balance through its effects on laminar flame speed, diffusivity, and 
+chemical kinetics. In this section, the impact of hydrogen enrichment on 
+the static stability of propane/air mixtures is analyzed using experi­
+mentally determined blowout limits against power and adiabatic flame 
+temperature contours (AFT).
+Static stability was assessed by systematically determining the lean 
+blowout limits across varying hydrogen fractions and global equivalence 
+ratios, under a fixed Reynolds number. A consistent experimental pro­
+cedure was followed to generate the stability maps presented in Fig. 3(a) 
+and (b). The flame initially stabilized at a high global equivalence ratio 
+ϕɡ, which was then gradually reduced until the blowout occurred. This 
+was identified by visible flame detachment and extinction. This process 
+was repeated for each hydrogen fraction (HF) by gradually adjusting ϕɡ 
+to determine the corresponding blowout limit.
+As hydrogen content increases, the blowout limits shift toward 
+leaner equivalence ratios. The minimum ϕɡ for stable flame operation 
+decreased from 0.52 at 0 % HF to 0.41 at 50 % HF, representing an 
+approximate of 21 % extension in the lean stability margin. This 
+improvement is attributed to hydrogen’s high laminar flame speed, 
+diffusivity, and enhanced radical formation, particularly OH, which 
+collectively enhance flame propagation under lean conditions [20,26]. 
+The enhanced lean stability limits observed with hydrogen enrichment 
+in our propane-air swirl flames qualitatively align with previously re­
+ported results for methane-air flames. For example, Mohammadnejad 
+et al. [42] observed substantial extension of lean blowout limits (ϕ ≈
+0.45–0.50) with hydrogen enrichment (up to 40 vol%) in methane-air 
+turbulent premixed flames. Although our propane-air flames exhibit 
+similar qualitative improvements, quantitative differences arise from 
+propane’s inherently lower flame speed. Additionally, while a compact 
+active turbulence generator employed in [42], our DACRS burner 
+maintains controlled turbulence conditions (fixed Re and constant swirl 
+number), similarly benefiting flame anchoring.
+Fig. 3a shows that for a given power level, hydrogen addition permits 
+flame stabilization at lower ϕɡ, enhancing lean stability and thermal 
+efficiency. As shown in Fig. 3b, hydrogen-enriched flames remain stable 
+even at significantly lower AFT. At the blowout limit, AFT decreases 
+from approximately 1550 K at 0 % HF to 1357 K at 50 % HF, a reduction 
+of nearly 193 K (12.5 %). While such a temperature drop would typically 
+signal a loss in flame stability, this trend primarily reflects the associated 
+decrease in the ϕɡ from 0.52 to 0.41. This reduction in ϕɡ is enabled by 
+hydrogen enrichment, which allows combustion to occur under leaner 
+conditions. The lower equivalence ratio reduces the total chemical en­
+ergy release and, consequently, results in a lower AFT. However, hy­
+drogen’s high laminar flame speed, diffusivity, and ability to enhance 
+radical production compensate for the thermal deficit. These properties 
+enable stable combustion even under cooler, leaner conditions. As a 
+result, the flame is able to propagate and remain anchored, effectively 
+extending the lean flammability limit despite the reduction in thermal 
+energy [20].
+These findings emphasize that AFT alone is not the sole determinant 
+of flame stability in multi-fuel swirl-stabilized systems. Instead, flame 
+speed, diffusivity, and radical chemistry, all positively influenced by 
+hydrogen, play dominant roles in anchoring the flame under lean con­
+ditions. The consistent downward shift of the blowout contours across 
+both power and AFT maps underscores hydrogen’s effectiveness in 
+broadening the stable operating limit, without requiring higher thermal 
+power input. These results underscore hydrogen’s viability as a practical 
+flame stabilizing additive for advanced, low-emission combustion 
+applications.
+3.2. Effect of hydrogen enrichment on thermoacoustic instability
+Thermoacoustic instability arises from destabilizing coupling be­
+tween pressure oscillations and heat release fluctuations, wherein their 
+in-phase alignment leads to acoustic energy amplification. This inter­
+action can result in self-excited oscillations, intensifying acoustic en­
+ergy, noise, and vibrations, which may potentially cause structural 
+damage [43]. The introduction of hydrogen into the fuel mixture 
+significantly impacts these dynamics by altering fundamental flame 
+characteristics, including laminar flame speed, reaction kinetics, and 
+diffusivity. Consequently, hydrogen enrichment influences not only 
+static stability but also the flame’s susceptibility to dynamic instabilities 
+[44].
+In this study, the influence of hydrogen enrichment on thermoa­
+coustic behavior was experimentally examined over a range of hydrogen 
+fractions (0–50 %) and global equivalence ratios (ϕɡ = 0.6–1.0). A 
+combined analytical approach was employed to characterize the dy­
+namic response: Fast Fourier Transform (FFT) was used to evaluate the 
+spectral content of acoustic pressure and chemiluminescence signals 
+(CH*, OH*), while Phase Space Reconstruction (PSR) was applied to 
+assess the temporal evolution and nonlinear dynamics of the oscilla­
+tions. Together, these techniques offer a comprehensive perspective of 
+the system’s behavior in both frequency and time domains, enabling 
+detailed insight into the onset and progression of thermoacoustic 
+instability. The FFT spectra are presented in arbitrary units (AU), 
+Table 1 
+Summary of experimental test conditions.
+Parameter
+Value / Range
+Ambient pressure
+1 atm
+Ambient temperature
+25 ◦C (room temperature)
+Fuel mixture
+Premixed C3H8/H2/air
+Rein
+3000
+Reout
+6000 (2Rein)
+Stratification ratio (SR)
+1.0 (no stratification)
+Global equivalence ratio (ϕɡ)
+0.5 (lean blowout limit)-1.0 (near stoichiometric)
+Hydrogen fraction (HF%)
+0 % −
+50 % (in increments of 10 %)
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+5 
+
+
+--- Page 6 ---
+
+representing relative amplitude variations. This approach is appropriate 
+as the primary goal is to analyze relative spectral content and frequency- 
+based coupling behavior, rather than absolute pressure quantification.
+Fig. 4, Fig. 5, and Fig. 6 present the FFT spectra of acoustic pressure 
+and heat release fluctuations (CH*, OH*) across a range of hydrogen 
+fractions and global equivalence ratios. At HF = 0 %, the system displays 
+broadband, low-amplitude pressure spectra with no dominant acoustic 
+modes, except for a weak peak around 540–550 Hz at ϕɡ = 1.0, 
+indicating stable combustion with minimal flame acoustic interaction. 
+Under these conditions, the CH* and OH* spectra exhibit a broadband 
+response with no dominant peaks, reflecting weak coupling between 
+heat release fluctuations and pressure oscillations.
+The onset of thermoacoustic instability becomes apparent as 
+hydrogen enrichment increases to 10–20 %. At ϕɡ = 0.8 and 0.9, a 
+distinct spectral peak appears near 550 Hz in the pressure signal with 
+increased amplitude. This is accompanied by growing spectral 
+Fig. 3. Blowout limits and flame stability zones imposed on (a) constant power output contours and (b) constant AFT contours.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+6 
+
+
+--- Page 7 ---
+
+alignment in the CH* and OH* signals, indicating enhanced coupling 
+between pressure and heat release fluctuations. This behavior suggests 
+amplified flame acoustic coupling driven by hydrogen addition, which 
+increases the flame’s sensitivity to pressure disturbances.
+At higher hydrogen fractions (HF ≥30 %), the transition to ther­
+moacoustic instability becomes more pronounced. At HF = 50 %, the 
+pressure spectrum displays sharp, narrowband peaks with substantially 
+increased amplitudes. These are accompanied by strong spectral 
+coherence in the CH* and OH* signals, confirming the development of a 
+self-excited, strongly coupled thermoacoustic instability.
+Although Rayleigh gain was not directly quantified in this study, the 
+observed conditions qualitatively fulfill the Rayleigh criterion, wherein 
+unsteady heat release fluctuations align in phase with pressure oscilla­
+tions, creating reinforcing feedback and consequently leading to 
+acoustic energy amplification [45]. The emergence of coherent spectral 
+peaks across pressure and chemiluminescence signals confirms the 
+Fig. 4. Pressure and heat release spectra for hydrogen-enriched flames (HF = 0 % and 10 %) at various global equivalence ratios.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+7 
+
+
+--- Page 8 ---
+
+establishment of strong pressure heat release coupling. These findings 
+align with previous studies by Kushwaha et al. [44], who demonstrated 
+that hydrogen enrichment lowers the instability onset and enhances the 
+flame’s acoustic sensitivity.
+To explore the complex nonlinear dynamics of the thermoacoustic 
+system, Phase Space Reconstruction (PSR) was applied to the time-series 
+signals of acoustic pressure and chemiluminescence (CH*, OH*). This 
+analysis aimed to gain deeper insight into the evolution of pressure heat 
+release coupling under varying operating conditions. PSR is a nonlinear 
+analysis technique that reconstructs a system’s state space using delayed 
+versions of a single observable. This approach enables the visualization 
+of transitions between different dynamical regimes, such as stable, 
+quasi-periodic, or limit-cycle (unstable) behavior [46]. In this study, 
+three representative operating conditions were selected to capture the 
+full spectrum of dynamic behavior: a fully stable regime (HF = 0 %, ϕɡ =
+0.8), a transitional regime (HF = 30 %, ϕɡ = 0.8), and a strongly un­
+stable case (HF = 50 %, ϕɡ = 0.8), as shown in Fig. 8. These cases were 
+chosen to capture the full spectrum of system responses, ranging from 
+random, non-periodic fluctuations to coherent oscillations, as identified 
+in the FFT spectra. As shown in Fig. 7, hydrogen enrichment progres­
+sively increases the spectral amplitude of both pressure and chem­
+iluminescence signals. It also causes the dominant frequencies to align, 
+which are clear indicators of the onset and intensification of flame 
+acoustic coupling. The time delay for PSR was selected based on the first 
+minimum of the average mutual information, following standard prac­
+tice in nonlinear time series analysis [46].
+At HF = 0 %, the reconstructed phase-space patterns appear as 
+diffuse, cloud-like structures. These structures reflect noise-dominated, 
+nonperiodic behavior, consistent with acoustically stable combustion 
+and minimal coherent interaction between heat release and acoustic 
+perturbations. With an increase to HF = 30 %, the acoustic pressure 
+pattern transitions into a more structured toroidal shape. This indicates 
+the emergence of low-dimensional limit cycle periodic oscillations rep­
+resented as coherent, repetitive loops within the phase-space domain. 
+Fig. 5. Pressure and heat release spectra for hydrogen-enriched flames (HF = 20 % and 30 %) at various global equivalence ratios.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+8 
+
+
+--- Page 9 ---
+
+Simultaneously, the CH* and OH* signals form noticeably elongated and 
+structured attractors. Such structured attractors highlight the growing 
+dynamic coupling between pressure oscillations and heat release fluc­
+tuations, indicating the system’s trajectory toward organized thermoa­
+coustic instability.
+At the highest hydrogen fraction (HF = 50 %), phase-space diagrams 
+for all three measured signals evolve distinctly into closed-loop attrac­
+tors with clearly defined boundaries, emphasizing robust limit-cycle 
+oscillations. These structures represent fully developed thermoacoustic 
+instabilities, where pressure and heat release oscillations are coherently 
+coupled through a self-sustained feedback loop.
+Such transitions in attractor topology, along with enhanced spectral 
+coherence, are hallmarks of a supercritical Hopf bifurcation, consistent 
+with prior nonlinear combustion studies [47]. Similar behavior was 
+reported in centrally-staged combustors, where coupling between flame 
+dynamics and structural vibration amplified instability characteristics 
+Fig. 6. Pressure and heat release spectra for hydrogen-enriched flames (HF = 40 % and 50 %) at various global equivalence ratios.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+9 
+
+
+--- Page 10 ---
+
+Fig. 7. 3D FFT spectra of sound pressure (left), CH* (middle), and OH* (right) heat release signals at ϕɡ = 0.8 for different hydrogen fractions (HF = 0–50 %).
+Fig. 8. Phase space reconstruction of pressure and heat release signals (CH*, OH*) intensity at ϕɡ = 0.8 for varying hydrogen fractions.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+10 
+
+
+--- Page 11 ---
+
+[48]. The transition from broadband, noise-like signals at HF = 0 %, to 
+quasi-periodic oscillations at HF = 30 %, and finally to organized limit- 
+cycle behavior at HF = 50 %, reflects a progressive intensification of 
+nonlinear flame acoustic coupling. This evolution, captured spectrally 
+through FFT and structurally through PSR, illustrates how hydrogen 
+enrichment drives the system toward dynamic instability.
+Additionally, a slight upward shift in the dominant oscillation fre­
+quency is observed with increasing hydrogen content, likely attributable 
+to changes in flame anchoring, flow velocity, and acoustic mode struc­
+ture. These findings are consistent with those reported by Ji et al. [49] 
+and Tao et al. [35]. Comparable nonlinear transitions have been re­
+ported by Heydarlaki et al. [50], who used phase-space trajectories to 
+characterize intermittent and chaotic-to-periodic shifts in their 
+combustor. Their results emphasize the value of attractor topology in 
+diagnosing combustion instability, which parallels the dynamic evolu­
+tion observed here. Moreover, recent work using complex network 
+analysis in confined swirl combustors further reinforces the link be­
+tween flow structure and thermoacoustic stability [51].
+The observed trends demonstrate the fundamental role of hydrogen 
+in modulating flame dynamics. Owing to its high laminar flame speed 
+and diffusivity, hydrogen shortens flame length, intensifies combustion, 
+and shortens the flame’s response time to flow and pressure distur­
+bances. These effects increase the sensitivity of unsteady heat release to 
+acoustic excitation, thereby amplifying its coupling with the pressure 
+field. In swirl stabilized configurations where vortex flame interactions 
+govern flame anchoring, this heightened reactivity amplifies the pres­
+sure heat release interaction.
+3.3. Effect of hydrogen enrichment on flame macrostructure
+The flame macrostructure is a critical characteristic influencing 
+combustion stability, heat transfer, and emission formation in swirl- 
+stabilized premixed flames. The shape and structure of the flame 
+significantly impact how the flame interacts with flow dynamics, heat 
+distribution, and pollutant formation mechanisms. Stable and compact 
+flames anchored close to the combustor inlet promote effective flame 
+stabilization by resisting turbulent fluctuations, thereby reducing the 
+risk of flame blowout. This close anchoring ensures stable combustion 
+through consistent flame propagation and anchoring points within the 
+recirculation zones [52]. Additionally, compact flames offer improved 
+flame stability and concentrated heat release, though their reduced 
+surface area may decrease overall convective heat transfer efficiency. 
+Flame shape also directly influences emissions; stable and compact 
+flames typically have optimized temperature profiles that facilitate 
+complete combustion, thus minimizing carbon monoxide (CO) and un­
+burned hydrocarbons. However, these flames may increase thermal NOx 
+formation at elevated temperatures, which requires careful optimization 
+[53].
+Fig. 9 illustrates the effect of hydrogen enrichment on flame 
+macrostructure across a range of global equivalence ratios (ϕɡ= 0.5, 0.6, 
+0.7, and 0.8). Systematic changes in flame shape, length, stability, and 
+luminosity with increasing HF are evident. At higher equivalence ratios 
+(ϕɡ= 0.8 and 0.7), flames exhibit a stable and compact conical structure, 
+firmly anchored at the burner exit. Increasing HF from 0 % to 50 % 
+slightly reduces flame height, accompanied by enhanced luminosity and 
+a more intense blue color. This indicates increased combustion intensity 
+and reaction rates, aligning with known characteristics of hydrogen- 
+enriched flames such as higher laminar flame speeds, improved flame 
+stability, and increased heat release rates. The flame shortening with 
+hydrogen addition is primarily due to accelerated combustion kinetics, 
+as hydrogen significantly enhances radical formation (OH and CH rad­
+icals). These radicals actively participate in propagating combustion 
+reactions, as discussed in earlier sections. These observed macrostruc­
+tural trends are consistent with previous findings in the literature. Link 
+et al. [54] demonstrated similar structural transformations for the CH4/ 
+H2 flame, noting that flames transitioned from elongated and partially 
+lifted conditions to compact and well-anchored states with increased 
+hydrogen content. In addition to this recent publication, Agostinelli 
+et al. [55] observed analogous flame shortening and improved upstream 
+anchoring in hydrogen-enriched CH4/air swirl flames. Similarly, 
+Abdelhalim et al. [52] reported enhanced compactness and luminosity 
+in stratified flames stabilized within a dual annular counter-rotating 
+swirl (DACRS) combustor. Collectively, these studies reinforce the crit­
+ical role of hydrogen enrichment in enhancing flame stability and 
+compactness across various combustor configurations.
+At intermediate equivalence ratios (ϕɡ= 0.6), flames initially show a 
+slightly elongated, partially lifted flame at low HF (0–20 %), suggesting 
+marginal stability conditions. As hydrogen enrichment exceeds 30 %, 
+the flames become visibly shorter, more compact, and brighter, with 
+improved stabilization at the burner rim. These visual changes reflect 
+the increased combustion reactivity and stability associated with 
+hydrogen addition, consistent with the trends discussed in earlier sec­
+tions. Furthermore, as indicated in Fig. 9, hydrogen addition increases 
+the AFT, enhancing thermal buoyancy and promoting stronger recircu­
+lation. This facilitates the transport of hot gases and reactive species to 
+the stabilization zone, especially beneficial under lean conditions.
+At the leanest condition studied (ϕɡ= 0.5), pure propane flames were 
+unable to sustain stable combustion, resulting in flame extinction or 
+blowout. However, incremental hydrogen enrichment (HF = 10 % to 50 
+%) enabled the flames to transition from lifted and unstable conditions 
+to progressively anchored and stabilized states. Hydrogen enrichment 
+effectively extended the lean flammability limits as illustrated in section 
+3.1, allowing stable combustion at significantly leaner mixtures due to 
+its higher reactivity, broader flammability range, and enhanced ignition 
+potential through increased radical formation.
+Overall, the observed flame macrostructural trends in Fig. 9 illustrate 
+hydrogen’s significant role in enhancing flame stability and compact­
+ness across varying equivalence ratios. The resulting increase in com­
+bustion intensity and improved resistance to extinction not only 
+highlight practical benefits in combustion performance but also align 
+with the emission reductions detailed in Section 3.5, emphasizing the 
+viability of hydrogen-blended fuels for low-emission operation in swirl- 
+stabilized combustors.
+3.4. Effect of hydrogen enrichment on axial and radial temperature 
+profiles
+Temperature profiles measured along the axial centerline and 
+selected radial locations offer essential insights into the combustion 
+dynamics, flame stability, and pollutant formation processes in swirl- 
+stabilized combustors. Accurate temperature measurements are essen­
+tial for assessing combustion efficiency and stability under varying 
+operational conditions [26]. Moreover, the measured temperature pro­
+files provide valuable data that can support and improve numerical 
+models used to simulate combustion behavior. In the present study, 
+temperature measurements were conducted at a fixed Reynolds number 
+(Rein = 3000), capturing the effects of hydrogen enrichment (HF = 0–50 
+%) and global equivalence ratios (ϕɡ= 0.55–0.75). Due to limitations 
+associated with thermocouple placement, axial and radial measure­
+ments were taken at select locations to ensure spatial coverage while 
+maintaining data accuracy.
+Fig. 10 illustrates axial temperature distributions at a constant ϕɡ =
+0.65 across various HF levels. The profiles reveal a rapid temperature 
+increase near the combustor inlet, due to intense combustion reactions, 
+followed by a gradual temperature decay downstream because of heat 
+losses and dilution by cooler combustion products. Despite substantial 
+local enhancement in reaction kinetics from hydrogen enrichment, the 
+peak axial temperatures vary minimally (within ~ 2 %). This indicates 
+that the global flame temperature remains predominantly governed by 
+the equivalence ratio rather than by hydrogen content alone. This 
+finding aligns closely with [52], which reported negligible global tem­
+perature increases with up to 20 % hydrogen addition in methane 
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+11 
+
+
+--- Page 12 ---
+
+Fig. 9. Effect of hydrogen fraction on the flame macrostructure with different global equivalent ratios.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+12 
+
+
+--- Page 13 ---
+
+flames. The limited thermal impact was attributed to hydrogen’s high 
+diffusivity and localized reaction intensification.
+Radial temperature profiles at axial positions of 6 cm (Fig. 11a) and 
+14 cm (Fig. 11b) further illustrate the limited thermal influence of 
+hydrogen enrichment. The profiles retain a distinct M−shaped structure, 
+characteristic of swirl-stabilized flames, with lower temperatures along 
+the centerline and peak values occurring at mid-radius. The central 
+temperature reduction is attributed to the recirculation of cooler com­
+bustion products and unburned reactants toward the flame root, induced 
+by swirl-driven vortex structures. Peak temperatures at intermediate 
+radial positions correspond to regions of intensified fuel oxidation 
+influenced by the swirling flow patterns. As the hydrogen fraction in­
+creases up to 50 %, the radial temperature gradients become slightly 
+steeper, indicating enhanced local reaction rates and radical concen­
+trations. Similar findings by Kim et al. [26] demonstrated that even 
+substantial hydrogen enrichment in swirl flames resulted in limited 
+changes to overall temperature distributions, reinforcing that equiva­
+lence ratio primarily dictates global flame temperature profiles. Addi­
+tionally, under the same temperature measuring conditions, the flame 
+images were presented (Fig. 12). As discussed in the flame macro­
+structure section 3.3, the increased HF results in visibly brighter flames 
+due to enhanced reaction kinetics and increased radical production 
+(OH*, CH*). This increase in radical concentration was evidenced by the 
+intensified CH* and OH* chemiluminescence signals measured via PMT, 
+as discussed in the thermoacoustic analysis section, despite minimal 
+quantitative temperature variations.
+In contrast, variations in ϕɡ have substantial effects on axial and 
+radial temperature profiles, as illustrated in Fig. 13 and Fig. 14. 
+Increasing the equivalence ratio from ϕɡ = 0.55 to ϕɡ = 0.75 at constant 
+HF = 40 % significantly increases flame temperatures along both axial 
+and radial directions. Along the axial direction, peak axial temperatures 
+increase by approximately 15–20 %, clearly demonstrating the strong 
+correlation between richer mixtures and higher flame temperatures. 
+This is attributed to the increased availability of fuel, which enhances 
+the local heat release rate and promotes more complete combustion. 
+Radial temperature profiles at axial distances of 6 cm (Fig. 14a) and 14 
+cm (Fig. 14b) exhibit significant temperature increases with the ϕɡ. The 
+peak temperatures are observed at intermediate radial positions (~30 
+mm at 6 cm and ~ 20 mm at 14 cm axial distances), corresponding to the 
+swirl-induced shear layer, where turbulent mixing and fuel–air in­
+teractions are intensified, promoting intense chemical reactions. Higher 
+ϕɡ support elevated flame temperatures due to increased fuel avail­
+ability and enhanced heat release. While hydrogen enrichment signifi­
+cantly improves combustion stability and flame anchoring under lean 
+conditions, these results confirm that the global flame temperature and 
+thermal structure remain predominantly governed by the ϕɡ.
+Fig. 15 illustrates the influence of equivalence ratio (ϕɡ = 0.55, 0.65, 
+and 0.75) at constant HF = 40 % on flame structure. As discussed pre­
+viously, the flames become shorter, brighter, and more compact, indi­
+cating intensified combustion and stronger flame stabilization with 
+increasing ϕɡ due to elevated heat release and reaction rates. 
+Conversely, leaner mixtures (ϕɡ =0.55) produce elongated, weaker 
+flames located further downstream, reflecting lower burning velocity, 
+reduced thermal intensity, and diminished stability. These visual trends 
+align with the measured temperature profiles and reinforce the critical 
+role of mixture strength in governing flame dynamics.
+Thus, hydrogen enrichment notably improves combustion stability 
+and radical production but has minimal influence on global flame 
+temperature. Conversely, the equivalence ratio significantly governs 
+global temperature profiles, consistent with prior studies [26,52]. These 
+findings emphasize the advantage of moderate hydrogen enrichment for 
+flame stability without substantially raising peak temperatures and thus 
+Fig. 10. Effect of hydrogen fraction on axial flame temperature at ϕɡ=0.6.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+13 
+
+
+--- Page 14 ---
+
+avoiding detrimental NOx formation.
+3.5. Effect of hydrogen enrichment on propane combustion emissions
+In addition to flame stability and thermal performance, exhaust 
+emissions are a critical parameter in evaluating the environmental 
+viability of hydrogen-enriched propane-air swirl flames. This section 
+illustrates the impact of hydrogen fraction (HF = 0–50 %) and global 
+equivalence ratio (ϕɡ= 0.55–0.75) on the emission characteristics of 
+carbon dioxide (CO2), carbon monoxide (CO), nitrogen oxides (NOx), 
+and excess oxygen (O2). Emission data were acquired using a calibrated 
+gas analyzer placed downstream of the combustor at stable operating 
+Fig. 11. Effect of hydrogen fraction on radial flame temperature at ϕɡ=0.65 (a) Axial distance = 6 cm, (b) Axial distance = 14 cm.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+14 
+
+
+--- Page 15 ---
+
+conditions, consistent with those used in flame structure and tempera­
+ture profile measurements. The NOx emissions were corrected to a 
+reference O2 concentration of 15 % (dry basis) using a standard 
+correction to eliminate dilution effects [56,57]. CO and CO2 were re­
+ported as directly measured, consistent with combustion diagnostics 
+practice.
+Fig. 16a, shows that CO2 emissions consistently decline with 
+increasing hydrogen content. At ϕɡ = 0.75, the concentration decreases 
+from approximately 9.3 % at HF = 0 % to about 8.2 % at HF = 50 %, 
+corresponding to a reduction of about 11.8 %. At leaner conditions (ϕɡ 
+= 0.55), CO2 drops from 6.8 % to 5.9 %, representing a 13.2 % decrease. 
+This reduction is primarily attributed to the carbon-free nature of 
+hydrogen, which lowers the overall carbon input in the fuel mixture and 
+promotes the formation of H2O over CO2 during combustion. The effect 
+is more pronounced at higher ϕɡ due to the increased baseline carbon 
+fuel content associated with richer mixtures. CO emissions (Fig. 16b) 
+also decrease markedly with hydrogen enrichment. At ϕɡ = 0.75, CO 
+levels drop from 12 ppm to about 8 ppm, representing a 33.3 % 
+reduction. At ϕɡ = 0.6, concentrations decrease from 2 ppm to nearly 1 
+ppm, indicating a 50 % reduction. Under ultra-lean conditions (ϕɡ =
+0.55), CO remains low (1 ppm) across all hydrogen fractions, showing 
+minimal variation. This decrease is primarily attributed to enhanced 
+oxidation kinetics promoted by hydrogen addition. Elevated flame 
+temperatures and increased OH radical concentrations facilitate the 
+more complete conversion of CO to CO2. The reduction in CO was 
+attributed to enhanced oxidation kinetics resulting from increased 
+radical production. Additionally, CO2 emissions decreased due to the 
+lower carbon content in the hydrogen-enriched fuel mixture [58,59].
+In contrast to carbon-based emissions (Fig. 16c) exhibit a consistent 
+increase with hydrogen enrichment across all equivalence ratios. At ϕɡ 
+= 0.75, the corrected NOx rises from approximately 6.9 ppm at HF = 0 
+% to 8.4 ppm at HF = 50 %, corresponding to a 21.2 % increase. At the 
+leanest condition (ϕɡ = 0.55), NOx increases from about 0.6 ppm to 3.2 
+ppm over the same hydrogen fraction range. This upward trend is 
+Fig. 12. Flame shapes with different hydrogen fractions at constant ϕɡ= 0.65.
+Fig. 13. Effect of global equivalence ratio on axial flame temperature at constant HF = 40 %.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+15 
+
+
+--- Page 16 ---
+
+Fig. 14. Effect of equivalence ratio on radial temperature at constant HF = 40 % (a) Axial distance = 6 cm. (b) Axial distance = 14 cm.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+16 
+
+
+--- Page 17 ---
+
+primarily attributed to enhanced thermal NO formation via the extended 
+Zeldovich mechanism, which is highly sensitive to flame temperature 
+and radical pool composition. As hydrogen enrichment elevates the AFT 
+and intensifies the production of reactive radicals such as O and OH, the 
+rate of NO formation is correspondingly accelerated [60,61]. Although 
+the corrected NOx levels remain relatively modest under ultra-lean 
+conditions, the observed behavior reinforces the inherent trade-off be­
+tween improved flame stabilization and increased NOx emissions. 
+Normalization to 15 % O2 eliminates dilution effects due to excess air, 
+allowing a more accurate interpretation of the underlying chemical 
+kinetics.
+Fig. 16d shows the O2 concentration profiles, which remain rela­
+tively high (between 5 % and 10 %) across all operating conditions, a 
+direct consequence of the globally lean combustion regime. With 
+increasing HF, a slight rise in O2 levels is observed. This behavior results 
+from hydrogen’s higher stoichiometric air-to-fuel ratio compared to 
+propane, which increases the excess oxygen in the exhaust. Additionally, 
+hydrogen substitution reduces carbon content without significantly 
+altering the total fuel energy input, thereby lowering oxygen con­
+sumption during combustion. These combined effects lead to a slight 
+increase in O2 despite improved oxidation efficiency, consistent with 
+observations in a hydrogen-enriched lean premixed system.
+4. Conclusion
+The effects of hydrogen enrichment on premixed C3H8/air flames 
+were investigated in a Dual Annular Counter Rotating Swirl (DACRS) 
+combustor. The emphasis was placed on flame stability, thermoacoustic 
+behavior, temperature field, and exhaust emissions. The combustor 
+configuration mimics practical swirl burner designs, offering opera­
+tional flexibility across various flow configurations. Hydrogen was 
+premixed with propane at volumetric fractions (HF = 0–50 %), and 
+experiments were conducted under globally lean conditions near 
+blowout (ϕɡ= 0.5–1.0) at a fixed Rein = 3000. Key findings from the 
+tested combustor configuration can be summarized as follows: 
+• Static stability analysis demonstrated that hydrogen enrichment 
+markedly extends the lean blowout limit, reducing the minimum 
+stable equivalence ratio by approximately 21 % as HF increased from 
+0 % to 50 %. This enhancement is primarily driven by hydrogen’s 
+high laminar flame speed, superior diffusivity, and increased OH and 
+CH radical production, enabling flame anchoring even at reduced 
+adiabatic temperatures.
+• Thermoacoustic characterization using FFT and Phase Space 
+Reconstruction (PSR) revealed a distinct transition from stable to 
+unstable combustion regimes with increasing hydrogen enrichment. 
+At low HF levels, pressure and chemiluminescence signals exhibited 
+weak, broadband fluctuations. As HF increased, coherent narrow­
+band oscillations emerged, indicating Rayleigh-driven coupling be­
+tween pressure and unsteady heat release. PSR attractors confirmed 
+the development of nonlinear limit-cycle dynamics at elevated HF, 
+highlighting strong acoustic–combustion interaction. These results 
+offer comprehensive temporal and spectral insights into the onset of 
+thermoacoustic instability in partially stratified swirl flames.
+• Temperature measurements exhibited limited sensitivity to 
+hydrogen enrichment, as the global heat release was predominantly 
+governed by the ϕɡ. Nevertheless, hydrogen addition led to steeper 
+radial temperature gradients and locally intensified reaction zones. 
+In contrast, variations in ϕɡ exerted a more substantial influence on 
+both axial and radial temperature distributions, confirming its pri­
+mary role in enhancing combustion intensity and promoting flame 
+compactness.
+• Emission analysis at ϕɡ = 0.75 highlighted a dual benefit of hydrogen 
+enrichment. CO2 emissions decreased by approximately 10.5 % due 
+to the carbon-free nature of hydrogen. CO levels dropped by 33.3 %, 
+reflecting improved oxidation kinetics and more complete combus­
+tion. However, this benefit was accompanied by a 21 % increase in 
+NOx emissions. The rise in NOx is attributed to higher flame tem­
+peratures and enhanced radical formation, consistent with thermal 
+NO formation mechanisms.
+In conclusion, hydrogen enrichment improves lean stability, com­
+bustion efficiency, and reduces CO/CO2 emissions in propane-air swirl 
+flames. These findings support the use of hydrogen-enriched propane as 
+a transitional fuel in clean energy systems and provide reliable experi­
+mental data for future combustor modeling and design. Future 
+Fig. 15. Flame shapes with different equivalence ratios at constant HF = 40 %.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+17 
+
+
+--- Page 18 ---
+
+Fig. 16. Effect of hydrogen fraction on flame emissions with different equivalent ratios (a) CO2 emissions (vol%), (b) CO emissions (ppm), (c) NOx emissions (ppm at 
+15% O2), and (d) O2 (vol%) in the combustion products.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+18 
+
+
+--- Page 19 ---
+
+investigations will focus on examining the effects of fuel stratification, 
+including inner and outer hydrogen enrichment, compared to overall 
+enrichment strategies. Additionally, high-speed chemiluminescence 
+imaging coupled with advanced numerical simulations will be employed 
+to provide deeper insights into fundamental combustion dynamics. 
+These advanced techniques will help accelerate the development of the 
+next-generation, low-carbon, high-efficiency combustion technologies.
+Fig. 16. (continued).
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+19 
+
+
+--- Page 20 ---
+
+CRediT authorship contribution statement
+Ahmed Gaber H. Saif: Writing – original draft, Visualization, 
+Methodology, Formal analysis, Data curation. Md. Imteaz Ahmed: 
+Writing – original draft, Visualization, Investigation, Data curation. 
+Qazi Talal: Writing – original draft, Visualization, Data curation. 
+Esmail M.A. Mokheimer: Writing – review & editing, Supervision, 
+Methodology, Project administration, Resources, Investigation, Formal 
+analysis, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgements
+The authors express their gratitude for the support received from the 
+DROC and IRC-SES of King Fahd University of Petroleum & Minerals 
+(KFUPM) under the InternalFunded Project No. INSE2405.
+Appendix A. . Governing equations and calculation methods
+This appendix details the governing equations and calculation procedures used for determining fuel and air flow rates, stoichiometric ratios, 
+mixture properties, combustor power, and adiabatic flame temperatures (AFT) for the experiments described in Section 2.2.
+The stoichiometric combustion equation for the blended fuel mixture of C3H8 and H2 with air can be represented as follows: 
+C3H8 +
+(
+HF
+1 −HF
+)
+H2 +
+[10 −9HF
+2(1 −HF)
+]
+(O2 + 3.76N2)⟶3CO2 +
+(4 −3HF
+1 −HF
+)
+H2O +
+[3.76(10 −9HF)
+2(1 −HF)
+]
+N2
+(A1) 
+For actual combustion under fuel-lean conditions, the equation becomes: 
+C3H8 +
+(
+HF
+1 −HF
+)
+H2 + 1
+ϕg
+[10 −9HF
+2(1 −HF)
+]
+(O2 + 3.76N2)⟶3CO2 +
+(4 −3HF
+1 −HF
+)
+H2O +
+(
+1
+ϕg
+−1
+)[10 −9HF
+2(1 −HF)
+]
+O2 +
+[
+3.76(10 −9HF)
+2ϕg(1 −HF)
+]
+N2
+(A2) 
+The total fuel mass and volume flow rates are given by: 
+˙mfuel,tot = ˙mC3H8,tot + ˙mH2,tot
+(A3) 
+˙Vfuel,tot = ˙mfuel,tot
+ρfuel
+(A4) 
+Where ρfuel The fuel density is calculated as, 
+ρfuel = (1 −HF)ρC3H8 + HFρH2
+(A5) 
+The hydrogen mass flow rate is computed as: 
+˙mH2,tot = ˙mC3H8,tot
+22
+(
+HF
+1 −HF
+)
+(A6) 
+The air volume and mass flow rates are calculated by: 
+˙Vair,tot = 4.76(10 −9HF) ˙Vfuel,tot
+2ϕg
+(A7) 
+˙mair,tot = ˙Vair,tot × ρair
+(A8) 
+Where ρair is the air density.
+The global equivalence ratio is calculated as, 
+ϕg =
+(
+F
+A
+)
+acual
+(
+F
+A
+)
+stoichiometric
+(A9) 
+(F
+A
+)
+acual = ˙mfuel,tot
+˙mair,tot
+(A10) 
+(F
+A
+)
+stoichiometric =
+1 × Mfuel
+4.76
+(
+10−9HF
+2
+)
+Mair
+(A11) 
+Where Mfuel and Mair The molar mass of fuel and air for fuel is calculated as, 
+Mfuel = MC3H8(1 −HF) + MH2HF
+(A12) 
+Combustor thermal power is calculated by: 
+Power = ˙mC3H8,tot × LHVC3H8 + ˙mH2,tot × LHVH2
+(A13) 
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+20 
+
+
+--- Page 21 ---
+
+Where LHVC3H8 and LHVH2 represent the lower heating values of propane and hydrogen, respectively.
+Stratification ratio (SR), defined as the ratio of equivalence ratios between the inner and outer annuli, is given by: 
+SR = ϕin
+ϕout
+(A14) 
+In this study, SR = 1 (no stratification), while future studies will address stratification impacts separately.
+The Reynolds number for inner annuals is given by: 
+Rein =
+(
+ρmix × νmix × Dh
+μmix
+)
+in
+(A15) 
+Where Rein = 3000 was constant for this study. Dh and νmix are the hydraulic diameter for and stream velocity in the inner annulus.
+Mixture density (ρmix) calculated as, 
+ρmix = yC3H8 × ρC3H8 + yH2 × ρH2 + yair × ρair
+(A16) 
+Mixture viscosity (μmix), calculated as [62]: 
+μmix = yC3H8×μC3H8 ×
+̅̅̅̅̅
+44
+√
++ yH2×μH2 ×
+̅̅̅
+2
+√
++ yair×μair ×
+̅̅̅̅̅̅̅̅̅̅̅̅
+28.97
+√
+yC3H8 ×
+̅̅̅̅̅
+44
+√
++ yH2 ×
+̅̅̅
+2
+√
++ yair ×
+̅̅̅̅̅̅̅̅̅̅̅̅
+28.97
+√
+(A17) 
+where y is the mole fraction of gases in the mixture.
+Outer annulus Reynolds number (Reout) is set to twice the inner annulus Reynolds number (Reout = 2Rein). Mass and volume flow rates were 
+computed with Engineering Equation Solver (EES) software for accuracy.
+The adiabatic flame temperature (AFT) for each test condition was determined based on a thermodynamic equilibrium calculation using the 
+balanced combustion equation (2). AFT values were computed as a function of ϕɡ and HF, providing a theoretical reference for interpreting measured 
+flame temperatures and analyzing stability and emissions characteristics.
+Data availability
+Data will be made available on request.
+References
+[1] Lee T, Kim KT. Combustion dynamics of lean fully-premixed hydrogen-air flames in 
+a mesoscale multinozzle array. Combust Flame 2020;218:234–46.
+[2] Sadeq AM, Homod RZ, Hussein AK, Togun H, Mahmoodi A, Isleem HF, et al. 
+Hydrogen energy systems: technologies, trends, and future prospects. Sci Total 
+Environ 2024;173622.
+[3] Saif AGH, Alquaity ABS, Mokheimer EMA. Techno-economic analysis of green 
+hydrogen production in Saudi Arabia: a comparative study of solar PV and CSP 
+technologies. Int J Hydrogen Energy 2025;105:1361–74.
+[4] Liu Z, Xiong Y, Wei X, Yang N, Ben Y, Zhang S, et al. Flame stability and emissions 
+of a multi-nozzle array combustor fueled hydrogen enriched fuel under fuel staging 
+conditions. Int J Hydrogen Energy 2025;102:996–1009.
+[5] Jowkar S, Shen X, Olyaei G, Reza MM. Hydrogen-enriched propane combustion in 
+a lean premixed burner: LES study on flashback, emissions, and combustion 
+instability. Fuel 2025;381:133377.
+[6] Saif AGH, Wahid SS, Ali MR. Pyrolysis of sugarcane bagasse: the effects of process 
+parameters on the product yields. Materials Science Forum. 1008. Trans Tech Publ; 
+2020:159-67.
+[7] Jeelan Basha KB, Balasubramani S, Sivasankaralingam V. Effect of pre-chamber 
+geometrical parameters and hydrogen enrichment on the combustion and flame 
+characteristics of zero/low carbon fuels. Energy 2025;326:136365.
+[8] Abubakar Z, Shakeel MR, Mokheimer EMA. Experimental and numerical analysis 
+of non-premixed oxy-combustion of hydrogen-enriched propane in a swirl 
+stabilized combustor. Energy 2018;165:1401–14.
+[9] Syred N, Abdulsada M, Griffiths A, O’Doherty T, Bowen P. The effect of hydrogen 
+containing fuel blends upon flashback in swirl burners. Appl Energy 2012;89(1): 
+106–10.
+[10] Saif AGH, Mokheimer EMA. Comprehensive review on ammonia combustion 
+technologies: combustion characteristics, potential of hydrogen/methane 
+additions, and emerging applications. Int J Hydrogen Energy 2025;148:149672.
+[11] Yaïci W, Longo M. Performance analysis of domestic boilers fuelled with hydrogen- 
+enriched natural gas blends and pure hydrogen. Energy 2025;322:135536.
+[12] Dunn-Rankin D, Therkelsen P. Lean Combustion: Technology and Control: Second 
+Edition. 2016.
+[13] Sanusi YS, Habib MA, Mokheimer EM. Experimental study on the effect of 
+hydrogen enrichment of methane on the stability and emission of nonpremixed 
+swirl stabilized combustor. J Energy Res Technol 2015;137(3):032203.
+[14] Beita J, Talibi M, Sadasivuni S, Balachandran R. Thermoacoustic instability 
+considerations for high hydrogen combustion in lean premixed gas turbine 
+combustors: a review. Hydrogen 2021;2(1):33–57.
+[15] Choudhuri AR, Gollahalli S. Stability of hydrogen/hydrocarbon blended fuel 
+flames. J Propul Power 2003;19(2):220–5.
+[16] Khalil AE, Gupta AK. Hydrogen addition effects on high intensity distributed 
+combustion. Appl Energy 2013;104:71–8.
+[17] Gee AJ, Smith N, Chinnici A, Medwell PR. Characterisation of turbulent non- 
+premixed hydrogen-blended flames in a scaled industrial low-swirl burner. Int J 
+Hydrogen Energy 2024;49:747–57.
+[18] de Persis S, Idir M, Molet J, Pillier L. Effect of hydrogen addition on NOx formation 
+in high-pressure counter-flow premixed CH4/air flames. Int J Hydrogen Energy 
+2019;44(41):23484–502.
+[19] Guo S, Wang J, Zhang W, Zhang M, Huang Z. Effect of hydrogen enrichment on 
+swirl/bluff-body lean premixed flame stabilization. Int J Hydrogen Energy 2020;45 
+(18):10906–19.
+[20] Schefer RW. Hydrogen enrichment for improved lean flame stability. Int J 
+Hydrogen Energy 2003;28(10):1131–41.
+[21] Day MS, Gao X, Bell JB. Properties of lean turbulent methane-air flames with 
+significant hydrogen addition. Proc Combust Inst 2011;33(1):1601–8.
+[22] Patel V, Shah R. Effect of hydrogen enrichment on combustion characteristics of 
+methane swirling and non-swirling inverse diffusion flame. Int J Hydrogen Energy 
+2019;44(52):28316–29.
+[23] Zhang M, Wang J, Xie Y, Jin W, Wei Z, Huang Z, et al. Flame front structure and 
+burning velocity of turbulent premixed CH4/H2/air flames. Int J Hydrogen Energy 
+2013;38(26):11421–8.
+[24] Wang X, Han M, Han X, Chi Z, Sung C-J. Flame structures and thermoacoustic 
+instabilities of centrally-staged swirl flames operating in different partially- 
+premixed modes. Energy 2021;236:121512.
+[25] Cozzi F, Coghe A. Behavior of hydrogen-enriched non-premixed swirled natural gas 
+flames. Int J Hydrogen Energy 2006;31(6):669–77.
+[26] Kim HS, Arghode VK, Linck MB, Gupta AK. Hydrogen addition effects in a confined 
+swirl-stabilized methane-air flame. Int J Hydrogen Energy 2009;34(2):1054–62.
+[27] Miao H, Lu L, Huang Z. Flammability limits of hydrogen-enriched natural gas. Int J 
+Hydrogen Energy 2011;36(11):6937–47.
+[28] Jackson GS, Sai R, Plaia JM, Boggs CM, Kiger KT. Influence of H2 on the response of 
+lean premixed CH4 flames to high strained flows. Combust Flame 2003;132(3): 
+503–11.
+[29] Gauducheau JL, Denet B, Searby G. A numerical study of lean CH4/H2/air 
+premixed flames at high pressure. Combust Sci Technol 1998;137(1–6):81–99.
+[30] El-Ghafour SAA, El-dein AHE, Aref AAR. Combustion characteristics of natural 
+gas–hydrogen hybrid fuel turbulent diffusion flame. Int J Hydrogen Energy 2010; 
+35(6):2556–65.
+[31] Kim HS, Arghode VK, Gupta AK. Flame characteristics of hydrogen-enriched 
+methane–air premixed swirling flames. Int J Hydrogen Energy 2009;34(2): 
+1063–73.
+[32] Han X, Laera D, Morgans AS, Lin Y, Sung C-J. The effect of stratification ratio on 
+the macrostructure of stratified swirl flames: experimental and numerical study. 
+J Eng Gas Turbines Power 2018;140(12):121004.
+[33] Song H, Han X, Lin Y, Zhang C, Hui X, Wang X, et al. The effect of the corner 
+recirculation zone on separated stratified swirling flames and combustion 
+instabilities. Turbo Expo: Power for Land, Sea, and Air. 58615. American Society of 
+Mechanical Engineers; 2019:V04ATA025.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+21 
+
+
+--- Page 22 ---
+
+[34] Alabas B, Kumuk O, Ozcan A. Investigation of the effect of colorless distributed 
+combustion method on the flame of methane/hydrogen fuel mixture using image 
+processing method. Int J Hydrogen Energy 2025;116:312–22.
+[35] Tao C, Zhou H. Effect of hydrogen blending on thermoacoustic instability and 
+flashback dynamics in partially premixed methane-air flames. Fuel 2025;393: 
+135007.
+[36] Mokheimer EM, Talal Q, Shakeel MR, Abubakar Z. Investigation of Thermoacoustic 
+Instability for Swirling Flames in a Dual Annular Stratified Burner. Proceedings of 
+the 15th International Conference on Applied Energy (ICAE 2023); Energy 
+Proceedings. Vol. 40, 2024. doi: 10.46855/energy-proceedings-10933.
+[37] Shakeel MR, Mokheimer EM. Static Stability and Flame Macrostructure of 
+Stratified Jet Flames. Proceedings of the 14th International Conference on Applied 
+Energy (ICAE 2022); Energy Proceedings. Vol. 28, 2022. doi: 10.46855/energy- 
+proceedings-10250.
+[38] Shaddix CR. Correcting thermocouple measurements for radiation loss: a critical 
+review. 1999.
+[39] Shaddix CR. A New method to compute the radiant correction of bare-wire 
+thermocouples. Sandia National Lab.(SNL-CA), Livermore, CA (United States); 
+2017.
+[40] Hasti VR, Kundu P, Som S, Won SH, Dryer FL, Gore JP. Computation of 
+conventional and alternative jet fuel sensitivity to lean blowout. J Energy Inst 
+2022;101:19–31.
+[41] Dawson JR, Rodriguez-Martinez VM, Syred NICK, O’doherty TIM. The effect of 
+combustion instability on the structure of recirculation zones in confined swirling 
+flames. Combust Sci Technol 2005;177(12):2349–71.
+[42] Mohammadnejad S, Saca L, Kheirkhah S. A new compact active turbulence 
+generator for premixed combustion: non-reacting flow characteristics. Phys Fluids 
+2022;34(10).
+[43] Cao Z, Xiao Y, Song W, Li W. Experimental study on thermoacoustic instability and 
+emission characteristics of premixed swirl flame in a longitudinal combustor. Int J 
+Therm Sci 2022;172:107354.
+[44] Kushwaha A, Kasthuri P, Pawar SA, Sujith RI, Chterev I, Boxx I. Dynamical 
+characterization of thermoacoustic oscillations in a hydrogen-enriched partially 
+premixed swirl-stabilized methane/air combustor. J Eng Gas Turbines Power 2021; 
+143(12).
+[45] Nicoud F, Poinsot T. Thermoacoustic instabilities: should the Rayleigh criterion be 
+extended to include entropy changes? Combust Flame 2005;142(1):153–9.
+[46] Kantz H, Schreiber T. Nonlinear time series analysis. Cambridge University Press; 
+2003.
+[47] Beita J, Talibi M, Rizza R, Rocha N, Ezenwajiaku C, Sadasivuni S, et al. Effect of 
+hydrogen enrichment on the dynamical transition to self-excited thermoacoustic 
+instability of a laboratory-scale dual-can combustor. Int J Hydrogen Energy 2025; 
+111:159–70.
+[48] Qin Z, Lin Y, Han M, Han X, Zhang X, He P, et al. Experimental and theoretical 
+investigation on the thermoacoustic-induced vibration in a centrally-staged 
+combustor. Combust Flame 2025;273:113890.
+[49] Ji L, Wang J, Zhang W, Wang Y, Huang Z, Bai X-S. Structure and thermoacoustic 
+instability of turbulent swirling lean premixed methane/hydrogen/air flames in a 
+model combustor. Int J Hydrogen Energy 2024;60:890–901.
+[50] Heydarlaki R, Aitchison W, Kostka P, Kheirkhah S. Influences of initial and 
+transient combustor wall-temperature on thermoacoustic oscillations of a small- 
+scale power generator. Exp Therm Fluid Sci 2019;109:109856.
+[51] Qin Z, Lin Y, Song H, Han X. Flow stability and complex network analysis in a swirl 
+combustor with dump and slope confinement. Energy 2025;325:135970.
+[52] Abdelhalim A, Abdelhafez A, Nemitallah MA. Effects of non-premixed H2 injection 
+on the stability, shape, and combustion/emissions characteristics of premixed 
+CH4/air flames: an experimental study. Fuel 2024;365:131213.
+[53] Pillai SK, Thombare MR, Subramonia MP, Balusamy S. Hydrogen Integration in 
+Swirl-Stabilized Lpg/Air Burner Through Partial Premixing: Topology and 
+Emissions. Air Burner Through Partial Premixing: Topology and Emissions.
+[54] Link S, Dave K, de Domenico F, Rao AG, Eitelberg G. Experimental analysis of dual- 
+fuel (CH4/H2) capability in a partially-premixed swirl stabilized combustor. Int J 
+Hydrogen Energy 2025;101:427–37.
+[55] Agostinelli PW, Laera D, Chterev I, Boxx I, Gicquel L, Poinsot T. On the impact of 
+H2-enrichment on flame structure and combustion dynamics of a lean partially- 
+premixed turbulent swirling flame. Combust Flame 2022;241:112120.
+[56] Shohdy NN, Alicherif M, Lacoste DA. Transfer functions of ammonia and partly 
+cracked ammonia swirl flames. Energies 2023;16(3):1323.
+[57] Baukal CE, Eleazer PB. Quantifying NOx for industrial combustion processes. J Air 
+Waste Manage Assoc 1998;48(1):52–8.
+[58] Wang J, Huang Z, Tang C, Miao H, Wang X. Numerical study of the effect of 
+hydrogen addition on methane–air mixtures combustion. Int J Hydrogen Energy 
+2009;34(2):1084–96.
+[59] Ahmed MI, Talal Q, Saif AGH, Abubakar Z, Mokheimer EMA. Experimental study 
+on the effects of reynolds number ratio on flame stability, macrostructure, and 
+emissions in dual annular burner for CH4 and CH4/H2 combustion. ASME open. 
+J Eng 2025;4.
+[60] Yasiry A, Wang J, Zhang L, Dai H, Abdulraheem AA, Shahad HA, et al. 
+Experimental study on the effect of hydrogen addition on the laminar burning 
+velocity of methane/ammonia–air flames. Appl Sci 2023;13(10):5853.
+[61] Anetor L, Odetunde C, Osakue EE. Computational analysis of the extended 
+Zeldovich mechanism. Arab J Sci Eng 2014;39:8287–305.
+[62] Carr NL, Kobayashi R, Burrows DB. Viscosity of hydrocarbon gases under pressure. 
+J Petrol Tech 1954;6(10):47–55.
+A.G.H. Saif et al.                                                                                                                                                                                                                               
+Fuel 404 (2026) 136373 
+22 

@@ -1,0 +1,696 @@
+
+--- Page 1 ---
+
+An investigation into the interaction of closely-spaced starting jets
+D. Rival *, G. Ciccarelli
+Department of Mechanical and Materials Engineering, Queen’s University, Kingston, Canada
+Received 24 July 2006; received in revised form 12 December 2006; accepted 18 December 2006
+Abstract
+The transient, three-dimensional scavenging ﬂow inside a novel two-stroke engine has been investigated both experimentally in a
+scaled water model as well as numerically using a commercial CFD code incorporating an unsteady Reynolds averaged Navier–Stokes
+(URANS) formulation. The scavenging ﬂow consists of 16 round jets in close proximity of each other and the cylinder wall, developing
+from the top of the combustion chamber down towards the exhaust ports located along the wall at the bottom of the cylinder. Flow
+visualization of the scavenging ﬂow was performed using a scaled ﬁxed-piston water model and was used as a means of validating
+the URANS simulations themselves. The ﬂow visualization experiments provided insight into the complex jet–jet and jet–wall interac-
+tions within the engine cylinder. These interactions were not as well predicted by the CFD simulations. In fact, the CFD simulations were
+found to signiﬁcantly under-predict the turbulent mixing between the jets. This suggests that unsteady-RANS formulations are incapable
+of reproducing the large-scale and unsteady mixing structures associated with the vortex shedding between the closely-spaced jets.
+ 2006 Elsevier Inc. All rights reserved.
+Keywords: Transient ﬂows; Jet–jet interaction; Jet–wall interaction; Unsteady RANS
+1. Introduction
+In light of the recent success of URANS simulations in
+the prediction of periodic shedding ﬂows, i.e. behind a
+square cylinder [1], there exists a strong level of optimism
+that robust and eﬃcient URANS techniques can predict
+other such unsteady ﬂows with reasonable accuracy. The
+eﬀectiveness of such a numerical formulation in the predic-
+tion of jet–jet and jet–wall interaction in close proximity,
+strongly governed by a similar periodic shedding phenom-
+enon [2], has been tested in context of a unique engine
+cylinder ﬂow. A current push towards high-eﬃciency
+hybrid vehicles, has recently led to the development of a
+novel uniﬂow-type scavenged two-stroke engine in which
+the combustion products are purged with fresh intake air
+through a set of passive check valves situated in the cylin-
+der head. The fresh intake air is driven by a constant-pres-
+sure intake plenum located above the combustion chamber.
+Prior to this scavenging process, blowdown is initiated
+when the piston uncovers the exhaust ports at the bottom
+of the cylinder. Immediately after, the intake check valves
+open as the cylinder pressure reaches a pressure similar
+to the air plenum pressure – marking the start of the scav-
+enging process. Of interest to this particular investigation is
+this scavenging ﬂow path, depicted in Fig. 1, in which the
+added fresh air displaces the exhaust products out of the
+cylinder via the exhaust ports. Mixing of fresh air and com-
+bustion products at the jet boundary occurs through the
+scavenging cycle resulting in small levels of intake air
+short-circuiting. The current conﬁguration used in the
+developmental engine consists of 16 intake valves in close
+proximity. For this particular study, this intake valve con-
+ﬁguration has been simpliﬁed to 16 equivalently-sized
+round jets, as shown in Fig. 2. During a scavenging period
+on
+the
+order
+of
+milliseconds
+(depending
+on
+engine
+speed), these 16 intake jets develop axially down through
+0894-1777/$ - see front matter  2006 Elsevier Inc. All rights reserved.
+doi:10.1016/j.expthermﬂusci.2006.12.004
+* Corresponding author. Present address: Institute of Fluid Mechanics
+and Aerodynamics, Technische Universita¨t Darmstadt, Flughafenstrasse
+19, D-64347 Griesheim, Germany. Tel.: +49 0 6151 16 6201; fax: +49 0
+6151 16 6246.
+E-mail address: rival@aero.tu-darmstadt.de (D. Rival).
+www.elsevier.com/locate/etfs
+Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+
+
+--- Page 2 ---
+
+the cylinder, purging the combustion products before the
+start of the next cycle. This ﬂow ﬁeld is unique and con-
+tains the superposition of many complex ﬂows including:
+conﬁned free jets and wall jets, the interaction of multiple
+axisymmetric jets and ﬁnally, the starting eﬀects of axisym-
+metric jets.
+2. Background
+The aerodynamic ﬂow pattern associated with an axi-
+symmetric conﬁned jet diﬀers greatly from that of its equiv-
+alent free jet counterpart. The major diﬀerence between the
+two ﬂows is the large recirculation zone developed around
+the conﬁned jet, in which the entrained secondary ﬂow is
+restricted by the geometry of the duct walls. Such steady
+conﬁned ﬂows are of great interest in the development of
+combustors and furnaces alike. An early experimental
+study undertaken by Becker et al. [3] on the mixing of a sin-
+gle conﬁned jet showed that the turbulent mixing occurs in
+three distinct zones. The ﬁrst zone, also found in an equiv-
+alent free jet, is termed the true jet-mixing zone in which the
+jet grows laterally, ending when the jet reattaches onto the
+duct wall. The second zone, downstream of the true jet-
+mixing zone, contains the lateral dissipation of the mean
+velocity gradients. Finally, in the third zone, the mixing
+is analogous to that of a fully-developed pipe ﬂow. A more
+recent study by Gould et al. [4] examined in more detail the
+true jet-mixing zone using optical access ports and laser
+Doppler velocimetry (LDV), allowing for measurements
+of mean velocities and Reynolds stresses across a range
+of axial planes in the duct. Subsequently the data was used
+to validate a CFD simulation incorporating a k–e turbu-
+lence model. Agreement was found to be rather good
+except in the region where the turbulent mixing layer
+reached the end of the potential core (at approximately
+three jet diameters). Discrepancies were caused by the
+Boussinesq approximation’s failure in predicting aniso-
+tropic turbulence, such that the axial turbulent normal
+stresses were under-predicted while the radial turbulent
+normal stresses were over-predicted. With regard to
+another aspect of the unique scavenging ﬂow, Anderson
+et al. [2] investigated planar jet–jet interaction with extreme
+close-spacing (1.5 < S/w < 2.67), where S is the jet spacing
+and w is the jet exit width. For these conﬁgurations a peri-
+odic, bluﬀ-body-type shedding behaviour was detected
+between the two jets, where the spacer, of width d =
+S  w, served as the bluﬀbody. It was not surprising then
+that the near-ﬁeld ﬂow exhibited both jet-like and wake-
+like characteristics. Further measurement of the periodicity
+in the wake was made using hot-wire anemometry. Above a
+jet spacing of S/w = 3, no periodicity was detected – hence
+no vortex shedding. As the spacing was decreased, how-
+ever, the Strouhal number itself decreased from 0.35 to
+an asymptote value of approximately 0.20–0.24, which
+agrees with vortex shedding Strouhal numbers correspond-
+ing to D-shaped bodies in wind tunnel experiments. As an
+extension to jet–jet interaction between two planar jets,
+studies investigating multiple-jet interactions exist in the lit-
+erature, often as applied to cold-model aerodynamic simu-
+lations of industrial gas burners. One such study of
+particular interest to this research project, performed by
+Yimer et al. [5], examined the ﬁelds of mean velocity and
+velocity ﬂuctuation intensity for a variety of close proxim-
+ity, multiple-round-jet conﬁgurations. It was found that
+beyond the near ﬁeld, the ﬂow from all the burner conﬁg-
+urations tested developed into an equivalent round-jet ﬂow
+emitting from a single source. Only in the near ﬁeld were
+unique structures associated with individual test conﬁgura-
+tions observed. Even with the jet conﬁguration containing
+the closest jet spacing, the fully merged single jet did not
+form until approximately 16 individual jet diameters down-
+stream of the burner. In other words, the merging of the
+jets requires that, even for the conﬁguration with the clos-
+est jet spacing, a signiﬁcant distance in the axial direction –
+a distance much larger than that of the cylinder stroke
+length associated with this study’s novel two-stroke engine.
+As the scavenging ﬂow of interest must develop in a very
+short time span associated with the engine’s scavenging
+4
+5
+6
+Air 
+2
+1
+3
+Fig. 1. Schematic of novel scavenging system; spark plug (1), fuel-injector
+(2), intake plenum (3), intake check valve (4), engine cylinder (5), and
+exhaust ﬂow (6).
+Intake Valve 
+Exhaust Duct 
+V1 
+V2 
+V3 
+V4 
+Quarter-Cylinder 
+Model
+Fig. 2. Top-view of engine cylinder depicting quarter-cylinder model and
+valve conﬁguration.
+1158
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+
+
+--- Page 3 ---
+
+phase (as short as 2 ms at 9000 rpm), the scavenging
+process will be dominated by starting eﬀects of axisymmet-
+ric jets. Unfortunately, little exists in the literature on the
+development of transient jets. By far the most comprehen-
+sive examination of a round jet starting vortex was per-
+formed by Maxworthy [6] in which he devised a ﬂow
+visualization experiment where a small piston was used to
+generate a short ﬂuidic pulse. Through dye injection, this
+short pulse provided suﬃcient momentum to develop a dis-
+tinct, turbulent vortex ring which could then be tracked as
+it propagated down through the test section within the
+encompassing vortex bubble. This study provided insight
+into the physical mechanisms dictating the development
+and convection downstream of the round jet starting
+vortex. Speciﬁcally, the concentrated vortex ring was gen-
+erated through the rolling-up of the jet exit shear layer
+within the separated ﬂow region at the exit of the jet.
+The vortex ring was then subsequently observed to convect
+downstream, entrain outer ﬂuid, mix with it, and deposit
+the majority of this entrained ﬂuid into the wake, thus
+forming a turbulent starting vortex bubble. In a continu-
+ously developing unsteady jet, this starting vortex bubble
+is formed and then slowly overtaken by the following noz-
+zle ﬂuid. A handful of studies examining the relation
+between entrainment rates and unsteady jets have been per-
+formed. One such study, using pH indicators to determine
+jet mixing characteristics, was performed by Kato et al. [7],
+where the vortex bubble was found to enhance mixing of
+the jet both in the axial and radial directions. Another
+study, this time quantifying jet entrainment using LDV,
+was performed by Bremhorst and Hollis [8]. Here, the
+unsteady jet was pulsed with a signiﬁcant no-ﬂow period
+between pulses. The entrainment rate was found to be more
+than double that of an equivalent steady jet, primarily
+because of the higher production of Reynolds shear stresses
+at the leading vortex bubble.
+There are two main objectives to this study. The ﬁrst
+and foremost goal is to qualitatively understand the mixing
+process associated with multiple, conﬁned round jets in
+close proximity. The second objective is to verify the eﬀec-
+tiveness of a URANS formulation in the prediction of such
+a complex scavenging ﬂow associated with the novel two-
+stroke engine described in Fig. 1. An experimental water
+model has been constructed to conduct ﬂow visualization.
+In order to verify the eﬀectiveness of the CFD simulations,
+validation tests of the complex scavenging ﬂow have been
+performed using the aforementioned experimental water
+model.
+3. Experimental tests and numerical simulations
+Transient and isothermal (room temperature), ﬁxed-pis-
+ton CFD simulations were performed and compared with
+equivalent experimental water-model tests; both in turn
+replicating the actual engine scavenging ﬂow. As described
+by Stuecke et al. [9,10], through careful use of similitude,
+simple water models can provide qualitative data for simu-
+lating engine ﬂows. Operating conditions used in these tests
+were speciﬁcally chosen to correspond with actual operat-
+ing conditions used in the prototype engine, i.e. engine
+speeds between 1000 and 9000 rpm and an intake plenum
+pressure of 2 kPa gauge. By matching the Reynolds, Strou-
+hal and Euler numbers the scavenging period and inlet
+head for both CFD and experiment were determined to
+be 0.6 s and 0.245 m of water (2.4 kPa gauge), respectively.
+3.1. Experimental tests
+An experimental water model was manufactured to geo-
+metrically simulate the actual ﬁxed-piston scavenging pro-
+cess. The experimental water model consisted of several
+transparent acrylic pieces machined on a CNC-mill, which
+were subsequently bonded together and sealed. In Fig. 3,
+the cylinder model (17.2-cm bore, 15.3-cm stroke) is shown
+sitting in an aquarium, which during the course of the scav-
+enging process is also ﬁlled with water. The purpose of
+incorporating the water-ﬁlled aquarium around the cylin-
+der was to remove any light refraction associated with
+the curved surface of the cylinder walls when viewing the
+scavenging ﬂow normal to the aquarium’s surfaces. A sche-
+matic describing the operation of the water-model cylinder
+is shown in Fig. 4. The cylinder is separated from the inlet
+water plenum by a plate with 16 3-cm diameter holes (A)
+distributed in a pattern consistent with the prototype
+engine, as shown previously in Fig. 2. The seeding liquid
+representing the scavenging ﬂuid, i.e. water seeded with tal-
+cum powder, was isolated from the rest of the water model
+by a tube above one of the 16 valves using rubber plugs (B),
+as shown in the schematic. To start the scavenging process
+these rubber plugs were pulled into the ‘open’ position
+from above. Subsequently the exhaust duct doors (C),
+retained in the closed position with springs, sealed with
+rubber and vacuum grease, and hinged at the bottom of
+the aquarium, were pulled open via high-strength lines dri-
+ven by a pair of Bimba Corp. 092-DP double-acting air-cyl-
+inders (D). Control of the air-actuators themselves was
+made through the activation of solenoid-driven air valves
+(E) supplied by compressed air at roughly 600 kPa (F).
+Fig. 3. Experimental water model before installation of air-actuated
+exhaust valves.
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+1159
+
+
+--- Page 4 ---
+
+Finally, constant intake plenum pressure was maintained
+via a larger reservoir of water (G). This larger water reser-
+voir was supported above the over-ﬂow line of the aquar-
+ium at a height H such that a constant head (pressure)
+could be maintained throughout the scavenging period.
+The timing of the scavenging process, which was held con-
+stant at 0.6 s for all tests, was controlled via an IOTech
+DataShuttle A/D board. The digital 12 V square-wave sig-
+nal to the solenoid-driven air valves was produced using a
+signal generator within the DaisyLab 5.6 control and data-
+acquisition software package.
+Flow visualization of the jet-mixing process for Valve 1
+(V1) and Valve 4 (V4) was performed for each valve indi-
+vidually so as to compare the development of the transient
+intake jets to those predicted by the CFD simulations.
+Valve 2 (V2) and Valve 3 (V3) were not examined due to
+high levels of light-reﬂection associated with their location
+in the cylinder. As a means of capturing quasi two-dimen-
+sional images through a particular intake jet of interest, a
+4-mm thick light sheet was created through the model
+devoid of background light while a single Sony DCR-
+TRV140 NTSC camera acquired pictures normal to this
+light sheet as shown in Fig. 5. The light sheet itself was cre-
+ated by passing the collimated light from a NEC LT260
+light projector with a 2100 Lumens rating through a slit
+4 mm in width. The blocking-out of background light
+was possible by covering the aquarium with layers of black
+construction paper and then draping black cloth over top.
+All ﬂow visualization was performed at a 15-frame-per-sec-
+ond (fps) sampling rate, which provided adequate informa-
+tion regarding the development of the intake jets.
+3.2. Numerical simulations
+A commercial CFD package (Fluent 6.1) was used
+throughout the investigation. URANS-type CFD simula-
+tions of the transient scavenging process were performed
+on a grid- and domain-independent quarter-cylinder mesh
+consisting of approximately 450,000 cells. The clearance
+volume was constructed with unstructured cells (approxi-
+mately 160,000 tetrahedral cells) while the rest of the cylin-
+der, as well as the exhaust duct and exhaust plenum, was
+meshed with structured cells. All transient simulations used
+ﬁne time stepping on the order of 0.1 ms in order to main-
+tain solution stability. The PISO algorithm was used for
+pressure–velocity coupling. As well, the simulations incor-
+porated a full ﬁrst-order discretization scheme for both
+time and space.
+A full second-order spatial discretization scheme was
+attempted, including a second-order pressure discretization
+and subsequently a second-order upwind discretization for
+all other equations such as continuity, momentum, k, e,
+energy and scalar transport (species concentration). It
+was found that the solution would rapidly diverge due to
+numerical instabilities. In order to achieve a full second-
+H
+F
+E
+D
+C
+B
+G
+A
+Fig. 4. Schematic describing operation of water model; plate with 16 3-cm
+diameter holes (A), rubber plugs sealing seeding injection tube (B), exhaust
+duct doors (C), air cylinder (D), solenoid-driven air valve (E), compressed
+air feed (F) and large water reservoir (G).
+Fig. 5. Orientation of camera and light projector for ﬂow visualization of interacting jets.
+1160
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+
+
+--- Page 5 ---
+
+order
+spatially-discretized
+solution,
+further
+grid
+and
+time-scale reﬁnements were necessary. However, such
+reﬁnement was not feasible due to the limitations on com-
+putational resources. Although ﬁrst-order simulations on
+coarse grids are notorious for high-levels of artiﬁcial dissi-
+pation, ﬁrst-order simulations incorporating a well reﬁned
+mesh (grid independent solution), such as the one used in
+this study, will experience negligible levels of artiﬁcial
+dissipation.
+The standard k–e turbulence model was used for all sim-
+ulations as it is considered the most robust turbulence
+model for high-Reynolds number ﬂows in complex internal
+geometries, as reported by Nallasamy [11]. All aspects of
+the transient simulations were conﬁgured such that they
+matched as closely as possible the experimental water
+model. In other words, the simulations used room temper-
+ature water to represent both the scavenging ﬂuid as well as
+the combustion products. In so doing, no discrepancies
+associated with small compressibility eﬀects or similitude
+would impede on the validation process. In Fig. 6, the
+quarter-cylinder hybrid-mesh is shown with its respective
+boundary conditions.
+On the intake valve (pressure inlet) boundaries a prede-
+ﬁned turbulence intensity (Tu = 5%) and turbulent charac-
+teristic scale (wvalve = 30 mm) were prescribed in order to
+compute the appropriate values of the turbulent kinetic
+energy (k) and the turbulent kinetic energy dissipation rate
+(e) at the inlet surfaces. However, turbulence measurements
+themselves could not be taken in the experimental water
+model and so a set of scavenging simulations were per-
+formed with diﬀerent values of inlet turbulence intensity
+in order to determine the sensitivity of this value on jet mix-
+ing. The most appropriate method of quantifying the eﬀect
+of inlet turbulence intensity on jet mixing is by plotting the
+scavenging eﬃciency as a function of time, deﬁned as the
+ratio of the mass of fresh charge retained over the total
+mass of trapped cylinder charge. Since the scavenging
+performance is a strong function of the mixing between
+the intake jets and the ‘exhaust products’, accurate model-
+ing of the turbulence intensity being convected into the
+solution domain would be expected to play a role on the
+subsequent mixing. As mentioned previously, the standard
+turbulence intensity used in all simulations was 5% while
+for this particular sensitivity study a simulation with a
+20% intensity was attempted, representing an extremely
+high inlet turbulence condition. In the other extreme, a
+completely laminar simulation was performed. In Fig. 7,
+one can see that the high inlet turbulence intensity simula-
+tion had virtually no eﬀect on the scavenging performance,
+thus showing that the bulk of the turbulence (mixing) was
+generated in the multiple-jet shear layers. The laminar case
+predicts a higher scavenging eﬃciency since less mixing
+allows for more pure displacement of the ‘exhaust prod-
+ucts’ out of the cylinder. One can also infer three distinct
+scavenging periods from the shape of the scavenging
+curves, showing that the scavenging process never reaches
+quasi-steady state. The ramp-up constitutes the initial
+start-up period of the inlet jets (in the ﬁrst 0.1 s) followed
+by a linear displacement/mixing period (between 0.1 s
+and 0.4 s) during which the intake jets drive much of the
+‘exhaust products’ out of the cylinder. The third and ﬁnal
+(logarithmic-shaped)
+scavenging
+period
+asymptotes
+towards a maximum scavenging eﬃciency of roughly 95%
+at 0.8 s. The beginning of this ﬁnal period (at approxi-
+mately 0.4 s) can be associated with the establishment of
+short-circuiting, deﬁned as the point in time when ‘fresh
+charge’ ﬂow begins exiting the exhaust ports at the bottom
+of the cylinder. Note that in the following discussion the
+comparison between experimental and CFD results are
+made at two particular time periods, 0.2 s and 0.4 s, repre-
+senting the linear displacement/mixing period and the
+beginning of short-circuiting, respectively.
+Fig. 6. Quarter-cylinder hybrid-mesh seen with piston ﬁxed at bottom.
+Time (s)
+)
+%
+(
+y
+c
+n
+ei
+c
+iff
+E
+g
+n
+i
+g
+n
+e
+v
+a
+c
+S
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0
+20
+40
+60
+80
+100
+2.4 kPa water (laminar)
+2.4 kPa water (Tu=5%)
+2.4 kPa water (Tu=20%)
+Fig. 7. Scavenging eﬃciency as a function of time for laminar simulation
+and URANS simulations with various inlet turbulence intensities (Tu).
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+1161
+
+
+--- Page 6 ---
+
+4. Results
+For each experimental test, eight consecutive ﬂow visu-
+alization pictures of the jet development were captured. As
+discussed previously, the three-dimensional jet–jet interac-
+tion associated with this scavenging ﬂow is complex. There-
+fore, as a means of benchmarking the ﬂow visualization
+experiment, studies examining the single free-jet and
+wall–jet ﬂows from Valve 1 and Valve 4 respectively,
+without the inﬂuence of the surrounding jets, were also per-
+formed. Refer to Fig. 2 for the valve number designations.
+In Fig. 8a, the left column shows the development of the jet
+ﬂow from Valve 1 with the inﬂuence of the surrounding
+jets, i.e. all inlet ports are open. The right column shows
+the corresponding development of the free-jet ﬂow from
+Valve 1, but with all the other ports blocked. Note that
+‘negative’ images are shown in order to aid with the con-
+trast of the ﬂow visualization. Because of this, regions of
+over-exposure appear black – this does not necessarily rep-
+resent any coherent dense structure within the jet ﬂow.
+Using light intensity as a direct correlation of seeding con-
+centration, as quantitatively performed in the sol-scattered-
+light technique developed by Becker et al. [3], one can make
+inferences into the jet development and mixing in the cylin-
+der as a function of time. In the comparison between the
+multiple-jet ﬂow (left columns) and the single free-jet ﬂow
+Fig. 8. Flow through Valve 1 (a) and Valve 4 (b); unseeded ﬂow through all other valves (left columns), no ﬂow through all other valves (right columns).
+1162
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+
+
+--- Page 7 ---
+
+(right columns), a distinct diﬀerence in the jet development
+can be observed. Although the heads of both jets seem to
+move downwards at approximately the same speed, the
+multiple-jet ﬂow shows no signs of the starting vortex bub-
+ble associated with free-jet development. In fact, the multi-
+ple-jet ﬂow appears highly diﬀuse and thicker at the port
+inlet than at the head, contrary to the associated spreading
+of the single-jet ﬂow. Note that for the single-jet ﬂow,
+which appears to behave very much like an unconﬁned free
+jet, the exit port is close to the center of the cylinder such
+that very little jet–wall interaction is expected.
+With regard to ﬂow visualization of Valve 4, a similar
+comparison was made between the multiple-jet ﬂow and
+the single-jet ﬂow (Fig. 8b). Again, the multiple-jet ﬂow
+is portrayed in the left column, whereas, the single-jet ﬂow
+of Valve 4, without the inﬂuence of the surrounding jets, is
+shown in the right column. In this comparison, a much dif-
+ferent behaviour was observed between the two seeded
+ﬂows. Although the single-jet ﬂow projects directly down-
+wards along the wall towards the exhaust port, as would
+be expected from a normal wall jet, the interacting jet ﬂow
+from Valve 4 is entrained inwards towards the center jet.
+As well, the development of the multiple-jet ﬂow appears
+to accelerate much slower, suggesting that the total mass
+ﬂow rate through the cylinder is limited by the size and
+geometry of the exhaust ports. In other words, when exam-
+ining the single-jet ﬂow, the cylinder mass ﬂow rate is low
+and the viscous losses through the exhaust ports are mini-
+mal. However, with all 16 valves ﬂowing, as is the case with
+the multiple-jet ﬂow, viscous losses in the exhaust ducts are
+high. Because of this, the jets cannot accelerate as quickly
+due to the larger pressure drop across the exhaust ports.
+Similar to the comparison between the interacting-jet
+ﬂow from Valve 1 and its respective single-jet ﬂow, the
+interacting-jet ﬂow from Valve 4 is again much more dif-
+fuse and spreads signiﬁcantly at the port entrance. This
+highlights the strong eﬀect of the jet–jet interaction and
+the associated strong levels of turbulence generated by
+the shearing of multiple jets in close proximity. Also, there
+appear to be large turbulent structures, on the order of the
+jet diameters, that aid in the mixing of the multiple-jet ﬂow.
+These are most likely fed by vortex shedding between the
+closely-spaced jets, as observed by Anderson et al. [2]. As
+is the nature of complex turbulent ﬂows the evolution of
+the jet from experiment to experiment is found to be sto-
+chastic. By comparing a set of ensemble-averaged experi-
+mental ﬂow visualization images with the corresponding
+water model CFD simulations, one can qualitatively vali-
+date the CFD model which is based on the ensemble-aver-
+aged (URANS) governing equations. Using particular
+reference times at one-third and two-thirds of the way
+through the scavenging process (0.2 s and 0.4 s respec-
+tively), the downward propagation and spreading of the
+transient jets can be compared. In Fig. 9a and b, the intake
+ﬂow from Valve 1 is tagged with talcum powder while the
+rest of the ports emit non-tagged water – thus the full eﬀect
+of jet–jet interaction is being examined. The same compar-
+ison is made in Fig. 9c and d, just with the tagged intake
+Fig. 9. Multiple-jet ﬂow validation for Valve 1 (a) and (b) and Valve 4 (c) and (d) between CFD (left-hand-side of columns) and experimental ensemble-
+averaged images (right-hand-side of columns) at two time intervals (mirrored over symmetry plane); for CFD images the red (black) and green (white)
+zones represent pure scavenging water and jet-mixing regions, respectively. (For interpretation of the references in colour in this ﬁgure legend, the reader is
+referred to the web version of this article.)
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164
+1163
+
+
+--- Page 8 ---
+
+ﬂow from Valve 4 instead. The left-hand-sides shows
+contours of species concentration where red (black) repre-
+sents scavenging water and green (white) represents the
+jet-mixing regions from the RANS-type CFD simulations.
+Meanwhile, the right-hand-sides shows the ensemble-
+averaged negative image from the ﬂow visualization of
+the same propagating jet, just mirrored across the symme-
+try plane.
+Although one must be judicious when qualitatively com-
+paring URANS-type CFD results with ensemble-averaged,
+instantaneous images from experiment, the comparison in
+Fig. 9a and b shows that the transient CFD simulations
+were capable of predicting the general mixing-shape of
+the inside jet, but not the proper distribution of ‘fresh’
+intake charge. For example, the axial jet-propagation dis-
+tance at both time steps is well predicted by the CFD.
+However, one can infer from the ﬂow visualization images
+that there exists a large concentration gradient between the
+dark (concentrated) region near the jet exit and the grey
+(diﬀuse) region below it, whereas with the CFD, no large
+concentration gradient as such is predicted. Examining
+individually several runs of the ﬂow visualization experi-
+ment for the same given valve showed that the scavenging
+process, which involved 16 interacting jets in close proxim-
+ity, was in fact highly stochastic in nature – thus providing
+a great challenge for URANS formulations.
+In Fig. 9c and d, on the other hand, a much larger dis-
+parity between CFD and experiment is observed. Again,
+the same multiple-jet ﬂow occurs just that the intake ﬂow
+from Valve 4 is tagged instead. In this case the CFD
+over-predicts the jet development observed experimentally
+such that the vortex head is well ahead for both time steps.
+Furthermore, in the ﬂow visualization, the wall jet is
+entrained inwards away from the wall, almost as if a recir-
+culation zone is situated just below the jet entrance. The
+CFD simulations are observed to under-predict the mixing
+between the interacting jets such that all jets develop in a
+much more structured, independent manner. This deﬁ-
+ciency can be attributed to the unsteady-RANS formula-
+tion, which has diﬃculties simulating the vigorous mixing
+between the closely-spaced jets. Although the unsteady-
+RANS formulation is capable of capturing certain vortical
+structures, it cannot simulate the true turbulence in the
+ﬂow but rather only its statistics. The ﬂow visualization
+clearly depicts the evolution of turbulent structures on
+the order of the jet diameter (these are missing in the
+CFD simulations), which are responsible for most of the
+mixing between the jets.
+Given the rapid availability of more powerful computa-
+tional resources in the future, large Eddy simulations (LES)
+or hybrid techniques such as detached Eddy simulations
+(DES) would be the most appropriate choice to model such
+a transient, jet-interaction ﬂow. The justiﬁcation for this
+statement is that all dominant turbulent structures would
+be directly and accurately solved while small sub-grid
+eddies, generally isotropic in nature, would be modeled
+to conserve computational resources as with a RANS-type
+formulation. URANS-type formulations lose their compet-
+itive advantage over LES or DES when transient simula-
+tions dominated by large turbulent structures, as in the
+case of closely-spaced interacting jets, are being performed.
+More generally speaking, a steady-state CFD model incor-
+porating a k–e turbulence model can predict the time-aver-
+aged spreading of a single round jet rather eﬃciently and
+with relative accurateness, as described by Pope [12], while
+for transient,
+multiple-jet
+ﬂows
+dominated by large,
+time-dependent turbulent structures, an unsteady-RANS
+(URANS) formulation is much less eﬀective.
+5. Conclusions
+In this study, ﬂow visualization as well as CFD simula-
+tions were used to simulate the transient, three-dimensional
+development of the scavenging ﬂow in a novel, uniﬂow-
+scavenged two-stroke engine. Flow visualization results
+for the development period of these interacting jets show
+that large turbulent structures, most likely fed by vortex
+shedding between the interacting jets, diﬀuse the jets much
+faster than in the case of their single free- or wall–jet coun-
+terparts. As well, the ﬂow visualization tests showed that
+the leading front of the interacting jets do not contain
+any sign of a structured vortex bubble. Regarding the com-
+parisons with CFD, strong limitations of the URANS for-
+mulation were uncovered in the prediction of interacting
+jets in close proximity.
+References
+[1] G. Iaccarino, A. Ooi, P.A. Durbin, M. Behnia, Reynolds averaged
+simulation of unsteady separated ﬂow, International Journal of Heat
+and Fluid Flow 24 (2003) 147–156.
+[2] E.A. Anderson, D.O. Snyder, J. Christensen, Periodic ﬂow between
+low aspect ratio parallel jets, Journal of Fluids Engineering 125 (2003)
+389–392.
+[3] H.A. Becker, H.C. Hottel, G.C. Williams, Mixing and ﬂow in ducted
+turbulent jets, Proceedings of the Combustion Institute 9 (1963) 7–
+20.
+[4] R.D. Gould, W.H. Stevenson, H.D. Thompson, Investigation of
+turbulent transport in an axisymmetric sudden expansion, AIAA
+Journal 28 (1990) 276–283.
+[5] I. Yimer, H.A. Becker, E.W. Grandmaison, Development of ﬂow
+from multiple-jet burners, Canadian Journal of Chemical Engineering
+74 (1996) 840–850.
+[6] T. Maxworthy, Turbulent vortex rings, Journal of Fluid Mechanics
+64 (1974) 227–239.
+[7] S.M. Kato, B.C. Groenewegen, R.E. Breidenthal, Turbulent mixing
+in nonsteady jets, AIAA Journal 25 (1987) 165–168.
+[8] K. Bremhorst, P.G. Hollis, Velocity ﬁeld of an axisymmetric pulsed,
+subsonic air jet, AIAA Journal 28 (1990) 2043–2049.
+[9] P. Stuecke, C. Egbers, W. Geyer, Visualization of the ﬂow inside the
+transfer channels of small two-stroke cylinders, SAE Paper 2003-43-
+08, 2003.
+[10] P. Stuecke, C. Egbers, W. Geyer, Visualization of the scavenging ﬂow
+of small two-stroke cylinders, SAE Paper 2004-42-97, 2004.
+[11] M. Nallasamy, Turbulence models and their applications to the
+prediction of internal ﬂows: a review, Computers & Fluids 15 (1987)
+151–194.
+[12] S.B. Pope, An explanation of the turbulent round-jet/plane-jet
+anomaly, AIAA Journal 16 (1978) 279–281.
+1164
+D. Rival, G. Ciccarelli / Experimental Thermal and Fluid Science 31 (2007) 1157–1164

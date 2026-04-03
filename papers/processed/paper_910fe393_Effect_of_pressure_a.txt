@@ -1,0 +1,1476 @@
+
+--- Page 1 ---
+
+Combustion and Flame 151 (2007) 274–288
+www.elsevier.com/locate/combustﬂame
+Effect of pressure and fuel–air unmixedness on NOx
+emissions from industrial gas turbine burners
+Fernando Biagioli ∗, Felix Güthe
+ALSTOM Switzerland, Brown Boveri Strasse 7, Baden, CH-5401, Switzerland
+Received 23 November 2006; received in revised form 5 April 2007; accepted 25 April 2007
+Available online 11 June 2007
+Abstract
+The effect of fuel–air unmixedness on NOx emissions from industrial lean premixed gas turbine burners fueled
+with natural gas is analyzed in the pressure range from 1 to 30 bar. The analysis is based on a model where
+NOx production is split, according to a Damköhler number criterion, into a “prompt” (fast) contribution generated
+within the very narrow instantaneous heat release region (ﬂamelet) and a “postﬂame” (slow) one, generated in
+the combustion products. Using GRI3.0 chemical kinetics, it is found that (a) the prompt NOx contribution is
+approximately a factor of 3 less sensitive to adiabatic ﬂame temperature variations than postﬂame NOx and (b)
+prompt and postﬂame NOx change with pressure respectively according to an exponent αPR ≃−0.45 and αPF ≃
+0.67. It is shown that total NOx emissions change from being mostly of prompt type at 1 bar to being mostly
+of postﬂame type at 30 bar, so that the effect of fuel–air unmixedness on NOx emissions signiﬁcantly increases
+with increasing pressure. The combination of these ﬁndings yields a negative NOx pressure exponent under fully
+premixed conditions across a rather large range of equivalence ratios but a positive one for levels of fuel–air
+unmixedness typical of industrial burners. This result is conﬁrmed by the application of the NOx model in the
+large eddy simulation of the ALSTOM EV double cone burner, which gives, in line with experimental data, an
+NOx pressure exponent growing, with equivalence ratio, from ≃0.1 to ≃0.67.
+© 2007 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+Keywords: Turbulent partially premixed combustion; NOx formation; Large eddy simulation
+1. Introduction
+Developing lean premixed industrial gas turbine
+burners is a complex and expensive task. Additionally
+to high pressure testing, in order to keep development
+costs to a reasonable level, gas turbine manufactur-
+ers also make signiﬁcant use of atmospheric tests.
+The direct extension of atmospheric data to the high-
+* Corresponding author. Fax: +41 (0) 56 2057713.
+E-mail address: fernando.biagioli@power.alstom.com
+(F. Biagioli).
+pressure range (15–30 bar) in gas turbine combustors
+fueled with natural gas (NG) seems reasonable for
+all those aspects related to ﬂame position. NG is in
+fact mostly composed of methane, a fuel component
+that, when premixed with air at the high Damköh-
+ler and Reynolds numbers usually found in gas tur-
+bine combustors, gives ﬂames whose turbulent burn-
+ing rate Ut does not strongly depend on the operating
+pressure p. For example, Bunsen burner experiments
+reported in [1] have shown a Ut ≃p0 dependency.
+The situation is less clear for nitric oxides (NOx)
+emissions, whose formation has in the past been the
+0010-2180/$ – see front matter © 2007 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.combustﬂame.2007.04.007
+
+
+--- Page 2 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+275
+Nomenclature
+A
+constant in TFC model
+A0
+mean ﬂame cross-sectional area
+c
+reaction progress variable
+D
+molecular diffusion coefﬁcient
+Da = τm/(λ/s2
+L) Damköhler number
+Dt
+turbulent diffusion coefﬁcient
+Dt,F
+turbulent diffusion coefﬁcient within
+ﬂamelet thickness
+f
+mixture fraction
+lK
+characteristic length scale across turbu-
+lent spectrum
+lt
+integral length scale of turbulence
+nPR
+prompt NOx [kmol/kg]
+n⋆
+PR(f )
+prompt
+NOx
+from
+CHEMKIN–
+PREMIX
+n(d)
+PR
+prompt NOx correction
+n(ref)
+PR (f ) reference prompt NOx
+p
+pressure
+p0
+reference pressure
+P(f )
+mixture
+fraction
+probability
+density
+function
+sL
+laminar ﬂame speed
+S
+NOx sensitivity to temperature
+t
+time
+T
+temperature of combustion products
+Ta
+activation temperature used in the Ar-
+rhenius type approximation of the NOx
+concentration
+Treac
+temperature of reactants
+TREF = 1800 K reference temperature used for
+nondimensionalization
+uK
+characteristic velocity across turbulent
+spectrum
+u′
+turbulent velocity ﬂuctuation
+u′
+F
+turbulent
+velocity
+ﬂuctuation
+within
+thickened ﬂamelet
+U
+fuel–air unmixedness factor
+Ut
+turbulent burning rate
+wPR
+prompt NOx source
+w(d)
+PR
+source of prompt NOx correction
+wPF
+source of postﬂame NOx
+X
+nondimensional concentration
+X0
+NOx concentration at reference condi-
+tions
+X
+coordinate on ﬂamelet surface
+Yj
+mass fraction of species j
+Greek letters
+α
+NOx pressure exponent
+δF
+size of thickened ﬂamelet
+ϵf
+mixture fraction scalar dissipation rate
+λ
+molecular conductivity
+ξ
+mixture fraction in composition space
+ρ
+density
+τm
+turbulent mixing time
+τHR = λ/s2
+L heat release time scale
+Symbols
+( )b
+value in products stream
+( )u
+value in reactants stream
+( )
+Reynolds averaging
+˜( )
+Favre averaging
+( )′′ = ( ) −
+( ) Favre ﬂuctuation
+subject of several experimental and analytical studies
+[2–10]. A very common assumption for NOx pres-
+sure scaling is the ≃p0.5 dependency [2]. In this case,
+extrapolation from 1 bar to high pressure would be
+possible on the basis of just a universal pressure scal-
+ing exponent. Other investigators have, however, re-
+ported a more complicated situation, sometimes even
+with a negative pressure exponent dependency (NOx
+decreasing with pressure). For example, a reduction
+of NOx emissions with pressure has been observed
+in the experiments performed in [3–5]. The experi-
+ments in a high-pressure jet-stirred reactor performed
+in [3] have shown that, at a combustion tempera-
+ture of 1800 K and a residence time around 2 ms,
+NOx emissions decrease with pressure and this re-
+duction is more pronounced in the range up to 5 bar
+than in the range above it. Similar NOx behavior was
+observed in the experiments performed in [4,5] for
+the same kind of burner, with [5] reporting a neg-
+ative pressure scaling exponent equal to −0.2. In a
+review paper [6], it was suggested that NOx emis-
+sions scale with pressure ([NOx]/[NOx]1 bar = pα)
+with an exponent α that increases from α = 0 under
+very lean premixed conditions to α = 0.5 for higher
+equivalence ratios. It was instead concluded in [7],
+on the basis of experiments, that NOx emissions in
+well premixed ﬂames are independent of pressure and
+suggested that, in well-designed lean premixed burn-
+ers, it is possible to operate a combustor from 1 to
+30 bar without any signiﬁcant change in NOx emis-
+sions. In these experiments the pressure dependency
+was found to increase only slightly with increasing
+equivalence ratio. This conclusion was also reached
+in [8], where experiments indicated that NOx emis-
+sions are independent of pressure at an equivalence
+ratio of 0.5 but that pressure dependency increases as
+soon as the fuel–air unmixedness level is increased.
+Given these results from previous experimental inves-
+tigations, the primary scope of the present work is to
+shed additional light on the combined effect of pres-
+
+
+--- Page 3 ---
+
+276
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+sure and unmixedness on NOx emissions, especially
+from industrial gas turbine burners.
+Turbulent combustion in industrial lean premixed
+burners takes place at high Reynolds and, for fuels
+like natural gas, moderately high Damköhler (Da)
+numbers. Under these conditions, heat is released in
+regions that are much smaller than the integral length
+scale of turbulence; i.e., combustion takes place in
+the so-called ﬂamelet regime. However, typical values
+of the Karlovitz (Ka) number, i.e., the ratio between
+the heat release and the Kolmogorov time scales, are
+usually still larger than unity, meaning that the small-
+est turbulent eddies can penetrate the preheating re-
+gion, which therefore becomes subject to an increase
+of thickness until a new equilibrium between turbu-
+lent internal diffusion and heat release is reached.
+The problem of turbulent premixed combustion un-
+der Da > 1, Ka > 1 conditions was ﬁrst investigated
+in [11] where the ﬁnal size δF of the ﬂamelet broad-
+ened by small-scale turbulence (from which comes
+the name of thickened ﬂamelet combustion regime)
+was estimated from the turbulent diffusion law as
+δF = Dt,FτHR, where Dt,F is the diffusion coef-
+ﬁcient due to vortices of size equal and smaller to
+the ﬂamelet thickness δF, i.e., Dt,F ≃u′
+FδF. The tur-
+bulence intensity associated with these vortices can
+be estimated from the equilibrium of turbulence ki-
+netic energy ﬂux across the turbulent spectrum (i.e.,
+u′3/lt = u′3
+k /lk) as u′
+F ≃u′(δF/lt)1/3, which, used
+within the expression for δF, gives, after some alge-
+braic manipulation, the ﬁnal value of δF ≃ltDa−3/2.
+This expression shows that the thickened ﬂamelet has
+a size that is a Da−3/2 fraction of the integral length
+scale of turbulence. In the case of Da > 1, small-scale
+turbulence with size larger than δF has the effect of
+wrinkling the ﬂamelet, increasing its area and there-
+fore the mean total burning rate.
+For consistency with the above ﬂamelet structure
+of the preheating and heat release regions, NOx for-
+mation is split in this work into two contributions ac-
+cording to a Damköhler number criterion: a fast one
+(called here “prompt”), which is the NOx part formed
+within the ﬂamelet region, and a slow-forming part
+(called here “postﬂame”), which takes place in the hot
+gases downstream of the instantaneous heat release
+region. A detailed study of the turbulence–chemistry
+interaction effects inside the thickened ﬂamelet struc-
+ture would be too demanding for the scope of the
+present investigation. The analysis has therefore been
+carried out assuming an instantaneous turbulent pre-
+mixed ﬂamelet with a structure like that of a lam-
+inar freely propagating ﬂame. This assumption is
+partially justiﬁed by the fact that combustion reac-
+tions are characterized by high activation energy. In
+this case the thickness of the heat-release region is
+much smaller than the thickness of the preheating
+one, this last, for Da > 1, Ka > 1, broadened by
+small-scale turbulence. It can therefore be reason-
+ably assumed that the instantaneous-heat-release re-
+gion, where prompt NOx formation takes place, has
+a size smaller than that of the Kolmogorov vortices
+and therefore remains laminar. The strain effect pro-
+duced by the Kolmogorov vortices on the laminar heat
+release region is also neglected. This could eventu-
+ally be accounted for replacing the freely propagating
+ﬂame structure with one of counterﬂowing laminar
+ﬂames where the strain rate is an independent para-
+meter to match to the Kolmogorov strain rate.
+The present work is organized as follows. In
+Section 2, NOx formation is analyzed under typi-
+cal conditions of gas turbine combustors and in the
+case of fully premixed reactants, with the CHEMKIN
+II–PREMIX module [12] and GRI3.0 [13] chemi-
+cal kinetics. The analysis is supported via experi-
+mental data in a fully premixed, strongly adiabatic
+dump combustor that was already used in previ-
+ous experimental investigations of turbulent premixed
+ﬂames [14].
+In Section 3, a computational model to account for
+the combined effect of unmixedness and pressure on
+NOx emissions is developed. The model is developed
+for CFD simulations of industrial low-NOx burners.
+In this section the model is used according to a simple
+1D formulation in order to obtain a preliminary idea
+of the effect of unmixedness and pressure on NOx
+emissions from industrial gas turbine burners.
+In Section 4, the NOx model is used in a large
+eddy simulation of the combusting ﬂow generated by
+a prototype version of the low-emissions ALSTOM
+EnVironmental (EV) double cone burner to conﬁrm
+ﬁndings from the simple 1D analysis. CFD results are
+in this case validated with experimental data at 1 and
+15 bar.
+2. NOx formation under perfectly premixed
+conditions
+Fig. 1 shows results from CHEMKIN II–PREMIX
+[12] and GRI3.0 mechanisms [13] at 1 and 30 bar
+for an adiabatic temperature of combustion prod-
+ucts within typical values found in gas turbines,
+i.e., 1700 K < T < 1900 K (NOx and temperature
+nondimensionalized hereafter with reference values
+TREF = 1800 K, NOx reference concentration = 2
+ppmv dry at 15% O2). These results indicate that NOx
+formation is characterized by an initial step within the
+narrow heat-release region and a more slowly grow-
+ing contribution in the postﬂame region.
+NOx formation is usually studied in terms of
+chemical kinetics pathways. From this point of view
+NOx formation is decomposed, see [15], into four
+
+
+--- Page 4 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+277
+Fig. 1. NOx distribution from the CHEMKIN II–PREMIX
+module, GRI3.0 chemistry versus time for 1D freely propa-
+gating NG–air premixed ﬂame at two different pressures and
+a given adiabatic ﬂame temperature.
+contributions: (a) Zeldovich slow reaction N2 + O
+⇒NO + N, which forms two NO molecules, one
+directly and the second indirectly from the fast oxida-
+tion of the N atom via the second Zeldovich reactions
+N + O2 ⇒NO + O, (b) N2O, where the N2O formed
+by the three-body reaction N2 + O + M ⇒N2O +
+M is attacked by the O-atom to give two molecules
+of NO and by the H-atom, leading to a molecule of
+NO and a molecule of NH, which is then rapidly ox-
+idized to NO, (c) the Fenimore contribution, where,
+within the ﬂame zone, N2 is attacked by the CH radi-
+cal, N2 + CH ⇒HCN + N, and the HCN, N radicals
+are rapidly converted to NO, (d) NNH pathway, where
+the reaction NNH + O ⇒NO + NH gives two mole-
+cules of NO (one directly and one indirectly via fast
+oxidation of the NH radical).
+In the present study, a different point of view is
+adopted. NOx formation is split here into two contri-
+butions according to a Damköhler number criterion:
+a fast one (called here “prompt”) that is the NOx part
+formed within the heat-release region and a slow-
+forming part (called here “postﬂame”) that takes place
+in the hot gases downstream of the instantaneous-
+heat-release region. This decomposition of NOx
+formation is dictated by the idea that turbulence–
+chemistry interaction effects must be modeled consis-
+tently with their characteristic Damköhler numbers.
+Each species that is (promptly) produced or consumed
+within the ﬂamelet, from initial mass fraction Yj,u to
+ﬁnal value Yj,b, is released by the mean ﬂame el-
+ement of area dA0 at a rate (mass/time) given by
+ρuUt(Yj,b −Yj,u)dA0. This point of view leads to a
+modeling concept based on the turbulent burning rate
+(see for example [11,16]) that accounts at the same
+Fig. 2. Sensitivity of the prompt NOx level to the choice of
+the progress variable threshold value.
+time for the mean ﬂame and also for any species that
+is produced within the ﬂamelet sheet. Quantities that
+are instead more slowly (volumetrically) produced
+in the postﬂame region can be accounted for via a
+plug ﬂow reactor approach coupled, if fuel–air un-
+mixedness is still present, with a model to account for
+turbulent ﬂuctuations in the fuel mixture fractions.
+As mentioned already in the Introduction, prompt
+NOx emissions are determined assuming a ﬂamelet
+sheet with structure equal to that of the freely prop-
+agating laminar ﬂame. Prompt NOx is therefore de-
+ﬁned as the NOx concentration in the laminar freely
+propagating ﬂame at the location where combustion is
+close to equilibrium, i.e., where the progress variable
+c (giving the degree of conversion of the fuel–air mix-
+ture into its products) is sufﬁciently large so that heat
+release has almost completed. A prompt NOx cutoff
+value for the progress variable equal to unity would,
+however, be inadequate because it includes also the
+full region of combustion products, where also the
+postﬂame NOx contribution is produced. A suitable
+value of the progress variable to detect the level of
+prompt NOx has been determined here from the plot
+of NOx concentration across the laminar ﬂame ver-
+sus the reaction progress variable shown in Fig. 2 for
+two ﬂame temperatures and two values of the oper-
+ating pressure (0.97 < c < 1.0). The plot shows that
+for c > 0.99 the heat release is almost completed in
+all cases (all heat release rates are below 7% of their
+maximum value) and also that the prompt NOx level
+does not change by more than 10–20% of the value
+at c = 0.99, which is the threshold value used in this
+work. Values higher than this threshold one can also
+be used (but not c = 1), but this would not alter the
+ﬁnal conclusions signiﬁcantly.
+Postﬂame NOx is instead estimated from the for-
+mation rate in the products region. In general, at ﬂame
+temperatures and residence times that are typical of
+
+
+--- Page 5 ---
+
+278
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+Fig. 3. Postﬂame (left) and prompt (right) NOx from CHEMKIN II, GRI3.0 mechanism versus adiabatic ﬂame temperature for
+NG/air premixed mixture.
+gas turbine burners, this formation rate is constant
+(Fig. 1); i.e., there is a negligible effect of backward
+reactions, which cause the total NOx production rate
+to decrease to zero.
+Prompt NOx and postﬂame NOx concentrations
+are plotted here as functions of the adiabatic tempera-
+ture of the combustion products T at different values
+of the operating pressure. It has been preferred to plot
+the NOx concentrations versus the temperature T of
+the combustion products because of the direct link
+between this variable and NOx formation rates via
+the exponential Arrhenius term ≃exp(−Ta/T ). The
+equivalence ratio φ does not instead link unequivo-
+cally to the adiabatic ﬂame temperature because of the
+offset given by the initial temperature of the reactants.
+All experimental data shown in this work refer to fuel-
+lean conditions (φ < 1) and a nondimensional initial
+temperature of reactants Treact/TREF = 0.4. Results
+from CHEMKIN are given as symbols in Fig. 3 in log-
+arithmic scale versus TREF/T (postﬂame NOx given
+for 1 ms residence time).
+Approximating these data with the Arrhenius-type
+expression (shown with lines in Fig. 3)
+(1)
+XNOx = X0
+ p
+p0
+α
+exp
+
+−Ta/TREF(TREF/T −1)
+
+,
+where Ta has the role of activation temperature, yields
+the coefﬁcients given in Table 1 (p0 = 15 bar; X0
+is the NOx concentration at p0 and TREF). Fig. 4
+shows instead the approximation of the postﬂame and
+prompt NOx at T = TREF with the pressure scaling
+(p/p0)α.
+These NOx trends lead to the following conclu-
+sions:
+• Within the range of ﬂame temperatures in which
+gas turbine burners operate, nondimensional acti-
+vation temperatures Ta/TREF used in the approx-
+Table 1
+Parameters for the approximation of prompt and postﬂame
+NOx distributions given by relation (1) (p0 = 15 bar)
+Postﬂame
+Prompt
+X0
+0.0264
+0.42
+α
+0.67
+−0.45
+Ta/TREF
+32
+10–13
+Fig. 4. Postﬂame and prompt NOx variation with pressure at
+T = TREF.
+imation (1) of prompt and postﬂame NOx are
+respectively equal to ≃10–13 and 32 and rather
+independent of pressure (a mild increase with
+pressure is observed for the prompt NOx above
+10 bar). Postﬂame NOx is therefore character-
+ized by a sensitivity to ﬂame temperature vari-
+ations (and therefore unmixedness) that is much
+higher than the sensitivity of prompt NOx.
+• While postﬂame NOx increases with pressure
+according to the pressure exponent α ≃0.67,
+
+
+--- Page 6 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+279
+Fig. 5. Comparison of NOx from CHEMKIN II–PREMIX with experiments under complete fuel–air premixing for NG/air. Left:
+total NOx. Right: postﬂame and prompt NOx individual contributions.
+prompt NOx decreases according to the pressure
+exponent α ≃−0.45.
+Introducing the following parameter S, which
+gives the sensitivity of NOx emissions to tempera-
+ture,
+(2)
+S =
+1
+XNOx
+dXNOx
+d(T /TREF),
+we have that
+(3)
+SPF
+SPR
+= dln(XNOx,PF)
+d(T /TREF)
+dln(XNOx,PR)
+d(T /TREF)
+≃2.5–3;
+i.e., postﬂame NOx emissions are approximately
+three times more sensitive to unmixedness than
+prompt NOx.
+The NOx emissions estimated via the CHEMKIN
+II–PREMIX module are compared here with exper-
+imental data from burners where reactants are com-
+pletely premixed prior to combustion (zero unmixed-
+ness at the ﬂame). Three pressure levels have been
+considered: 1, 20, and 30 bar. The 1-bar experimental
+data are from a fully premixed ALSTOM EV double-
+cone burner that has in the past been the subject of
+several experimental [17] and analytical [18–20] in-
+vestigations, while the 20- and 30-bar are from a fully
+premixed, strongly adiabatic dump combustor with a
+characteristic residence time of ≃20 ms. This dump
+combustor, available to the ALSTOM Combustion
+development, is based on a modular design consist-
+ing of an electric heating unit, a mixing tube that ends
+in a sudden area expansion in a cylindrical combus-
+tor, and a cooling/exhaust pipe. Three 30-kW electric
+heaters preheat the air stream to the desired tempera-
+ture (0–650 ◦C). A 30-cm-long series of static mixers
+allow high levels of fuel/air premixing before the re-
+actants reach the dump combustor. The mixing tube
+and the combustor are lined with ceramic insulation
+to promote near-adiabatic operation. Tests can be run
+with a maximum mass ﬂow rate of 250 g/s. The max-
+imum achievable pressure is 35 bar. Full details of this
+experimental setup can be found in [14].
+It must be noticed that, under perfect fuel–air pre-
+mixing and adiabatic conditions, the only relevant
+parameter in the formation of postﬂame NOx is the
+product residence time. The combustor, in fact, acts
+as a plug ﬂow reactor where the reacting volume V is
+bounded by the ﬂame on one side and the combustor
+exit on the other. Products ﬂow through this volume
+with a volumetric ﬂow rate F such that the ﬁnal res-
+idence time is V/F . The volume where prompt NOx
+formation (and heat release) takes place is considered
+here small with respect to the hot gas postﬂame vol-
+ume, consistent with the hypothesis of ﬂamelet com-
+bustion. This hypothesis loses validity in the very-
+low-ﬂame-temperature range, which, however, is not
+of large interest for gas turbines.
+The comparison between calculated and measured
+NOx emissions is shown in Fig. 5. Postﬂame NOx
+is calculated for a residence time of 18 ms, approx-
+imately the residence time in the combustors. The
+right part of the ﬁgure shows a comparison of experi-
+mental NOx emissions with the prompt and postﬂame
+contributions from CHEMKIN–PREMIX at the three
+pressures versus TREF/T . These results clearly indi-
+cates that, in the intermediate and high-temperature
+range, approximately for TREF/T < 1, high pressure
+(20- and 30-bar) experimental NOx are well approx-
+imated just by the calculated postﬂame contribution.
+On the other hand, the prompt contribution alone is
+sufﬁcient to give a reasonable estimate of the 1-bar
+NOx emissions (slightly underestimated), especially
+in the intermediate and low-temperature range, ap-
+prox for TREF/T > 1.
+
+
+--- Page 7 ---
+
+280
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+Fig. 6. Left: total NOx emissions from CHEMKIN–PREMIX under full NG/air premixing versus adiabatic ﬂame temperature at
+different pressures and residence times. Right: temperature where NOx at given pressure p is equal to 1-bar NOx.
+At high pressure and in the low-temperature range,
+a better estimate of the experimental NOx emissions
+is obtained by adding the prompt contribution (see
+Fig. 5, left). At low temperature and high pressure,
+in fact, both prompt and postﬂame NOx are small
+and comparable. The situation is reversed for the 1-
+bar case, where postﬂame NOx become comparable
+to prompt NOx only in the high-temperature range
+and then, accounting for both of them, helps to im-
+prove here the agreement with experimental data.
+When added together, prompt and postﬂame NOx
+yield a total NOx pressure exponent that goes from
+a negative value of ≃−0.4 at TREF/T = 1.07 to
+a positive value of ≃0.6 at TREF/T = 0.94. In the
+low-temperature range, in fact, postﬂame plus prompt
+NOx at high pressure is much lower than the prompt
+NOx contribution dominating total NOx emissions at
+1 bar. Postﬂame NOx, however, rises with temper-
+ature much more quickly than prompt NOx (due to
+higher activation temperature), so that the situation is
+reversed at TREF/T ≃0.99, where the high-pressure
+postﬂame contribution becomes equal to the 1-bar
+prompt one. Finally, at TREF/T = 0.94, the postﬂame
+high-pressure NOx contribution dominates above the
+1-bar total NOx, giving a positive pressure exponent
+of ≃0.6.
+The characteristic temperature at which the 1- and
+30-bar total NOx emissions become equal decreases
+with increasing residence time. While, in fact, prompt
+NOx does not change with residence time (it is a ﬁxed
+offset), high-pressure postﬂame NOx increases faster
+than under atmospheric conditions, leading to a re-
+duction of the temperature at which the 1- and 30-bar
+NOx are equal (see Fig. 6, left). A similar situation
+occurs with the increase in pressure. The ﬂame tem-
+perature at which NOx concentration at a pressure p
+becomes equal to NOx at 1 bar (for a given value of
+the residence time) in fact decreases with pressure p.
+This result, shown in Fig. 6, is due to postﬂame NOx
+increasing with pressure faster than the reduction in
+prompt NOx, as reported in Table 1. This is also con-
+ﬁrmed by experiments shown in Fig. 5, where the
+temperature at which NOx emissions at pressure p
+become equal to NOx emissions at 1 bar has a small
+decrease from p = 20 bar to p = 30 bar. Finally,
+Fig. 6 right shows the variation of the NOx inter-
+section temperature (temperature where NOx(p) =
+NOx(p = 1 bar)) with pressure at different residence
+times.
+3. Effect of unmixedness on NOx emissions
+3.1. Modeling
+The experimental data presented in the previous
+section for the case of perfectly premixed ﬂames indi-
+cate that the sensitivity of NOx emissions to temper-
+ature increases with pressure. It has been shown that
+NOx emissions behave in this way due to the increase
+in the postﬂame NOx contribution and decrease of
+prompt (ﬂamelet) NOx with increasing pressure, the
+former much more sensitive to temperature variations
+than the latter.
+This result suggests also that, the higher the pres-
+sure, the higher should be the effect of fuel–air un-
+mixedness on NOx emissions. In this section a CFD
+model able to account for postﬂame and prompt NOx
+under partially premixed conditions is developed. The
+model is therefore applied here in a simple one-
+dimensional form in order to get a preliminary as-
+sessment on how fuel–air unmixedness and pressure
+affect NOx emissions.
+Under fully premixed conditions, the rate of
+prompt NOx production for a unit of mean ﬂame
+
+
+--- Page 8 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+281
+Fig. 7. Sketch of prompt NOx release and downstream micromixing from partially premixed ﬂamelet.
+cross-sectional area can be estimated as ρuUtn⋆
+PR,
+where n⋆
+PR represents moles of NOx per unit of mass
+released by the narrow ﬂamelets. This last quantity,
+which is a function of the fuel mixture fraction f , is
+obtained here from the CHEMKIN II–PREMIX mod-
+ule as described in the previous section.
+In industrial burners, some degree of unmixedness
+(partially premixed reactants) at the ﬂame is usually
+necessary in order to have good ﬂame stabilization
+properties. Under partially premixed conditions, the
+estimation of NOx emissions becomes a more com-
+plicated issue. It is assumed here that, also in pres-
+ence of partial premixing, the ﬂamelet sheet preserves
+the structure of a 1D unstrained freely propagating
+laminar ﬂame at the instantaneous local value of the
+equivalence ratio. In this case, the equivalence ratio
+at the ﬂamelet sheet and thus also the concentration
+of released prompt NOx are functions of time and
+space. This situation is accounted for with a model de-
+scribing the release of prompt NOx from the ﬂamelet
+surface with concentration depending on the local in-
+stantaneous equivalence ratio and then the successive
+downstream micromixing of these concentrations.
+The model developed here for prompt NOx orig-
+inates from the fact that molecular mixing is a lin-
+ear process, while the distribution of prompt NOx
+released from the ﬂamelet (see Fig. 7, left) with con-
+centration n⋆
+PR(f ) from CHEMKIN II–PREMIX cal-
+culations is nonlinear (Fig. 7, right). The ﬁnal con-
+centration of prompt NOx at the outlet of the combus-
+tor, where complete fuel–air premixing is achieved, is
+therefore different from the one obtained from a 1D
+premixed ﬂame calculation at the bulk equivalence ra-
+tio in the combustor.
+The effect of unmixedness on the ﬁnal prompt
+NOx concentration at the combustor exit is here ac-
+counted for using n⋆
+PR(f ) as a boundary condition
+on the ﬂuctuating instantaneous ﬂamelet sheet for a
+conservation equation that describes the downstream
+micromixing of prompt NOx.
+Extending this idea to a Reynolds or LES (large
+eddy simulation) Navier–Stokes averaging frame-
+work, however, implies some difﬁculties. In fact, the
+boundary condition nPR = n⋆
+PR[f (X,t)], where X
+indicates points on the ﬂamelet sheet, spreads volu-
+metrically over the mean ﬂame brush thickness and
+also involves the introduction of the probability den-
+sity function for the mixture fraction f .
+These difﬁculties are overcome by solving for a
+quantity n(d)
+PR that gives the local deviation (called
+hereafter the prompt NOx correction) of the prompt
+NOx concentration nPR from a reference value
+n(ref)
+PR (f ), a function only of the mixture fraction f ;
+i.e. nPR = n(ref)
+PR (f ) + n(d)
+PR.
+Replacing nPR = n(ref)
+PR (f ) + n(d)
+PR into the instan-
+taneous transport equation for the prompt NOx con-
+centration,
+(4)
+ρ ∂nPR
+∂t
++ ρu · ∇nPR = ∇· (ρD∇nPR) + ρwPR,
+yields the following equation:
+ρ ∂n(d)
+PR
+∂t
++ ρu · ∇n(d)
+PR
+= ∇·
+	
+ρD∇n(d)
+PR
+
++ ρwPR + ∇·
+
+ρD∇n(ref)
+PR (f )
+
+(5)
+−ρ ∂n(ref)
+PR
+∂t
+−ρu · ∇n(ref)
+PR .
+Assuming ρD = const and using the algebraic trans-
+formations
+∂n⋆
+PR
+∂t
+= dn⋆
+PR
+df
+∂f
+∂t ;
+∇n⋆
+PR = dn⋆
+PR
+df ∇f ;
+(6)
+∇2n⋆
+PR = dn⋆
+PR
+df ∇2f + d2n⋆
+PR
+df 2 |∇f |2
+
+
+--- Page 9 ---
+
+282
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+plus the transport equation for the mixture fraction f ,
+(7)
+ρ ∂f
+∂t + ρu · ∇f = ρD∇2f,
+the last three terms in (5) reduce to
+(8)
+ρw(d)
+PR = ρD|∇f |2 d2n(ref)
+PR
+df 2
+.
+The ﬁnal equation for n(d)
+PR becomes
+ρ ∂n(d)
+PR
+∂t
++ ρu · ∇n(d)
+PR
+(9)
+= ∇·
+	
+ρD∇n(d)
+PR
+
++ ρwPR + ρD|∇f |2 d2n(ref)
+PR
+df 2
+.
+To specify the reference prompt NOx distribution
+n(ref)
+PR (f ), the computational domain is divided into
+three regions: (a) region of reactants, (b) region of
+heat release, (c) region of products. In the region of re-
+actants, we have nPR = 0. This result is obtained with
+(9) by using n(ref)
+PR (f ) = 0 in the computational do-
+main and n(d)
+PR = 0 on the air and fuel inlet boundaries.
+The same equation can be used with little error in
+the instantaneous ﬂame region, i.e., the region where
+the progress variable c assumes values between zero
+and unity. In fact, the probability of ﬁnding 0 < c < 1
+(within the mean ﬂame brush) is very low because the
+instantaneous ﬂame is very narrow at ﬂamelet com-
+bustion conditions. Therefore, is calculating the local
+mean concentration of prompt NOx from the contri-
+butions given by the three regions, little error is made
+if the value of prompt NOx within the reaction re-
+gion is set to zero. In the products region, the refer-
+ence prompt NOx concentration n(ref)
+PR (f ) is instead
+set equal to the prompt NOx concentration n⋆
+PR(f )
+obtained from CHEMKIN calculations as described
+in Section 2. In this case, Eq. (9) shows that the local
+prompt NOx concentration in the products deviates
+from n⋆
+PR(f ) by an amount that depends on the non-
+linearity versus f of the n⋆
+PR(f ) distribution. The
+boundary condition on the ﬂuctuating ﬂamelet sur-
+face for the prompt NOx conservation (4) equation is
+then transformed in the present approach to a source
+term that can be more easily handled in terms of mean
+quantities.
+Taking ﬁnally the average of Eq. (9) yields
+(10)
+ρ ∂˜n(d)
+PR
+∂t
++ ρ ˜u · ∇˜n(d)
+PR = ∇·
+
+ρDt∇˜n(d)
+PR
+
++ ρ ˜w(d)
+PR,
+where turbulent transport is modeled according to an
+eddy diffusivity assumption. Assuming statistical in-
+dependence between the progress variable c, the mix-
+ture fraction f , and the mixture fraction dissipation
+rate ϵf = D | ∇f |2, the Favre average of w(d), which
+is different from zero only in the region of combustion
+products, is given by
+ρ ˜w(d) = ρw(d)
+(11)
+= Prob[c = 1]ϵf
+1
+
+0
+ρb(ξ)P(ξ)d2n⋆
+PR
+dξ2
+dξ,
+where ξ represents the fuel mixture fraction in the
+scalar space and Prob[c = 1] the probability of ﬁnd-
+ing products. In case of ﬂamelet combustion, where
+the local probability of ﬁnding 0 < c < 1 is negligi-
+ble, we have c = Prob[c = 0] × 0 + Prob[c = 1] ×
+1 = Prob[c = 1]. It can also be shown that ρbc =
+ρ ˜c. Introducing the Favre probability density func-
+tion for the mixture fraction ˜P(f ) = ρb(f )P(f )/ρb,
+Eq. (11) becomes
+(12)
+ρ ˜w(d) = ρ ˜cϵf
+1
+
+0
+˜P(ξ)d2n⋆
+PR
+dξ2
+dξ = ρ ˜cϵf
+
+d2n⋆
+PR
+df 2 .
+The scalar dissipation rate is modeled here as ϵf =
+
+f ′′2/τm, where τm is the turbulent mixing time. In a
+Reynolds-averaged Navier–Stokes (RANS) approach
+based on k–ϵ transport, this is given by τm ≃k/ϵ. The
+average concentration of prompt NOx in the hot gas
+volume is therefore given by ˜nPR = ˜n(ref)
+PR + ˜n(d) with
+(13)
+˜n(ref)
+PR = ˜c
+1
+
+0
+n⋆
+PR(ξ) ˜P(ξ)dξ.
+As shown in Fig. 1, postﬂame NOx under lean
+fully premixed conditions is formed at a constant rate,
+hence still far from equilibrium conditions, where for-
+ward formation reactions are balanced by the back-
+ward ones. The following transport equation is there-
+fore used here to account for postﬂame NOx forma-
+tion,
+ρ ∂˜nPF
+∂t
++ ρ ˜u∇˜nPF = ∇· (ρDt∇˜nPF) + ρ ˜wPF,
+(14)
+˜wPF = ˜c
+
+w⋆
+PF(ξ) ˜P(ξ)dξ,
+where w⋆
+PF(f ) is the constant postﬂame NOx pro-
+duction rate function of the fuel mixture fraction f
+obtained in the postﬂame region from the calcula-
+tion of 1D freely propagating ﬂames with CHEMKIN
+II–PREMIX. This model has the advantage, over the
+more usual Zeldovich closure, of accounting also for
+additional signiﬁcant postﬂame NOx contributions
+such as the one from the N2O pathway. The prob-
+ability density function ˜P(f ) is assumed here with
+the shape of the beta-function and parameterized with
+
+
+--- Page 10 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+283
+Fig. 8. Left: NOx versus TREF/T at 1 and 30 bar at different levels of unmixedness. Right: temperature where NOx concentra-
+tions are equal to 1-bar NOx levels versus fuel–air unmixedness (NOx estimated over 5 ms).
+respect to the mean ˜f and variance 
+f ′′2 of the fuel
+mixture fraction [21].
+The sources for the prompt NOx correction and
+postﬂame NOx, respectively in Eqs. (10) and (14),
+are subject, within the mean ﬂame brush, to modu-
+lation by the mean reaction progress variable ˜c. The
+distribution of the mean progress variable ˜c, which
+deﬁnes the shape and position of the mean turbulent
+ﬂame, depends of the turbulent burning rate Ut (see
+for example [22] for a detailed description of current
+state-of-the-art modeling of Ut) and on the convec-
+tive and turbulent inﬂow of reactants into the mean
+ﬂame. The ﬂame, in fact, once anchored at a ﬁxed
+location via some sort of piloting (e.g., recirculation
+of products), assumes a shape that ensures a local in-
+ﬂow of reactants equal to the turbulent burning rate.
+This condition is expressed analytically by the trans-
+port equation for the mean progress variable based on
+a turbulent burning rate closure [23],
+(15)
+ρ ∂˜c
+∂t + ρ ˜u · ∇˜c = ∇· (ρDt∇˜c) + ρuUt|∇˜c|.
+The turbulent burning rate Ut is modeled using the
+turbulent ﬂame-speed closure (TFC) model developed
+in [11],
+(16)
+Ut = Au′Da1/4,
+with Da = τm/τHR and τHR = λ/s2
+L. In this expres-
+sion A is a proportionality constant whose optimal
+value of 0.5 has been found in the past [24] by com-
+paring predictions obtained with the standard k–ϵ
+model with turbulent burning rate experimental data
+in a stirred spherical vessel.
+3.2. Combined effect of unmixedness and operating
+pressure: one-dimensional analysis
+The model given by Eqs. (10) and (14) is applied
+in a simple one-dimensional form in order to make
+a preliminary assessment of the effect of unmixed-
+ness and pressure on NOx emissions. In gas turbine
+combustors, fuel–air unmixedness decreases rapidly
+on moving from inside the burner toward the combus-
+tor. Average hot gas temperatures are also subject to
+a fast drop in the combustor due to heat losses and
+mixing with liner cooling air. For these reasons NOx
+production rates are signiﬁcant only in the burner and
+in a small hot core in front of it. In this simple analy-
+sis, it is assumed that fuel–air unmixedness decays
+over a characteristic time τm that is comparable to the
+residence time in the hot core just in front of the exit
+of the burner. In the case of the EV burner variant con-
+sidered here, this time is on the order of 5–10 ms. The
+mean ﬂame is assumed to be narrow and ﬂat so that
+1D equations solved in the postﬂame region (follow-
+ing the ﬂuid particles, i.e., according to a Lagrangian
+approach) are
+D ˜nPF
+Dt
+= ˜wPF,
+D ˜n(d)
+PR
+Dt
+=
+
+f ′′2
+τm
+
+d2n⋆
+PR
+df 2 ,
+(17)
+D 
+f ′′2
+Dt
+= −
+
+f ′′2
+τm
+.
+The mean sources are calculated according to rela-
+tions (12) and (14) with the beta-shaped probability
+density function ˜P(f ).
+Fig. 8 left shows the total NOx emissions cal-
+culated for a residence time of 5 ms vs TREF/T at
+pressures of 1 and 30 bar for different initial val-
+ues of the fuel–air unmixedness U, deﬁned as U =
+
+f ′′2/ ˜f /(1 −˜f ). Fig. 8 right shows instead the tem-
+perature at which 20- and 30-bar NOx are equal to
+
+
+--- Page 11 ---
+
+284
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+Fig. 9. Sketch of the ALSTOM EV burner and mesh in a longitudinal section used for the CFD calculations.
+1-bar NOx plotted versus unmixedness. In line with
+the discussion in the previous section, the character-
+istic ﬂame temperature at which high-pressure and
+atmospheric NOx become equal decreases with in-
+creasing unmixedness. This is a consequence of the
+fact that atmospheric NOx is mostly of prompt type
+and therefore much less sensitive to unmixedness
+than 30-bar NOx, which is mostly of postﬂame type.
+The increase of atmospheric NOx with unmixedness
+is therefore considerably lower than the increase of
+high-pressure NOx, a situation that leads to the shift
+of the NOx intersection temperature (indicated with
+circles in Fig. 8, left) to lower value of adiabatic ﬂame
+temperature.
+The simple analysis performed here gives the op-
+portunity to justify on a qualitative basis different
+NOx pressure exponents reported in the literature.
+A detailed evaluation of the NOx emissions from the
+experimental devices used in those investigations is
+outside the scope of the present work. The present
+work, however, suggests that the difference in the
+measured NOx pressure exponents is due to the par-
+ticular combination of residence times, equivalence
+ratio, and unmixedness effects characterizing those
+devices. For example, the experiments performed in
+a jet-stirred perfectly premixed reactor cavity over
+residence times up to 4 ms in [3,4] gave a signif-
+icant reduction of NOx emissions with pressure, in
+line with the present simple analysis under the same
+conditions. Higher levels of unmixedness and/or res-
+idence times might have instead characterized those
+experiments where a positive pressure exponent was
+detected (e.g., [8]).
+4. CFD analysis of NOx emissions in the
+ALSTOM EV double cone burner
+Industrial dry low-NOx burners usually stabilize
+the ﬂame at a central recirculation zone (CRZ) ob-
+tained via the phenomenon of vortex breakdown. This
+phenomenon is brieﬂy explained here for the case
+of the ALSTOM EnVironmental (EV) double cone
+burner sketched in Fig. 9. This burner, which has been
+the subject of previous experimental [17] and compu-
+tational investigations [18–20], is obtained by shifting
+two halves of a cone in opposite directions, orthogo-
+nal to the cone axis, so that two inlet slots of constant
+width are produced. The air stream, when ﬂowing
+through the burner slots, is given a strong swirl com-
+ponent. At the same time, fuel is injected through
+holes uniformly distributed along the burner slots, or-
+thogonal to the stream of air. This ensures that all
+air streamlines through the slots are equally fed with
+fuel; i.e., it ensures good (but not perfect) fuel–air pre-
+mixing prior to combustion. When the swirling ﬂow
+reaches the expansion area between burner and com-
+bustor, the ﬂuid particles radially diverge and slow
+down in the azimuthal direction due to the constraint
+imposed by the conservation of circulation Γ = wr.
+The vorticity vector ω rotates with the streamlines in
+the azimuthal direction so that part of the axial vortic-
+ity is converted to azimuthal vorticity, which, accord-
+ing to the Biot–Savart law, induces a negative axial
+velocity at the axis [25]. If the negative axial veloc-
+ity induced at the axis is sufﬁciently large, breakdown
+of the axial vortex takes place and a CRZ at the axis
+is created. The ﬂame anchors at the axis, in proximity
+
+
+--- Page 12 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+285
+Fig. 10. Mean axial velocity in a longitudinal cross section of the EV burner. Nonreacting conditions. Left: RANS k–ϵ model.
+Center: experimental data. Right: LES model.
+to the front stagnation point of the CRZ, where axial
+convective velocities are sufﬁciently low.
+From a pure NOx emissions point of view, the op-
+timal situation is that reactants reach the ﬂame com-
+pletely premixed. However, during the burner devel-
+opment process, fuel–air unmixedness at the ﬂame is
+used as an additional degree of freedom that helps
+to provide good ﬂame-anchoring properties, i.e., suf-
+ﬁciently high margin from lean blow out and low-
+pressure pulsations due to thermoacoustic combustion
+instabilities (these are notoriously related to ﬂame po-
+sition by fuel injection–ﬂame time lag effects). Fuel
+injection is therefore optimized for emissions and
+ﬂame stability simultaneously; i.e., industrial “pre-
+mixed” burners are in general always characterized
+by some residual fuel–air unmixedness at the ﬂame.
+The CFD model for prompt and postﬂame NOx
+presented in the previous section is applied here to
+the ALSTOM EV double-cone burner. All CFD cal-
+culations have been performed using a commercial
+unstructured CFD ﬁnite-volumes solver (FLUENT
+version 6.2.16). All geometric quantities and veloci-
+ties are nondimensionalized with the burner diameter
+D and burner bulk velocity U0. The combustor has
+a circular cross section with nondimensional diame-
+ter and length respectively equal to 2 and 7. To im-
+prove numerical accuracy and overcome difﬁculties
+connected with the complexity of the geometry, the
+computational domain has been meshed with a mixed
+tetrahedral–hexahedral mesh of approx. 400,000 ele-
+ments, with the hexahedrals concentrated in the cen-
+tral region of the burner and in the combustor. The
+ﬁnite-volume elements inside the burner and in the
+combustor close to the burner exit have an average
+nondimensional size of 0.025. A longitudinal cross
+section of the burner–combustor domain showing the
+computational mesh is presented in Fig. 9. The RANS
+calculations have been run with the realizable version
+[26] of the k–ϵ transport model and with numerics
+based on the QUICK scheme [27]. The LES simula-
+tions are based instead on the standard Smagorinsky
+subgrid model, with central differencing used for all
+variables with the exception of the transport equation
+for the fuel mixture fraction, which is discretized with
+the QUICK scheme [27]. All LES simulations have
+been run using second-order discretization in time and
+a nondimensional time step t/(D/U0) = 0.014. The
+calculations have been performed on four nodes of a
+LINUX cluster. The LES calculations have ﬁrst been
+run for a time sufﬁciently long to yield a statistically
+steady solution. Final averaging has then been per-
+formed over a total time t/(D/U0) ≃10, i.e., approx
+700 time steps, which required around 12 h of CPU
+time for each case.
+The combusting ﬂow is calculated using the TFC
+combustion model according to its standard formula-
+tion based on Eq. (15). In the case of the LES cal-
+culations, the model constant A has been taken equal
+to 0.9, higher than the standard RANS value of 0.5.
+A discussion explaining the reasons for this higher
+value of the constant in LES simulations is given
+in [20]. Previous work [20] has shown that RANS
+methods are not suitable for correctly reproducing
+the ﬂame anchoring properties of this burner. It was
+in fact found that RANS methods based on the k–ϵ
+transport model do not correctly reproduce the char-
+acteristics of the CRZ produced by the vortex break-
+down phenomenon, which are very important in de-
+termining the anchoring location of the turbulent pre-
+mixed ﬂame at the axis. Accurate results have instead
+been obtained via LES. This issue is documented in
+Fig. 10, which shows a comparison of the mean axial
+velocity ﬂowﬁeld obtained from the RANS and LES
+calculations with experimental data from a water rig
+facility. While the position of the apex of the CRZ
+is correctly predicted with the realizable k–ϵ method
+(deep in the burner), the radial size is not. Much bet-
+ter agreement with experiments, in terms of both the
+position and the radial size of the CRZ (see Fig. 10,
+right), is instead obtained via LES.
+It has been shown in [20] that the radial size of
+the CRZ has a strong effect on the anchoring posi-
+tion at the axis of the turbulent premixed ﬂame. The
+turbulent premixed ﬂame stabilized at a CRZ, in fact,
+
+
+--- Page 13 ---
+
+286
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+Fig. 11. Mean axial velocity (contours) and mean progress variable (isolines) in a longitudinal cross section of the EV burner at
+T = TREF. Fully premixed conditions. Left: RANS k–ϵ model. Center: experiments. Right: LES model.
+is not ﬂat like the one stabilized in a ﬂow impinging
+against a ﬂat wall but, as shown in [20], it is charac-
+terized by a curvature radius RF at the axis, which is
+inversely proportionally to the radial variation of the
+mean axial velocity, this last measured via the fac-
+tor d2 ˜u/dr2. In this case, the turbulent ﬂame does not
+receive reactants at the axis only in the form of mean
+axial convective ﬂux but also as a radial turbulent ﬂux,
+which in cylindrical coordinates can be expressed as
+−2(Dt/RF)d˜c/dr. Assuming a velocity ﬂowﬁeld like
+the experimental nonreacting one, a ﬂame placed in-
+side the burner would have very small curvature ra-
+dius RF due to the very narrow CRZ (high d2 ˜u/dr2)
+and therefore would be subject to a very high radial
+turbulent inﬂow of reactants, which was estimated
+in [20] to be much larger than typical values of the
+turbulent burning rate. Using a simple 1D method,
+it has been shown in [20] that, in this case, the bal-
+ance between the inﬂow of reactants to the ﬂame and
+the turbulent burning rate, takes place at a position in-
+side the CRZ close to the burner exit where the CRZ
+starts increasing in thickness in downstream direction
+and therefore the estimated RF is not too small; i.e.,
+the ﬂame anchors in a intermediate position, com-
+pletely intersecting the CRZ. Using the standard def-
+inition of turbulent ﬂame speed as the component of
+the ﬂow velocity orthogonal to the ﬂame, this means
+that the ﬂame in the EV burner has negative speed at
+the axis. In case of RANS methods, due to the sig-
+niﬁcant overestimation of radial size of the CRZ (see
+Fig. 10, left), the radial ﬂux of reactants into a ﬂame
+placed inside the burner would be much less than in
+the case of LES and therefore the ﬂame mass balance
+is satisﬁed much deeper in the burner. These estimates
+on the ﬂame position are conﬁrmed by the combust-
+ing CFD calculations under fully premixed conditions
+at T = TREF shown, together with the experimen-
+tal data, in Fig. 11. The RANS method gives in fact
+a ﬂame that anchors deeply inside the burner, while
+LES gives a ﬂame that anchors in the combustor, in-
+tersecting the CRZ just downstream of the mixing
+tube exit, in line with the experimental data. Given
+these results, it was decided here to perform the NOx
+emission analysis with the LES method.
+In order to limit the CPU time, postﬂame and
+prompt NOx emissions have not been determined via
+the solution of their transport equations but instead via
+the volumetric integration of their production rates. In
+fact, integrating Eqs. (12) and (14) over the computa-
+tional domain yields the net ﬂux (kmol/s) of prompt
+NOx correction and postﬂame NOx as
+(18)
+FluxPR =
+
+Exit
+ρ ˜u˜n(d)
+PR dA =
+
+V
+ρ ˜w(d)
+PR dV,
+(19)
+FluxPF =
+
+Exit
+ρ ˜u˜nPF dA =
+
+V
+ρ ˜wPF dV.
+The total prompt NOx emissions at the combustor exit
+are obtained by adding to the prompt NOx correction
+estimated from relation (18), the prompt NOx concen-
+tration calculated with CHEMKIN–PREMIX at the
+bulk equivalence ratio in the combustor. NOx experi-
+mental data are available at 1 and 15 bar for variations
+of the bulk adiabatic temperature and a ﬁxed value
+of the burner bulk velocity U0 (i.e., ﬁxed residence
+time).
+NOx emissions obtained from the LES simula-
+tions are compared with experiments in Fig. 12 as
+functions of the adiabatic temperature of the combus-
+tion products. Fig. 12 left shows that the calculated
+NOx emissions underestimate the experimental val-
+ues and, not surprisingly, the error is higher at 15 bar
+then at 1 bar. Given in fact the higher sensitivity
+to temperature of high-pressure NOx emissions, er-
+rors in the estimation of fuel–air unmixedness have
+a larger impact on NOx at 15 bar than at 1 bar. The
+calculated NOx emissions show, however, a pressure
+exponent that increases with TREF/T from ≃0.1 to
+≃0.67, consistent with the experimental data, where
+the NOx pressure exponent increases from approxi-
+mately 0.1 to approximately 0.76. Both the numerical
+and experimental data do not show any intersection
+between the 15- and 1-bar NOx curves (no temper-
+ature range where the pressure exponent is below
+
+
+--- Page 14 ---
+
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+287
+Fig. 12. Comparison of NOx emissions from LES with experiments in the EV burner. Left: total NOx. Right: split into postﬂame
+and prompt NOx contributions.
+zero). In line with the 1D results, the right part of
+Fig. 12 shows that in the 15-bar case, most of the
+NOx is of postﬂame type (especially in the high-
+temperature range), while in the 1-bar case, most of
+the NOx is of prompt type (especially in the low-
+temperature range, where postﬂame NOx is negligi-
+ble at all pressures). Finally, the prompt NOx correc-
+tion ˜n(d)
+PR at 1-bar accounts for approx 10% of the total
+prompt NOx contribution.
+LES has also been run under fully premixed con-
+ditions, in order to evaluate the theoretical NOx po-
+tential of the burner. The results, shown in Fig. 12 left
+for this case, indicate that, in the absence of fuel–air
+unmixedness and in line with the 1D analysis, high-
+pressure NOx is lower than atmospheric NOx over
+a rather large range of ﬂame temperature. Such low
+NOx emissions are, however, not easy to achieve in
+an industrial combustor due to the fact that a given
+level of fuel–air unmixedness is usually necessary to
+ensure ﬂame stability. In other words, the problem of
+achieving single-digit NOx emissions from industrial
+burners is a pure ﬂame stability one.
+5. Conclusions
+The effect of pressure and fuel–air unmixedness
+on NOx emissions from industrial gas turbines burn-
+ers has been analyzed here using results from the
+CHEMKIN II premix module with GRI3.0 mecha-
+nisms and a model where the total NOx formation is
+decomposed, according to a Damköhler number crite-
+rion, to a fast “prompt” contribution produced within
+the heat release region and a slow “postﬂame” one.
+The analysis shows that (a) the ﬂamelet “prompt”
+contribution is around a factor of 3 less sensitive
+to fuel–air unmixedness than the “postﬂame” one,
+(b) the sensitivity to unmixedness of “prompt” and
+“postﬂame” NOx does not strongly depends on pres-
+sure, and (c) the “prompt” and “postﬂame” contri-
+butions change with pressure respectively with expo-
+nents ≃−0.45 and ≃0.67.
+A preliminary analysis has been carried out using
+a simple 1D approach and a model for NOx emis-
+sions developed here that separately accounts for the
+prompt and postﬂame contributions. Based on this
+analysis, the combination of the NOx emissions prop-
+erties from CHEMKIN II–GRI3.0 chemistry, under
+fully premixed conditions and typical hot gas resi-
+dence times in industrial burners, shows that high-
+pressure (e.g., 20-bar) NOx emissions can in principle
+be lower than atmospheric ones (negative pressure
+exponent of total NOx). Given, however, that post-
+ﬂame NOx represents the dominant contribution at
+high-pressure and given its highest sensitivity to ﬂame
+temperature variations, in the presence of even a small
+amount of fuel–air unmixedness or high residence
+times, the situation can easily be reversed in favor of
+atmospheric NOx emissions. The problem of reduc-
+ing NOx emissions to single-digit values in industrial
+gas turbines is therefore a problem of sorting out those
+ﬂame stability issues that imply keeping some degree
+of fuel–air unmixedness at the ﬂame.
+The results from the simple 1D analysis are ﬁnally
+conﬁrmed by LES simulations of the combusting ﬂow
+in the ALSTOM industrial EV burner. These, in line
+with experiments, give a positive NOx pressure ex-
+ponent increasing with equivalence ratio from ≃0.1
+to ≃0.67 under standard fuel injection, but a nega-
+tive pressure exponent could be obtained over a large
+range of the equivalence ratio under ideal fully pre-
+mixed conditions.
+Acknowledgments
+The authors thank D. Winkler and R. Carroni from
+the ALSTOM Technology Center in Birr, Switzerland
+
+
+--- Page 15 ---
+
+288
+F. Biagioli, F. Güthe / Combustion and Flame 151 (2007) 274–288
+for providing perfectly premixed experimental NOx
+data at high-pressure and H. Lübcke from the AL-
+STOM Base Technology in Baden, Switzerland for
+providing the computational CFD mesh for the EV
+burner calculations.
+References
+[1] H. Kobayashi, T. Tamura, T. Takashi, F. Williams, Proc.
+Combust. Inst. 26 (1996) 389–396.
+[2] D.A. Sullivan, J. Eng. Power Trans. ASME 99 (1977)
+145–152.
+[3] K.U.M. Bengtsson, P. Benz, R. Schaeren, C.E. Frouza-
+kis, Proc. Combust. Inst. 27 (1998) 1393–1401.
+[4] T. Rutar, P.C. Malte, in: Proc. of the ASME: TURBO
+EXPO 2001, June 4–7, 2001, New Orleans, LA, USA.
+[5] R.C. Steele, J.H. Tonouchi, D.G. Nicol, D.C. Horn-
+ing, P.C. Malte, D.T. Pratt, J. Eng. Gas Turbines Power
+Trans. ASME 120 (1998) 303–310.
+[6] S.M. Correa, Combust. Sci. Technol. 87 (1992) 329–
+362.
+[7] G. Leonard, J. Stegmaier, ASME Paper 93-GT-288
+(1993), ASME, New York.
+[8] R.K. Mongia, E. Tomita, F.K. Hsu, L. Talbot, R.W. Dib-
+ble, Proc. Combust. Inst. 26 (1996) 2749–2755.
+[9] T.F. Fric, J. Propulsion Power 9 (1993) 708–713.
+[10] J.C. Barnes, A.M. Mellor, J. Propulsion Power 14
+(1998) 974–980.
+[11] V.L. Zimont, Combust. Explos. Shock Waves 15 (1979)
+305–311.
+[12] R.J. Kee, F.M. Rumpley, J.A. Miller, CHEMKIN-II:
+A Fortran Chemical Kinetics Package for the Analysis
+of Gas Phase Chemical Kinetics Gov. Pub. SAND89-
+9009B, September, 1989.
+[13] Available
+at
+http://www.me.berkeley.edu/gri_mech/,
+accessed 28 May 2007.
+[14] R. Carroni, T. Grifﬁn, J. Mantzaras, M. Reinke, Catal.
+Today 83 (2003) 157–170.
+[15] D.G. Nicol, R.C. Steele, N.M. Marinov, P.C. Malte, J.
+Eng. Gas Turbines Power Trans. ASME 117 (1995)
+100–111.
+[16] N. Peters, J. Fluid Mech. 384 (1999) 107–132.
+[17] F. Dinkelacker, A. Soika, D. Most, D. Hofmann, A.
+Leipertz, W. Polifke, K. Döbbeling, Proc. Combust.
+Inst. 27 (1971) 857–865.
+[18] V.L. Zimont, W. Polifke, M. Bettelini, W. Weisenstein,
+J. Eng. Gas Turbines Power Trans. ASME 120 (1992)
+526–532.
+[19] P. Flohr, in: R. Friedrich, B. Geurts, O. Métais (Eds.),
+Proc. of the 5th Int. ERCOFTAC Workshop on Di-
+rect and Large-Eddy Simulation, Munich University of
+Technology, 2003.
+[20] F. Biagioli, Combust. Theory Modeling 10 (3) (2006)
+389–412.
+[21] V. Eswaran, S.B. Pope, Phys. Fluids 31 (1988) 506.
+[22] A.N. Lipatnikov, J. Chomiak, Prog. Energy Combust.
+Sci. 28 (2002) 1–74.
+[23] V.L. Zimont, Exp. Therm. Fluid Sci. 21 (2000) 179–
+186.
+[24] V.L. Zimont, A.N. Lipatnikov, Chem. Phys. Reports
+14 (7) (1995) 993–1025.
+[25] G.K. Batchelor, An Introduction to Fluid Dynamics,
+Cambridge Univ. Press, 1967.
+[26] T.-H. Shih, W.W. Liou, A. Shabbir, Z. Yang, J. Zhu,
+Comp. Fluids 3 (1995) 227–238.
+[27] P. Leonard, Comput. Methods Appl. Mech. Eng. 19
+(1979) 58–98.

@@ -1,0 +1,1951 @@
+
+--- Page 1 ---
+
+. 
+AIAA 94-0113 
+TURBULENT SWIRLING REACTING FLOW 
+David G. Lilley 
+School of Mechanical and Aerospace Engineering 
+Oklahoma State University 
+Stillwater, Oklahoma 74078 
+32nd Aerospace Sciences 
+Meeting & Exhibit 
+January IO-13,1994 
+/ Reno, NV 
+W 
+For permission to copy or republish, contact the Amerfcan lnstltute of Aeronautlcs and Astronautics 
+370 L'Enfant Promenade, S.W., Washington, D.C. 20024 
+
+
+--- Page 2 ---
+
+W 
+TURBULENT SWIRLING REACTING FLOW 
+David G. Lilley' 
+Oklahoma State University 
+Stillwater, Oklahoma 74078 
+ABSTRACT 
+Many combustion systems utilize the strong 
+favorable effects of applying swirl to injected air and 
+fuel, so aiding the stabilization of high-intensity 
+combustion 
+processes, 
+and 
+good flowfield 
+characterization is of prime concern. The improvement 
+and use of modeling work will complement and 
+significantly reduce the cost of experimental 
+development programs. 
+Numerical procedures for 
+predicting combustion chamber flows (which in practice 
+are models of physical processes (turbulence, radiation, 
+combustion and two-phase effects) and computer 
+programs for solving the appropriate level of 
+sophistication of the resulting differential equations (0-, 
+1-, 2- and 3-D) approaches. This paper looks at recent 
+advances in the experimentation, modeling and 
+prediction of combustor swirl flows, its aim being to 
+review the experimental and theoretical difficulties, 
+discuss developments, and demonstrate that useful 
+predictions are already being made. Areas in which 
+further research will be most useful are indicated, 
+including the simulation of complex chemistry, the 
+turbulent-reaction interaction problem, the utilization of 
+finite element methods of computation, and application 
+to realistic three-dimensional problems. 
+I" 
+React ine Flo w Prc&hms 
+Practical combustion systems have complex 
+flowfields, in which flame characteristics are often 
+enhanced by the use of, among other things: swirling 
+inlet flow, laterally induced jets and contoured boundary 
+geometry. The combustor design engineer must develop 
+economic, efficient and pollutant-free combustion 
+systems, in which turbulent reacting multiphase 
+swirling flow occurs. In design situations, costly and 
+time-consuming experimental procedures must be 
+supplemented with mathematical models. These models 
+bring benefits, and entail costs; a good model is one 
+with a high ratio of benefit to cost. Benefits include 
+knowing quantitatively, in advance, what will be the 
+performance of equipment which has not yet been built, 
+or which has not yet been operated in the manner under 
+investigation. The matbematical model cannot stand 
+alone, but through its use with carefully selected 
+experiments, development time and cost can he 
+drastically reduced. Currently popular are mathematical 
+models which simulate the physical processes 
+(turbulence, radiation, combustion, pollutant formation 
+and multiphase effects) and solve an associated set of 
+coupled partial differential equations via an iterative 
+finite difference scheme. Recent review papers provide 
+the background (1-7) with recent texts (8,9) providing 
+useful summaries. 
+Swirl Flows 
+The dramatic effects of swirl in inert and reacting 
+flow systems have been known and appreciated for many 
+years. Some effects are favorable and the designer 
+strives to generate the required amount of swirl for his 
+particular purpose. Swirling flows result from the 
+application of a spiraling motion, a swirl velocity 
+component (also known as a tangential or azimuthal 
+velocity component) being imparted to the flow by the 
+use of swirl vanes, by the use of axial-plus-tangential 
+entry swirl generators or by direct tangential entry into 
+the chamber. Experimental studies show that swirl has 
+large-scale effects on flowfields: jet growth, entrainment 
+and decay (for inert jets) and flame size, shape, stability 
+and combustion intensity (for reacting flows) are affected 
+by the degree of swirl imparted to the flow. This degree 
+of swirl is usually characterized by the swirl number 
+S, which is a nondimensional number representing axial 
+flux of swirl momentum divided by axial flux of axial 
+momentum, times the equivalent nozzle radius. Many 
+further details can be found in a recent test (9). 
+The Present Contr~butm 
+. .  
+Consideration is given to the major features of the 
+characterization of swirl flow combustion with emphasis 
+on application to practical combustors. An indication of 
+diagnostic possibilities is given, including discussion of 
+* Professor, School of Mechanical & Aerospace, Fellow AIAA. 
+Copyright, 0 1994 by David G. Lilley. All rights reserved. 
+Published by AIAA with permission. 
+u 
+1 
+
+
+--- Page 3 ---
+
+flowfield manifestation and problems specific to 
+turbulent reacting flows. Concerning modeling, since 
+solution of the basic governing equations yields 
+predictions which are realistic only if the physical 
+processes are correctly expressed in mathematical form, 
+suitable simulation models to effect closure are given 
+and followed by discussion of computer prediction 
+techniques themselves. The role of fluid dynamics in 
+combustion is presented from the practical point of 
+view, indicating the degree of complexity of the 
+processes, types of combustion, types of burning 
+techniques and the specific role of fluid dynamics and, in 
+particular, swirling jets. Practical application areas are 
+identified including: reciprocating engines, furnaces, gas 
+turbine, pulsejet, ramjet, scramjet and rocket engines. 
+The final Closure summarizes the status, and highlights 
+the areas in which further research will be most useful. 
+FLOWFIELD DIAGNOSTICS 
+Flowfield Manifestation 
+Flowfields typically encountered in turbulent 
+reacting or nonreacting flows are usually quite complex 
+and an understanding of their fluid dynamics requires a 
+knowledge of the temporal and spatial values of flow 
+parameters. The insight into a physical process can 
+always be improved if the physical structure produced by 
+or related to that process can he analyzed with the aids of 
+experimental diagnostics, on theoretical modeling, or 
+both. There are several reasons for studying flowfields 
+and turbulence experimentally. One experimentalist 
+may wish to have a general physical picture of mean 
+flow and turbulence so as to generate an empirical or 
+semi-empirical relationship which may be applied to 
+direct practical application to the problem under 
+investigation. Another experimentalist may require 
+detailed results relating to fine structures in order to 
+develop and test a theoretical model. These varying 
+needs can be satisfied using a variety of diagnostic 
+techniques, for example, invasive physical probes and 
+non-invasive optical probes. An overall view of flow 
+structure produced in a physical process can be observed 
+with aids to visualization. In order to trace the fluid 
+motion, one must utilize a technique by which the 
+flowfield may he manifested, for example, optical 
+techniques. 
+Flow visualization methods play an 
+important role in understanding fluid dynamics by 
+revealing the mean streamline flow patterns which show 
+the main flow directions and relative components of 
+velocity. Such techniques yield information about the 
+complete flowfield under study without physically 
+interfering with the flow. 
+In contrast, a single 
+measuring instrument, such as a velocity, temperature, 
+pressure or concentration probe, provides information for 
+only one point in the flowfield. In addition, it disturbs 
+the flow by its physical presence and this can 
+significantly affect experimental results. Intrusive 
+pressure, thermocouple, and hot-wire probes, besides 
+introducing disturbances into the flow, have two more 
+disadvantages: low frequency response, and the signal 
+response being affected by both velocity and density. At 
+any point in a reacting flowfield, time-mean values of 
+velocity and density parameters are constant during 
+quasi-steady operation of a combustion system, but they 
+may fluctuate independently and in uncertain correlation. 
+Intrusive probes have the advantage that they are less 
+fragile and can he used in large-size flames. In order to 
+reduce the basic difficulties, there has been a continuing 
+development effort to miniaturize the physical size of 
+the measuring probes and to improve the quantitative 
+interpretation of flow visualization techniques. Flow 
+visualization techniques have played an important role in 
+the understanding of complex fluid-mechanical problems 
+in several areas, for example: jet flows both with and 
+without swirl, mixing layers, boundary layers, and 
+turbulent shear layers. 
+b' 
+A method of flow visualization entails the addition 
+of foreign particles into the optically-transparent 
+flowfield that might be gaseous or liquid. By selecting 
+suitably sized particles, one is able to assume that the 
+motion of these particles, both in magnitude and 
+direction, is the same as that of the flowfield under 
+investigation. An important feature of many flow 
+visualization techniques is that one can derive semi- 
+quantitative or quantitative information from the 
+resulting flow picture. The visualization method is 
+therefore an indirect method since the observation is 
+made of the foreign particles instead of the fluid flow. 
+The difference between the velocity of fluid and foreign 
+particles can be minimized, hut not made zero, by 
+selecting particles of the same density as that of the 
+fluid. These methods yield satisfactory results in steady 
+flows hut for unsteady flows, for example: reciprocating 
+engines, pulsejet engines, etc., the error can he large 
+because of the inertia of the particles. The method an 
+also give erroneous results if the fluid flow is 
+compressible with the thermodynamic state of the fluid 
+varying in the flowfield. Many turbulent flow systems 
+possess large eddy structures, whereas the fine, micro- 
+structures are common to all turbulent systems. In order 
+to categorize a flow system, the examination of large 
+and fine micro-structure for their formation, growth and 
+convection requires diagnostic tools which have minimal 
+or no physical interference with the fluid flow. Large 
+eddy structures, or sizes comparable to the width of 
+v 
+- 
+
+
+--- Page 4 ---
+
+mixing zones, have been identified in many flow 
+systems. 
+u 
+Several different optical phenomena have been 
+utilized as the basis for specific instruments with 
+scattered light methods being most popular. The light 
+scattering detection techniques can he separated into two 
+categories: those that make size measurements of single 
+particles, and systems that measure the light scattered by 
+a collection of particles in the collimated laser beam. 
+Multiple scatter detection systems can typically make 
+size measurements in particle fields having a higher 
+number density than corresponding single particle 
+counters can handle. Unfortunately, the method does not 
+provide a good spatial resolution and it does not measure 
+the velocity of the droplets, thus limiting its application 
+in spray nozzle measurements. In addition, the method 
+assumes a priori particle size distribution which it fits 
+mathematically. 
+Optical methods have their own 
+limitations, a major one being the need for high quality 
+optical access to the test region. The limited dynamic 
+range of these instruments is also of concern. The 
+electrical aerosol analyzer measures the in-situ size 
+distribution in the range below that of the light 
+scattering method, that is helow that 0.3 um. The 
+operating principle of this analyzer is that the mean 
+electrical mobility of a diffusionally-charged particle is a 
+function of particle size. No method, of course, is 
+completely free of ambiguity and none yields ample 
+information to completely characterize the local 
+properties of the spray. As yet no single instrument has 
+proven completely satisfactory for use over a wide size 
+range, although recent developments indicate that this 
+desire can eventually be fulfilled. - 
+- 
+In turbulent flow the eddies extract energy from the 
+mean flow and retain it for a while prior to dissipating it 
+in small eddies. The turbulent kinetic energy found in 
+eddies is directly proportional to the sum of the normal 
+77 
+Reynolds stresses 77 
+U 
+, ? and W . The smaller 
+eddies are much weaker than those that produce most of 
+the Reynolds stress, since most of the energy is 
+immediately transferred to the smallest eddies which are 
+quickly dissipated by viscosity. The apparent mean 
+stresses in turbulent flow are determined by the velocity 
+fluctuations which depend upon the flow history. 
+In turbulent combustion processes, knowledge of 
+the time-mean properties (for example, velocity, 
+temperature, pressure, concentration, etc.) are useful hut 
+not sufficient to determine the reaction rate. The 
+v 
+temporal characteristics of a turbulent flow are important 
+since they govern not only the mixing process, hut also 
+the way in which the combustible mixture reacts and 
+heat is transferred to the surroundings. They also yield a 
+great deal of insight into pollutant emissions from, and 
+combustion efficiency of, the system. A small increase 
+in overall combustion efficiency can save many millions 
+of dollars on a national scale. For the modeling and 
+prediction of the spatial distribution of reaction rates, it 
+is desirable to know the turbulence properties of the fuel 
+and oxygen concentrations. 
+Instantaneous and local measurements within 
+turbulent reacting flows are now possible with pulsed or 
+chopped laser light sources, which can be tuned to 
+selected wavelengths for minimizing spectral 
+interferences. Their application to studies of combustive 
+flows should allow the measurement of single and joint 
+probability density functions of fluctuating properties. 
+Recent developments in laser probes clearly reveal that it 
+is not unrealistic to measure directly one-point time- 
+averaged correlations, such as components of the 
+Reynolds stress tensor T~~ = - (pu ) ' u. ' , the 
+turbulent heat flux vector Jhi = + (pu ) ' h ' and the 
+turbulent mass flux vector for the j-th chemical species 
+J,j 
+= + [m. 
+These stress and flux 
+expressions occur in the time-averaged equations of 
+conservation of momentum, energy and chemical 
+species, respectively, where p is the density, u 
+is 
+the 
+velocity component, h is the stagnation 
+enthalpy, and m j 
+chemical species. 
+J 
+ith 
+is the mass fraction of the j th 
+The determination of these and other correlations of 
+fluctuating quantities can then he incorporated into 
+models of reacting flows. To date, most methods for the 
+prediction of local changes in the distribution of reaction 
+rate, temperature, concentration, etc., are based on 
+empirical or semi-empirical relationships. Significant 
+developments have been made in laser-based 
+experimental diagnostics, which are now widely used to 
+measure time-mean and RMS velocity, temperature and 
+concentration. Techniques for measuring fluctuating 
+local temperature and concentration would he highly 
+desirable. 
+The development of a detailed 
+microscopically-based understanding of the chemistry of 
+combustion presents a considerable challenge. This is 
+because in a combustion system several chemical and 
+physical processes interact together and proceed 
+simultaneously. What we know is that a flame involves 
+3 
+
+
+--- Page 5 ---
+
+a large chemical reaction network through which heat is 
+produced. The process results in steep gradients of both 
+molecular concentrations and temperature; the reaction 
+rates and mechanistic paths of the whole network are 
+sensitively dependent upon the above parameters. It is 
+clear therefore that the chemistry is woven inextricably 
+with heat transfer and diffusion of reactive species 
+throughout the flowfield. All these aspects must be 
+considered with care and attention given to the proper 
+selection of the molecular input parameters, for 
+example, transport coefficients and rate constants, as 
+well as detailed unambiguous verification of the results. 
+This is not a small task and, at present, we only have 
+the capability to picture very simple flames. The desire 
+for accomplishing a microscopically-based description 
+for larger turbulent diffusion flames of industrial 
+importance is just now becoming feasible. 
+Combust ion P roblema 
+In flows with chemical reaction the flow 
+characteristics are further complicated by nonlinear 
+interactions between chemical and fluid dynamical 
+processes. The usual concept of a turbulent flame front 
+is that of a laminar flame front with irregularities caused 
+by fluctuating velocity components, leading to the 
+formation of a wrinkled flame front having larger surface 
+area than the corresponding laminar flame front. 
+Schlieren and shadow photographs of the flame fronts 
+reveal that the irregularities in the flame front are a 
+product of turbulent scale and intensity in the flow. The 
+question of flame-generated turbulence has been a topic 
+of interest at several symposia and meetings. Ignition 
+of the combustible mixture in confined flows results in 
+expansion and acceleration of the flow. Acceleration 
+increases the shear and strain and it is not clear whether 
+there are any additional mechanisms that influence the 
+increase in turbulence intensity. In unconfined flows, 
+however lack of dynamic confinement results in very 
+little, if any, increase in pressure. Experimental results 
+of mean and RMS velocity in confined flows clearly 
+show expansion and acceleration. Relatively small 
+increases in turbulence intensity appear to be primarily 
+associated with increases in strain and the associated 
+velocity gradients. It is possible that combustion occurs 
+in microexplosions which in turn cause turbulence and 
+local pressure increases. 
+In two-phase flows, accurate size and velocity 
+measurements of liquid sprays or solid particles are 
+important for a broad spectrum of applications. General 
+areas of application include characterization of fuel 
+sprays, agricultural sprays, soot formation and growth, 
+diesel engines, aerosols, pigments, evaluation of 
+scrubbers, etc. Fuel spray applications are of current 
+interest in combustion research because of the need to 
+improve the combustion efficiency and reduce the 
+particulate and other pollutants emission levels. 
+Fuel sprays are complex dynamic phenomena, 
+entailing atomization, coagulation, dispersion, heat and 
+mass transfer, and chemistry, which are subject to 
+intimate interactions within a gaseous flowfield. 
+Research into fuel atomization and fuel-air preparation 
+requires the measurement of fuel droplet size, velocity- 
+size correlations, and mean and RMS velocities of air 
+and fuel. Complete characterization of local properties 
+in a spray includes such attributes as particle size 
+distribution and number density, a velocity distribution 
+function related to droplets of different sizes, mean 
+velocity of the gas phase, local gas and liquid 
+temperatures, composition of both the gas and liquid 
+phases, turbulence properties, and so on. The reliable 
+measurement of any one of the above properties is not 
+trivial. 
+Sampling techniques can, of course, be used to 
+withdraw a representative sample from a particle-laiden 
+flow. 
+The sampling process always disturbs the 
+flowfield to some extent even if the sample is withdrawn 
+isokinetically. In reacting flowfields at high turbulence 
+levels, it is particularly difficult to extract a 
+representative sample with any degree of confidence. 
+Particle agglomeration and deposition in a sampling 
+system can alter the size distribution prior to 
+measurement. in addition, real-time measurements are 
+not possible with sampling methods and in some cases 
+ample preparation and analysis can be time-consuming. 
+Despite the above limitations, sampling methods are 
+still useful in many instances. The increased need for 
+non-perturbing real-time in-situ measurements of 
+particle size has motivated the development of a wide 
+variety of optical methods. Only in recent years have 
+serious attempts been made to obtain in-situ particle- 
+size measurements. 
+-, 
+Where the particles are large enough, the direct 
+image photographic method is least ambiguous and 
+most reliable but, unfortunately, it is rather slow and 
+can be employed only for sprays of a continuous nature. 
+Video systems can be used for particle analysis but even 
+then the systems are intrinsically slow because of 
+limitations imposed by the standard video framing rate. 
+The related problem of solid particulate size 
+measurements is of interest in smoke, particulate and 
+pollutants reduction, fluidized bed combustion, pigments 
+manufacture and other similar areas. 
+A 
+
+
+--- Page 6 ---
+
+In flame combustion processes, the efficient 
+utilization of energy requires maximization of the 
+overall energy efficiency. In a boiler plant, the biggest 
+heat loss is associated with the flue gases. In general, 
+improvements in overall energy efficiency of processes 
+require careful examination of combustion, mechanical 
+and thermodynamic efficiency. The thermal efficiency is 
+the ratio of heat gained by the load to the energy 
+supplied via fuel and is influenced by the rates of heat 
+transfer from flames to the combustion chamber walls 
+and, hence, on temperature distributions within the 
+combustion chamber. Control of the distributions of 
+temperatures within the combustion chamber therefore 
+has a potential which can lead to improvements in 
+overall thermal efficiency. In an electrically heated 
+system, approximately 2/3 of the original fuel energy is 
+lost in the power generation and transmission stages, so 
+that an efficiency in excess of 33 percent is difficult to 
+achieve with an electrical system. 
+u 
+The primary concern of a combustion engineer is 
+to achieve maximum combustion efficiency with 
+minimum or no pollutant emissions. High combustion 
+efficiency requires complete combustion of fuel supplied 
+to the combustor. Any unburned fuel leaving the 
+system contributes not only to combustion inefficiency 
+but also the pollutant emission levels, since it is also 
+considered to be a pollutant. The incentive for complete 
+combustion of fuel is therefore twofold - increased 
+combustion efficiency and reduced emission of percent 
+can be achieved provided the fuel is maintained at 
+elevated temperatures in the presence of an oxidizer for a 
+sufficiently long residence time. 
+Combustion 
+efficiencies lower than 100 percent are primarily due to 
+other design considerations - a typical example being 
+refineries and oil wells where Coanda flares are used for 
+the incineration of explosive gases. 
+v 
+SIMULXUQN 
+Background 
+Several previous publications focus at length on 
+the problems of adequate mathematical simulation. 
+Numerical prediction studies are generally based on a 
+version of the TEACH computer code, (IO) of which the 
+STARPIC version is described at length (11). Earlier 
+nonreacting predictions (12) have been extended to 
+simple chemically-reacting situations (13) in 
+axisymmetric swirling flow configurations. Advances 
+have also been made elsewhere and applied to other 2-D 
+(14-17) and 3-D (18-23) problems of interest to the 
+combustor designer. Several of these discuss at length 
+W 
+some of the more recent and more accurate simulations 
+of the combustion process, with inclusion of radiation 
+heat transfer, and carbon monoxide and nitric oxide 
+prediction. 
+The transport equations are all similar and contain 
+terms for convection, diffusion and source S$ 
+of a 
+general variable 4. Introducing turbulent exchange 
+coefficients and the usual turbulent diffusion-flux laws, 
+it can be shown that the similarity between the 
+differential equations and their diffusion relations allow 
+them all to be put in the common form, 
+Where $ is the general dependent variable. The forms 
+of the source term s+ depend on the degree of 
+sophistication used in the mathematical simulation of 
+the problem under consideration. 
+of the PhysLFs 
+A typical simulation involves the following 
+phenomena (1-9): 
+Turbulence. Models are classified according to 
+the turbulent flux hypothesis (whether or not turbulent 
+exchange coefficients are introduced) and the number of 
+extra differential equations to be solved. Models of the 
+exchange coefficient type and direct stress specification 
+type have been extended and applied to more complex 
+flow situations, including swirl flows. Currently two- 
+equation energy-length models are to be recommended 
+for application in practical engineering situations; in 
+particular the K-E 
+model. The two-equation IC-E 
+turbulence model is used to calculate the effective 
+viscosity from which the exchange coefficients are 
+calculated: 
+p = C,pk*/E + p~ 
+r, = I*/O$ 
+Wall functions are employed to save computing time 
+near wall boundaries. 
+Chemistry. Often consideration is given to a 
+simplified main exothermic chemical reaction between 
+5 
+
+
+--- Page 7 ---
+
+just two species, fuel and oxidant, combining directly to 
+form a third, product. Diffusion and premixed flame 
+conditions need to be handled, although most furnace and 
+engine flames may permit the diffusion flame 
+assumptions in their outward appearance. The complex 
+equations representing the route to pollutant formation, 
+techniques for handling 'stiff kinetics (whereby widely 
+differing reaction rate coefficients require special 
+techniques for handling the source terms), and the effect 
+of turbulence structure on time-mean chemical reaction 
+rates are all topics of strong current interest. Realistic 
+simulation of complex chemistry in turbulent reacting 
+flows is probably the area in combustor modeling 
+which will prove to he most useful to study, and the 
+results of which will be most fruitful to apply in 
+practical design situations. 
+Generally, in an initial computer simulation, a 
+one-step reaction scheme is used via 
+-+x C02 + - 
+Y H20 + n(x+$)N2 
+2 
+or a two-step reaction scheme with equations l,ike 
+C,Hy + ($ + 4) 
+Y (02 + n N, 
+Y 
+Y 
+2 
+2
+4
+ 
+-+ x CO + - H20 + n  (A + -) N, 
+1 
+CO + 2 02-+ co, 
+In the latter model, oxidation of the hydrocarbon to 
+carbon monoxide is the first step while the oxidation of 
+the latter to carbon dioxide is the second step. More 
+recently, four-step reaction schemes have become 
+available and used in combustor chemistry. Typical 
+equations then are like 
+~
+,
+n
+~
+~
++
+~
+ 
+-+ xi2 ~
+2
+~
+4
+ 
++ n2 
+~
+2
+~
+4
+ 
++ o2 --f 2co + 2n2 
+co + 112 0 2  + c02 
+n2 + 112 o2 --f n20 
+Chemical Reaction Rates. 
+In turbulent 
+flows, the specification of time-mean chemical reaction 
+rates is a problem receiving well-deserved attention. In 
+current engineering practice, fuel and carbon monoxide 
+consumption rates are assumed to be governed by the 
+minimum of time-averaged Arrhenius and eddy-breakup 
+models. These are, respectively, 
+v 
+R, = - A  p2 m,m,, 
+exp (-BET) 
+R, = - C pg& 
+where A, B, and C are parameters. 
+ration. 
+. .  
+The formulation is an 'integro- 
+differential' one, which is especially difficult to solve. 
+The equations may be represented by the 'zone' method 
+or one of the 'flux' methods for 1, 2 or 3 flux sums (so- 
+called two-flux, four-flux and six-flux methods). 
+Although the former is more exact, it is difficult to 
+incorporate with the fluid mechanics. The latter is less 
+rigorous but simple to employ, and is therefore the one 
+to be recommended in many cases. In axisymmetric 
+simulations, a four-flux model of radiation heat transfer 
+is appropriate, with two second-order equations 
+and 
+-- 
+1 d [ r r  -)]+a(EB-Rr)+;(Rx-Rr) 
+d% 
+r dr 
+dr 
+= 0. 
+v 
+for the composite flux sums Rx and R ~ ,  
+Thermodvnamics. Specific heats at constant 
+pressure are often assumed to he given by third-order 
+polynomials in terms of temperature. The density is 
+calculated from an ideal gas equation of state, using 
+appropriate weighted averages to obtain the mean 
+mixture molecular weight. 
+Multi-Phase 
+Phenomena. 
+Infinite drag 
+assumptions may be made for small particles (solid fuel 
+or liquid droplets) and differential equations solved for 
+the distribution of material in particle-size space, in 
+discrete ranges. Larger particles do not follow the 
+streamlines, and then in addition one has to solve 
+ordinary differential equations for their trajectories. 
+Studies on the rate of burning of droplets, clouds and 
+sprays are proving to be extremely worthwhile. 
+Nitric Oxide Pollution 
+The formation of thermal NO is often calculated 
+via the Zeldovich mechanism, which is uncoupled from 
+the hydrocarbon-air reaction. A steady state assumption 
+~ 
+6 
+
+
+--- Page 8 ---
+
+is made for the calculation of atomic nitrogen, while 
+atomic oxygen is assumed to be in equilibrium with the 
+oxygen molecule. Thus, manipulation of 
+- 
+Rfl 
+R, 
+Rf2 
+Rr2 
+4 
+O+N2 
+NO+N 
+and 
+--P 
+N + 0 2  
+NOi.0 
+where Rfl and Rf2 are the fomard rates and Rrl and Q 
+are the reverse rates, lead to the rate of reaction of nitric 
+oxide given by 
+The transport equation for nitric oxide is similar in form 
+to that given earlier; it need be solved only after the 
+main flowfield has been established. 
+The prompt NO formation rate can exceed the 
+rate produced via the thermal NO mechanism. It can be 
+deduced from equations like: 
+v 
+d(N0)idt = I<I02]a[Nz][FuEL]exp(-E/RT) 
+Nitrogen-containing organic compounds present in 
+liquid and solid fossel fuels can contribute to total NO 
+formed during the combustion process. This fuel 
+nitrogen is a particularly important source of fuel NO 
+from residual fuel-oil and coals, which typically contain 
+up to 2 percent nitrogen by weight. For light liquid 
+fuels, expressions like 
+d@O)/dt = (A[02ja/B[FUEL w)'n 
+exp[(E,,id -E -E,ed)/RT] 
+are used. - 
+Although some very useful 0-D and 1-D 
+approaches to characterizing combustor flowfield 
+v 
+problems are readily available, research emphasis today 
+is being directed towards 2 -D and 3-D simulations of 
+the phenomena in question. This is necessary in order 
+to utilize present day technology most effectively to 
+meet the demands of current combustor design problem. 
+Such problems entail the solution of many 
+simultaneous nonlinear equations including up to three 
+velocity components, pressure, stagnation enthalpy and 
+species concentrations. Since their equation are all 
+similar in form, the same solution algorithm can be 
+used for all of them. Problem are classified according 
+to their dimensionality (the number of independent 
+variables from three space dimensions and time) and type 
+(parabolic or elliptic). 
+The flow classification of 
+parabolic (possessing one coordinate direction with first- 
+but without second-order derivatives - boundary layer 
+type with prominent direction@)) or elliptic (possessing 
+second-order derivatives in all coordinate directions 
+~ 
+recirculating type with upstram influence) governs the 
+type of boundary conditions required and solution 
+method. Marching methods are appropriate for the 
+former (flows with weak swirl); relaxation methods for 
+the latter (flows with strong swirl). The problems, 
+methods and solutions are discussed in the references 
+(1-7). 
+s Between the Coda 
+The essential differences between the various 
+available computer codes (and those that are not 
+available) include: the complexity of the equation set for 
+the simulation of the physical processes, the storage 
+requirements, the location of variables in the grid space 
+system, the method of deriving the finite difference 
+equations that are incorporated, and the solution 
+technique. 
+In primitive pressure-velocity variable 
+formulations a staggered grid system is normally used, 
+as recommended by Los Alamos for its special 
+attributes. In computational fluid dynamics the 'best' 
+representation of the convection terms is essential to the 
+accuracy and stability of the iteration scheme or 
+marching procedure. At high cell Reynolds numbers a 
+certain degree of 'upstream differencing' is essential, 
+using upwind differencing, a hybrid formulation or the 
+Los Alamos zip, donor cell, etc. techniques for example. 
+Solution procedures vary from Gauss-Seidel point 
+methods to more efficient line-by-Iine SIMPLE (semi- 
+implicit nethod for pessure-linked squations) methods 
+for steady state problems, with corresponding explicit 
+and SIMPLE methods for associated transient problems. 
+Current preference is toward primitive codes, utilizing a 
+staggered grid system, a hybrid formulation of the 
+convective and diffusive terms, and a line-by-line 
+solution scheme. The application of finite element 
+7 
+
+
+--- Page 9 ---
+
+computational methods, to combustor problems with 
+complex geometric configurations and complicated 
+boundary conditions to apply, is in its infancy; further 
+work in this fertile area will be most useful. 
+Computerization 
+2-D Ma rchine Methods . These are useful for 
+axisymmetric 2-D parabolic boundary layer flows, with 
+weak swirl and no recirculation zones. They involve 1- 
+D storage, automatic expanding grid using 
+nondimensionalized stream function y instead of r as the 
+radial coordinate, and implicit solution procedure. Many 
+examples of this type of flow exist in connection with 
+combustion equipment: axisymmetric steady jets, wakes 
+and flames, boundary layers on walls, flows in pipes, 
+diffusers, nozzles, solid-propellant rockets, and after- 
+burner reheat systems. In particular, weakly swirling 
+flows without recirculation are examples of 2-D 
+axisymmetric boundary layer flows. 
+2-D Re laxation Methods. These methods are 
+useful for axisymmetric 2-D elliptic recirculating flows, 
+with recirculation zones caused by sudden expansions, 
+blockages andlor strong swirl. 
+They involve 2-D 
+storage, stream function-vorticity y-w or primitive- 
+velocity p-u-v formulation, and Gauss-Seidel or line-by- 
+line SIMPLE solution procedure. Most combustion 
+systems exhibit recirculation and they are therefore not 
+amenable to marching integration; instead iterative 
+procedures are essential. Axisymmetric steady flows 
+with recirculation, flame stabilization, rocket-base 
+flows, and swirling flow in a cylindrical chamber are all 
+examples of these types of problems. In particular, 
+strongly swirling flames with recirculation fall into this 
+category. 
+3-D M a r c h  i n e  M e t h o d s  . 
+3-D parabolic 
+boundary layer flows, which are nonaxisymmetric and 
+perhaps with weak swirl, require forward marching 
+solution methods. They make use of 2=D storage, 
+primitive formulation, and SIMPLE solution procedure. 
+When a 3-D flow possesses a single predominant 
+direction with no recirculation, the equations become 
+parabolic and have merely a first-order derivative in this 
+main direction. Examples include many phenomena in 
+furnace and process technology, axisymmetric transient 
+reciprocating engines, and gas turbine combustors 
+downstream of the primary zone. 
+3-D Relaxation Methods. The most complex 
+flow situation requires 3-D relaxation methods of 
+solutions. They are use for 3-D elliptic recirculating 
+flow, which are nonaxisymmetric and perhaps with 
+strong swirl. They make use of 3-D storage, primitive 
+formulation, and SIMPLE solution procedure. These 
+general cases have first- and second-order derivatives in 
+three space directions and relaxation with a 3-D frame is 
+required. If transient as well, they possess additionally a 
+first-order time derivative and require a time-march with 
+a 3-D frame. Most interesting practical combustion 
+chambers, stalled diffusers, elbows, rocket motors, 
+compressor cascades, and automotive reciprocating 
+engines. The computation of 3-D problems concerned 
+with most interesting practical combustion phenomena 
+represents design methods of the future. These problems 
+are now being studied seriously, and further research 
+work in these areas will be most useful. 
+L' 
+Problems abound in the simulation and solution of 
+complex turbulent reacting flows for combustor 
+applications. Areas in which further detailed numerical 
+prediction research will be most useful include (for the 
+nonreacting case) recirculation zone characterization, 
+turbulence simulation in swirling recirculation flow, 
+irregular boundary representation (via analytical or 
+numerical transformation techniques of finite element 
+methods), and further complexities and parameter 
+influences; and (for the reacting case) the simulation of 
+complex chemistry, the turbulencelchemistrylspray 
+interaction problem, and application to realistic three- 
+dimensional problems. 
+- 
+Significant computer simulation obstacles emerge 
+from recent studies especially those related to the 
+Combustion Fundamentals Research and Aerothermal 
+Modeling assessment programs in cooperation with 
+NASA Lewis Research Center. Several authors describe 
+their efforts relating to the development of advanced 
+numerical techniques which can be applied with 
+advantage to turbulent recirculating reacting flowfields. 
+A consensus of results indicates specific needs: 
+1. 
+2. 
+3. 
+4. 
+5 .  
+8 
+Improved finite difference representation (with 
+versions of bounded skew upwind differencing 
+and/or other techniques) 
+Faster convergence techniques via improved 
+numerical solution schemes 
+Improved domain simulation (with boundary 
+fitted coordinate system, or orthogonal grids, 
+etc.) 
+More accurate hot gas heat transfer input 
+Improved turbulence and turbulence/chemistry 
+treatment 
+- 
+
+
+--- Page 10 ---
+
+There is a need to determine and incorporate new 
+finite difference schemes and/or error reduction 
+techniques into currently-existing computer code models. 
+Improvements in accuracy of representation (differencing 
+schemes) and rapidity of convergence (solution 
+algorithms) are being sought before computer codes can 
+give quantitative, rather than qualitative, predictions. 
+Better numerics, improved understanding of inlet flow, 
+improved turbulence modeling and improved 
+understanding of unsteady problems are required. 
+Techniques for improved accuracy (including several 
+bounded versions of skewed upwind differencing), 
+improved versions of the pressure-velocity coupling 
+technique, and methods for speeding convergence of 
+iterative procedures are needed. 
+- 
+Combustion research is becoming more important 
+with new emphasis on development of alternate energy 
+sources for application to a range of power systems 
+without any adverse effect on the environment. 
+Research in combustion-related areas has expanded 
+significantly in recent years, particularly in area related 
+to fossil fuels. The field of combustion is further 
+diversified by the complex nature of most reaction 
+processes. Fuel chemistry, fluid mechanics, convective 
+and radiative heat transfer, gas-phase elementary 
+reactions, turbulence, and particle kinetics and dynamics 
+are relevant processes that often have a direct, and 
+sometimes controlling influence, on the behavior of a 
+particular combustion system. Recent textbooks (see 
+Refs. 24 through 35) highlight the difficulties in the 
+understanding of turbulent reacting flows. 
+- 
+DYNAMICS OF CoMBusTIQplI 
+P r o c e w  
+The subject of combustion aerodynamics may 
+conveniently be categorized into three areas: 
+1. Engineering 
+practice - for example: 
+gasoline engines, diesel engines, gas turbine 
+engines, rockets, steam boilers, open hearth 
+steel furnaces, blast furnaces, and hot flame 
+cutting equipment. 
+2. Mathematical models - for example: flame 
+propagation, compression ignition, flame 
+stabilization, detonation, spark ignition, 
+solid-fuel bed combustion, laminar and 
+turbulent jets 
+and flames, particle 
+combustion, recirculating reactor and 
+catalytic combustion. 
+3. Fundamental sciences - for example: 
+thermodynamics, fluid mechanics, heat and 
+mass transfer, and chemical kinetics. 
+These levels are connected via a variety of paths, 
+with the fundamental sciences providing a basis for the 
+mathematical modeling approach with application to 
+engineering practice. 
+Recent trends are influencing 
+engineering practice (pollution control, efficiency and 
+change of fuel type), mathematical models (computer 
+methods, validation and utilization) and fundamental 
+sciences (including chemical kinetics and numerical 
+mathematics). 
+In steady-flow equipment, coal may be burned as 
+lumps on a grate (with application to domestic heating, 
+small industrial boilers, and cupola and blast furnaces) or 
+as powder, suspended in an air stream (as in large 
+industrial boilers and cement kilns). Light fuel oils may 
+be used as vapor, from a heated tube or pot (with 
+application to primus stoves, small aircraft gas turbines 
+and small domestic boilers), as a spray of droplets from 
+a rotating cup (as in aircraft gas turbines). Gas oil can 
+be sprayed from a swirl atomizer (as in industrial gas 
+turbines and larger domestic and industrial boilers), or 
+impelled by steam as a jet of droplets (as in open-hearth 
+furnaces). Rocket propellants in liquid form are sprayed 
+via impingement of liquid jets in large rocket engines 
+and in solid form are burned in perforated blocks at free 
+surfaces in small rocket engines and those with instant 
+readiness. In unsteady-flow equipment, gasoline is 
+vaporized by contact with air and hot surfaces in spark- 
+ignition internal combustion engines. 
+Gas oil is 
+sprayed by injection through small orifices in 
+compression-ignition diesel engines. 
+C o m b u s t i o n  is typically viewed as the 
+exothermic chemical reaction of a fuel in an oxidant, and 
+three regimes can be distinguished 
+1. Slow oxidation preflame combustion - 
+occurs throughout extended volume at low 
+temperatures. 
+2. Detonative 
+combustion - combustion 
+shock wave propagates supersonically 
+through the mixture. 
+3. Flame combustion occurs as a fast process 
+with a thin reaction zone which propagates as 
+a combustion wave at flame speed through 
+9 
+
+
+--- Page 11 ---
+
+the reaction volume [called steady state 
+deflagration flame] or occurs in a closed 
+vessel with exponential reaction rate increase 
+and pressure explosion [called thermal or 
+branching chain explosion]. 
+Most combustion aerodynamic applications are 
+involved with deflagrative flame combustion, in which 
+an increase of volume (and temperature), a decrease of 
+density and a small decrease in pressure occur across the 
+flame front. 
+Two distinct applications can be 
+distinguished: 
+1 .  Heating applications. Here it is required 
+to transfer heat from the burning gases to 
+boiler tubes, metal ingots, etc. 
+Within 
+reason, high flame radiation is desirable. 
+2. Propulsion applications. The aim is to 
+increase the volume, velocity and kinetic 
+energy of an air stream, in order to provide 
+direct jet propulsion, or drive a turbine. 
+Since gas heating is required, flame radiation 
+is unnecessary, and usually undesirable. 
+Often flames are formed from gaseous of 
+prevaporized fuels. Furthermore, although a flame can 
+propagate through a static gas mixture, it is usual to 
+stabilize the flame at a fixed point by supplying a 
+continuous flow of combustible mixture. Under these 
+conditions, flames can be divided into two main classes: 
+1. Premixed flames in which the reactants are 
+completely mixed to the molecular level 
+prior to combustion. They are kinetically 
+controlled and the rate of flame propagation, 
+called the burning velocity, is dependent 
+upon chemical composition and rates of 
+chemical reaction. Completely premixed 
+flames are seldom used in practice for safety 
+reasons of, for example, blow out and 
+flashback. 
+2. Diffusion flames in which the reactants 
+mix by diffusion into a thin flame zone, and 
+reaction rates are diffusion controlled. They 
+are preferred in large-scale industrial practice 
+and in gas turbines because safety is increased 
+as the fuel and oxidant are kept separate, as 
+well as providing greater flexibility in 
+controlling flame length and shape and 
+combustion intensity. Fuel and air may be 
+partially premixed, with additional or 
+secondary air supplied through a separate 
+section of the burner. 
+v 
+In both the processes of propagation of the burning 
+zone and the burnout of fuel in the flame, transfer of 
+heat, mass and momentum play important roles. The 
+transfer will he molecular in laminar flames and the 
+flow of gases follows streamlines in the flow without 
+turbulent diffusion. The transfer will be by turbulent 
+diffusion in turbulent flames and the scale and 
+intensity of turbulence affect burning rates. In practice 
+the need for high combustion intensity or high heat 
+release rates associated with turbulent combustion 
+include: physical structure of turbulent flow, flame 
+fronts, flame generated turbulence, probability density 
+functions, flame propagation and noise generation. The 
+discussion leads naturally to the aerodynamic effect on 
+combustion processes and the strong interaction between 
+them. 
+Bnrnine Techniaua 
+Fuel and oxidant are admitted into combustion 
+chambers via devices called burners. Gaseous fuels can 
+be pumped directly, but liquid and solid fuels require 
+preparation. Liquid fuels are admitted as an atomized 
+spray or cloud of finely dispersed droplets, and pre- 
+heating to reduce viscosity is a common practice. Solid 
+vi 
+fuels are often pulverized, or they can be burned on 
+grates or in fixed or fluid beds. Solid and liquid fuels 
+involve heterogeneous combustion. This process, 
+involving release of combustible gases from the solid or 
+liquid phases, may be superimposed on the general flame 
+zone concepts. 
+Phenomena of interest include: 
+atomization processes, spray characteristics, vaporization 
+rates and combustion. Air is the most common and 
+readily available oxidant, and it is pumped via a fan, 
+blower or compressor. Fuel and oxidant are rarely 
+completely premixed in the burner; they are either 
+injected separately or more often the fuel is mixed with a 
+small proportion of the combustion air only (primary 
+air) on its path through the burner. The splitting of the 
+combustion air into primary and secondary streams is 
+made for reasons of flame stability and safety, such as 
+prevention of flashback and explosion in the fuel supply 
+lines. It also enables higher preheat temperatures to be 
+used in the secondary air which in turn may favorably 
+affect the thermodynamic efficiency of the system. 
+Staged combustion and associated stratified 
+charge engines separate the combustion into two or 
+more distinct regions, usually a first stage where the 
+mixture is fuel-rich followed by a second stage where it 
+is fuel-lean. Typically, there is a prechamber followed 
+d 
+I O  
+
+
+--- Page 12 ---
+
+by a main chamber. In each, mixing rates, mean 
+temperature and concentrations of reactants and products 
+are maintained at particular levels. Lower temperatures 
+result, since stoichiometric conditions are avoided, and 
+hence lower oxices of nitrogen production rates are 
+found. Fuel-rich conditions in the first stage are also 
+favorable for reducing nitric oxide levels from high 
+nitrogen-bearing fuels. 
+- 
+Turbulent jets of fuel and air issuing from 
+burners play a dominant role in mixing processes. 
+These jets interact with transverse jets and recirculation 
+zones and provide flow and mixing patterns, for directing 
+flame zones and heating which in turn determine local 
+airlfuel ratios, flame zones and combustion rates. 
+Round jets are most common and occur by fluid 
+issuing from circular cross-section pipes and nozzles. 
+Even at low flow rates and small burner diameters, the 
+jet flow soon becomes turbulent. In practice, most 
+burners have sizes and velocities which give rise to 
+turbulent conditions at the exit. 
+Annular jets 
+frequently surround primary fuel round jets or oil guns 
+for secondary air delivery. Sometimes bluff bodies are 
+placed centrally in nozzles, so forming an annular flow 
+with central recirculation zone which encourage flame 
+stabilization. The combination of a round jet and 
+surrounding annular jet is called a double concentric 
+jet. Further downstream the combined mass flow rates 
+and jet momenta characterize the coalesced flow, but near 
+the burner the size and geometry of the separation 
+interface strongly influences mixing, with pronounced 
+effects on flame stability. 
+v 
+Flame stabilizing recirculation zones may also he 
+provoked by strong adverse pressure gradients caused by 
+spiraling motion being given to a round jet flow, so 
+forming a swirling jet. 
+The swirl velocity 
+component (also known as tangential or azimuthal 
+velocity component) may be imparted via the use of 
+swirl vanes, an axial-plus-tangential entry swirl 
+generator or direct tangential entry into the combustion 
+chamber. The swirl strength has a large scale effect on a 
+flowfield: jet growth, entrainment and decay (for inert 
+jets) and flame size, shape, stability and combustion 
+intensity (for reacting flows). In particular, higher 
+mixing rates, higher turbulence intensities and higher 
+combustion intensities result. The degree of swirl also 
+offers an effective control of the proportion of nozzle 
+fluid mass recirculated and hence chamber residence time 
+distribution. Then good approximate calculations of 
+combustion performance can be made, and it is 
+extremely satisfying to be able to optimize combustion 
+performance via adjustment of swirl strength and 
+resulting residence time distribution A recent text (9) 
+provides extensive details about the many aspects of 
+complex swirl flow phenomena. 
+Throttling entrainment to a turbulent jet by 
+confinement in a chamber results in a confined jet 
+with associated recirculation zone(s), outside the jet 
+stream. Jets penetrating into a main stream flow at 
+some angle are called transverse jets. They have 
+frequent application as secondary and dilution air 
+injection into, for example, gas turbine combustor 
+flames. Usually the prediction of their parameters of 
+interest for design purposes [the jet path, its penetration 
+into and mixing with the main stream] proceeds via a 
+semi-empirical approach. More recently, however, direct 
+measurement and prediction of this and other fluid 
+dynamic phenomena in combustion is possible. 
+PRACTICAL APPLICATIONS 
+The Gasoline Enghe 
+Here the combustion system must give certain 
+ignition by spark, reduce heat transfer, and burn fuel 
+completely under all conditions. Demands for efficiency 
+led to high compression ratios and the process of 'knock 
+- an uncontrolled ignition of the gaseous mixture in the 
+cylinder giving rise to excessive heat transfer, noise, and 
+damage to the engine. Design changes and lead-based 
+fuel additives were introduced to eliminate this unwanted 
+process, hut today unleaded fuel is prefemd for pollutant 
+reduction reasons. A schematic of the piston-cylinder 
+assembly and its working cycle with constant volume 
+combustion appears in Fig. 1. 
+Experiment and theory are required to help the 
+designer to determine the influence of boundary shape, 
+location of spark plug and spark energy, fuel properties 
+and wall temperature on ignition behavior, pressure 
+volume time (indicator diagram) variations, tendency to 
+'knock' and the final gas composition. Past, present and 
+future of the gasoline engine and pollutant emission 
+problems and solutions are discussed in Refs. 36 and 37. 
+Stratified charge engines SCEs include both swirl 
+and squish motions and address two problems 
+simultaneously - pollutant reduction and efficiency. 
+Internal combustion IC engines of this type are 
+illustrated schematically in Fig. 2 where a cylinder and 
+piston (equipped with a 'cup' so as to produce squish) are 
+drawn. The arrangement is such that the fuel/air ratio 
+FAR in the vicinity of the spark plug is much richer 
+
+
+--- Page 13 ---
+
+than elsewhere in the combustion chamber. 
+Combustion is 'soft' with air remote from the spark 
+plug acting like a cushion. Operation is possible with 
+overall FAR well below the operating limit (set by 
+ignitability considerations) for conventional engines, and 
+this leanness feature makes for economy. Further, 
+power is controlled entirely by the rate of fuel flow, and 
+not the wasteful throttling technique of conventional 
+engines where the engine works against itself. The SCE 
+runs always at 'full throttle' with fuel flow limitation 
+controlling the action. 
+High pressure encourages 
+evaporation of the fuel which is directly injected into the 
+cylinder head. Swirling air mixes with fuel and carries 
+the mixture past the spark plug. The burning region is 
+localised, and comprises a rich mixture with good 
+ignitability in an overall lean mixture. Some piston 
+heads are 'cupped as shown, so forcing the flow inward 
+during the final stages of the compression stroke, a 
+phenomenon known as 'squish'. Further work (36) 
+describes at length the past, present and future of 
+gasoline engine combustion, including discussion of 
+swirl and squish air motions and their effect in 
+combustion chamber design. Discussion includes the 
+Ricardo 'bathtub' chamber, the Heron 'bowl-in-piston' 
+chamber and May high compression high-turbulence 
+chamber designs. The SCE design possibilities are 
+interpreted in terms of swirl, squish and vortices for the 
+Ricardo spark-ignited comet, the Honda CVCC, the 
+MAN-FM and the Ford PROCO systems. Applications 
+of SCEs to pollutant formation and control in spark- 
+ignition engines are thoroughly covered by Heywood 
+(37), including open chamber (Ford PROCO and Texaco 
+TCCS, for example) and divided chamber (Honda small 
+pre-chamber and other two-chamber concepts, for 
+example) systems. 
+The Diesel Svstem 
+High compression must provide smooth ignition, 
+use all available oxygen, reduce heat transfer, reduce 
+pumping power, and emit little smoke. As compared 
+with the gasoline engine, the compression ratio of the 
+diesel engine has to be high so as to ignite the fuel 
+spontaneously, as there is no spark in the engine, and 
+combustion level is controlled by the rate of spray 
+injection of the liquid fuel droplets. Maximization of 
+the power of the engine by using up all the available air 
+tends to yield excessive smoke, an unwanted pollutant. 
+Recent advances in rotary (Wankel) and stratified charge 
+engines SCEs have been stimulated through desire for 
+efficient clean combustion. 
+In the four stroke diesel engine, the chemical 
+energy of the fuel is partially transformed into 
+12 
+mechanical work in four phases, in a manner similar to 
+the spark-ignition engine but now there is no spark plug 
+- combustion is initiated automatically via high 
+compression with constant pressure combustion 
+following. 
+-' 
+Now high compression must provide smooth 
+ignition, use all available oxygen, reduce heat transfer, 
+reduce pumping power, and emit little smoke. Inlet 
+flow is encouraged to possess a swirl motion about 
+the central axis of the cylinder and the bowl-in-piston (or 
+cup-in-piston) arrangement gives a phenomenon known 
+as squish as the piston nears the top of the cylinder. 
+Then the radial extent of the volume of swirling flow is 
+suddenly restricted, and conservation of swirl momentum 
+principles leads to dramatic increase in the swirl 
+velocity, so increasing turbulence and mixing levels. 
+Researchers desire knowledge about the influences of 
+chamber boundary shape, inlet air movement, fuel spray 
+injector characteristics and fuel properties on ignition 
+delay, pressure volume time variations, heat transfer to 
+the piston and smoke production. The application of 
+swirl and squish to air motion in diesel combustion 
+is included in the review and prospects given recently by 
+Shahed et al (40). These concepts are also used in 
+stratified charge engines SCEs of the gasoline variety. 
+Consider now what theory may contribute in the 
+optimization of design and development. Increasing - 
+demands for both thermal efficiency and lower pollutant 
+output provide incentive for better methods of analyzing 
+the aerothermodynamics in internal combustion IC 
+engines. The most general approach is to compute as a 
+function of three-space coordinates and time the 
+complete flowfield between the top of the cylinder and 
+the face of the piston throughout the complete four- 
+stroke cycle - intake, compression, power and exhaust 
+strokes - with the intake and exhaust valves opening and 
+closing appropriately. In the gasoline engine, spark 
+ignition initiates the combustion of the compressed 
+gaseous mixture at the beginning of the power stroke; in 
+the diesel engine, on the other hand, ignition of the fuel 
+droplet spray is brought about via the high compression 
+achieved on the compression stroke, and modeling is 
+then a more difficult task. In both cases, it is a major 
+effort to apply computational fluid dynamics in order to 
+analyze and understand the complex flowfield patterns in 
+reciprocating engines, and hence aid in their design and 
+development. 
+Until recently most models of IC engines were 
+basically thermodynamic models - the combustion 
+chamber was considered as a control volume, fluid 
+dynamic motion was neglected and energy release rate 
+d 
+
+
+--- Page 14 ---
+
+specified. Many such successful applications have been 
+made. However, interest in more realistic approaches is 
+essential in understanding and solving current problems 
+in, for example, stratified charge engines SCEs, and 
+development of spatial models are necessary. 
+Furnaces 
+- 
+Flame control is especially important in providing 
+specified distributions of radiant and convective heat 
+transfer, complete combustion, freedom from noise and 
+oscillation, and insensitivity to fuel changes. Figure 3 
+illustrates four ways in which coal may be burned in 
+industrial furnaces. In furnace design, a multitude of 
+practical configurations are involved, and typical 
+problems and requirements are distinctly opposite to 
+those of engine designers. For example, smoke is 
+needed to generate large radiant heat fluxes, but it is 
+desirable to consume it all before the gases leave the 
+furnace. Heat transfer rates must be high and fluxes 
+must he distributed in an optimum manner. 
+Yet 
+overheating is to be avoided in both the material and the 
+furnace roof. 
+Many different types of furnaces exit - the power- 
+station boiler furnace is somewhat different from the 
+furnaces of the metallurgical and process industries, for 
+example. The furnace takes on a role of central 
+importance in modern society and its efficiency and 
+pollution characteristics have far reaching consequences. 
+In all cases, though, flame control is especially 
+important in providing specified distributions of radiant 
+and convective heat transfer, complete combustion, 
+freedom from noise and oscillation, and insensitivity to 
+fuel changes. Most furnaces flames are given a degree of 
+swirJ for stability purposes, while others, for example 
+the tangentially-fired boiler, have inlet streams which are 
+directed so as to aim tangentially at the fireball that 
+results in the center of the chamber. Then a weak 
+cyclone-type effect of the swirl chamber or cyclone 
+chamber results - a swirling motion about the geometric 
+axis of the equipment. Important end-products of the 
+process are temperature, heat-flux distribution to the 
+walls and combustion efficiency, and these are 
+intimately connected with production of pollutants, like 
+soot and oxides of nitrogen. The designer and operator 
+would like to know how these depend on fuel-jet 
+momentum and angle, temperature of preheated air and 
+the shape of the chamber. 
+Needless to say, the 
+simulation problem becomes quite complex, involving 
+the interaction of turbulent combustion of many 
+chemical species, with two-phase processes (liquid or 
+solid fuel and carbon particles throughout the flowfield) 
+'- 
+and radiative heat transfer. 
+As detailed elsewhere, 
+W 
+modeling involves to some extent: particle-size 
+distributions (calculated in finite-size ranges at all points 
+of the domain), flux or zone models of radiation heat 
+transfer, and soot distribution studies (soot being formed 
+by thermal decomposition of hydrocarbon molecules and 
+consumed by oxidation, both of which are complex 
+chemical-kineteic process). Reviews of progress in this 
+area are available, and the work of the International 
+Flame Research Foundation, Ijmuiden, Holland and the 
+associated American Flame Research Committee is to 
+noted (40,41). 
+Tbe Gas Tu- 
+The cycle for gas turbine combustion (the Brayton 
+cycle) is similar to that of the reciprocating four stroke 
+internal combustion engine, see Fig. 1, except that 
+continuous rather than intermittent burning is involved 
+and the combustion takes place at constant pressure 
+rather than at constant volume. Figure 4 illustrates the 
+gas turbine turbojet engine. The cycles of both are made 
+up of four strokes: the charging, compressing, 
+combusting and exhausting strokes. In the reciprocating 
+engine the four strokes take place successively in the 
+same cylinder, whereas in the gas turbine they take place 
+simultaneously in different parts of the engine, that is: 
+the compressor (with charging system), the combustion 
+chamber, the turbine (with expansion), and the exhaust 
+system. The continuous smooth steady state rotary 
+motion of the gas turbine led to its wide use in 
+stationary and mobile power plants, most noticeably in 
+aircraft applications, in the form of the turbojet (pure 
+jet), turboprop (most work going to the propeller) and 
+turbofan (some work going to a large fan with 'by-pass' 
+facility). The gas turbine produces, among other things, 
+smoke and industrial and automotive application makes 
+all these pollutants even less tolerable than aircraft 
+applications. 
+Its combustion chamber performs an essential task 
+- high intensity combustion - and designers strive to 
+reduce its length without making the flame too easily 
+extinguishable, and to reduce its pressure drop without 
+worsening the degree of mixing in the gases which 
+exhaust via the turbine. Experimental 'trial and error' (or 
+so-called 'cut and try' or 'cut and weld) methods are used 
+for optimization of the basic design. 
+Basic features of a can-type combustor chamber are 
+shown in Fig. 5 (Ref. 43). Although its construction is 
+quite simple, its design and development are haphazard. 
+Details of its operation are quite complex and present 
+knowledge of the internal aerodynamics is very 
+incomplete. Note that although the figure refers to 
+13 
+
+
+--- Page 15 ---
+
+combustor can flame tube, it may also he thought of as 
+cross-sectional views of annular combustors. It may 
+also represent directly the flame tube of a can-annular 
+system. These systems find their place in high intensity 
+combustion engines, in which the combustor must burn 
+fuel completely, cause little pressure drop, produce gases 
+of nearly uniform temperature, occupy small volume, 
+and maintain stable combustion over a wide range of 
+operating conditions. 
+The combustor has the difficult task of burning 
+large quantities of fuel, introduced in a highly atomized 
+spray from a specially designed nozzle, with extensive 
+volumes of air, which flows in through an upstream 
+annular swirler (a vane pack with swirl angle typically 
+up to 70 deg.). This task must be accomplished subject 
+to certain performance requirements. The high intensity 
+combustion must burn fuel completely, cause little 
+pressure drop, produce gases of nearly uniform 
+temperature, occupy small volume, and maintain stable 
+combustion over a wide range of operating conditions. 
+Typically, the 18 percent or so of the air stream 
+enters as passing through swirl vanes at an angle of 
+about 70 deg. to the main flow direction. This results 
+in strong 'centrifugal' effects on entry to the combustor 
+and very low pressure in the primary zone, resulting in 
+the formation of a central toroidal recirculation 
+zone CTRZ. The central hub of the swirler includes a 
+fuel spray nozzle and a conical swirling spray of liquid 
+kerosene droplets is projected to the CTRZ, resulting in 
+high-intensity burning. Stability is enhanced by the 
+recirculation of hot combustion products, and additional 
+primary zone air entering via lateral injection holes. 
+The designer needs to know how the host of 
+requirements are influenced by the pressure and 
+temperature of the inlet air, the location and size of other 
+holes and film-cooling slots, swirl strength, boundary 
+geometry, fuel spray angle and properties, and many 
+other parameters. A review of recent advances is given 
+in Ref. 24. 
+Pulseiet Eneines 
+Intermittent combustion is the principle used in 
+the pulsejet engine, of which a schematic is seen in Fig. 
+6. The duct inlet has a series of inlet valves which are 
+spring-loaded into the open position. Air flows in 
+through the open valves and passes into the combustion 
+chamber where it is heated via the burning of fuel 
+injected into the chamber. The resulting pressure rise 
+causes the valves to close and the hot expanded gases are 
+ejected rearward through the propelling nozzle at high 
+speed providing propulsive force. But the frontal air 
+entry is now closed off, and so as the exhausting gases 
+escape a pressure depression occurs, thus allowing the 
+valves to open and the cycle re-start. Some designs 
+'V 
+disperse with inlet valves by careful ducting aimed at 
+controlling the changing pressures of the resonating 
+cycle. The pulsejet has not been found suitable for 
+aircraft propulsion because of its low thermal efficiency, 
+high fuel consumption and lack of performance in 
+comparison to gas turbine propulsion. It was, however, 
+the power plant of the V-1 flying bomb during the 
+Second World War (44). 
+Ramiet and Scramiet Eneines 
+Ramjet combustion offers a high specific impulse 
+(range and speed capability), making it a favored choice 
+for today's light and compact missiles. A schematic of a 
+typical ramjet engine appears in Fig. 7. Its propulsion 
+system is conceptually simple, containing no moving 
+parts but requiring a high operating speed so as to 
+compress the intake air by ram effect, in the intake 
+section [labeled m -1 in the figure]. The air is delivered 
+to a combustion chamber where fuel is injected and 
+burned in the presence of flame stabilizers to provide 
+efficient combustion [section 1-21. The hot expanded 
+gases exit the engine via a propelling nozzle at high 
+velocities, so producing the forward thrust [section 2-31. 
+The high initial velocity is usually provided by booster 
+rockets or a launch aircraft. A recent technology has 
+evolved concerning the intergral rocket-ramjet IRR 
+concept, where sequential use is made of the ramjet 
+chamber as a solid rocket combustion chamber (during 
+the initial stages of flight) followed by its later use as a 
+ramjet combustion chamber (after a high velocity has 
+been attained and the solid propellant has been burnt). It 
+operates as a completely integrated propulsion system. 
+Initially during the rocket boost, the ramjet fuel is sealed 
+off and the ramjet air inlets are covered with blow-off 
+plugs. 
+When the rocked burns out, the blow-off 
+fairings, inlet plugs and rocket nozzle are ejected, 
+leaving a ramjet propulsion system which is then 
+ignited. 
+- 
+One of the possibilities for powering hypersonic 
+vehicles with an air-breathing engine is the scramjet (or 
+supersonic combustion ramjet) (46). 
+Its basic 
+components are shown in Fig. 8 and consist of air 
+intake, a combustion chamber and a propelling nozzle. 
+Many variants of this geometry are available. 
+14 
+
+
+--- Page 16 ---
+
+13ocket Ewincs 
+v 
+Rocket engines do not use atmospheric air as their 
+working fluid, and thus they are able to function outside 
+the earth's atmosphere, if desired. They also provide 
+propulsive force at a vehicle velocity of zero, direct from 
+the launch pad, in contrast to the ramjet which requires a 
+high forward velocity to function. Both liquid and solid- 
+propellant rocket engines are used. 
+Figure 9 shows the basics of a liquid rocket engine 
+(39). Both fuel and oxidant are carried on board. 
+Typical fuels are hydrogen, kerosene and ethyl alcohol; 
+typical oxidants are oxygen, hydrogen peroxide and 
+fluorine. They are carried in liquid form in tanks and are 
+fed to the combustion chamber via injectors [see section 
+1-2 of the figure]. Sometimes a pump is used to inject 
+the liquids as shown, but alternatively highly pressurized 
+tanks can provide direct injection. Often the fuel being 
+pumped passes through a double wall construction of 
+nozzle and combustion chamber to provide some degree 
+of cooling for these very high temperature components. 
+In the combustion chamber [section 2-31, the reaction 
+produces high temperature, high pressure and low ensity 
+products of the chemical reaction. The gases expand in 
+the convergent-divergent nozzle [section 3-41 are 
+exhausted at high velocity to the surroundings, so 
+producing propulsive force. 
+d 
+In the solid-propellant rocket engine, the entire 
+charge of solid-propellant grain, in the form of a 
+cartridge, occupies most of the combustion chamber 
+volume. Propellants fall into two main classes known 
+as 'double-based and 'composite' types. The former is a 
+homogeneous colloidal mixture of, for example, 
+nitrocellulose and an explosive plasticizer, usually 
+nitroglycerine. The latter consists of a heterogeneous 
+structure of particles of an oxidizer [like ammonium 
+nitrate] or lithium perchlorate dispersed through a plastic 
+reducing agent which acts as the fuel. Shown in fig. 10 
+is a schematic of the solid-propellant rocket engine with 
+its main features. Figure 11 shows typical surface 
+shapes of solid-propellant grain, chosen so that certain 
+burning surface areas and void volume temporal changes 
+may be achieved to be consistent with engine thrust 
+requirements. 
+CLOSURE 
+Many combustion systems utilize the strong 
+favorable effects of applying swirl to injected air and 
+fuel, so aiding the stabilization of hihg-intensity 
+combustion 
+processes, 
+and 
+good 
+flowfield 
+W' 
+characterization is of prime concern. Experimental and 
+computational results show some of the interesting 
+effects of combustor design parameters on subsequent 
+flowfield development and combustor performance. 
+Theoretical and computatidhal experiments can he, 
+should be, and have been performed which complement 
+test cell data describing the internal flowfield 
+characteristics. Theoretically, it is in the area of 
+parameter influences that computer programs show their 
+supremacy in terms of time and cost savings as 
+compared with experimental work. Progress will lead to 
+more realistic and cost-effective practical combustor 
+modeling. 
+Model experiments designed to highlight specific 
+subproblems and their interactions (and not complex 
+combustor flows) should receive attention for model 
+development and validation. 
+Other areas in which 
+further research will be most useful include: the 
+simulation of complex chemistry, the turbulent-reaction 
+interraction problem, the utilization of complex mesh 
+and/or finite element methods of computation, and 
+application to realistic three-dimensional problems. 
+This, and continued development on the accuracy of the 
+simulation of the physical processes involved, should 
+elevate computer modeling to an established place in 
+practical combustor design and development programs. 
+REFERENCES 
+1. 
+Patankar, S.V., and Spalding, D.B., "Mathematical 
+Models of Fluid Flow and Spalding, D.B., 
+"Mathematical Models of Fluid Flow and Heat 
+Transfer in Furnaces: A Review", Journal of the 
+Institute of Fuel, September 1973, pp. '279-283. 
+2. 
+Spalding, D.B., "Mathematical Models of 
+Turbulent Flames: A Review", Combustion 
+Science and Technology, Vol. 13, 1976, pp. 3- 
+25. 
+3. 
+Lilley, D.G., "Swirl Flows in Combustion: A 
+Review", AIAA Journal, Vol. 15, August 1977, 
+pp. 2063-1078 
+4. 
+Edelman, R.B., and Harsha, P.T., "Laminar and 
+Turbulent Gas Dynamics in Combustion - 
+Current Status", Progress in Energy and 
+Combustion Science, Vol. 4, Pergamon Press, 
+1978, pp. 1-62. 
+5 .  
+Jones, Robert E., "Gas Turbine Engine Emissions 
+-- Problems, Progress and Future", Progress in 
+
+
+--- Page 17 ---
+
+6. 
+7. 
+8 .  
+9. 
+10. 
+1 I .  
+12. 
+13. 
+14. 
+15. 
+Energy and Combustion Science, Vol. 4, 
+Pergamon Press, Ltd., 1978, pp. 73-113. 
+Lilley, D.G., "Flowfield Modeling in Practical 
+Combustors: A Review", Journal of Energy, 
+Vol. 3, July-August 1979, pp. 193-210. 
+McDonald, H., "Combustion Modeling in Two 
+and Three Dimensions -- Some Numerical 
+Considerations", Progress in Energy and 
+Combustion Science, Vol. 5, 1979, pp. 97-122. 
+Khalil, E.E., "Modeling of Furnaces and 
+Combustors", Abacus Press, Tunbridge Wells, 
+England, 1982. 
+Gupta, A.K., Lilley, D.G., and Syred, N., "Swirl 
+Flows", Abacus Press, Tunbridge Wells, 
+England, 1984. 
+Gosman, A.D., and Pun, W.M., "Calculation of 
+Recirculating Flows", Rept. No. HISl74112, 
+Dept. of Mechanical engineering, Imperial 
+College, London, England, 1974. 
+Lilley, D.G., and Rhode, D.L., "A Computer Code 
+for 
+Swirling 
+Turblent 
+Axisymmetric 
+Recirculating Flows in Practical Isothermal 
+Combustor Geometries", Report NASA CR- 
+3442, Feb. 1982. 
+Rhode, D.L., Lilley, D.G., and McLaughlin, 
+D.K., "On the Prediction of Swirling Flowfields 
+Found 
+in 
+Axisymmetric 
+Combustor 
+Geometries", ASME Journal of Fluids Engng., 
+Vol. 104, Sept. 1982, pp. 378-384. 
+Lilley, D.G., Rhode, D.L., and Samples, J.W., 
+"Prediction of Swirling Reacting Flow in 
+Ramjet Combustors", Paper AIAA-81-1485, 
+Colorado Springs, CO, July 25-27, 1981. 
+Khalil, E.E.. Spalding, D.B., and Whitelaw, J.H., 
+"The Calculation of Local Flow Properties in 
+Two-Dimensional Furnaces", Int. J. Heat Mass 
+Trans., Vol. 18, 1975, pp. 775-791. 
+Novick, A.S., Miles, G.A., and Lilley, D.G., 
+"Numerical 
+Simulation of 
+Combustor 
+Flowfields: A Primitive Variable Design 
+Capability", J. of Energy, Vol. 3, No. 2, March- 
+April 1979, pp. 95.105. 
+16. Ramos, J.I., "Exhaust Gas Emissions from a 
+Swirl Stabilized 
+Combustor", AIChE 
+Symposium Series, R.P. Stein, ed., Vol. 77, 
+No. 208, 1981, pp. 393-399. See also: Report 
+CO18113, Dept. of Mech. Engng., CMU, 
+Pittsburgh, PA, 1981. 
+17. Samples, J.W. and Lilley, D.G., "Chemically 
+Reacting Axisymmetric Flowfield Prediction", 
+Paper AIAA-84-0364, Reno, NV, Jan. 9-12, 
+1984. 
+18. Patankar, S.V., and Spalding, D.B., "A Computer 
+Model for Three-Dimensional Flow in 
+Furnaces", 14th Symp. (int.) on Combustion, 
+The Combustion Inst., Pittsburgh, PA, 1973, 
+pp. 605-614. 
+19. Serag-Eldin, M.A., and Spalding, D.B., 
+"Computations of Three-Dimensional Gas- 
+Turbine Combustion Chamber Flows", Trans. 
+ASME J. of Eng. for Power, Vol. 101, July 
+1979, pp. 326-336. 
+20. Mongia, H.C., and Reynolds, R.S., "Combustor 
+Design Criteria Validation, Vol. 111 - User's 
+Manual", Report USARTL - 78-55C, U S .  
+Army Res. and Tech. Lab., Ft. Eustis, VA, Feb. 
+1979. (See also Vols. I and II). 
+v 
+21. 
+Swithenbank, J., Turan, A,, and Felton, P.G., 
+"Three-Dimensional Two-Phase Mathematical 
+Modeling of Gas Turbine Combustors", in Gas 
+Turbine Combustor Design Problems (Lefebvre, 
+A.H., ed.), Hemisphere-McGraw-Hill, New 
+York, 1980, pp. 249-314. 
+22. Srivatsa, S.K., "Computations of Soot and NOx 
+Emissions from Gas Turbine Combustors", 
+NASA CR-167930, 1982. 
+23. Sullivan, R.E., Sutton, R., Miles, G., Young, E., 
+and Briehl, D., "Application of 3-D 
+AerodynamiclCombustion Model to Combustor 
+Primary Zone Study", Paper AIAA-83.1265, 
+Seattle, WA, June 27-29, 1983. 
+24. Lefebvre, A.H., "Gas Turbine Combustion", 
+McGraw Hill, 1983. 
+25. Toong, T.Y., "Combustion Dynamics: Dynamics 
+of Chemically Reacting Fluids", McGraw-Hill, 
+New York, 1983. 
+16 
+
+
+--- Page 18 ---
+
+26. Gupta, A.K. and Lilley, D.G., "Flowfield 
+Modeling and Diagnostics", Abacus Press, 1985. 
+Williams, F.A., "Combustion Theory", Second 
+Edition, Benjamin Cummings, Menlo Park, 
+CA, 1985. 
+W 
+27. 
+28. Rosner, D.E., "Transport Processes in Chemically 
+Reacting Flow Systems", Butterworths, Boston, 
+1986. 
+29. 
+Kuo, K.K., "Principles of Combustion", Wiley, 
+New York, 1986. 
+30. Oran, E.S. and Boris, J.P., "Numerical Simulation 
+of Reactive Flow", Elsevier, New York, 1987. 
+31. Eckbreth, A.C., "Laser Diagnostics for 
+Combustion Temperature and Species", Abacus 
+PredGordon and Breach Science Publishers, 
+England, 1988. 
+32. Chomiak, J., "Combustion: A Study in Theory, 
+Fact and Application", Abacus Press/Gordon & 
+Breach, New York, 1990. 
+33. Chigier, N.A., "Combustion Measurements", 
+4 
+Hemisphere Publishing Corp., 1991. 
+34. Bartok, W. and Sarofim, A.F. (Eds.), "Fossil Fuel 
+Combustion-A Source Book", Wiley, New 
+York, 1991. 
+35. Keating, E.L., "Applied Combustion", Marcel 
+Dekker, New York, 1993. 
+36. Wheeler, R.W., "Gasoline Combustion - Past, 
+Present and Future", Paper D.P. 78/212 
+presented at CYCSS Spring Technical Meeting 
+held at Purdue University, W. Lafayette, Indiana, 
+April 3-4, 1978. 
+37. Heywood, J.D., "Pollutant Formation and Control 
+in Spark-Ignition Engines", Prog. in Energy and 
+Comb. Sci., Vol. I ,  1976, pp. 135-164 
+38. Campbell, A.S., "Thermodynamic Analysis of 
+Combustion Engines", Wiley, New York, 1979. 
+39. Stambuleanu, A., "Flame Combustion Processes 
+in Industry", Abacus Press, Tunbridge Wells, 
+England, 1978. 
+40. Shahed, S.M., Flynn, P.F., and Lyn, W.T., 
+"Diesel Combustion: Review and Prospects", 
+Paper presented at CI/CSS Spring Technical 
+Meeting, held at Purdue University, W. 
+Lafayette, Indiana, April 3-4, 1978. 
+41. Beer, J.M., "Recent Advances in the Technology 
+of Furnace Flames", J. Inst. Fuel, Vol. 45, July 
+1972, pp. 370-382. 
+42. Godridge, A.M., and Read, A.W., "Combustion 
+and Heat Transfer in Large Boiler Furnaces", 
+Prog. in Energy and Combustion Science, Vol. 
+2, 1976, pp. 83-95. 
+43. Anon, "The Jet Engine", Rolls Royce, Derby, 
+England, 1972. 
+44. 
+Lichty, L.C., "Combustion Engine Processes", 
+McGraw-Hill, New York, 1967. 
+45. 
+McMahon, P.J., "Aircraft Propulsion", Barnes and 
+Noble Books, London A Division of Harper and 
+Row, New York, 1971. 
+46. Swithenbank, J., "Hypersonic Air-Breathing 
+Propulsion", Prog. in Aero. Sci., Vol. 8 (D. 
+Kuchemann, Ed.), Pergamon Press, Oxford, 
+England, 1966, pp. 229-294. 
+17 
+
+
+--- Page 19 ---
+
+AIRIFUEL 
+&TAKE 
+COHPRESSION 
+COnBuSnON 
+EXHAUST 
+intennlttent 
+wutr pa 
+Fig.1. 
+The gasoline engine piston-cylinder assembly and four stroke Otto cycle. 
+Fig. 2. 
+Stratified charge engine geometry. 
+Arrangement of swirl injector and spark plug 
+in a stratified charge engine. 
+Cupped piston in stratified charge engine 
+which produces “squish’ 
+(a) 
+(b) 
+38 
+Fig. 3. 
+Coal combustion in industrial furnaces with 
+swirl 39 
+(a) 
+as pulverized coal 
+(b) 
+inafixedted 
+(c) 
+in a fluidized bed 
+(a) 
+in a cyclone furnace 
+Fig. 4. 
+The gas turbine turbojet engine 43 
+- 
+18 
+
+
+--- Page 20 ---
+
+Fig. 5. 
+Schematic of flame stabilization and general 
+flow pattern in a typical axisymmetric can- 
+type combustion chamber of a gas turbine 
+engine 43 
+r 
+WullER VALVf lk 
+FIRING - 
+IR PIPE AND 
+PROPfLLINC NOZZLE 
+SUPPLY 
+AIR INTAKE 
+COMWJmON CHAUBLR 
+Fig. 6. 
+The pulsejet and its process 44 
+I 
+AIR lNTCKE 
+I 
+I 
+1 
+2 
+3 
+, 
+00 
+Fig. 7. 
+Schematic of the ramjet engine45 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+I 
+INTAKE. 
+I 
+COMBUSTION I 
+NOZZLE. 
+I 
+I 
+CHAMBER. I 
+I 
+I 
+Fig. 8. 
+Schematic of the scramjet engine 46 
+19 
+
+
+--- Page 21 ---
+
+45 
+Fig. 9. 
+Schematic of the liquid rocket engine 
+Fig. 11. 
+Typical surface shapes of solid-propellant 
+grain in a rocket engine 39 
+39 
+Fig. 10. 
+Schematic of the solid-propellant rocket 
+1. 
+the engine frame 
+2. 
+the exhaust nozzle 
+3. 
+the solid-propellant grain charge 
+4. 
+the electric ignition device 
+5. 
+6. 
+the nozzle throat 
+the flow uniformisation grate of the burned 
+gases towards the exhaust nozzle 
+C 
+(a) 
+for neutral burning 
+(b) for regressive burning 
+(c) 
+for progressive burning; B - surface inhibited. 
+20 

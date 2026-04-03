@@ -1,0 +1,896 @@
+
+--- Page 1 ---
+
+Shi Liu
+Electric Power Research Institute of Guangdong
+Power Grid Corporation,
+Guangzhou 510080, Guangdong Province, China
+Hong Yin
+Electric Power Research Institute
+of Guangdong Power Grid Corporation,
+Guangzhou 510080, Guangdong Province, China
+Yan Xiong
+Energy and Power Research Center of Chinese
+Academy of Sciences,
+Lianyungang 222069, Jiangsu Province, China
+e-mail: dennis198738@163.com
+Xiaoqing Xiao
+Electric Power Research Institute of Guangdong
+Power Grid Corporation,
+Guangzhou 510080, Guangdong Province, China
+A Comparative Analysis of
+Single Nozzle and Multiple
+Nozzles Arrangements for
+Syngas Combustion in Heavy
+Duty Gas Turbine
+Heavy duty gas turbines are the core components in the integrated gasiﬁcation combined
+cycle (IGCC) system. Different from the conventional fuel for gas turbine such as natural
+gas and light diesel, the combustible component acquired from the IGCC system is
+hydrogen-rich syngas fuel. It is important to modify the original gas turbine combustor
+or redesign a new combustor for syngas application since the fuel properties are featured
+with the wide range hydrogen and carbon monoxide mixture. First, one heavy duty gas
+turbine combustor which adopts natural gas and light diesel was selected as the original
+type. The redesign work mainly focused on the combustor head and nozzle arrangements.
+This paper investigated two feasible combustor arrangements for the syngas utilization
+including single nozzle and multiple nozzles. Numerical simulations are conducted to
+compare the ﬂow ﬁeld, temperature ﬁeld, composition distributions, and overall perform-
+ance of the two schemes. The obtained results show that the ﬂow structure of the multiple
+nozzles scheme is better and the temperature distribution inside the combustor is more
+uniform, and the total pressure recovery is higher than the single nozzle scheme. Through
+the full scale test rig veriﬁcation, the combustor redesign with multiple nozzles scheme is
+acceptable under middle and high pressure combustion test conditions. Besides, the
+numerical computations generally match with the experimental results.
+[DOI: 10.1115/1.4034232]
+Keywords: gas turbine, combustion, syngas fuel, single nozzle, multiple nozzles
+Introduction
+As the concerns of fossil fuel emission and issue of environ-
+mental protection increase, the requirement for cleaner and more
+efﬁcient energy utilization is of signiﬁcant importance. The IGCC
+system application could provide a clean and efﬁcient pathway for
+coal resources which is abundant in China. Besides, other resour-
+ces such as biogas and industrial furnace gas could also be subsid-
+iary energy provision for the whole power system.
+Heavy duty gas turbine has been commercially successful
+energy and power technology for many decades. It is a good
+choice for gas utilization with the characteristics of low pollution,
+high efﬁciency, and high reliability. However, the syngas from the
+IGCC system and other industrial process is mainly hydrogen-rich
+gas with low caloriﬁc value. Therefore, the operation strategy of
+the existing gas turbine system and the combustor should be modi-
+ﬁed or redesigned in order to adopt syngas fuel. It is becoming a
+hot issue with continuous effort from the research and industrial
+ﬁeld since the last decade [1,2], which includes the blended com-
+bustion of hydrogen and methane, syngas fuel with hydrogen and
+carbon monoxide. Most research focuses on the combustion per-
+formance with some literature focusing on the reaction kinetics
+and combustion dynamics [3,4]. Several original equipment man-
+ufacturers (OEMs) have designed and tested the advanced gas tur-
+bine combustor for both natural gas and unconventional fuel
+application [5–8]. Based on the accumulated experience, the com-
+bustor for syngas use is still under development and optimization
+[9,10] especially for heavy duty gas turbine.
+With the rapid development of computer resources and numeri-
+cal methods, computational ﬂuid dynamics (CFDs) simulation has
+become an essential procedure in the combustor design/redesign
+process [11–13]. Previous numerical researches are mainly
+focused on the model combustor, small prototype or even concept
+combustor design with chemical kinetics investigation [14–18].
+Besides, the emissions can also be modeled and predicted by
+numerical methods for industrial practice [19]. In order to develop
+combustor technology for syngas utilization, this paper presents a
+CFD investigation of syngas/air mixture reaction in a heavy duty
+gas turbine combustor which is originally operated with natural
+gas and light diesel as fuel.
+In this paper, a full scale heavy duty combustor was modeled
+and analyzed by commercial CFD software FLUENT. Two combus-
+tor head arrangements with single nozzle and multiple nozzles
+were conceived and proposed for syngas combustion. In order to
+reduce the computation cost and improve efﬁciency, only the 1/5
+or 1/4 (72 or 90 deg of the full annulus) of the combustion cham-
+ber is simulated for the two redesign schemes. The modeling
+includes realizable k–e turbulence model and steady ﬂamelet com-
+bustion model. Probability density function (PDF) is adopted to
+consider the turbulence and combustion interaction.
+As known, the low caloriﬁc value of natural gas is about 36 MJ/
+Nm3 while the syngas is only about 6–10 MJ/Nm3. The huge dif-
+ference in the fuel property indicates that it is difﬁcult to evaluate
+the loss and gain during the redesign process. Not only the com-
+bustor should be redesigned, but also the operating point of tur-
+bine and compressor should be adjusted or even redesigned. For
+this case, the whole system performance was traded off to accom-
+modate the fuel change. While for this research, the focus is
+mainly on the selection of different schemes. This investigation
+focuses on the combustor internal reacting ﬂow ﬁeld, temperature
+Contributed by the Advanced Energy Systems Division of ASME for publication
+in the JOURNAL OF ENERGY RESOURCES TECHNOLOGY. Manuscript received May 11,
+2016; ﬁnal manuscript received June 30, 2016; published online August 17, 2016.
+Assoc. Editor: Mohamed A. Habib.
+Journal of Energy Resources Technology
+MARCH 2017, Vol. 139 / 022004-1
+Copyright V
+C 2017 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 2 ---
+
+distribution, and the overall
+combustion performance. The
+obtained numerical results could provide strong support for design
+consideration and experimental preparation.
+Combustor Geometry Description and Nozzle
+Arrangements
+The prototype combustor of this research is selected from one
+typical type heavy duty gas turbine [20], which is applied for natu-
+ral gas and light diesel oil. The chosen combustor refers to a
+reversal can combustor type. In the gas turbine unit, the can com-
+bustors are connected by the crossﬁre tubes and arranged uni-
+formly in the circumferential direction around the rotor axis. The
+original can combustor geometry is shown in Fig. 1. Every com-
+bustor has one cylindrical combustor liner inserted in the liner
+bushing forming an annular guiding ﬂow channel. The com-
+pressed air will ﬂow through the diffuser, cooling holes/dilution
+holes/secondary holes/primary holes on the combustor liner, and
+combustor head inlet. The internal volume of the combustor can
+be separated into primary zone, secondary zone, and the dilution
+zone. The fuel and air are mixed and ignited in the primary reac-
+tion zone ﬁrst with some air supplemented in the secondary zone.
+Then the combustion hot gas is diluted and temperature distribu-
+tion altered. A complex three-dimensional shape pipe denoted as
+transition piece will guide the hot gas into turbine components.
+Usually, the traverse shape of the transition piece changes gradu-
+ally from circular shape to sector shape. As shown in Fig. 2, the
+combustor liner and the combustor head with multiple nozzle
+arrangements are assembled as illustrations without the casing and
+bushing covering.
+The shape and size of the combustor casing, the size of combus-
+tor liner and transition piece are kept as the original design for
+natural gas application. To accommodate the syngas utilization,
+the combustor head and nozzle are redesigned. The ﬁlm cooling
+holes arrays are kept the same, while the location and size of the
+primary, secondary, and dilution holes are modiﬁed in order to
+adjust the combustion performance.
+The total areas of the primary holes, secondary holes, and dilu-
+tion holes on the combustor liner are the same for both the single
+and multiple nozzles schemes. However, the total number of the
+three kind holes for single nozzle arrangement is 4/5 of that in
+multiple arrangements. In the multiple nozzle arrangement, there
+are ﬁve swirl nozzles on the outer ring of the combustor. To keep
+the design symmetrical, the holes numbers are multipliers of ﬁve.
+Besides, the ﬁlm cooling holes design of the single nozzle
+arrangement is the same as multiple nozzles arrangement.
+Taking the multiple nozzles arrangement combustor for illustra-
+tion, there are two rows of primary holes with ten primary holes
+for each row. The ﬁrst row of primary holes is designed with the
+diameter of 17.9 mm, while the holes diameter of the second row
+13.4 mm. After the primary holes rows, the secondary holes row
+for subsidiary combustion includes ﬁve holes, with the holes
+diameter of 11.2 mm. The last row of dilution includes ﬁve holes
+in this case with the holes diameter 39.8 mm. When considering
+the circumferential location, the secondary holes and the dilution
+holes keep the same which means on the same axial line. The pri-
+mary holes show 18 deg stagger relative to the secondary holes as
+shown in Fig. 2. There are 16 rows of cooling holes designed to
+cross the whole combustor liner to provide enough cooling. The
+number of cooling holes in each row changes from 32 to 230. In
+addition, the maximum diameter of the cooling hole is 6.3 mm,
+while the minimum is only 1.4 mm.
+Limited modiﬁcations can be conducted to redesign or retroﬁt
+the combustor head, mainly the nozzle arrangements. To be more
+speciﬁc, the air and fuel swirlers, fuel injection locations, and
+cover cones should be deliberately validated to burn the low calo-
+riﬁc syngas while maintaining the combustor outlet temperature.
+In order to adopt syngas fuel, two combustor design schemes were
+proposed including the single nozzle arrangement and multiple
+nozzle arrangements. The most notable difference between the
+two schemes is the combustor head and nozzle structure.
+The detailed structure of the single nozzle combustor head is
+shown in Fig. 3. The nozzle is designed with one syngas passage
+and one central oil passage. In the current simulation, the oil noz-
+zle is not considered. The syngas is injected into the reaction zone
+through several inclined holes which helps generate swirling syn-
+gas ﬂow. The air swirler is equipped with several inlet-holes and
+swirl vanes which forms rotating air ﬂow passages. The air and
+syngas would mix and react downstream of the nozzle. Since the
+heat load of the combustor head is relatively high, the cooling air
+is guided into the ﬂat cover plate and then through the cooling
+holes on the cover cones.
+The multiple nozzles combustor consists of ﬁve syngas nozzle
+circumferentially around the central axis and one oil nozzle in the
+center. Every syngas nozzle is independent and composed of outer
+air swirler and inner syngas swirler. The central nozzle oil injec-
+tion is only for the ignition and start-up process while the central
+nozzle air swirler is always in service. Therefore, for this investi-
+gation, the oil injection is neglected while the central air swirler is
+modeled in the simulation. The combustor head structure for mul-
+tiple nozzles arrangement is displayed in Fig. 4. Impingement
+cooling is adopted for the cooling design of the combustor head.
+Numerical Modeling and Validation of Combustor
+Numerical Modeling Methods. Taking into account that the
+combustor chamber (without the transition piece) structure is axis-
+symmetrical, only the 1/5 or 1/4 (72 or 90 deg of the full annulus)
+Fig. 1
+Original combustor model structure
+022004-2 / Vol. 139, MARCH 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 3 ---
+
+of the combustion chamber is modeled in order to improve the
+computational efﬁciency. The model revision and the mesh gener-
+ation are conducted in the software GAMBIT. As introduced previ-
+ously, there are 16 rows of cooling holes on the combustor liner,
+with the holes diameter ranging from 1.4 mm to 6.3 mm. In the
+simulation, the cooling holes are simpliﬁed as cooling slots, with
+the total area equal to that of cooling injection holes [21].The
+inﬂuence of the crossﬁre tubes on the combustor ﬂow ﬁeld is not
+considered in the computation. For the mesh independence check,
+two mesh schemes with 6  106 and 10  106 elements of mixed
+type were generated, respectively. In Fig. 5, the combustor liner
+and the cooling slots mesh on the periodic surface are given.
+Besides, the air and syngas swirler mesh is also displayed with
+tangential direction inlet.
+For the reacting ﬂow ﬁeld simulation, the viscous N–S equa-
+tions were solved and the results obtained. Since there exists
+strong swirling ﬂow at the locations of the air swirler outlet and
+syngas fuel swirler outlet, the realizable k–e turbulence model was
+selected [22]. For the wall region turbulence treatment, the stand-
+ard wall function is chosen. The realizable k–e model has been
+shown to provide more accurate prediction of high Reynolds num-
+ber turbulent ﬂows compared to the standard k–e model which is
+also validated in Ref. [23]. Besides, the realizable k–e model
+incorporates the factors of swirl and curvature which is more
+adaptable for the current simulation
+@ qk
+ð
+Þ
+@t
+þ @ qkui
+ð
+Þ
+@xi
+¼ @
+@xj
+l þ lt
+rk
+
+ @k
+@xj
+"
+#
+þ Gk þ Gb  qe  YM þ Sk
+(1)
+@ qe
+ð
+Þ
+@t
+þ @ qeui
+ð
+Þ
+@xi
+¼ @
+@xj
+l þ lt
+re
+
+ @e
+@xj
+"
+#
+þ C1e
+þ e
+k Gk þ C3e þ Gb
+ð
+Þ  C2e q e2
+k þ Se
+(2)
+The combustion simulation was carried out using the steady
+ﬂamelet combustion model. In steady ﬂamelet combustion mod-
+els, the variables such as temperature, density and species are
+speciﬁed by two parameters, the mixture fraction and scalar dissi-
+pation rate. The ﬂamelet combustion model is suitable for diffu-
+sion combustion as introduced in the classic literature [24]. In the
+ﬂamelet generation process, the opposing diffusion ﬂame equa-
+tions are transformed from physical space to mixture fraction
+space, with the scalar dissipation be modeled in the meantime
+ qvZ
+Lei
+d2Yi
+dZ2 ¼ _xi
+(3)
+qvZ
+d2T
+dZ2 þ 1
+Cp
+dCp
+dZ þ
+X
+N
+i¼1
+Cpi
+Lei
+dYi
+dZ
+ 
+!
+dT
+dZ qvZ ¼ 1
+Cp
+X
+N
+i¼1
+hi _xi
+(4)
+The detailed chemical reaction mechanism developed by Drake
+and Blint [25] is adopted which includes 22 species and is vali-
+dated with the CO/H2/N2 fuel diffusion ﬂame experimentin CO/
+H2/N2 laminar opposed-ﬂow diffusion ﬂames CO/H2/N2 laminar
+opposed-ﬂow diffusion ﬂames. Therefore, the mechanism is suita-
+ble for the simulation is considered in the current case. Through
+the calculation, the distribution of a variety of species can be
+obtained, such as H2, CO, CO2, NO, OH, etc. The probability den-
+sity function (PDF) model is conducted to consider the interaction
+between turbulence and combustion. Radiative heat transfer was
+Fig. 2
+Three-dimensional illustration of the combustor liner and the combustor head
+scheme
+Fig. 3
+Single nozzle combustor head structure
+Fig. 4
+Multiple nozzles combustor head structure
+Journal of Energy Resources Technology
+MARCH 2017, Vol. 139 / 022004-3
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 4 ---
+
+considered by using discrete ordinate radiation model. For the dis-
+cretization and equation solving, the second-order upwind scheme
+and the SIMPLE method were selected to implement the
+calculation.
+The external and internal sides of the combustor liner are
+directly connected by primary holes, secondary holes, dilution
+holes,, etc. Reversal ﬂow supply from the compressor is set up
+from the downstream part. Boundary conditions include the air
+inlet mass ﬂow rate, fuel inlet mass ﬂow rate, periodic boundary,
+and combustor pressure outlet. The two sides of the sector as
+shown in Fig. 6 are periodic boundary. The outer wall is consid-
+ered as adiabatic and the combustor liner wall is set as conjugate
+wall which allows for heat conduction.
+The speciﬁed boundary conditions for the conversion of a sin-
+gle combustion chamber are as follows: air inlet mass ﬂow rate is
+given as 13.63 kg/s and the inlet temperature is 355 C. The pres-
+sure outlet is set up as 12.3 atm. For the syngas fuel, the inlet mass
+ﬂow rate is given as 1.22 kg/s with the inlet temperature140 C.
+The volume fraction of the syngas is shown in Table 1. The low
+caloriﬁc value of the syngas is 10 MJ/Nm3.
+Numerical Validation
+Numerical method validation for the combustion simulation
+had been completed before the redesigned combustor was investi-
+gated. Reference [26] provides a full test data for a can combustor
+which adopts diffusion combustion. Therefore, the validation for
+the numerical method can be conducted ﬁrst.
+The combustor model for validation is displayed in Fig. 7 with
+the combustor length of 395 mm and the inner diameter of
+125 mm. The combustor head is conical shape cover with air inlet
+holes on the wall [26].The inner diameter of the conical cover
+smaller end is about 25.4 mm, with the height of 28.6 mm. The
+ﬂow paths of the air ﬂow include six rows of air inlet holes on the
+conical cover, primary and dilution holes. Besides, several rows
+of ﬁlm cooling holes are also considered. The fuel nozzle is
+located in the center with the diameter of about 7.67 mm. The fuel
+injection direction is vertical to the conical end. In the computa-
+tion, 1/6 sector of the total cylinder is adopted to simulate the
+combustion. The domain covers the circumferential angle from
+30 to 30 deg. The 30 and 30 deg planes denote the two
+periodic boundary planes, while the 0 deg plane denotes the cen-
+tral axial plane which cuts through the conical cover inlet holes,
+primary holes, and dilution holes. The axial ﬂow direction is des-
+ignating the z coordinate direction. All the numerical modeling
+methods have been mentioned above and the boundary types are
+also given in the ﬁgure.
+The validation simulation results were compared to the experi-
+mental test data in detail. As shown in Fig. 8, the axial velocity
+distributions at different axial locations were presented. The com-
+putation result is not ideally in good agreement with the experi-
+mental data however the general trend matches as shown in
+Fig. 8. The adopted technique in the literature is contact measure-
+ment which has disturbances on the ﬂow ﬁeld. Therefore, the
+measured velocity is also with some error especially in the place
+near the wall. Besides, the experimental test is divided into up and
+down parts. Although the measured two locations are symmetri-
+cal, the realistic measured data are not fully symmetrical while
+the computations are.
+Based on the research group’s work and accumulated knowl-
+edge, the numerical computations can predict the ﬂow structure
+qualitatively right as shown in Fig. 9. Besides, the averaged outlet
+Fig. 5
+Mesh generation for the combustor simulation
+Fig. 6
+Boundary conditions type speciﬁcation
+Table 1
+Detailed syngas composition
+Composition
+Volume fraction (%)
+CO
+47.8
+H2
+37.3
+CO2
+14.3
+N2
+0.6
+Fig.
+7
+Can
+combustor
+structure
+for
+combustion
+model
+validation
+022004-4 / Vol. 139, MARCH 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 5 ---
+
+temperature is 796.7 K, which is very close to the measured value
+796 K. The computed total pressure loss is 3.68%, which is
+slightly larger than the measured data 3.28%. In general, the pre-
+dicted overperformance of the combustor is taken with acceptable
+reliability.
+Results and Discussion
+The targeted combustor heat load corresponding to the speciﬁed
+boundary conditions is 13.33 MW. The total equivalence ratio is
+about 0.25 for the syngas fuel, with the combustor outlet tempera-
+ture of about 1365 K. Since the combustor is designed to achieve
+nonpremixed combustion, the adiabatic ﬂame temperature can
+reach over 2200 K at the ﬂame front with equivalence ratio of
+about 1.
+Before the computational results are discussed, the mesh inde-
+pendence check is conducted. The following ﬁgure gives a com-
+parison of the computed results for the multiple nozzles case. The
+traverse cut plane at the dilution hole is chosen and the axial
+velocity contour is presented in Fig. 10. The mesh of 6  106 and
+10  106 shows slight inﬂuences on the mixing result. Therefore,
+the mesh setup is destined with the total number 6  106.
+Multiple Swirlers Arrangement
+For the reversal ﬂow combustor with a variety of holes on the
+liner, air ﬂow distribution in the chamber is a signiﬁcant issue for
+designer, which indicates excellent combustion and dilution per-
+formance. The mass ﬂow rate distribution can be obtained by
+postprocessing the CFD simulation results, and the statistic data is
+listed in Table 2. According to the air splits statistic results, the
+single nozzle arrangement for syngas fuel is close to the natural
+gas original scheme. As the results indicated, the large variation
+of the air splits in single and multiple nozzles is mainly caused by
+the combustor head design and holes arrangements. However, the
+purpose of this investigation is to check the inﬂuences of different
+air splits on the ﬂow ﬁeld and combustion performance. There-
+fore, it is not considered to adjust the holes arrangement of multi-
+ple nozzles to match the single nozzle arrangement in this
+investigation. As shown in Table 2, the combustor head consumes
+about 14% of the total air mass ﬂow for the multiple nozzles case
+while it is about 11% in the single nozzle case. Besides, the air
+ﬂow for the primary/secondary/dilution holes and ﬁlm cooling
+also show discrepancy between the two schemes. Although the
+total areas of the primary/secondary/dilution holes for the two
+schemes are the same, the number of the three type holes for mul-
+tiple nozzles is 1.25 times of the single nozzle arrangement, which
+leads to smaller amount of air ﬂow on the combustor liner. For the
+ﬁlm cooling, the multiple nozzles arrangement consumes more air
+than the single nozzle design.
+The total pressure recovery coefﬁcient for the combustion
+chamber is shown in Table 3. Compared to the single nozzle com-
+bustor, the pressure recovery coefﬁcient of the multiple nozzle
+arrangement is obviously improved, with about 2.1% enhance-
+ment. In contrast to the combustor utilizing natural gas and light
+diesel, the syngas fuel is of low caloriﬁc value. Therefore, the
+amount of syngas fuel admission is signiﬁcantly larger than the
+traditional fuel type. When the fuel supply pressure is further
+Fig. 8
+Axial velocity comparison of numerical simulation and experimental results
+Fig. 9
+Axial velocity distribution and streamline in 0 deg cut-
+plane
+Journal of Energy Resources Technology
+MARCH 2017, Vol. 139 / 022004-5
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 6 ---
+
+considered, the difference of pressure recovery coefﬁcient for the
+two schemes will be even larger, reaching to about 3.1%.
+The equations of the total pressure recovery coefﬁcients CTPR1
+and CTPR2 (with/without syngas fuel pressure modiﬁcation) are
+listed as follows:
+CTPR1 ¼ TPou=TPin
+(5)
+CTPR2 ¼ TPou=ðTPin þ Vfuel  TPfuel=VairÞ
+(6)
+The general results show that the average temperature at the
+combustor outlet for the single nozzle and multiple nozzles
+arrangements are 1367 K and 1363 K, respectively, which is just
+slight difference. In order to give more detailed information of the
+two schemes, the temperature ﬁeld, ﬂow ﬁeld structure, and com-
+position distributions in terms of the computational results are
+given.
+First, the axial cut-plane through the dilution holes is presented
+with the temperature distribution and the axial velocity distribu-
+tion as shown in Fig. 11. As can be seen, for the single nozzle
+case, the high temperature zone is tending to be restricted in the
+area near the central axis of the combustion chamber. While the
+axial distance between the high temperature region and the com-
+bustor head is relatively large, the cooling requirement for the
+combustor head in the single nozzle case is not quite high. How-
+ever, for the multiple nozzles case, the high temperature region
+possesses wider area before dilution. One thing is that the primary
+air is even closer to the combustor head which promotes the com-
+bustion reaction earlier in this case than the single nozzle case.
+Besides, the multiple nozzles mainly inject fuel on the outer side
+of the combustor head. Therefore, the high temperature zone
+expands radially and projects high heat load on the combustor
+head. In general, this is the reason why cooling design is more
+urgent in the multiple nozzles arrangement.
+Furthermore, it can be inferred from Fig. 11 that there are more
+recirculation zones in the multiple nozzles case than the single
+nozzle case. In the single nozzle conﬁguration, the recirculation
+zone is formed by the swirling air and syngas ﬂow, and enhanced
+by the primary air injection. Basically, the zone is formed by the
+single swirler with some local corner vortex in the interface with
+the primary jets. For the multiple nozzles conﬁguration, every sin-
+gle swirler unit can generate swirling recirculation zone. Besides,
+the central swirler can also creates the pilot swirling recirculation
+zone which helps enhance mixing and stabilize the ﬂame. It is
+quite beneﬁcial for the ﬂame stability when there exist more recir-
+culation zones in the ﬂow ﬁeld. From the formation mechanism of
+the recirculation, the single nozzle arrangement should adjust the
+cooperation of central swirler and the primary air injection. How-
+ever for the multiple nozzles case, the single small swirler unit
+can be effective to generate recirculation. It is indicated that, for
+the multiple nozzles case, the design of the primary air jet location
+can be more ﬂexible.
+Besides, it is also displayed in the ﬁgure that the injection depth
+of secondary and dilution holes is larger in the single nozzle case
+than that of the multiple nozzles case. The reason is that the area
+of single dilution hole is larger in the single nozzle case. Deeper
+injection length is beneﬁcial for the temperature distribution
+adjustment, and especially it can help reduce the peak value of
+outlet temperature for the single nozzle case. Further temperature
+uniformity could be realized by the transition piece guiding the
+ﬂow after ﬂowing through the combustor.
+The mixture fraction distribution and the mole concentration of
+OH composition in the axial cut-plane are presented in Fig. 12 for
+both single nozzle and multiple nozzles arrangement. In the multi-
+ple nozzles case, the syngas fuel is injected through the single
+swirler unit around the axis which can realize good mixing in the
+short axial distance. The radial distribution of the mixture fraction
+is quite uniform without considering the central swirling air ﬂow.
+For the single nozzle arrangement, the fuel mixing and transfer is
+mainly conﬁned in the area near the combustor axis. Therefore,
+the mixing quality deﬁnes the ﬂame front, combustion perform-
+ance, and temperature distribution. From the distribution of OH
+composition mole concentration which can reﬂect the ﬂame front
+location, the space for fuel heat release is more conﬁned in the
+single nozzle case which also causes larger total pressure loss.
+Full Scale Test Rig Introduction
+In order to validate the combustor design, the full-scale high
+pressure/high temperature test rig is established and located in
+Lianyungang test base, which belongs to Energy and Power
+Research Center of Chinese Academy of Sciences as shown in
+Fig. 13. The whole test base includes all the infrastructures, sub-
+sidiary systems, and the test section. In detail, the experimental
+test base mainly includes air compressing system with heating
+system, high-pressure cooling water system, low pressure cooling
+water recycling system, water treatment system, steam boiler, fuel
+supply system (natural gas, synthetic gas, and light diesel oil), and
+Fig. 10
+Mesh independence check and comparison of axial velocity (left: 6 3 106, right:
+10 3 106)
+Table
+2
+Flow
+distribution
+over
+the
+combustor
+liner
+(percentages)
+Type
+Combustor
+Big holes
+Film cooling
+Single nozzle
+10.93
+47.91
+41.15
+Multiple nozzles
+14.42
+39.38
+46.20
+Table 3
+Total pressure recovery coefﬁcient
+Type
+Without fuel
+pressure modification
+With fuel pressure
+modification
+Single nozzle
+0.941
+0.930
+Multiple nozzles
+0.961
+0.959
+022004-6 / Vol. 139, MARCH 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 7 ---
+
+control measurement nitrogen and oxygen generation system. The
+experimental test base layout with the control station and data
+postprocessing methods can be referenced in the literature
+[11].The full-scale combustion test section is displayed in Fig. 11.
+The test base can provide test service for heavy duty gas turbine
+combustion test, in support of combustor design veriﬁcation and
+validation. The capacity for compressed air supply can reach the
+maximum ﬂow rate of 12 kg/s, with the maximum pressure 12 atm
+and the maximum temperature of 450 C by electrical heating.
+The long term design target of the test rig capacity is over 20 kg/s
+with the maximum pressure 40 atm which is close to the most
+advanced technology level in the world.
+Furthermore, the whole measuring system for the test section is
+illustrated. The inlet air temperature for the combustor is meas-
+ured by ﬁve K-type thermocouples, with the average value of the
+measured data being adopted. The measurement error of the ther-
+mocouples is less than 1.0 C with the sensitivity of about 0.1 C.
+For the combustor outlet temperature at the transition piece
+Fig. 11
+Axial cut-plane of temperature and axial velocity distribution for two schemes (up: single nozzle case, down: multiple
+nozzles case)
+Fig. 12
+Axial cut-plane of mixture fraction and OH mole fraction for two schemes (up: single nozzle case, down: multiple noz-
+zles case)
+Fig. 13
+Display of full-scale combustion test facility
+Journal of Energy Resources Technology
+MARCH 2017, Vol. 139 / 022004-7
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 8 ---
+
+downstream, the measurement rake is installed with R-type ther-
+mocouple in the rakes. The rake can be driven by the stepping
+motor, scanning the whole temperature ﬁeld at the transition piece
+outlet section. The measurement error of the R-type thermocou-
+ples is 1.0 C with the sensitivity of about 1.0 C. The combustor
+inlet air pressure and the combustion gas pressure at the transition
+piece outlet are measured by the calibrated total pressure probe,
+with the measuring accuracy of 0.1%. The inlet air mass ﬂow rate
+is measured using the oriﬁce plate ﬂow meter supplied by the
+AþK Company. The fuel gas ﬂow measurement is conducted by
+using vortex ﬂow meter with the precision of 1%FS. The sampling
+probe for pollution emission is located at the exit of the
+transition piece, and the ﬂue gas sampling analyzing device is
+Testo350 enhanced analyzer, with its precision details shown in
+Table 4.
+Middle and High Pressure Test Verification
+In this veriﬁcation test, the multiple nozzles conﬁguration is
+adopted and manufactured. Since the target pressure cannot be
+fully realized yet, the middle pressure combustion test is con-
+ducted ﬁrst. Different from the design stage in which the fuel and
+air mixing and ﬂow organization is signiﬁcant, it is necessary to
+consider the transition piece in the veriﬁcation stage. In this inves-
+tigation, the geometry and the boundary condition type for the
+whole transition piece are displayed in Fig. 14. The test has also
+been completed under full-scale middle pressure combustion con-
+ditions. Test conditions are listed: inlet air pressure 2.3 atm, air
+preheating temperature 356 C, air mass ﬂow rate 2.2 kg/s, and
+syngas fuel mass ﬂow rate 0.23 kg/s. The temperature of the syn-
+gas fuel is 140 C. To save the computational cost, the gas inlet
+boundary conditions are transferred from the numerical results of
+combustor outlet. The acquired boundary variables include the
+temperature, velocity, and turbulent parameters distribution. Then
+the numerical iterations are completed only for transition piece
+domain. As shown in Fig. 15, the temperature distribution of the
+numerical simulation and experimental results at the transition
+piece outlet are compared. Generally, the obtained numerical
+results are consistent with the measured value in trend. The tem-
+perature measurement for the transition piece outlet is conducted
+by installing the movable struts with thermocouples. All the meas-
+ured surface data are not recorded at the same transient time step.
+In actual situation of the experiment, the temperature ﬂuctuation
+is quite obvious which causes that the measured data is not as ﬂat
+as the CFD results contour. The steady Reynolds-averaged
+Navier–Stokes simulations cannot predict the transient character-
+istic of the combustion condition. Besides, the temperature meas-
+urements strut can also inﬂuence the ﬂow ﬁeld which might cause
+the temperature distortion.
+By comparing the normalization of the temperature distribution
+curve in Fig. 16, results show that numerical simulation can cap-
+ture the maximum temperature spot and the general trend, which
+is helpful for the prediction and experimental work.
+Table 4
+Flue gas analyzer precision
+Composition
+Measurement range
+Measurement error
+O2
+0–21 vol. %
+60.2%
+NO
+0–4000 ppm
+65 ppm (0–99 ppm), 65% (100–4000 ppm)
+NO2
+0–500 ppm
+65 ppm (0–99 ppm), 65% (100–500 ppm)
+CO
+0–10,000 ppm
+610 ppm (0–199 ppm), 65% (200–2000 ppm)
+Fig. 14
+Temperature distribution at the transition piece outlet
+Fig. 15
+Temperature distribution at the transition piece outlet
+Fig. 16
+Radial distribution of averaged temperature data
+022004-8 / Vol. 139, MARCH 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 9 ---
+
+The test has also been completed under full-scale high pressure
+combustion conditions. Detailed test conditions are as follows:
+inlet air pressure 10.02 atm, air preheating temperature 405 C, air
+mass ﬂow rate 10.54 kg/s, syngas fuel mass ﬂow rate 1.062 kg/s,
+and the nitrogen mass ﬂow rate 0.868 kg/s. The temperature of
+both the syngas fuel and nitrogen is 20 C. The caloriﬁc value and
+compositions of the syngas fuel are shown in Table 1.Through the
+complicated combustion test process, the general combustor per-
+formance is acquired: the average temperature at the combustor
+exit of about 1216 C, combustion efﬁciency reaching 99.9%, the
+total pressure recovery coefﬁcient 0.955 without taking the fuel
+pressure into account, NOx emissions 22 ppmv (at 16%O2), CO
+emissions 17 ppmv (at 16%O2).
+After the combustion test, the detail check shows that there is
+no obvious high temperature region. The highest temperature spot
+of the combustor liner is below 861 C without thermal barrier
+coating sprayed. Based on the industrial experience, if the thermal
+barrier coating is sprayed onto the liner, the highest temperature
+could be reduced further to 50 C at least. Besides, the total pres-
+sure recovery coefﬁcient of the numerical calculation is in good
+agreement with the experimental measurements. The full load
+combustion test is still under preparation.
+Conclusion
+Based on the combustion modeling validation, two design
+schemes of the full-scale heavy duty combustors with single noz-
+zle and multiple nozzle arrangements were investigated. Numeri-
+cal simulations using the commercial CFD software FLUENT were
+adopted. By comparing the numerical results of the two design
+arrangements, it is shown that the ﬂow ﬁeld structure in the multi-
+ple nozzles case is more preferable, with more uniform combustor
+temperature ﬁeld and higher total pressure recovery coefﬁcient.
+In addition to the numerical simulation, the veriﬁcation test is
+also completed for the multiple nozzles arrangement combustor.
+The test condition is full-scale middle (2.3 atm) and high pressure
+(10 atm). The combustor liner wall temperature, pollutant emis-
+sions, and total pressure recovery coefﬁcient are all qualiﬁed for
+the combustor design proved by the test. In order to reach the
+design target and save the cost of time and resources, numerical
+simulations can be helpful to predict the ﬂow ﬁeld, temperature
+distribution, and overall performance in the combustor. Therefore,
+it is worth of conducting numerical simulations during the design
+and retroﬁt process.
+Acknowledgment
+The authors would like to acknowledge the ﬁnancial support
+from the project supported by General Financial Grant from China
+Postdoctoral
+Science
+Foundation
+(2015M570696)
+and
+the
+research project of China Southern Power Grid Company, Ltd.
+(No. K-GD20140492).
+Nomenclature
+CTPR1 ¼ total pressure recovery coefﬁcient without syngas fuel
+pressure modiﬁcation
+CTPR2 ¼ total pressure recovery coefﬁcient with syngas fuel pres-
+sure modiﬁcation
+TPfuel ¼ total pressure of syngas fuel
+TPin ¼ total pressure of the inlet air
+TPou ¼ total pressure of the combusted gas at the combustor
+outlet
+Vair ¼ volume fraction of air in the combustor
+Vfuel ¼ volume fraction of syngas fuel in the combustor
+References
+[1] Bannister, R. L., Newby, R. A., and Yang, W. C., 1998, “Development of a
+Hydrogen-Fueled Combustion Turbine Cycle for Power Generation,” ASME J.
+Eng. Gas Turbines Power, 120(2), pp. 267–283.
+[2] Ibrahim, A. S., and Ahmed, S. F., 2015, “Measurements of Laminar Flame
+Speeds of Alternative Gaseous Fuel Mixtures,” ASME J. Energy Resour. Tech-
+nol., 137(3), p. 032209.
+[3] Lieuwen, T., McDonell, V., Petersen, E., and Santavicca, D., 2008, “Fuel Flexi-
+bility Inﬂuences on Premixed Combustor Blowout, Flash Back, Autoignition
+and Stability,” ASME J. Eng. Gas Turbines Power, 130(1), p. 011506.
+[4] Sanusi, Y. S., Habib, M. A., and Mokheimer, E. M. A., 2014, “Experimental
+Study on the Effect of Hydrogen Enrichment of Methane on the Stability and
+Emission of Non-Premixed Swirl Stabilized Combustor,” ASME J. Energy
+Resour. Technol., 137(3), p. 032203.
+[5] Davis, L. B., and Black, S. H., 1999, “Dry Low NOx Combustion Systems for
+GE Heavy-Duty Gas Turbines,” Report No. GE Power Systems_GER-3568G.
+[6] Feigl, M., Setzer, F., Varela, R. F., Myers, G., and Sweet, B., 2005, “Field Test
+Validation of the DLN 2.5H Combustion System on the 9H Gas Turbine at Bal-
+gan Bay Power Station,” ASME Paper No. GT2005-68843.
+[7] York, W. D., Ziminsky, W. S., and Yilmaz, E., 2013, “Development and Test-
+ing of a Low NOx Hydrogen Combustion System for Heavy Duty Gas
+Turbines,” ASME J. Eng. Gas Turbines Power, 135(2), p. 022001.
+[8] Chacartegui, R., Torres, M., Sanchez, D., Jimenez, F., Munoz, A., and Sanchez,
+T., 2011, “Analysis of Main Gaseous Emissions of Heavy Duty Gas
+Turbines Burning Several Syngas Fuels,” Fuel Process. Technol., 92(2),
+pp. 213–220.
+[9] Dodo, S., Asai, T., Koizumi, H., Takahashi, H., Yoshida, S., and Inoue, H., 2014,
+“Performance of a Multiple-Injection Dry Low NOx Combustor With Hydrogen-
+Rich Syngas Fuels,” ASME J. Eng. Gas Turbines Power, 135(1), p. 011501.
+[10] Asai, T., Dodo, S., Karishuku, M., Yagi, N., Akiyama, Y., and Hayashi, A.,
+2015, “Part Load Operation of a Multiple-Injection Dry Low NOx Combustor
+on Hydrogen-Rich Syngas Fuel in an IGCC Pilot Plant,” ASME Paper No.
+GT2015-42312.
+[11] Deng, X., Xiong, Y., Yin, H., and Gao, Q., 2016, “Numerical Study of the Effect
+of Nozzle Conﬁgurations on Characteristics of MILD Combustion for Gas Tur-
+bine Application,” ASME J. Energy Resour. Technol., 138(4), p. 042212.
+[12] Lai, M., Reynolds, R. R., and Armstrong, J., 2002, “CFD-Based, Parametric,
+Design Tool for Gas Turbine Combustors From Compressor Deswirl Exit to
+Turbine Inlet,” ASME Paper No. GT2002-30090.
+[13] Dudebout, R., Reynolds, B., and Molla-Hosseini, K., 2004, “Integrated Process
+for CFD Modeling and Optimization of Gas Turbine Combustors,” ASME
+Paper No. GT2004-54011.
+[14] Safari, M., and Sheikhi, M. R. H., 2014, “Large Eddy Simulation for Prediction
+of Entropy Generation in a Non-Premixed Turbulent Jet Flame,” ASME J.
+Energy Resour. Technol., 136(2), p. 022002.
+[15] Gobbato, P., Masi, M., Toffolo, A., and Lazzaretto, A., 2011, “Numerical Simu-
+lation of a Hydrogen Fuelled Gas Turbine Combustor,” Int. J. Hydrogen
+Energy, 36(13), pp. 7993–8002.
+[16] Shih, H. Y., and Liu, C. R., 2014, “A Computational Study on the Combustion
+of Hydrogen/Methane Blended Fuels for a Micro Gas Turbine,” Int. J. Hydro-
+gen Energy, 39(27), pp. 15103–15115.
+[17] Bulat, G., 2015, “Reacting Flow in an Industrial Gas Turbine Combustor: LES
+and Experimental Analysis,” Proc. Combust. Inst., 35(3), pp. 3175–3183.
+[18] Alzahrani, F. M., Sanusi, Y. S., Vogiatzaki, K., Ghoniem, A. F., Habib, M. A.,
+and Mokheimer, E. M. A., 2015, “Evaluation of the Accuracy of Selected
+Syngas Chemical Mechanisms,” ASME J. Energy Resour. Technol., 137(4),
+p. 042201.
+[19] Bulat, G., Jones, W. P., and Marquis, A. J., 2014, “NO and CO Formation in an
+Industrial Gas Turbine Combustion Chamber Using LES With the Eulerian
+Sub-Grid PDF Method,” Combust. Flame, 161(7), pp. 1804–1825.
+[20] Cui, Y., 2005, “Numerical and Experimental Investigation on Gas Turbine
+Combustor for Syngas,” Ph.D. thesis, Graduate School of the Chinese Academy
+of Sciences, Beijing, China.
+[21] Xiong, Y., Ji, L., Zhang, Z., Wang, Y., and Xiao, Y., 2008, “Three Dimensional
+CFD Analysis of a Gas Turbine Combustor for Medium/Low Heating Value
+Syngas Fuel,” ASME Paper No. GT2008-50662.
+[22] Shih, T.-H., Liou, W. W., Shabbir, A., Yang, Z., and Zhu, J., 1995, “A New k-e
+Eddy-Viscosity Model for High Reynolds Number Turbulent Flows—Model
+Development and Validation,” Comput. Fluids, 24(3), pp. 227–238.
+[23] Chen, L., and Battaglia, F., 2015, “The Effects of Fuel Mixtures in Non-
+Premixed Combustion for a Bluff-Body Flame,” ASME J. Energy Resour.
+Technol., 138(2), p. 022204.
+[24] Peters, N., 1984, “Laminar Diffusion Flamelet Models in Non-Premixed Turbu-
+lent Combustion,” Prog. Energy Combust. Sci., 10(3), pp. 319–339.
+[25] Drake, M. C., and Blint, R. J., 1989, “Thermal NOx in Stretch Laminar
+Opposed-Flow Diffusion Flames With CO/H2/N2 Fuel,” Combust. Flame,
+76(2), pp. 151–167.
+[26] Bruce, T. W., Mongia, H. C., and Reynolds, R. S., 1978, “Combustor Design
+Criteria Validation,” Report No. USARTL-TR-78-55A, 55B, 55C.
+Journal of Energy Resources Technology
+MARCH 2017, Vol. 139 / 022004-9
+Downloaded from http://asmedigitalcollection.asme.org/energyresources/article-pdf/139/2/022004/6149620/jert_139_02_022004.pdf by University of Cincinnati user on 01 January 2026

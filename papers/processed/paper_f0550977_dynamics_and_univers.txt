@@ -1,0 +1,1855 @@
+
+--- Page 1 ---
+
+Reviews in Mathematical Physics
+Vol. 18, No. 3 (2006) 285–310
+c⃝World Scientiﬁc Publishing Company
+DYNAMICS AND UNIVERSALITY OF AN ISOTHERMAL
+COMBUSTION PROBLEM IN 2D
+Y. W. QI
+Department of Mathematics, University of Central Florida,
+Orlando, FL 32816, USA
+yqi@pegasus.cc.ucf.edu
+Received 30 December 2005
+In this paper, the Cauchy problem of the system
+u1,t = △u1 −u1um
+2 ,
+u2,t = d△u2 + u1um
+2
+is studied, where x ∈R2, m ≥1 and d > 0 is the Lewis number. This system models
+isothermal combustion (see [7]), and auto-catalytic chemical reaction. We show the global
+existence and regularity of solutions with non-negative initial values having mild decay
+as |x| →∞. More importantly, we establish the exact spatio-temporal proﬁles for such
+solutions. In particular, we prove that for m = 1, the exact large time behavior of
+solutions is characterized by a universal, non-Gaussian spatio-temporal proﬁle, with
+anomalous exponents, due to the fact that quadratic nonlinearity is critical in 2D. Our
+approach is a combination of iteration using Renormalization Group method, which has
+been developed into a very powerful tool in the study of nonlinear PDEs largely by the
+pioneering works of Bricmont, Kupiainen and Lin [6], Bricmont, Kupiainen and Xin, [7],
+(see also [9]) and key estimates using the PDE method.
+Keywords: Auto-catalytic chemical reactions; critical nonlinearity; anomalous exponent;
+renormalization group; universal spatial-temporal proﬁles.
+Mathematics Subject Classiﬁcation 2000: 34C20, 34C25, 92E20
+1. Introduction
+In this paper, we study the initial value problem of reaction-diﬀusion system
+u1,t = △u1 −u1um
+2 ,
+(1.1)
+u2,t = d△u2 + u1um
+2 ,
+(1.2)
+in R2, where m ≥1 and d > 0 is the Lewis number. We assume
+u1(x, 0) = a1(x) ≥0,
+u2(x, 0) = a2(x) ≥0,
+a1(x), a2(x) ∈L1(R2) ∩L∞(R2).
+(1.3)
+We are concerned with (i) the global existence and regularity of solutions, and
+(ii) the large time dynamics.
+285
+
+
+--- Page 2 ---
+
+286
+Y. W. Qi
+The system (1.1), (1.2) arises as an isothermal combustion model, see [7], and
+can also be understood as a pre-mixed, isothermal auto-catalytic chemical reaction
+of the type
+A + mB →(m + 1)B,
+under the usual assumption that the isothermal reaction rate is proportional to
+u1um
+2 . Here u1 is the concentration density of reactant A, u2 is the concentration
+density of auto-catalyst B. In particular, it contains the two most important auto-
+catalytic chemical reactions of
+A + B →2B,
+A + 2B →3B,
+in respect to m = 1 and m = 2 as special cases.
+The importance of this model in relation to thermal-diﬀusive combustion is
+well-documented in [7]. In chemical reaction theory and biology, it is well known
+that auto-catalytic chemical reactions play a very important role in complex chain
+reactions which fulﬁl many important functions in a living cell and is the focus of
+intensive research in cell biology.
+The study of the system in a bounded domain is carried out by many authors,
+in particular, see Alikakos [1], Hollis, Martin and Pierre [10], Martin and Pierre
+[13] and Masuda [14]. Among other things, the authors established boundedness,
+global existence and large time behavior of solutions. For homogeneous Dirichlet or
+Neumann boundary conditions, the large time behavior is that (u1, u2) converges
+to a constant vector (c1, c2) such that c1 · c2 = 0, see Masuda [14].
+However, our approach is more in line to that of Bricmont, Kupiainen, and Xin
+[7] and Berlyand and Xin [3], where the Cauchy problem in 1D is studied (see also
+[18]). As a matter of fact, our main motivation is to extend the pioneering work of
+Bricmont, Kupiainen, and Xin [7] to 2D and to a wider class of initial values by
+combining the Renormalization Group (RG) method, and key estimates in using
+the PDE method.
+The existence of traveling front solution in 1D is established by Billingham and
+Needham in [4, 5] for m = 1 and m = 2. The authors also study the large-time
+behavior of solutions using formal methods and numerical computation.
+The most important diﬀerence in study systems such as (1.1), (1.2) rigorously,
+as against single equations, is that there is no maximum principle for the systems.
+We overcome this diﬃculty by using a combination of PDE analysis (including
+Maximum Principles to each single equation involved) and the Renormalization
+Group (RG) method. In particular, deriving a priori estimates play a crucial role
+in our study. It allows us to obtain an exact large time dynamics for a wide class of
+initial values, demonstrating a universal behavior. But, equally important, it also
+makes the analysis in general, and Renormalization Group iteration in particular,
+much simpler and more transparent, demonstrating the power of the RG method in
+
+
+--- Page 3 ---
+
+An Isothermal Combustion Problem in 2D
+287
+the study of critical behavior. Another signiﬁcant aspect of this paper is a detailed
+analysis of the limiting linear eigenvalue problem for the m = 1 case.
+We consider the system with initial values a1, a2 ∈B, where B is the Banach
+space of continuous function in R2 with norm
+∥f∥= sup
+x∈R2 |f(x)|(1 + |x|)q,
+q > 2.
+(1.4)
+Let φ be the Gaussian
+φ(x) =
+1
+4πd exp(−|x|2/4d).
+For A > 0, let ψA be the normalized (
+
+ψA(x) dµ(x) = 1, see below) principal
+eigenfunction and λA > 0 the principal eigenvalue, of diﬀerential operator
+LA = −△−x
+2 · ∇−1 + Aφd(x)
+on L2(R2, dµ), with dµ(x) = e|x|2/4 dx.
+Our main result is the following theorem.
+Theorem 1.1. Suppose the initial values a1, a2 ∈B and ai ≥0, ̸≡0, i = 1, 2. Let
+A =
+
+R2a1(x)+a2(x) dx > 0 be the total mass, which is conserved in time. Then the
+system (1.1), (1.2) has a unique global classical solution (u1(x, t), u2(x, t)) ∈B × B
+for ∀t ≥0. Furthermore,
+(i) if m = 1 and
+q > q(A) ≡2 + 2λA,
+(1.5)
+there is a positive constant B depending continuously on (a1, a2) such that
+∥t1+λAu1(
+√
+t ·, t) −BψA( · )∥→0
+∥tu2(
+√
+t ·, t) −Aφ( · )∥→0
+as t →∞;
+(ii) if m > 1 and q > 2,
+tu1(
+√
+tx, t) −A1
+4π e−|x|2/4
+ →0
+as t →∞
+and
+tu2(
+√
+tx, t) −A2
+4πde−|x|2/4d
+ →0
+as t →∞
+with A1, A2 > 0 and A1 + A2 = A.
+Remark 1.2. Just as the cubic nonlinearity of m = 2 is critical in 1D, the same
+is true for quadratic nonlinearity of m = 1 in 2D. This is the reason why we have
+the extra decay power λA and the non-Gaussian proﬁle of ψA. In other words,
+the scaling law which works for m > 1 no longer works for m = 1, and thus the
+appearance of the anomalous exponent λA.
+
+
+--- Page 4 ---
+
+288
+Y. W. Qi
+Remark 1.3. A distinct feature of our result for m = 1 is that we can quantify
+how large the decaying rate q is for initial values, in terms of total mass A, to
+qualify for the universal non-Gaussian proﬁle of ψA. As a matter of fact, we think
+our result is optimal, see the Remark 5.9 for further details.
+To understand heuristically the result of Theorem 1.1, in particular the critical
+case of m = 1, let us suppose that the nonlinear term in u1 equation causes some
+extra decay in time on u1 in the order of t−δ, where δ > 0, on top of the pure
+diﬀusion decay of t−1. This, in turn, results in u2 having the pure diﬀusion behavior,
+since the nonlinear term u1u2 is in the order of t−(1+δ)u2. In the RG terminology,
+the nonlinear term is irrelevant in the u2 equation. Then, it is a relatively simple
+matter to show that
+tu2(
+√
+tx, t) →Aφ(x)
+as t →∞.
+That is,
+w2(y, s) = tu2(
+√
+tx, t),
+s = log t and y = x
+√
+t,
+converges to a steady solution of us = −Lu, where
+L = −d△−x
+2 · ∇−1.
+If we substitute the limiting proﬁle of u2 into u1 equation, we have
+u1,t = ∆u1 −t−1Aφ
+ x
+√
+t
+
+u1,
+which, after a self-similar change of variables
+u1(y, s) = tu1(x, t),
+y = x
+√
+t, s = log t,
+turns into
+u1,s = −LAu1.
+Therefore, it is reasonable to guess the large time behavior of u1 is determined by
+the ﬁrst eigenvalue λA and the corresponding eigenfunction ψA of LA, so that
+u1(y, s)eλAs →BψA(y),
+as s →∞
+with some constant B > 0, provided u1 has moderate, but suﬃcient decay in x as
+|x| →∞.
+But, since we are dealing with an initial value problem with strong nonlinear
+terms, it is a nontrivial matter to prove the result rigorously. This is particularly
+true if u1 has just modest decay (not in L2(R2, dµ)) as |x| →∞, which is the case
+we are dealing with in this paper.
+The organization of the paper is as follows. In Sec. 2, we show a priori estimates
+on the solution of the system and consequently establish the global existence. In
+Sec. 3, we derive the large time dynamics for m > 1. In Sec. 4, we consider the
+
+
+--- Page 5 ---
+
+An Isothermal Combustion Problem in 2D
+289
+limiting linear eigenvalue problem in relation to the m = 1 case and provide some
+detailed analysis. In Sec. 5, we establish reﬁned bounds for m = 1 case and use RG
+method to prove the convergence of u1 to a ﬁrst eigenfunction of LA, completing
+the proof of Theorem 1.1.
+Throughout the paper, ∥·∥2 stands for the L2(R2, dµ)-norm of a function, unless
+otherwise stated, ∥·∥the norm deﬁned in (1.4), and other Lp-norm is the standard
+one. Also, for simplicity of notation, we shall not distinguish generic constant C
+from line to line.
+2. Preliminary Estimates and Global Existence
+In this section, we show that u1 and u2 have a uniform (in time) Lp(R2)-norm,
+1 ≤p ≤∞. Then, it follows from the classical theory that the solutions (u1, u2) are
+smooth and exist globally in time. In this section, all Lp-norms are the standard
+ones.
+First, we collect some simple facts.
+Lemma 2.1. The solutions (u1, u2) with (a1, a2) ∈(L1(R2)×L∞(R2))2 satisfy the
+following estimates:
+(i)
+
+R2(u1 + u2)(x, t) dx =
+
+R2(a1 + a2)(x) dx,
+∀t ≥0;
+(ii)
+
+R2u1(x, t) dx ≤
+
+R2a1(x) dx,
+
+R2u2(x, t) dx ≥
+
+R2a2(x) dx
+∀t ≥0;
+(iii)
+ ∞
+0
+
+R2u1um
+2 (x, t) dxdt < +∞.
+Furthermore,
+(iv) 0 ≤u1(x, t) ≤∥a1∥∞, u1(x, t) ≤u1(x, t) and u2(x, t) ≥u2(x, t), ∀t ≥0,
+where u2 is a solution of the heat equation
+u2,t = d△u2,
+u2|t=0 = a2(x),
+and u1 is a solution of
+u1,t = △u1 −u1um
+2 ,
+u1|t=0 = a1(x).
+Proof. Simple integration yields (i)–(iii). (iv) is obtained by direct use of maximum
+principle.
+The key estimates of this section are stated in the following lemma.
+Lemma 2.2. The solutions (u1, u2) of (1.1)–(1.2) are uniformly bounded in time
+in Lp(R2) norm:
+∥u1(· , t)∥Lp + ∥u2(· , t)∥Lp ≤C(a1, a2, p) < ∞,
+1 ≤p < ∞,
+(2.1)
+where C(a1, a2, p) is a constant depending on initial data and p is a positive integer.
+
+
+--- Page 6 ---
+
+290
+Y. W. Qi
+Proof. It is clear by Lemma 2.1 that the u1 bound holds. We proceed to show
+the bound for u2. By standard local existence theory, (u1, u2) are classical solutions
+local in time and all Lp(R2)-norm of (u1, u2) and the L2(R2)-norm of (∇u1, ∇u2)
+are ﬁnite and continuous in time. Therefore, we can freely perform integration by
+parts. By multiplying (1.2) by pup−1
+2
+with p ≥2, integrating over R2×(0, t), we get
+
+R2up
+2 dx =
+
+R2ap
+2 dx −d
+ t
+0
+
+R2p(p −1)|∇u2|2up−2
+2
+dxdτ
++
+ t
+0
+
+R2pu1um+p−1
+2
+dxdτ.
+(2.2)
+In addition, with the help of integration by parts, we derive the identity
+d
+dt
+
+R2(u2
+1 + u1)up
+2 dxdτ
+=
+
+R2(1 + 2u1)(△u1 −u1um
+2 )up
+2 dx +
+
+R2(u2
+1 + u1)pup−1
+2
+(d△u2 + u1um
+2 ) dx
+= −2
+
+R2 |∇u1|2up
+2 dx −
+
+R2(1 + 2u1)pup−1
+2
+∇u1 · ∇u2
+−
+
+R2(1 + 2u1)u1um+p
+2
+dx −d
+
+R2(1 + 2u1)pup−1
+2
+∇u1 · ∇u2
+−d
+
+R2(u2
+1 + u1)p(p −1)up−2
+2
+|∇u2|2 dx +
+
+R2(u2
+1 + u1)pup+m−1
+2
+u1 dx
+= I + II + III + IV + V + VI.
+(2.3)
+It is clear that
+I + II + IV ≤(1 + 2∥a1∥∞)(1 + d)
+
+R2 |∇u1 · ∇u2|pup−1
+2
+−2
+
+R2 |∇u1|2up
+2 dx
+≤
+
+R2 |∇u1|2up
+2 dx + C(∥a1∥∞, p)
+
+R2 |∇u2|2up−2
+2
+dx
+−2
+
+R2 |∇u1|2up
+2 dx
+≤C(∥a1∥∞, p)
+
+R2 |∇u2|2up−2
+2
+dx −
+
+R2 |∇u1|2up
+2 dx.
+Moreover,
+III ≤−
+
+R2 u1um+p
+2
+dx,
+V ≤0
+and
+VI ≤(∥a1∥∞+ ∥a1∥2
+∞)
+
+R2pu1um+p−1
+2
+dx.
+
+
+--- Page 7 ---
+
+An Isothermal Combustion Problem in 2D
+291
+An integration of (2.3) from 0 to t yields
+
+R2(u2
+1 + u1)up
+2 dx
+
+(t) ≤
+
+R2(a2
+1 + a1)ap
+2 dx + C(p, a1)
+ t
+0
+
+R2 |∇u2|2up−2
+2
+dxdτ
++ (∥a1∥∞+ ∥a1∥2
+∞)
+ t
+0
+
+R2 pu1um+p−1
+2
+dxdτ
+−
+ t
+0
+
+R2 u1um+p
+2
+dxdτ −
+ t
+0
+
+R
+|∇u1|2up
+2 dxdτ.
+(2.4)
+The combination of (2.2) and (2.4) then gives
+
+R2up
+2 +
+ t
+0
+
+R2(|∇u2|2up−2
+2
++ |∇u1|2up
+2 + u1um+p
+2
+) dxdτ
+≤C(a1, a2, p)
+
+1 +
+ t
+0
+
+R2 u1um+p−1
+2
+dxdτ
+
+.
+(2.5)
+For p = 1, we want to show
+ t
+0
+
+R2(u1um+1
+2
++ |∇u1|2u2) dxdτ ≤C(a1, a2)
+
+1 +
+ t
+0
+
+R2 u1um
+2 dxdτ
+
+. (2.6)
+Proceed as the case of p ≥2, we have
+d
+dt
+
+R2(u2
+1 + u1)u2 dx
+= −2
+
+R2|∇u1|2u2 dx −
+
+R2(1 + 2u1)∇u1 · ∇u2 −
+
+R2(1 + 2u1)u1um+1
+2
+dx
+−d
+
+R
+(1 + 2u1)∇u1 · ∇u2 dx +
+
+R2(u2
+1 + u1)u1um
+2 dx
+≤−2
+
+R2 |∇u1|2u2 dx + C(a1, a2)
+
+R2(|∇u1 · ∇u2| + u1um
+2 )
+−
+
+R2 u1um+1
+2
+dx
+≤−2
+
+R2 |∇u1|2u2 dx + C(a1, a2)
+
+R2(ϵ−1|∇u1|2 + ϵ|∇u2|2 + u1um
+2 )
+−
+
+R2u1um+1
+2
+dx
+(2.7)
+for any ϵ > 0. Now, integrating the above inequality from 0 to t gives
+
+R2(u2
+1 + u1)u2 dx +
+ t
+0
+
+R2(2|∇u1|2u2 + u1um+1
+2
+) dxdτ
+≤C(a1, a2)
+
+1 +
+ t
+0
+
+R2(ϵ−1|∇u1|2 + ϵ|∇u2|2 + u1um
+2 )
+
+dxdτ.
+(2.8)
+
+
+--- Page 8 ---
+
+292
+Y. W. Qi
+With the help of (2.2) when p = 2, we obtain
+2d
+ t
+0
+
+R2 |∇u2|2 dxdτ ≤
+
+R2a2
+2 dx + 2
+ t
+0
+
+R
+u1um+1
+2
+dxdτ.
+(2.9)
+Similarly, by multiplying (1.1) by 2u1 and integrating over R2 × (0, t), we have
+
+R2u2
+1 dx =
+
+R2a2
+1 dx −2
+ t
+0
+
+R2 |∇u1|2 dxdτ −2
+ t
+0
+
+R2 u2
+1um
+2 dxdτ,
+(2.10)
+which implies that
+2
+ t
+0
+
+R2 |∇u1|2 dxdτ ≤
+
+R2a2
+1 dx.
+(2.11)
+Combining (2.8), (2.9) and (2.11) with suﬃciently small ϵ gives the desired inequal-
+ity (2.6). It is easy to see that the lemma follows from a simple induction on p using
+(2.5) and (2.6).
+Lemma
+2.3. The following estimates for the derivative of (u1, u2) hold if
+t ≥t0 > 0:
+∥∇u1(· , t)∥2 + ∥∇u2(· , t)∥2 ≤C(a1, a2) < ∞,
+(2.12)
+where t0 > 0 is arbitrary.
+Proof. The above estimates follow by standard techniques once the Lp estimate
+of (u1, u2) is established. For completeness, we include the details here. First, we
+have from (2.10),
+
+R2u2
+1 dx +
+ t
+0
+
+R2 |∇u1|2 dxdτ ≤
+
+R2a2
+1 dx.
+Similarly, we have
+
+R2u2
+2 dx +
+ t
+0
+
+R2 |∇u2|2 dxdτ ≤
+ t
+0
+
+R2 u1um+1
+2
+dxdτ +
+
+R2a2
+2 dx ≤C(a1, a2)
+by Lemma 2.2. By Fubini’s theorem, there exists t1 ∈[0, t0] such that
+
+R2|∇u1|2 + |∇u2|2 dx
+
+(t1) ≤C(a1, a2)/t0.
+(2.13)
+Next, multiplying (1.1) by △u1 and integrating over R2 yield
+−1
+2
+d
+dt∥∇u1∥2
+2 =
+
+R2(△u1)2 dx −
+
+R2u1um
+2 △u1 dx
+=
+
+R2(△u1)2 dx +
+
+R2um
+2 |∇u1|2 dx + m
+
+R2u1um−1
+2
+∇u1 · ∇u2 dx.
+(2.14)
+
+
+--- Page 9 ---
+
+An Isothermal Combustion Problem in 2D
+293
+By similar means, we have
+−1
+2
+d
+dt∥∇u2∥2
+2
+= d
+
+R2(△u2)2 dx −m
+
+R2u1um−1
+2
+|∇u2|2 dx −
+
+R2um
+2 ∇u1 · ∇u2 dx.
+(2.15)
+Adding (2.14) and (2.15), and integrate from t1 to t then gives
+(∥∇u1∥2
+2 + ∥∇u2∥2
+2)(t)
+≤(∥∇u1∥2
+2 + ∥∇u2∥2
+2)(t1) +
+ t
+t1
+
+R2 um
+2 |∇u1 · ∇u2| dxdτ
++ m
+ t
+t1
+
+R2 u1um−1
+2
+|∇u2|2 dxdτ + m
+ t
+t1
+
+R2 u1um−1
+2
+|∇u1 · ∇u2| dxdτ.
+(2.16)
+We now derive bounds for each of the last three terms on the right-hand side of
+(2.16). Let M be the smallest positive integer bigger or equal to m.
+ t
+t1
+
+R2 um
+2 |∇u1 · ∇u2| dxdτ
+≤
+ t
+t1
+
+R2 um
+2 |∇u1|2
+1/2  t
+t1
+
+R2 um
+2 |∇u2|2
+1/2
+≤
+ t
+t1
+
+R2 uM
+2 |∇u1|2
+m/2M  t
+t1
+
+R2 |∇u1|2
+(M−m)/2M
+×
+ t
+t1
+
+R2 uM
+2 |∇u2|2
+m/2M  t
+t1
+
+R2 |∇u2|2
+(M−m)/2M
+(2.17)
+by H¨older’s inequality. Similarly,
+ t
+t1
+
+R2 u1um−1
+2
+|∇u2|2 dxdτ
+≤∥a1∥∞
+
+R2um−1
+2
+|∇u2|2 dxdτ
+≤∥a1∥∞
+ t
+t1
+
+R2 uM−1
+2
+|∇u2|2 dxdτ
+σ  t
+t1
+
+R2 |∇u2|2 dxdτ
+1−σ
+,
+(2.18)
+
+
+--- Page 10 ---
+
+294
+Y. W. Qi
+where σ = (m −1)/(M −1) and
+ t
+t1
+
+R2 u1um−1
+2
+|∇u1 · ∇u2| dxdτ
+≤∥a1∥∞
+ t
+t1
+
+R2 um−1
+2
+|∇u1 · ∇u2| dxdτ
+≤∥a1∥∞
+ t
+t1
+
+R2 uM−1
+2
+|∇u1|2 dxdτ
+σ/2  t
+t1
+
+R2 |∇u1|2 dxdτ
+(1−σ)/2
+×
+ t
+t1
+
+R2 uM−1
+2
+|∇u2|2 dxdτ
+σ/2  t
+t1
+
+R2 |∇u2|2 dxdτ
+(1−σ)/2
+. (2.19)
+With the help of (2.16)–(2.19), and (2.5) and (2.6) in Lemma 2.2, we obtain
+(∥∇u1∥2
+2 + ∥∇u2∥2
+2)(t) ≤(∥∇u1∥2
+2 + ∥∇u2∥2
+2)(t1) + C(a1, a2).
+Hence, by (2.13),
+(∥∇u1∥2
+2 + ∥∇u2∥2
+2)(t) ≤C(a1, a2)
+for all t ≥t0.
+Proposition 2.4. The system (1.1), (1.2) has a unique classical solution satisfying,
+for all t > 0,
+∥u1∥Lp + ∥u2∥Lp ≤C(a1, a2),
+1 ≤p ≤∞,
+(2.20)
+where the constant depends only on the initial data (a1, a2) ∈(L1(R2)∩L∞(R2))2.
+Proof. The bound for u1 follows directly from Lemmas 2.1 and 2.2. For u2, the
+classical theory of local existence yields the bound for small t, say t ≤t0, where
+t0 > 0. For t > t0, if we write Eq. (1.2) as
+u2,t −d△u2 = f,
+the standard boot-strapping argument yields
+∥u2∥2,2 ≤C(∥u2∥1,2 + ∥f∥2),
+where ∥· ∥2,2 is the norm of Sobolev space W 2,2(R2) and ∥· ∥1,2 that of W 1,2(R2),
+with C = C(n, d). The Sobolev embedding, (2.5) for p = 2 and Lemma 2.3 give us
+∥u2∥∞≤C(a1, a2).
+This completes the proof of the proposition.
+
+
+--- Page 11 ---
+
+An Isothermal Combustion Problem in 2D
+295
+3. The Case of m > 1
+In this section, we show that the solutions (u1, u2), when m > 1, have the large-time
+dynamics as solutions of pure heat equations.
+First, it is clear by maximum principle that
+∥u1∥∞≤C(∥a1∥)(1 + t)−1,
+∀t ≥0.
+(3.1)
+Second,
+u2(x, t) =
+
+R2H(y, t)a2(x −y) dy +
+ t
+0
+
+R2 H(y, s)u1um
+2 (x −y, t −s) dyds
+≤C(∥a2∥)
+1 + t
++
+ 1
+0
+
+R2 +
+ t
+1
+
+R2
+
+H(y, s)u1um
+2 (x −y, t −s) dyds,
+where
+H(x, t) =
+1
+4πdte−x2/4dt
+is the heat kernel.
+ 1
+0
+
+R2 H(y, s)u1um
+2 (x −y, t −s) dyds
+≤
+ 1
+0
+∥u2∥m
+∞∥u1∥∞(t −s) ds
+≤C(∥a1∥, ∥a2∥)
+ 1
+0
+1
+1 + t −s ds
+≤C(∥a1∥, ∥a2∥)
+t
+using (3.1) and the L∞bound ∥u2∥∞≤C(∥a1∥, ∥a2∥).
+ t
+1
+
+R2 H(y, s)u1um
+2 (x −y, t −s) dyds
+≤
+ t
+1
+s−1∥u1um−1
+2
+∥∞(t −s)ds
+
+R2u2 dy
+≤C(∥a1∥, ∥a2∥)
+ t
+1
+s−1 ·
+1
+1 + t −sds
+≤C(∥a1∥, ∥a2∥)2 log t/(1 + t).
+(3.2)
+Therefore,
+∥u2∥∞≤C(∥a1∥, ∥a2∥) log t/(1 + t).
+
+
+--- Page 12 ---
+
+296
+Y. W. Qi
+Substitute this inequality back into (3.2), we have
+ t
+1
+
+R2 H(y, s)u1um
+2 (x −y, t −s) dyds
+≤C(∥a1∥, ∥a2∥)
+ t
+1
+s−1 (log(1 + t −s))m−1
+(1 + t −s)m
+ds
+≤C/(1 + t).
+The last inequality can be established, for instance, by breaking the integral into
+two parts on [1, t2/(1+m)] and [t2/(1+m), t] and estimating each part. Hence,
+∥u2∥∞≤C(∥a1∥, ∥a2∥)/(1 + t).
+(3.3)
+It is then clear that both u1 and u2 satisfy an equation in the form
+ut = D△u + O((1 + t)−m)u,
+with D a positive constant. By classical theory of heat equation, the nonlinear term
+is irrelevant and the large-time dynamics for each of them is characterized by a pure
+heat equation. That is,
+tu1(
+√
+tx, t) −A1
+4π e−|x|2/4
+ →0
+as t →∞
+and
+tu2(
+√
+tx, t) −A2
+4πde−|x|2/4d
+ →0
+as t →∞
+with A1, A2 > 0 and A1 + A2 = A. This is the exact statement of (ii) in
+Theorem (1.1).
+4. The Linear Eigenvalue Problem
+In this section, we study the linear eigenvalue problem
+LAw = λAw,
+where λA > 0 is the ﬁrst eigenvalue of LA. First, we list some known facts from
+classical functional analysis and other sources, for details see [7, 8].
+(i) The spectrum of LA, as considered in L2(R2, dµ), consists of eigenvalues only
+and the eigenfunctions form a complete orthogonal set in that space.
+(ii) The ﬁrst eigenvalue λA > 0 is non-degenerate and the corresponding eigen-
+function is positive, radial with w = w(r), where r = |y| and w′(0) = 0.
+(iii) λA depends continuously on A, is an increasing function of A and is strictly
+less than A/4πd.
+
+
+--- Page 13 ---
+
+An Isothermal Combustion Problem in 2D
+297
+The main purpose of this section is to show that the eigenfunction w has the
+asymptotics, as y →∞,
+w(r) = ce−r2/4|r|2λA + h.o.t
+with c a positive constant.
+As a matter of fact, we shall consider the more general case of
+w′′ + r
+2w′ + w′
+r + w −Aφw = −λw,
+w′(0) = 0,
+w(r) > 0,
+∀r ≥0,
+(4.1)
+and prove that a positive solution with λ > 0 has the asymptotics as above when
+λA is replaced by λ, provided that w ∈L2(R2, dµ).
+If we integrate Eq. (4.1), we have
+rw′(r) + r2
+2 w =
+ r
+0
+ν(Aφ −λ)w dν.
+(4.2)
+If there exists r0 > 0 such that
+w′(r0) + r0w(r0)/2 < 0
+and
+Aφ(y) −λ < 0,
+∀r ≥r0,
+then g(r) = w′(r) + rw/2 satisﬁes g(r0) ≤0 and rg′(r) + g(r) < 0, ∀r ≥r0. Hence,
+there exists η > 0 with the property rg(r) < −η, ∀r ≥r0 + 1 ≡r1. An integration
+then yields
+er2/4w(r) −er2
+1/4w(r1) < −η
+ r
+r1
+eν2/4ν−1 dν,
+which in turn implies
+w(r) < −η
+2r2 ,
+∀r ≫1.
+A contradiction! Thus, g(r) > 0 for all r large. In addition, it is easy to see that
+w′ cannot change sign for r large. This, together with g(r) > 0, shows w′(r) < 0
+for all r large. An inspection of (4.2) gives g(r) > 0 for all r > 0. In consequence,
+g′(r) →0 as r →∞.
+To derive the exact asymptotics, we make a change of variables. Let
+z = er2/4w.
+We know from the above analysis that z, z′ > 0 ∀r > 0. The equation for z is
+z′′ −r
+2z′ + 1
+r z′ = (Aφ −λ)z.
+If z →M > 0 as r →∞, we would have, upon an integration,
+z′ > λz/r,
+∀r ≫1.
+Clearly, this is in contradiction with z →M > 0 as r →∞. Hence, z →∞as
+r →∞.
+
+
+--- Page 14 ---
+
+298
+Y. W. Qi
+Let G(y) = rz′/2 −λz,
+G′ = r
+2z′′ +
+1
+2 −λ
+
+z′ =
+r
+2 −2λ
+r
+
+G −2λ2
+r z + r
+2Aφz.
+We show that G > 0 for r ≫1. Otherwise, G < 0 for all r large. Furthermore,
+Ge−r2/4r2λ < −C < 0,
+∀r ≫1.
+In consequence,
+z > C
+λ er2/4r−2λ ⇔w(r) > C
+λ r−2λ,
+∀r ≫1,
+which is in clear contradiction with w ∈L2(R2, dµ). Hence, G > 0 for all r ≫1.
+We now show
+zr−2λ →C > 0
+as r →∞.
+For this purpose, we make another change of variables by letting
+σ(t) = zr−2λ,
+t = log r.
+The equation for σ, using σ′ = dσ/dt, is as follows:
+σ′′ +
+−e2t
+2
++ 4λ
+
+σ′ + 4λ2σ = e2tAφσ + e2t
+λ σ.
+(4.3)
+First, we observe that for any δ > 0, σ′ < δσ if t ≫1. Otherwise, we would
+have, using (4.3),
+σ′′
+σ′ > 0,
+(σ′ −δσ)′ > 0
+∀t ≫1.
+Hence,
+σ′′
+σ′ >
+1
+2 −ϵ
+
+e2t
+for any ϵ > 0
+if t ≫1,
+an integration of which yields
+log σ′ > 1
+2
+1
+2 −ϵ
+
+e2t.
+Moreover, we see that
+σ′ −µσ > 0,
+(σ′ −µσ)′ > 0,
+for any µ > 0, if t ≫1. Consequently, we would have z′ ≥µz if y ≫1. A contradic-
+tion! It is clear from the above argument that we must have 4λ2σ > σ′e2t/4 for all
+t ≫1. An integration of which yields σ is bounded from above. Hence, σ →C > 0
+as t →∞.
+The asymptotics of w is thus established.
+
+
+--- Page 15 ---
+
+An Isothermal Combustion Problem in 2D
+299
+5. The Case of m = 1
+In this section, we use the Renormalization Group (RG) method, in combination
+with the a priori estimates derived in Sec. 2 and below to derive the spatio-temporal
+proﬁle of general solutions for the case of m = 1, and therefore completing the proof
+of Theorem 1.1.
+First, we summarize some basic facts on u1 and u2.
+Proposition 5.1. (i) If 0 ≤a1, a2 ∈B, then u1(· , t), u2(· , t) ∈B for any t > 0,
+and there exists C = C(q, ∥a1∥, ∥a2∥) > 0 such that
+u1(x, t) + u2(x, t) ≤eCt(1 + |x|)−q.
+(ii) For any t0 > 0, there exists δ > 0 such that
+u2(x, t) ≥δ(1 + t)−1φ
+
+x
+
+(1 + t)
+
+for t ≥t0.
+(iii) u1(· , t), u2(· , t) are positive, classical solutions to (1.1), (1.2) with uniformly
+bounded L∞norms.
+Proof. (i) is an easy exercise, and we omit the proof. (ii) and (iii) are proved in
+Sec. 2.
+Next, we observe that by making the change of variables:
+wi(y, s) = (1 + t)ui(x, t),
+i = 1, 2,
+s = log(1 + t),
+y =
+x
+√1 + t,
+the system is changed to
+w1,s = △w1 + y
+2 · ∇w1 + w1 −w1w2,
+w2,s = d△w2 + y
+2 · ∇w2 + w2 + w1w2.
+(5.1)
+It is a more convenient formulation to work with.
+Lemma 5.2. Suppose
+a1 ∈B,
+u2(x, t) ≥c0φ(y)(1 + t)−1,
+then there exist c1 = c1(c0, q, d) > 0 and E = E(c0, q, ∥a1∥) such that
+u1(x, t) ≤E(1 + t)−(2+c1)/2(1 + |y|)−q.
+Proof. We use the formulation (5.1). The conclusion is the same as showing
+w1(y, s) ≤e−sc1/2(1 + |y|)−q.
+Let D > 0 be such that
+D2 > 4q(q + 1)/(q −2)
+
+
+--- Page 16 ---
+
+300
+Y. W. Qi
+and for all |y| ≥D,
+exp(−|y|2/4) ≤|y|−q
+and
+−|y| exp(−|y|2/4) ≥−2q|y|−q−1.
+Let c = min|y|≤D c0φ(y). Without lost of generality, we assume c ≤(q −2)/4.
+Denote
+I(w) = ws −△w −y
+2 · ∇w −w + c0φ(y)w.
+Let
+¯w =
+	
+E1 exp(−|y|2/4)e−c1s/2 + Me−c1s/2,
+|y| ≤D,
+E1 exp(−|y|2/4)e−c1s/2 + Me−c1s/2Dq|y|−q,
+|y| ≥D,
+(5.2)
+where c1 = δc with δ > 0 a small number such that 4c1 < q −2, and E1 and M are
+positive numbers satisfying
+c1E1 < M
+4 (q −2 −2c1)eD2/4.
+It is clear that with suitable choice of M, and consequently E1, ¯w(y, 0) ≥w1(y, 0).
+We now demonstrate that I( ¯w) ≥0, which, together with I(w1) ≤0, yields the
+conclusion of the lemma.
+If |y| ≤D, it is easy to compute
+I( ¯w) ≥e−c1s/2(1 −δ)c
+
+E1e−|y|2/4 + M
+
+> 0.
+If |y| ≥D, a more detailed calculation gives
+I( ¯w) ≥e−c1s/2
+−c1
+2 E1e−|y|2/4 + M
+2 (q −2 −c1)Dq|y|−q
+−Mq(q + 1)|y|−(q+2)Dq
+
+> 0
+by our careful choice of c1, D and E1. This completes the proof of Lemma 5.2.
+Lemma 5.3. Suppose a1, a2 ∈B. There exists δ > 0 such that
+lim
+t→∞
+tu2(x, t) −Aφ
+ x
+√
+t
+tδ →0
+uniformly in {x : |x| ≤C
+√
+t},
+(5.3)
+lim
+t→∞
+
+
+R1u2(x, t)dx −A
+tδ →0.
+(5.4)
+Proof. It is easy to see that ∥u1 + u2∥1 = ∥a1 + a2∥1 and ∥u1∥1 is decreasing in t
+and ∥u2∥1 is increasing. By Lemma 5.2,
+∥u1∥1 →0
+as t →∞,
+
+
+--- Page 17 ---
+
+An Isothermal Combustion Problem in 2D
+301
+and therefore,
+∥u2∥1 →A
+as t →∞.
+Moreover, using the u1 bound in Lemma 5.2, we deduce that u2 satisﬁes, with some
+δ0 > 0,
+u2,t = △u2 + O(t−1−δ0)u2.
+Clearly, the nonlinear term is irrelevant and the conclusion follows from classical
+result for heat equation.
+With the limiting proﬁle of u2 settled, we can now derive a better estimate for
+u1 than the one given in Lemma 5.2.
+Lemma 5.4. Suppose a1, a2 ∈B and q > q(A). For any ϵ > 0, there exists t0 > 0
+such that if t ≥t0,
+u1(x, t) ≤M(1 + |y|)−qt−λ−1,
+where λ = λA−ϵ is the ﬁrst eigenvalue of LA−ϵ in L2(R2, dµ), and M is a positive
+constant.
+Proof. Let t1 > 1 be suﬃciently large so that
+w2(y, s) ≥Aφ(y) −e−δs ≥A
+2 φ(y)
+for |y| ≤D and s ≥s1 ≡log t1, where D is a large positive number to be determined
+later. Set
+¯w = e−λs(M1ψ(y) + (1 + |y|2)−q/2),
+(5.5)
+where ψ(y) is the eigenfunction of LA−ϵ corresponding to λ with maxy∈R2 ψ(y) = 1.
+Denote
+J(w) = ws −∆w −y
+2 · ∇w −w + w2w.
+It is easy to see that
+J(e−λsψ(y)) ≥
+	
+e−λsψ(y)[Aϵφ(y) −e−δs]
+|y| ≤D,
+−e−λsAψ(y)φ(y)
+|y| ≥D.
+(5.6)
+Similarly,
+J(e−λs(1 + |y|2)−q/2)
+≥e−λs
+q −2
+2
+−λ
+
+(1 + |y|2) −5
+2q −q(q + 2)|y|2
+1 + |y|2
+
+(1 + |y|2)−q/2−1
+> e−λs(1 + |y|2)−q/2 (q −2 −2λ) /4 > 0
+if |y| ≥D1(λ, q),
+
+
+--- Page 18 ---
+
+302
+Y. W. Qi
+where D1 is the ﬁrst positive number such that
+q −2 −2λ
+4
+(1 + |y|2)2 ≥5
+2q(1 + |y|2) + q(q + 2)|y|2
+for all |y| ≥D1.
+Here, we assume D ≫D1. Clearly,
+J(e−λsψ(y)) ≥1
+2e−λsAϵψφ > 0
+if s ≥s2(A, D) and |y| ≤D. Furthermore,
+J(M1e−λsψ(y)) ≥1
+2e−λsM1Aϵψφ > 2q(q + 2)e−λs(1 + |y|2)−q/2−1
+if M1 > M(A, q) and |y| ≤D1. This shows that J( ¯w) ≥0 if |y| ≤D and s ≥
+s2(A, D).
+Finally, if |y| ≥D and D is suﬃciently large,
+J
+
+e−λs
+M1ψ(y) + (1 + |y|2)−q/2
+≥
+q −2 −2λ
+4
+
+(1 + |y|2)−q/2 −M1Aψ(y)φ(y)
+
+e−λs > 0.
+This shows that ¯w is a super-solution if s ≥s0 ≡max(s1, s2). It is a simple
+matter to see that w1(y, s0) can be bounded above by M2 ¯w(y, s0), where M2 is a
+big positive number. By maximum principle w1(y, s) ≤M2 ¯w(y, s), s > s0. This
+completes the proof of the lemma.
+The success of the Renormalization Group method depends, crucially, on esti-
+mates of solutions to the linear operators ws = LAw and ws = Lw. We collect
+some relevant ones in the next lemma. In what follows, we use e−sLAf and e−sLf
+to denote their solutions with initial value f, respectively.
+Lemma 5.5. Suppose f ∈B.
+(i) There exists δ = δ(A, q) and s0 < ∞such that for s ≥s0,
+∥e−sLAf∥≤e−δs∥f∥.
+Moreover, if q > q(A) and (ψA, f) = 0,
+∥e−sLAf∥≤e−(δ+λA)s∥f∥,
+where λA is the ﬁrst eigenvalue of LA, and (· , ·) is the inner product in
+L2(R2, dµ).
+(ii) If g ∈L2(R2, dµ), there exists c > 0 such that
+∥e−LAg∥≤C∥g∥2,
+where ∥· ∥2 is the norm in L2(R2, dµ).
+
+
+--- Page 19 ---
+
+An Isothermal Combustion Problem in 2D
+303
+(iii) Let χu = χ(|x| ≥σ), the characteristic function. There exists C > 0 such that
+∥χue−σLAg∥≤Ce−(q−1)σ/2∥g∥.
+(iv) Suppose 
+R2 fdx = 0. Then, there exists δ = δ(q) > 0 and s0 < ∞such that
+for s ≥s0,
+∥e−sLf∥≤e−δs∥f∥.
+(v) The quantities |λA −λA′|, |1 −(ψA, ψA′)| and the operator norm ∥PA −PA′∥
+in B are all bounded by C(M)|A −A′|, where PA is the orthogonal projection
+in L2(R2, dµ) on ψA and ∥PA∥≤C(M), for 0 ≤A, A′ ≤M.
+Proof. The ﬁrst part of (i) follows immediately from Lemma 5.2. The second part
+is proved in the proposition below.
+To show (ii), observe that
+(e−LAg)(x) =
+
+R2e−LA(x, y)e−y2/8ey2/8g(y) dy.
+Then, an application of Cauchy–Schwartz inequality together with the fact that
+sup
+x (1 + |x|)q
+
+R2
+
+e−LA(x, y)
+2e−y2/4 dy
+
+< ∞
+(5.7)
+yields the desired result. The validity of (5.7) can be veriﬁed using
+e−sLA(x, y) ≤e−sL0(x, y),
+by Feynmann–Kac formula
+and the Mehler’s formula,
+e−sL0(x, y) =
+
+4π(1 −e−s)
+−1 exp
+
+−|x −e−s/2y|2
+4(1 −e−s)
+
+.
+Part (iii) is a direct consequence of a property of the “transformed” heat kernel
+e−sL0(x, y), see [7].
+Part (iv) is essentially the same as the second part of (i) except the ﬁrst eigen-
+value is zero and the corresponding eigenfunction is φ = e−x2/4d. The condition
+
+R2f dx = 0 means (f, φ) = 0, where (· , ·) is the inner product in L2(R2, φ−1 dx).
+Part (v) can be proved by using
+(ψA, ψ′
+A) = 0,
+λ′
+A ≤(4πd)−1
+and (LA −λA)−1 is a bounded operator on the subspace {f ∈B | (f, ψA) = 0},
+which follows from the second part of (i). For more details, see the appendix of [7].
+Here, ψ′
+A and λ′
+A are derivatives of ψA and λA to A, respectively.
+Remark 5.6. Some of the results in Lemma 5.5 is a direct extension to 2D of
+results in [7] for the 1D case, we collect them here for easy reference in the later
+proof.
+
+
+--- Page 20 ---
+
+304
+Y. W. Qi
+Proposition 5.7. The second part of (i) is true.
+Proof. Suppose s1 > 0. Let δ > 0 be small so that
+q > 2 + 2λA + 4δ
+and
+µA −λA > 4δ,
+where µA is the second eigenvalue of LA. Take f ∈B, (ψA, f) = 0 and ∥f∥= 1. We
+proceed to show inductively that for sn = ns1, χb = χ(|x| ≤s1) and χu = 1 −χb,
+v(sn) = e−snLAf, we have the inequalities
+∥χuv(sn)∥≤e−βn,
+(5.8)
+∥χbv(sn)∥2 + ∥xbv(sn)∥≤es2
+1/6e−βn,
+(5.9)
+where β = (λA +2δ)s1. The conclusion of Proposition 5.1 follows immediately from
+(5.8) and (5.9) if n is large (nδ > s1/6) and s = sn. For s ∈(sn, sn+1), apply the
+ﬁrst part of (i) in Lemma 5.5 and use the fact that (n −1)δ > s1/6 + λA if n is
+large.
+First, we note that if f ∈B and (ψA, f) = 0, then
+(e−sLAf, ψA) = 0
+∀s > 0.
+If n = 0, The bounds in (5.8) and (5.9) hold by the obvious inequality
+∥χbf∥2 ≤es2
+1/8∥f∥
+(5.10)
+and our assumption that ∥f∥= 1.
+If n = 1, (5.8) is true by (iii) of Lemma 5.5, since q > 2 + 2λA + 4δ. Write
+f = χbf + χuf = fb + fu.
+Since (ψA, f) = 0,
+|(fb, ψA)| = |(fu, ψA)| ≤C(A)s−(q−2−2λA)
+1
+,
+∥e−s1LAfb∥2 ≤C(A)s−(q−2−2λA)
+1
+e−λAs1 + e−µAs1∥fb∥2 ≤1
+4e−β−δs1es2
+1/8,
+(5.11)
+if s1 is reasonably large. In the ﬁrst inequality, we used the asymptotic behavior of
+ψA derived in Sec. 4. Using part (ii) of Lemma 5.5, we get
+∥e−s1LAfb∥≤C∥e−(s1−1)LAfb∥2 ≤Ce−(s1−1)(λA+3δ)es2
+1/8 < 1
+4e−βes2
+1/8,
+(5.12)
+if s1 is a reasonably large constant. By combining ﬁrst part of (i) in Lemma 5.5
+and (5.10), we have
+∥χbe−s1LAfu∥2 ≤es2
+1/8∥e−s1LAfu∥≤Ce−δs1es2
+1/8 ≤1
+4e−βes2
+1/6.
+(5.13)
+It is clear that (5.11)–(5.13) gives (5.9).
+
+
+--- Page 21 ---
+
+An Isothermal Combustion Problem in 2D
+305
+Suppose (5.8) and (5.9) hold for n, we show they hold for n + 1. Write v =
+v(sn) = vb + vu. Since (v, ψA) = 0,
+|(vb, ψA)| = |(vu, ψA)| ≤C(A)∥vu∥s−(q−2−2λA) ≤e−βn,
+∥e−s1LAvb∥2 ≤e−βne−λAs1 + e−µAs1∥vb∥2 ≤1
+4e−(β+δs1)(n+1)es2
+1/6.
+(5.14)
+Again, by (ii) of Lemma 5.5, we get
+∥e−s1LAvb∥≤C∥e−(s1−1)LAfb∥2 ≤Ce−(s1−1)(β+δ)(n+1)es2
+1/6 < 1
+4e−β(n+1)es2
+1/6.
+(5.15)
+By combining ﬁrst part of (i) in Lemma 5.5 and (5.10), we have
+∥χbe−s1LAvu∥2 ≤es2
+1/8∥e−s1LAvu∥≤Ces2
+1/8e−δs1∥vu∥≤1
+4e−β(n+1)es2
+1/6.
+(5.16)
+It follows immediately that (5.14)–(5.16) implies (5.9) for n + 1.
+At last, (5.8) follows from
+∥χue−s1LAχbg∥≤e−s2
+1/5∥χbg∥2,
+Lemma 5.5(iii) applied to g = vu and the bounds (5.8) and (5.9) for vb and vu. This
+completes the proof of proposition.
+The RG method, as applied to our situation, is an iterative scheme. Let L > 1.
+We start by deﬁning the RG map R:
+(a1, a2) →(a′
+1, a′
+2)
+in B × B
+as
+a′
+i(x) = L2ui(LX, L2),
+i = 1, 2,
+where ai = ui(x, 1), i = 1, 2 and (u1, u2) solve (1.1), (1.2). It is clear that
+(an
+1 , an
+2) ≡Rn(a1, a2) =
+
+L2nu1(Lnx, L2n), L2nu2(Lnx, L2n)
+
+= R(an−1
+1
+, an−1
+2
+).
+Our ultimate goal is to prove that (u1, u2) behave asymptotically as the solution of
+the limiting linear problem. Accordingly, decompose the RG map as
+a′
+1 = L−2LAa1 + L2n1(Lx, L2),
+(5.17)
+a′
+2 = L−2La2 + L2n2(Lx, L2),
+(5.18)
+where
+n1(x, t) = −
+ t
+1
+dτ
+
+R2HA(t, τ, x, y)
+
+u1u2(y, τ) −u1Aτ −1φ
+ y
+√τ
+
+dy,
+n2(x, t) = −
+ t
+1
+dτ
+
+R2H(t −τ, x −y)u1u2(y, τ) dy,
+
+
+--- Page 22 ---
+
+306
+Y. W. Qi
+where HA is the fundamental solution of ut = △u −Aφu and A is to be deﬁned in
+what follows.
+To track the evolution, we write
+a1(x) = BψA + b1,
+a2(x) = Aφ(x) + b2(x),
+(5.19)
+where B = (a1, ψA), A = 
+R2a2 dx. With the normalization (ψA, ψA) = 1 and
+
+R2φ dx = 1, we have
+(ψA, b1) = 0,
+
+R2b2 dx = 0.
+It is easy to verify that with same decomposition as in (5.19) for a′
+1, a′
+2,
+A′ = A +
+
+R2L2n2(Lx, L2) dx,
+B′ = (ψA′, a′
+1),
+b′
+1 = (1 −PA′)a′
+1,
+b′
+2 = L−2Lb2 + L2n2(Lx, L2) + (A −A′)φ.
+Since the system (1.1)–(1.2) is invariant under the scaling transform
+uiK = Kui(Kx, K2t),
+i = 1, 2
+and Lemma 5.4, we can assume, for 1 ≤s ≤L2,
+∥a1∥< ϵ,
+∥a1∥· ∥a2∥< ϵ,
+∥u1(s)∥< ϵ,
+∥u1(s)∥· ∥u2(s)∥< ϵ.
+We proceed to derive estimates for A′, b′
+2, B′ and b′
+1, in that order. Since,
+
+R2H(t −τ, x −y)(1 + |y|)−q dy ≤cec(t−τ)(1 + |x|)−q,
+(5.20)
+for some c > 0,
+∥L2n2(Lx, L2)∥≤C(L)ϵ∥a2∥
+and
+∥|n2∥| =
+sup
+t∈[1,L2]
+∥n2(· , t)∥≤C(L)ϵ∥a2∥.
+(5.21)
+It follows that
+|A′ −A| ≤C(L)ϵ∥a2∥,
+(5.22)
+and consequently,
+∥b′
+2∥≤L−2δ∥b2∥+ C(L)ϵ∥a2∥
+by (iv) of Lemma 5.5.
+Now, consider n1, and write
+w(y, τ) = u2(y, τ) −Aτ −1φ
+ y
+√τ
+
+.
+=
+
+ed(τ−1)∆b2(y) + n2(y, τ)
+
+.
+
+
+--- Page 23 ---
+
+An Isothermal Combustion Problem in 2D
+307
+By part (iv) of Lemma 5.5 and (5.21),
+∥|w∥| ≤C(L)(∥a2∥+ A)(∥b2∥+ ϵ∥a2∥),
+and, since A ≤C∥a2∥and
+
+R2HA(t, τ, x, y)(1+|y|)−q dy ≤C
+
+1 +
+|x|
+√t−τ
+−q
+, which
+follows from Lemma 5.2, we obtain
+∥Ln1(Lx, L2)∥≤C(L)ϵ(∥b2∥+ ϵ∥a2∥),
+(5.23)
+using ∥u1∥∞≤C∥a1∥and ∥a1∥· ∥a2∥≤ϵ.
+Next, we consider B′. Since from (5.17),
+B′ = (ψA′, a′
+1) = (ψA′, L−2LAa1) + (ψA′, L2n1(Lx, L2))
+= (ψA′, ψA)BL−2λA + (ψA′, (PA′ −PA)L−2LAb1) + (ψA′, L2n1(Lx, L2)),
+(PAb1 = 0), we have, by (v) of Lemma 5.5 and (5.23),
+|B′ −BL−2λA| ≤C|A′ −A|L−2λA(B + ∥b1∥) + C(L)ϵ(∥b2∥+ ϵ∥a2∥)
+≤C(L)ϵ2 + C(L)ϵ2∥a2∥+ C(L)ϵ∥b2∥.
+In the last inequality, we used (5.22), ∥a1∥< ϵ, ∥a1∥· ∥a2∥≤ϵ and |B| + ∥b1∥≤
+C∥a1∥. Finally, we estimate b′
+1.
+b′
+1 = (1 −PA′)a′
+1 = BL−2λA(PA −PA′)ψA + L−2LAb1 + L−2LAb1(PA −PA′),
+again by PAb1
+= 0. It follows immediately from Lemma 5.5(i), (v), (5.23)
+and (5.22),
+∥b′
+1∥≤L−2(λA+δ)∥b1∥+ C(L)ϵ(ϵ(1 + ∥a2∥) + ∥b2∥).
+To summarize our estimates, we have the following:
+Lemma 5.8. Suppose L ≥L0 = e2s0, where s0 satisﬁes the conditions in
+Lemma 5.4 and Lemma 5.5. There exists ϵ0(L) and C(L) such that if ∥a1∥· ∥a2∥≤
+ϵ ≤ϵ0(L), we have
+(a) |A′ −A| ≤C(L)ϵ∥a2∥,
+(b) ∥b′
+2∥≤L−2δ∥b2∥+ C(L)ϵ∥a2∥,
+(c) |B′ −L−2λAB| ≤C(L)ϵ(ϵ(1 + ∥a2∥) + ∥b2∥),
+(d) ∥b′
+1∥≤L−2(λA+δ)∥b1∥+ C(L)ϵ(ϵ(1 + ∥a2∥) + ∥b2∥).
+Proof of Theorem 1.1. In light of results established in Secs. 2 and 3, we only
+need to show (i). We write an
+i as in (5.19) with An, Bn and bn
+i in place of A, B and
+bi, and derive bounds for An, Bn and bn
+i using Lemmas 5.4 and 5.8.
+
+
+--- Page 24 ---
+
+308
+Y. W. Qi
+It is clear that
+An →A∗=
+
+R2(a1 + a2) dx.
+First, by Lemma 5.4 and Lemma 5.8(a),
+|An+1 −An| ≤C(L)∥an
+1∥· ∥an
+2∥· ∥an
+2∥≤C(L)e−2nη,
+with 0 < η < λ∗
+A, and hence,
+|An −A∗| ≤C(L)e−2nη.
+Set
+nλn =
+n−1
+
+m=0
+λAm.
+Since λA is a continuous and increasing function of A and An is a bounded and
+increasing sequence,
+λAn →λ∗= λA∗,
+λn →λA∗.
+If we take η < min(δ, λA∗), we get, by Lemma 5.8(b) and Lemma 5.4,
+∥bn
+2∥≤e−2nη∥a2∥
+and
+∥bn
+1∥≤e−2n(λA∗+η)(1 + ∥a2∥).
+This, together with Lemma 5.8(c) and Proposition 2.4, gives
+|Bn+1 −BnL−2λAn| ≤C(L)L−2n(λA∗+η)(1 + ∥a2∥),
+with a smaller η, if necessary.
+This shows there exists B∗such that
+BnL+2nλn →B∗
+as n →∞.
+Now, since λA is a diﬀerentiable function of A and λ′
+A ≤1/4πd,
+|nλn −nλA∗| =
+
+n−1
+
+m=0
+λAm −λA∗
+ ≤
+n−1
+
+m=0
+|λAm −λA∗| ≤
+n−1
+
+m=0
+C(L)e−2nη,
+and therefore, nλn −nλA∗converges to a ﬁnite limit as n →∞. Hence,
+BnL2nλA∗→B∗∗
+as n →∞.
+With t = L2n, L > L0, the results are directly translated to
+∥tu2(
+√
+t ·, t) −A∗φ∥≤Ct−η∥a2∥,
+(5.24)
+∥t1+λA∗u1(
+√
+t ·, t) −B∗∗ψA∗∥≤Ct−η(1 + ∥a2∥),
+(5.25)
+This proves Theorem 1.1.
+
+
+--- Page 25 ---
+
+An Isothermal Combustion Problem in 2D
+309
+Remark 5.9. To see why Theorem 1.1 cannot be true if q ≤q(A), we look at the
+linear problem
+us = −LAu.
+(5.26)
+Set
+wL(y, s) =
+	
+e−λAsψA(y)
+|y| ≤D,
+Ce−λAs(1 + |y|2)−q/2
+|y| ≥D,
+where C is the constant which makes wL continuous at |y| = D. It is easy to
+verify (see the proof of Lemma 5.3) that the function wL is a sub-solution of (5.26)
+provided D is large enough such that
+q(q + 2)
+|y|2
+(1 + |y|2)2 ≥A2φ2(y)
+∀|y| ≥D
+and
+ψ′
+A(y) ≤C
+
+(1 + |y|2)q/2′
+at|y| = D.
+It is clear that for a solution to (5.26) with continuous, positive initial value u0(y)
+satisfying
+lim
+|y|→∞u0(y)(1 + |y|)q = M > 0,
+we can ﬁnd a δ > 0 such that u0(y) > δwL(y, 0). In consequence,
+u(y, s) > δwL(y, s),
+s > 0.
+This shows Theorem 1.1 cannot be true for the linear problem (5.26) since wL(y, s),
+though it has the desired time decay, has a much slower decay in space variable y
+than ψA(y). In summary, in spite of the fact that we have not given a direct proof
+that Theorem 1.1 is false when q ≤q(A), the above serves as a strong evidence that
+it should not be true for the nonlinear problem if it is false for the limiting linear
+problem.
+References
+[1] N. Alikakos, Lp bounds of solutions of the reaction-diﬀusion systems, Comm. Partial
+Diﬀerential Equations 4 (1979) 827–868.
+[2] J. D. Avrin, Qualitative theory for a model of laminar ﬂames with arbitrary non-
+negative initial data, J. Diﬀerential Equations 84 (1990) 290–308.
+[3] L. Berlyand and J. Xin, Large time asymptotics of solutions to a model combustion
+system with critical nonlinearity, Nonlinearity 8 (1995) 161–178.
+[4] J. Billingham and D. J. Needham, The development of traveling waves in quadratic
+and cubic autocatalysis with unequal diﬀusion rats, I, Permanent form travelling
+waves, Philos. Trans. Roy. Soc. London Ser. A 334 (1991) 1–24.
+[5] J. Billingham and D. J. Needham, The development of traveling waves in quadratic
+and cubic autocatalysis with unequal diﬀusion rats, II, An initial-value problem with
+an immobilized or nearly immobilized autocatalyst, Philos. Trans. Roy. Soc. London
+Ser. A 336 (1991) 497–539.
+
+
+--- Page 26 ---
+
+310
+Y. W. Qi
+[6] J. Bricmont, A. Kupiainen and G. Lin, Renormalization group and asymptotics
+of solutions of nonlinear parabolic equations, Comm. Pure Appl. Math 47 (1994)
+893–922.
+[7] J. Bricmont, A. Kupiainen and J. Xin, Global large time self-similarity of a thermal-
+diﬀusive combustion system with critical nonlinearity, J. Diﬀerential Equations 130
+(1996) 9–35.
+[8] J. Glimm and A. Jaﬀe, Quantum Physics (Springer, Berlin, 1981).
+[9] N. Goldenfeld, O. Martin, Y. Oono and F. Liu, Anomalous dimensions and the
+renormalization group in a nonlinear diﬀusion process, Phys. Rev. Lett. 64 (1990)
+1361–1364.
+[10] S. Hollis, R. Martin and M. Pierre, Global existence and boundedness in reaction-
+diﬀusion systems, SIAM J. Math. Anal. 18 (1987) 744–761.
+[11] T. Kato, Strong Lp-solution of the Navies–Stokes equation in Rm, with application
+to weak solutions, Math. Z. 187 (1984) 471–480.
+[12] Y. Li and Y. W. Qi, The global dynamics of isothermal chemical systems with critical
+nonlinearity, Nonlinearity (2003) 1057–1074.
+[13] R. Martin and M. Pierre, Nonlinear reaction-diﬀusion systems, in Nonlinear Equa-
+tions in the Applied Sciences, eds. W. F. Ames and C. Rogers (Academic Press,
+Boston, 1992).
+[14] K. Masuda, On the global existence and asymptotic behaviour of solutions of reaction-
+diﬀusion equations, Hokkaido Math. J. 12 (1983) 360–370.
+[15] B. J. Matkowsky and G. I. Sivashinsky, An asymptotic derivation of two models in
+ﬂame theory associated with the constant density approximation, SIAM J. Appl.
+Math. 37 (1979) 686–699.
+[16] M. J. Metcalf, J. H. Merkin and S. K. Scott, Oscillating wave fronts in isothermal
+chemical systems with arbitrary powers of autocatalysis, Proc. Roy. Soc. London Ser.
+A 447 (1994) 155–174.
+[17] Y. Nishiura, Kunimochi Sakamoto and Niky Kamran, Far-from-Equilibrium Dynam-
+ics (American Mathematical Society, Providence, RI, 2002).
+[18] Y. W. Qi, The global self-similarity of a chemical reaction system with critical non-
+linearity, preprint (2004).
+[19] M. E. Schonbek, L2 decay for weak solutions of the Navier–Stokes equation, Arch.
+Rational Mech. Anal. 88 (1985) 209–222.
+[20] G. I. Sivashinsky, Instability, pattern formation and turbulence in ﬂames, Ann. Rev.
+Fluid Mech. 15 (1983) 179–199.
+
+
+--- Page 27 ---
+

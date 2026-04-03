@@ -1,0 +1,3050 @@
+
+--- Page 1 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+Perspective of Combustion Modeling for Gas Turbine Combustors 
+ 
+Hukam C. Mongia*, GE Aircraft Engines, Cincinnati, U. S. A. 
+ 
+ 
+ 
+ABSTRACT 
+ 
+• 
+Empirical/analytical design tools 
+A status summary report is given on the 
+development of comprehensive computational combustor 
+design (CCD) tool activities of GEAE combustion group 
+conducted for the last three years. A “no-fudge factor” pre-
+test prediction approach is being pursued for the 
+combustors that use rich or lean-dome swirl cups (Single 
+Annular and Dual Annular combustors, SAC, DAC); Twin 
+Annular Premixing Swirler, TAPS (SAC and DAC), and 
+Dry Low Emissions’ DACRS mixers for triple annular 
+combustor domes. The pretest prediction capability is 
+being gauged with existing data including emissions, exit 
+temperature quality and wall temperatures from nine 
+different combustors selected from a group of production 
+and technology combustors. The agreement between 
+predictions and data is good considering this is the 1st 
+phase of the “no-fudge-factor” modeling approach. An 
+integrated 
+diffusion 
+system/flame 
+tube 
+calculation 
+approach is recommended for the swirl cup combustors. 
+However for combustion systems with little dilution air, 
+we can perform flame tube calculations with inlet 
+conditions provided from through-the-inlets (e.g., vanes of 
+the mixer) calculations. 4 to 10 million adaptive node 
+calculations are envisioned for the both types of 
+combustors before one could achieve a “grid independent” 
+solution.  
+• 
+Hybrid modeling for analyzing current combustors 
+• 
+Anchored design tools. 
+ 
+Table 1 and Figure 1 give a partial list of the gas 
+turbine combustors that have used variants of empirical/ 
+analytical design methodology proposed in Reference 1. 
+The biggest deficiency of this methodology was that it 
+provided qualitative guidance only. Due to many obvious 
+reasons, including the number of grids one could afford, 
+the highly simplified combustion models, and lack of 
+benchmark quality data to propose and validate advanced 
+models, Rizk and Mongia proposed a hybrid modeling 
+approach. With a set of empirical constants, this approach 
+gave an excellent agreement with 10 different combustors 
+in regard to pattern factor (PF), smoke, lean blow-out 
+fuel/air ratio, unburned hydrocarbons, CO and NOx 
+emissions indices as shown typically in Figure 2.  This 
+clearly demonstrates potential for application of this 
+modeling approach for designing new combustors. To-date 
+there has not been reported however any application of the 
+hybrid modeling for designing combustors. 
+The anchored design methodology7 has addressed 
+many of the limitations of the empirical/analytical design 
+methodology. It does a reasonable job of simulating the 
+complex combustor geometry with affordable number of 
+nodes sometime exceeding one million. The state-of-the-
+art combustion models are employed including reasonable 
+assumptions about the critical boundary conditions. 
+Special emphasis has been placed on modeling the swirl 
+cup and validating the analytical results with good quality 
+data. The “same process and procedures” are used for 
+different combustors so as to validate predictions with 
+measured data on NOx, HC and CO emissions, and 
+combustor exit profile and pattern factor, shown typically 
+in Figure 3 for the selected five combustors. The anchored 
+design methodology is used in all GEAE New combustion 
+Product Introduction (NPI) programs; some of these are 
+shown in Figure 4. 
+We are working closely with the advanced 
+diagnostics teams of UC, UD/AFRL, NASA GRC and 
+Sandia; and LES modelers from Georgia Tech, Penn State, 
+Sandia and NRL to further improve pretest prediction 
+capabilities for gas turbine combustor design. 
+  
+INTRODUCTION 
+ 
+Gas turbine combustion modeling for supporting 
+design effort was initiated in the early 1970’s,that resulted 
+in the first published successful demonstration of the use 
+of the Computational Combustion Dynamics (CCD) tools 
+in the combustor design process e.g., Mongia et al1-4. 
+Several status and overview articles by Mongia and his 
+coworkers have since appeared to share the continuing 
+improvements in the combustion design tools and 
+increased reliance on CCD for designing combustors; e.g. 
+the most recent References 5 and 6. As noted in these 
+publications, the design tools have progressively moved 
+through the following three stages of improvements: 
+The anchored design methodology7 has worked as 
+well as originally intended. Its major deficiency continues 
+to be its reliance on engine, rig and sub-component data 
+for anchoring, and consequently its obvious limitation for 
+achieving the desired pre-test prediction reliability. Its 
+limitation became quite obvious during the design and 
+development effort of the GE90 and CFM TAPS8. TAPS 
+combustion system aero design and development process 
+relied extensively on systematic use of rig (single module, 
+ 
+* Copyright  2004 by the author. Published by AIAA 
+with permission. 
+ 
+1
+42nd AIAA Aerospace Sciences Meeting and Exhibit
+5 - 8 January 2004, Reno, Nevada
+AIAA 2004-156
+Copyright © 2004 by Copyright  2004 by the author. Published by AIAA with permission. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+sector and full-annular test rigs) and engine testing. The 
+state-of-the-art CCD-based design tools5-7 provided 
+insignificant pre-test insight during the development phase 
+of TAPS, Figure 5; however, they were useful for 
+providing qualitative understanding of the test results. 
+ 
+“No-Fudge Factor” Design Tools 
+Therefore, the recent effort of the GEAE combustion 
+design tools team is focused on developing the next-
+generation combustion design tools for achieving the 
+following objective: 
+Develop a “pre-test prediction capability” that is as 
+good as running the engine; which means model’s 
+accuracy and reliability are equivalent to engine data for 
+accuracy and σ levels.  
+Specifically, this means achieving: 
+σTO NOxEI < 0.69 or 2.4% of take-off NOxEI; Idle σHCEI < 
+1.25, σCOEI < 4.4; take-off and climb-out smoke number’s 
+σ < 1.35. Here σ denotes the root mean square error 
+between model prediction and engine data. The subscripts 
+identify the particular variable. Specifically σTO NOxEI < 
+0.69 or 2.4%; means that the take-off NOx emissions index 
+(NOxEI) needs to be predicted within σ of 0.69 EI or 2.4% 
+of the takeoff NOxEI. Similarly, idle σHCEI < 1.25, σCOEI < 
+4.4 imply the σ values for idle HCEI and COEI should not 
+exceed 1.25 and 4.4, respectively. The σ levels for 
+liner/dome temperature, lean blowout (LBO) fuel-air ratio 
+(FAR), combustor exit temperature profile and pattern 
+factor (PF) should be 25OF, 0.0005, 0.01 and 0.03, 
+respectively.  
+These highly aggressive goals for accuracy and 
+pre-test predictive reliability (without supporting rig and 
+engine testing) can be achieved by assuming that accurate 
+combustion modeling methodology can be developed 
+specific to particular types (classes) of gas turbine 
+combustors. For example, this means that the GEAE 
+combustion design tools team needs to develop models 
+specifically for the following 5 types of combustors: 
+ 
+(a) Rich-dome swirl-cup based combustors for propulsion 
+and industrial engines 
+(b) Lean-dome swirl-cup combustors 
+(c) Trapped Vortex Combustors (TVC) 
+(d) Twin Annular Premixing Swirlers (TAPS) combustors 
+(e) Dry 
+Low 
+Emissions 
+(DLE) 
+industrial 
+engine 
+combustors   
+ 
+Since the rich-dome swirl-cup combustors have been 
+improved continuously during the last 30 years, we have 
+an extensive empirical and fundamental understanding for 
+this class of combustors. Moreover, this is a mostly 
+diffusion flame combustors as contrasted with the mostly 
+premix DLE combustors. Therefore, our initial effort for 
+developing the design tools is focused on the rich-dome 
+swirl-cup and DLE combustors. To-date, our focus has 
+been on the nine combustors comprised of single annular, 
+dual annular and triple domes shown schematically in 
+Figure 6. The various fuel/air mixing devices under study 
+include 
+Dual 
+Annular 
+Counter-Rotating 
+Swirlers 
+(DACRS), two types of swirl cups (primary swirler stream 
+created by discrete jets or radial inflow vanes), Triple 
+Annular Research Swirls (TARS), and a partially 
+premixing device, as shown by representative solid models 
+in Figure 7. 
+The engine data to be used for tools validation include:  
+(a) Gaseous and smoke emissions;  
+(b) Dome and liner wall temperature levels;  
+(c) Pressure losses;   
+(d) Engine flameout, ignition (ground and altitude) data.  
+In addition, we use rig data for:  
+(a) Profile and pattern factor;  
+(b) Lean blowout, ignition and flame propagation;  
+(c) Pressure and air flow distribution around the 
+combustor; and  
+(d) Pressure, temperature and FAR (fuel/air ratio) 
+derivatives of CO, HC and NOx.  
+The CCD calculations must satisfy several requirements 
+including the following four relevant to achieving CCD 
+reliability for combustor design: 
+• 
+The critical design features should be simulated to the 
+accuracy levels consistent with design experience. 
+This means, for example, the grid generation should 
+capture 
+details 
+within 
+the 
+currently 
+allowed 
+dimensional and flow tolerances on product engine 
+combustion systems, Figure 11. 
+• 
+All the inlet conditions should be calculated by using 
+through the inlets (vanes and holes of the swirl cups; 
+primary and dilution holes; cooling holes, dome splash 
+plate; refer to Figures 6 and 7) gridding and 
+calculations. When possible, these calculations should 
+be checked against measurements, Figures 8 through 
+10.  
+• 
+The calculated airflow, pressure and loss distribution 
+around 
+the 
+combustor 
+should 
+agree 
+with 
+measurements within the experimental σ levels, Table 
+2. 
+• 
+CCD calculations should be grid independent. This 
+means using adaptive grid generation technique and 
+showing that the calculated results of interest to 
+designer between the two successive levels of grid 
+refinements stay within the engine data scatter bands. 
+As a minimum, gridding morphology should be 
+similar enough between the different combustors that 
+ 
+2
+
+
+--- Page 3 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+2. 
+Hydrodynamic 
+validation 
+of 
+combustor 
+liner 
+subcomponents including mixer (fairly under control), 
+primary/dilution holes, splash plate and cooling including 
+nuggets and multi-hole. 
+lack of agreement between predictions and data 
+should not be attributed primarily to the normally 
+mentioned CFD issues.  
+Unfortunately, none of the calculations reported in the 
+literature on the practical devices satisfy all of the above 
+requirements. Consequently, we indeed don’t know how 
+good or deficient the current or advanced models are as a 
+predictive tool for engine combustors.  
+3.    Cold- and hot-side convective heat transfer. 
+4.    Comprehensive injector/mixer modeling. 
+5. Turbulence/chemistry interaction including skeletal 
+hydrocarbon and detailed NOx chemistry. 
+6.  Soot formation/oxidation and radiation modeling. 
+We have completed Phase I validation effort and have 
+been working closely with the advanced diagnostics teams 
+of UC, UD/AFRL, NASA GRC, Georgia Tech, Penn State 
+and Sandia to conduct fundamental investigations on the 
+main sub-components of the combustion system including 
+fuel injector, swirl cup with and w/o dome splash plate, 
+and primary/dilution air, and cooling air, Figures 6 and 7. 
+These investigations are planned for a variety of 
+combustor rigs including so-called single cup, flame tube 
+and single module rigs. Other sub-component level 
+investigations include liner cooling with or w/o the 
+interacting swirl cup. These investigations need to 
+conducted 
+systematically 
+to 
+establish 
+the 
+model 
+capabilities or deficiencies in simulating the critical 
+processes relevant to gas turbine combustors including: 
+Summary of our most recent work in this area is given in 
+the following paragraphs. 
+Giridharan etal18 have presented calculations for 
+flow through dilution holes as a 1st step for dilution jet 
+mixing model validation. They conducted a systematic 
+study varying dilution diameter, wall thickness, pressure 
+drop across the hole, Mach number and the boundary layer 
+thickness of the inlet flow upstream of the dilution orifice.  
+The primary emphasis of this study was to calculate grid-
+independent Cd and flow field characteristics at a plane of 
+the hole along the wall on the hot side. The latter is for 
+establishing jet inlet conditions for a typical gas turbine 
+combustor, which has different values of cross-flow 
+velocity component, uHot expressed in terms of J. Here J is 
+the ratio of the dynamic head (=ρHot uHot
+2/2) to the liner 
+pressure drop, ∆P. Grid independent solution was obtained 
+for different liner pressure drops, K-factor (defined as 
+K=∆Pt/qannulus), J, hole diameters, wall thickness and the 
+annulus boundary layer thickness.  
+1. Complex fluid mechanics in the combustor diffusion 
+system including pressure recovery, losses, flow separation 
+and airflow distribution.  
+2. Turbulence and scalar transport modeling for swirling 
+recirculating flows, jets in cross-flow, near-wall cooling 
+films.  
+They showed as an example, how the contours 
+change for no cross-flow (J=0.0) and when the cross-flow 
+dynamic head is 30% of the liner pressure drop (J=0.3). 
+These calculations were done for a dilution hole diameter 
+of 0.125 in. in a flat wall of 0.040 in. thickness; the liner 
+pressure drop and K factor are 5.0% and 20, respectively. 
+The calculated discharge coefficients are 0.6254 and 
+0.628. As expected, the predicted contours of the static 
+pressure, the magnitude of the velocity vector and 
+turbulent kinetic energy are significantly different for the 
+two J-values. There is no easy way of calculating these 
+types of values apriori, if one wants to separate 
+calculations for the cold and hot-side of the combustor; 
+hence the justification for an integrated diffuser/combustor 
+calculations. 
+3. Liquid fuel injection, penetration, primary/secondary 
+breakup, spray transport, heat-up/evaporation/burning.  
+4. Chemical kinetics, turbulence/chemistry interaction.  
+5. Soot formation and oxidation.  
+6. 3-D convective and radiation heat transfer in complex 
+geometry with the participating non-uniform flowfield. 
+  
+Integrated Combustion System Calculations 
+Integrated combustion system calculations can be 
+performed with current commercially available codes, e.g., 
+Fluent9, as illustrated in Figure 12. It clearly shows the 
+complexity of the nonreacting flowfield both within the 
+diffusion system, inside the combustor and obvious 
+interaction between the external and internal flowfield 
+through the inlets. However, calculations of these types 
+don’t add much value in the combustor design process 
+unless we establish the process and the associated accuracy 
+levels achievable for the following: 
+Diffuser Modeling 
+Karki etal10 made a significant contribution to the 
+art of combustor diffuser modeling even though there still 
+remained several unresolved issues including turbulence 
+modeling, grid resolution for 2D/3D CFD calculations. 
+There is fairly good consensus on using the Shear-Stress 
+Transport (SST) k-Ω model for flows involving adverse 
+pressure gradients11. Our recent unpublished work12,13 
+shows that one can’t afford to map diffuser inlet profiles 
+for a combustor diffuser rig (Figure 13a) fitted with bow-
+tie profilers (Figure 13b) to details and accuracy required 
+1.   Pressure and airflow distribution around the 
+combustor. 
+ 
+3
+
+
+--- Page 4 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+for diffuser model validation. Inlet profiles inferred from 
+four 5-elemet rakes is not sufficient to resolve the 
+flowfield characteristics. Consequently, 2-D CFD model 
+results achieve mean square root error of ~13% (Table 2 
+Coumn A); an unacceptable inaccuracy level to conduct 
+integrated combustion system analysis to support design 
+effort. 
+Outer and inner diameters of the secondary swirl passage 
+are 27.2 and 21.6 mm, respectively.  
+ 
+Radial scans were taken at 53 axial stations each 
+being 2 mm apart (from x = 3 mm to 107 mm), and 
+additional 12 axial stations 4 mm apart for the region x = 
+111-155 mm. Here x is the axial distance downstream 
+from the flare exit. For the first 16 axial stations (x = 3-33 
+mm), 
+each 
+radial 
+scan 
+included 
+making 
+spatial 
+measurements of 73 radial locations (here we can denote 
+them as y and z –direction). For the remaining axial 
+stations the number of radial points were 37. The resulting 
+data set for a fixed pressure drop of 4.0% includes mean 
+and RMS values of u, v, w, and the two shear stresses uv, 
+uw for a total of approximately 3000 individual spatial 
+points. These results and preliminary observations are 
+summarized by Mongia etal.14 
+However, it is now possible to calculate diffuser 
+inlet conditions by using CFD based on fine-resolution 3-
+D grids starting upstream of the diffuser inlet, through the 
+profiler and the prediffuser12; Figures 13c and d. This 
+coupled with fine 2-D grid resolution of a diffusion 
+system; Figure 13e provides a well-posed numerical 
+solution approach12. Consequently, the resulting mean 
+square root error is reduced to ~4%, Table 2 Column B. In 
+a follow-up 3-D modeling study (with grids similar to 
+Figure 13e), the discrepancy between model and data 
+reduced13 to ~2%, which is comparable to experimental 
+error. What was interesting that the standard k-ε model 
+was good enough to achieve the stated level of agreement 
+with data from the diffuser, as is the case for the swirl cup 
+modeling described in the following section. 
+ 
+In a follow-up study, Cai et al15 have reported the 
+effect of the test section size and hence the degree of 
+confinement on the swirl cup flowfield by using six 
+additional test sections of 4x4, 4.2x4.2, 4.3x4.3, 4.5x4.5, 
+5x5, 6x6 inches, respectively, in addition to unconfined 
+flow. This effort has clearly shown that the flow field 
+characteristics are distinctly different between strongly 
+confined and mildly confined and unconfined flows. The 
+flow behavior in the intermediate confinement exhibited 
+bi-modal characteristics. Hsiao etal16,17 have conducted 
+parallel modeling activities to elucidate the fundamental 
+processes occurring downstream of a typical swirl cup. 
+The former has focused on solid modeling, parametric 
+modeling, grid generation, and getting grid-independent 
+solutions with the Reynolds averaged Navier-Stokes 
+(RANS) equations.  These activities have been very 
+educational in regard to: 
+ 
+Swirl cup & Dilution Data and Modeling 
+  
+A unique fuel/air preparation device, called swirl 
+cup, is used in several GEAE combustion systems, Figure 
+6-8, including CT7, TFE738, CF34, CFM56, CF6 and 
+GE90. The critical design features of swirl cups have 
+evolved over a number of years resulting in an excellent 
+set of empirical design rules and tools, which have helped 
+produce a series of low-emissions engines. In parallel with 
+this has continued the development of physics-based 
+design rules and tools. 
+We have recently initiated a comprehensive 
+investigation to achieve the following objectives: 
+ 
+• 
+Creating grids for the passages of the swirlers and 
+simulating the details of the swirl cup, Figure 8. 
+• 
+An accurate phenomenological swirl cup model that 
+can be used by designers during the conceptual design 
+phase for conducting trade studies 
+• 
+Splitting the calculation process into the two-steps – 
+(1) doing through the vane calculations to establish the 
+inlet conditions, and (2) swirl cup/test section flow 
+field interaction. 
+• 
+An accurate CCD-based swirlcup model that can be 
+used during both the preliminary design and detail 
+design phases without having to rely on the 
+rig/analysis iterative process of the anchored design 
+methodology7. 
+• 
+Use of tetra-, hexahedral or hybrid grids. 
+• 
+Impact of inlet and outlet boundary conditions. 
+• 
+Convergence and getting grid independent solution 
+through a suitable adaptive methodology. 
+ 
+Prof. San-Mou Jeng and his students have made 
+benchmark quality nonreacting LV measurements of a 
+typical swirl cup in a square box of 3″X3″ (76.2X76.2 
+mm) as described in Reference 14. The cup has the 
+following dimensions considered important from a scaling 
+point of view: 
+ 
+For example, the grid generation for the seven 
+combustors investigated has established best practice for 
+gas turbine combustors; shown for example in Figure 11 
+for a typical swirl cup combustor. 
+Flow field within the swirl cup and through the inlets 
+is quite complicated, as shown in Figure 8. The first step 
+toward achieving grid independence is getting a good 
+agreement between the measured and calculated effective 
+areas. The interpretation of the measured effective areas of 
+ 
+Flare exit diameter, D = 40 mm  
+Diameter of the venturi.= 17.5 mm 
+ 
+4
+
+
+--- Page 5 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+the individual passages may not be as straightforward as 
+we thought before we started this phase of modeling 
+activities. We achieved good agreement with the overall 
+effective areas rather early in the process of grid-
+refinement. However, one to two additional grid 
+refinement steps needed to be taken before “claiming grid-
+independence” 
+for 
+the 
+complex 
+3-D 
+flow 
+field 
+characteristics. We have not yet fully resolved what is the 
+best approach for achieving grid independence. CFD has 
+been very successful in reproducing the measured values 
+of effective areas of several designs of all the five mixers 
+shown previously in Figure 7. Figures 9 and 10 show 
+typical comparison between data and predictions. 
+ 
+FLUENT9 has been used by Giridharan etal18 to 
+calculate flow through dilution orifices for the range of 
+pressure ratio parameter (K= ∆Pt/qann) of interest in 
+combustor design. Here ∆Pt and qann denote total pressure 
+drop across the dilution hole, and dynamic head of the 
+annular stream upstream of the dilution hole, respectively. 
+The predicted discharge coefficients agree with data quite 
+well; and jet angles look reasonable as shown in Figure 14. 
+Other main reason for the investigation of Giridharan 
+et al18 was to establish a process for defining inlet 
+conditions for the primary and dilution jets if one were to 
+do flame tube calculations separately instead of doing an 
+integrated combustor flame tube and diffuser analysis. The 
+latter can be done in principle. But there are several 
+challenges and issues involved if one were to take this 
+approach, including the following: 
+• 
+The enormous effort involved in the grid 
+generation process (Figures 11c and d) 
+• 
+The complexity of the flow field and mutual 
+dependence of the inlet conditions and the 
+combustor internal flow field, as shown in Figure 
+12. 
+ 
+Grid Generation 
+There are many ways of creating grids for 
+combustor applications. The two techniques for a typical 
+combustor, Figure 4, tried by Hsiao and Vij19 are explained 
+briefly in the following paragraphs. 
+ 
+ 
+ 
+The first approach uses the hexahedral grid 
+generation process used by ICEM which is based on the 
+principle that a geometry can be approximated by cutting a 
+large brick into several small ones so that all surface 
+details are represented by external faces of the collection 
+of smaller bricks.  The set of all bricks put together is 
+called a multi block topology.  The edges and faces of each 
+block in the topology must be projected manually to the 
+corresponding faces and edges in the geometry.  Next each 
+edge must be assigned an edge count to generate the grid. 
+The grid quality is measured by the determinant, which 
+represents the closeness of the cell shape to a cuboid.  The 
+determinant of a perfect cuboidal cell would be 1.  
+ 
+The following strategy was used for creating grids 
+for a one-nozzle sector  of a typical combustion system: 
+1. Create a blocking for a single jet and a single vane of 
+the swirl cup. 
+2. Copy and merge the jets and vanes at the multi block 
+topology level. 
+3. Create unstructured grids for the jets and vanes. 
+4. Create a separate blocking for the swirl cup region 
+surrounding the jets and vanes. 
+5. Create an unstructured grid from step 4 and merge 
+with grids from step 3.  This gives the full swirl cup 
+grid. 
+6. Create the fuel nozzle stem grid by growing o-grid 
+blocks by extrusion from the diffuser swirl cup 
+interface. 
+7. Create a separate blocking file for the rest of the 
+diffuser dome passage excluding the fuel nozzle. 
+8. Merge the blocking from steps 7 and 8.  Create a full 
+diffuser grid from the merged blocks.   
+9. Merge the unstructured grids from steps 5 and 9 to 
+obtain the diffuser + swirl cup grid; e.g., 2.2 million 
+cells shown in Fig. 11c. 
+10. Create a separate blocking for the combustor and 
+create an unstructured grid for the combustor typically 
+about one million cells as presented in Figure 11d. 
+11. Merge the unstructured grids from steps 9 and 10 to 
+get the combined combustor + diffuser + swirl cup 
+grid. 
+ 
+The diffuser + swirl cup grid was created in about 640 
+hr. and the combustor grid in about 200 hr.  Given 
+familiarity with the geometry and technique, a similar grid 
+creation for future applications would would take 
+considerably less effort to create.  This estimate does not 
+include time taken for aero-volume creation and geometry 
+cleanup. The total grid size for the combustion system 
+shown in Figures 11 is ~3.2 million cells.  The determinant 
+was > 0.1 and improved to > 0.3 after smoothing in ICEM.  
+This grid covered volume within 0.03% and surface area 
+within 0.7% for all tagged surfaces, compared to the actual 
+geometry. 
+ 
+The 2nd grid generation approach used Gambit of 
+FLUENT. A tetrahedral mesh of 2.4 million cells was 
+created in Gambit’s automated tetra mesher.  It includes 
+finer details such as the nugget holes and splash plate 
+cooling holes.  These features are approximated as quad 
+faces in the ICEM hexa mesh.  The tetra meshing effort 
+included 120 hours for aero-volume creation including 
+cleanup of tiny regions and 180 hours for creating and 
+fine-tuning the grid in Gambit.  The tetra mesh captures 
+the volume to within 0.13% and surface area within 
+0.04%.  The tetra grids quality is measured by skew and 
+ 
+5
+
+
+--- Page 6 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+aspect ratio, which were less than 0.89 and 6.7, 
+respectively. It is estimated that similar future applications 
+of Gambit automated tetra mesher would also  take 
+considerably less effort. 
+Even if one automates the grid generation process 
+for the combustor and diffuser, we feel that the major 
+drawback would still be with the inadequacy of predicting 
+pressure distribution around the combustor.  We expect to 
+get a better agreement with data from gas turbine 
+combustor diffuser in the near future.12,13 How far this 
+approach will be successful for multi-passage diffusers, 
+Figure 6 is rather a speculation at this point in time. 
+Nevertheless, 
+an 
+example 
+showing 
+why 
+separate 
+calculations for the diffusion system and the combustor 
+can not be regarded as “no fudge factor pre-test prediction” 
+is illustrated by focusing on the complexity of specifying 
+the boundary conditions for a typical dilution hole, Figure 
+12. 
+ 
+ 
+  
+Combustion models 
+ 
+ 
+The 1st phase of the turbulent combustion 
+modeling, which started in 1997, focused on the flames 
+relevant to nearly premix DACRS flames. The most recent 
+laminar flamelet modeling results are summarized by Held 
+etal20 The laminar flamelet modeling effort driven by data 
+covered a broad range of engine operation that included 
+close to flameout conditions where one encounters a 
+sudden increase in unburned hydrocarbons and CO. As 
+shown in Figures 15, the predicted contours of CO and NO 
+are significantly different at low and high flame 
+temperatures of 1750 and 1900K, respectively. The 
+qualitative comparison between predictions and data for 
+NOx, CO and unburned HC is quite good as shown in 
+Figure 15. 
+ 
+The DLE combustion systems modeling effort 
+continues including the significant challenges because:  
+(a) The flames are operating slightly above LBO fuel-air 
+ratios;  
+(b) The measured flowfield has turbulent flow structure 
+which is more suitably modeled by LES;  
+(c) The sensitivity to the inlet conditions is more than the 
+conventional diffusion flame combustors.  
+ 
+ Held etal20 started their calculations immediately 
+downstream of the mixer exit plane with profiles estimated 
+from a limited database. Recent study by Giridharan22 for 
+the DACRS mixer through the vanes calculations show  
+that of the various turbulence models studied (RLZ, STD, 
+RNG and RSM are calculations using the realizable k-ε, 
+the standard k-ε, Renormalized k-ε, and the Reynolds 
+stress models coded in FLUENT9), the realizable k-ε 
+model gave the best agreement with data. For the swirl cup 
+through the vane analysis by Hsiao etal16,17 as presented in 
+Figures 9 and 10 show:  
+• 
+Current practice7 based on 2-D axisymmetric 
+calculations within the swirl cup with plug flow 
+approximation don’t agree well with data. 
+• 
+Standard k-ε model gives best overall agreement 
+with the extensive database created for the swirl 
+cup under study. 
+• 
+More work is needed to get good agreement with 
+the recovery region. 
+• 
+The measured flowfield is not as well ordered as 
+RANS 
+calculations 
+show 
+indicating 
+the 
+desirability of undertaking LES simulation. 
+ 
+Held etal20 laminar flamelet model combined with 
+through the inlets (including vanes, purge holes and the 
+natural gas injector) calculation process for the swirl cup 
+has achieved good agreement with an industrial engine 
+emissions data for dry and wet-control NOx. This work by 
+Giridharan etal22 identified as combustor #3 (C3Dry and 
+C3Wet in Figure 16) shows promise for the potential 
+application of the Held etal laminar flamelet for both the 
+DLE and diffusion flame combustors. Here, Comb2 and 
+Comb4 denote DLE combustors. Model improvement 
+effort work will continue to get simultaneous good 
+agreement for Nox, CO and HC for industrial engine 
+combustors with Held etal LFM approach, Dai et al23. 
+An alternate laminar flamelet model proposed by 
+Li etal21 when applied to the industrial engine combustor 
+studied by Giridharan etal22gives an excellent agreement 
+with the same engine emissions database, as presented 
+typically in Figure 17. This partially-premix opposed 
+diffusion-flame model coupled with comprehensive 
+injector modeling has been extended to several propulsion 
+engine combustors. 
+Several approaches are currently being pursued 
+for improving the use of the laminar flamelet modeling to 
+flows involving essentially diffusion flame on one side and 
+fully premixed on the other side. In addition, work 
+continues for improving reduced-kinetic and skeletal 
+mechanisms including even soot formation and oxidation. 
+Our results from these studies will be coming out in future 
+publications. 
+ 
+ 
+Reacting Spray Combustion models  
+ 
+Most of the prior gas turbine combustor modeling 
+activities1-7 has made arbitrary assumptions about the 
+quality of spray. Several investigators have proposed 
+comprehensive injector modeling approaches typical to 
+Rizk etal24-26 however, their application as an integral part 
+of CCD is not well established. Recognizing the 
+importance of spray quality in swirl cup and even more so 
+for next-generation low-emissions combustors8, we have 
+ 
+6
+
+
+--- Page 7 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+(c) The current turbulent combustion models are only 
+qualitatively accurate, and thereby make it very hard 
+to predict liner and dome wall temperatures. However 
+because of the recent emphasis on getting better 
+quality database and a systematic evaluation of 
+combustion models, industry needs to put in place 
+bigger computer resources for undertaking  large scale 
+CCD projects for design. 
+undertaken a rather extensive effort in this area during the 
+last three years, as depicted schematically in Figure 18.  
+Our preliminary calculations as presented in this section 
+indicate the practical viability of this approach as 
+demonstrated by application to the several of the 
+combustors covered in this paper. Figure 18 lists the steps 
+involved in predicting droplet size and velocity distribution 
+from a typical air-atomizing device including swirl cup, 
+simplex and prefilming air blast nozzles.  
+ 
+Figure 19a shows typical results for a round 
+liquid jet injected into a cross-stream. The predicted 
+behavior (penetration and droplet size) is in reasonable 
+agreement with the limited available data. A similar 
+approach has been used for modeling swirl cup filming, 
+primary/secondary atomization, spray transport and 
+evaporation., as shown in Figure 19b. Further model 
+validation effort will continue consistent with the 
+availability of the benchmark quality data relevant to 
+GEAE engine and advanced combustors. 
+From a designer’s point of view, the grid 
+independence solution implies that the variables affecting 
+performance, emissions, operability and durability don’t 
+change significantly. If we assume that the main sources 
+contributing to σ between data and predictions are 
+numerical 
+diffusion, 
+calculated 
+inlet 
+conditions, 
+turbulence, spray, fuel/air mixing, chemical kinetics, 
+turbulent combustion, heat transfer, and others, and they 
+are weighted equally, then achieving the σ levels of Table 
+3 implies getting a grid independent solution. It is well 
+recognized that grid independence does not simply imply 
+doubling the number of grids in the three spatial directions 
+and showing no significant change in the flow field 
+characteristics. One instead needs to keep on adding more 
+grids where the “gradients” are the steepest until we get to 
+the minimal acceptable level of numerical diffusion. 
+Application of Hsiao etal27 comprehensive 
+injector modeling, along with through the vane analysis16,17 
+and laminar flamelet model of Li etal21, give reasonable 
+droplet size distribution for both the SAC and DAC 
+combustors for the four typical operating points in the low-
+power region (Figure 20) where spray quality plays more 
+significant impact than high-power operation, internal 
+thermal field characteristics at high-power and comparison 
+of combustor exit profile.  The agreement between data 
+and model predictions is rather quite encouraging, Figure 
+21, considering that five different combustors have been 
+analyzed using the same approach. 
+ 
+ 
+Table 3: Average σ and maximum σ (assumed 3 times of 
+average σ) attributed to any one of the nine sources of 
+errors* 
+Variable 
+Average 
+σ 
+Maximum 
+σ 
+Takeoff/climb NOxEI 
+0.23 
+0.69 
+Idle HCEI 
+0.42 
+1.25 
+Idle COEI 
+1.5 
+4.4 
+Takeoff/climb SAE Smoke # 
+0.45 
+1.35 
+Liner/dome temperatures, F 
+8 
+25 
+LBO FAR 
+0.0002 
+0.0005 
+Profile Factor 
+0.0033 
+0.01 
+Pattern Factor 
+0.01 
+0.03 
+ 
+Effect of Grids 
+ 
+In order to keep CCD turn-around time over-night 
+without requiring massive computer resources, it has been 
+a common practice of the GEAE combustion group to limit 
+the grid size between 150-300K. Because of several 
+reasons including the following, most of the numerical 
+solutions for the diffusion system and the combustor 
+internal flow field have been done separately. 
+ 
+(a) CFD with 100-200K nodes and the standard k-ε model 
+gives only a qualitatively good agreement with data in 
+regard to diffusion system losses, pressure and air 
+flow distribution. However, with fine grids and 
+advances in turbulence modeling11 we can now have 
+better agreement with data. Therefore, the 1st hurdle 
+over getting the integrated combustion system analysis 
+is almost behind us. 
+*The sources of errors are:  
+Numerical diffusion;  2. Inlet conditions; 3. Turbulence 
+models;  4. Comprehensive injection, spray transport, heat-
+up and evaporation models;  5. Fuel/air mixing models; 6. 
+Chemical kinetic models;  7.Turbulent combustion models; 
+8. Heat transfer models; and  9. Others. 
+ 
+GEAE combustion started the effort on achieving 
+grid independence for the nine combustors that include 
+conventional, partially mixed and almost perfectly mixed 
+combustors. As part of these studies, we need to 
+investigate how adapting grids change the flow field, the 
+flame structure, near-wall gas temperatures, heat transfer 
+coefficients, NOx, CO, HC and LBO FAR. We have run 
+(b) The conventional convective and radiation heat 
+transfer models are not good enough to make accurate 
+predictions for wall temperature levels and gradient. 
+However, with recent advances in this area6, it is the 
+right time to define what needs to be done to achieve 
+integrated cold/hot side calculations. 
+ 
+7
+
+
+--- Page 8 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+The mixing term (second term on right hand) is modeled 
+by the modified Curl’s model, mixing constant = 2.0. Note 
+that the chemical reaction (third term on left) is resolved in 
+exact form within JSPDF approach. Monte-Carlo method 
+is then adopted to solve this transport equation. The 
+coupling of JSPDF with flow field is through turbulent 
+viscosity (to JSPDF from flow field) and density (to flow 
+field from composition by JSPDF). The flow field is 
+modeled by the standard k-ε model. A simple four step 
+reduced chemistry mechanism for methane, which is being 
+developed by Li29, was adopted in this study along with In-
+Situ Adaptive Tabulation (ISAT) method.  The current 
+calculations use the commercial CFD code FLUENT@ 
+version 6.1 which implements the above models. 
+several 
+steps 
+of 
+grid 
+refinements 
+starting 
+with 
+approximately 300K nodes and stepping up to 8 million 
+nodes; the latter still is waiting to be processed. It appears 
+that the solution of the 4-million case is still not grid 
+independent. If we look at the adiabatic wall temperatures 
+calculated with 300K and 4 million nodes, the numerical 
+diffusion σ is 74OF. This is an order of magnitude higher 
+than the goal of 8OF.   
+ 
+Integrated Cold/hot side calculations 
+ 
+In order to assess how far we can go without 
+having to solve simultaneously the flow field external and 
+internal to the combustor dome and liner (Figure 12), we 
+have undertaken systematic evaluation for each of the 
+following combustor subcomponents: 
+ 
+The studied premixer consists of pilot and main 
+swirlers. The pilot is counter rotating swirler with 8 fuel 
+injectors near the exit to enhance lean blow out (ELBO) 
+capability. A 3D model of 45 degree SCR sector starting 
+from main swirler exit and pilot throat is modeled with one 
+ELBO fuel injector resolved. Total meshes is ~0.55 
+millions with about 20 particles each cell. Error tolerance 
+is 1.0E-7 for ODE solver and 1.0E-5 for ISAT for the 
+calculation of chemical reaction term. Velocity boundary 
+conditions are defined from LDV measurement. Due to the 
+lack of good measurement of fuel/air profiles, uniform 
+profiles are specified for compositions at both inlets (i.e., 
+at the pilot throat and main exit). 
+(a) Outer and inner combustor annuli with and w/o taking 
+into account details of the cooling, primary and 
+dilution holes. 
+(b) Dome cowling with and w/o flow through the swirl 
+cup, splash plate and flare. 
+(c) Diffusion system with and w/o details of the fuel 
+nozzle. 
+These investigations have clearly shown that we 
+need to have 3-D integrated combustor/diffusion system 
+analysis approach that includes details of the combustion 
+system including diffuser, cowl, dome, combustor outer 
+and inner liners, combustor outer and inner flow passages, 
+and fuel nozzles, as shown schematically in Figure 12.  
+ 
+Conditions of two cases, and results of emissions 
+are summarized in Table of Figure 22. All figures shown 
+are from case 1. The axial velocity contour indicates the 
+stagnation point is ~1 diameter downstream of pilot exit. 
+Due to ELBO fuel at the pilot exit, localized high 
+temperature is seen in the center-body recirculation zone, 
+which contributes to a significant portion of NOx 
+generation. Comparison to experiment data is shown in 
+Table. The emission trend with flame temperature is 
+captured, but the calculated NOx is lower than the 
+measurement and CO has mixed indication. However, note 
+in case 1, the flame is close to incipient blow-out indicated 
+by CO, and thus CO measurement is not reliable. It is 
+expected that better agreement can be obtained with more 
+advanced chemistry mechanism (such as augmented 
+reduced mechanism or ARM), and better input on fuel/air 
+profiles for boundary conditions.  
+ 
+Joint Scalar PDF Modeling 
+The objective of this work28 is to study the 
+feasibility of transport joint scalar probability density 
+function (JSPDF), in particular turn around speed, for 
+modeling swirler cup to assist design optimization.  
+Specifically, JSPDF has been applied in modeling the 
+performance of a Dry Low-Emissions (DLE) lean 
+premixer for marine and industrial engine application. Test 
+data including emissions have been obtained for this 
+premixer from single cup rig (SCR). Calculations using 
+JSPDF model are therefore compared to these data.  
+ 
+     The JSPDF f(φk) transport equation is written as  
+(
+)
+(
+)
+(
+)
+[
+]
+
+
+
+
+
+
+
+
+∂
+∂
+∂
+∂
++
+∂
+∂
+−
+=
+∂
+∂
++
+∂
+∂
++
+∂
+∂
+f
+x
+J
+x
+f
+u
+x
+f
+S
+f
+u
+x
+f
+t
+i
+k
+i
+i
+i
+i
+k
+k
+i
+i
+ψ
+ρ
+ρ
+ψ
+ρ
+ρ
+ψ
+ρ
+ρ
+,
+"
+1
+ 
+ 
+ 
+Computations are conducted on one single IBM 
+PC workstation with two Intel processors of 2.6GHz. The 
+maximum ISAT table size is set at 200MB. JSPDF 
+calculations are initiated at eddy-breakup solutions. It 
+generally takes more than 1 week clock time to complete 
+one case while the machine is being used for other tasks at 
+the same time. ISAT performance is shown in Figure 22. 
+The average CPU time per iteration without reaction is 
+about 1.8 minutes. At beginning of ISAT, the table is being 
+The turbulent scalar flux term is modeled by the gradient-
+diffusion assumption: 
+ 
+[
+]
+
+
+
+
+∂
+∂
+∂
+∂
+=
+∂
+∂
+−
+i
+t
+t
+i
+i
+i
+x
+f
+x
+f
+u
+x
+Sc
+"
+ρ
+µ
+ψ
+ρ
+ 
+ 
+8
+
+
+--- Page 9 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+built up, and most of CPU time is taken to integrate the 
+ODE for reaction rate. It shows that about 10 out 13 
+minutes or 70% of time are spent for chemical reaction 
+calculation. By 2000 iterations, the total CPU time per 
+iteration is reduced to about 3.3 minutes, i.e., the time to 
+evaluate reaction rate is down to 1.5 minutes. Therefore 
+ISAT has achieved about 7 times speed-up in computing 
+reaction rate. Without ISAT algorithm, it is not feasible to 
+achieve this 3D simulation of JSPDF (even with simple 4 
+step reaction mechanism) in a realistic time frame. 
+ 
+Although current results have not shown a 
+satisfactory comparison of emission predictions to 
+experiments. Further improvement of computer resources, 
+such as parallel capability, can greatly enlighten the JSPDF 
+ability to handle more detailed yet complicated chemistry 
+mechanism along with ISAT, and thus achieve the goal of 
+assisting real designs of low emission premixers.  For 
+example, one case of these calculations can be completed 
+within days if multiple processors are to be used.  
+ 
+Large Eddy Simulation 
+There are many obvious reasons for using Large 
+Eddy Simulation, LES for gas turbine combustors29-33. We 
+have been working closely with several research groups 
+involved in LES. For example, we follow closely Menon’s 
+work29 since it focuses on dynamical structure and the 
+relating modeling issues that impact gas turbine 
+combustion processes for gas turbine combustor designers. 
+It relies on RANS solution to provide inlet boundary 
+conditions, and will adopt complex geometry simulation 
+technology from our experience in gas turbine combustor 
+RANS calculations. We have been working closely with 
+Grinstein and his coworkers30,31 since their emphasis is on 
+the specification of the inlet conditions for LES. We are 
+working closely with Professor Yang because the main 
+thrust of his LES work32 is characterization of combustion 
+dynamics of gas turbine mixers that invariably have 
+complex geometrical features. Finally the details of the 
+near-wall regions need to be properly simulated with LES 
+along with spray, which we rely on the research activities 
+of Oefelein and Schefer33.   
+These joint activities between GEAE, Georgia 
+Tech, Penn Stat, NRL and Sandia have put the proper 
+emphasis on addressing both fundamental and design 
+driven applied research of particular interest to gas turbine 
+combustor design community34-36. Specifically it means 
+resolution of complex geometry, proper specification of 
+the inlet/boundary conditions, NOx, CO and HC 
+prediction. As reported in these papers, there is back-to-
+back comparison between RANS and LES for 
+• 
+Swirl cup nonreacting flow field 
+• 
+DLE reacting flow. 
+As mentioned by Shih and Liu37, LES work needs to 
+compliment RANS calculations. We find LES modeling 
+effort as typically represented by Menon, Yang, Oefellein 
+and their colleagues35-37 bringing us closer to applying 
+LES techniques to designing next-generation gas turbine 
+combustors for improving performance, operability and/or 
+emissions. 
+Summary 
+ 
+A status summary is given in this paper of the last three 
+years activities of GEAE combustion group for further 
+improving the reliability and accuracy of predictive CCD 
+tools for gas turbine combustor design. The prime 
+objective of the on-going effort is: 
+Develop a “pre-test prediction capability” that is as 
+good as running the engine; which means model’s 
+accuracy and reliability are equivalent to engine data 
+for accuracy and σ levels.  
+The desired root-mean-square (σ) level for the variables of 
+interest is: 
+Variable 
+Desired σ 
+Takeoff/climb NOxEI 
+0.69 
+Idle HCEI 
+1.25 
+Idle COEI 
+4.4 
+Takeoff/climb SAE Smoke # 
+1.35 
+Liner/dome temperatures, F 
+25 
+LBO FAR 
+0.0005 
+Profile Factor 
+0.01 
+Pattern Factor 
+0.03 
+ 
+An 
+integrated 
+diffusion 
+system/flame 
+tube 
+calculation approach is recommended for conventional 
+diffusion flame combustors that employ primary and 
+dilution holes. This is coupled with through the inlet 
+calculations for the mixer, splash plate and cooling holes 
+to provide inlet conditions consistent with the best models 
+employed. 
+ 
+However for the DLE combustion systems or 
+others where most of the combustion air enters through the 
+dome, which rarely use primary or dilution holes, one can 
+split the calculations into two separate sets, namely 
+diffusion system, and the flame tube. 
+ 
+In order to claim “grid independence” it is 
+envisioned that combustion systems would need 4-10 
+million adaptive grids before we can start sorting through 
+the deficiencies of the different sub-models of relevance to 
+production gas turbine combustors. 
+ 
+LES simulation techniques have made significant 
+progress during the last five years, and are ready for 
+helping the designers to design next-generation gas turbine 
+combustors for enhancing performance, operability and/or 
+emissions. 
+ 
+ 
+Acknowledgment 
+ 
+9
+
+
+--- Page 10 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+The author would like to express his thanks and gratitude 
+to the Advanced Combustion CCD team members for 
+contributing calculations and sharing their pre-published 
+works in this paper. 
+15. 
+Cai,, J., Fu, Y., Elkady, A., Jeng, S., and Mongia, 
+H., 2003, “Swirl cup modeling, Part 6: Effect of 
+confinement,” AIAA Paper 2003-0486. 
+16. 
+Hsiao, G., Mongia, H., and Vij, A., 2003, “Swirl 
+cup modeling, Part 2: Inlet conditions”, AIAA Paper 2003-
+1350. 
+References 
+1. 
+Mongia, H. C., and Smith, K. F., 1978, “An 
+empirical/analytical design methodology for gas turbine 
+combustor”, AIAA Paper 78-998. 
+17. 
+Hsiao, G., and Mongia, H., 2003, “Swirl cup 
+modeling, Part 3: Grid independent solution with different 
+turbulence models,” AIAA Paper 2003-1349. 
+2. 
+Mongia, H. C., Reynolds, R. S., Coleman, E., and 
+Bruce, T. W., 1979, “Combustor Design Criteria 
+Validation Volume I -Element tests and model validation”, 
+USARTL-TR-78-55A (AD-AO-67657). 
+18. 
+Giridharan, M., Mongia, H., and Singh, G., 2003, 
+“Scaling of dilution hole inlet conditions for gas turbine 
+combustor CFD models,” AIAA Paper 2003-1203. 
+19. 
+Hsiao, G., and Vij, A., Private communication, 
+2003.  
+3. 
+Mongia, H. C., Reynolds, R. S., Coleman, E., and 
+Bruce, T. W., 1979, “Combustor Design Criteria 
+Validation Volume II - Development testing of two full-
+scale annular gas turbine combustors”, USARTL-TR-78-
+55B (AD-AO-67689). 
+20. 
+Held, T. J, Mueller, M. A., S.-C. Li, S. –C., and 
+Mongia, H. C., 2001, “ A Data-Driven Model for NOX, 
+CO and UHC emissions for a Dry Low Emissions Gas 
+Turbine Combustor,” AIAA Paper 2001-3425. 
+4. 
+Mongia, H. C., and Reynolds, R. S., 1979, 
+“Combustor Design Criteria Validation Volume III - 
+User’s Manual”, USARTL-TR-78-55C (AD-AO-66793). 
+21. 
+Li, S. C., Hsiao, G., Hsieh, S.-Y., and Mongia, 
+H.C., 2003, “Application of laminar partially premixed 
+flame model to gas turbine combustors,” Private 
+communication. 
+5. 
+Mongia, H. C., 2001, “A Synopsis of Gas Turbine 
+Combustor Design Methodology Evolution of Last 25 
+Years”, ISABE 2001 Conference. 
+22. 
+Giridharan, M.G., Held, T.J., and Mongia, H.C., 
+2003, “A Wet Emissions CFD Model Based on Laminar 
+Flamelet Approach,” ISABE Paper 2003-1087. 
+6. 
+Mongia, 
+Hukam 
+C., 
+2001, 
+“Gas 
+turbine 
+combustor 
+liner 
+wall 
+temperature 
+calculation 
+methodology,” AIAA 2001-3267. 
+23. 
+Dai, Z., Giridharan, M.G., and Mueller, M.A., 
+2003, Private communication. 
+7. 
+Danis, A. M., Burrus, D. L., and Mongia, H. C., 
+1996, “Anchored CCD for gas turbine combustor design 
+and data correlation”, J. Eng. Gas Turbines and Power,  
+1997, Vol. 119, pp. 535-545. 
+24. 
+Rizk, N. K., and Mongia, H. C., 1992, “Semi-
+analytical fuel injector performance correlation approach”, 
+Int. J. Turbo and Jet Engines, Vol. 9, pp. 205-213. 
+25. 
+Rizk, N. K., and Mongia, H. C., 1992, 
+“Calculation approach validation for airblast atomizers”, J. 
+Eng. Gas Turbines and Power, April 1992, Vol. 114, pp. 
+386-393. 
+8. 
+Mongia, Hukam C., 2003, “TAPS – A 4th 
+Generation Propulsion Combustor Technology for Low 
+Emissions,” International Air & Space Symposium and 
+Exposition, The Next 100 Years, Dayton, 14-17 July, 
+2003, AIAA Paper 2003-2657. 
+26. 
+Rizk, N. K., and Mongia, H. C., 1991, “Model for 
+airblast atomization”, J. Propulsion and Power, Vol. 7, n. 
+3, May-June 1991, pp. 305-311. 
+9. 
+FLUENT 6.0 Training Notes, p. 6-14, January 
+2002. 
+27. 
+Hsiao, G., etal, 2003, “Comprehensive injector 
+modeling for modern gas turbine combustors,” Private 
+communication. 
+10. 
+Karki, K. C., Oechsle, V. L., and Mongia, 1992, 
+“A computational procedure for diffuser-combustor flow 
+interaction analysis”, J. Eng. Gas Turbines and Power, 
+January 1992, Vol. 114, pp. 1-7.  
+28. 
+Xu, Jun, 2003, “Application of joint scalar PDF 
+transport modeling to DLE combustors – Current status,” 
+Private communication. 
+11. 
+Nikjoo, M., and Mongia, H., 1999, “Predictions 
+of flows with adverse pressure gradients,” AIAA Paper 99-
+2817. 
+29. 
+Kim, W-W. Menon,  S., and Mongia, H.C.,  
+“Large eddy simulations of reacting flow in a dump 
+combustor,” Combust.Sci. and Tech., 143, pp. 25-62 
+(1999).  
+12. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, Rao, A. and Ismail, S. 2004, “Combustor Diffuser 
+Modeling Part II: Inlet Profiles and 2-D Calculations ”, 
+AIAA Paper 2004-TBD. 
+30. 
+Grinstein, F. F., Young, T. R., Li, G., Gutmark, E. 
+J., Hsiao, G., and Mongia, H. C., 2001, “Flow dynamics in 
+a swirling jet combustors,” Turbulent Shear Flow 
+Conference.  
+13. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, Rao, A. and Ismail, S. 2004, “Combustor Diffuser 
+Modeling Part II: Inlet Profiles and 3-D Calculations ”, 
+AIAA Paper 2004-TBD. 
+31. 
+Grinstein, F. F. et al, 2002, “ Flow dynamics in a 
+swirling jet combustor,” Journal of Turbulence. 
+14. 
+Mongia, H. C., et al, 2001, “Swirl cup modeling 
+Part 1,” AIAA Paper 2001-3576. 
+ 
+10
+
+
+--- Page 11 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+32. 
+Wang, S., and Yang, V., 2003, “Swirl cup 
+modeling, Part 5: Large eddy simulation of cold flow,” 
+AIAA Paper 2003-0485. 
+Table 1: Partial list of combustors designed
+with 
+the 
+empirical/analytical 
+design
+methodology. 
+ 
+1. AF/Navy Trapped Vortex Combustors  
+2. CF6-80C Low Emissions Combustor 
+(LEC) – Anchored methodology 
+3. GE90 Dual Annular Combustor (DACII)  
+       - Anchored methodology 
+4. Army/NASA Advanced Fuel Injector. 
+5. Army Low Pattern Factor Combustor. 
+6. 
+NASA/Army Compliant Matrix Cooling Comb
+7. 501K 9 PPM NOx Combustor  
+8. 501K 25 PPM NOx Combustor  
+9. 
+NASA High Speed Ultralow NOx Combustion 
+       Conceptual Design Feasibility 
+10. DOE Advanced Coal-Fueled Turbine 
+11. DOE ATTAP (Automotive) Combustor 
+12. 501K Effusion Combustor. 
+13. 501K 80 PPM NOx Combustor. 
+14. T406/GMA 2100 Combustor. 
+15. GMA 3007 Combustor. 
+16. T56-A427 Nozzle Carboning. 
+17. Model 150 combustor 
+18. Model 120 Combustor. 
+19. T800+ Lamilloy Combustor. 
+20. T800+ Effusion-Cooled Combustor. 
+21. Low Smoke 570 combustor. 
+22. Expendable Turbine Engine Combustor  
+23. Limited Life Turbine Combustor 
+24. ATEGG XTC 16/1  
+25. TFE1042 combustor 
+26. F109 combustor. 
+27. Garrett’s first ATEGG Combustor. 
+28. Advanced Cruise Missile Engine Combustor. 
+29. Low Smoke TFE 731 
+30. ATF-3 combustor 
+31. NASA Counter-Flow Film-Cooled 
+Combustor. 
+32. DOE/NASA Automotive Gas Turbine  
+       Combustion Concept. 
+33. AF Variable Geometry Combustor. 
+34. AF Small Turbine Afterburner 
+35. AF Segmented Ceramic Combustor. 
+36. Navy Improved Combustor Dome. 
+37. Army Concept I increased to 22000F temperature rise.
+38. DARPA/Navy Ceramic Combustor 
+39. ETF 131 Combustor and Afterburner. 
+40. NASA Pollution Reduction Technology 
+(PRTP) Fuel Staged Concept 3. 
+41. NASA PRTP PM/PV Concept 3. 
+42. Army Combustor Design Criteria  Concept I   
+43. Army Combustor Design Criteria  Concept II 
+ 
+33. 
+Oefelein, Joseph C. and Schefer, Robert W., 
+2003, “Modeling and Validation of (Hydrogen Enriched) 
+Lean Premixed Combustion for Ultra-Low Emission Gas 
+Turbine Combustors,” Private Communication. 
+34.  Menon, S., 2004, “Multi-Scale Modeling for LES of 
+Engineering Designs of Large-Scale Combustors”, AIAA 
+Paper 2004-0157. 
+35.  Yang, V.,  Huang, Y., and Wang, S., 2004, “System 
+Identification of Combustion Dynamics in Gas Turbine 
+Engine Based on LES Studies”, AIAA Paper 2004-0158. 
+36. Oefelein, J., 2004, “Simulation of Combustion and 
+Thermophysics in Practical Propulsion Systems”,  AIAA-
+2004-0159 
+37    Shih, T., and Liu, N., 2004, “From RANS Towards  
+LES for Engine Turbulent Flows”, AIAA-2004-0160 
+ 
+ 
+ 
+11
+
+
+--- Page 12 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+Figure 1: 13 out of 43 combustors designed with empirical/analytical design methodology.
+Figure 1: 13 out of 43 combustors designed with empirical/analytical design methodology.
+ 
+ 
+ 
+ 
+12
+
+
+--- Page 13 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+13
+Lean Blowout
+Figure 2: Hybrid modeling gave good agreement w/ 10 combustors data on PF, smoke,
+lean blowout, HC, CO and NOx.
+Lean Blowout
+Figure 2: Hybrid modeling gave good agreement w/ 10 combustors data on PF, smoke,
+lean blowout, HC, CO and NOx.
+ 
+
+
+--- Page 14 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+14
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+AXIALVELOCITY (mps)
+LDV DATA
+C2D PRED
+U
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+RADIAL VELOCITY (mps)
+LDV DATA
+C2D PRED
+V
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+TANGENTIAL VELOCITY (mps)
+LDV DATA
+C2D PRED
+W
+0
+10
+20
+30
+40
+50
+0
+10
+20
+30
+40
+50
+MEASURED EINOx
+PREDICTED EINOx
+COMB 1
+COMB 2
+COMB 3
+COMB 4
+COMB 5
+0.01
+0.1
+1
+10
+100
+0.01
+0.1
+1
+10
+100
+MEASURED EIHC
+PREDICTED EIHC
+0.01
+0.1
+1
+10
+100
+0.01
+0.1
+1
+10
+100
+MEASURED EICO
+PREDICTED EICO
+0
+0.2
+0.4
+0.6
+0.8
+1
+Non-Dimensional Combustor Exit Temperature
+Radial Height - R/Ro
+AVG DATA
+AVG PRED
+MAX DATA
+MAX PRED
+Figure 3: Typical comparison between predicted and measured swirl cup velocity profiles, NOx,
+HC and CO emissions indices of five propulsion engine combustors, and average and maximum 
+temperature profiles at the burner exit plane. Reported by Mongia (2001).
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+AXIALVELOCITY (mps)
+LDV DATA
+C2D PRED
+U
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+RADIAL VELOCITY (mps)
+LDV DATA
+C2D PRED
+V
+-20
+0
+20
+40
+60
+0
+5
+10
+15
+20
+25
+R (mm)
+TANGENTIAL VELOCITY (mps)
+LDV DATA
+C2D PRED
+W
+0
+10
+20
+30
+40
+50
+0
+10
+20
+30
+40
+50
+MEASURED EINOx
+PREDICTED EINOx
+COMB 1
+COMB 2
+COMB 3
+COMB 4
+COMB 5
+0.01
+0.1
+1
+10
+100
+0.01
+0.1
+1
+10
+100
+MEASURED EIHC
+PREDICTED EIHC
+0.01
+0.1
+1
+10
+100
+0.01
+0.1
+1
+10
+100
+MEASURED EICO
+PREDICTED EICO
+0
+0.2
+0.4
+0.6
+0.8
+1
+Non-Dimensional Combustor Exit Temperature
+Radial Height - R/Ro
+AVG DATA
+AVG PRED
+MAX DATA
+MAX PRED
+Figure 3: Typical comparison between predicted and measured swirl cup velocity profiles, NOx,
+HC and CO emissions indices of five propulsion engine combustors, and average and maximum 
+temperature profiles at the burner exit plane. Reported by Mongia (2001).
+ 
+
+
+--- Page 15 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+Figure 4: Anchored design methodology has been used in design and development of several SAC and DAC propulsion 
+engine combustors.  
+ 
+Figure 5: The state-of-the-art CCD-based design tools provided insignificant pre-test insight during the 
+development phase of Twin Annular Premixing Swirlers (TAPS) combustors; Mongia (2003). 
+ 
+ 
+ 
+ 
+ 
+15
+
+
+--- Page 16 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+Fuel Nozzle
+Combustor
+Case
+Diffuser
+Swirler
+Assembly
+Outer Liner
+Inner Liner
+Dome
+Cowl
+Comb. Tube calculations
+ 
+Figure 6: “No-fudge factor” models validation under process for the seven combustors including Single, Dual 
+and Triple Annular Combustors, SAC, DAC and TAC. 
+ 
+ 
+ 
+ 
+16
+
+
+--- Page 17 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+17
+ 
+Figure 7: Through the vane calculations have been conducted for five different types of mixers. 
+
+
+--- Page 18 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+ 
+ 
+ 
+18
+Ae (in2)
+Nominal
+Ae (in2)
+Calculation
+% Error
+Primary
+0.132
+0.119
+9.6
+Secondary 0.23
+0.236
+2.77
+Total
+0.362
+0.355
+1.74
+Ae (in2)
+Nominal
+Ae (in2)
+Calculation
+% Error
+Primary
+0.132
+0.119
+9.6
+Secondary 0.23
+0.236
+2.77
+Total
+0.362
+0.355
+1.74
+3%
+1.14
+1.107
+Main II
+4%
+1.0
+0.962
+Main I
+3%
+0.2
+0.194
+Pilot
+∆
+Measured
+Predicted
+Area
+3%
+1.14
+1.107
+Main II
+4%
+1.0
+0.962
+Main I
+3%
+0.2
+0.194
+Pilot
+∆
+Measured
+Predicted
+Area
+-4.00%
+-3.00%
+-2.00%
+-1.00%
+0.00%
+1.00%
+2.00%
+3.00%
+4.00%
+Config 10
+Config 2
+Config 6
+Pilot
+Cyclone
+Total
+Calculated Aeff within 3.5% error.
+ 
+Figure 8: Through the mixer’s inlets (vanes etc.) calculations clearly show complexity of the flow conditions downstream of 
+the vanes. Calculated mixers’ effective areas are at least as accurate and reliable as experimental data. 
+
+
+--- Page 19 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+19
+-15
+-10
+-5
+0
+5
+10
+15
+20
+25
+30
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_x (m/s)
+-40
+-30
+-20
+-10
+0
+10
+20
+30
+40
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_r (m/s)
+-40
+-30
+-20
+-10
+0
+10
+20
+30
+40
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_t (m/s)
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+-1.0
+-0.5
+0.0
+0.5
+1.0
+r/D
+k (m^2/s^2)
+(a)
+(b)
+(c)
+(d)
+-15
+-10
+-5
+0
+5
+10
+15
+20
+25
+30
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_x (m/s)
+-40
+-30
+-20
+-10
+0
+10
+20
+30
+40
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_r (m/s)
+-40
+-30
+-20
+-10
+0
+10
+20
+30
+40
+-1.0
+-0.5
+0.0
+0.5
+1.0
+u_t (m/s)
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+-1.0
+-0.5
+0.0
+0.5
+1.0
+r/D
+k (m^2/s^2)
+(a)
+(b)
+(c)
+(d)
+LDV
+SKE
+RKE
+RNG
+RSM
+K-ω
+ 
+Figure 9: TTV (solid lines)  for a swirl cup compared w/ current practice 2-D calculations (dotted lines); symbols denote data. 
+Right hand figures show effect of adaptive gridding on the profiles calculated for X = 3 mm. Recirculation bubble calculated 
+with realizable k-ε, standard k-ε, Renormalized k-ε, k-ω, and the Reynolds stress models of FLUENT; data shown as LDV. 
+From Hsiao et al (2003) 
+
+
+--- Page 20 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+ 
+(a) Standard k-ε model
+(b) Realizable k-ε model
+(c) Re-Normalization k-ε model
+(d) k-ω model
+(e) Reynolds Stress  model
+LDV
+LDV
+LDV
+LDV
+LDV
+Figure 10: Standard k-ε model might not be as bad as thought over the last 20 years for application to swirl cups. Axial 
+velocity contours downstream of a swirl cup calculated with realizable k-ε, standard k-ε, Renormalized k-ε, k-ω, and the 
+Reynolds stress models of FLUENT; data shown as symbols or LDV. From Hsiao et al (2003) 
+ 
+ 
+ 
+ 
+ 
+20
+
+
+--- Page 21 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+21
+ 
+(a) Swirl cup, dome & part of nozzle
+(b) Part of liner and dilution holes
+(c)  Diffusion system including swirl cup - 2.2 M
+nodes
+(d) Combustor w/ one million nodes
+ 
+Figure 11: Grid generation technology (time-consuming as it is) in place for resolving finer details of combustion 
+systems required for accurate prediction of aero-thermal field. 
+
+
+--- Page 22 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+ 
+Velocity vectors
+Whole Combustion System CCD Analysis
+Non-Reacting Velocity Vector Plots
+Figure 12: Integrated combustor/diffuser calculations may be of “show and tell” value unless we address issues 
+about: 
+1. Pressure and airflow distribution around the combustor 
+2. Hydrodynamic validation of combustor liner subcomponents including mixer (fairly under control), 
+primary/dilution holes, splash plate and cooling including nuggets and multi-hole. 
+3. Cold- and hot-side convective heat transfer. 
+4. Comprehensive injector/mixer modeling. 
+5. Turbulence/chemistry interaction including skeletal hydrocarbon and detailed Nox chemistry. 
+6. Soot formation/oxidation and radiation modeling. 
+Table 2: Preliminary assessment for predicting pressure recoveries of a typical diffuser set-up. 
+Center-peak Profile
+Inner-peak Profile
+Data
+A
+B
+C
+Data
+A
+B
+C
+Prediffuser exit CP
+0.496
+0.603
+0.485
+0.520
+0.505
+0.604
+0.494
+0.516
+Outer Passage CP
+0.504
+0.654
+0.563
+0.532
+0.517
+0.655
+0.562
+0.531
+Inner Passage CP
+0.534
+0.672
+0.576
+0.554
+0.530
+0.672
+0.587
+0.557
+Mean square root error, %
+13.30%
+4.26%
+2.43%
+12.76%
+4.20%
+1.84%
+A: 2-D CFD w/ measured diffuser inlet profiles
+B: 2-D CFD w/ through-the-inlet-profiler calculation for inlet conditions
+C: 3-D CFD w/ through-the-inlet-profiler calculation for inlet conditions
+ 
+ 
+22
+
+
+--- Page 23 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+23
+ 
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+Figure 13: Diffuser rig schematic and typical grid used for inlet and diffuser calculations. 
+ 
+
+
+--- Page 24 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+ 
+K =10
+K =100
+80.36
+0.33
+0.610
+0.612
+100
+76.82
+-0.37
+0.603
+0.601
+50
+69.95
+-1.50
+0.599
+0.590
+20
+64.92
+-5.95
+0.598
+0.5624
+10
+Jet angle
+% Error
+Cd_Data
+Cd_CFD
+K
+80.36
+0.33
+0.610
+0.612
+100
+76.82
+-0.37
+0.603
+0.601
+50
+69.95
+-1.50
+0.599
+0.590
+20
+64.92
+-5.95
+0.598
+0.5624
+10
+Jet angle
+% Error
+Cd_Data
+Cd_CFD
+K
+Figure 14: Through the primary/dilution holes calculations show reasonable agreement with Cd and jet angle data 
+from Giri et al (2003). 
+Discharge Coefficient (Cd) Vs Pressure Ratio Parameter (K = ∆Pt/qann)
+ 
+ 
+24
+
+
+--- Page 25 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+25
+(a) Log(CO) contours for 1750 & 1900K flames
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+1700
+1750
+1800
+1850
+1900
+1950
+Tflame (K)
+ppm @15% O2
+0
+5
+10
+15
+20
+25
+NOX
+CO
+UHC
+(b) Log(NO) contours for 1750 & 1900K flames
+ 
+Figure 15: Laminar flamelet calculated by Held et al (2001) NOx, CO and HC for a Dry Low Emissions 2-cup 
+compare well with data, with assumed profiles at the exit of DACRS mixer, i.e., without going through TTV 
+calculation process. 
+
+
+--- Page 26 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+26
+Measured vs Held etal model predicted NOx15%
+0
+50
+100
+150
+200
+250
+0
+50
+100
+150
+200
+250
+Measured NOx15%
+Predicted NOx15%
+Comb1
+Comb2
+C3Dry
+C3Wet
+Measured vs Held etal model predicted CO15%
+0
+20
+40
+60
+80
+100
+120
+140
+0
+20
+40
+60
+80
+100
+120
+140
+Measured CO15%
+Predicted CO15%
+Comb1
+Comb2
+C3Dry
+C3Wet
+Measured vs Held etal model predicted NOx15%
+0
+50
+100
+150
+200
+250
+0
+50
+100
+150
+200
+250
+Measured NOx15%
+Predicted NOx15%
+Comb1
+Comb2
+C3Dry
+C3Wet
+Measured vs Held etal model predicted CO15%
+0
+20
+40
+60
+80
+100
+120
+140
+0
+20
+40
+60
+80
+100
+120
+140
+Measured CO15%
+Predicted CO15%
+Comb1
+Comb2
+C3Dry
+C3Wet
+ 
+Figure 16: Comparison between measured and predicted (w/ Held et laminar flamelet model, LFM) Nox and CO data
+of three additional combustors identified as Comb2, C3 (dry and wet) and C4. 
+
+
+--- Page 27 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+27
+ 
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Non-dimensional height
+Data
+CFD
+0
+100
+200
+300
+400
+500
+300
+500
+700
+900
+1100
+T3-F
+CO (PPM)-Combustor-Exit
+0
+50
+100
+150
+200
+250
+300
+NOx (PPM)-Combustor-Exit
+CO_Cell46
+CO_G35
+CO_Pred
+Nox_Cell46
+NOx_G35
+NOx_Pred
+0
+100
+200
+300
+400
+300
+500
+700
+900
+1100
+ T3  (F)
+CO (PPM)-Engine-Exit
+0
+50
+100
+150
+200
+NOx (PPM)-Engine-Exit
+CO_Test
+CO_Pred
+Nox_Test
+NOx_Pred
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Non-dimensional height
+Data
+CFD
+0
+100
+200
+300
+400
+500
+300
+500
+700
+900
+1100
+T3-F
+CO (PPM)-Combustor-Exit
+0
+50
+100
+150
+200
+250
+300
+NOx (PPM)-Combustor-Exit
+CO_Cell46
+CO_G35
+CO_Pred
+Nox_Cell46
+NOx_G35
+NOx_Pred
+0
+100
+200
+300
+400
+300
+500
+700
+900
+1100
+ T3  (F)
+CO (PPM)-Engine-Exit
+0
+50
+100
+150
+200
+NOx (PPM)-Engine-Exit
+CO_Test
+CO_Pred
+Nox_Test
+NOx_Pred
+Figure 17: Comparison between data and calculated (through the inlet calculation approach) NOx and CO of a 
+NG  fired rich-dome swirl cup combustor with a laminar flamelet model of Li et al (2003). 
+
+
+--- Page 28 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+28
+ 
+Comprehensive Spray Injector Model
+Empirical 
+model*
+Semi-Empirical 
+model*
+Semi-analytical 
+model*
+Analytical 
+model*
+* For droplet size distribution, mean and rms velocity components.
+Two-phase
+CFD analysis
+Liquid sheet formation
+Liquid sheet instability
+Primary breakup
+Secondary breakup
+Particle 
+tracking
+Secondary
+breakup
+Droplet
+deformation
+Turbulence 
+effects
+Vaporization:Single/multi-components;
+Finite diffusivity; sub/super critical
+Experimental Investigations
+1. Fundamental cases: Plane sheet,
+Round jet, annular sheet
+2. Comb. Injectors: Swirl atomizer,
+Simplex & filming atomizers
+Quiescent environment
+Spray diagnostics at low 
+and high pressures
+Coaxial & Cross-flow
+Spray diagnostics at low 
+and high pressures
+Figure 18: Comprehensive model development plan. 
+
+
+--- Page 29 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+29
+J=30
+3.5µ
+J=15
+5.0µ
+J=5
+10.0µ
+J=1.0
+18.0µ
+(a) Liquid surface
+formation
+(b) Onset of 
+breakup
+(c) Volume flux at 
+onset of breakup
+(d) Volume flux
+0.65”downstream
+J=30
+3.5µ
+J=15
+5.0µ
+J=5
+10.0µ
+J=1.0
+18.0µ
+(a) Liquid surface
+formation
+(b) Onset of 
+breakup
+(c) Volume flux at 
+onset of breakup
+(d) Volume flux
+0.65”downstream
+Figure 19a: Comprehensive mixer analysis- typical results for a mixer involving cross-jet atomization. 
+
+
+--- Page 30 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+CAD Sketch
+UG Solid Model
+Grid Generation
+3D CFD
+Predicted Liquid Film
+baseline Grid 
+1st level refinement 
+2nd level refinement 
+Mesh Refinement
+CAD Sketch
+UG Solid Model
+Grid Generation
+3D CFD
+Predicted Liquid Film
+baseline Grid 
+1st level refinement 
+2nd level refinement 
+Mesh Refinement
+ 
+Figure 19b: Comprehensive mixer analysis- typical results for a mixer involving simplex pressure atomization 
+followed by air atomization. 
+(224061)
+(297645)
+(542778)
+(224061)
+(297645)
+(542778)
+ 
+30
+
+
+--- Page 31 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+31
+Temperature Contours
+Test Data
+CFD Prediction
+72.3
+6.9
+39.9
+# 2
+3.6
+3.1
+12.4
+Min Dia
+115.1
+75.1
+# 1
+28.6
+18.6
+# 3
+20.6
+D32
+37.4
+# 4
+Max Dia
+Low-Power
+Operation
+72.3
+6.9
+39.9
+# 2
+3.6
+3.1
+12.4
+Min Dia
+115.1
+75.1
+# 1
+28.6
+18.6
+# 3
+20.6
+D32
+37.4
+# 4
+Max Dia
+Low-Power
+Operation
+Analytically predicted spray characteristics
+Figure 20: Typical results for temperature field, spray quality at low-power and comparison between predicted (w/ Li et al 
+Laminar Flamelet Model, LFM) and measured combustor exit emissions and profile of a Single Annular Combustor. 
+
+
+--- Page 32 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+32
+EINOx Li et al (2003) LFM
+0
+5
+10
+15
+20
+25
+30
+35
+0
+5
+10
+15
+20
+25
+30
+35
+Measured Data
+Predicted Value
+C1Pilot only
+C1-P+M
+C2Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EICO Li et al (2003) LFM
+0
+10
+20
+30
+40
+50
+60
+70
+80
+0
+10
+20
+30
+40
+50
+60
+70
+8
+Measured Data
+Predicted  Value
+0
+C1Pilot only
+C1-P+M
+C2-Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EIHC Li et al (2003) LFM
+0
+2
+4
+6
+8
+10
+12
+0
+2
+4
+6
+8
+10
+12
+Measured Data
+Predicted Value
+C1Pilot only
+C1-P+M
+C2Pilot only
+C2-P+M
+C3P+M
+C4-P+M
+Comb Eff Li et al (2003) LFM
+96.5
+97.0
+97.5
+98.0
+98.5
+99.0
+99.5
+100.0
+97.0
+97.5
+98.0
+98.5
+99.0
+99.5
+100.0
+Measured Data
+Predicted  Value
+C1Pilot only
+C1-P+M
+C2-Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EI NOx
+EI CO
+EIHC
+Comb Efficiency
+EINOx Li et al (2003) LFM
+0
+5
+10
+15
+20
+25
+30
+35
+0
+5
+10
+15
+20
+25
+30
+35
+Measured Data
+Predicted Value
+C1Pilot only
+C1-P+M
+C2Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EICO Li et al (2003) LFM
+0
+10
+20
+30
+40
+50
+60
+70
+80
+0
+10
+20
+30
+40
+50
+60
+70
+8
+Measured Data
+Predicted  Value
+0
+C1Pilot only
+C1-P+M
+C2-Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EIHC Li et al (2003) LFM
+0
+2
+4
+6
+8
+10
+12
+0
+2
+4
+6
+8
+10
+12
+Measured Data
+Predicted Value
+C1Pilot only
+C1-P+M
+C2Pilot only
+C2-P+M
+C3P+M
+C4-P+M
+Comb Eff Li et al (2003) LFM
+96.5
+97.0
+97.5
+98.0
+98.5
+99.0
+99.5
+100.0
+97.0
+97.5
+98.0
+98.5
+99.0
+99.5
+100.0
+Measured Data
+Predicted  Value
+C1Pilot only
+C1-P+M
+C2-Pilot only
+C2-P+M
+C3-P+M
+C4-P+M
+Comb5
+EI NOx
+EI CO
+EIHC
+Comb Efficiency
+Figure 21 Comparison between measured and predicted (w/ Li et al Laminar Flamelet Model, LFM) Nox, CO, HC and 
+combustion efficiency of the five gas turbine combustors. 
+
+
+--- Page 33 ---
+
+                                                                                                                                                                      AIAA Paper 2004-0156 
+ 
+33
+Axial velocity contours
+Mean temperature contours
+NO (corrected 
+to 15%O2) 
+CO (corrected 
+to 15%O2) 
+Case  
+Bulk 
+equilibrium 
+temperature 
+based on total 
+F/A [°F] 
+Pilot 
+equilibrium 
+temperature 
+based on F/A 
+[°F] 
+Data 
+[ppm] 
+CFD 
+[ppm] 
+Data 
+[ppm] 
+CFD 
+[ppm] 
+1 
+2700 
+3100 
+8.9 
+2.7 
+70 
+21 
+2 
+2900 
+3100 
+10.5 
+4.1 
+5 
+9.1 
+ 
+Axial velocity contours
+Mean temperature contours
+NO (corrected 
+to 15%O2) 
+CO (corrected 
+to 15%O2) 
+Case  
+Bulk 
+equilibrium 
+temperature 
+based on total 
+F/A [°F] 
+Pilot 
+equilibrium 
+temperature 
+based on F/A 
+[°F] 
+Data 
+[ppm] 
+CFD 
+[ppm] 
+Data 
+[ppm] 
+CFD 
+[ppm] 
+1 
+2700 
+3100 
+8.9 
+2.7 
+70 
+21 
+2 
+2900 
+3100 
+10.5 
+4.1 
+5 
+9.1 
+ 
+Figure 22: Joint scalar PDF approach and perspectives: PDF vs laminar flamelet . 
+ 

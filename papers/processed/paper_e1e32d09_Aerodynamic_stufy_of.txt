@@ -1,0 +1,941 @@
+
+--- Page 1 ---
+
+1 Certain commercial equipment, materials, or software are identi"ed
+in this publication to specify adequately the experimental procedure.
+Such identi"cation does not imply recommendation or endorsement by
+the National Institute of Standards and Technology, nor does it imply
+that the materials or equipment are necessarily the best available for
+this purpose.
+* Corresponding author. Tel.: 1-301-975-2488; fax: 1-301-869-5924.
+E-mail address: john.widmann@nist.gov (J.F. Widmann).
+Chemical Engineering Science 55 (2000) 5311}5320
+Aerodynamic study of a vane-cascade swirl generator
+John F. Widmann*, S. Rao Charagundla, Cary Presser
+Chemical Science and Technology Laboratory, National Institute of Standards and Technology, 100 Bureau Drive, Stop 8360, Gaithersburg,
+MD 20899-8360, USA
+Received 3 August 1999; accepted 20 March 2000
+Abstract
+The air #ow through a vane-cascade swirl generator is examined both experimentally and numerically to characterize the inlet
+combustion air #ow entering a reference spray combustion facility at NIST. A three-dimensional model is used to simulate the
+aerodynamics in the 12-vane-cascade swirl generator that imparts the desired degree of angular momentum to the air in the annulus
+leading into the reactor. A numerical simulation using the renormalization group method (RNG) k}e turbulence model results in
+a velocity pro"le consistent with experimental measurements, and correctly predicts a recirculation zone that is experimentally
+observed at the exit of the annular passage. The standard k}e turbulence model does not compare as well with the experimental data
+and fails to predict the recirculation zone at the exit. This work is part of a larger project at NIST in which benchmark data are
+collected for input and validation of multiphase combustion models, and the results presented provide a well-characterized inlet
+condition for the spray combustion reactor. The good agreement between the experimental data and the simulation with the RNG k}e
+turbulence model provides further validation for this model in con"ned, annular #ows. ( 2000 Elsevier Science Ltd. All rights
+reserved.
+Keywords: Swirl; Turbulence; Fluid mechanics; Numerical analysis; Simulation; CFD; Pitot probe; Spray combustion
+1. Introduction
+The design and optimization of multiphase thermal
+oxidation systems in the power generation, waste inciner-
+ation, and chemical process industries are relying
+increasingly on computational models and simulations
+to provide relevant process information in a cost-e!ective
+manner. System performance is dependent on the liquid
+atomization, chemistry, aerodynamic design, and the de-
+gree of liquid/air mixing within the reactor. In general,
+there is a need for experimental data detailing the charac-
+teristics of the droplet "eld and #ame structure, and an
+understanding of their interrelationship with the system
+operating conditions, for the development and validation
+of advanced computational models. This paper is part of
+a larger e!ort at the National Institute of Standards and
+Technology (NIST) to provide benchmark data that can
+be used for input and validation of multiphase combus-
+tion models and submodels.
+The experimental facility consists of an enclosed spray
+combustion reactor and is shown schematically in Fig. 1.
+The combustion air passes through a 12-vane swirl cas-
+cade, shown in Fig. 1A, that imparts the angular mo-
+mentum necessary to stabilize the #ame, and #ows
+around the nozzle before entering the reactor. The vane
+angle and air #ow rate are 503 and 0.0158 m3 s~1, respec-
+tively, and correspond to the baseline case of the NIST
+database (Widmann, Charagundla, Presser & Heckert,
+1999). For the reported air #ow rate, the Reynolds num-
+ber, Re"(D0!Di)u6 z/l, in the annular region of the
+swirl generator is equal to 1.0]104. Note that the radial
+locations of the inner and outer walls of the annular
+passage downstream of the swirl vanes are shown in the
+"gure (Ri"0.0175 m and R0"0.0508 m, respectively).
+In this paper, the air#ow through the vane-cascade
+swirl generator shown in Fig. 1A was simulated using
+FLUENT1
+computational
+#uid
+dynamics
+software
+0009-2509/00/$- see front matter ( 2000 Elsevier Science Ltd. All rights reserved.
+PII: S 0 0 0 9 - 2 5 0 9 ( 0 0 ) 0 0 1 4 5 - 7
+
+
+--- Page 2 ---
+
+Fig. 1. Schematic of (A) the 12-vane-cascade swirl generator and (B) the spray combustion reactor. Dimensions are given in millimeters.
+(FLUENT Inc., 1998), and results obtained using two
+turbulence models are presented and compared to ex-
+perimental data. The two turbulence models, the stan-
+dard k}e model (Launder & Spalding, 1972) and the
+renormalized group theory (RNG) k}e model (Yakhot
+& Orszag, 1986), are two equation models in which the
+transport equations for two scalar quantities (the turbu-
+lent kinetic energy, k, and its dissipation rate, e) are used
+to describe the production, di!usion, and dissipation of
+turbulence.
+The standard k}e model is a semi-empirical turbulence
+model based upon an isotropic eddy-viscosity hypothe-
+sis. It is widely used in industrial #ow and heat transfer
+simulations due to its robustness, economy, and reason-
+able accuracy (Shyy, Thakur, Ouyang, Liu & Blosch,
+1997). The RNG k}e model also belongs to the k}e family
+of turbulence models; however, unlike the standard k}e
+model, the RNG k}e model was derived using a statistical
+technique called renormalization group methods. The
+model equations are similar to the standard k}e model,
+but the statistical derivation results in di!erent values for
+the various constants in the equations.
+Smith and Reynolds (1992), however, reported prob-
+lems with the speci"c values of the constants in the RNG
+k}e model. In response, Yakhot and coworkers refor-
+mulated the earlier derivation of the di!erential equation
+describing the transport of e (Yakhot, Orszag, Thangam,
+Gatski, & Speziale, 1992; Yakhot & Smith, 1992). With
+this change, the RNG k}e turbulence model has shown
+improvement over the standard k}e model when applied
+to many industrial #ows (e.g., Papageorgakis & Assanis,
+1999; Yin, Shi & Xu, 1996; Lien & Leschziner, 1994;
+Yakhot et al., 1992). Particularly noteworthy is the rate-
+of-strain term in the transport equation for e that has
+been reported to result in improved predictions of #ow
+"elds with high strain rates. In particular, #ows in curved
+geometries, stagnation #ows, separated #ows, and swirl-
+ing #ows are situations in which the RNG k}e model has
+been reported to be more accurate than the standard k}e
+turbulence model. Benim (1990) compared the perfor-
+mance of these two turbulence models in a swirling
+combustor and found that the RNG k}e model resulted
+in predictions consistent with experiment, while the stan-
+dard k}e model compared poorly with the experimental
+data. In this study, we apply both of these models to
+simulations of #ow through a vane-cascade swirl gener-
+ator, including the swirling #ow through the annulus
+following the vanes. Jaw and Chen (1998) recently re-
+viewed second-order closure turbulence models, and the
+reader is referred there for a more detailed discussion of
+these and other turbulence models.
+2. Numerical methodology
+The numerical formulation is for isothermal, turbulent
+air#ow through the 12-vane-cascade swirl generator
+shown in Fig. 1A. The relevant conservation equations
+include continuity, the Reynold's averaged Navier}
+Stokes equations, and an appropriate turbulence model.
+The Reynolds averaged Navier}Stokes equations are
+generated from the instantaneous Navier}Stokes equa-
+tions using the following transformations (Bird, Stewart
+& Lightfoot, 1960):
+ui"u6 i#u@i,
+o"o6 #o@
+and
+p"p6 #p@.
+(1)
+Here, the overbar and prime indicate a time-averaged
+quantity and an instantaneous #uctuation, respectively.
+Dropping the overbar for convenience, the resulting ex-
+pression for the momentum equation in cartesian coordi-
+nates is
+L
+Lt(oui)# L
+Lxj
+(ouiuj)
+"! Lp
+Lxi
+# L
+LxjCkA
+Lui
+Lxj
+#Luj
+LxiB!2
+3k Luk
+Lxk
+dijD
+#Fi# L
+Lxj
+(!ou@iu@j).
+(2)
+5312
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+
+
+--- Page 3 ---
+
+Fig. 2. Schematic of (A) the surface mesh used to generate the unstruc-
+tured grid for the numerical simulation, and (B) a top view of the
+12-vane cascade and the modeled 303 section. Note that the periodic
+boundaries in (A) have been omitted for clarity.
+The last term in Eq. (2) is the derivative of the Reynolds
+stresses, !ou@iu@j, and represents the e!ect of turbulence
+on the momentum balance. The Reynolds stresses repres-
+ent additional unknowns, and a set of constitutive equa-
+tions is required to close these equations. The turbulence
+models provide the additional equations necessary to
+close the transport equations.
+The Reynolds stresses in Eq. (2) are computed using
+the Boussinesq hypothesis (Hinze, 1975)
+!ouiuj"ktA
+Lui
+Lxj
+#Luj
+LxiB!2
+3Aok#kt
+Lui
+LxiBdij,
+(3)
+where kt is the eddy or turbulent viscosity computed from
+kt"oCk
+k2
+e .
+(4)
+For the standard k}e turbulence model, the scalar quant-
+ities k and e are computed from the following transport
+equations:
+L
+Lt (ok)# L
+Lxi
+(ouik)" L
+LxiCAk#kt
+pkB
+Lk
+LxiD#Gk!oe
+(5)
+and
+L
+Lt(oe)# L
+Lxi
+(ouie)" L
+LxiCAk#kt
+pkB
+Le
+LxiD
+#C1e
+e
+kGk#C2eo e2
+k .
+(6)
+The generation of k due to turbulent stresses, Gk, are
+given by
+Gk"!ouiuj
+Luj
+Lxi
+.
+(7)
+The values of the constants in Eqs. (4)}(6) have been
+determined experimentally to be C1e"1.44, C2e"1.92,
+Ck"0.09, pk"1.0, pe"1.3, and Prt"0.85 (Launder
+& Spalding, 1972).
+The numerical simulations were generated using a seg-
+regated, implicit solver. Integrating the transient problem
+to steady state was found to be computationally less
+expensive than solving the time-independent transport
+equations, and this method was used for the results
+presented here. The coupled equations were solved with
+"rst-order accuracy in time and second-order accuracy in
+space. The pressure and velocity were coupled using the
+PISO algorithm (Issa, 1986) with neighbor and skewness
+correction,
+and
+standard
+wall
+functions
+(Launder
+& Spalding, 1974) were used for the near-wall treatment.
+When the RNG k}e turbulence model was implemented,
+the swirl-dominated yow option was used. This option sets
+the swirl constant, as, to 0.07 (FLUENT Inc., 1998). This
+value was used for all simulations with the RNG k}e
+turbulence model, and the e!ect of the value of as was not
+investigated.
+A uniform velocity pro"le with a magnitude of
+2.2 m s~1 was used for the inlet condition, and an inlet
+turbulence intensity of 10% was assumed with a charac-
+teristic length of R0!Ri"0.0333 m. The turbulence
+intensity is de"ned as the ratio of the root-mean square of
+the velocity #uctuations, u@, and the mean velocity, u. The
+predictions at the outlet of the domain were not found to
+be sensitive to the inlet turbulence intensity. For the
+conditions considered, the Reynolds number based upon
+the mean axial velocity is 1.0]104 in the annular regions
+of the domain. Sheen, Chen and Wu (1997) reported the
+transition from laminar to turbulent #ow to occur at
+Re"1600; therefore, we expect fully developed turbulent
+#ow here. At the outlet, the radial velocity was assumed
+to be negligible and the radial equilibrium pressure distri-
+bution was calculated by
+Lp
+Lr"ou2h
+r .
+(8)
+Also at the outlet, the turbulence intensity and character-
+istic length used for the inlet condition were assumed in
+the event of back#ow into the domain, such as in a recir-
+culation zone.
+The air#ow through the 12-vane-cascade swirl gener-
+ator was simulated using FLUENT computational #uid
+dynamics software (FLUENT Inc., 1998). A three-dimen-
+sional model is required for this geometry; however, due
+to symmetry it is only necessary to simulate a 303 portion
+of the vane cascade. An unstructured grid was used for
+the simulations, and the surface mesh is shown in Fig. 2A.
+Note that the rotationally periodic symmetry planes at
+h"0 and h"303 are not shown in the "gure. The mesh
+was constructed so that the grid resolution gradually
+increased from the inlet to the vanes, and then remained
+high throughout the remainder of the domain. The number
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+5313
+
+
+--- Page 4 ---
+
+Fig. 3. Pitot probe calibration at four di!erent probe angles.
+of cells in the mesh was systematically increased until the
+solution was determined to be grid-independent, and this
+strategy of gradually increasing the resolution from the
+inlet plane to the vanes was used for all of the grids. The
+predictions presented here correspond to results ob-
+tained from a grid with approximately 277,000 cells.
+A top view of the vanes is shown in Fig. 2B, and the 303
+section that was modeled is depicted. Note that the vane
+angle, a, is 503 and shown in the "gure.
+3. Experimental
+The experimental facility consists of the enclosed spray
+combustion reactor shown in Fig. 1. In this facility, the
+combustion air passes through a 12-vane swirl cascade,
+shown in Fig. 1A, that imparts the angular momentum
+necessary to stabilize the #ame, and #ows around the
+nozzle before entering the reactor. The reactor consists of
+a stainless-steel enclosure approximately 1.2 m in height
+and 0.8 m in diameter, and is shown in Fig. 1B. The vane
+angle and air #ow rate are 503 and 0.0158 m3 s~1, respec-
+tively, and correspond to the baseline case of the NIST
+database (Widmann et al., 1999). For these experiments,
+the combined standard uncertainties in these measure-
+ments are $13 and $0.0005 m3 s~1 for the vane angle
+and air #ow rate, respectively. The air enters the reactor
+at ambient temperature and pressure. Additional details
+of the facility and the benchmark database program at
+NIST are available elsewhere (Widmann et al., 1999).
+The magnitude of the air velocity was measured at the
+outlet of the annulus downstream of the vanes as a func-
+tion of radial position to validate the simulations. A "ve-
+hole pitot probe with a hemispherical head was used for
+the velocity measurements. The probe has a cylindrical
+tip with a length of 26 mm and a diameter of 1.7 mm.
+Following the 26 mm tip, the diameter of the probe
+increases smoothly from 1.7 to 3.2 mm, which is the
+diameter of the main body of the probe. The probe has
+one hole on the head of the probe tip for total pressure
+measurements, and four holes located 13 mm from the
+head and 903 apart on the side of the probe for static
+pressure measurements. The four velocity measurements
+corresponding to the four di!erent static pressure holes
+were used to align the probe in the direction of the #ow,
+and the average of the four measurements was reported
+as the mean velocity. The di!erential pressures were
+measured using Autotran pressure transducers (Model
+750D-031) with measurement ranges of 0}24.9 and
+$12.5 Pa.
+To calibrate the pitot probe, velocity measurements
+were obtained in a low-velocity wind tunnel at NIST.
+Data are presented in Fig. 3 for four values of the probe
+angle, de"ned as the angle between the direction of the
+mean velocity vector and the probe, and the error bars
+correspond to the standard deviation of the four velocity
+measurements. A probe angle of 03 indicates that the
+probe was aligned with the #ow. The ordinate corres-
+ponds to the
+velocity magnitude calculated using
+Bernoulli's equation (Bird et al., 1960),
+un"S
+2
+o[p0!pn],
+(9)
+where p0 is the measured total pressure and pn is the
+measured static pressure at the nth hole. The measure-
+ments obtained using Eq. (9) are in very good agreement
+with the known velocity in the wind tunnel for probe
+angles less than 103, and are in fair agreement for larger
+probe angles. The velocity measurements reported in this
+paper were not computed using Eq. (9), but were deter-
+mined from the calibration in Fig. 3.
+To obtain accurate results, the pitot probe must be
+reasonably aligned with the mean direction of the #ow.
+However, Fig. 3 reveals that some deviation in the align-
+ment is acceptable and will not impact the measure-
+ments. For example, probe angles of 0 and 83 result in
+velocity
+measurements
+that
+agree
+within
+2%
+for
+u'3 m s~1 in the calibration data. To facilitate aligning
+the pitot probe in the #ow and quantifying the uncertain-
+ties in the measurements, a non-dimensional alignment
+parameter, W, was used where W is de"ned as
+W"1
+uN S
+1
+2[(u1!u3)2#(u2!u4)2].
+(10)
+Here, u6 is the average of the four velocity measure-
+ments. The di!erences (u1}u3) and (u2}u4) in Eq. (10)
+correspond to the velocities computed from the static
+pressure holes that are 1803 apart on the side of the pitot
+probe. The alignment parameter facilitates aligning the
+probe in the #ow by utilizing the symmetry of the probe,
+and should not be confused with a `fractional errora.
+However, W was used to estimate the uncertainties in the
+5314
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+
+
+--- Page 5 ---
+
+Fig. 4. Alignment parameter, W, calculated from the pitot probe calib-
+ration in Fig. 3.
+measurements by comparing data obtained in the NIST
+wind tunnel with data obtained in the swirling #ow. Fig.
+4 presents the calculated alignment parameter from the
+calibration data. Note that although W increases with
+increasing probe angle as anticipated, it is below 0.07 for
+probe angles as large as 153. For probe angles of 03 and
+83, W is below 0.015 for u'1.5 m s~1.
+4. Results and discussion
+4.1. RNG k}e vs. standard k}e turbulence model
+The combustion air enters at the bottom of the swirl
+generator with a uniform velocity pro"le and #ows
+through an annular section approximately 0.178 m long
+with the same radial dimensions as the exit annulus
+(Ri"0.0175 m and R0"0.0508 m). The #ow is then
+directed radially outward as shown in Fig. 1B. The #ow
+bends upward and then returns toward the center of the
+swirl generator as it passes through the vanes. The swirl-
+ing #ow is directed upward, passes through an exit
+annulus approximately 0.165 m long and enters the reac-
+tor. The fuel nozzle is introduced into the reactor
+through the inner pipe of the annulus; therefore, the
+swirling combustion air #ows around the nozzle as it
+enters the reactor.
+The predictions of the magnitude of the air velocity
+through the vane-cascade swirl generator using the stan-
+dard k}e and the RNG k}e turbulence models are
+presented in Fig. 5. The standard k}e model predicts
+a maximum velocity in the annulus of +4.8 m s~1, while
+the RNG k}e model predicts a maximum velocity of
++5.2 m s~1. Both models predict that the air rapidly
+accelerates as it enters the annulus following the swirl
+vanes; however, the RNG k}e model results in larger
+velocity gradients, with the high-velocity regions of the
+#ow being more localized. This behavior is also evident
+in the lower portion of the domain beneath the swirl
+vanes. The stagnation zone in the corner corresponding
+to the "rst bend as the #ow leaves the lower annulus is
+larger for the RNG k}e model, and all of the recirculation
+zones in the domain have higher total velocities. In com-
+parison, the standard k}e model results in #ow "eld
+predictions in which the velocity "eld is smoother, result-
+ing in lower peak velocities and lower-velocity gradients.
+The relatively smoother velocity "eld predicted by the
+standard k}e model results from the higher predicted
+values of the turbulent viscosity. The standard k}e model
+results in peak values of the turbulent viscosity approx-
+imately three times greater than those predicted by the
+RNG k}e model.
+Contour plots showing the predicted turbulence inten-
+sity in the annulus following the swirl vanes for both
+models are shown in Fig. 6. Note that the two plots have
+di!erent scales, with turbulence intensities in the range
+0.2}0.8 and 0}0.6 for the standard k}e model and the
+RNG k}e model, respectively. The two turbulence
+models result in signi"cantly di!erent predictions for the
+turbulence intensity in this swirling #ow "eld. Both mod-
+els predict the generation of turbulence at the corner
+where the annulus intersects with the horizontal section
+of the swirl generator (lower right corner of the contour
+plots in Fig. 6). However, vortex shedding is noticeable in
+the prediction of the RNG k}e model, while the standard
+k}e model results in signi"cantly more dispersion of
+turbulence. The standard k}e model predicts a central
+core of turbulence in the annulus that decays with axial
+position. In contrast, the RNG k}e model predicts signi"-
+cantly less turbulence in the central region of the annulus,
+with regions of high turbulence being primarily in the
+near-wall region of the inner wall and the vortex shed-
+ding near the corner of the outer wall. Further down-
+stream within the annular passage, the #ow separates
+from the inner wall due to the adverse pressure gradient
+that results from the swirling #ow, and which in turn
+produces increased turbulence.
+4.2. Comparison of predictions and experiment
+Fig. 7 presents values of the alignment parameter com-
+puted from experimental data obtained at the outlet of
+the annular region following the swirl vanes. The data
+correspond to various values of the probe angle ranging
+from 45 to 603 measured from vertical; however, the
+values of W at a particular radial coordinate are fairly
+consistent. Near the inner wall, the alignment parameter
+becomes very large. It was not possible to align the probe
+in the direction of the #ow in this region due to the
+presence of a recirculation zone; therefore, velocity
+measurements were not made in this region. The com-
+bustion air #ows mainly near the outer wall, however,
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+5315
+
+
+--- Page 6 ---
+
+Fig. 5. Contour plots of the predicted magnitude of the velocity vector
+for the standard k}e and RNG k}e turbulence models. The contour
+plots correspond to the periodic boundaries at h "03 and 303, and the
+scale ranges from 0 to 5.2 m s~1 for both plots.
+Fig. 6. Contour plots of the predicted turbulence intensity in the
+annular passage following the swirl vanes for both turbulence models.
+The contour plots correspond to the periodic boundaries at h"03 and
+303, and the scale ranges from 0.2 to 0.8 for the standard k}e model and
+from 0 to 0.6 for the RNG k}e model.
+Fig. 7. Variation of the alignment parameter, W, with radial position
+computed from the experimental data collected at the outlet of the
+annulus.
+Fig. 8. A comparison of the total velocity pro"le at the annulus outlet
+predicted from the numerical simulation using the standard and RNG
+k}e turbulence models and the experimental data.
+and the inability to measure the velocity in the recircula-
+tion zone is not considered signi"cant.
+The predicted radial pro"les of the velocity magnitude
+at the outlet of the annulus are presented in Fig. 8. Note
+that the location of the inner and outer walls are
+r"0.0175 and 0.0508 m, respectively. Experimental data
+obtained with the pitot probe are also shown for com-
+parison. The RNG k}e model compares well with the
+data, while the standard k}e model fails to predict
+the recirculation zone observed near the inner wall of the
+annulus. The recirculation zone is more apparent in Fig.
+9 where the axial and tangential components of velocity
+computed with the RNG k}e turbulence model are pre-
+sented. The radial velocity is negligible and is not shown.
+Near the inner wall the tangential velocity is essentially
+zero, while the axial velocity is negative. It is this recir-
+culation zone that stabilizes the #ame by transporting
+fuel vapors from the evaporating spray toward the reac-
+tion zone. Thermal energy is also transported by the
+recirculation zone in the form of combustion products,
+5316
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+
+
+--- Page 7 ---
+
+Fig. 9. The axial and tangential velocity pro"les at the annulus outlet
+predicted from the numerical simulation using the RNG k}e turbulence
+model.
+Fig. 10. Turbulent kinetic energy, k, and the turbulence dissipation
+rate, e, at the annulus outlet predicted from the numerical simulation
+using the RNG k}e turbulence model.
+thus contributing to #ame stability. It is therefore im-
+perative that predictive techniques capture this behavior
+if they are to be used successfully for the design and
+optimization of these processes.
+The error bars in Fig. 8 correspond to expanded stan-
+dard uncertainties with a coverage factor of 2 (+95%
+con"dence interval if the measurements are assumed to
+be normally distributed about the true mean). The pro-
+cedure of Taylor and Kuyatt (1994) was used in comput-
+ing the uncertainty in the experimental measurement.
+Uncertainties are classi"ed as Type A or Type B, and it is
+assumed that the combined variance is the sum of the
+component variances. The Type A variance is a straight-
+forward calculation based upon standard statistical
+practices
+applied
+to
+repeated
+measurements.
+The
+Type B uncertainties, which cannot be quanti"ed from
+replicated measurements, were estimated using the align-
+ment parameters calculated for the data obtained in the
+NIST wind tunnel and at the annulus outlet. Variations
+in W with position and velocity were considered, and
+data with unacceptably high values of W were discarded.
+For this reason, data close to the recirculation zone have
+not been reported.
+The radial pro"les of the turbulent kinetic energy, k,
+and its dissipation rate, e, at the outlet of the annulus are
+presented in Fig. 10. These results were obtained with the
+RNG k}e turbulence model. The turbulent kinetic energy
+is relatively low in the recirculation zone, but increases
+abruptly in the region of high-velocity gradients at
+r+0.023 m. Note that the dissipation rate, e, is given on
+a log scale and varies by six orders of magnitude. The
+relative turbulence intensity varies from +35 to +45%
+over the majority of the annulus outlet, with lower values
+in the recirculation zone. Recall that the outlet of the
+simulation domain corresponds to the combustion air
+inlet for the spray combustion reactor (see Fig. 1); there-
+fore, the results presented in Figs. 9 and 10 provide
+detailed reactor inlet conditions for the velocity compo-
+nents and turbulence parameters, k and e, when simula-
+ting the spray combustion process within the reactor.
+4.3. Swirl number, S
+The degree of swirl present in the combustion air
+entering a burner or furnace has a strong e!ect on the
+structure and stability of the #ame, and it is therefore an
+important parameter in the design and optimization of
+such systems. Despite the importance of characterizing
+the swirling #ow, several obstacles prevent the reliable
+prediction of highly swirling #ow "elds. As discussed
+above, one di$culty encountered when designing these
+systems is the questionable accuracy of current turbu-
+lence models for highly strained #ows. This uncertainty
+results in #ow "eld predictions that are suspect until
+validated with experimental data. In addition, geometri-
+cal and empirical correlations available in the literature
+are highly geometry dependent and often involve sim-
+plifying assumptions (e.g., inviscid #ow) that lead to large
+uncertainties in the predictions.
+BeeH r and Chigier (1974) present a correlation for pre-
+dicting the swirl number, S, obtained using vane-cascade
+swirlers, such as the one used here. The swirl number is
+a non-dimensional parameter that characterizes the de-
+gree of swirl present in the #ow. It is de"ned as (Gupta,
+Lilley, Syred, 1984)
+S" Gh
+¸Gz
+,
+(11)
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+5317
+
+
+--- Page 8 ---
+
+Fig. 11. Relationship between the vane angle, a, and the vane angle as
+de"ned by BeeH r and Chigier, a@.
+Fig. 12. Variation of the swirl number in the annulus with axial posi-
+tion. The swirl number was calculated from the simulation using the
+RNG k}e turbulence model.
+where L is a characteristic length, typically chosen to be
+the exit radius of the burner. The terms Gh and Gz are the
+axial #ux of angular momentum and the axial #ux of
+axial momentum, respectively, and are given by
+Gh"P
+4
+0
+ouzuhr2 dr
+(12)
+and
+Gz"P
+4
+0
+(ou2z#p)r dr.
+(13)
+Here uz and uh are the axial and tangential velocity
+components, respectively. For the 12-vane-cascade swirl
+generator investigated in the present study, the charac-
+teristic length used was the radial coordinate of the outer
+wall of the annulus (see Fig. 1A), ¸"R0"50.8 mm.
+The correlation presented by BeeH r and Chigier is based
+upon geometrical considerations and involves a number
+of simpli"cations. Assumptions made in the derivation of
+the correlation include inviscid #ow, a uniform axial
+velocity distribution, and negligible angular momentum
+losses through the annular region following the vanes.
+Note that the pressure term in the denominator of
+Eq. (11) is also neglected. With these constraints, the swirl
+intensity can be predicted from
+S"pR0
+2BC1!A
+Ri
+R0B
+2D,
+(14)
+where
+p"
+tan a@
+(1!X)[1#tan a@ tan(p/nv)]
+(15)
+and
+X"
+nvj
+2pRvcos a@.
+(16)
+Here, B is the vane height, j is the vane thickness, nv is the
+number of vanes, a@ is the vane angle, and Rv is the
+distance from the burner axis to the vanes. A prime is
+used to denote the vane angle de"ned by BeeH r and
+Chigier, a@, and to di!erentiate it from the vane angle, a,
+de"ned in Fig. 2B. Fig. 11 shows the relation between a@
+and a. The angle a is measured from the center of the
+vane as shown in Fig. 2B, while a@ is measured from the
+edge of the vane. In the above equations, p is the ratio of
+the average tangential and radial velocity components
+exiting the vanes, and X is a blockage factor that ac-
+counts for the thickness of the vanes.
+Using Eqs. (14)}(16), the calculated swirl number for
+the swirl generator considered here (a"503, a@"70.73)
+is S"1.0. The value of the swirl number determined
+from Eqs. (11)}(13) and the results of the numerical simu-
+lation (RNG k}e turbulence model) is S"0.49. Each of
+the assumptions presented above will lead to a geometri-
+cal correlation that overpredicts the swirl intensity. In
+addition, a comparison between experimental data and
+the correlation, Eqs. (14)}(16), shows that the swirl inten-
+sity is overpredicted by the correlation, and the discrep-
+ancy between the theory and data increases with
+increasing values of p (see Fig. 5.4 in BeeH r & Chigier,
+1974). The experimental data presented do not contain
+values of p larger than 1.5, while the value of p computed
+for the swirl generator used in this study is 2.1; thus, one
+would expect the actual value of S to be considerably less
+than that predicted by the correlation, as is the case here.
+Eqs. (14)}(16) predict the swirl intensity immediately
+following the vanes, and therefore neglect the decay of
+angular momentum that occurs in the annular passage
+downstream of the swirl vanes. The e!ect of neglecting
+angular momentum losses can be explored using the
+numerical simulation by evaluating S at various axial
+locations in the annulus. Fig. 12 presents the computed
+values of the swirl number in the passage. The swirl
+intensity of the air entering the annulus immediately
+5318
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+
+
+--- Page 9 ---
+
+downstream of the vanes is approximately S"0.54, and
+it is reduced to S"0.49 by the exit of the annulus. While
+the swirl number is reduced due to the angular mo-
+mentum losses in the annular passage, it does not appear
+to be the dominant reason that the geometrical correla-
+tion overpredicts the exiting swirl intensity for this
+con"guration.
+The swirl number, S, has been shown to be an impor-
+tant similarity variable for geometrically similar swirl
+generators (BeeH r & Chigier, 1974; Gupta et al., 1984).
+However, it should be used with caution when compar-
+ing the swirl intensity produced by di!erent types of swirl
+generators. There is some ambiguity due to the choice of
+a characteristic length in Eq. (11), and S is often cal-
+culated neglecting the pressure term in Eq. (13), which
+can result in much higher values of S. It is therefore
+prudent to use care when designing or optimizing pro-
+cesses based upon swirl number correlations.
+5. Conclusions
+The air #ow through a vane-cascade swirl generator
+was investigated both experimentally and computation-
+ally. The experiments reveal a recirculation region near
+the inner wall at the outlet of the annulus, and this region
+is predicted using the RNG k}e turbulence model. The
+standard k}e turbulence model is unable to predict the
+recirculation region for this #ow "eld, and results in
+overly dispersive velocity and turbulence predictions.
+Previous investigators have reported superior perfor-
+mance for the RNG k}e model over the standard k}e
+model for highly strained #ows, and the results of this
+investigation provide further validation for this turbu-
+lence model for con"ned, swirling #ows.
+The simulation incorporating the RNG k}e model
+results in a swirl number, S, of 0.49 exiting the annular
+region following the swirl vanes. A geometrical correla-
+tion from the literature overpredicts the swirl intensity by
+a factor of two, and the likely causes have been discussed.
+In addition, the inlet condition for the combustion air
+corresponding to the baseline case of NIST's benchmark
+database for the validation of multiphase combustion
+models has been characterized.
+Notation
+B
+vane height
+C1e, C2e, Ck
+constants in turbulence model equations
+D0
+inner diameter of the outer pipe of the
+annular regions
+Di
+outer diameter of the inner pipe of the
+annular regions
+Fi
+body forces
+Gk
+generation of k due to turbulent stresses
+Gh
+axial #ux of angular momentum
+Gz
+axial #ux of axial momentum
+k
+turbulent kinetic energy
+¸
+characteristic length
+¸v
+vane length
+nv
+number of vanes
+p
+static pressure
+p0
+total pressure
+pn
+static pressure at location n
+Prt
+turbulent Prandtl number
+r
+radial coordinate
+R0
+radial location of the outer wall of the
+annular passages
+Re
+Reynolds number
+Ri
+radial location of the inner wall of the
+annular passages
+Rv
+distance from the burner axis to the vanes
+S
+swirl number
+t
+time
+¹
+temperature
+u,u6
+mean velocity
+ui, uj, uk
+velocity components in Cartesian coordi-
+nates
+uh
+tangential velocity component
+uz
+axial velocity component
+u6 z
+mean axial velocity based upon the vol-
+umetric #ow rate
+xi, xj, xk
+Cartesian coordinates
+z
+axial coordinate
+Greek letters
+a
+vane angle de"ned in Fig. 2B
+a@
+vane angle de"ned by BeeH r and Chigier
+(1974)
+as
+swirl constant
+dij
+Kronecker delta
+e
+turbulence dissipation rate
+h
+polar angle
+j
+vane thickness
+k
+viscosity
+kt
+eddy or turbulent viscosity
+l
+kinematic viscosity
+o
+density
+p
+ratio of the average tangential and radial
+velocity components
+pk, pe
+constants in the turbulence model equa-
+tions
+X
+blockage factor
+W
+alignment parameter
+Acknowledgements
+The authors would like to thank Pedro Espina and
+Lanre Oshinowo for their assistance with the computa-
+tional aspects of this research, Mike Hall for his help with
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320
+5319
+
+
+--- Page 10 ---
+
+the wind tunnel measurements, and Mike Carrier for
+technical support. One of the authors (JFW) wishes to
+acknowledge the "nancial support of the NRC/NIST
+Postdoctoral Research Program. The helpful comments
+of Francine Battaglia and Tim Johnson concerning this
+manuscript are also acknowledged.
+References
+BeeH r, J. M., & Chigier, N. A. (1974). Combustion aerodynamics. London:
+Applied Science.
+Benim, A. C. (1990). Finite element analysis of con"ned turbulent
+swirling #ows. International Journal of Numerical Methods in Fluids,
+11, 697}717.
+Bird, R. B., Stewart, W. E., & Lightfoot, E. N. (1960). Transport phe-
+nomena. New York: Wiley.
+Fluent 5 User's Guide. (1998). Fluent Incorporated, Lebanon, NH
+03766 USA.
+Gupta, A. K., Lilley, D. G., & Syred, N. (1984). Swirl yows. Kent:
+Abacus Press.
+Hinze, J. O. (1975). Turbulence. New York: McGraw-Hill Publishing
+Co.
+Issa, R. I. (1986). Solution of implicitly discretized #uid #ow equations
+by operator splitting. Journal of Computational Physics, 62, 40}65.
+Jaw, S. Y., & Chen, C. J. (1998). Present status of second-order closure
+turbulence models I: Overview. Journal of Engineering Mechanics,
+124, 485}501.
+Launder, B. E., & Spalding, D. B. (1972). Lectures in mathematical
+models of turbulence. London: Academic Press.
+Launder, B. E., & Spalding, D. B. (1974). The numerical computation of
+turbulent #ows. Computer Methods in Applied Mechanics and Engin-
+eering, 3, 269}289.
+Lien, F. S., & Leschziner, M. A. (1994). Assessment of turbulence-
+transport models including non-linear RNG eddy-viscosity formu-
+lation and second-moment closure for #ow over a backward-facing
+step. Computers in Fluids, 23, 983}1004.
+Papageorgakis, G. C., & Assanis, D. N. (1999). Comparison of linear
+and nonlinear RNG-based k}e models for incompressible turbulent
+#ows. Numerical Heat Transfer, Part B, 35, 1}22.
+Sheen, H. J., Chen, W. J., & Wu, J. S. (1997). Flow patterns for an
+annular #ow over an axisymmetric sudden expansion. Journal of
+Fluid Mechanics, 350, 177}188.
+Shyy, W., Thakur, S. S., Ouyang, H., Liu, J., & Blosch, E. (1997).
+Computational techniques for complex transport phenomena (pp.
+163}230). Cambridge, UK: University Press.
+Smith, L. M., & Reynolds, W. C. (1992). On the Yakhot-Orszag renor-
+malization group method for deriving turbulence statistics and
+models. Physics of Fluids A, 4, 364}390.
+Taylor, B. N., & Kuyatt, C. E. (1994). Guidelines for evaluating and
+expressing the uncertainty of NIST measurement results. NIST
+Technical Note 1297, 1994 Edition.
+Widmann, J. F., Charagundla, S. R., Presser, C., & Heckert, A. (1999).
+Benchmark experimental database for multiphase combustion model
+input and validation: baseline case. NISTIR 6286. National Institute
+of Standards and Technology, Gaithersburg, MD 20899-8360,
+USA.
+Yakhot, V., & Orszag, S. A. (1986). Renormalization group analysis of
+turbulence: I. Basic theory. Journal of Scientixc Computing, 1, 1}51.
+Yakhot, V., Orszag, S. A., Thangam, S., Gatski, T. B., & Speziale, C. G.
+(1992). Development of turbulence models for shear #ows by
+a double expansion technique. Physics of Fluids A, 4, 1510}1520.
+Yakhot, V., & Smith, L. M. (1992). The renormalization group, the
+e-expansion and the derivation of turbulence models. Journal of
+Scientixc Computing, 7, 35}61.
+Yin, M., Shi, F., & Xu, Z. (1996). Renormalization group based k}e
+turbulence model for #ows in a duct with strong curvature. Interna-
+tional Journal of Engineering Science, 34, 243}248.
+5320
+J.F. Widmann et al. / Chemical Engineering Science 55 (2000) 5311}5320

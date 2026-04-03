@@ -1,0 +1,492 @@
+
+--- Page 1 ---
+
+PREDICTION OF TURBULENT PLANE JET IN CROSSFLOW
+Kalyan Kalita, Anupam Dewan, and Anoop K. Dass
+Department of Mechanical Engineering, Indian Institute of Technology,
+Guwahati, North Guwahati, Guwahati, India
+In this article numerical predictions of turbulent plane jets discharged normal to a weak or
+moderate cross stream are presented. The Reynolds-averaged Navier–Stokes equations with
+the standard k± e turbulence model have been used to formulate the  ow problem. The
+governing equations that are elliptic in nature are solved using the  nite volume method.
+The predictions are presented to illustrate the  ow pattern involved and to assess the per-
+formance of the standard k± e model by comparison with available experimental data for
+three different jet to cross stream velocity ratios (six, nine, and ten) and the agreement is
+found to be satisfactory.
+INTRODUCTION
+Turbulent jets in a cross¯ ow have been used in many engineering ® elds. Among
+various con® gurations of jets in a cross¯ ow, turbulent plane jets injected normally
+into a uniform cross stream have numerous applications. Film cooling, eƒ uent
+discharged into the atmosphere and into water bodies, and industrial mixing are a
+few examples of such applications.
+The problem of a turbulent plane jet discharged through a slot into a cross¯ ow
+has received considerably less attention in comparison to the round or rectangular jet
+in a cross¯ ow. A turbulent plane jet in a cross¯ ow di ers from the turbulent round
+or rectangular jet as in the former the jet stream completely blocks the path of the
+cross stream in the near ® eld of the jet discharge. According to Demuren [1] the ¯ ow
+® eld of the plane turbulent jet is nominally three dimensional, and the computation
+of a two-dimensional ¯ ow ® eld is adequate for such a ¯ ow con® guration.
+Carter [2] studied heated turbulent plane jets in a con® ned cross¯ ow where he
+measured the temperature trajectories, de® ned as the locus of local maximum tem-
+perature, for three di erent values of jet to cross stream velocity ratios (R).
+Ramaprian and Haniu [3, 4] reported their experimental ® ndings of turbulent plane
+nonbuoyant isothermal and heated jets in a mild cross¯ ow for R = 6:0; 9:0, and
+10.0. They have measured mean velocity components and their ¯ uctuations together
+with the mean temperature, temperature ¯ uctuations, and heat ¯ uxes for heated jets.
+They also checked the two dimensionality of the ¯ ow ® eld and concluded that ¯ ow
+can be considered as two dimensional (within 5% of the mean velocity variation).
+Received 20 July 2000; accepted 12 July 2001.
+Address correspondence to Dr. A. Dewan, Associate Professor, Department of Mechanical
+Engineering, Indian Institute of Technology, Guwahati, North Guwahati, Guwahati, 781039, India.
+Numerical Heat Transfer, Part A, 41: 101± 111, 2002
+Copyright # 2002 Taylor & Francis
+1040-7782 /02 $12.00 + .00
+101
+
+
+--- Page 2 ---
+
+Ramaprian and Haniu [5] also have reported the measurements of mean and tur-
+bulent quantities for the case of buoyant jets for the same con® guration. Flacks et al.
+[6] measured the velocity ® eld in the mixing region of a slot jet injected normal to a
+con® ned cross¯ ow for three di erent jet to cross stream momentum ratios, viz., 3.1,
+8.1, and 16.2. They also investigated the two dimensionality of the ¯ ow ® eld and
+concluded that the ¯ ow does not exhibit three dimensionality in the region under
+consideration. McGuirk and Rodi [7] numerically predicted turbulent plane jets in a
+cross¯ ow of a con® ned environment. They studied the side discharge into a rec-
+tangular channel ¯ ow using the depth-averaged version of the k± e model [8] and
+predicted the jet trajectories, stream line pattern, and recirculation eddy size. They
+presented comparison of their predictions with the experimental observations of
+Mikhail et al. [9] and Carter [2] and the agreement is reasonably good. Sarkar and
+Bose [10] predicted characteristics of a two-dimensional turbulent plane jet in a
+cross¯ ow where a cold jet stream is discharged into a strong cross stream (R µ 1:0)
+of hot ¯ uid. They compared the performances of ® ve di erent turbulence models.
+The models they have tested are low-Reynolds-number versions of the k± e model by
+Lam and Bremhorst [11] and Chien [12], the low Reynolds number version of the
+k± o model of Wilcox [13], and the algebraic eddy viscosity model of Baldwin and
+Lomax [14] and its modi® ed form. They found that the performance of the Lam±
+Bremhorst [11] model is relatively good. However, they have not made any com-
+parison with experimental observation for the ¯ ow parameters.
+The standard k± e model [15] has been used extensively to simulate the tur-
+bulent round jets in a cross¯ ow. Patankar et al. [16], Catalano et al. [17], Hwang and
+Chiang [18], He et al. [19], and many others have predicted round turbulent jets in a
+weak and moderate cross¯ ow (R ¶ 2) using the standard k± e model. Predictions of
+turbulent plane jet in a weak or moderate cross¯ ow have not been found in the
+literature. The lack of enough experimental data may be one reason for this. In the
+current work predictions of turbulent plane jets in a uniform weak and moderate
+cross¯ ow are presented using the standard k± e model. The ¯ ow con® guration and
+NOMENCLATURE
+c
+model constant
+D
+nozzle width at the exit
+k
+turbulent kinetic energy
+n
+coordinate perpendicular
+to jet trajectory
+p
+mean pressure
+Pk
+production of k
+R
+jet to cross stream velocity ratio (= uj=va)
+s
+distance along the jet trajectory from the
+middle of jet slot
+u
+mean velocity along the direction of the
+jet at the discharge (x-direction)
+Um
+local maximum of the mean velocity
+Umean
+mean velocity
+u0
+¯ uctuating velocity component in
+x-direction
+u0
+rms
+root mean square value of u0
+n
+mean velocity along cross stream
+direction (y-direction)
+n0
+¯ uctuating velocity component in
+y-direction
+x
+coordinate along the direction of the jet
+at the discharge
+y
+coordinate along cross stream direction
+e
+rate of dissipation of k
+nt
+eddy viscosity
+r
+density
+se
+model constant
+sk
+model constant
+Subscripts
+a
+ambient condition
+j
+jet condition at the discharge
+max
+maximum value
+102
+K. KALITA ET AL.
+
+
+--- Page 3 ---
+
+associated coordinates are shown in Figure 1. The predicted results are compared
+with the available experimental observations [3, 4]. The mathematical formulation
+and numerical method used are described in the next two sections, followed by re-
+sults and discussions.
+MATHEMATICAL FORMULATION
+Governing Equations
+We consider a two-dimensional ¯ ow ® eld where the jet is discharged normally
+with a uniform velocity of uj through a slot of width D into a uniform cross stream of
+velocity va. The ¯ ow is assumed to be incompressible and the molecular viscosity is
+neglected except in the near wall region. Thus the Reynolds-averaged governing
+equations can be written as
+(i) Continuity
+qu
+qx
+‡ qv
+qy = 0
+(1)
+Figure 1. Flow con¢guration and coordinate system of the problem.
+TURBULENT PLANE JET IN CROSSFLOW
+103
+
+
+--- Page 4 ---
+
+(ii) x-momentum
+u qu
+qx ‡ v qu
+qy = ± 1
+r
+qp
+qx ‡ q
+qx (± u02) ‡ q
+qy (± u0v0)
+(2)
+(iii) y-momentum
+u qv
+qx
+‡ v qv
+qy = ± 1
+r
+qp
+qy
+‡ q
+qx (± u0v0) ‡ q
+qy (± v02)
+(3)
+Here u and v are the mean velocities along the direction of the jet at the discharge (x)
+and cross¯ ow (y), respectively, and p is the mean pressure. The primed quantities
+represent ¯ uctuations.
+Turbulence Model
+We have used the standard k± e model [15] and the turbulent stresses are
+modeled as
+± u0v0 = nt
+qu
+qy ‡ qv
+qx
+(4)
+± u02 = 2nt
+qu
+qx
+± 2
+3 k
+(5)
+Figure 2. Predicted jet trajectories of turbulent plane jet in a cross£ow compared with the measurements
+for R = 6 and 10.
+104
+K. KALITA ET AL.
+
+
+--- Page 5 ---
+
+± v02 = 2nt
+qv
+qy
+± 2
+3 k
+(6)
+where
+nt = cm
+k2
+e
+(7)
+Here nt is the eddy viscosity, cm is a model constant, k is the turbulent kinetic energy,
+and e is the dissipation rate of the turbulent kinetic energy. The transport equations
+for turbulent kinetic energy and its dissipation are given by
+u qk
+qx ‡ v qk
+qy =
+q
+qx
+nt
+sk
+qk
+qx
+‡ q
+qy
+nt
+sk
+qk
+qy
+‡ Pk ± e
+(8)
+u qe
+qx ‡ v qe
+qy =
+q
+qx
+nt
+se
+qe
+qx
+‡ q
+qy
+nt
+se
+qe
+qy
+‡ c1
+e
+k Pk ± c2
+e2
+k
+(9)
+where Pk is the rate of production of k and is given by
+Pk = nt
+qu
+qy
+‡ qv
+qx
+2
+‡2
+qu
+qx
+2
+‡2
+qv
+qy
+2
+"
+#
+(10)
+Figure 3. Predicted maximum mean velocitydecayof turbulent plane jets in a cross£ow compared with the
+measurements for R = 6, 9, and10.
+TURBULENT PLANE JET IN CROSSFLOW
+105
+
+
+--- Page 6 ---
+
+The values of the model constants are taken as cm = 0:09, c1 = 1:44, c2 = 1:92,
+sk = 1:0, se = 1:3, as suggested by Launder and Spalding [15].
+Computational Domain and Boundary Conditions
+A rectangular domain is considered for the present computation. In the direc-
+tion of cross¯ ow, the upstream (left) boundary is considered su ciently far away
+from the jet slot, as suggested by Amer et al. [20]. The downstream (right) boundary is
+placed su ciently away from the jet slot such that a zero gradient condition for all the
+variables can be applied [21]. The wall from which the jet emanates constitutes the
+bottom boundary of the domain, and the top boundary is placed su ciently away
+from the bottom so that an initial cross stream velocity condition prevails there [18].
+The size of the computational domain depends upon R. For example, for R = 10 we
+consider a domain of (5D ‡ 120D) along the y-direction and 240D along x-direction.
+Except at the jet discharge, the bottom boundary is considered as a solid wall
+where the boundary conditions are obtained using the wall function [15]. It is as-
+sumed that the universal logarithmic velocity pro® le prevails in the vicinity of the
+wall. Turbulent kinetic energy is zero at the wall, and its dissipation rate in the near
+wall region is assumed to be inversely proportional to the distance from the wall [16].
+For the other three boundaries and at the jet origin we have used the conditions as
+Figure 4. Predicted mean velocity vector plot of a turbulent plane jet in cross£ow for R = 10.
+106
+K. KALITA ET AL.
+
+
+--- Page 7 ---
+
+suggested by Hwang and Chiang [18]. The conditions for the left boundary are u = 0,
+v = va, k = 0:04va2, and e = k3=2=0:06xmax. The same conditions are applied at the
+top boundary. At the right boundary normal gradient of all the variables are con-
+sidered to be zero. At the jet discharge we consider u = uj, v = 0, kj = 0:001uj2, and
+e= k3=2/0:5D. As the velocities at the boundaries are speci® ed, no information about
+pressure is needed at the boundary [16] and therefore no boundary value for the
+pressure is prescribed.
+NUMERICAL METHOD
+In the current study we have used the ® nite-volume method with nonuni-
+form staggered grids where the velocity components are positioned in the middle
+of the sides of a control volume, and other variables (p, k, and e) are positioned
+in the center of the control volume [22]. The equations involved in this study are
+elliptic in nature. To solve these equations a computer code is developed based on
+the SIMPLER algorithm [22]. The convection terms together with the di usion
+terms of the transport equations for all the variables are discretized using the
+power-law scheme [22]. The systems of linear algebraic equations are solved by
+alternating the direction of the line-by-line iteration method using the tri-diagonal
+matrix algorithm. At each iteration, the variables u, v, k, and e are underrelaxed.
+The values of the underrelaxation parameters are taken as 0.45 for u, k, and e,
+and 0.75 for v.
+To validate the present computer code, we have predicted the centerline
+velocity decay of the turbulent con® ned impinging slot jet ¯ ow and compared the
+results with those of Seyedein et al. [23] and the agreement is found to be good. The
+di erence between the two pro® les is less than 4% at any location. For this purpose
+we have used the wall functions [15] for both the top and the bottom boundaries.
+Figure 5. Predicted mean velocity distribution and isocontours of turbulent plane jet in cross£ow for
+R = 10.
+TURBULENT PLANE JET IN CROSSFLOW
+107
+
+
+--- Page 8 ---
+
+The grid sensitivity of the present computation is tested using three di erent
+sets of grids, viz., 50630 (50 along the x- and 30 along the y-direction), 60640, and
+70650. The predicted pro® les of the centerline velocity decay have been used to
+check the grid sensitivity of the computation. From the comparison it is observed
+that the variations between the predicted results with grid numbers 60640 and
+70650 are less then 2% and between 50630 and 60640 the di erence is 3%.
+RESULTS AND DISCUSSIONS
+There are not many experimental observations for the ¯ ow situation con-
+sidered here. We have found only the observations made by Ramaprian and Haniu
+[3, 4] and, therefore, present predictions are compared with their observations only.
+Jet trajectory, one of the important characteristics of a jet in a cross¯ ow, is
+de® ned as the locus of the local maximum velocity. From the analysis of the trajec-
+tory, we can obtain a qualitive representation of the ¯ ow ® eld and jet de¯ ection. In
+Figure 2 predicted jet trajectories are compared with the measured data [4] for R = 6
+and 10. From the comparison it is observed that agreement between predictions and
+experimental data is fairly good. The ® gure shows that the lower the value of R, the
+higher the jet de¯ ection. Due to the mixing of the two streams the local maximum
+mean velocity (Um) decreases along the jet trajectory. In Figure 3 the nondimensional
+maximum velocity decay is compared with the experimental data [3]. The plots show
+that predicted pro® les agree well with experimental observations. The predicted
+pro® les show that in the vicinity of the jet origin (x=D º 3) slight acceleration of the
+Figure 6. Predicted u=uj pro¢les of turbulent plane jet in cross£ow at di¡erent s=D locations compared
+with the measurements for R = 10.
+108
+K. KALITA ET AL.
+
+
+--- Page 9 ---
+
+¯ ow occurs. A similar observation is also reported by Sarkar and Bose [10]. However,
+no experimental data are available in that region for comparison with the predictions.
+The mean velocity vector plot of the ¯ ow ® eld is presented in Figure 4 for
+R = 10. From the plot it is observed that the cross stream is completely blocked by the
+jet stream in the near ® eld and then the jet stream becomes de¯ ected under the in-
+¯ uence of the cross stream. The amount of penetration of the jet into the cross¯ ow
+and de¯ ection of the jet depend upon the value of R. From the present predictions
+(Figure 2) we can observe that the higher the value of R, the more penetration and
+less de¯ ection. The mean velocity (Umean) distribution for the whole computational
+domain is shown in Figure 5 together with its isocontours for R = 10. The ® gure
+illustrates the details of the ¯ ow ® eld generated due to the mutual interaction of the
+jet and the cross stream. It is observed that the jet width increases along the length
+of the jet. Predictions for R = 6 and 9 also show similar trends (not shown here).
+Present predictions of the mean velocity components are compared with the
+experimental observations [3] at di erent locations of the ¯ ow ® eld for R = 10 in
+Figures 6 and 7. The experimental data are available in the s± n coordinates where
+s is along the jet trajectory and n is normal to the jet trajectory. The plots of non-
+dimensional ¯ ow parameters against n=D at di erent values of s=D have been used
+for the comparison of the present predictions with the experimental observations.
+Figure 6 shows that agreement between the predicted and the experimental values of
+the mean velocity in the x-direction is reasonably good. The comparison of pro® les
+of the mean velocity in the direction of cross¯ ow (Figure 7) shows that the predicted
+values are higher than the experimental data for lower values of s=D. Considering
+Figure 7. Predicted v=uj pro¢les of turbulent plane jet in cross£ow at di¡erent s=D locations compared
+with the measurements for R = 10.
+TURBULENT PLANE JET IN CROSSFLOW
+109
+
+
+--- Page 10 ---
+
+the possibility of presence of large experimental scatter for the measurement of v for
+the whole range of measurements along n, as mentioned by Ramaprian and Haniu
+[3], the present predictions are satisfactory. The plots of the root mean square values
+of the ¯ uctuating velocity component in the x-direction (Figure 8) show that the
+agreement between the predictions and the measurements is reasonably good.
+CONCLUSIONS
+It is shown that the important ¯ ow con® guration of turbulent plane jets in
+weak and moderate cross¯ ows can be predicted using the standard k± e model with
+moderate success. The comparison between the present predictions and the experi-
+mental data shows good qualitative agreement and reasonable quantitative agree-
+ment on most features.
+REFERENCES
+1. A. O. Demuren, Modeling Turbulent Jets in Cross¯ ow, in N. P. Cheremisino (ed.),
+Encyclopedia of Fluid Mechanics, chap. 17, vol. 2, Gulf Publishing Company, Houston,
+TX, 1986.
+2. H. H. Carter, A Preliminary Report on the Characteristics of a Heated Jet Discharged
+Horizontally into a Transverse Current, Part 1Ð
+Constant Depth, Technical Report No.
+61, Chesapeake Bay Inst., Johns Hopkins University, Baltimore, MD, 1969.
+Figure 8. Predicted u0
+rms=uj pro¢les of turbulent plane jet in cross£ow at di¡erent s=D locations compared
+with the measurements for R = 10.
+110
+K. KALITA ET AL.
+
+
+--- Page 11 ---
+
+3. B. R. Ramaprian and H. Haniu, Turbulence Measurements in Plane Jets and Plumes in
+Cross Flow, Technical Report No. 266, IIHR, University of Iowa, Iowa City, IA, 1983.
+4. H. Haniu and B. R. Ramaprian, Studies on Two-Dimensional Curved Nonbuoyant Jets in
+Cross Flow, ASME Journal of Fluids Engineering, vol. 111, pp. 78± 86, 1989.
+5. B. R. Ramaprian and H. Haniu, Measurements in Two-Dimensional Plume in Cross¯ ow,
+ASME Journal of Fluids Engineering, vol. 111, pp. 130± 138, 1989.
+6. R. Flacks, K. Dullenkopf, and V. Scherer, Constituency Measurements in the Mixing
+Region of a Cross Flow Jet Using a Laser Velocimeter, Experiments in Fluids, vol. 17,
+pp. 198± 204, 1994.
+7. J. J. McGuirk and W. Rodi, A Depth-Averaged Mathematical Model for the Near Field
+of Side Discharges into Open-Channel Flow, Journal of Fluid Mechanics, vol. 86, pp. 761±
+781, 1978.
+8. W. Rodi, Turbulence Models and Their Application in HydraulicsÐ
+A State of the Art
+Review, Int. Assoc. for Hyd. Reasearch, Madrid, Spain, 1980.
+9. R. Mikhail, V. H. Chu, and S. B. Savage, The Reattachment of a Two-Dimensional
+Turbulent Jet in a Con® ned Cross Flow, Proc. 16th IAHR Cong., vol. 3, pp. 414± 419, SaÄ o
+Paulo, Brazil, 1975.
+10. S. Sarkar and T. K. Bose, Comparison of Di erent Turbulence Models for Prediction
+of Slot-Film Cooling: Flow and Temperature Field, Numerical Heat Transfer, Part B,
+vol. 28, pp. 217± 238, 1995.
+11. C. K. G. Lam and K. Bremhorst, A Modi® ed Form of the k± e Model for Predicting Wall
+Turbulence, ASME Journal of Fluids Engineering, vol. 103, pp. 456± 460, 1981.
+12. K. Chien, Prediction of Channel and Boundary-Layer Flows with a Low-Reynolds
+Number Turbulence Model, AIAA Journal, vol. 20, no. 1, pp. 33± 38, 1982.
+13. D. C. Wilcox, Comparison of Two-Equation Turbulence Models for Boundary Layers
+with Pressure Gradient, AIAA Journal, vol. 31, no. 8, pp. 1414± 1421, 1993.
+14. B. S. Baldwin and H. Lomax, Thin Layer Approximation and Algebraic Model for Se-
+parated Turbulent Flows, AIAA Paper 78± 257, pp. 1± 8, 1978.
+15. B. E. Launder and D. B. Spalding, The Numerical Prediction of Turbulent Flows,
+Computer Methods in Applied Mechanics and Engineering, vol. 3, pp. 269± 289, 1974.
+16. S. V. Patankar, D. K. Basu, and S. A. Alpay, Prediction of Three-Dimensional Velocity
+Field of a De¯ ected Turbulent Jet, ASME Journal of Fluid Engineering, vol. 99, pp. 758±
+762, 1977.
+17. G. D. Catalano, K. S. Chang, and J. A. Mathis, Investigation of Turbulent Jets Im-
+pingement in a Con® ned Cross¯ ow, AIAA Journal, vol. 27, pp. 1530± 1535, 1989.
+18. R. R. Hwang and T. P. Chiang, Numerical Simulation of Vertical Forced Plume in a
+Cross¯ ow of Stably Strati® ed Fluid, ASME Journal of Fluids Engineering, vol. 117,
+pp. 696± 705, 1995.
+19. G. He, Y. Guo, and A. T. Hsu, The E ect of Schmidt Number on Turbulent Scalar
+Mixing in a Jet-in-Cross¯ ow, Int. Journal of Heat Mass Transfer, vol. 42, pp. 3727± 3738,
+1999.
+20. A. A. Amer, B. A. Jubran, and M. A. Hamdan, Comparison of Di erent Two-Equation
+Turbulence Models for Prediction of Film Cooling from Two Rows of Holes, Numerical
+Heat Transfer, Part A, vol. 21, pp. 143± 162, 1992.
+21. R. I. Sykes, W. S. Lewellen, and S. F. Parker, On the Vorticity Dynamics of a Turbulent
+Jet in a Cross¯ ow, Journal of Fluid Mechanics, vol. 168, pp. 393± 413, 1986.
+22. S. V. Patankar, Numerical Heat Transfer and Fluid Flow, Hemisphere Publishing Cor-
+poration, Washington, DC, 1980.
+23. S. H. Seyedein, M. Hasan, and A. S. Mujumdar, Modeling of a Single Con® ned Turbulent
+Slot Jet Impingement Using Various k± e Turbulence Models, Applied Mathematical
+Modeling, vol. 18, pp. 526± 537, 1994.
+TURBULENT PLANE JET IN CROSSFLOW
+111

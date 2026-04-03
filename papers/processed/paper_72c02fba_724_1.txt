@@ -1,0 +1,705 @@
+
+--- Page 1 ---
+
+Albert F. Storace
+Consulting Engineer Dynamics,
+Advanced Technology and Preliminary Design,
+GE Aviation,
+Cincinnati, OH
+A Simpliﬁed Method for
+Predicting the Stability of
+Aerodynamically Excited
+Turbomachinery
+A modal stability (MS) method is presented for the quick and accurate prediction of the
+stability of aerodynamically excited turbomachinery using real eigenvalue/eigenvector
+data obtained from a rotordynamics model. The modal stability method provides a means
+to compare the work of stabilizing damping forces to the work of destabilizing aerody-
+namic cross-coupled stiffness forces to predict the onset of whirl instability. The MS
+method thus indicates that unstable or self-excited whirling (sometimes called whipping)
+at one of the system’s natural frequencies is initiated when the destabilizing work equals
+or exceeds the stabilizing work. This approach provides a powerful design tool to quickly
+ascertain the effects of squeeze-ﬁlm dampers, and turbine engine architecture, including
+bearing locations and bearing support structure stiffness, on system stability.
+DOI: 10.1115/1.2720870
+Introduction
+A major destabilizing force acting on turbomachinery stages is
+the unsteady aerodynamic force, called the Thomas/Alford force.
+This force was ﬁrst postulated by Thomas 1 and Alford 2 to
+explain rotor whirl instabilities seen in steam turbines and jet en-
+gines, respectively. Therefore, this force is generally referred to as
+the Thomas/Al ford force. It is a cross-coupled stiffness force
+because its magnitude is proportional to the radial deﬂection of
+the rotor and it acts in the direction orthogonal to the deﬂection.
+Any radial deﬂection of the rotor relative to the stator creates
+circumferentially nonuniform clearances and unsteady aerody-
+namic blade forces that sum to generate the cross-coupled stiff-
+ness force. To further understand the factors involved, consider
+that the eccentric operation of the rotor results in local changes in
+mass ﬂow and efﬁciency for both the rotor blades and the stator
+vanes. The result is a circumferential perturbation of both the rotor
+blade and the stator vane forces. Furthermore, for repeating com-
+pressor or turbine stages, the change in the tangential momentum
+across the rotor blades and the stator vanes is essentially equal and
+thus the tangential forces acting on the rotor blades and the stator
+vanes are equal. This indicates that the Thomas/Alford force act-
+ing on the stator vane row is probably equal and opposite to the
+Thomas/Alford force acting on the rotor blade row. Consider tur-
+bines, where the circumferential variation in radial tip clearance
+causes a circumferential variation in efﬁciency so that the rotor
+blading with the smallest clearance would be the most efﬁcient
+and would be more highly loaded than the blades with larger
+clearance. Thus for turbines, the cross-coupled aerodynamic stiff-
+ness force tends to promote forward whirl of the rotor and back-
+ward whirl of the stator. Actually, the countering cross-coupled
+stiffness forces reduce the net destabilizing energy fed into the
+turbomachine system and it would whirl in the forward direction,
+that is, in the same direction as the turbine rotation spin under
+the inﬂuence of the turbine cross-coupled stiffness forces. For
+compressor eccentric operation, the cross-coupled stiffness force
+can promote either forward or backward whirl of the turboma-
+chinery system relative to the direction of the compressor rotation
+based on the test data and analysis results for compressors re-
+ported by Ehrich 3 and Storace et al. 5,6. This is because the
+local mass ﬂow decreases faster than the efﬁciency increases on
+the reduced clearance side of the eccentric compressor rotor. Since
+torque is directly proportional to mass ﬂow and inversely propor-
+tional to efﬁciency, the more-rapidly decreasing mass ﬂow prob-
+ably more than counteracts the effect of decreasing efﬁciency.
+This suggests that the local reductions in mass ﬂow for the whirl-
+ing compressor rotor are actually more important than the local
+reductions in efﬁciency. The two opposing actions impact both the
+sign and the magnitude of the Thomas/Alford force for compres-
+sors.
+Provided herein is a method to predict the onset of instability
+through a comparison of the destabilizing work done by the
+Thomas/Alford force and the stabilizing work done by damping
+forces. An initial version of the method was presented by Storace
+4 and this paper expands and reﬁnes the methodology to include
+multiple rotors, the prediction of rotor forward and backward
+whirl instability, and to reﬂect further aerodynamic cross-coupled
+stiffness force test data and analysis results for compressors re-
+ported by Ehrich 3 and Storace et al. 5,6.
+The method for predicting the onset of instability is called the
+modal stability criterion MSC. It provides a simpliﬁed approach
+using real modes to predict rotor stability and goes beyond the
+theory and mathematical models customarily used to predict ro-
+tordynamic instability caused by blading aerodynamic forces in
+that, as discussed above, it is postulated that the Thomas/Alford
+force acts on both the rotor blade and the stator vane rows.
+Derivation of the Modal Stability Criterion
+The following equation deﬁnes the rotor and stator physical
+Thomas/Alford forces acting on both the rotor blade and stator
+vane rows of a turbine or compressor stage in the ground ﬁxed
+X-Y coordinate system,
+
+FXR
+FYR
+FXS
+FYS
+=
+0
+−KXY
+0
+KXY
+KYX
+0
+−KYX
+0
+0
+KXY
+0
+−KXY
+−KYX
+0
+KYX
+0 
+XR
+YR
+XS
+YS
+1
+Contributed by the Turbomachinery Division of ASME for publication in the
+JOURNAL OF TURBOMACHINERY. Manuscript received August 11, 2006; ﬁnal manuscript
+received August 29, 2006. Review conducted by David Wisler. Paper presented at
+the Eleventh International Symposium on Transport Phenomena and Dynamics of
+Rotating Machinery, 2006.
+724 / Vol. 129, OCTOBER 2007
+Copyright © 2007 by ASME
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 2 ---
+
+In Eq. 1, XR,YR,XS,YS are the horizontal and vertical deﬂec-
+tions of the rotor and stator at the rotor blade station axial loca-
+tion. As previously postulated, Eq. 1 indicates that the rotor
+blade row forces FXR,FYR are equal and opposite to the stator
+vane row forces FXS,FYS. In addition, it is assumed that the am-
+plitudes of the cross-coupled stiffness coefﬁcients KXY,KYX are
+equal.
+KXY = Thomas/Alford cross–coupled stiffness coefficient
+for the rotor blade row = KXY = T
+DPH
+lb
+in
+2
+where T is the stage rotor blade row torque, in. lb., DP is the stage
+rotor blade pitch diameter, in., and H is the stage rotor blade
+height, in.
+ beta is the change in thermodynamic efﬁciency per unit
+change in blade-tip clearance, expressed as a fraction of blade
+height the Thomas/Alford coefﬁcient which represents the non-
+dimensional cross-coupled stiffness. In the development to fol-
+low, positive negative beta indicates that the cross-coupled stiff-
+ness force promotes forward backward rotor whirl,
+For circular whirl: XR = AR cos t
+YR = AR sin t
+and
+XS = AS cos t
+YS = AS sin t
+where AR and AS are the amplitudes of the physical whirl displace-
+ment vectors of the rotor and stator, respectively, at the rotor blade
+station and  rad/s is the whirl frequency. The whirl displacement
+vectors will be expressed in terms of modal displacements ob-
+tained from an undamped mode of the turbomachinery system
+turbine engine. Therefore, since the rotating modal displacement
+vectors obtained from the undamped mode real mode are collin-
+ear, the physical whirl displacement vectors can be treated like
+scalars. Transforming the cross-coupled stiffness forces from a
+ground ﬁxed X-Y Cartesian coordinate system to a polar coordi-
+nate system radial, tangential directions rotating at angular speed
+ gives the following:
+Obviously the rotor blade and stator vane row radial forces are
+zero as the cross-coupled stiffness forces provide no direct stiff-
+ness or restoring force component, that is, no structural stiffening
+is added to the system. Only tangential force components are pro-
+vided as follows:
+Tangential force cross-coupled stiffness force
+acting on the rotor blade row
+= FR = KXYAR −AS lbs.
+Tangential force cross-coupled stiffness force
+acting on the stator vane row
+= FS = −KXYAR −AS lbs.
+Deﬁne R and S as the rotor and stator modal displacements,
+respectively, in an engine plane at the rotor blade station for a
+given mode. Thus, AR=RSF in. and AS=SSF in. where SF is
+the generalized coordinate for the mode represents the scale fac-
+tor that converts modal displacements to physical displacements.
+Then, for the mode under consideration, the cross-coupled stiff-
+ness forces acting on the rotor blade and the stator vane rows are
+FR = KXYR −SSF lbs.
+FS = −KXYR −SSF lbs.
+3
+Refer to Fig. 1.
+Assuming forward whirl, the destabilizing rotor blade row work
+performed by the cross-coupled stiffness force per cycle of vibra-
+tion at the rotor blade station is
+WR = 2KXYR −SRSF2 in. lb.
+The stator vane row work for forward whirl is stabilizing ex-
+tracts energy from the system and is equal to the amplitude of the
+cross-coupled stiffness force times the distance traveled by the
+stator center at the stator vane station for one whirl cycle. If the
+axial offset between the rotor blades and stator vanes of a stage is
+ignored, then the distance traveled can be approximated as
+2SSF. Then the stator vane row work for forward whirl is
+Ws = −2KXYR −SSSF2 in. lb.
+The net destabilizing work for a stage per cycle of vibration is
+shown in Eq. 4,
+W = WR + WS = 2KXYR
+2 −RS −RS + S
+2SF2
+= 2KXYR −S2SF2 in. lb.
+4
+Note
+that
+mathematically,
+the
+net
+work
+W=2KXYR
+−S2SF2 can be associated with the work of an equivalent “nega-
+tive damping element” connecting the rotor and the stator when
+KXY is replaced by CE, where CE is the effective damping coef-
+ﬁcient.
+Summing the destabilizing energy over the compressor and tur-
+bine stages of the engine for both the high and low pressure
+rotors, the total energy is given by
+WT = 2SF2	
+Turb
+KXYTRT −ST2
+± 
+Compr
+KXYCRC −SC2 in. lb.
+5
+where KXYT and KXYC are the individual cross-coupled stiffness
+coefﬁcients for the turbine and compressor rotor blade rows, re-
+spectively. The rotor and stator modal displacements for the tur-
+bine rotor blade stations are RT,ST, and RC,SC are the rotor
+and stator modal displacements at the compressor rotor blade sta-
+tions.
+The  sign for the compressor work summation reﬂects the
+sign of the compressor blade row beta coefﬁcients which can be
+plus or minus. This indicates that the compressor work can be
+stabilizing destabilizing for forward backward whirl of the ro-
+tor.
+The destabilizing energy WT is compared to the energy ab-
+sorbed energy dissipated by external damping by the turbine
+engine per cycle vibration for a given mode to establish the po-
+tential for whirl instability.
+The energy dissipated per cycle of vibration in an engine plane
+is
+Fig. 1
+Cross-coupled stiffness forces acting on the rotor and
+stator „forward whirl direction is counterclockwise-forward
+looking aft „FLA……
+Journal of Turbomachinery
+OCTOBER 2007, Vol. 129 / 725
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 3 ---
+
+E = 2PESF2
+Q
+in. lb.
+where Q is the turbine engine system Q-factor generalized or
+modal Q-factor for a given mode of vibration. PE= 1
+2KG=the
+engine system modal generalized potential energy in a single
+plane, where KG=TK is the generalized stiffness for the
+mode, K is the physical global stiffness matrix, and  is the
+mode shape vector. The engine system energy dissipated in two
+planes is
+ET = 2
+Q KGSF2 in. lb.
+6
+Hence, ET/WT1.0 for stability and when the expressions for the
+destabilizing and stabilizing energies are substituted in this energy
+ratio, the SF2 terms cancel and the result is the modal stability
+criterion Eq. 7,
+MSC =
+KG
+Q
+
+Turb
+KXYTRT −ST2 ± 
+Compr
+KXYCRC −SC2
+ 1.0 for stability
+7
+The absolute value of the destabilizing energy is shown in the
+denominator of the modal stability criterion equation to represent
+the case when the compressor destabilizing work is negative and
+exceeds the turbine destabilizing work. In this case, the rotor will
+undergo backward whirl if the magnitude of the negative energy
+exceeds the stabilizing energy. If the compressor destabilizing en-
+ergy is negative and the net destabilizing energy is positive, then
+the compressor provides a stabilizing inﬂuence for forward whirl
+of the rotor. In this case, the compressor cross-coupled stiffness
+force behaves as a positive damping force.
+It is expected that there is potential for only subsynchronous
+modes to be destabilized. However, for conservatism, the MSC
+value is calculated at maximum power for modes with natural
+frequencies extending to 10% above the operating speed range.
+The cross-coupled stiffnesses KXYT and KXYC are based on the
+rotor torque values at maximum power.
+The modal damping Q for the turbine engine system used in the
+MSC calculation is obtained by integrating the component cas-
+ings, rotors, frames, bearings, dampers, mounts damping contri-
+butions over the mode shape for each of the modes evaluated.
+Equation 8 gives the equation for Q for a given mode,
+Q =
+PE
+
+i=1
+ns PEi
+Qi
++
+j=1
+nr 	1 −j
+
+PEj
+Qj
+8
+where PEi are the modal potential energies in the ns stator com-
+ponents the stator components include stationary housing bear-
+ings and squeeze-ﬁlm dampers, Qi are the component Q-factors
+for the stator components, j are the maximum spin speeds
+rad/s of the nr rotors, PEj are the modal potential energies in the
+nr rotors, Qj are the component Q-factors for the rotor compo-
+nents, and  is the natural frequency rad/s of the mode.
+The ﬁrst summation in the denominator of Eq. 8 represents
+the external damping contributed by the stationary components.
+The second summation represents the internal damping contrib-
+uted by the rotating components. For forward whirl, the rotors
+included in this summation provide positive damping when the
+rotor spin speed is below the system natural frequency  and
+negative damping when the rotor is spin speed is above the system
+natural frequency .
+Stability Calculation Procedure Using the Modal Stabil-
+ity Criterion
+For demonstration purposes, consider the rotordynamics ﬁnite
+element model for the 2-spool turbine engine shown in Fig. 2.
+This is a centerline beam model and represents a single plane of
+the system and thus the model is termed a planar or 2D model. In
+Fig. 2, the lines or spans identiﬁed by the numbers enclosed in
+circles represent unbranched substructures, typically rotors and
+Fig. 2
+Structural network for turbine engine rotordynamics model
+726 / Vol. 129, OCTOBER 2007
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 4 ---
+
+casings, and model distributed mass, stiffness, and damping prop-
+erties. The spring elements identiﬁed by the numbers enclosed in
+triangles typically model the stiffness and damping load paths of
+engine frames, bearings, squeeze-ﬁlm dampers, centering springs,
+and engine mounts. The joints at the connections between the
+spans and springs are identiﬁed by the numbers enclosed by
+boxes. The engine has low- and high-pressure rotors that are co-
+rotating and the spans used to model these rotors are identiﬁed in
+Fig. 2. The undamped modes obtained from the engine model
+along with the modal damping calculated with Eq. 8 are used in
+the MSC calculation.
+The stability for the model is evaluated as follows. If the com-
+pressor beta coefﬁcients are positive, then there is only potential
+for forward whirl instability and obviously only forward whirl
+modes need be evaluated with the MSC equation. The model is
+constrained to determine the forward whirl modes and the modal
+properties are computed. These properties are tabulated in Table 1.
+Then on a mode-by-mode basis, Eq. 9 denominator of the MSC
+equation is used to calculate the modal destabilizing energy at
+maximum engine power,
+Modal destabilizing energy
+= 
+Turb
+KXYTRT −ST2 ± 
+Compr
+KXYCRC −SC2
+9
+Note that if this energy is positive for a given forward whirl
+mode, then it is used in the MSC equation to evaluate the forward
+whirl mode for stability. This indicates that energy is fed into the
+engine system by the cross-coupled stiffness forces and if this
+energy is greater than the stabilizing energy, then the MSC value
+is less than 1.0 and this indicates that the engine will undergo
+forward whirl at the natural frequency for the mode. If the modal
+destabilizing energy is negative, then the forward whirl mode can-
+not be destabilized and the MSC equation does not apply.
+Table 2 shows the MSC values computed for the engine for-
+ward whirl modes. The engine is predicted to be stable for all of
+the evaluated modes as all of the MSC values are greater than 1.0.
+The smallest stability margin MSC=11.806 is predicted for the
+8786 CPM mode.
+If the compressor beta coefﬁcients are negative, then backward
+whirl modes also need to be evaluated for stability. In this case,
+the model is constrained to determine the backward whirl modes
+and the modal properties are computed. The procedure is the same
+as used for the forward whirl modes, except the screening crite-
+rion is that only modes with negative modal destabilizing energy
+thus, energy is fed into the engine system for backward whirl
+modes are evaluated with the MSC equation for backward whirl
+instability.
+Including the Effects of Squeeze-Film Dampers in the
+Stability Evaluation
+Static housing squeeze-ﬁlm dampers SFDs always provide a
+stabilizing inﬂuence on turbine engines. An effective component
+Q-factor for the damper is used to include its effect on system
+stability. Figure 3 shows an example map of the component
+Q-factor versus damper geometry damper land length and diam-
+eter and clearance for a parallel damper and centering spring
+combination. In Fig. 3, the damper is modeled using a Reynolds
+equation solution for small circular orbits to simulate the damper’s
+performance at the onset of instability which is consistent with the
+MSC energy balance calculation; the component stiffness and
+damping are contributed by the centering spring and the squeeze-
+ﬁlm damper, respectively. The approach is to evaluate the system
+stability without the damper using the MSC calculation to deter-
+mine the bearing location where a damper could be used to en-
+hance stability for a given mode. Then a map such as that shown
+in Fig. 3 is used to determine the component Q-factor to be used
+in the modal damping equation Eq. 8 to determine the system
+Q-factor used in the MSC calculation for the selected centering
+spring stiffness and SFD geometry and radial clearance at the
+natural frequency of the mode. Figure 4 shows an example of the
+design process for a turbine engine where a range of SFD param-
+eters are evaluated to determine the damper conﬁguration required
+to meet the desired system stability margin. Shown in this ﬁgure is
+a plot of the MSC value versus the damper  centering spring
+component Q-factor and the corresponding damper clearance val-
+ues for constant values of damper land length and diameter. In
+Fig. 4, a 50% stability margin MSC=1.5 has been selected as
+the requirement and damper clearance values less than 7.5 mils
+meet this requirement.
+Conclusion
+The modal stability criterion MSC provides a convenient and
+quick means to perform a system stability analysis for aerody-
+namically excited turbomachinery using the real modes generated
+Table 1
+Forward whirl natural frequencies, and modal proper-
+ties calculated for the turbine engine model shown in Fig. 2
+Natural
+Freq.
+CPM
+Modal
+Q
+Modal
+Stiffness
+lb.f/in.
+Modal
+mass
+lb.f s2/in.
+580.007
+1.093
+1.176E+4
+3.187
+1895.719
+3.593
+1.083E+5
+2.748
+4344.953
+4.000
+1.238E+5
+5.982E−1
+5256.637
+4.386
+3.968E+5
+1.310
+6430.396
+4.245
+3.643E+5
+8.034E−1
+7455.712
+4.020
+2.237E+6
+3.669
+7902.187
+3.504
+1.382E+5
+2.018E−1
+8786.354
+4.708
+7.539E+5
+8.905E−1
+10516.682
+4.855
+1.133E+6
+9.342E−1
+12136.527
+6.148
+1.167E+6
+7.226E−1
+12959.335
+9.172
+7.967E+5
+4.326E−1
+15500.884
+6.580
+1.058E+6
+4.014E−1
+16683.307
+4.182
+1.416E+6
+4.639E−1
+18046.474
+4.000
+1.971E+6
+5.518E−1
+19932.898
+8.841
+2.716E+5
+6.233E−2
+20431.859
+6.142
+4.935E+6
+1.078
+21121.389
+4.297
+2.756E+6
+5.634E−1
+21328.062
+5.711
+5.417E+5
+1.086E−1
+23352.399
+4.506
+1.055E+7
+1.763
+23727.544
+4.159
+2.619E+7
+4.242
+Table 2
+MSC values calculated for forward whirl modes for the
+turbine engine model shown in Fig. 2a
+Mode
+CPM
+Modal Q
+PE
+Stability
+criterion
+1
+580.0
+1.1
+5880.0
+27074.053
+2
+1895.7
+3.6
+54150.0
+362.819
+3
+4345.0
+4.0
+61900.0
+157.205
+4
+5256.6
+4.4
+198400.0
+17.572
+5
+6430.4
+4.2
+182150.0
+97.990
+6
+7455.7
+4.0
+118500.0
+496.113
+7
+7902.2
+3.5
+69100.0
+748.802
+8
+8786.4
+4.7
+376950.0
+11.806b
+9
+10516.7
+4.9
+566500.0
+82.338
+10
+12136.5
+6.1
+583500.0
+108.510
+11
+12959.3
+9.2
+398350.0
+37.846
+12
+15500.9
+6.6
+529000.0
+194.818
+13
+16683.3
+4.2
+708000.0
+320.073
+14
+18046.5
+4.0
+985500.0
+876.309
+15
+19932.9
+8.8
+135800.0
+588.939
+16
+20431.9
+6.1
+2467500.0
+146.947
+17
+21121.4
+4.3
+1378000.0
+1948.724
+18
+21328.1
+5.7
+270850.0
+268.310
+19
+23352.4
+4.5
+5275000.0
+282.470
+20
+23727.5
+4.2
+13095000.0
+860.977
+aStability criterion 	1 implies stability.
+bMinimum MSC value 	1.0 engine is stable.
+Journal of Turbomachinery
+OCTOBER 2007, Vol. 129 / 727
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 5 ---
+
+Fig. 3
+Squeeze-ﬁlm damper+squirrel cage component Q factor as a function of damper radial clearance and
+land length
+Fig. 4
+Modal stability criterion „MSC… value as a function of squeeze-ﬁlm damper+centering spring compo-
+nent Q-factor „damper geometry dependency…
+728 / Vol. 129, OCTOBER 2007
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 6 ---
+
+from a system vibration model. It includes all of the signiﬁcant
+parameters forward and backward whirl inducing destabilizing
+aerodynamic forces, whirl and spin speeds, and engine system
+damping, including the effects of squeeze-ﬁlm dampers, and
+modeling detail needed to make an accurate assessment of engine
+system stability. Although the stability analysis methodology pre-
+sented focused on blade tip-clearance related aerodynamic desta-
+bilizing forces, it is equally applicable to the modeling of other
+aerodynamic force destabilizing mechanisms such as that associ-
+ated with secondary ﬂow swirl in labyrinth seals. All that is re-
+quired in the modeling of destabilizing aerodynamic forces is the
+inclusion of the appropriate cross-coupled stiffness in the MSC
+criterion. The assumption of circular whirl means that the stabi-
+lizing effects of nonaxisymmetric rotor and/or engine support
+stiffness are not included, and this may result in built-in conser-
+vatism, depending on the modal characteristics of the engine sys-
+tem modes.
+References
+1 Thomas, H. J., 1958, “Unstable Natural Vibration of Turbine Rotors Induced
+by the Clearance Flow in Glands and Blading,” Bull. De l’A. I. M., 7111/12,
+pp. 1039–1063.
+2 Alford, J., 1965, “Protecting Turbomachinery From Self-Excited Rotor Whirl,”
+J. Eng. Power, 97, pp. 333–334.
+3 Ehrich, F. F., 1993, “Rotor Whirl Forces Induced by the Tip Clearance Effect
+in Axial Flow Compressors,” J. Vibr. Acoust., 115, pp. 509–515.
+4 Storace, A. F., 1990, “Predicting the Stability of Aerodynamically Excited
+Turbomachinery,” The Sixth Workshop on Rotordynamic Instability Problems
+in High-Performance Turbomachinery, Texas A&M University, pp. 272–286.
+5 Storace, A. F., Wisler, D. C., Shin, H.-W., Beacher, B. F., Ehrich, F. F., Spa-
+kovszky, Z. S., Sanchez, M. Martin, and Song, S. J., 2000, “Unsteady Flow
+and Whirl-Inducing Forces in Axial-Flow Compressors, Part I—Experiment,”
+ASME Paper No. 2000-GT-0565.
+6 Ehrich, F. F., Spakovsky, Z. S., Sanchez, M. Martin, Song, S. J., Wisler, D. C.,
+Storace, A. F., Shin, H.-W., and Beacher, B. F., 2000, “Unsteady Flow and
+Whirl-Inducing Forces in Axial-Flow Compressors, Part II—Analysis,” ASME
+Paper No. 2000-GT-0566.
+Journal of Turbomachinery
+OCTOBER 2007, Vol. 129 / 729
+Downloaded from http://asmedigitalcollection.asme.org/turbomachinery/article-pdf/129/4/724/5842584/724_1.pdf by University of Cincinnati user on 01 January 2026

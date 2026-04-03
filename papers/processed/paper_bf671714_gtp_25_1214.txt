@@ -1,0 +1,885 @@
+
+--- Page 1 ---
+
+Yudi Lu
+School of Mechanical Engineering,  
+Shanghai Jiao Tong University,  
+Shanghai 200240, China
+Yufan Zhou
+School of Mechanical Engineering,  
+Shanghai Jiao Tong University,  
+Shanghai 200240, China
+Huiyu Wu
+School of Mechanical Engineering,  
+Shanghai Jiao Tong University,  
+Shanghai 200240, China
+Xianda Liu
+School of Mechanical Engineering,  
+Shanghai Jiao Tong University,  
+Shanghai 200240, China
+Bing Ge
+School of Mechanical Engineering,  
+Shanghai Jiao Tong University,  
+Shanghai 200240, China
+Study on the Impact of Fuel 
+Staging on Flame Structure and 
+Thermoacoustic Oscillation in a 
+Diesel Multi-Nozzle Combustor
+Modern gas turbine combustors usually adopt multinozzle lean premixed and pre- 
+evaporated (LPP) combustion technology to reduce emissions. However, the thermoacous­
+tic oscillation of this design poses a significant threat to the safe operation of gas turbines. 
+This paper conducts experiments and numerical calculation studies on a diesel multinozzle 
+LPP combustor under atmospheric pressure with inlet temperature near 380 C to 
+investigate the influence of its fuel staging ratio (FSR) on the flame structure and 
+thermoacoustic oscillation. In the experiment, the pressure fluctuation and the self- 
+luminescence images of OH* were measured simultaneously. The flow field and flame 
+structure were obtained by RANS calculation. The results show that for the diesel 
+multinozzle LPP combustor, increasing the FSR can suppress the thermoacoustic oscillation 
+of the combustor, and the oscillation amplitude is reduced by up to 60%. When the pilot stage 
+is not ignited, the oscillation mode is double-period limit cycle oscillation, while after the 
+pilot stage is ignited, the oscillation is single-period limit loop oscillation. The proper 
+orthogonal decomposition mode shows that the main energy of the oscillation is 
+concentrated in the global axial synchronous oscillation. The Rayleigh index and numerical 
+calculation results indicate that the change of FSR alters the flame distribution in the 
+combustor. The increase of FSR causes the flame to develop from the interference zone 
+between the wall and the main stage to that between the main stage and the pilot stage. The 
+change of flame structure is the main reason for the suppression of thermoacoustic 
+oscillation. [DOI: 10.1115/1.4069916] 
+Keywords: multi-nozzle, fuel staging, diesel combustion, thermoacoustic 
+With the continuous increase in environmental protection 
+standard, low emissions have become an important technical 
+indicator for gas turbines. Diesel, which is a common, safe and 
+economic fuel of gas turbines has high energy capacity so 
+suppressing NOx emission during combustion of diesel became a 
+new topic of advanced gas turbine research. One of the emission 
+control methods widely used to date is multinozzle LPP (Lean 
+Premixed Prevaporized) combustion. Fuel is staged in the 
+combustor and independently controlled based on the load required 
+so thermal load is evenly distributed among nozzles in order to lower 
+the emission. As an example, DLN2.6þ system from GE realized a 
+low NOx emission of 5 ppm@15%O2 [1]. Nonetheless, the 
+thermoacoustic instability problem of multinozzle LPP combustion 
+is more complicated than traditional single nozzle combustors [2,3] 
+and poses great threat to the safe operation of gas turbines.
+Lieuwen and Yang [4] pointed out that the triggering mechanism 
+of oscillation combustion inside combustors is usually connected 
+with multiple physical and chemical processes such as sound wave, 
+fluctuation in flow, equivalence ratio or temperature of premixed 
+gas, interaction between flame and turbulent flow or flame and sound 
+wave, variance in flame front as well as fluctuation in heat release 
+ratio. There are a lot of research on the response of single nozzle 
+which provided useful insights into the cause of fluctuation in heat 
+release rate including fluctuation in speed, swirling flow or 
+equivalence ratio, interaction between flames and the stretching 
+instability of flame [5–7]. Yu et al. [8] analyzed the thermoacoustic 
+instability of laminar lean premixed diesel flame under self-ignition 
+and conducted numerical simulation. The results showed that the 
+overall heat release rate fluctuated with the flame front. The flame 
+may amplify, attenuate, or filter acoustic energy depending on phase 
+interactions between the velocity and pressure oscillations. Han 
+et al. [9] studied the impact of air inlet temperature on 
+thermoacoustic oscillation properties of LPP combustors and found 
+that as temperature changes supercritical bifurcation occurred in the 
+combustor and the amplitude of thermoacoustic oscillation changed 
+abruptly when inlet temperature reaches 570 K. Biswas [10] 
+researched the influence of variation in equivalence ratio on 
+combustion instability mode and found that a decrease in 
+equivalence ratio resulted in a drop in oscillation modes.
+In the field of multinozzle combustor, KIM [11] looked into the 
+effect of radical fuel staging on the mode of thermoacoustic 
+instability, including varying fuel flowrate and different staging 
+strategies. A method to identify axial and circular thermoacoustic 
+coupled oscillation is developed base on experiments and CFD 
+analysis [12]. Temme [13] conducted PIV on the oscillation 
+Manuscript received June 19, 2025; final manuscript received September 14, 2025; 
+published online December 11, 2025. Assoc. Editor: Tiegang Fang.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-1 
+Copyright V
+C 2026 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+characteristics of the LPP combustors and found that the oscillation 
+originated from a repeated fluctuation of the base of flame between 
+blowout and backfire. Liu [14] studied the suppressing effect of fuel 
+staging in multinozzle array combustor on thermoacoustic insta­
+bility. The results showed that when only the pilot nozzle was 
+operational, ignition stability was ensured by local flue gas 
+recirculation zones and a large recirculation zone in the middle of 
+the combustor. Chen [15] studied how transient changes in air-fuel 
+ratio affects thermoacoustic instability characteristics of single- 
+nozzle and multinozzle combustors. It is found that the transient 
+changes in air-fuel ratio affected the heat release rate distribution 
+and flame shear layer near corner reticulation zones. Boundary 
+restriction and flame interaction plays a vital role in flame dynamics.
+Taesong Lee [16] studied the effect of fire interaction in two- 
+nozzle combustors on the stability of combustion and the limit cycle 
+phenomenon in multinozzle systems under nonsymmetrical flow 
+responses and found that a nonsymmetrical flame could significantly 
+suppress periodic oscillations. The convection time of vortex 
+disturbance controlled by nonsymmetrical nozzles is systematically 
+reviewed under a wide range of parameters. The results showed that 
+self-oscillation is strongly connected to the arrangement of swirlers. 
+The influence of flame interactions on FTF/FDF is also studied [17]. 
+The limit cycle amplitude when there is flame interaction present is 
+tightly connected to the extent of coupling strength of two heat 
+sources. The combined effect of flame interactions and flame-sound 
+interactions lead to an increase in combustion instability.
+As discussed above, the way multinozzle combustor differs from 
+the single-nozzle combustor is that the interference between 
+adjacent flames is one of the main reasons affecting thermoacoustic 
+oscillations. Therefore, the flame structure of the multinozzle 
+combustor is also an important subject of research. The research by 
+Hardalupas et al. [18] has shown that the chemiluminescence 
+intensity of OH* and CH* is proportional to the equivalence ratio, 
+and both can be used to describe the intensity of heat release rate in 
+flames. Chong et al. [19] studied the spectra of diesel and biodiesel 
+flames and found that the chemiluminescence of OH* and CH* in 
+the flames of such fuels both have distinct radiation peaks. 
+Moreover, Chong et al. [20] used the chemiluminescence intensity 
+of CH* to investigate the flame structure of biodiesel. Sung et al. 
+[21], Wei et al. [22], and Pickett et al. [23] measured and analyzed 
+the flame structure of diesel combustion using OH* chemilumi­
+nescence. The images of OH* chemiluminescence intensity 
+coincide with the images of soot incandescence, indicating that it 
+is feasible to use OH* chemiluminescence to describe the flame 
+structure.
+There are many studies on the thermoacoustic oscillations of 
+multinozzle combustors, but the fuel types are mostly limited to 
+natural gas, hydrogen, and aviation kerosene. There are relatively 
+few studies on diesel multinozzle LPP combustion. This research is 
+based on a diesel 10-nozzle LPP combustor. Experimental and 
+numerical simulation methods are used to study the impact of fuel 
+staging on combustion stability. How changes in flame structure 
+affect the thermoacoustic oscillations of diesel LPP combustion is 
+also analyzed.
+1 Research Methodology
+1.1 Experiment System. The 10-nozzle diesel combustor test 
+system consists of a combustor, air system, fuel system, cooling 
+water system and purge air system as shown in Fig. 1.
+The combustor is cylindrical with a length of 210 mm and an inner 
+diameter of 165 mm, and the side walls have viewing windows for 
+monitoring the combustion status.
+The air system uses a 200 kW fan as the air source. The fan speed 
+is controlled by a frequency converter to control the air flow. The air 
+flow is measured by a vortex flowmeter. An electric heater preheats 
+the air to a set temperature. The air then enters the combustor for 
+combustion.
+The fuel for the pilot stage and the main stage is controlled by two 
+separate fuel systems. The fuel for the main stage is further divided 
+into two branches. The first branch connects to six main combustion 
+nozzles, while the second branch connects to three main combustion 
+nozzles. The fuel pressure for all the main combustion nozzles is 
+maintained the same.
+The cooling water system consists of an exhaust section wall 
+cooling system and a water spray cooling system. The wall cooling 
+system delivers cooling water to the water-cooled jackets of the 
+exhaust section through a water pump to cool the exhaust pipe. 
+The water spray cooling system directly sprays cooling water into 
+the exhaust pipe, where the evaporation of water droplets provides 
+direct cooling of the high-temperature exhaust gas.
+The purge air system is supplied by an air compressor. After each 
+test session, compressed air is pumped into the fuel nozzles to blow 
+out the residual fuel in the pipes and nozzles, preventing nozzle 
+blockage caused by diesel coking. The ten-nozzle diesel combustor 
+Fig. 1 Diesel 10-nozzle combustor experimental system 
+051018-2 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+and its structural diagram are shown in Fig. 2. It consists of one pilot 
+nozzle (labelled M) at the middle and nine main nozzles (labelled as 
+1–9) in the outer ring. The nine main combustion nozzles are 
+controlled in two groups. The first group consists of six main 
+nozzles, while the second group consists of three nozzles. When 
+ignited, the flowrate and equivalence ratio for all nine nozzles in the 
+outer ring are uniform, but the fuel supply is controlled through two 
+separate valves in a staged manner.
+Each nozzle consists of a diesel spray nozzle, a premixing tube, 
+and a swirler. The fuel is atomized by the diesel spray nozzle and 
+then fully premixed and pre-evaporated in the preheated air. After 
+passing through the swirler, it enters the combustor. The swirl 
+number of the pilot nozzle swirler is 0.72, and the swirl number of 
+the main combustion nozzle swirler is 0.61.
+The air flow rates of the ten nozzles are freely distributed. 
+According to experimental results, the air flowrate of the pilot stage 
+accounts for approximately 19% of the total air flowrate, while the 
+remaining 71% is occupied by the main stages. Therefore, 
+the flowrate of one main stage is about 7.9%. The pressure drop of 
+the burner is about 1.5%. The residence time is about 10.3 ms.
+To ensure that the oil can completely evaporate in the premixing 
+tube, the Sauter mean diameter (SMD, D32) of the droplet was 
+measured. The phase Doppler particle analyzer (PDPA) was used to 
+measure the spray field, as shown in Fig. 3.
+The SMD of droplets were measured under the oil pressure of 
+0.8 MPa, 1.4 MPa, and 1.95 MPa. At a distance of 15 mm from the 
+nozzle outlet, the diameters of droplet particles were measured at 
+equal intervals along the X-axis at several positions. The results are 
+shown in Fig. 4.
+It can be seen that the droplet diameter is less than 35 lm. Here, 
+we can ignore the droplet fragmentation caused by the flow and 
+calculate the theoretical evaporation time of the droplets under the 
+experimental condition of 380 C. The relationship between the 
+droplet lifetime sd and the initial diameter D0 is shown as follow: 
+sd ¼ D2
+0=K
+(1)  
+where K is the evaporation constant. It satisfies the following 
+formula: 
+K ¼ 8kg
+qlcp,g
+ln 1 þ Bq
+ð
+Þ
+(2)  
+where cp,g represents the specific heat capacity at constant pressure 
+of the gaseous phase. ql is the density of the liquid phase. kg 
+represents the thermal conductivity coefficient of the gaseous phase. 
+Bq is the dimensionless mass transfer number which satisfies the 
+following formula: 
+Fig. 3 Phase doppler particle analyzer measurement system 
+Fig. 2 Diesel 10-nozzle LPP combustor and nozzle serial numbers 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+Bq ¼ cp,g T1 −Tboil
+ð
+Þ
+hfg
+(3)  
+where T1 represents the temperature of the main flow, while Tboil 
+represents the boiling point of the liquid phase. hfg is the latent heat 
+of vaporization.
+In this paper, the physical property parameters of n-dodecane are 
+used to estimate the physical properties of diesel. From this, the 
+evaporation time of the droplets can be calculated. The evaporation 
+time is about 0.0062 s. The average flow velocity of the gas in the 
+pipeline is 19 m/s. That is to , say, the distance required for 
+the droplet to completely evaporate is approximately 117 mm, while 
+the actual premixing section length is 195 mm, which is long enough 
+for the droplets to completely evaporate.
+1.2 Measurement System. The measurement system of the 
+ten-nozzle diesel combustor is shown in Fig. 5. This system enables 
+the measurement of pressure and flame image. The pressure 
+fluctuations within the combustor are measured using a Kulite 
+pressure transducer, model XTL-190M-120KPaA, with a sensitivity 
+of 0.84 mV/kPa. The transducer is 293 mm away from the head of 
+the combustor with water cooling. Since the cross-sectional area of 
+the combustor is much larger than that of the burner outlet, the inlet 
+of the combustor is approximately a hard boundary condition in 
+terms of acoustics, located at the wave trough, with the maximum 
+amplitude. However, if the transducer is too close to the high- 
+temperature zone at the combustor, it may be damaged. Therefore, 
+this measurement position is much more suitable. The signal from 
+the pressure transducer is synchronously acquired by a data 
+acquisition instrument. The voltage resolution of the collector 
+instrument is 0.1 mV. According to the sensitivity of the pressure 
+transducer (0.84 mV/kPa), the error is within 60.12 kPa.
+An image intensifier is placed at the end of the test bench facing a 
+viewing window and connected to a high-speed camera. A 
+narrowband filter with a wavelength of 307 6 13 nm is installed in 
+front of the lens to obtain the self-luminous images of OH* in the 
+flame. The images captured by the camera are sent to a computer. 
+The exposure time of the camera is 495 ls. The lens aperture is f2.8. 
+The camera is triggered by a mechanical switch. Aside from the 
+camera I/O the trigger signal is also sent to the data acquisition 
+instrument for synchronous collection of the pressure data. The 
+camera frame rate is 1000 fps, and the data acquisition instrument 
+has a sampling rate of 10,000 Hz. By comparing the trigger time of 
+the camera, the flame images and pressure signals can be 
+synchronized within an error of 0.1 ms.
+1.3 Data Processing Method. This experiment adopted phase 
+space reconstruction to study the thermoacoustic oscillation and its 
+development patterns. Time delays of td and 2 td were added to the 
+signal p(t) and the phase space diagram [p(t),p(t þ td),p(t þ 2td)] is 
+plotted. The autocorrelation function R(td) of the pressure signal was 
+Table 1 Experimental conditions of fuel staging 
+Case
+Inlet  
+temperature/C
+Air flow rate  
+of STP/m3 h−1
+Equivalence  
+ratio of the pilot stage
+Equivalence  
+ratio of the main stage
+Total equivalence  
+ratio
+FSR
+B1
+372.1
+399.3
+0.00
+0.67
+0.55
+0.00
+B2
+375.6
+397.4
+0.40
+0.58
+0.54
+0.14
+B3
+376.2
+398.9
+0.49
+0.55
+0.54
+0.17
+B4
+379.1
+402.0
+0.60
+0.52
+0.54
+0.21
+B5
+388.9
+399.9
+0.67
+0.51
+0.54
+0.23
+Fig. 5 Diesel 10-nozzle LPP combustor measurement system 
+Fig. 4 The SMD distribution of droplets under different oil 
+pressures
+051018-4 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+calculated using Eq. (4). When the value of R(td) is less than 
+1  10−1 times the initial value R(0), the time delay td is obtained 
+R td
+ð Þ ¼ 1
+T
+ðT
+0
+p tð Þp t þ td
+ð
+Þdt
+(4)  
+When the system is in a chaotic state without oscillation, the 
+trajectory of the signal will converge to a core, known as an attractor. 
+When the system’s oscillation reaches its maximum, the trajectory 
+of the signal will converge to a ring, known as a limit cycle. By 
+analyzing the characteristics of the phase diagram, it is possible to 
+determine whether the combustor has reached a limit cycle 
+oscillation state.
+This paper employs the method of proper orthogonal decom­
+position (POD) modal analysis to investigate the images of flame 
+heat release rate. The POD modes can reflect the structural 
+characteristics of the dominant energy in flame fluctuations. The 
+method of POD modal analysis refers to the research of Sirovich [24] 
+and Johnson et al. [25].
+The POD method decomposes the flame heat release rate images 
+into the form of superimposed orthogonal data modes as shown in 
+the following equation: 
+qðx, tÞ ¼
+X
+M
+i¼0
+aiðtÞuðxÞ
+(5)  
+where x is the spatial coordinate, t is the temporal coordinate, ai is the 
+temporal coefficient of mode i, ui is the spatial distribution 
+characteristic of mode i, and M represents the number of modes.
+Fig. 6 Pressure fluctuation frequencies under different FSR 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+Each image captured under a set of conditions is converted into a 
+one-dimensional matrix ai, and each set of operating conditions 
+corresponds to a matrix A 
+A ¼ ðaT
+1, aT
+2, aT
+3, …, aT
+nÞ
+(6)  
+where n is the number of images. Singular Value Decomposition 
+(SVD) of matrix A yields 
+A ¼ UKVT
+(7) 
+where 
+K ¼ diagðk1, k2, k3, …, knÞ
+(8)   
+U ¼ ðu1, u2, u3, …, unÞ
+(9)   
+V ¼ ðv1, v2, v3, …, vnÞ
+(10)  
+Here, K is the eigenvalue diagonal matrix, U is the spatial mode 
+matrix, and V is the temporal mode matrix. k2 represents the energy 
+value of each mode.
+Fig. 7 Time domain signal of pressure fluctuation under different FSR 
+051018-6 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+In SVD, the eigenvalues in the obtained eigenvalue matrix are 
+arranged in descending order. Therefore, the overall fluctuation 
+characteristics of the flame can be represented by the first few 
+modes.
+To investigate the main locations where thermoacoustic oscilla­
+tion is generated in the combustor, this paper also conducted an 
+analysis of the Rayleigh Index (RI) using synchronized pressure 
+signals and flame heat release rate images. The definition of the 
+Rayleigh index is shown in the following equation: 
+RI ¼ 1
+T
+ðT
+0
+p tð Þq tð Þdt
+(11)  
+When the phase difference between the pressure signal p and the 
+heat release rate image q is less than 90 deg, RI is positive; otherwise, 
+RI is negative. A positive RI indicates that the pressure and heat 
+release rate at this location form a positive feedback loop, where 
+fluctuations in the heat release rate lead to enhanced pressure 
+fluctuations, thereby forming thermoacoustic oscillations. The 
+Rayleigh Index can reflect the main locations where thermoacoustic 
+oscillations occur.
+1.4 The Experimental Conditions. This study investigates the 
+influence of fuel staging on thermoacoustic oscillations. The 
+experimental conditions are shown in Table 1. The air flowrate of 
+standard temperature and pressure (STP, T ¼ 0 C, p ¼ 1atm) and the 
+total equivalence ratio kept constant, the fuel distribution ratio of the 
+pilot stage and the main stage which is defined as the fuel staging 
+ratio (FSR) is changed to study the changes in thermoacoustic 
+oscillations. The FSR is defined as the ratio of the fuel flowrate of the 
+pilot stage Gpilot to the total fuel flowrate Gtotal. 
+FSR ¼ Gpilot=Gtotal
+(12)  
+The flowrate control accuracy of the fuel is 0.1 kg/h (61%), while 
+that of the air is 0.1m3/h (60.1%). Therefore, the error in the 
+equivalent ratio should be 61.1%, and the error in the FSR should be 
+62.2%.
+Fig. 8 Pressure fluctuation phase space diagram under different FSR 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+1.5 Numerical Simulation Method. To further investigate the 
+relationship between thermoacoustic oscillations and flame struc­
+ture, numerical calculations were also conducted on the basis of 
+experiments in this paper. The flow field and OH radical distribution 
+of the multinozzle combustor under different FSR were calculated 
+using the Reynolds-Averaged Navier–Stokes (RANS) method. The 
+turbulence model used in the calculation is the Realizable k-e model. 
+This model is chosen because it is more accurate in simulating 
+swirling flow fields. According to the introduction in the Fluent user 
+manual, the Realizable k-e model is also known as the k-e model 
+with swirl correction. Compared to the standard k-e model, it 
+performs well in swirling flows, strong reverse pressure gradients at 
+boundary flows, flow separation, and secondary flows. The flamelet 
+generated manifolds, FGM, is also used. The reaction mechanism 
+used refers to the research of Luo et al. [26]. In their study, the 105- 
+species skeletal mechanism of n-dodecane can well simulate the 
+Fig. 9 OH* self-luminous images under different FSR 
+051018-8 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+reaction kinematics of diesel. The same mechanism was also 
+adopted in the calculations of this paper. The inlet is set as a mass 
+flow boundary, and the outlet is set as a pressure boundary. The grid 
+used has 770,000 cells. The calculation conditions are the same as 
+the experimental conditions.
+In the calculation, thermal losses or conjugate heat transfer are not 
+modeled. Instead, isothermal boundary condition with a temperature 
+of 800 C is adopted on the wall boundary conditions of the 
+combustor. For the wall upstream, an isolated boundary condition is 
+used.
+2 Results and Discussion
+2.1 Effect of Fuel Staging on Pressure Fluctuation 
+Characteristics. The pressure fluctuation signals of the combustor 
+under different FSRs were analyzed using Fast Fourier Transform 
+(FFT) with a sampling rate of 10,000 Hz. The analysis was 
+conducted based on 30,000 data points, resulting in a frequency 
+resolution of 0.33 Hz. The data overlap rate was 70%, and the results 
+were averaged after repeating the analysis 15 times, yielding the 
+pressure fluctuation spectrum shown in Fig. 6. Here, f represents 
+frequency, and FSR denotes the fuel staging ratio.
+When the FSR was 0.00, meaning the pilot stage fuel flow was 
+zero, the combustor pressure fluctuation had two dominant 
+frequencies: 248.0 Hz and 495.7 Hz. The 495.7 Hz frequency was 
+a second harmonic of the 248.0 Hz frequency.
+After the pilot stage was activated, the dominant oscillation 
+frequency decreased by 11% to 220.0 Hz. The amplitude also 
+dropped by 11%, and the harmonic virtually disappeared. This 
+change was due to the alteration of the flame structure within the 
+combustor caused by the introduction of the pilot-stage fuel, leading 
+to a sudden shift in the dominant oscillation frequency.
+As the FSR continues to increase, the amplitude of the combustor 
+pressure fluctuation decreases, with the frequency ranging between 
+217.0 Hz and 220.0 Hz. The maximum amplitude is 5743 Pa, while 
+the minimum is 1981 Pa, indicating a reduction ratio of the 
+fluctuation amplitude up to 65%. Moreover, when the FSR is 
+increased to 0.21, a peak around 208 Hz appears, and its amplitude 
+increases with the rise of the FSR.
+The time-domain signals of combustor pressure fluctuation and 
+their statistical histograms under different FSRs are shown in Fig. 7. 
+When the FSR is 0.00, the statistical histogram of pressure 
+fluctuations exhibits an asymmetric bimodal distribution. This is 
+the result of the combined effect of the two dominant oscillation 
+frequencies, which have similar phases. This causes the oscillation 
+at 247.7 Hz, when superimposed with the harmonic at 495.3 Hz, to 
+strengthen one peak and weaken the other within a single cycle, thus 
+forming an asymmetric structure.
+When the FSR is increased to 0.14 and 0.17, the statistical 
+histograms of pressure fluctuations show a bimodal structure. At this 
+point, the pressure fluctuations enter a stable periodic oscillation 
+state. As the FSR further increases to 0.21 and 0.23, the statistical 
+histograms of pressure fluctuations revert to a unimodal form and 
+approach the characteristics of a Gaussian distribution. This 
+indicates that the oscillations are evolving toward a stochastic 
+oscillation mode.
+Phase space reconstruction was performed on the pressure 
+fluctuation signals under different FSRs, resulting in the phase 
+space diagrams shown in Fig. 8. Here, td represents the time delay 
+(the calculation method is described in Sec. 1.3). When the FSR is 
+0.00, the phase diagram of pressure fluctuations shows a distinct 
+double-period limit cycle structure, indicating that the combustor is 
+undergoing limit cycle oscillations. This double-period structure is 
+formed by the combined effect of the dominant frequency of the 
+pressure fluctuations and its harmonics.
+When the FSR is greater than 0.21, the limit cycle structure in the 
+phase diagram becomes unstable, showing a tendency to converge 
+toward a central attractor. The combustor pressure fluctuations 
+decrease and tend toward a stochastic oscillation mode.
+These results indicate that adjusting the FSR can suppress the 
+thermoacoustic oscillations in the combustor.
+2.2 Effect of Fuel Staging on Heat Release Rate 
+Fluctuation. In addition to measuring the combustor pressure 
+fluctuations, this paper also captured flame images under fuel 
+staging conditions using a high-speed camera. By employing a filter, 
+the OH* chemiluminescence distribution in the combustor was 
+obtained whose intensity represents the intensity of the flame heat 
+release rate.
+Flame images under different Fuel Staging Ratios (FSR) are 
+shown in Fig. 9, with each image separated by a time interval of 
+0.5 ms. When the FSR is 0.00, the flame heat release rate intensity 
+exhibits significant periodic oscillation characteristics. At an FSR of 
+0.17, the flame still has periodicity, but the oscillation intensity is 
+weakened. When the FSR is 0.23, the oscillation intensity is further 
+reduced, making it difficult to directly identify periodicity from the 
+images. A total of 1,000 flame images were used for POD to obtain 
+the first three POD modes under different FSRs. Their mode 
+Fig. 10 First three orders of POD modes of flame images and 
+their respective energy percentage under FSR of 0.00
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+distribution maps and energy proportions are shown in Fig. 10. The 
+spectrum in the figure represents the FFT results of the time 
+coefficients of each mode. The colors in the mode maps represent 
+different phases. It can be observed that the first mode has the largest 
+energy proportion under different FSRs. The oscillation phases of 
+the nozzles under the first mode are basically consistent. Since the 
+high-speed images were captured through the tail window, this 
+mode belongs to global axial synchronous oscillation. The second 
+and third modes are local oscillations with similar energy 
+proportions. Both have radial oscillation characteristics but in 
+different directions. However, due to their lower energy proportions, 
+they are not the main components of thermoacoustic oscillations. 
+The spectrum of the time coefficients shows that the oscillation 
+frequencies of the POD modes under different FSRs are consistent 
+with the main frequencies of the pressure fluctuations.
+To further investigate the coupling relationship between pressure 
+and heat release rate, this paper conducted a Rayleigh index analysis. 
+The normalized Rayleigh index ~
+RI ¼ RI=RImax distribution in the 
+multinozzle combustor is shown in Fig. 11. In the normalized index 
+analysis, red areas in the figure indicate regions with higher Rayleigh 
+index values, where the thermoacoustic coupling is stronger, while 
+blue areas indicate regions with lower Rayleigh index values, where 
+the thermoacoustic coupling is weaker. The Rayleigh index reflects 
+the regions where thermoacoustic oscillations are generated. It can 
+be seen that when the pilot stage is not activated, i.e., FSR ¼ 0.00, the 
+Rayleigh index is concentrated in the interference zones between 
+nozzles 3 and 4, and nozzles 8 and 9. The thermoacoustic 
+oscillations are mainly caused by the interference between the 
+main stages. When FSR ¼ 0.14, a significant Rayleigh index is 
+observed in the region between nozzle 7 and the pilot stage. As the 
+FSR increases, the Rayleigh index in the interference zones between 
+the pilot stage and the main stages rises. When FSR > 0.21, the 
+Rayleigh index in the interference zones between the main stages 
+decreases, indicating that the interference between the main stages 
+contributes less to the thermoacoustic oscillations, and the main 
+oscillations are concentrated around nozzle 7.
+Figure 12 shows the Rayleigh index distribution in the range 
+marked by the dashed line in Fig. 11(f). The black dashed line in the 
+figure indicates the location of the pilot stage exit. The dip at 
+the X ¼ 0 position is due to the blockage by a thermocouple in the 
+experiment. As can be seen from the figure, the Rayleigh index at 
+different locations under different FSRs is generally greater than 
+zero, indicating that the oscillations in the multinozzle combustor 
+Fig. 12 The radial distribution of the Rayleigh index under 
+different FSR
+Fig. 11 The normalized Rayleigh index of the multinozzle combustor under different FSR 
+051018-10 / Vol. 148, MAY 2026                                                                                                               
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 11 ---
+
+are global. When FSR ¼ 0, the RI is concentrated in the main stage 
+area. After the pilot stage is activated, the RI in the interference 
+zones between the main stage and the pilot stage increases, while the 
+RI in the main stage decreases. As the FSR is further increased, the 
+global RI decreases, and the RI in the interference zones between the 
+pilot stage and the main stage gradually dominates. The spatial 
+distribution changes of the RI may be due to the changes in the 
+spatial distribution characteristics of the heat release rate.
+2.3 Numerical Simulation of Multi-Nozzle Combustor Flow 
+Field. However, due to the free distribution of air at the nozzle inlets 
+of the test system discussed above and the large number of nozzles, it 
+is difficult to ensure the uniformity of air distribution, which leads to 
+the uneven spatial distribution of RI as shown in Fig. 11. Moreover, 
+due to the blockage by a thermocouple, some images are not fully 
+displayed. To further investigate the role of the flame heat release 
+rate distribution in the thermoacoustic oscillations of the 
+Fig. 13 Numerical calculation results of multinozzle combustion flow field and normalized 
+OH radical mole fraction distribution
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-11 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 12 ---
+
+multinozzle combustor, numerical simulations of the flow field in 
+the multinozzle combustor were conducted. Figure 13 shows the 
+flow field vector diagram and the spatial distribution of the OH 
+radical in the multinozzle combustor. Since the OH radical mole 
+fraction (vOH) varies greatly under different operating conditions, in 
+order to make the image distinguishable, the OH radical mole 
+fraction was normalized (~vOH). Do represents the diameter of the 
+main nozzle outlet, so both the X and Y axes represent the normalized 
+scales. The color in the figure represents the magnitude of the 
+normalized OH radical mole fraction, which is defined as in Eq. (8). 
+The maximum OH radical mole fraction under the current operating 
+condition is denoted by vOH,max. Figure 14 shows the radial 
+distribution of the un-normalized OH radical mole fraction. 
+~vOH ¼ vOH=vOH,max
+(13)  
+When only the main combustion nozzles are activated, i.e., 
+FSR ¼ 0.00, the OH radical is mainly concentrated in the wall 
+region and the interference zone between the main combustion 
+nozzles. This indicates that in the absence of pilot flame, the flame in 
+the multinozzle combustor is determined by the interaction between 
+the main combustion flow field and the combustor wall, and the flow 
+interference between adjacent main combustion nozzles is also a 
+major reaction zone.
+When FSR ¼ 0.14, flame is also generated in the flow interference 
+region between the pilot and main stages. When FSR > 0.21, the OH 
+radical mole fraction in the interference zone between the main 
+combustion and pilot stages exceeds that in the wall region, and the 
+interference flame between the pilot and main stages dominates. A 
+triangular reaction zone is formed between every two main 
+combustion nozzles and the pilot stage. As the FSR increases, the 
+angle of the pilot-main combustion interference flame also increases 
+significantly.
+As shown in Fig. 14, the radial distribution characteristics of the 
+OH radical mole fraction at the position of Y ¼ 0, Z ¼ 1.0Do are 
+presented. It can be observed that when the pilot stage is not 
+activated, there is no peak of OH radical between the pilot and main 
+stages, and the main chemical reactions are concentrated near the 
+combustor wall. After the pilot stage is activated, i.e., at FSR ¼ 0.14, 
+an interference reaction zone between the pilot and main stages 
+appears at the position of X ¼ 1.0Do. As the FSR increases, this 
+reaction zone gradually expands outward, and the OH radical mole 
+fraction in this zone gradually increases, while the OH radical mole 
+fraction near the wall decreases.
+The black lines in the XZ plane images in Fig. 13 mark the 
+recirculation zones in the combustor. Before the pilot stage is 
+activated, i.e., at FSR ¼ 0.00, the pilot stage recirculation zone is 
+conical. After the pilot stage is activated, the pilot stage recirculation 
+zone takes on a spindle shape. This is because, in the absence of the 
+pilot flame, the temperature of the pilot stage gases is much lower 
+than that of the main stage exhaust gases. The pilot stage 
+recirculation zone is compressed by the expanding high- 
+temperature exhaust gases from the main stage, forming a conical 
+structure. After FSR > 0.14, the pilot stage gases also expand in 
+volume, causing the recirculation zone to expand and take on a 
+spindle shape.
+Figures 15 and 16 show the lengths of the recirculation zones for 
+the pilot and main stages, respectively. It can be observed that as the 
+FSR increases, the pilot stage recirculation zone gradually length­
+ens, while the main stage recirculation zone shortens.
+Based on the combined analysis of the experimental and 
+numerical results, the significant changes in the chemical reaction 
+zone are the main reasons for the suppression of thermoacoustic 
+oscillations. In the absence of the pilot flame, the heat release rate is 
+more concentrated, and the interactions between the main stages and 
+between the main stages and the wall strengthen the instability of the 
+flame. As the Fuel Staging Ratio (FSR) increases, the chemical 
+reaction zone is divided into two parts: the wall region and the 
+interference zone between the pilot and main stages. The local heat 
+release rate intensity is weakened, and the oscillations are 
+suppressed.
+Fig. 14 The OH radical mole fraction distribution of multinozzle 
+combustor
+Fig. 15 The length of the recirculation zone of the pilot stage 
+varies with FSR
+Fig. 16 The length of the recirculation zone of the main stage 
+varies with FSR
+051018-12 / Vol. 148, MAY 2026                                                                                                               
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 13 ---
+
+3 Conclusion
+This paper studies the thermoacoustic oscillations in a multi­
+nozzle diesel LPP combustor under fuel staging conditions. Through 
+the experimental method of OH* chemiluminescence image and 
+pressure fluctuation signals synchronized acquisition, the causes of 
+thermoacoustic oscillations were studied using POD modal analysis 
+and Rayleigh index analysis. Numerical calculations were also 
+conducted to obtain the distribution characteristics of the OH radical 
+in the combustor. The main conclusions are as follows:
+(1) For the multi-nozzle diesel LPP combustor, whether the pilot 
+stage is activated or not has a significant impact on the 
+oscillation frequency. The frequency is reduced by 11% when 
+the pilot stage is activated compared to when it is not. 
+Adjusting the fuel FSR can suppress the pressure fluctuations 
+in the combustor, with the fluctuation amplitude reduction 
+reaching up to 60%.
+(2) Under the condition without the pilot stage, the oscillation 
+mode is an asymmetric double-peak oscillation. The phase 
+space image indicates that the oscillation is a double-period 
+limit cycle oscillation. After the pilot stage is activated 
+(FSR0.17), the oscillation mode becomes a symmetric 
+double-peak oscillation, and the phase space image shows 
+that the oscillation is a single-period limit cycle oscillation. 
+When FSR is greater than 0.21, the oscillation mode changes 
+from double-peak to single-peak oscillation, and the phase 
+diagram evolves from a single-period limit cycle toward 
+chaos.
+(3) The main energy of the oscillation is concentrated in the 
+global axial synchronous oscillation. The Rayleigh index and 
+numerical calculation results show that changes in FSR alter 
+the flame distribution in the combustor. An increase in FSR 
+causes the flame to shift from the wall and main stage 
+interference zone to the main stage-pilot stage interference 
+zone. This change in flame structure is the main reason for the 
+suppression of thermoacoustic oscillations.
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+References
+0[1] Davis, L. B., and Black, S. H., 1996, “Dry Low Nox Combustion Systems for Ge 
+Heavy-Duty Gas Turbines,” ASME Paper No. 96-GT-027.
+0[2] Kao, Y., Tambe, S. B., and Jeng, S., 2014, “Aerodynamics Study of a Linearly- 
+Arranged 5-Swirler Array,” ASME Paper No. GT2014-25094.
+0[3] Samarasinghe, J., Peluso, S. J., Quay, B. D., and Santavicca, D. A., 2016, “The 
+Three-Dimensional Structure of Swirl-Stabilized Flames in a Lean Premixed 
+Multinozzle Can Combustor,” ASME J. Eng. Gas Turbines Power, 138(3), 
+p. 031502.
+0[4] Lieuwen, T., and Yang, V., 2005, “Combustion Instabilities in Gas Turbine 
+Engines: Operational Experience, Fundamental Mechanisms, and Modeling, 
+AIAA, Reston, VA.
+0[5] Nair, S., and Lieuwen, T., 2007, “Near-Blowoff Dynamics of a Bluff-Body 
+Stabilized Flame,” J. Propul. Power, 23(2), pp. 421–427.
+0[6] Preetham, Thumuluru, S. K., Santosh, H., and Lieuwen, T., 2010, “Linear 
+Response of Laminar Premixed Flames to Flow Oscillations: Unsteady Stretch 
+Effects,” J. Propul. Power, 26(3), pp. 524–532.
+0[7] Rehm, J. E., and Clemens, N. T., 1998, “The Relationship Between Vorticity/ 
+Strain and Reaction Zone Structure in Turbulent Non-Premixed Jet Flames,” 
+Symp. (Int.) Combust., 27(1), pp. 1113–1120.
+0[8] Yu, Z., Ai, Y., Wang, Y., and Luo, C., 2021, “Thermoacoustic Instability Analysis 
+of a Laminar Lean Premixed Flame Under Autoignitive Conditions,” Combust. 
+Flame, 225, pp. 513–523.
+0[9] Han, X., Laera, D., Morgans, A. S., Lin, Y., Zhang, C., Hui, X., and Sung, C., 2019, 
+“Inlet Temperature Driven Supercritical Bifurcation of Combustion Instabilities 
+in a Lean Premixed Prevaporized Combustor,” Exp. Therm. Fluid Sci., 109, p. 
+109857.
+[10] Biswas, S., and Qiao, L., 2018, “Combustion Instabilities of Ultra-Lean Premixed 
+h2/Air Mixtures by Prechamber Turbulent Jet Ignition,” J. Propul. Power, 34(5), 
+pp. 1166–1177.
+[11] Kim, J., Gillman, W., John, T., Adhikari, S., Wu, D., Emerson, B., Acharya, V., 
+Lieuwen, T., Isono, M., and Saitoh, T., 2021, “Experimental Investigation of Fuel 
+Staging Effect on Modal Dynamics of Thermoacoustic Azimuthal Instabilities in a 
+Multi-Nozzle Can Combustor,” ASME Paper No. GT2021-59098.
+[12] Kim, J., Gillman, W., Wu, D., Emerson, B., Acharya, V., Mckinney, R., Lieuwen, 
+T., Isono, M., and Saitoh, T., 2020, “Identification of High-Frequency Transverse 
+Acoustic Modes in Multi-Nozzle Can Combustors,” ASME Paper No. GT2020- 
+16130.
+[13] Temme, J. E., Allison, P. M., and Driscoll, J. F., 2014, “Combustion Instability of a 
+Lean Premixed Prevaporized Gas Turbine Combustor Studied Using Phase- 
+Averaged Piv,” Combust. Flame, 161(4), pp. 958–970.
+[14] Liu, Z., Wei, X., Xiong, Y., Lu, X., Zhang, Z., Zhang, S., and Xu, X., 2024, “Effect 
+of Head-End Fuel Staging on Combustion Characteristics in a Multi-Nozzle Array 
+Combustor,” ASME Paper No. GT2024-127382.
+[15] Chen, X., Culler, W., Peluso, S., Santavicca, D., and O Connor, J., 2018, 
+“Comparison of Equivalence Ratio Transients on Combustion Instability in 
+Single-Nozzle and Multi-Nozzle Combustors,” ASME Paper No. GT2018-75427.
+[16] Lee, T., Lee, J., Park, J., Han, D., and Kim, K. T., 2018, “Staggered Swirler 
+Arrangement in Two Self-Excited Interacting Swirl Flames,” Combust. Flame, 
+198, pp. 363–375.
+[17] Lee, T., Park, J., Han, D., and Kim, K. T., 2019, “The Dynamics of Multiple 
+Interacting Swirl-Stabilized Flames in a Lean-Premixed Gas Turbine Combustor,” 
+Proc. Combust. Ins., 37(4), pp. 5137–5145.
+[18] Hardalupas, Y., and Orain, M., 2004, “Local Measurements of the Time- 
+Dependent Heat Release Rate and Equivalence Ratio Using Chemiluminescent 
+Emission From a Flame,” Combust. Flame, 139(3), pp. 188–207.
+[19] Chong, C. T., Chiong, M., Ng, J., Tran, M., Valera-Medina, A., Jozsa, V., and Tian, 
+B., 2020, “Dual-Fuel Operation of Biodiesel and Natural Gas in a Model Gas 
+Turbine Combustor,” Energy Fuels, 34(3), pp. 3788–3796.
+[20] Chong, C. T., and Hochgreb, S., 2017, “Flame Structure, Spectroscopy and 
+Emissions Quantification of Rapeseed Biodiesel Under Model Gas Turbine 
+Conditions,” Appl. Energy, 185, pp. 1383–1392.
+[21] Sung, M., and McDonell, V. G., 2015, “Influence of Emulsions and Steam 
+Injection on a Diesel Fueled Model Gas Turbine Combustor,” Atomization 
+Sprays, 25(12), pp. 1025–1045.
+[22] Wei, Y., Li, T., Wang, B., and Shi, W., 2017, “Simultaneous Measurement of the 
+Flame Lift-Off Length on Direct Injection Diesel Sprays Using High Speed 
+Schlieren Imaging and oh Chemiluminescence,” SAE Paper No. 2017-01-2307.
+[23] Pickett, L. M., and Siebers, D. L., 2005, “Orifice Diameter Effects on Diesel Fuel 
+Jet Flame Structure,” ASME J. Eng. Gas Turbines Power, 127(1), pp. 187–196.
+[24] Sirovich, L., 1987, “Turbulence and the Dynamics of Coherent Structures Part i: 
+Coherent Structures,” Q. Appl. Math., 45(3), pp. 561–571.
+[25] Johnson, M., James, A., and Agrawal, A., 2023, “Effect of Insert Porosity on 
+Combustion Instability in a Lean Premixed Combustor Analyzed by a Pod-Based 
+Phase Reconstruction Technique,” ASME Paper No. GT2023-102022.
+[26] Luo, Z., Som, S., Sarathy, S. M., Plomer, M., Pitz, W. J., Longman, D. E., and Lu, 
+T., 2014, “Development and Validation of an n-Dodecane Skeletal Mechanism 
+for Spray Combustion Applications,” Combust. Theory Modell., 18(2), 
+pp. 187–203.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051018-13 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051018/7541562/gtp-25-1214.pdf by University of Cincinnati user on 31 December 2025

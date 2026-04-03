@@ -1,0 +1,1846 @@
+
+--- Page 1 ---
+
+Mo et al. Propulsion and Energy            (2025) 1:20  
+https://doi.org/10.1007/s44270-025-00022-w
+REVIEW
+Open Access
+© The Author(s) 2025. Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which 
+permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the 
+original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or 
+other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line 
+to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory 
+regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this 
+licence, visit http://creativecommons.org/licenses/by/4.0/.
+A review of recent advances 
+in the application of machine learning 
+algorithms for gas turbine combustion
+Da Mo1,2, Yuzhen Lin2,3, Yixiong Liu4, Yuchen Wang2, Ziyu Qin2 and Xiao Han2,3* 
+Abstract 
+With the rapid advancement of computing power and significant progress in machine learning (ML) algorithms, ML 
+has shown immense potential across a wide range of fields, particularly in simulation, experimental analysis, and con‑
+dition monitoring. In the realm of combustion science and engineering, ML techniques have driven substantial 
+advancements, particularly in gas turbine engine combustion. The integration of intelligent algorithms in combustion 
+modelling and analysis has led to more accurate predictions, enhanced performance, and the potential for more effi‑
+cient and environmentally friendly combustion processes. This paper provides a comprehensive review of the current 
+state of research on intelligent algorithms applied to combustion chemical reaction kinetics, combustion simula‑
+tion, performance prediction, combustion state, and instability monitoring. The review highlights the progress made 
+and offers valuable insights for improving the performance of gas turbine engines. Additionally, the paper discusses 
+the challenges and prospects of applying intelligent algorithms in combustion research, including issues related 
+to data quality, model interpretability, and computational complexity, while identifying avenues for future develop‑
+ment and innovation.
+Keywords  Machine learning, Chemical reaction kinetics, Instability prediction, PINN
+1  Introduction
+In the current data-driven era, machine learning (ML) 
+algorithms are continuously advancing technological 
+development. These algorithms, which simulate intelli-
+gent behaviors observed in nature, such as learning, rea-
+soning, and perception, are designed to solve complex 
+problems. Examples of such algorithms include linear 
+regression (LNR), logistic regression (LGR), decision tree 
+(DT), random forest (RF), neural network (NN), convolu-
+tional neural network (CNN), recurrent neural network 
+(RNN), support vector machine (SVM), and generative 
+adversarial network (GAN). Due to their versatility, these 
+algorithms hold significant potential in a wide range of 
+applications, such as prediction, classification, pattern 
+recognition, and data generation [1, 2].
+LNR and LGR serve as fundamental statistical mod-
+eling approaches due to their computational efficiency 
+and model transparency. LNR establishes linear corre-
+lations between independent variables and continuous 
+responses, making it particularly effective for quantita-
+tive predictions such as temperature forecasting. In con-
+trast, LGR employs a sigmoid transformation to estimate 
+class probabilities, demonstrating superior performance 
+for classification tasks with limited datasets or high-
+dimensional sparse features.
+*Correspondence:
+Xiao Han
+han_xiao@buaa.edu.cn
+1 AECC Harbin Dongan Engine Co., LTD., Harbin 150066, China
+2  Research Institute of Aero‑Engine, Beihang University, Beijing 100191, 
+China
+3 National Key Laboratory of Science and Technology on Aero‑Engine 
+Aero‑thermodynamics, Beihang University, Beijing 100191, China
+4 AECC Shenyang Engine Research Institute, Shenyang 110015, China
+
+
+--- Page 2 ---
+
+Page 2 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+Decision trees and RFs excel in handling nonlinear 
+relationships and high-dimensional data, though they 
+may face the risk of overfitting. Decision trees partition 
+the feature space into regions using a series of decision 
+rules. Each internal node represents a decision based 
+on a feature, and each leaf node represents a prediction. 
+RF is an ensemble method that constructs multiple DTs. 
+Each tree is trained on a random subset of the data and a 
+random subset of features. The final prediction is aggre-
+gated by majority voting (classification) or averaging 
+(regression).
+NNs consist of layers of interconnected neurons that 
+process input data through weighted sums and activation 
+functions. NNs, particularly deep learning (DL) models, 
+have become a research focus due to their ability to han-
+dle complex data relationships, though they require vast 
+amounts of data and computational resources. SVMs 
+identify the optimal hyperplane that maximizes the mar-
+gin between different classes. For non-linearly separable 
+data, they employ kernel functions to map the data into 
+higher-dimensional spaces, enabling effective classifica-
+tion and regression. This approach allows SVMs to pro-
+cess data indirectly via kernel functions, thereby avoiding 
+the computational complexity of direct high-dimensional 
+operations. It is especially advantageous for handling 
+problems where data cannot be separated by a linear 
+boundary.
+NNs are computational models that simulate the struc-
+ture and function of the human brain, capable of process-
+ing complex data relationships, particularly in fields such 
+as image recognition, natural language processing, and 
+speech recognition. NNs predict and classify by learn-
+ing the intricate patterns and relationships between input 
+data. Numerous variants of NNs exist, with CNNs achiev-
+ing revolutionary advancements in image recognition [3]. 
+The introduction of convolutional and pooling layers in 
+CNNs effectively addresses the dimensionality curse, 
+spatial feature loss, and gradient issues encountered by 
+artificial neural networks (ANNs) when processing high-
+dimensional data. These innovations enable CNNs to 
+excel in image classification and computer vision tasks, 
+especially in analysing complex flame structures. RNNs 
+process sequential data by updating hidden states based 
+on current inputs and previous hidden states. They are 
+prone to vanishing or exploding gradients, which are 
+mitigated by variants, such as long short-term memory 
+(LSTM) networks. They perform exceptionally well in 
+processing natural language and time-series predictions. 
+GANs consist of a generator that produces synthetic data 
+and a discriminator that distinguishes between real and 
+fake data. They are trained adversarially until the genera-
+tor produces data indistinguishable from real data. This 
+process enables GANs to generate high-quality, realistic 
+data samples, particularly in image synthesis.
+The development of ML algorithms marks a significant 
+advancement in computational technology, as presented 
+in Fig. 1. Machine learning techniques have evolved from 
+fundamental algorithms (including linear regression [4] 
+and neural networks [5]) to more advanced approaches 
+like deep learning [6, 7] and reinforcement learning [8], 
+with applications extending to domains such as chemi-
+cal kinetics modeling via Arrhenius equations [9]. The 
+field has advanced significantly with the rise of big data, 
+GPU acceleration, and DL frameworks. The development 
+of transformer architectures and foundation models has 
+further advanced ML capabilities, enabling a broad range 
+of applications. Transformers, with their powerful atten-
+tion mechanisms, have revolutionised natural language 
+processing and have also found applications in other 
+domains such as computer vision and multimodal learn-
+ing. Their ability to capture long-range dependencies 
+and parallelize computations makes them highly effec-
+tive, though they come with challenges like high compu-
+tational complexity and memory requirements. On the 
+Fig. 1  ML algorithms development
+
+
+--- Page 3 ---
+
+Page 3 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+other hand, GNNs are designed to handle graph-struc-
+tured data, excelling in tasks like node classification, link 
+prediction, and recommendation systems by leveraging 
+the inherent relationships between nodes. Despite their 
+strong modeling capabilities, GNNs face issues like over-
+smoothing and high computational costs for large-scale 
+graphs. The future of ML looks to be defined by multi-
+modal models that integrate diverse data types for more 
+complex problem-solving tasks.
+The development of ML algorithms has brought revo-
+lutionary changes to various fields, showcasing immense 
+potential in improving efficiency, reducing costs, and 
+uncovering new knowledge. With the growth in computa-
+tional power and the explosion of data, ML algorithms will 
+continue to play a crucial role across many domains, driv-
+ing technological progress. In the field of combustion, the 
+application of ML plays a critical role in turbulence model-
+ling, chemical reactions, and experimental research.
+The following provides an overview of the develop-
+ment and application of these technologies. For turbu-
+lence modelling, ML and DL techniques have proven to 
+be effective tools. Researchers have used these methods 
+to predict the characteristics of turbulent flows, such as 
+Reynolds stress models [10]. Spalart introduced turbu-
+lence models and simulation strategies and presented a 
+new version of the detached eddy simulation (DES) that 
+is resistant to grid resolution variations [11, 12].
+Regarding chemical reaction modelling, ML technolo-
+gies are used to simulate and predict complex chemical 
+reactions [13–15]. Key areas of focus include combus-
+tion mechanism optimization [16, 17], chemical reaction 
+kinetics modelling, and computational acceleration [18–
+21]. ANNs have been successfully utilized to simulate 
+chemical reactions [22]. These networks have shown the 
+capability to capture the nonlinear functions of tempera-
+ture and concentration. Additionally, unknown reaction 
+pathways have been autonomously discovered through 
+the use of chemical reaction NNs [23]. Moreover, com-
+plex reaction processes have been revealed by employing 
+molecular dynamics simulations [24].
+Concerning numerical simulations, ML techniques are 
+employed to improve the accuracy of combustion effi-
+ciency predictions and optimize combustion processes. 
+Buchheit et al. [25] proposed a stabilized explicit varia-
+ble-load solver that accelerates the solution of stiff chem-
+ical kinetics problems using ML. Chen et al. [26] applied 
+ML to the closure of the filter density function in moder-
+ate or intense low-oxygen dilution (MILD) combustion.
+As for experimental research, ML technologies are 
+also used to assist with sensor data augmentation and 
+combustion process control [27–30], as well as perfor-
+mance prediction, fault diagnosis, health management, 
+and performance optimization [31–33]. ML further aids 
+in analyzing vast amounts of combustion test data to 
+identify key parameters in the combustion process, ena-
+bling prediction, diagnosis, and management [34, 35]. To 
+address high noise in industrial data and improve robust-
+ness under varying operating conditions, various tech-
+niques could be used, such as regularization methods like 
+L1 and L2 regularization. Feature engineering and selec-
+tion allow models to focus on the most relevant features, 
+minimizing the influence of noisy or irrelevant data. Data 
+augmentation techniques, such as adding noise, rotation, 
+and scaling, enhance the model’s ability to generalize by 
+exposing it to diverse variations during training. Dropout 
+and batch normalization in NNs further improve robust-
+ness by preventing overfitting and stabilizing the training 
+process. Ensemble methods like RF reduce variance and 
+improve generalization by averaging multiple models. 
+Kernel functions in SVMs and attention mechanisms in 
+RNNs help handle non-linearities and focus on relevant 
+parts of the data, enhancing performance under varying 
+conditions.
+This paper aims to provide a comprehensive review 
+of the application of intelligent algorithms in the field 
+of gas turbine engine combustion. It explores how these 
+algorithms assist researchers in better understanding 
+and predicting combustion phenomena and addresses 
+the challenges and future directions for their practical 
+implementation.
+2  Combustion modelling
+ML with combustion models is crucial for enhancing the 
+accuracy, adaptability, and optimization of complex gas 
+turbine combustion processes. By learning from large 
+datasets, they refine predictive accuracy, adapt to vary-
+ing conditions, and reduce model uncertainties. This 
+combination offers significant advantages over traditional 
+models, enabling more efficient operation in practical 
+applications.
+2.1  Turbulent combustion models
+ML in turbulent combustion models primarily improves 
+prediction accuracy and computational efficiency, 
+addressing the limitations of traditional models in han-
+dling complex nonlinear and high-dimensional data. 
+Techniques such as DL and neural networks enable the 
+optimization of reaction rate predictions, turbulence-
+combustion coupling, and low-dimensional data mod-
+elling. Recent studies have made significant progress in 
+developing efficient turbulent combustion models, real-
+time simulations, and multi-scale modelling.
+The integration of ML into the combustion model has 
+proven effective in improving prediction accuracy and 
+computational efficiency [36, 37]. The ANN model out-
+performs traditional wall models in terms of accuracy, 
+
+
+--- Page 4 ---
+
+Page 4 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+particularly under boundary layer conditions character-
+istic of turbulent combustion, as depicted in Fig. 2 [38].
+CNN could efficiently extract the flame topological fea-
+tures and predict subgrid-scale wrinkling, outperform-
+ing traditional algebraic models [39]. Additionally, CNN 
+exhibited excellent deconvolution performance, recov-
+ering lost small-scale information while maintaining 
+low error rates across different test scenarios [40]. Fur-
+thermore, CNN and a hybrid downsampling skip mul-
+tiscale model have demonstrated great potential in the 
+super-resolution reconstruction of low-resolution turbu-
+lent flow field data [41]. The generalized k-ω turbulence 
+model was tuned for gas turbine combustor applications 
+using adjoint optimization and NNs, as shown in Fig. 3 
+[42]. By validating against large eddy simulation (LES) 
+and experimental data, it showed consistency in velocity 
+field variance and turbulence energy terms.
+The GAN method in modelling sub-filter terms in tur-
+bulence was proven to achieve good results in prior and 
+posterior tests, including decaying turbulence and turbu-
+lent mixing [43], as shown in Fig. 4. The physical infor-
+mation continuity loss term was also important.
+ML approaches are utilized in RANS and LES mod-
+eling to represent unclosed terms, model discrepan-
+cies, and subgrid-scale phenomena [44]. Shin et al. [45] 
+proposed a novel probabilistic data-driven approach 
+Fig. 2  Results comparisons
+Fig. 3  Axial velocity distribution for reacting flow compared to experiments
+
+
+--- Page 5 ---
+
+Page 5 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+for simulating filtered reaction rates in LES of turbu-
+lent premixed combustion. This framework integrates 
+conditional generative adversarial networks (cGANs) 
+and Gaussian mixture models to account for statistical 
+fluctuations in LES caused by unresolved subgrid struc-
+tures. The study demonstrated that probabilistic mod-
+els are significant in capturing the stochastic nature of 
+turbulent combustion and showed that the proposed 
+model outperformed traditional deterministic models.
+Additionally, Shin et al. [46] introduced a data-driven 
+subgrid-scale model for turbulent premixed combus-
+tion in LES. The study employed an architecture com-
+bining deep residual networks (ResNet) with mixture 
+density networks (MDN) to estimate subgrid flame 
+surface density using only local variables. The DNS 
+data provided by Lapeyre et al. [47] were used for train-
+ing, and the effectiveness and accuracy were validated 
+through a priori tests and posterior assessments.
+Shateri et al. [48] explored the integration of ML tech-
+niques with LES to predict species mass fractions and 
+flame characteristics in partially premixed turbulent jet 
+flames. To enhance real-time prediction capabilities, 
+three ML models were trained: NN, LNR, and decision 
+tree regression (DTR). The NN model demonstrated 
+high precision in predicting species mass fractions and 
+flame patterns and achieved a computational efficiency 
+improvement of approximately 17.25 times.
+Seltz  et al. [49] proposed a unified modelling frame-
+work that uses CNN to provide closure for all unresolved 
+terms in LES, as shown in Fig. 5. The study demonstrated 
+that the trained networks could produce quantitatively 
+good predictions of all unresolved terms in prior studies, 
+without requiring the solution of any additional transport 
+equations.
+As depicted in Fig. 6, Wan et al. [50] introduced a novel 
+CNN-based reduction strategy for DNS of turbulent 
+non-premixed flames with cooled walls, utilizing syngas 
+Fig. 4  Diagram of the GAN architecture
+Fig. 5  CNN training from DNS, the sketch of the database construction
+
+
+--- Page 6 ---
+
+Page 6 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+in pure oxygen. By processing 2D images of species mass 
+fractions and temperature, the CNN effectively predicted 
+chemical source terms, outperforming traditional Arrhe-
+nius-based mechanisms in accuracy for radical species, 
+as presented in Fig. 7.
+A PCA-ANN combustion model was developed to map 
+thermochemical states using five key variables, trained on 
+data from homogeneous reactors, non-premixed flame 
+slices, and 2D-lifted flames [51]. It can accurately predict 
+the major species of turbulent jet flames based on DNS, 
+as shown in Fig. 8, but improvements are still needed in 
+predicting minor species and reaction rates. This requires 
+further enhancement of the training data to address these 
+issues.
+The study of flame propagation speed is crucial for 
+understanding and predicting combustion processes, as 
+it involves the chemical reaction properties of the fuel, 
+heat release characteristics, and the stability of the flame 
+under various conditions, which in turn helps ensure 
+safety during combustion. With the growing demand 
+for clean energy, studying the flame propagation char-
+acteristics of new fuels, such as hydrogen, has become 
+increasingly important. Adding hydrogen to propane 
+combustion can enhance flame stability, widen the lean 
+flammability limits, and reduce pollutant emissions. For 
+the laminar burning velocity of propane/hydrogen/air 
+mixtures, ANN showed superior accuracy compared to 
+SVM and significantly faster computation times com-
+pared to traditional methods [52]. Moreover, using lami-
+nar flame speed calculations to train ML models enabled 
+faster combustion rate predictions within a virtual engine 
+framework [53], as shown in Fig. 9.
+Compared to multiple models of linear regression 
+(MLR), SVR, RF, and ANN, the RF model provided the 
+Fig. 6  Instantaneous iso-surface of Q criterion predicted by CNN-DNS [50]
+Fig. 7  CNN training from a 2D database [50]
+
+
+--- Page 7 ---
+
+Page 7 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+highest accuracy for predicting turbulent flame speeds 
+in hydrogen-natural gas spark ignition engines [54] 
+(Fig. 10).
+2.2  Combustion kinetic model
+In the context of chemical reaction kinetics modeling 
+[55–58], ML techniques have been employed to construct 
+and simplify complex chemical reaction mechanisms, 
+thereby reducing computational costs and enhancing 
+computational efficiency. For instance, optimizing chem-
+ical reaction mechanisms using neural networks can 
+significantly lower computational expenses while main-
+taining high prediction accuracy. Using optimization 
+algorithms, the accuracy of ANNs can reach the level of 
+medium-to-fine resolution tabulated methods [59]. The 
+ANN-based approach could accelerate global sensitivity 
+analysis of combustion kinetics models and require only 
+a fraction of the original samples [60].
+Reaction rate constants are essential parameters in 
+chemical kinetics models, and their accurate prediction 
+is crucial for combustion simulations. Lu et al. [61] uti-
+lized machine learning to predict the rate constants of 
+hydroxyl radical reactions with alkanes. By constructing 
+machine learning models and combining extensive 
+experimental data with theoretical calculations, they 
+achieved efficient prediction of reaction rate constants. 
+Li et al. [56] also employed machine learning to predict 
+rate constants for various reactions in combustion kinetic 
+models, further demonstrating the potential of machine 
+learning in rate constant prediction, which can signifi-
+cantly improve prediction accuracy and reduce com-
+putational time. Additionally, KiNet [62], a deep neural 
+network representation of chemical kinetics, models 
+chemical reaction kinetics by automatically learning the 
+complex relationships between reaction rate constants 
+and reaction pathways, offering a new tool for combus-
+tion chemical kinetics modeling and simulation (Figs. 11 
+and 12).
+Optimizing combustion kinetic mechanisms is a key 
+step in improving combustion simulation accuracy. A 
+study [57] proposed a machine learning-based opti-
+mization method for hydrogen combustion kinetic 
+mechanisms. By analyzing and mining extensive experi-
+mental data using machine learning algorithms, the 
+kinetic parameters were optimized, resulting in a more 
+accurate representation of hydrogen combustion pro-
+cesses. Liu et  al. [63] developed Reaction Mechanism 
+Generator v3.0, which has made significant progress in 
+automatic mechanism generation. This tool uses machine 
+learning to intelligently select and optimize reaction 
+pathways and kinetic parameters, enhancing the accu-
+racy and reliability of generated mechanisms and pro-
+viding strong support for the development of kinetic 
+mechanisms in complex combustion systems.
+Deep learning, a significant branch of machine learn-
+ing, has also been widely applied in combustion chemi-
+cal kinetics. A study [64] explored the application of 
+deep learning in analyzing and reducing dynamic laten-
+cies in combustion chemical kinetics. By analyzing 
+Fig. 8  Flame coloured by combustion modes [51]
+Fig. 9  ANN architecture [53]
+
+
+--- Page 8 ---
+
+Page 8 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+Fig. 10  Random forest training [54]
+Fig. 11  Schematic of the rate constants prediction [61]
+
+
+--- Page 9 ---
+
+Page 9 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+time delays and reaction pathways using deep learning 
+models, hidden dynamic characteristics in combustion 
+processes were revealed, providing new insights into 
+understanding complex combustion chemical kinetics 
+behaviours. Han et al. [65] proposed an improved deep-
+learning model to enhance the robustness of chemi-
+cal kinetics models. By optimizing the deep learning 
+network structure and training algorithms, the model 
+maintained high prediction accuracy under differ-
+ent operating conditions and data noise, enhancing 
+the reliability of chemical kinetics models in practical 
+applications (Fig. 13).
+Combustion chemical kinetics models often contain a 
+large number of reactions and species, resulting in high 
+computational costs. Therefore, model simplification 
+and dimensionality reduction have become important 
+research directions in combustion kinetics. Haghshe-
+nas [66] introduced the learned intelligent tabulation 
+(LIT) method to accelerate chemical kinetics compu-
+tations. By using machine learning to reduce the com-
+plexity of kinetic models, high-dimensional chemical 
+kinetics problems were transformed into low-dimen-
+sional tabulated data, significantly improving compu-
+tational efficiency while maintaining model accuracy. 
+Pulga et al. [67] employed machine learning to improve 
+the accuracy of reduced chemical kinetics mechanisms 
+in laminar flame simulations. Their study optimized the 
+simplified mechanisms using machine learning, result-
+ing in higher accuracy in simulating laminar flame 
+propagation speeds and temperature distributions, pro-
+viding a new approach for efficient combustion simula-
+tions (Fig. 14).
+Machine learning techniques can also be used to 
+integrate kinetic mechanisms from different sources, 
+enhancing model applicability and accuracy. For exam-
+ple, by analyzing multiple experimental datasets and the-
+oretical calculations using machine learning algorithms, 
+more comprehensive and accurate kinetic models can 
+be generated. This approach not only reduces the influ-
+ence of human factors on models but also better adapts 
+to the kinetic requirements under different combustion 
+conditions. The application of artificial intelligence in the 
+modeling of chemical reaction kinetics [68] has also been 
+explored, highlighting the potential of artificial intelli-
+gence (AI) techniques to enhance the development and 
+integration of kinetic models.
+2.3  Conditional scalar dissipation rate modeling
+Conditional Sscalar dissipation rate (CSDR) is an impor-
+tant parameter for describing mixing and reaction pro-
+cesses in turbulent flow fields, particularly in the study of 
+combustion and pollutant formation. Traditional CSDR 
+modelling methods typically rely on empirical formu-
+las or similar approximations. With the ML method, 
+researchers can leverage large datasets from DNS or 
+experimental data to train models, capturing complex 
+nonlinear relationships and identifying the connec-
+tions between CSDR and other flow field variables. ANN 
+trained on carrier-phase DNS data could model CSDRs 
+in turbulent spray flames, and a  few droplet-related 
+parameters were sufficient for accurate predictions [69, 
+70], as shown in Fig. 15.
+For modelling the reactive flows in LES, the DL model 
+outperformed the analytical β-β PDF model and linear 
+regression models in accuracy, while being as accurate 
+as the RF model but with fewer trainable parameters 
+and faster inference speeds [71]. CNN could effectively 
+extract topological features of the flame and predict sub-
+grid-scale wrinkling as well as reaction rates in turbulent 
+premixed flames [39, 72]. ANNs are capable of directly 
+simulating an important unresolved term in the unre-
+solved stress tensor [73]. Meanwhile, DNN can predict 
+the dissipation rate of the progress variable in turbulent 
+premixed flames [74].
+Table 1 highlights the diverse approaches to combus-
+tion prediction, where intelligent algorithms like ANN, 
+CNN, and NNs significantly improve accuracy. However, 
+the use of high-quality data and the computational inten-
+sity required for large datasets and complex simulations 
+remain critical factors for achieving robust results. These 
+models demonstrate the evolving trend of integrating 
+advanced ML techniques with classical combustion and 
+Fig. 12  Flowchart for using reaction fingerprints to predict rate 
+constants [56]
+
+
+--- Page 10 ---
+
+Page 10 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+turbulence models to enhance predictive capabilities in 
+combustion research.
+3  Numerical simulation
+Numerical simulation analysis plays a crucial role in vari-
+ous engineering fields, especially in applications involv-
+ing combustion. They help to predict flame propagation, 
+combustion states, pollutant emissions, and extinguish-
+ment processes without the need for physical experi-
+ments. With the rapid advancements in computational 
+power and ML technologies, intelligent algorithms pro-
+vide innovative approaches and tools for addressing 
+complex engineering challenges. These algorithms are 
+particularly effective in tasks such as optimization, pre-
+dictive modelling, and real-time control, further enhanc-
+ing the accuracy, efficiency, and capabilities of traditional 
+numerical simulations.
+3.1  Combustion state identification
+Combustion state identification refers to the process of 
+identifying and characterizing the various phases of com-
+bustion within a combustion system. Accurate identifi-
+cation of the combustion state is crucial for optimizing 
+combustion efficiency and reducing pollutant emissions.
+Fig. 13  Schematic of the model algorithm [65]
+
+
+--- Page 11 ---
+
+Page 11 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+By combining wall pressure data and Schlieren imag-
+ing, the DL model can reconstruct flame development, 
+enhancing the identification of combustion modes 
+across diverse chamber configurations [75]. Domain-
+adaptive NNs were used for dual-mode combustors, 
+as presented in Fig.  16, and demonstrated improved 
+Fig. 14  The overview of the LIT method [66]
+Fig. 15  Instantaneous CSDRs of fuel-lean LES cell [69, 70]
+Table 1  The application of intelligent algorithms in the theoretical model
+Author
+Fuel
+Data acquisition 
+methods
+Data volume
+Method
+Prediction accuracy
+Theoretical model
+Yu et al. [36]
+Hydrogen
+FlameMaster database
+1.02 million + 
+ANN
+Error reduction 
+over 50% on average
+Combustion model
+Zheng et al. 
+[38]
+−
+DNS
+3.6 million
+NNs
+R > 0.97, RMSE = 0.501
+Turbulent combustion 
+model
+Klavaris et 
+al. [42]
+−
+ANSYS FLUENT
+−
+NNs
+Accuracy improved 
+by 70%
+Turbulence model 
+adjustment
+Ihme et al. 
+[59]
+Methane and hydrogen
+LES
+synaptic weights 50000 ANN
+Consistent with experi‑
+mental results
+Chemical characteri‑
+zation
+Seltz et al. 
+[49]
+Methane
+DNS
+10800
+CNN
+Maximum error of 1%
+Unified modeling 
+framework
+Wan et al. 
+[50]
+Synthesis gas and pure 
+oxygen
+DNS
+−
+CNN
+−
+Theoretical model
+Yao et al. 
+[69, 70]
+Kerosene
+CP-DNS
+−
+ANN
+Error less than 15%
+Turbulence model 
+adjustment
+
+
+--- Page 12 ---
+
+Page 12 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+cross-domain recognition and generalization perfor-
+mance [76].
+3.2  Pollutant emission prediction
+Accurate forecasting of pollutants allows for the develop-
+ment of effective emissions control strategies, facilitat-
+ing the optimization of combustion processes to reduce 
+harmful emissions [77, 78]. Integrating ML and simula-
+tion techniques in pollutant prediction enhances our 
+understanding of complex combustion phenomena, ulti-
+mately aiding in the transition towards cleaner and more 
+sustainable energy systems [79, 80].
+RF classifier could be applied for dynamic submodel 
+assignment in turbulent combustion simulations. It effec-
+tively assigned combustion models, rate chemistry (FRC), 
+flame slices/progress variable (FPV) model, and inert 
+mixing (IM), enhancing predictions of temperature and 
+CO mass fraction [81] (Fig. 17).
+Fig. 16  Design framework
+Fig. 17  Application of RF classifier for combustion submodel assignment [81]
+
+
+--- Page 13 ---
+
+Page 13 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+3.3  Extinction prediction
+Accurate extinction prediction is essential for combustor 
+design, ensuring safety in industrial applications. Unlike 
+traditional methods, ML models can handle high-dimen-
+sional data, adapt to varying conditions, and provide 
+real-time predictions, making them highly suitable for 
+complex combustion systems [82–84]. Moreover, they 
+can enable early detection of lean blowout (LBO) [85]. 
+For instance, an SVM model has been shown to iden-
+tify the critical flame location and predict LBO 20  ms 
+in advance, demonstrating its potential for online flame 
+health monitoring and engine management [85], as 
+shown in Figs. 18 and 19.
+3.4  New emerging methods
+Transformer, GNN, and physics-informed neural net-
+work (PINN) are advanced machine learning techniques 
+that have revolutionized various domains by addressing 
+complex data structures and incorporating domain-spe-
+cific knowledge.
+Transformer methods have demonstrated remark-
+able potential in optimizing the performance of avia-
+tion engines and gas turbine combustion chambers. 
+Specifically, a dual-stream network that integrates 
+CNNs with Transformers has proven highly effective 
+in classifying the combustion state of sintering flames. 
+By seamlessly integrating these two streams, the model 
+combines granular local insights with comprehensive 
+contextual information, thereby enhancing its ability 
+to accurately classify combustion states. The preci-
+sion of this classification is further refined through the 
+optimization of attention weights within the Trans-
+former, as well as the implementation of multi-scale 
+feature fusion techniques [86].
+Additionally, Transformer-based deep neural net-
+works have been employed to predict combustion 
+reaction source terms, which are crucial for accurate 
+Fig. 18  Comparison of OH* chemiluminescene (experimental) and ­YOH (LES) [85]
+Fig. 19  Machine learning architecture [85]
+
+
+--- Page 14 ---
+
+Page 14 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+combustion modeling [87]. These networks utilize a 
+combination of encoder-decoder layers and self-atten-
+tion mechanisms to handle complex, high-dimensional 
+data. This architecture enables the model to not only 
+process intricate patterns within the data but also pro-
+vide highly accurate predictions.
+GNNs could predict the ignition quality of fuels. 
+The researchers trained the GNN using a diverse data-
+set of hydrocarbon compounds, optimizing the model 
+to minimize prediction errors. The precision was 
+enhanced through the use of advanced graph convolu-
+tional layers and attention mechanisms, which allowed 
+the model to focus on critical substructures within the 
+molecules [88]. The GREAD model is a novel applica-
+tion of GNNs designed to simulate reaction–diffusion 
+processes, particularly relevant to combustion dynam-
+ics. This model integrates reaction–diffusion layers 
+into the GNN framework, allowing it to capture both 
+the spatial and temporal dynamics of combustion pro-
+cesses. This approach offers a more efficient and accu-
+rate alternative for modeling combustion dynamics, 
+with potential applications in optimizing combustion 
+processes and predicting flame behaviour [89].
+PINNs have rapidly emerged as a transformative tool 
+in the modeling of combustion processes, particularly 
+for solving complex, multiphysics problems governed 
+by partial differential equations (PDEs) [90]. Their 
+applications span a wide range of combustion-related 
+fields, including turbulent combustion, reactor design, 
+and chemical kinetics. PINNs have demonstrated 
+remarkable capabilities in accurately predicting key 
+combustion parameters such as temperature distribu-
+tions, species concentrations, and emission levels [91–
+94]. By integrating physical laws such as conservation of 
+mass and energy into the model, PINNs provide a way 
+to solve governing equations, like the Navier–Stokes 
+equations and species conservation equations, with 
+both data and physics constraints. These capabilities 
+make PINNs well-suited for modelling the multiphysics 
+phenomena inherent in combustion processes.
+PINNs [95–97] offer several advantages in combus-
+tion modelling. Their ability to efficiently integrate 
+sparse experimental or simulation data with physical 
+laws leads to a more data-efficient and computationally 
+cheaper approach compared to traditional methods. 
+PINNs also ensure physically consistent predictions by 
+enforcing governing equations during training. How-
+ever, there are challenges to their widespread adoption. 
+Training PINNs can be computationally expensive, 
+particularly for large-scale combustion problems, and 
+obtaining high-quality experimental data for training 
+can be difficult. Furthermore, PINNs may struggle with 
+generalization across diverse combustion conditions, 
+requiring careful training to handle a wide range of sce-
+narios effectively.
+Hybrid models that combine PINNs with tradi-
+tional simulation techniques like LES could enhance 
+predictive accuracy, especially for turbulent combus-
+tion regimes. Adaptive PINNs, capable of refining dis-
+cretization based on problem complexity, may lead to 
+improved performance in diverse scenarios. Addition-
+ally, PINNs could be adapted for real-time combustion 
+monitoring and control, offering faster and more accu-
+rate predictions in dynamic systems. As research pro-
+gresses, the ability of PINNs to handle multi-scale and 
+multi-physics combustion phenomena would further 
+expand their applicability, making them a valuable tool 
+in the design and optimization of more efficient and 
+sustainable combustion systems.
+PINN for solving combustion reaction kinetics inte-
+grates physical principles to regularize the ANN, as 
+demonstrated in Fig.  20. It can also infer intermedi-
+ate species and temperature, and significantly reduce 
+data dependence, achieving up to 14.6 times speedup 
+in simulations and improving accuracy in reacting flow 
+simulations [98].
+Raissi [99, 100] introduces PINNs for solving super-
+vised learning tasks while respecting physical laws. 
+It presents two algorithms: continuous-time models 
+for data-efficient spatiotemporal approximations and 
+discrete-time models using high-accuracy Runge–
+Kutta schemes. The framework’s effectiveness is dem-
+onstrated in classical problems in fluids, quantum 
+mechanics, reaction–diffusion systems, and nonlinear 
+wave propagation.
+Table 2 summarizes the integration of ML with simu-
+lations for predicting combustion performance, featur-
+ing methods such as ANN, SVM, and CRK-PINN. While 
+these algorithms provide significant advantages in terms 
+of precision and efficiency, they rely on data quantity and 
+quality, as well as computational resources.
+4  Combustion experiment
+The application of ML in combustion experiments has 
+become increasingly necessary and important due to its 
+ability to address the complexities and dynamic nature of 
+combustion systems. As combustion processes are inher-
+ently nonlinear, multi-dimensional, and often influenced 
+by numerous interacting variables, traditional model-
+ling and experimental methods may struggle to capture 
+the full range of behaviors. ML provides powerful tools 
+to enhance the accuracy and reliability of combustion 
+analysis, such as flow field reconstruction, flame recon-
+struction, anomaly detection, and combustion stability 
+prediction.
+
+
+--- Page 15 ---
+
+Page 15 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+4.1  Flow field reconstruction
+Flow field reconstruction offers critical insights into the 
+fluid dynamics within combustion chambers. Key param-
+eters such as velocity, pressure, and turbulence intensity 
+significantly impact flame stability, heat transfer, and pol-
+lutant emissions.
+DL has been applied to particle image velocimetry 
+(PIV) flow field image restoration, demonstrating a high 
+confidence level in identifying abnormalities and adap-
+tively repairing them while filtering noise and preserving 
+the original data [101], as presented in Fig. 21.
+NNs have been applied for particle tracking and edge 
+analysis by early researchers such as Grant  and Pan 
+[102], while Lagemann  et al. [103] used DL to achieve 
+functionalities similar to traditional cross-correlation 
+calculations. Zhu et al. [104] applied NNs to 3D particle 
+Fig. 20  The training process of CRK-PINN [98]
+Table 2  Numerical simulation analysis situation
+Author
+Fuel
+Method
+Data volume
+Prediction accuracy
+Usage
+Lu and Met‑
+ghalchi [52]
+Propane and hydrogen
+Power law correla‑
+tion, ANN, SVM
+−
+Approaching 100%
+Laminar burning velocity
+Molina 
+et al. [53]
+Methane-hydrogen
+ANN
+10,000
+Error less than 0.0056
+Burning rate
+Song et al. [76]
+Hydrogen
+NN
+1000
+Over 90%
+Combustion mode identification
+Chung et al. 
+[81]
+GOX/GCH4
+RFM
+10000
+−
+Temperature and CO prediction
+Hasti and Nav‑
+arkar [85]
+Kerosene
+SVM
+1300
+F-score 0.94
+Prediction of lean fuel shutdown
+Zhang et al. 
+[98]
+Hydrogen
+CRK-PINN
+−
+R2 > 0.99
+CRK
+
+
+--- Page 16 ---
+
+Page 16 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+reconstruction in tomographic PIV, and Gao et al. [105] 
+established optical distortion relationships in PIV meas-
+urements and constructed a dataset to eliminate optical 
+errors using CNNs. At the University of Michigan [106], 
+an NN method was employed to optimize the extraction 
+of PIV data based on planar laser-induced fluorescence 
+(PLIF) results from 3000 detached flame images. The 
+NN models effectively learned the complex correlations 
+between these datasets, capturing the underlying physical 
+relationships to enhance prediction accuracy. The study 
+revealed that most velocity information could be derived 
+from OH-PLIF signals, as demonstrated in Fig. 22.
+The multi-branch fusion convolutional neural network 
+(MBFCNN) model has achieved remarkable accuracy 
+in reconstructing flow fields from wall pressure data, 
+as illustrated in Fig.  23. Furthermore, by integrating a 
+super-resolution reconstruction model that combines 
+bicubic interpolation, densely connected convolutional 
+neural networks, and generative adversarial networks, 
+the model effectively eliminates image smoothing arte-
+facts. This enhancement results in flow field images with 
+significantly richer and more detailed features.
+4.2  Flame reconstruction
+Combustion flames exhibit complex, dynamic behaviors 
+that are highly influenced by factors such as fuel type, 
+combustion chamber geometry, and flow conditions. 
+Flame reconstruction could facilitate understanding the 
+fundamental mechanisms of combustion.
+By using pressure data and hydrogen injection pres-
+sure data, the reparameterized convolutional neural net-
+work (RepCNN) model showed a 39.9% improvement 
+in inference speed, with a speed of 2.83  ms per frame 
+achieved, as presented in Fig.  24 [107]. Inspired by the 
+RepVGG network, traditional convolution and decon-
+volution operations are replaced with reparameterized 
+convolution and reparameterized deconvolution, thereby 
+enhancing the accuracy.
+Huang  et al. [108] proposed a real-time prediction 
+method for 3D flame evolution and employed the time-
+resolved volumetric tomography (VT) technique to 
+generate high-quality 3D flame training data. A hybrid 
+CNN-LSTM model was designed to predict flame 
+structure evolution based on historical 2D projec-
+tions of the flame, as illustrated in Fig. 25. This model 
+Fig. 21  Inpainting effect with different methods [101]
+
+
+--- Page 17 ---
+
+Page 17 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+Fig. 22  The four highest-energy ANN weight vectors. Rows indicate weight index [106]
+Fig. 23  Structure of MBFCNN model [107]
+
+
+--- Page 18 ---
+
+Page 18 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+could accurately predict the evolution of laminar diffu-
+sion flames and typical non-premixed swirl-stabilized 
+flames on a millisecond time scale.
+4.3  Combustion state prediction
+Combustion processes are inherently complex, involv-
+ing dynamic interactions between fuel, oxidizers, and 
+Fig. 24  Initial and final reconstruction flames [107]
+Fig. 25  Schematic of the CNN-LSTM model [108]
+
+
+--- Page 19 ---
+
+Page 19 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+operating conditions. Predicting key combustion param-
+eters, such as flame temperature, oxygen content, pollut-
+ant emissions, and pressure fluctuations, enables better 
+control over the process.
+Recent advancements in ML techniques have revo-
+lutionized the field of combustion state prediction. For 
+instance, Liu  and Chen [109] developed an intelligent 
+hydrogen flame detection technology based on ANNs. 
+Predictions were further improved by utilizing a multi-
+layer deep belief network (DBN), which better captured 
+nonlinear features in combustion processes, such as oxy-
+gen content variations during combustion [110].
+Other studies, such as Rubiales  et al. [111] and Mat-
+thaiou  et al. [112], showcase the application of ML 
+techniques, like NNs, PCA, and GP, to monitor com-
+bustion conditions, detect thermocouple failures, and 
+model complex combustion dynamics, as demonstrated 
+in Fig.  26. In Ref. [95], ensemble ML techniques were 
+applied to diagnose combustion in gas turbines. By com-
+bining multiple models, the method enhances prediction 
+accuracy through consensus, reducing errors. In Ref. 
+[112], Gaussian processes were used to model combus-
+tion dynamics. This probabilistic approach captures com-
+plex relationships and uncertainties, leading to precise 
+predictions while inherently handling outliers and noise, 
+ensuring robustness.
+He et al. [113] employed VGG19 for flame state clas-
+sification and a vid2vid model to synthesize perturbed 
+flame images for robustness evaluation. By quantify-
+ing the degree of flame stabilization, the classification 
+results were further refined, significantly reducing the 
+misjudgment of flame conditions. As a result, the method 
+achieved a classification accuracy of 95.44% and a predic-
+tion accuracy of over 84% within 2 ms prior to flameout.
+Yan [114] proposed a deep semi-supervised anomaly 
+detection (deepSSAD) method, combining DL for feature 
+extraction and one-class classification with strong per-
+formance. Through unsupervised feature extraction, the 
+model could filter out noise and irrelevant data points, 
+improving data quality (Fig. 27).
+4.4  Combustion stability prediction
+Combustion instability can lead to various operational 
+issues, such as increased emissions, reduced efficiency, 
+and even catastrophic failures, making its early detection 
+and prediction critical in preventing damage to equip-
+ment and minimizing operational downtime. Accurately 
+predicting combustion stability [115, 116] enables opera-
+tors to take proactive measures to maintain stable com-
+bustion, thereby improving overall performance and 
+extending the lifespan of combustion equipment.
+NN methods effectively extracted and replicated flame 
+features associated with combustion oscillations, ena-
+bling a clear distinction between combustion oscillations 
+and stable conditions. Notably, the application of transfer 
+learning with approximately 35% of a new dataset further 
+enhanced the prediction performance for time-averaged 
+images, surpassing that achieved with instantaneous 
+images [117].
+A stacked sparse autoencoder-based deep neural net-
+work is utilized to monitor combustion stability through 
+flame imaging [118], as shown in Fig.  28. The sparse 
+autoencoder effectively extracts meaningful features 
+from flame images, capturing subtle changes. This feature 
+extraction process inherently filters out noise and irrel-
+evant data, enhancing the model’s robustness. The DNN 
+then leverages these refined features to improve predic-
+tion accuracy, effectively identifying combustion instabil-
+ities with high precision and reducing false alarms.
+Supervised learning was effectively utilized to clas-
+sify combustion conditions in a Honeywell GTCP85 gas 
+turbine, based on the influence of fuel ratios on engine 
+Fig. 26  Schematic diagram of the combustion test rig [112]
+
+
+--- Page 20 ---
+
+Page 20 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+performance [119]. Akintayo  et al. [120] developed a 
+deep convolutional selective autoencoder for early detec-
+tion of combustion instability in high-speed flame videos, 
+as presented in Fig.  29. The model selectively masked 
+stable flames while allowing unstable frames to pass, ena-
+bling the detection of subtle instability signs during tran-
+sitions, as demonstrated in Fig. 30.
+Hidden Markov models (HMM) were applied to 
+enhance online prediction of thermoacoustic combustion 
+instability [121]. Additionally, a Bayesian neural network 
+(BNN) was employed to mitigate uncertainty in predict-
+ing thermoacoustic instability. BNN-based predictions 
+achieved a 45% reduction in error margin compared to 
+predictions relying solely on operating conditions [122], 
+as shown in Fig. 31.
+The CRNN analyses time-series data from a limited 
+number of sensors to detect thermoacoustic instability 
+and predict proximity to instability [123]. Convolutional 
+Fig. 27  The overall workflow of the approach [114]
+Fig. 28  The strategy of the stacked sparse autoencoder for combustion stability monitoring [118]
+
+
+--- Page 21 ---
+
+Page 21 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+layers extract spatial features, while recurrent layers 
+capture temporal dynamics, effectively identifying early 
+signs of instability and enhancing prediction accuracy. 
+Additionally, the model architecture inherently filters out 
+noise through feature extraction, thereby improving data 
+quality (Fig. 32).
+A combination of 3D CNN and LSTM was utilized 
+to monitor combustion instability [124, 125]. Using 
+Fig. 29  Structure of the convolutional autoencoder [120]
+Fig. 30  Adjacency labelling result of transition protocols [120]
+
+
+--- Page 22 ---
+
+Page 22 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+Fig. 31  The predicted probability of an FPCS encountering instability [122]
+Fig. 32  Rolling-window evaluation of the best-trained network on PCI [123]
+
+
+--- Page 23 ---
+
+Page 23 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+multimodal datasets from laboratory-scale combustion 
+systems, Kullback–Leibler divergence was applied for 
+time-series data labelling. By integrating attention mech-
+anisms, the model identified critical time segments that 
+significantly contribute to prediction outcomes (Fig. 33).
+Additionally, a 3D convolutional selective autoencoder 
+(3D-CSAE) could be utilized for early detection of com-
+bustion instability [126]. This model is capable of learn-
+ing complex visual and dynamic features. It masks stable 
+flame features while accurately reconstructing unstable 
+flame videos, thereby enhancing the detection of instabil-
+ity (Fig. 34).
+PSO-Elman NN model could effectively predict poten-
+tial instability and associated pollutant emissions ­(NOx, 
+CO), demonstrating dual capability in stability monitor-
+ing and emission quantification [127].
+4.5  Emission prediction
+Accurate prediction of emissions ­(NOx, CO) is critical 
+for environmental compliance, process optimization, and 
+emission control. Zhang  et al. [128] proposed a hybrid 
+multi-output least-squares support vector regression 
+(MLS-SVR)-NN model for multi-emission prediction in 
+biodiesel-hydrogen fueled engines, demonstrating supe-
+rior accuracy, while Li  et al. [129] demonstrated ANN’s 
+effectiveness for multi-parameter combustion monitoring 
+­(NOx, dynamics, vibration, and temperature) (Fig. 35).
+Potts [130] evaluated ML-based emission predic-
+tion performance by comparing self-attention and 
+inter-sample attention transformer (SAINT) and extreme 
+gradient boosting (XGBoost) against conventional 
+chemistry-based models, demonstrating superior accu-
+racy with ML methods. Wang et al. [131] optimized NN 
+architecture for emission prediction, identifying 24 as the 
+optimal network width (R2 > 0.986), which maximized 
+both prediction accuracy and generalization capability.
+4.6  Autoignition prediction
+Autoignition poses significant risks in lean-premixed 
+combustion systems, potentially causing flashback and 
+hardware damage during fuel–air mixing. To address this 
+operational challenge, Li et al. [132] developed a hybrid 
+ML model integrating LGR and RNNs for autoignition 
+prediction. The model, validated through experimental 
+fuel–air mixing simulations, successfully identified criti-
+cal autoignition drivers while achieving robust predictive 
+accuracy.
+Table  3 highlights the broad applications of ML in 
+effectively predicting combustion performance under 
+experimental conditions. Algorithms like DNN, CNN, 
+LSTM, and SVM have demonstrated high accuracy in 
+predicting combustion instability, flow field restoration, 
+and emission levels, particularly in handling large data-
+sets and complex, nonlinear relationships.
+However, these models often require extensive data, 
+carry a risk of overfitting, and suffer from limited inter-
+pretability. These limitations require careful model selec-
+tion and optimization in practical applications.
+Fig. 33  K-L divergence of FFT plot [124, 125]
+
+
+--- Page 24 ---
+
+Page 24 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+5  Conclusions
+The application of ML algorithms in the field of gas 
+turbine combustion has shown significant potential 
+as technology continues to advance. ML algorithms 
+enhance the accuracy of combustion process predic-
+tions, especially in capturing complex nonlinear behav-
+iours that traditional physics-based models often miss. 
+This leads to improved simulation efficiency and more 
+accurate performance predictions. Additionally, ML 
+algorithms play a crucial role in optimizing combustion 
+efficiency, reducing harmful emissions, and enhancing 
+engine performance.
+However, the application of ML algorithms also faces 
+several challenges and limitations. Firstly, ML models are 
+highly dependent on large amounts of high-quality train-
+ing data, which is particularly difficult to obtain in the 
+complex and extreme conditions of aviation engine com-
+bustion. The cost and difficulty of data collection are sig-
+nificant hurdles. Secondly, overfitting is a common issue, 
+especially when data samples are limited or of low qual-
+ity. In such cases, ML models may perform well on the 
+training set but fail to generalize effectively to new and 
+unseen operating conditions. Furthermore, ML models 
+are often criticized as “black boxes” due to their lack of 
+interpretability and transparency, which can hinder trust 
+and practical application, particularly in safety–critical 
+domains like combustion stability.
+In conclusion, while data-driven models hold immense 
+promise for revolutionizing combustion science, their 
+practical implementation faces significant hurdles. A pri-
+mary challenge is the acquisition of high-fidelity experi-
+mental data under extreme combustion conditions, such 
+as supersonic flames or sooting pyrolysis. In these envi-
+ronments, harsh temperatures and obscuration often 
+compromise optical diagnostics, making it difficult to 
+obtain reliable and comprehensive data. Additionally, 
+reconciling purely data-driven frameworks with funda-
+mental physical principles remains a critical issue. Mod-
+els that fail to account for mass and energy conservation 
+or chemical kinetics may violate thermodynamic con-
+straints and lack interpretability, thereby undermining 
+their credibility and applicability.
+Fig. 34  Results of the 3D-CSAE model [126]
+Fig. 35  Model predictions of the ­NOx emission [129]
+
+
+--- Page 25 ---
+
+Page 25 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+To surmount these challenges and advance the field, 
+future research should prioritize the development 
+of hybrid methodologies that integrate data-driven 
+approaches with established physical principles. For 
+instance, embedding governing equations as neural net-
+work constraints, utilizing physics-informed loss func-
+tions, or constructing multi-fidelity architectures that 
+combine sparse experimental data with low-cost simu-
+lations can significantly enhance model performance. 
+These integrated approaches not only improve model 
+generalizability and compliance with physical laws but 
+also help mitigate data scarcity issues, offering a robust 
+and reliable pathway toward predictive, trustworthy com-
+bustion modeling that can drive innovation and progress 
+in combustion science and engineering.
+Authors’ contributions
+Da Mo was responsible for literature review and the initial drafting of the 
+manuscript. Yuzhen Lin oversaw the overall direction and contributed to the 
+revision and refinement of the paper. Yixiong Liu conducted literature collec‑
+tion and participated in revising the initial draft. Yuchen Wang handled the 
+proofreading of the entire manuscript and revised Chapter 2. Ziyu Qin focused 
+on the revision and supplementation of the PINN-related sections. Xiao Han, 
+as the corresponding author, conducted the final proofreading and review of 
+the manuscript.
+Funding
+The authors would like to thank AECC Shenyang Engine Research Institute 
+and Beihang University for the funding and support. This research was also 
+funded by the National Natural Science Foundation of China (52476099), 
+Science Center for Gas Turbine Project (P2022-A-II-006-001), the Key 
+Laboratory of Pre-Research Management Centre(2023-JCJQ-LB-063-0306) 
+and the Fundamental Research Funds for the Central Universities 
+(501XTCX2023146001).
+Table 3  Experimental analysis application
+Author
+Fuel
+Data acquisition 
+methods
+Data volume
+Method
+Accuracy
+Experiment
+Han et al. [34]
+Heavy oil
+High-speed camera
+6000 sheets
+DNN
+F1-score = 0.99; 
+R-squared of 0.98
+Prediction of com‑
+bustion instability
+Qin et al. [101]
+Methane
+PIV
+600 sets
+U-Net CNN
+Repair rate 
+of over 90%
+Flow field image 
+restoration
+Huang et al. [108]
+Methane
+High-speed cam‑
+era—time-resolved 
+tomography 
+imaging
+10000
+CNN and LSTM
+R≈1, RSME≈0.1
+Online prediction 
+of 3D flame evolu‑
+tion
+Matthaiou et al. 
+[112]
+Kerosene
+Rolls Royce full 
+cycle combustor 
+test data
+5120 data points
+GP: Bayesian non-
+parametric
+RMSE < 0.03
+Combustion 
+dynamics
+He et al. [113]
+Methane
+High-speed camera
+26519 sheets
+VGG19_BN
+95.44%
+Prediction of lean 
+burnout
+Yan [114]
+Natural gas
+One-year exhaust 
+temperature test 
+data of 27 combus‑
+tors
+61666
+DeepSSAD
+AUC = 0.9706 ± 0.0029
+Outlier detection
+Zhang et al. [117]
+Kerosene
+High-speed CCD 
+cameras
+67200
+SPL and NNs
+−
+Temperature field 
+prediction
+Matthaiou et al. 
+[119]
+JetA-1 and biofuel, 
+natural gas
+Pressure pulsation 
+signal
+14 groups
+pattern recognition 
+technology
+Classification accuracy 
+reaching 93%
+Prediction of com‑
+bustion instability
+McCartney et al. 
+[122]
+Hydrogen-natural 
+gas
+12 circumferential 
+and 2 axial dynamic 
+pressure tests
+30 groups
+BNN
+Error reduction 45%
+Prediction of com‑
+bustion instability
+Cellier et al. [123]
+Methane-hydrogen
+Combustion noise 
+test
+187
+CRNN
+−
+Prediction of com‑
+bustion instability
+Gangopadhyay et 
+al. [124, 125]
+Kerosene
+High-speed camera 
+and pressure pulsa‑
+tion testing
+600000 sheets
+3D-CNNs and LSTM
+Accuracy approaching 
+100%
+Unstable control 
+and prediction
+Potts et al. [130]
+Natural gas
+SGT400 gas turbine 
+test data
+37204 groups
+XGBoost
+RMSE: 
+­NOx < 4.48 ± 3.65
+Emission prediction
+Wang et al. [131]
+Kerosene
+Gas analyzer
+210 groups
+NN
+Correction coef‑
+ficient of determina‑
+tion > 0.986,
+Emission prediction
+Li et al. [132]
+Acetylene diluted 
+with ­N2
+Test data
+465 pieces
+LGR and RNNs
+Prediction accuracy 
+of 88%
+Spontaneous com‑
+bustion prediction
+
+
+--- Page 26 ---
+
+Page 26 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+Declarations
+Competing interests
+The authors declare that they have no known competing financial interests 
+or personal relationships that could have appeared to influence the work 
+reported in this paper.
+Received: 4 December 2024   Revised: 1 August 2025   Accepted: 26 August 
+2025
+References
+	
+1.	 Ihme M, Chung WT, Mishra AA (2022) Combustion machine learning: 
+principles, progress and prospects. Prog Energy Combust Sci 91:101010
+	
+2.	 Ihme M, Chung WT (2024) Artificial intelligence as a catalyst for com‑
+bustion science and engineering. Proc Combust Inst 40:105730
+	
+3.	 Liang XM, An JM, Cao XH et al (2023) Classification of combustion state 
+of sintering flame based on CNN-transformer dual-stream network. J 
+Appl Optics 44(5):1030–1036
+	
+4.	 Legendre AM (1805) Nouvelles méthodes pour la détermination des 
+orbites desComètes. Courcier, Paris
+	
+5.	 Rumelhart DE, Hinton GE, Williams RJ (1986) Learning representations 
+by back-propagating errors. Nature 323(6088):533–536
+	
+6.	 Pearson K (1901) On lines and planes of closest fit to systems of points 
+in space. Lond Edinb Dublin Philos Mag J Sci 2(11):559–572
+	
+7.	 Lloyd S (1982) Least squares quantization in PCM. IEEE Trans Inf Theory 
+28(2):129–137
+	
+8.	 Watkins CJCH (1989) Learning from delayed rewards. Dissertation, 
+King’s College
+	
+9.	 Arrhenius S (1889) Über die dissociationswärme und den einfluss der 
+temperatur auf den dissociationsgrad der elektrolyte. Z Phys Chem 
+4(1):96–116
+	 10.	 Fröhlich J, von Terzi D (2008) Hybrid LES/RANS methods for the simula‑
+tion of turbulent flows. Prog Aerosp Sci 44(5):349–377
+	 11.	 Spalart PR (2000) Strategies for turbulence modelling and simulations. 
+Int J Heat Fluid Flow 21(3):252–263
+	 12.	 Spalart PR, Deck S, Shur ML et al (2006) A new version of detached-
+eddy simulation, resistant to ambiguous grid densities. Theor Comput 
+Fluid Dyn 20(3):181–195
+	 13.	 Li W, He X, Xu Y et al (2022) Modeling and simulation of a gas turbine 
+based on series form intelligent fusion algorithm. J Chinese Soc Power 
+Eng 42(6):507–512
+	 14.	 Li TY (2022) Rapid prediction of combustion dynamic field and optimi‑
+zation of anti-overtemperature in cold-fired boiler based on CFD and 
+POD. Dissertation, Southeast University
+	 15.	 Xing J, Luo K, Pitach H et al (2019) Predicting kinetic parameters for coal 
+devolatilization by means of artificial neural networks. Proc Combust 
+Inst 37:2943–2950
+	 16.	 Kempf A, Flemming F, Janicka J (2005) Investigation of lengthscales, 
+scalar dissipation, and flame orientation in a piloted diffusion flame by 
+LES. Proc Combust Inst 30(1):557–565
+	 17.	 Huang ZJ, Xu T, He HH et al (2024) Modeling and simulation of a gas 
+turbine based on series form intelligent fusion algorithm. J Chinese Soc 
+Power Eng 44(4):520–527
+	 18.	 Owoyele O, Kundu P, Ameen MM et al (2020) Application of deep arti‑
+ficial neural networks to multi-dimensional flamelet libraries and spray 
+flames. Int J Engine Res 21(1):151–168
+	 19.	 Zhang Y, Xu S, Zhong S et al (2020) Large eddy simulation of spray com‑
+bustion using flamelet generated manifolds combined with artificial 
+neural networks. Energy and AI 2:100021
+	 20.	 Gao Z, Jin T, Song CC et al (2021) Application of artificial neural 
+networks to supercritical flamelet model. J Zhejiang Univ (Eng Sci) 
+55(10):1968–1977
+	 21.	 Zhu T (2020) Complex reaction processes in combustion unraveled by 
+neural network-based molecular dynamics simulation. Nat Commun 
+11:5713. https://​doi.​org/​10.​1038/​s41467-​020-​19497-z
+	 22.	 Christo FC, Masri AR, Nebot EM (1996) Artificial neural network 
+implementation of chemistry with PDF simulation of ­H2/CO2 flames. 
+Combust Flame 106(4):406–427
+	 23.	 Ji WQ, Deng SL (2021) Autonomous discovery of unknown reaction 
+pathways from data by chemical reaction neural network. J Phys Chem 
+A 125(4):1082–1092
+	 24.	 Zeng JZ, Cao LQ, Xu MY et al (2020) Complex reaction processes in 
+combustion unraveled by neural network-based molecular dynamics 
+simulation. Nat Commun 11(1):5713
+	 25.	 Buchheit K, Owoyele O, Jordan T et al (2019) The stabilized explicit 
+variable-load solver with machine learning acceleration for the rapid 
+solution of stiff chemical kinetics. arXiv: 1905.09395
+	 26.	 Chen ZX, Iavarone S, Ghiasi G et al (2021) Application of machine learn‑
+ing for filtered density function closure in MILD combustion. Combust 
+Flame 225:160–179
+	 27.	 Liu YX, Cong PH, Wu YW et al (2021) Failure analysis and design optimi‑
+zation of shrouded fan blade. Eng Fail Anal, 122:105208
+	 28.	 Guo Y, Liu YX, Wu YW et al (2021) Design optimization and burst speed 
+prediction of a Ti2AlNb blisk. Int J Aerosp Eng. 2021：3290518. https://​
+doi.​org/​10.​1155/​2021/​32905​18
+	 29.	 Liu YX, Nalianda D, Mo D et al (2021) Multi-objective optimization of 
+a three-shaft high bypass ratio engine for EIS2050. In: Proceedings of 
+the global power and propulsion society, Global Power and Propulsion 
+Society, Xi’an, 18–20 October 2021
+	 30.	 Liu YX (2021) Optimization of hybrid electric propulsion system. Dis‑
+sertation, Cranfield University
+	 31.	 Niu PF, Ma YP, Zhang XX et al (2019) Research and application on com‑
+bustion optimization on combustion optimization of coal-fired boiler 
+in thermal power plant based on artificial intelligence technology. 
+Chinese J Int Sci Tech 1(2):163–170
+	 32.	 Di Mauro A, Chen H, Sick V (2019) Neural network prediction of 
+cycle-to-cycle power variability in a spark-ignited internal combustion 
+engine. Proc Combust Inst 37(4):4937–4944
+	 33.	 Kuzhagliyeva N, Thabet A, Signh E et al (2021) Using deep neu‑
+ral networks to diagnose engine pre-ignition. Proc Combust Inst 
+38(4):5915–5922
+	 34.	 Han ZZ, Li J, Zhang B et al (2021) Prediction of combustion state 
+through a semi-supervised learning model and flame imaging. Fuel 
+289:119745
+	 35.	 Lv Y, Qi X, Zheng X et al (2024) Unsupervised quantitative judgment of 
+furnace combustion state with CBAM-SCAE-based flame feature extrac‑
+tion. J Energy Inst 116:101733
+	 36.	 Yu J F, Lian C Y, Tang T, et al (2024) Construction and validation of a 
+wide-domain engine flamelet combustion model based on deep learn‑
+ing table building. Chinese J Theor Appl Mech 56(3):723–739
+	 37.	 Chen E D, Song H Y, Guo M M et al (2023) Calculation method of super‑
+sonic hydrogen zero-dimensional ignition based on segmentation-
+combination residual neural network. J Propuls Technol 44(12):91–101
+	 38.	 Zheng J, Wang HO, Chen G et al (2023) Machine learning-based wall 
+model for turbulent boundary layer combustion. J Eng Thermophys 
+44(9):2600–2607
+	 39.	 Lapeyre CJ, Misdariis A, Cazard N et al (2019) Training convolutional 
+neural networks to estimate turbulent sub-grid scale reaction rates. 
+Combust Flame 203:255–264
+	 40.	 Nikolaou ZM, Chrysostomou C, Vervisch L et al (2019) Progress vari‑
+able variance and riltered rate modelling using convolutional neural 
+networks and flamelet methods. Flow Turbul Combust 103:485–501
+	 41.	 Fukami K, Fukagata K, Taira K (2019) Super-resolution reconstruction of 
+turbulent flows with machine learning. J Fluid Mech 870:106–120
+	 42.	 Klavaris G, Xu M, Hill C et al (2024) Tuning of generalized k-omega 
+turbulence model by using adjoint optimization and machine learning 
+for gas turbine combustor applications. J Eng Gas Turbines Power 
+146(8):081014
+	 43.	 Bode M, Gauding M, Lian Z et al (2021) Using physics-informed 
+enhanced super-resolution generative adversarial networks for subfilter 
+modeling in turbulent reactive flows. Proc Combust Inst 38:2617–2625
+	 44.	 Karthik D (2021) Perspectives on machine learning-augmented 
+Reynolds-averaged and large eddy simulation models of turbulence. 
+Phys Rev Fluids 6(5):050504
+
+
+--- Page 27 ---
+
+Page 27 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	
+	 45.	 Shin JS, Xing V, Pfitzner M et al (2023) Probabilistic deep learning of 
+turbulent premixed combustion. AIP Adv 13:085110
+	 46.	 Shin JS, Ge YP, Lampmann A et al (2021) A data-driven subgrid scale 
+model in large eddy simulation of turbulent premixed combustion. 
+Combust Flame 231:111486
+	 47.	 Lapeyre CJ, Misdariisa A, Cazarda N et al (2019) Training convolutional 
+neural networks to estimate turbulent sub-grid scale reaction rates. 
+Combust Flame 203:255–264
+	 48.	 Shateri A, Yang ZY, Xie JF (2025) Machine learning-based prediction of 
+species mass fraction and flame characteristics in partially premixed 
+turbulent jet flame. Phys Fluids 37:075219. https://​doi.​org/​10.​1063/5.​
+02770​24
+	 49.	 Seltz A, Domingo P, Vervisch L et al (2019) Direct mapping from LES 
+resolved scales to riltered-rlame generated manifolds using convolu‑
+tional neural networks. Combust Flame 210:71–82
+	 50.	 Wan K, Barnaud C, Vervisch L et al (2020) Machine learning for detailed 
+chemistry reduction in DNS of a syngas turbulent oxy-flame with side-
+wall effects. Proc Combust Inst 38(2):2825–2833
+	 51.	 Dalakoti DK, Wehrfritz A, Savard B et al (2021) An a priori evaluation of 
+a principal component and artificial neural network based combustion 
+model in Diesel engine conditions. Proc Combust Inst 38(2):2701–2709
+	 52.	 Lu Z, Metghalchi H (2023) Prediction of laminar burning speed of 
+propane/hydrogen/air mixtures using power-law correlation and two 
+machine learning models. ASME Open J Eng 2:021038
+	 53.	 Molina S, Novella R, Gomez-Soriano J et al (2021) New combustion 
+modelling approach for methane-hydrogen fueled engines using 
+machine learning and engine virtualization. Energies 14(21):6732
+	 54.	 Banta N, Patrick N, Offole F et al (2024) Machine learning models for the 
+prediction of turbulent combustion speed for hydrogen-natural gas 
+spark ignition engines. Heliyon 10(9):e30497
+	 55.	 Malsagov MY, Mikhalchenko EV, Karandashev IM et al (2024) Machine 
+learning methods for modeling the kinetics of combustion in problems 
+of space safety. Acta Astronaut 225:656–663
+	 56.	 Li N, Girhe S, Zhang M et al (2024) A machine learning method to pre‑
+dict rate constants for various reactions in combustion kinetic models. 
+Combust Flame 263:113375
+	 57.	 Cao S, Zhang H, Liu H et al (2024) Optimization of kinetic mechanism 
+for hydrogen combustion based on machine learning. Front Chem Sci 
+Eng 18(11):136
+	 58.	 Sadeq AM, Moghaddam AH, Sleiti AK et al (2024) Development of machine 
+learning models for studying the premixed turbulent combustion of gas-
+to-liquids (GTL) fuel blends. Korean J Chem Eng 41(2):479–494
+	 59.	 Ihme M, Schmitt C, Pitsch H (2009) Optimal artificial neural networks 
+and tabulation methods for chemistry representation in LES of a bluff-
+body swirl-stabilized flame. Proc Combust Inst 32(1):1527–1535
+	 60.	 Li S, Yang B, Qi F (2016) Accelerate global sensitivity analysis using 
+artificial neural network algorithm: case studies for combustion kinetic 
+model. Combust Flame 168:53–64
+	 61.	 Lu JH, Zhang HM, Yu JH et al (2021) Predicting rate constants of 
+hydroxyl radical reactions with alkanes using machine learning. J Chem 
+Inf Model 61:4259–4265
+	 62.	 Ji W, Deng S (2021) KiNet: A deep neural network representation of 
+chemical kinetics. arXiv:2108.00455
+	 63.	 Liu M, Grinberg Dana A, Johnson MS et al (2021) Reaction mechanism 
+generator v3.0: advances in automatic mechanism generation. J Chem 
+Inf Model 61(6):2686–2696
+	 64.	 Castellanos L, SM Freitas R, Parente A et al (2023) Deep learning dynam‑
+ical latencies for the analysis and reduction of combustion chemistry 
+kinetics. Phys Fluids 35(10):107143
+	 65.	 Han X, Jia M, Chang Y, Li Y (2022) An improved approach towards more 
+robust deep learning models for chemical kinetics. Combust Flame 
+238:111934
+	 66.	 Haghshenas M, Mitra P, Santo N et al (2021) Acceleration of chemi‑
+cal kinetics computation with the learned intelligent tabulation (LIT) 
+method. Energies 14(23):7851
+	 67.	 Pulga L, Bianchi GM, Falfari S et al (2020) A machine learning methodol‑
+ogy for improving the accuracy of laminar flame simulations with 
+reduced chemical kinetics mechanisms. Combust Flame 216:72–81
+	 68.	 Staszak M (2023) Artificial intelligence in the modeling of chemical 
+reactions kinetics. Phys Sci Rev 8(1):51–72
+	 69.	 Yao S, Wang B, Kronenburg A et al (2021) Conditional scalar dissipa‑
+tion rate modeling for turbulent spray flames using artificial neural 
+networks. Proc Combust Inst 38:3371–3378
+	 70.	 Yao S, Wang B, Kronenburg A et al (2020) Modeling of sub-grid con‑
+ditional mixing statistics in turbulent sprays using machine learning 
+methods. Phys Fluids 32:115124. https://​doi.​org/​10.​1063/5.​00275​24
+	 71.	 Henry de Frahan MT, Yellapantula S, King R et al (2019) Deep learning 
+for presumed probability density function models. Combust Flame. 
+208:436–450
+	 72.	 Lapeyre CJ, Misdariis A, Cazard N et al (2019) Training convolutional 
+neural networks to estimate turbulent sub-grid scale reaction rates. 
+Combust Flame 203:255–264
+	 73.	 Nikolaou ZM, Chrysostomou C, Minamoto Y et al (2021) Evaluation of a 
+neural network‑based closure for the unresolved stresses in turbulent 
+premixed V‑flames. Flow Turbul Combust 106:331–356
+	 74.	 Yellapantula S, Perry BA, Grout RW (2021) Deep learning-based model 
+for progress variable dissipation rate in turbulent premixed flames. Proc 
+Combust Inst 38(2):2929–2938
+	 75.	 Guo M, Chen H, Tian Y et al (2023) Flame reconstruction of hydrogen 
+fueled-scramjet combustor based on multisource information fusion. 
+Int J Hydrogen Energy 48(80):31350–31365. https://​doi.​org/​10.​1016/j.​
+ijhyd​ene.​2023.​04.​311
+	 76.	 Song T, Liu H D, Yue H et al (2025) Identification of combustion modes 
+in dual-mode combustors across configurations using domain adver‑
+sarial neural network. J Propuls Technol 46(2):2312004
+	 77.	 Ricci F, Avana M, Mariani F (2024) A deep learning method for the pre‑
+diction of pollutant emissions from internal combustion engines. Appl 
+Sci 14(21):9707
+	 78.	 Pachauri N (2024) An emission predictive system for CO and ­NOx 
+from gas turbine based on ensemble machine learning approach. 
+Fuel 366:131421
+	 79.	 Chen L, Zhang Q, Zhu M et al (2024) A convolutional neural network 
+prediction model for aviation nitrogen oxides emissions throughout 
+all flight phases. Sci Total Environ 929:172432
+	 80.	 Chen Z, Pu Y (2024) Prediction of emissions from gas turbine 
+power generation on GWO-XGBoost-Sobol. J Mech Sci Technol 
+38(3):1547–1556
+	 81.	 Chung WT, Mishra AA, Perakis N et al (2021) Data-assisted combus‑
+tion simulations with dynamic submodel assignment using random 
+forests. Combust Flame 227:172–185
+	 82.	 Nassini PC, Pampaloni D, Meloni R et al (2021) Lean blow-out predic‑
+tion in an industrial gas turbine combustor through a LES-based CFD 
+analysis. Combust Flame 229:111391
+	 83.	 Ahmed E, Yong H (2018) Prediction of lean blowout performance 
+of gas turbine combustor based on flow structures. Aeronaut J 
+122(1248):238–259
+	 84.	 Bahashwan AA, Ibrahim R, Omar M et al (2024) Supervised learning-
+based multi-site lean blowout prediction for dry low emission gas 
+turbine. Expert Syst Appl 244:123035
+	 85.	 Raju Hasti V, Navarkar A et al (2021) A data-driven approach using 
+machine learning for early detection of the lean blowout. Energy and 
+AI 5:100099
+	 86.	 Liang XM, An JM, Cao XH et al (2023) Classification of combustion 
+state of sintering flame based on CNN-transformer dual-stream 
+network. J Appl Optics 44(5):1030–1036
+	 87.	 Zhang TH, Yi YX, Xu YF et al (2022) A multi-scale sampling method 
+for accurate and robust deep neural networks to predict combustion 
+chemical kinetics. Combust Flame 245:112319
+	 88.	 Schweidtmann AM, Rittig JG, Konig A et al (2020) Graph neu‑
+ral networks for prediction of fuel ignition quality. Energy Fuels 
+34(9):11395–11407
+	 89.	 Choi J, Hong S, Park N et al (2023) Gread: Graph neural reaction-
+diffusion networks. arXiv: 2211.14208
+	 90.	 Karniadakis GE, Kevrekidis IG, Lu L et al (2021) Physics-informed 
+machine learning. Nat Rev Phys 3:422–441
+	 91.	 Bradley W, Gusmão GS, Medford AJ et al (2021) Training stiff dynamic 
+process models via neural differential equations. Computer Aided 
+Chem Eng 49:1741–1746
+	 92.	 Ji W, Qiu W, Shi Z et al (2021) Stiff-PINN: physics-informed neural 
+network for stiff chemical kinetics. J Phys Chem A 125(18):8098–8106
+
+
+--- Page 28 ---
+
+Page 28 of 28
+Mo et al. Propulsion and Energy            (2025) 1:20 
+	 93.	 De Florio M, Schiassi E, Furfaro R (2022) Physics-informed neural net‑
+works and functional interpolation for stiff chemical kinetics. Chaos 
+32(6):063107
+	 94.	 Weng YT, Zhou DZ (2022) Multiscale physics-informed neural net‑
+works for stiff chemical kinetics. J Phys Chem A 126:8534–8543
+	 95.	 Ngo SI, Lim YI (2021) Solution and parameter identification of a 
+fixed-bed reactor model for catalytic ­CO2 methanation using physics-
+informed neural networks. Catalysts 11:1304
+	 96.	 Aquilanti V, Mundim KC, Elango M et al (2010) Temperature depend‑
+ence of chemical and biophysical rate processes: phenomenologi‑
+cal approach to deviations from Arrhenius law. Chem Phys Lett 
+498:209–213
+	 97.	 Almeldein A, Van Dam N (2023) Accelerating chemical kinetics calcu‑
+lations with physics informed neural networks. No. ICEF2022-90371
+	 98.	 Zhang S, Zhang C, Wang B (2024) CRK-PINN: a physics-informed 
+neural network for solving combustion reaction kinetics ordinary 
+differential equations. Combust Flame 269:113647
+	 99.	 Raissi M, Perdikaris P, Karniadakis GE (2019) Physics-informed neural 
+networks: a deep learning framework for solving forward and inverse 
+problems involving nonlinear partial differential equations. J Comput 
+Phys 378:686–707
+	100.	 Raissi M (2017) Physics informed deep learning (part I): data-driven 
+solutions of nonlinear partial differential equations.arXiv:1711.10561
+	101.	 Qin Z Y, Zheng D S, Zhou Y C et al (2022) Inpainting PIV flow fields with 
+deep learning. J Propuls Technol 43(9):330–337. https://​kns.​cnki.​net/​
+kcms/​detail/​11.​1813.v.​20220​310.​1532.​006.​html
+	102.	 Grant I, Pan X (1997) The use of neural techniques in PIV and PTV. Meas 
+Sci Technol 8(12):1399–1405
+	103.	 Lagemann C, Lagemann K, Schroder W et al (2019) Deep artificial 
+neural network architectures in PIV applications. In: International sym‑
+posium on particle image velocimetry, Munich, 22–24 July 2019
+	104.	 Zhu H R, Gao Q, Wang H P et al (2021) 3D particle reconstruction 
+technology based on machine learning methods. Experi Fluid Mech 
+35(3):88–93. https://​kns.​cnki.​net/​kcms/​detail/​11.​5266.v.​20210​219.​1311.​
+002.​html
+	105.	 Gao ZY, Li XY, Ye HW (2020) Optical distortion correction technology for 
+flow velocity measurements based on vonvolutional neural networks. 
+Experi Fluid Mech 49(10):9–18
+	106.	 Barwey S, Raman V, Steinberg AM (2020) Extracting information overlap 
+in simultaneous OH-PLIF and PIV fields with neural networks. Proc 
+Combust Inst 38(4):6241–6249
+	107.	 Chen H (2023) Research on data driven intelligent reconstruction 
+algorithm of scramjet combustion flow field. Dissertation, Southwest 
+University of Science and Technology
+	108.	 Huang J, Liu H, Cai W (2019) Online in situ prediction of 3-D flame evo‑
+lution from its history 2-D projections via deep learning. J Fluid Mech 
+875:R2
+	109.	 Liu MY, Chen W (2023) Research on intelligent detection technology 
+of hydrogen flame based on artificial intelligence BP neural network. 
+Energy Res Utiliz 4:17–22
+	110.	 Liu Y, Fan Y, Chen JH (2017) Flame images for oxygen content predic‑
+tion of combustion systems using DBN. Energy Fuels 31(8):877–8783
+	111.	 Rubiales MM, Munoz A, Sanz-bobi M et al (2024) Application of ensem‑
+ble machine learning techniques to the diagnosis of the combustion in 
+a gas turbine. Appl Therm Eng 249:123447
+	112.	 Matthaiou I, Khandelwal B, Antoniadou I (2017) Using Gaussian pro‑
+cesses to model combustion dynamics. In: 24th international London 
+congress on sound and vibration, London, 23–27 July 2017
+	113.	 He T, Wang S, Wei S et al (2022) Prediction method and experimental 
+research on lean burn blow-off based on deep learning. J Combust Sci 
+Technol 28(3):304–312
+	114.	 Yan W (2020) Detecting gas turbine combustor anomalies using semi-
+supervised anomaly detection with deep representation learning. Cogn 
+Comput 12:398–411
+	115.	 Zhou Y, Zhang C, Han X et al (2021) Monitoring combustion instabilities 
+of stratified swirl flames by feature extractions of time-averaged flame 
+images using deep learning method. Aerosp Sci Technol 109:106443
+	116.	 Qin ZY, Wang XY, Han X et al (2023) Pre-trained combustion model and 
+transfer learning in thermoacoustic instability. Phys Fluids 35(3):037117
+	117.	 Zhang SH, Wang XY, Zhang C et al (2023) Feature extraction and com‑
+bustion instabilities prediction of stratified swirling flame. J Combust 
+Sci Technol 29(5):483–490
+	118.	 Han Z, Hossain MM, Wang Y et al (2020) Combustion stability monitor‑
+ing through flame imaging and stacked sparse autoencoder based 
+deep neural network. Appl Energy 259:114159
+	119.	 Matthaiou I, Khandelwal B, Antoniadou I (2016) Towards a condition 
+monitoring scheme for thermoacoustic instability detection and fuel 
+blend performance classification in gas turbine engines using pattern 
+recognition and advanced machine learning. In:  8th European work‑
+shop on structural health monitoring, Bilbao, 5–8 July 2016
+	120.	 Akintayo A, Lore KG, Sarkar S (2017) Early detection of combustion 
+instabilities using deep convolutional selective autoencoders on Hi-
+speed flame video. arXiv:1603.07839
+	121.	 Mccartney M, Indlekofer T, Polifke W (2020) Online detection of 
+combustion instabilities using supervised machine learning, ASME 
+GT2020-14834
+	122.	 Mccartney M, Sengupta U, Juniper M (2021) Reducing uncertainty in 
+the onset of combustion instabilities using dynamic pressure informa‑
+tion and Bayesian neural networks. No. GT2021-60283
+	123.	 Cellier A, Lapeyre CJ, Öztarlik G et al (2021) Detection of precursors of 
+combustion instability using convolutional recurrent neural networks. 
+Combust Flame 233:111558
+	124.	 Gangopadhyay T, Tan SY, Locruto A et al (2020) Interpretable deep 
+learning for monitoring combustion instability. IFAC-PapersOnLine 
+53(2):832–837
+	125.	 Gangopadhyay T, Locruto A, Michael J B et al (2020) Deep learning 
+algorithms for detecting combustion instabilities. In: Mukhopadhyay 
+A, Sen S, Basu D et al (ed) Proceedings of the dynamics and control of 
+energy systems, Springer, Singapore, 2020
+	126.	 Gangopadhyay T, Ramanan V, Akintayo A et al (2021) 3D convolutional 
+selective autoencoder for instability detection in combustion systems. 
+Energy AI 4:100067
+	127.	 Wang WY (2023) Prediction and analysis of combustion stability 
+of gas turbine based on neural network. J Chinese Soc Power Eng 
+43(7):842–848
+	128.	 Zhang L, Zhu G, Chao Y et al (2023) Simultaneous prediction of ­CO2, 
+CO, and ­NOx emissions of biodiesel-hydrogen blend combustion in 
+compression ignition engines by supervised machine learning tools. 
+Energy 282:128972
+	129.	 Li S, Zhu H, Zhu M et al (2021) Combustion tuning for a gas turbine 
+power plant using data-driven and machine learning approach. J Eng 
+Gas Turbines Power 143(3):031021
+	130.	 Potts R, Hackney R, Leontidis G (2023) Tabular machine learning 
+methods for predicting gas turbine emissions. Mach Learn Knowl Extr 
+5:1055–1075
+	131.	 Wang Z K, Chen S, Fan W (2023) Effect of neural network width on 
+combustor emission prediction. Acta Aeronaut Astronaut Sinica 
+44(5):126816
+	132.	 Li S, Qian W, Liu H et al (2020) Prediction of the autoignition of a fuel jet 
+in a confined turbulent hot coflow using machine learning methods. 
+No. GT2020-15020
+Publisher’s Note
+Springer Nature remains neutral with regard to jurisdictional claims in pub‑
+lished maps and institutional affiliations.

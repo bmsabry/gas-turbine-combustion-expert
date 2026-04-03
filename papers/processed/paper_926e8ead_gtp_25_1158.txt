@@ -1,0 +1,979 @@
+
+--- Page 1 ---
+
+Philipp zur Nedden1 
+Chair of Fluid Dynamics,  
+Technische Universit€at Berlin,  
+Berlin 10623, Germany  
+e-mail: p.zurnedden@tu-berlin.de
+Mattias E. G. Eck 
+Chair of Fluid Dynamics,  
+Technische Universit€at Berlin,  
+Berlin 10623, Germany
+Finn L€uckoff 
+Chair of Fluid Dynamics,  
+Technische Universit€at Berlin,  
+Berlin 10623, Germany
+Lukasz Panek 
+Siemens Energy,  
+Huttenstraße 12,  
+Berlin 10553, Germany
+Alessandro Orchini 
+Chair of Nonlinear Thermo-Fluid Mechanics,  
+Technische Universit€at Berlin,  
+Berlin 10623, Germany
+Christian Oliver Paschereit 
+Chair of Fluid Dynamics,  
+Technische Universit€at Berlin,  
+Berlin 10623, Germany
+Flame Transfer Function and 
+Emissions of a Piloted Single Jet 
+Burner: Influence of Hydrogen 
+Content
+The next generation of gas turbines must enable partial or pure hydrogen combustion to 
+decarbonize electricity production. In this respect, jet burners have received increased 
+attention in research and industry as a viable solution for combustors functioning over a 
+wide operational range, as they are well-suited for stabilizing flames with high propagation 
+speeds. In this work, a generic piloted single-jet hydrogen burner is developed and 
+characterized experimentally. The jet burner is operated under lean and dry conditions to 
+keep NOx emissions low. These operating conditions are generally prone to thermoacoustic 
+instabilities. The flame shape, NOx emissions, and the acoustic response of the flame are 
+characterized while varying the hydrogen concentration and the strength of a pilot injection 
+stage. The measurements of the emissions demonstrate that the jet burner is well-suited for 
+the combustion of natural gas blends and pure hydrogen with low NOx. The mean flame OH* 
+chemiluminescence images display a decreasing flame length with increasing hydrogen 
+share and a strong dependence on the pilot strength. Last, the heat release rate response is 
+assessed based on measured flame transfer functions for different fuel blends. We 
+demonstrate that the injector used in this study is nonstiff. To assess the stiffness of the 
+injector, a full flame transfer matrix is measured for selected cases, and a comparison of the 
+two methods is provided. [DOI: 10.1115/1.4069115] 
+Keywords: flame transfer function, jet flames, hydrogen 
+1 Introduction
+The increasing demand for electricity in our society requires 
+permanent technological innovation in the power sector. Facing the 
+challenges of climate change, the share of renewable energy 
+resources, such as wind and solar power, needs to increase. The 
+contribution of these renewable sources to the global power sector is 
+however intermittent. This demands the co-existence of flexible 
+power plants capable of promptly compensating for fluctuations in 
+the grid. The gas-turbine technology is well suited for fulfilling this 
+task. Modern gas turbines are highly optimized regarding pollutant 
+emissions and reliable operation, but they still primarily rely on the 
+combustion of fossil fuels, especially natural gas. These fuels are 
+typically combusted in swirl-stabilized combustors that allow for 
+lean premixed combustion. Within the context of a sustainable 
+future power sector, fossil fuels in the power sector have to be 
+replaced by greener, carbon-free fuels. To promote this transition, 
+established gas turbine combustion concepts need to be adapted, and 
+new concepts need to be developed to allow for the 
+efficient combustion of alternative sustainable fuels, such as green 
+hydrogen.
+Although modern swirl burners achieve very low emissions and 
+reliable operation, they come with certain drawbacks, including (i) a 
+rather high-pressure loss in connection with complex geometries, 
+(ii) inherent hydrodynamic instabilities related to precessing vortex 
+core [1,2], and (iii) the sensitivity to thermoacoustic instabilities [3]. 
+For swirl flames, the thermoacoustic feedback is driven by the phase 
+relation of fluctuations in heat release rate, velocity, pressure, and 
+swirl, whereby swirl fluctuations are unique to this type of flow 
+[4–6]. Besides the advantage of aerodynamic flame stabilization, the 
+typical flow field in a swirl combustor is prone to vortex breakdown- 
+induced flashback because of the large variety of (positive and 
+negative) flow velocities [7,8]. This type of flashback occurs 
+primarily along the central recirculation zone. Additionally, 
+boundary layer flashback along the combustor wall and mixing 
+section can occur due to the declining flow velocity [9,10]. To 
+investigate this flashback phenomenon in detail, jet burners have 
+been used in connection with different types of natural gas/hydrogen 
+fuel blends up to pure hydrogen premixed with air [11]. It was shown 
+that the tip temperature of the injector, the degree of confinement, 
+the burner material, and the static pressure have a significant 
+Turbomachinery Technical Conference & Exposition Hynes Convention Center. 
+June 26–30, 2023.
+1Corresponding author.
+Manuscript received April 28, 2025; final manuscript received May 5, 2025; 
+published online July 21, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+SEPTEMBER 2025, Vol. 147 / 091027-1 
+Copyright V
+C 2025 by ASME; reuse license CC-BY 4.0
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+influence on the boundary layer flashback propensity of turbulent 
+premixed jet flames of different fuel composition [12,13].
+Jet burners rely on a simple turbulent pipe flow, with a 
+characteristic uniform flow velocity profile of high momentum, 
+connected to a combustion chamber. Thanks to their high bulk 
+velocities of around 100 m/s, jet flames are highly flashback resistant 
+[14], and the resulting flow field in the combustion chamber can 
+become independent of the Reynolds-number, which leads to a 
+certain robustness against mass flow fluctuations [15]. Because of all 
+these characteristics, jet burners are considered well-suited to 
+combust highly reactive fuels with high burning velocities, such as 
+hydrogen. There exist already concepts to combust fuel blends with 
+high hydrogen contents such as swirl-stabilized combustion with 
+high amounts of steam [16], so-called micromix burners with pure 
+hydrogen diffusion flames [17], and multijet-bruners [18]. Dry low- 
+emission technologies based on swirl combustors are currently 
+limited to fuel blends with around 60 vol:% hydrogen content [17]. 
+The application of multijet-burners, as in Ref. [18], is limited to 
+hydrogen concentrations of around 50 vol.%. For this concentration, 
+the range of NOx emissions is below 25 ppm corrected to a dry basis. 
+The current dry premixed-burner concepts are not capable of 
+reliably handling fuels with a high hydrogen share. To further extend 
+the operational range of gas turbines to fuels with high hydrogen 
+share, a novel generic design is investigated in this paper.
+In this respect, we developed a generic piloted single hydrogen jet 
+burner (POShyDON) that allows for a detailed investigation of the 
+dynamics and stability of jet flames with thermal powers up to 
+150 kW. This jet burner involves a pilot stage and a main nozzle 
+where preheated and premixed fuel-air mixtures with a hydrogen 
+content of up to 100 % are provided. The burner design is inspired by 
+the FLOX
+V
+R burner [19], whose ability of stabilizing flame fronts in 
+single-nozzle burner configurations with or without a pilot has been 
+discussed in detail [14,20]. Besides flame stabilization, the response 
+of the flame to acoustic perturbations plays a major role in the design 
+process of a combustor [3]. This response can be described by the 
+relation of incoming acoustic perturbations to heat release rate 
+disturbances, which is typically expressed as a flame transfer 
+function (FTF). Recent results by Ref. [21] show that hydrogen 
+enrichment of nonswirling flames leads to shorter flames with higher 
+cutoff frequencies in the FTF. Accordingly, hydrogen flames appear 
+to be more susceptible to thermoacoustic oscillation at higher 
+frequencies compared to pure natural gas flames.
+Whereas flame response and FTF have been thoroughly explored 
+for laminar flames on a laboratory scale [22] and turbulent swirl 
+flames with high thermal power [23,24], there exists a certain lack of 
+data for turbulent premixed jet flames closer to industrial power 
+scales. With the POShyDON jet burner setup, a broad range of 
+operating conditions can be investigated by assessing the FTFs with 
+the acoustic methods, and by investigating the flame shape with 
+optical measurements. The main focus of this study is the 
+characterization of the FTF and NOx emissions for different 
+premixed jet flame configurations, including the variation of 
+hydrogen-natural gas ratio and pilot flame conditions.
+This paper starts with a description of the experimental setup, 
+including the POShyDON-jet burner facility, the applied measure­
+ment techniques, and the chosen operating conditions. Subse­
+quently, results on emissions and FTFs are shown for hydrogen 
+blends with and without a pilot. We then investigated the stiffness of the 
+injector by measuring flame transfer functions for selected conditions. 
+A detailed discussion on the obtained results concludes the paper.
+2 Experimental Setup
+The POShyDON jet burner is investigated within an atmospheric 
+combustion chamber test rig as utilized in Ref. [25]. This setup is 
+displayed in Fig. 1. The main air supply is preheated (1) to 300 C. A 
+secondary airline is used to premix the pilot flow, which is preheated 
+to the same temperature as the main air. The injection of the main 
+fuel line is located 30 diameters upstream of the jet burner outlet (3). 
+This injection location guarantees a well-premixed fuel-air mixture 
+(required for reliable emission measurements), but, particularly at 
+low frequencies, does not guarantee perfectly premixed conditions, 
+as the fuel injection location is not decoupled from the acoustic 
+forcing.
+The combustion system (5) is displayed in further detail in Fig. 2. 
+The arrows display the injection of well-premixed fuel and air. The 
+side view of the burner (Fig. 2(a)) shows the concept of the 
+POShyDON burner consisting of three main components: a 
+converging nozzle, a mixing tube, and a front plate. The nozzle is 
+designed to reduce the cross section area to the outlet diameter of the 
+burner (D). This diameter is chosen to generate jet velocities of 
+around vjet ¼ 110 m/s. The mixing tube is 10 D long in order to 
+achieve a uniform flow profile. The dump plate holds an area jump of 
+Achamber=Ajet  10. The injector inside the mixing tube depicted in 
+Fig. 2(a) generates technically premixed conditions but is not used in 
+this study.
+In Fig. 2(b) the burner is shown from the front, seen from 
+downstream of the main flow outlet, and the pilot injection is 
+depicted with arrows. The pilot injection consists of eight holes 
+slanted by an angle of 60 deg with respect to the main jet axis. The 
+test rig can provide separate mass flows of air and fuel for the pilot 
+injection stage and the main premix injection stage. The pilot-fuel- 
+ratio (PFR), defined by 
+PFR ¼
+_mpilot,fuel
+_mpilot,fuel þ _mpremix,fuel
+(1) 
+Denotes the percentage of the total fuel mass flux fed into the pilot 
+line. An analogous definition holds for the pilot-air-ratio (PAR). The 
+test rig allows for blending several fuels together. The volumetric 
+fraction of hydrogen H2 will be varied in this study. For each blend, 
+the total fuel mass flow is adjusted to maintain a constant thermal 
+power of Pth ¼ 100 kW. The fuel mass flow is determined by 
+_mfuel ¼
+Pth
+1 −wH2
+ð
+ÞLHVNG þ wH2LHVH2
+(2) 
+with w denoting the mass fraction and LHV the lower heating value, 
+and NG stands for natural gas. The mass fraction is computed from 
+the volumetric fraction.
+By referring to Fig. 1, for the measurement of the heat release rate 
+response to acoustic perturbations, the setup is equipped with four 
+upstream loudspeakers (2), two sets of five nonequidistant micro­
+phones up- and downstream of the burner (4 and 7), and a 
+downstream forcing consisting of one loudspeaker (10) used to 
+determine the burner transfer matrix (BTM) and the flame transfer 
+matrix (FTM). An orifice (9) is used at the downstream end to reduce 
+the risk of having self-excited thermoacoustic instabilities in the 
+setup [26]. A quartz glass combustion chamber (6) is installed to 
+have optical access and capture the mean OH* chemiluminescence 
+with an ultraviolet-sensitive camera and a 50 mm UV lens equipped 
+with a k ¼ 308 nm optical bandpass-filter (k denoting the 
+wavelength).
+3 Methodology
+3.1 Flame Shape. The chemiluminescence is proportional to 
+the heat release rate of the flame for perfectly premixed conditions. 
+The far-upstream fuel–injection stage used allows us to assume 
+perfectly premixed conditions for the mean flame measurements, 
+performed in the absence of acoustic forcing. This data resolves the 
+two-dimensional flame shape, which is of particular interest to 
+assess the influence of the pilot stage on the mean flame shape.
+3.2 Emissions. The nitric oxides NOx,ppmvd are measured on a 
+wet basis by a chemiluminescence detector. The emissions are taken 
+from position (8) as shown in Fig. 1. This detector is equipped with 
+two channels to measure NOx and NO simultaneously. Via a 
+separate measurement, the oxygen concentration O2,meas is 
+091027-2 / Vol. 147, SEPTEMBER 2025                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+measured to correct the values to a dry basis as follows. The 
+reference oxygen concentration O2,ref is set to 15%, and the 
+corrected emissions are estimated by 
+NOx,standard ¼ NOx,ppmvd
+0:2095 −O2,ref
+0:2095 −O2,meas
+
+
+(3) 
+This dry correction does not, however, take into account a variation 
+in the fuel composition, which leads to different reaction 
+mechanisms and stoichiometry. In Ref. [27], it is discussed how to 
+account for these effects, based on a further fuel correction, enabling 
+a better comparison of NOx for different fuels. Following Ref. [27] 
+we introduce the corrected NOx as 
+NOx,corr ¼ NOx,standard
+g þ 1 −0:2095
+gref þ 1 −0:2095
+h
+href
+
+
+(4) 
+with 
+g ¼ nCf
+h
+and
+h ¼ nHf
+4 =LHVf
+(5) 
+with n f
+X denotes the molar amount of the element X in the fuel. g and 
+h denote fuel-specific parameters, respectively. As a reference 
+condition, the following values are chosen: 
+gref ¼ 1
+and
+href ¼
+1
+LHVref
+(6) 
+The reference value for the LHV is chosen to be that of NG for the 
+experiments and that of methane for the numerical calculations.
+3.3 Flame Transfer Function. To characterize the heat release 
+response, we exploit the methodology outlined in Ref. [28], based on 
+the Rankine-Hugoniot jump conditions across a heat element. The 
+procedure outlined below is repeated for frequencies in the range 
+70 Hz–500 Hz, where the lower frequency limit is set by the 
+mechanical limitations of the loudspeaker.
+First, the BTM in nonreactive conditions is evaluated by means of 
+the multimicrophone-method [29], by acoustically forcing using the 
+loudspeakers up- and downstream of the burner. For the linearized 
+acoustics, pressure- and velocity-fluctuations under these condi­
+tions, read 
+~p0
+2 ¼ b~p0
+1 −b Tr −1
+ð
+ÞM1 u0
+1 þ u1
+q q0
+
+
+(7a) 
+u0
+2 ¼ u0
+1 −Tr −1
+ð
+Þ cM1~p0
+1 −u1
+q q0
+
+
+(7b) 
+where the subscripts 1 and 2 denote the cold and hot regions across 
+the flame, respectively. We have defined the Mach number 
+M1  u1=c1, the temperature ratio Tr  T2=T1 and the ratio of 
+specific impedances b  ðq1c1Þ=ðq2c2Þ. Moreover, we have scaled 
+the pressure fluctuations by the local acoustic impedance, 
+~p0
+j  p0
+j=ðqjcjÞ, to nondimensionalize the FTM. Then, by assuming 
+Fig. 1 Overview of the experimental test stand used. For the determination of the BTM and FTM, the downstream 
+loudspeakers are mounted in between the microphone tube and orifice. Further descriptions are in the text.
+Fig. 2 Schematic view of the POShyDON jet burner. Violet arrows 
+represent premixed gases. The front view (b) highlights the pilot fuel 
+injection holes: (a) side view and (b) front view. (Color version online.)
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+SEPTEMBER 2025, Vol. 147 / 091027-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+that the heat release fluctuations q0 depend only on the acoustic 
+velocity fluctuations upstream the flame via the FTF 
+q0
+q ¼ FTF u0
+1
+u1
+(8) 
+one can show that the FTM reads 
+~p0
+2
+u0
+2
+
+
+¼
+b
+−bðTr −1ÞM1 1 þ FTF
+ð
+Þ
+−ðTr −1ÞcM1
+1 þ ðTr −1ÞFTF
+
+ ~p0
+1
+u0
+1
+
+
+(9) 
+In the low Mach number limit, the FTM is approximately diagonal, 
+and the FTF can be identified from the T22 element, via the relation 
+FTF ¼ u0
+2=u0
+1 −1
+Tr −1
+(10) 
+The acoustic velocities under reactive conditions are measured by 
+means of the multimicrophone-method, and by assuming that the 
+BTM in reactive and nonreactive conditions are unchanged [28]. 
+This requires a single acoustic excitation of the setup in reactive 
+conditions, which is achieved by actuating the system with the 
+loudspeakers upstream of the flame only.
+In order to accurately reconstruct the pressure and velocity 
+acoustic waves from the microphone measurements, it is important 
+to use the correct environmental parameters. A small change in the 
+density and, therefore, in the speed of sound, caused by varying the 
+fuel blend injected upstream of the microphone section, can 
+considerably affect the reconstruction quality of the acoustic field. 
+Additionally, this reconstruction error scales with the distance 
+between the microphones’ array and the burner inlet plane.
+4 Results
+In this section, we report the results of the heat release response 
+and the emissions of the POShyDON burner as the hydrogen content 
+of the fuel is varied. The burner is investigated with and without pilot 
+flow. For the cases with a pilot injection, the mass fractions are 
+chosen to be PAR ¼ 5% and PFR ¼ 10%. Preliminary studies were 
+conducted to understand the influence of these parameters. The 
+PAR ¼ 5% is chosen to generate a sufficient penetration depth into 
+the main jet. The PFR ¼ 10% is chosen in order to generate a pilot 
+flame close to stoichiometric conditions. The total air mass flow of the 
+system is kept constant to _mair ¼ 220 kg/h for all measurements. For 
+each case considered, the fuel mass flow is calculated by using Eq. (2).
+4.1 Mean Flame Shape. The mean flame shape is assessed 
+based on OH* chemiluminescence images. The local heat release 
+rate is proportional to the local OH* chemiluminescence for 
+perfectly premixed conditions, which is valid in our setup in the 
+absence of acoustic forcing. This is also the case with a pilot 
+injection because the pilot is perfectly premixed. Figure 3 displays 
+the mean OH* chemiluminescence fields as the hydrogen content 
+varies, with and without a pilot injection.
+For the pure natural gas case without pilot fuel injection, the flame 
+is detached comparably far from the burner front plate, resulting in a 
+long flame with a widely distributed heat release rate. Using the pilot 
+injection stage for the same conditions results in a flame stabilized 
+considerably closer to the burner outlet, with a reduced flame length. 
+The length reduction is due to (i) a concentration of the heat release 
+rate closer to the flame root and (ii) a possible recirculation effect 
+assumed to be created by the injection of the eight jets in crossflow 
+penetrating the main jet. By increasing the amount of hydrogen in 
+the fuel composition, the flame length is drastically shortened, and 
+the flame tends to attach closer to the burner outlet. The presence of 
+the pilot alters the mean flame shape: the higher the hydrogen 
+concentration the more pronounced the mean flame shape changes 
+when the pilot is turned on. In particular, the pilot jets concentrate a 
+major share of the heat release rate close to the nozzle outlet: the 
+higher the hydrogen concentration the more pronounced this effect 
+is. This implies a lower residence time, which in turn affects the NOx 
+levels in a nonlinear fashion [30].
+4.2 Influence of the Hydrogen Content on the Creation of 
+Nitric Oxides. In this section, we discuss the results of the measured 
+NOx emission levels. For a better understanding, a simulation of the 
+reaction pathways is also performed by using the Cantera software.
+4.2.1 Experimental Measurements of NOx. Figure 4 shows the 
+measured NOx levels as the H2 concentration varies for well- 
+premixed conditions, with and without pilot. The reported values are 
+corrected on a dry basis as given in Eq. (4). The filled circles with a 
+dotted line represent the configuration without pilot and the circles 
+with a solid line describe the NOx emissions as a function of H2 for 
+the piloted flame. The error bars denote two standard deviations.
+The nonpiloted flame generates rather low and constant NOx 
+emission values for H2  20%. With increasing hydrogen content, 
+the emission values grow gradually and reach a maximum at 
+NOx,corr ¼ 5.2 ppmvd for H2 ¼ 60%; for pure hydrogen combustion 
+the emissions slightly decrease. In comparison, for the piloted flame, 
+the NOx emissions show a linearly increasing trend between 0 and 
+60% hydrogen content. The emissions peak at NOx,corr ¼ 6.3 ppmvd 
+for H2 ¼ 60%; for higher hydrogen shares, the emissions steeply 
+decrease and eventually fall below the value of the nonpiloted flame 
+for pure hydrogen.
+The influence of the pilot injection stage generally results in an 
+increased NOx creation. This increase is likely due to the (locally) 
+richer fuel injected through the pilot stage. The pilot injection is 
+perfectly premixed with an equivalence ratio close to stoichiometric 
+Fig. 3 Mean OH* chemiluminescence with (right column) and 
+without (left column) pilot injection. The axes are normalized by 
+the diameter of the burner outlet D. The thermal power of 
+Pth 5 100 kW and mass flow of _m5220 kg/h are kept constant.
+091027-4 / Vol. 147, SEPTEMBER 2025                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+conditions, Upilot  1:1 −0:9,1 which is relatively high compared to 
+the equivalence ratio of the main jet (Ujet  0:55 −0:45). These 
+locally richer areas result in locally higher temperatures, leading to 
+more NOx formation through the thermal path [31].
+For all considered cases, the NOx emissions of the POShyDON 
+burner range between NOx,standard ¼ 4.5–6.8 ppmvd corrected to a 
+dry basis as given in Eq. (3) for a direct comparison to Ref. [16]. 
+These values are comparable with the emissions of state-of-the-art 
+swirl burners with comparable thermal power and air mass flow 
+ranging between NOx,standard ¼ 4–6 ppmvd corrected to a dry basis 
+[16]. Generally, we observe that the emissions of the configurations 
+with an active pilot are higher than those without a pilot. However, 
+for high hydrogen concentration ( > 80%), this trend is reversed. 
+The higher NOx values for the measurements with pilot in the range 
+of H2 ¼ 0–80% can be explained by the locally richer pilot 
+injections resulting in higher NOx generation. For the pure hydrogen 
+case with pilot, the shortened flame length reduces the residence 
+time and leads to a reduced NOx generation. This assumption holds 
+if the pilot injection is well mixed with the main jet.
+4.2.2 Numerical Investigation of the NOx Formation Path­
+ways. To gain a better understanding of the NOx emissions, Cantera 
+[32] simulations are performed with the GRI3.0 mechanism. These 
+calculations estimate the contribution of various reaction pathways 
+toward the formation of NOx for varying hydrogen content in the 
+fuel–air mixture [33]. A perfectly stirred reactor (PSR) is assumed 
+for the jet burner without pilot. The PSR assumes the gases to be 
+perfectly mixed. The mass flowrate through the reactor is set 
+constant. For each fuel blend, the same fuel compositions and 
+equivalence ratios are used as in the experiments. Natural gas is 
+approximated with pure methane and corrected as described in 
+Eq. (4). The reactor inlet temperature is matched to the experimental 
+one, and the pressure is set to atmospheric pressure. For each fuel 
+mixture, a typical residence time is estimated from a characteristic 
+length of the main reaction zone and the jet bulk velocities at the 
+burner outlet. A threshold of 50% is chosen to characterize the length 
+of the main reaction zone based on the OH* intensity maps shown in 
+Fig. 3. This residence time estimation gives the highest residence 
+time for the H2 ¼ 60% case of tres ¼ 1.8 ms and the lowest for the 
+pure hydrogen case with tres ¼ 1.1 ms. For the pure natural gas case, a 
+realistic residence time could not be deducted from the mean OH* 
+intensity images due to the strongly detached and nonstationary 
+flame resulting in a widely distributed OH* chemiluminescence 
+intensity. For conditions with low hydrogen content, the results do 
+not match as closely. This deviation may be caused by the flame’s 
+slightly detached shape, which causes the residence time to be 
+overestimated with the used method.
+In Fig. 4, the simulated NOx values are plotted against the 
+experimental values. Although the absolute values show some 
+deviation from the experimental results, the emissions level and the 
+qualitative behavior are captured well. As in the experimental 
+measurements, a peak in NOx is found at H2 ¼ 60% in the Cantera 
+calculations.
+To understand the mechanism behind this peak, a pathway 
+analysis of the formation of NOx as the hydrogen content increases is 
+performed [33]. The results are shown in Fig. 5 where the left axis 
+displays the relative contribution of the four main pathways for NOx 
+formation; the right axis displays the absolute NOx level. The 
+contribution of the thermal path is small compared to the other 
+pathways, which is expected since the outlet temperature of the PSR 
+is kept approximately constant by means of the constant thermal 
+power set in the experiment. The variation of the simulated outlet 
+temperature of the PSR is comparably small with 635 C for the 
+different fuel variations. For reference, the mean PSR outlet 
+temperature for all performed simulations is 1500 C. The variation 
+of the thermal path is due to the variation in residence time, with 
+H2 ¼ 60% corresponding to the highest residence time. The prompt 
+path’s contribution decreases with increasing hydrogen share, 
+vanishing at pure H2 combustion. This is because the prompt path 
+relies on the formation of hydrocarbon CHi radicals, which are 
+reduced with increased hydrogen share [34]. The absolute 
+contribution of the NNH and N2O paths to the NOx formation 
+increases with increasing hydrogen content, counteracting the decay 
+of the prompt path. These counteracting effects lead to the peak at 
+H2 ¼ 60%. The NNH and N2O paths are the most prominent NOx 
+formation pathways for the pure hydrogen cases. A dedicated 
+simulation of the conditions including the pilot injection is not 
+performed. This is due to the missing information on the flow field 
+and the mixing properties induced by the pilot jets.
+4.2.3 Influence of the Hydrogen Content on the Flame Transfer 
+Function. To assess the thermoacoustic behavior of the POShyDON 
+burner, FTFs are measured for various fuel blends. The results are 
+shown in Fig. 6.
+The gain of the FTF for the natural gas case H2 ¼ 0% displays a 
+typical low-pass filter behavior with a cutoff frequency of ca. 
+200 Hz, decaying monotonically as the forcing frequency increases. 
+For the measurements with pure NG and low hydrogen content, the 
+gain values increase, after the first decay in the low-frequency range, 
+Fig. 4 NOx levels corrected to a dry basis. The error bars denote 6 
+two standard deviations as a confidence interval for the measure­
+ments. Black denotes measurements in well-premixed conditions, 
+and red denotes values obtained with Cantera for well-premixed 
+conditions without pilot. The thermal power of Pth5 100kW and the 
+mass flow of _m5220 kg/h are kept constant. (Color version online.)
+Fig. 5 Pathway analysis as in Ref. [33] for mH2 matching the 
+equivalence ratio, inlet temperature, and pressure of the experi­
+ment. The red curve represents the (normalized) absolute NOx 
+values as shown in Fig. 4. (Color version online.)
+1The equivalence ratio varies with the composition of the fuel mixture: the higher the 
+hydrogen share, the lower the equivalence ratio.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+SEPTEMBER 2025, Vol. 147 / 091027-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+toward a second peak around 450 Hz. Also, the phase values increase 
+between 225 Hz and 340 Hz for all measured conditions.
+For swirl-stabilized flames, it was shown that two mechanisms 
+characterize the flame response: (i) swirl fluctuations and (ii) vortex 
+roll-up due to Kevin-Helmholtz instabilities [35]. For the jet burner 
+at hand, the flame response is, obviously, driven by the second 
+mechanism. In fact, the shape of the FTF curves is comparable to the 
+model developed by Ref. [36] describing the impact of vortex roll-up 
+due to the Kelvin–Helmholtz instability. The increase in the phase 
+values as well as in the gain values for higher forcing frequencies is 
+due to a second mechanism overlaying the velocity fluctuations, 
+which may be induced by the Kevin–Helmholtz instability. These 
+two counteracting mechanisms overlay constructively and destruc­
+tively, leading to rising and falling gain and phase values [37]. 
+However, the analysis of this second mechanism requires a 
+dedicated investigation of the complex reacting flow field which is 
+beyond the scope of this study.
+A characteristic time delay sc for perturbations reaching the flame 
+can be estimated by the ratio of the flame length and the bulk flow 
+velocity at the flame root [38]. Based on this time delay, a rough 
+estimate of the cutoff frequency of the absolute value from the FTF 
+can be derived by taking the reciprocal time delay: fc ¼ 1=sc. This 
+results in an estimate of the cutoff frequency of fc  248 Hz for the 
+natural gas flame response, which qualitatively matches the 
+measured data in Fig. 6. With higher hydrogen content, the cutoff 
+frequency increases, as the flame length is reduced. For H2 ¼ 100%, 
+we estimate fc  647 Hz. This is not within the measured range, and 
+a direct comparison with the experiments is not possible.
+The gain of the FTF decreases for frequency below 200 Hz with 
+increasing hydrogen content, suggesting that, for this burner 
+configuration, the hydrogen-enriched flames are less prone to low- 
+frequency thermoacoustic instabilities. Especially for the FTFs with 
+a hydrogen content above H2 > 60%, the gain is lower than one for 
+all frequencies below 200 Hz. For the phase values, below 200 Hz a 
+flatter slope can be observed with increasing hydrogen content. This 
+is consistent with the fact that the length of the flame shortens with 
+increasing hydrogen content (see Fig. 3), resulting in shorter time 
+delays for the flame response. These results are in agreement with 
+those of Ref. [39], where the FTFs of a perfectly premixed lab-scale 
+burner as a function of the hydrogen content are reported.
+In our measurements, the phase of the FTFs in the low-frequency 
+limit converges toward a negative value, close to −p. This indicates 
+that the fuel injection is not stiff [40]. For a stiff injection, the 
+assumption holds that the fuel injection is decoupled from the 
+acoustic forcing, and the acoustic fluctuation does not interact with 
+the fuel supply. In the following, the nonstiffness is characterized by 
+measuring the whole flame transfer matrix for selected cases.
+4.2.4 Nonstiff Injector Influence on the Heat Release Rate 
+Fluctuations. As discussed in Refs. [40–42], for nonstiff injectors, 
+the heat release rate fluctuations are also influenced by the pressure 
+fluctuations at the fuel injector. To incorporate this, Eq. (8) needs to 
+be generalized and reads 
+q0
+q ¼ FTF u0
+1
+u1
+þ FTFp
+p0
+1
+Dp
+(11) 
+where Dp represents the pressure drop across the fuel injector and 
+FTFp the transfer function of heat release fluctuations to acoustic 
+pressure fluctuations. By plugging Eq. (11) into Eq. (7) yields 
+FTM ¼
+b −cb Tr −1
+ð
+ÞM2
+1
+p1
+DpFTFp
+−b Tr −1
+ð
+ÞM1 1 þ FTF
+½
+
+Tr −1
+ð
+ÞcM1 −1 þ p1
+DpFTFp
+
+
+1 þ Tr −1
+ð
+ÞFTF
+2
+6664
+3
+7775
+(12) 
+If the pressure drop Dp is small, the low Mach number assumption 
+may, not be sufficient to invoke a diagonal form of the FTM. Then, 
+the FTM implicitly depends on two transfer functions, FTF and 
+FTFp. It is, therefore, necessary to characterize the full FTM, which 
+requires the excitation of two linearly independent acoustic fields, 
+obtained by forcing, respectively, the loudspeakers upstream and 
+downstream of the flame. Using loudspeakers in the downstream 
+section in connection with a flame requires special care because hot 
+exhaust gases and pressure waves induced by the ignition process 
+may damage the loudspeakers and their casings. Furthermore, in our 
+setup, the downstream forcing section has a different diameter from 
+the microphone section. Including this area jump, unwanted 
+thermoacoustic feedback can occur. For this reason, the full FTM 
+has been characterized only for selected operating conditions.
+The FTM is characterized by pure natural gas and pure hydrogen 
+as well as with and without pilot fuel injection. In Figs. 7 and 8, the 
+gain and phase of the FTM elements are shown, respectively. 
+Generally, the influence of the pilot on the gain and phase of the 
+FTFs is minor for the hydrogen case.
+For the natural gas conditions (H2 ¼ 0%), the pilot injection 
+results in differing values for the FTM, especially in the T12 and T22 
+elements. Without pilot injection, the curves reveal a strongly 
+decreasing phase and gain values for forcing frequencies below 
+approximately 200 Hz in the T22 element. The gain reaches down to 
+zero at 200 Hz and the phase jumps by –p. This can be explained with 
+a velocity node at the burner front plate. The T12 element contains 
+gain values that are doubled as the pilot injection is turned off for 
+forcing frequencies between 150 and 400 Hz. This difference 
+originates from the strongly differing flame shapes as seen in Fig. 3.
+To derive the FTF from the relation of u0
+2=u0
+1, (i) the injector has to 
+be stiff, and (ii) the assumption of low Mach number flow in the 
+burner should hold true. To assess the stiffness of the injector, we 
+focus on the absolute value of the T21 element, which should be close 
+to zero for stiff injectors. For both the hydrogen and the natural gas 
+case, the T21 element is small but nonzero. The gain of the T21 
+Fig. 6 Flame transfer functions for well-premixed flames with 
+varying hydrogen content at a constant thermal power of Pth5 100kW 
+and mass flow of _m5220 kg/h without pilot flow injection
+091027-6 / Vol. 147, SEPTEMBER 2025                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+element is a frequency-dependent function, with particularly high 
+values at the measured frequency limits at 70 and 500 Hz. Thus, for 
+both fuels, the stiff-injector assumption cannot be made. This is in 
+agreement with the fact that the phase of the FTF measurements, as 
+reported in Fig. 6, approaches the value of −p.
+To verify that the low Mach number condition is satisfied, we 
+instead note that, as per Eq. (11), the T12 element should 
+approximate zero and the T11 ¼ b should be approximately 
+constant. For both fuel types, b should be approximately 1.55. The 
+T11 element is close to the calculated b as can be seen in Fig. 7 for the 
+mean gain value estimated over all the frequencies. The corre­
+sponding phase value of the T11 (see Fig. 8) is approximately zero for 
+both fuels; this is expected since b is a real-valued number.
+The gain of the T12 element is strongly frequency dependent and 
+clearly nonzero. For the natural gas case, T12 ranges up to 10 in the 
+gain value for the case without pilot. However, to the authors’ 
+knowledge, there exists no estimate that evaluates whether these 
+rather high gain values clearly indicate the low Mach number 
+assumption to be matched or not.
+Since the T12 element is nonzero, a full FTM must be measured to 
+separate the contribution of the velocity fluctuations to the heat 
+release from the contribution due to the pressure fluctuations. 
+Although the Mach number remains relatively small (Mmax  0:2) 
+within the potential core of the jet for varying hydrogen share, the 
+off-diagonal elements of the FTM remain nonzero, indicating a 
+nonstiff fuel injector combined with a slight violation of the low 
+Mach number assumption.
+To support the discussion above, we rely on an indirect method: 
+we compare the FTFs obtained with a single acoustic excitation, 
+shown in Fig. 6, with the FTFs extracted from the T22 of the FTMs, 
+Fig. 7 Flame transfer matrix gain values for pure hydrogen and pure 
+natural gas flame, with and without pilot injection are measured. The 
+thermal power of Pth5 100kW and mass flow of _m5220 kg/h are kept 
+constant. Tij denotes the single elements of the FTM.
+Fig. 8 Flame transfer matrix phase values for pure hydrogen and 
+pure natural gas flame with and without pilot injection are measured. 
+The thermal power of Pth5 100kW and mass flow of _m5220 kg/h are 
+kept constant. Tij denotes the single elements of the FTM.
+Fig. 9 Comparison of the FTF for two varying fuel types at 
+reference conditions without pilot injection. The FTF once is 
+computed by the presented methodology in Eq. (10) and once by 
+replacing u0
+2=u0
+1 with the FTM22 element denoted as FTF(T22). The 
+thermal power of Pth 5 100 kW and mass flow of _m5220 kg/h are 
+kept constant.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+SEPTEMBER 2025, Vol. 147 / 091027-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+which required two linearly independent acoustic excitations. To 
+obtain the latter, the T22 element of the FTMs is plugged into Eq. 
+(10), and the resulting transfer functions are denoted as FTFðT22Þ
+and are displayed in Fig. 9. These two transfer functions should be 
+comparable only if the FTM is approximately diagonal and differ 
+otherwise.
+For the hydrogen case, the slope of the gain curves matches, and 
+the phase value follows a monotonically falling graph for 
+frequencies 100 Hz. Nevertheless, the absolute values do not 
+perfectly match. For the natural gas case, the slope of the gain and 
+phase values strongly differs. This error should be due to the nonstiff 
+injector and the low Mach number violation, resulting in a pressure 
+dependency of the FTF. This is particularly the case for the natural 
+gas conditions, which display higher values in the T12 and T21 
+elements compared to the hydrogen case. Therefore, it can be 
+concluded for both fuels that the fluctuations within the signal of the 
+FTF measured with only upstream forcing are induced by the 
+nonstiffness of the fuel injector and the influence of the slightly 
+violated low Mach number assumption.
+5 Conclusions
+In this study, we have proposed the use of a piloted single jet 
+burner, POShyDON, to stabilize the combustion of fuel blends 
+spanning from pure natural gas to pure hydrogen. The burner 
+concept is conceived to enable the next generation of gas turbines to 
+flexibly combust blends of hydrogen-rich fuels. The burner 
+characteristics have been investigated under atmospheric conditions 
+for differing fuel blends and pilot injections.
+We have demonstrated that the POShyDON burner can operate at 
+100% hydrogen at dry conditions with low NOx formation. For the 
+emissions, we showed that fuel blends with a higher amount of 
+hydrogen generally result in increased emissions, although these 
+levels decrease when moving from hydrogen-rich to pure hydrogen 
+combustion. Furthermore, it was shown that the addition of a pilot 
+injection stage slightly increases the NOx production. By consid­
+ering time-averaged chemiluminescence data, we have shown that 
+the flames stabilize further upstream when the pilot injection stage is 
+turned on. With a higher hydrogen content, the flame length reduces 
+and anchors closer to the burner outlet.
+Last, the heat release dynamic response to acoustic perturbations 
+was characterized. The measured FTFs display an increased cutoff 
+frequency and shortened time lag with increasing hydrogen content. 
+For low frequencies, the gain of the FTFs is dampened with 
+increasing hydrogen content. The phase of the FTFs converges 
+toward −p, which indicates that the fuel injector is not stiff. This 
+was assessed by measuring the full FTMs for selected cases. It was 
+observed that the T21 element of the FTM is not zero, implying a 
+nonstiff injector. However, the T11 element is frequency dependent, 
+and the T12 is nonzero, which suggests that the low Mach number 
+assumption is slightly violated. A reconstruction of the FTF from the 
+T22 element of the FTM reveals certain differences to the FTF 
+measured with upstream forcing only which implies an influence of 
+the pressure fluctuations on the heat release dynamics. As a 
+consequence, the estimate of the FTF of our burner with a nonstiff 
+injector with one (upstream) forcing is inaccurate, and the full FTM 
+should be measured instead.
+Acknowledgment
+This work has been conducted as a part of the ERC Advanced 
+Grant HYPOTHESis. The authors gratefully acknowledge the FVV 
+eV for developing the POShyDON burner within the project no. 
+1358 “Dynamik von Drall- und Strahlflammen” under the funding 
+numbers FVV 6013580 & FVV 6013581. The authors acknowledge 
+the advice of Bruno Schuermans. Special thanks go out to Thorsten 
+Dessin, Andy G€ohrs, David L€uck, and Andrea Maneck for 
+manufacturing the POShyDON burner and supporting the design 
+process. Moreover, the authors thank Maximilian Naster and Randy 
+Lange for supporting the experiments.
+Funding Data
+ Dynamik von Drall- und Strahlflammen (Grant Nos. FVV 
+6013580 and FVV 6013581; Funder ID: 10.13039/ 
+501100003162).
+ European Research Council (Grant No. 101019937; Funder 
+ID: 10.13039/501100000781).
+References
+0[1] Syred, N., 2006, “A Review of Oscillation Mechanisms and the Role of the 
+Precessing Vortex Core (PVC) in Swirl Combustion Systems,” Prog. Energy 
+Combust. Sci., 32(2), pp. 93–161.
+0[2] Candel, S., Durox, D., Schuller, T., Bourgouin, J.-F., and Moeck, J. P., 2014, 
+“Dynamics of Swirling Flames,” Annu. Rev. Fluid Mech., 46(1), pp. 147–173.
+0[3] Lieuwen, T. C., and Yang, V., 2005, Combustion Instabilities in Gas Turbine 
+Engines: Operational Experience, Fundamental Mechanisms, and Modeling, 
+American Institute of Aeronautics and Astronautics, Reston, VA.
+0[4] Palies, P., Durox, D., Schuller, T., and Candel, S., 2011, “Experimental Study on 
+the Effect of Swirler Geometry and Swirl Number on Flame Describing 
+Functions,” Combust. Sci. Technol., 183(7), pp. 704–717.
+0[5] Albayrak, A., Juniper, M. P., and Polifke, W., 2019, “Propagation Speed of Inertial 
+Waves in Cylindrical Swirling Flows,” J. Fluid Mech., 879, pp. 85–120.
+0[6] M€uller, J. S., L€uckoff, F., Kaiser, T. L., Paschereit, C. O., and Oberleithner, K., 
+2022, “Modal Decomposition and Linear Modeling of Swirl Fluctuations in the 
+Mixing Section of a Model Combustor Based on Particle Image Velocimetry 
+Data,” ASME J. Eng. Gas Turbines Power, 144(1), p. 011021.
+0[7] Reichel, T. G., Terhaar, S., and Paschereit, O., 2015, “Increasing Flashback 
+Resistance in Lean Premixed Swirl-Stabilized Hydrogen Combustion by Axial Air 
+Injection,” ASME J. Eng. Gas Turbines Power, 137(7), p. 071503.
+0[8] Kiesewetter, F., Konle, M., and Sattelmayer, T., 2007, “Analysis of Combustion 
+Induced Vortex Breakdown Driven Flame Flashback in a Premix Burner With 
+Cylindrical Mixing Zone,” ASME J. Eng. Gas Turbines Power, 129(4), pp. 929–936.
+0[9] Hoferichter, V., and Sattelmayer, T., 2018, “Boundary Layer Flashback in 
+Premixed Hydrogen–Air Flames With Acoustic Excitation,” ASME J. Eng. Gas 
+Turbines Power, 140(5), p. 051502.
+[10] Baumgartner, G., Boeck, L. R., and Sattelmayer, T., 2016, “Experimental 
+Investigation of the Transition Mechanism From Stable Flame to Flashback in a 
+Generic Premixed Combustion System With High-Speed Micro-Particle Image 
+Velocimetry and Micro-PLIF Combined With Chemiluminescence Imaging,” 
+ASME J. Eng. Gas Turbines Power, 138(2), p. 021501.
+[11] Shaffer, B., Duan, Z., and McDonell, V., 2013, “Study of Fuel Composition 
+Effects on Flashback Using a Confined Jet Flame Burner,” ASME J. Eng. Gas 
+Turbines Power, 135(1), p. 011502.
+[12] Kalantari, A., Sullivan-Lewis, E., and McDonell, V., 2016, “Flashback Propensity 
+of Turbulent Hydrogen–Air Jet Flames at Gas Turbine Premixer Conditions,” 
+ASME J. Eng. Gas Turbines Power, 138(6), p. 061506.
+[13] Duan, Z., Shaffer, B., McDonell, V., Baumgartner, G., and Sattelmayer, T., 2014, 
+“Influence of Burner Material, Tip Temperature, and Geometrical Flame 
+Configuration on Flashback Propensity of H2-Air Jet Flames,” ASME J. Eng. 
+Gas Turbines Power, 136(2), p. 021502.
+[14] Lammel, O., Severin, M., Ax, H., L€uckerath, R., Tomasello, A., Emmi, Y., Noll, 
+B., Aigner, M., and Panek, L., 2017, “High Momentum Jet Flames at Elevated 
+Pressure: A — Experimental and Numerical Investigation for Different Fuels,” 
+ASME Paper No. GT2017-64615.
+[15] Severin, M. J., Lammel, O., Meier, W., and Aigner, M., 2017, “Flame Stabilization 
+Regimes of Lean Premixed Confined Jet Flames at Different Reynolds Numbers,” 
+AIAA Paper No. 2017-4684.
+[16] G€oke, S., and Paschereit, C. O., 2013, “Influence of Steam Dilution on Nitrogen 
+Oxide Formation in Premixed Methane/Hydrogen Flames,” J. Propul. Power, 
+29(1), pp. 249–260.
+[17] Noble, D., Wu, D., Emerson, B., Sheppard, S., Lieuwen, T., and Angello, L., 2021, 
+“Assessment of Current Capabilities and Near-Term Availability of Hydrogen- 
+Fired Gas Turbines Considering a Low-Carbon Future,” ASME J. Eng. Gas 
+Turbines Power, 143(4), p. 041002.
+[18] Krebs, W., Schulz, A., Witzel, B., Johnson, C., Laster, W., Pent, J., Schilp, R., 
+Wasif, S., and Weaver, A., 2022, “Advanced Combustion System for High 
+Efficiency (ACE) of the New SGT5/6- 9000HL Gas Turbine,” ASME Paper No. 
+GT2022-82299.
+[19] L€uckerath, R., Meier, W., and Aigner, M., 2008, “FLOXV
+R Combustion at High 
+Pressure With Different Fuel Compositions,” ASME J. Eng. Gas Turbines Power, 
+130(1), p. 011505.
+[20] Severin, M., Lammel, O., Ax, H., L€uckerath, R., Meier, W., Aigner, M., and 
+Heinze, J., 2018, “High Momentum Jet Flames at Elevated Pressure: Detailed 
+Investigation of Flame Stabilization With Simultaneous Particle Image Veloc­
+imetry and OH-LIF,” ASME J. Eng. Gas Turbines Power, 140(4), p. 041508.
+[21] Æsøy, E., Aguilar, J. G., Wiseman, S., Bothien, M. R., Worth, N. A., and Dawson, 
+J. R., 2020, “Scaling and Prediction of Transfer Functions in Lean Premixed H2/ 
+CH4-Flames,” Combust. Flame, 215, pp. 269–282.
+[22] Schuller, T., Poinsot, T., and Candel, S., 2020, “Dynamics and Control of 
+Premixed Combustion Systems Based on Flame Transfer and Describing 
+Functions,” J. Fluid Mech., 894, p. P1.
+[23] Paschereit, C. O., Schuermans, B., Polifke, W., and Mattson, O., 2002, 
+“Measurement of Transfer Matrices and Source Terms of Premixed Flames,” 
+ASME J. Eng. Gas Turbines Power, 124(2), pp. 239–247.
+091027-8 / Vol. 147, SEPTEMBER 2025                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+[24] Schuermans, B., Guethe, F., Pennell, D., Guyot, D., and Paschereit, C. O., 2010, 
+“Thermoacoustic Modeling of a Gas Turbine Using Transfer Functions Measured 
+Under Full Engine Pressure,” ASME J. Eng. Gas Turbines Power, 132(11), 
+p. 111503.
+[25] Oberleithner, K., Schimek, S., and Paschereit, C. O., 2015, “Shear Flow 
+Instabilities in Swirl-Stabilized Combustors and Their Impact on the Amplitude 
+Dependent Flame Response: A Linear Stability Analysis,” Combust. Flame, 
+162(1), pp. 86–99.
+[26] Bechert, D. W., 1980, “Sound Absorption Caused by Vorticity 
+Shedding, Demonstrated With a Jet Flow,” J. Sound Vib., 70(3), pp. 389–405.
+[27] Garan, N., Dybe, S., Paschereit, C., and Djordjevic, N., 2023, “Consistent 
+Emission Correction Factors Applicable to Novel Energy Carriers and Conversion 
+Concepts,” Fuel, 341, p. 127658.
+[28] Alemela, P. R., Fanca, D., Ettner, F., Hirsch, C., Sattelmayer, T., and Schuermans, 
+B., 2008, “Flame Transfer Matrices of a Premixed Flame and a Global Check With 
+Modelling and Experiments,” ASME Paper No. GT2008-50111.
+[29] Jang, S.-H., and Ih, J.-G., 1998, “On the Multiple Microphone Method for 
+Measuring in-Duct Acoustic Properties in the Presence of Mean Flow,” J. Acoust. 
+Soc. Am., 103(3), pp. 1520–1526.
+[30] Rutar, T., Horning, D. C., Lee, J. C. Y., and Malte, P. C., 1998, “NOx Dependency 
+on Residence Time and Inlet Temperature for Lean-Premixed Combustion in Jet- 
+Stirred Reactors,” ASME Paper No. 98-GT-433.
+[31] Abian, M., Alzueta, M. U., and Glarborg, P., 2015, “Formation of NO From N2/O2 
+Mixtures in a Flow Reactor: Toward an Accurate Prediction of Thermal NO,” Int. 
+J. Chem. Kinetics, 47(8), pp. 518–532.
+[32] Goodwin, D. G., Moffat, H. K., Schoegl, I., Speth, R. L., and Weber, B. W., 2022, 
+“Cantera: An Object-Oriented Software Toolkit for Chemical Kinetics, 
+Thermodynamics, and Transport Processes,” Zenodo, Switzerland, accessed 
+Nov. 11, 2022, https://zenodo.org/records/48735
+[33] Guethe, F., de la, C., Garcia, M., and Burdet, A., 2009, “Flue Gas Recirculation in 
+Gas Turbine: Investigation of Combustion Reactivity and NOx Emission,” ASME 
+Paper No. GT2009-59221.
+[34] Fenimore, C. P., 1971, “Formation of Nitric Oxide in Premixed Hydrocarbon 
+Flames,” Symp. (Int.) Combust., 13(1), pp. 373–380.
+[35] L€uckoff, F., Kaiser, T., Paschereit, C., and Oberleithner, K., 2021, “Mean Field 
+Coupling Mechanisms Explaining the Impact of the Precessing Vortex Core on the 
+Flame Transfer Function,” Combust. Flame, 223, pp. 254–266.
+[36] Oberleithner, K., and Paschereit, C., 2016, “Modeling Flame Describing 
+Functions Based on Hydrodynamic Linear Stability Analysis,” ASME Paper 
+No. GT2016-57316.
+[37] Hemchandra, S., Lieuwen., and T., Shreekrishna, 2010, “Premixed Flame 
+Response to Equivalence Ratio Perturbations,” Combust. Theory Modell., 
+14(5), pp. 681–714.
+[38] Alemela, R., Fanaca, D., Hirsch, C., Sattelmayer, T., and Schuermans, B., 2010, 
+“Determination and Scaling of Thermo Acoustic Characteristics of Premixed 
+Flames,” Int. J. Spray Combust. Dyn., 2(2), pp. 169–198.
+[39] Aguilar, J. G., Æsøy, E., and Dawson, J. R., 2022, “The Influence of Hydrogen on 
+the Stability of a Perfectly Premixed Combustor,” Combust. Flame, 245, 
+p. 112323.
+[40] Polifke, W., and Lawn, C., 2007, “On the Low-Frequency Limit of Flame Transfer 
+Functions,” Combust. Flame, 151(3), pp. 437–451.
+[41] Polifke, W., Poncet, A., Paschereit, C. O., and D€obbeling, K., 2001, 
+“Reconstruction of Acoustic Transfer Matrices by Instationary Computational 
+Fluid Dynamics,” J. Sound Vib., 245(3), pp. 483–510.
+[42] Bobusch, B., Moeck, J., Paschereit, C., and Sadig, S., 2012, “Thermoacoustic 
+Stability Analysis of a Kerosene-Fueled Lean Direct Injection Combustor 
+Employing Acoustically and Optically Measured Transfer Matrices,” ASME 
+Paper No. GT2012-69034.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+SEPTEMBER 2025, Vol. 147 / 091027-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/9/091027/7519670/gtp-25-1158.pdf by University of Cincinnati user on 31 December 2025

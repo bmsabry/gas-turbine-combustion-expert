@@ -1,0 +1,1066 @@
+
+--- Page 1 ---
+
+Tom Tanneberger1
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+e-mail: tom.tanneberger@tu-berlin.de
+Johannes Mundstock
+Euro-K GmbH,
+Burger Chaussee 25,
+Cottbus 03044, Germany
+Sebastian R€osch
+Euro-K GmbH,
+Burger Chaussee 25,
+Cottbus 03044, Germany
+Christoph Rex
+Euro-K GmbH,
+Burger Chaussee 25,
+Cottbus 03044, Germany
+Christian Oliver Paschereit
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+Development of a Hydrogen
+Microgas Turbine Combustor:
+NOx Emissions and Secondary
+Air Injection
+On the way to defossilization, green hydrogen is a promising way to substitute natural gas
+(NG) and oil in the gas turbine industry. In the scope of the H2mGT project, a microgas
+turbine (mGT) burner with 100% hydrogen ﬁring is developed and validated. The project is
+funded by the German BMWK, and it is a collaboration between Technische Universit€at
+Berlin (TUB) and the manufacturer Euro-K GmbH. It consists of three phases: (1)
+atmospheric pressure tests with a fused silica combustion chamber; (2) atmospheric
+pressure tests with counterﬂow-cooled steel ﬂame tube and secondary air injection; (3)
+validation ofthe burner in the mGT atelevated pressure levels. The current study will present
+the results of phase 2. The hydrogen burner used in the project is based on a swirl-stabilized
+burner of TUB and was scaled to 36 kW thermal power at atmospheric conditions. The
+burner design features a variable swirl intensity, additional axial momentum of air in the
+mixing tube, a movable central fuel lance, and pilot nozzles at the front plate. Furthermore,
+the steel ﬂame tube is exchangeable, which allows the evaluation of different dilution hole
+patterns and, thus, the variation of the ratio of primary and secondary air. The study presents
+temperature, pressure, and emission measurements. It is found that the ﬂame can be
+operated over a large range of equivalence ratios and preheating temperatures up to 500 C.
+As expected, the NOx emissions are mainly inﬂuenced by the local equivalence ratio, which
+can be controlled by the fuel mass ﬂow or the dilution hole pattern in the ﬂame tube.
+Furthermore, the results show a decrease of NOx when the power density is increased at
+constant equivalence ratios, and a rise of NOx during the fuel transition from natural gas to
+hydrogen. The results indicate certain differences to the ﬁndings of phase 1.
+[DOI: 10.1115/1.4066346]
+Keywords: microgas turbine, combustion, hydrogen, emissions
+1
+Introduction
+The current developments inthe global climate crisis make a rapid
+shift away from fossil fuels inevitable. Nevertheless, combustion
+engines—especially gas turbines—will continue to be an essential
+part of our energy supply thanks to their ﬂexibility and reliability. A
+CO2-free alternative to fossil fuels is “green hydrogen” produced
+from renewable energies. The joint H2mGT project of Technische
+Universit€at Berlin (TUB) and the microgas turbine manufacturer
+Euro-K GmbH aims to develop a hydrogen (H2) combustor for a
+microgas turbine (mGT).
+In the industry, almost all major manufacturers are developing
+various combustion systems for syngas and H2-enriched natural gas.
+In general, increased NOx emissions and problems with ﬂame
+stability are reported, so the H2 capability is still limited at the
+commercial level. A recent overview about the developments in the
+industry is given by the ETN Global’s Hydrogen Gas Turbines
+report [1] and Cecere et al. [2].
+The mGT is a perfect platform to investigate H2 combustion on a
+machine level since the necessary investment, the operating
+pressure, and the exhaust gas temperatures are much lower than
+for heavy-duty gas turbines. In addition, mGTs usually offer good
+accessibility to the combustion chamber. They provide an
+alternative to gas piston engines in the small and medium combined
+heat and power segment. They are very ﬂexible and emit
+signiﬁcantly less pollutants than piston engines [3]. Modern mGT
+combustor systems achieve NOx emissions of 15 ppm, while current
+lean-burn engines in the medium power class with oxidation catalyst
+emit NOx values of 125–250 ppm. The German Aerospace Center
+[3] predicts a large potential for efﬁciency improvements and a
+rising share on the combined heat and power market for mGTs. A
+review of numerical studies with respect to different mGT-based
+energy systems is given by Reale and Sannino [4]. On the
+experimental side, mGT combustors have been investigated for a
+Turbo Expo, June 24–28, 2024. GT2024.
+1Corresponding author.
+Manuscript received August 1, 2024; ﬁnal manuscript received August 16, 2024;
+published online September 27, 2024. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021015-1
+Copyright V
+C 2025 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+variety of unconventional fuels [5,6], including H2. In a small mGT
+(1–3 kWel), du Toit et al. [7] measured emissions of H2/CH4/CO2
+fuel blends. Adding 15%vol H2 to CH4 showed no signiﬁcant effect
+on the NOx emissions. The study also reports the inﬂuence of the fuel
+switch on the mGT operation and auxiliaries. On a larger mGT
+(Capstone C30, 30 kWel), de Santoli et al. [8] tested H2 addition in
+natural gas up to 10%vol. In this study, the H2 was used to
+compensate the engine derating due to increased inlet temperature in
+the summertime. A slight increase of the NOx is reported for the H2
+enrichment. The UCI Combustion Laboratory retroﬁtted a Capstone
+C60 mGT [9,10] for the operation with H2. Despite adjustments to
+the fuel injection, the tests showed signiﬁcantly increased NOx
+emissions. Devriese et al. [11] also found high NOx emissions for an
+mGT burner with H2 ﬁring in numerical studies. Recently, a T100
+microgas turbine was successfully tested with H2 enrichment and
+even pure hydrogen by Banihabib and Assadi [12] in Stavanger. The
+original combustor was replaced by a fuel-ﬂexible jet-stabilized
+burner, which was developed and lab-tested by the German
+Aerospace Center in Germany [13]. Stable operation in the mGT
+was achieved up to 100% H2. An incline in NOx was observed
+resulting in 62 ppm (15% O2) at base load [14].
+In summary, there are many challenges in the combustion of H2.
+On the one hand, H2 has a lower volumetric energy density (Table 1),
+which requires a higher fuel ﬂow. On the other hand, H2 has a high
+gravimetric energy density and a signiﬁcantly higher reactivity
+compared to natural gas, which might increase the ﬂame
+temperature and speed. The former can have a negative impact on
+NOx emissions, while the latter imposes a risk of ﬂashback for
+premixed ﬂames. These challenges are to be tackled in the present
+project with a swirl-stabilized dry low NOx burner with axial air
+injection. The TUB has investigated a similar burner in numerous
+projects with H2 and enriched natural gas and was able to achieve
+very good results regarding the prevention of ﬂame ﬂashbacks and
+the minimization of NOx emissions [15–23]. The burner design of
+the current project is presented in detail in Sec. 2.
+The H2mGT project is divided into three phases. First, the base
+combustor is scaled and redesigned according to the requirements of
+the mGT. It is then tested in an atmospheric combustion test rig with
+a fused silica combustion chamber using OH* ﬂame recording and
+emission analysis. In phase 2, the transparent chamber is replaced by
+a steel ﬂame tube with counterﬂow cooling and secondary air
+injection. Using this setup, the burner is optimized in the test rig
+regarding emissions and stable operation. Once this phase is
+complete, the burner is adapted for installation in the MTG35
+microgas turbine at the Euro-K test facility. The mGT has 130 kW
+thermal power (by fuels lower heating value (LHV)), 3.6 pressure
+ratio, up to 28% electrical efﬁciency and is recuperated to 500  C
+combustor inlet temperature. In phase 3, the pressure is increased
+and the new burner is validated under nominal operating conditions.
+A previous paper presented the results of the project’s phase 1 [24],
+which is followed by the current study, in which the results of phase
+2 are analyzed.
+2
+Burner and Test Rig Design
+The burner designed for this project is based on a generic swirl-
+stabilized burner, which was already extensively studied at TUB
+[15–23]. It was scaled to the thermal power of the mGT by
+maintaining similar volumetric ﬂows in the burner. Geometrical
+parameters in the burner design are supposed to allow for an
+optimization of the operation range and NOx emissions.
+Figures 1 and 2 show a schematic of the burner in phase 2. The
+preheated air is fed to a preplenum via four inlets downstream of the
+combustion chamber. The air then streams as counterﬂow along
+the outer ﬂame tube wall. The stainless steel ﬂame tube replaces the
+fused silica combustion chamber from phase 1 and allows secondary
+air injection through a pattern of dilution holes. Consequently, the
+air mass ﬂow is divided into primary air, which takes part in the
+combustion, and secondary air, which dilutes the high-temperature
+exhaust gas. The primary air ﬂows through the mixing tube
+(Dmt ¼ 31 mm) into the combustion chamber (Dcc ¼ 100 mm,
+Lcc ¼ 180 mm). It is fed from the plenum in three ways: a tangential
+ﬂow (via the swirler), an axial ﬂow in the center (left orange arrows
+in Fig. 1) and small wall jets further downstream to lean out the
+boundary layer. In the case of the secondary air, the largest part is
+directly ﬂowing into the combustion chamber through the dilution
+holes in the ﬂame tube. The ﬂow turns 180 deg at the holes and
+penetrates as jets in the combustion chamber ﬂow as shown in Fig. 3.
+A smaller part is injected parallel to the liner to support the cooling
+of the ﬂame tube wall. The actual distribution of the air will be
+discussed in Sec. 4.
+The fuel can be injected through three different injection points
+(numbers in Fig. 2):
+(1) Premixed: 16 nozzles (DP1 ¼ 1:4 mm) at the bottom of the
+mixing tube, which is regarded as technically premixed,
+(2) Central: an axial nozzle (DP2 ¼ 3 mm) fuel lance
+(Dcb ¼ 6 mm) in the mixing tube as central injector,
+(3) Pilot: eight pilot nozzles (DP3 ¼ 0:8 mm) at the front plate
+around the mixing tube exit.
+The latter are supplied by a cavity behind the burner plate. The
+pilot is intended for ignition in the mGT and as emergency backup
+for ﬂashback recovery. The idea of the central injection via the fuel
+Table 1
+Fuel properties
+Property
+H2
+Natural gas
+CH4 ref
+Unit
+LHV mass
+119.97
+47.07
+50.01
+MJ/kg
+LHV volume
+10.78
+37.51
+35.88
+MJ/m3
+Molar mass
+2.016
+—
+16.04
+g/mol
+Wobbe index
+40.90
+47.81
+48.17
+MJ/m3
+a
+0
+—
+1
+b
+0.5
+—
+1
+Fig. 1
+Schematic of the phase 2 burner with secondary air
+injection
+Fig. 2
+Detailed view of the mixing tube and the geometric
+parameters
+021015-2 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+lance is that the H2 fraction proﬁle in the mixing tube can be altered.
+The three fuel injectors are supplied from a H2 bundle via two mass
+ﬂow controllers, one for premixed and one for either central or pilot
+injection (which can be switched during operation by a three-way
+ball valve). The injector prepressure is measured by the mass ﬂow
+controllers and displayed in Table 2.
+The burner features four parameters to alter the ﬂow ﬁeld and fuel
+distribution. These parameters are depicted in Fig. 1 and can be
+adjusted manually from outside without disassembling the burner.
+Hence, the design points in an optimization can be set during the
+operation of the burner, which allows for the evaluation of much
+more conﬁgurations. The parameters are (letters in Fig. 2):
+ S—swirler blockage in mm,
+ A—axial injection restriction in # of blocked channels,
+ L—length of the center body in mm, and
+ P—share of either central or pilot fuel mass ﬂow %.
+The swirler consists of eight tangential slots (Ls ¼ 27 mm), which
+can be blocked partially (S). The axial air injection ﬂows from a
+small subplenum through an annulus around the center body into the
+mixing tube. The subplenum is fed by eight radial channels from
+the main plenum. These channels can be separately blocked (A). The
+fuel lance is movable in the axial direction (L) and can be positioned
+between 0 mm and 90 mm, the latter corresponding to the end of the
+mixing tube. The variation of this position has two effects. On the
+one hand, it changes the ﬂow ﬁeld in the mixing tube and
+the combustion chamber because the lance body creates a wake in
+the ﬂow. On the other hand, the point of the central fuel injection can
+be moved downstream leading to a stronger impact on the fuel
+distribution in the combustion chamber. The parameter P is the share
+of the central or the pilot fuel injection. Hence, P ¼ 0% corresponds
+to the mode, when only the premixed nozzles are activated, while
+P ¼ 100% means that all the fuel ﬂows through either the central or
+the pilot injection. Please note that central and pilot injections are
+never used at the same time.
+The ﬂame is ignited by a spark plug in the combustion chamber
+56 mm downstream of the front plate. A nozzle at the end reduces the
+diameter from the 100 mm combustion chamber to a 80 mm fused
+silica tube, which is followed by a water-cooled exhaust tube. Four
+type K thermocouples at the end of the nozzle measure the exhaust
+temperature at different radii. A small portion of the hot gas is
+sampled downstream in the exhaust tube by a water-cooled
+multihole probe. A gas analysis unit measures the NOx content
+(61 ppm) for emission evaluation.
+3
+Measurement Settings
+The mGT has a thermal power of 130 kW and a nominal air mass
+ﬂow of 1280 kg/h. However, these values are scaled down by
+pressure ratio (constant Ma number) since the tests are conducted at
+atmospheric pressure. The air mass ﬂow is ﬁxed to _mair ¼ 368 kg/h
+for most of the experiments. In the mGT, the total air mass ﬂow at
+baseload conditions is ﬁxed by the output of the compressor, but the
+air is split into primary and secondary air. Only the primary air ﬂows
+through the combustion zone and takes part in the reaction. The local
+equivalence ratio of the ﬂame can be varied by changing the splitting
+ratio (e.g., changing the hole pattern in the ﬂame tube). In contrast,
+the global equivalence ratio remains the same for all ﬂame tubes, but
+can be varied via the hydrogen mass ﬂow, as shown in Fig. 4. The
+bounds are set to /global ¼ 0:06 and 0.15 or _mH2 ¼ 0:7 and 1.6 kg/h,
+respectively. The base load conditions of the mGT correspond to a
+/global of 0.10–0.12. The air is preheated to 500  C in the plenum to
+match the conditions of the recuperated mGT. The fuel is supplied at
+room temperature but the fuel heats up while ﬂowing through the hot
+metal body of the burner. The actual fuel temperature of the
+premixed nozzles is measured by a thermocouple in the fuel plenum
+(Fig. 2) and is shown exemplarily in Fig. 5. The operating conditions
+are summed up in Table 3.
+The mass ﬂows and temperatures of a typical measurement series
+are shown in Figs. 4 and 5. Please note that the air is preheated by two
+separate electrical heaters, of which one reaches Tin ¼ 500  C and
+the other only 450–460  C. Therefore, Tair refers to the uniﬁed air
+temperature in the plenum, which can be even higher than 500  C
+for certain operating conditions due to the heat transferred through
+the ﬂame tube.
+At high exhaust temperatures, the thermocouples start glowing.
+Hence, the exhaust temperatures had been corrected for the radiative
+heat loss using a model proposed by Prıkopsky [25]. The adiabatic
+exhaust temperature shown in Fig. 5 is calculated from the chemical
+equilibrium of the global mixture using GRI-MECH 3.0.
+Fig. 3
+Qualitative ﬂow ﬁeld of the absolute velocity in the
+combustion chamber from a RANS simulation
+Table 2
+Fuel injector prepressure
+Injector
+H2 mass flow in kg/h
+Pressure in barA
+Premixed
+1.36
+1.785
+Central
+1.36
+1.635
+Pilot
+1.36
+2.566
+Fig. 4
+Air and H2 mass ﬂows of a measurement series
+Fig. 5
+Adiabatic, exhaust, air plenum, and H2 injection temper-
+ature of a measurement series
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021015-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+4
+Air Distribution
+The ﬂow in the burner and the combustion chamber has been
+analyzed within phase 1 of the project. Please refer to Tanneberger
+et al. [24] for a detailed description of the ﬂow ﬁeld and its
+dependence on the geometrical parameters. Figure 2 depicts the
+absolute velocity of a sample ﬂow ﬁeld in the combustion chamber.
+From the left, the swirled fuel—air mixture enters the combustion
+chamber. The ﬂow undergoes vortex breakdown forming an
+opening jet and a central recirculation zone. The premixed ﬂame
+is supposed to stabilized in the strong shear layers between the
+recirculation zone and the high velocity jet (50–80 m/s). The
+secondary air injection consists of an axial cooling jet at the ﬂame
+tube wall and the ﬂow through the dilution holes, which can be seen
+as high velocity streaks in Fig. 3.
+The splitting ratio of the air ﬂow into primary and secondary air is
+determined by the effective cross sections of different ﬂow paths
+inside the combustor, i.e., burner, dilution holes, and cooling slits.
+These cross sections are variable due tothe setting of the geometrical
+parameters A and S (L has only minor effect) and due to the design of
+the ﬂame tube, speciﬁcally the pattern and size of its dilution holes.
+To evaluate the ﬂow distribution, the pressure of the cold ﬂow is
+measured at the positions p0 to p3 in Fig. 6 with blockages of certain
+ﬂow paths. From the measured pressure losses of the different paths,
+a model is set up to calculate the ﬂow distribution for each parameter
+set and each ﬂame tube. Please note that the model simpliﬁes the real
+geometry and neglects the effect of the temperature rise due to the
+heat release in the ﬂame. Hence, it resembles only an estimation of
+the air distribution. An example distribution is shown in Fig. 6.
+In the example, 21% of the air is ﬂowing through the mixing tube
+and the reaction zone of the ﬂame as primary air. The remaining 79%
+is secondary air and does not take part in the reaction. This
+estimation can be used to calculate the local equivalence ratio /local,
+which only takes into account the primary air ﬂow, as opposed to
+/global that takes the total air mass ﬂow. In phase 1, /P1 is not
+differentiated between local and global as there is no secondary air
+and therefore both are equal.
+The ﬁrst design of the ﬂame tube (V1) is based on the original
+ﬂame tube of the mGT and has six lines of dilution holes at different
+axial positions. In order to vary the ratio of primary and secondary
+air, six different ﬂame tubes have been tested. For V2 to V5 some
+lines of holes have been closed to reduce the secondary air. The
+selection was done using computational ﬂuid dynamics simulations.
+Flame tube V5* features the same open lines as V5 but the double
+line of small holes is further upstream. V5** is the same ﬂame tube
+as V5* but the cooling slits in the front plate have been closed
+resulting in _mK ¼ 0% (Fig. 6). Table 4 lists the ﬂow distribution for
+each ﬂame tube along with the resulting local equivalence ratio for a
+ﬁxed global one.
+The inﬂuence of the geometrical parameters is as follows: The
+swirler blockage S, which is used to increase the swirl intensity,
+raises the pressure loss and therefore reduces the primary air mass
+ﬂow as shown in Fig. 7. The same applies for the reduction of the
+axial air injection A, even though the effect is small up to A ¼ 5.
+The ﬂow distribution model will be used in Secs. 6 and 7 to
+estimate the ﬂow through the mixing tube and, hence, the local
+equivalence ratio. However, the ﬂow coefﬁcients have been
+recorded at cold ﬂow conditions and without a ﬂame. Therefore,
+the local equivalence ratio must be seen as estimation.
+A direct inﬂuence of the secondary air injection can be seen in the
+temperature proﬁles of the exhaust gas shown in Fig. 8. The proﬁle
+of phase 1 without secondary air shows the most homogeneous
+temperature distribution. In phase 2, the proﬁles are much more
+uneven, with the exception of ﬂame tube V5, which has the lowest
+secondary air ﬂow and therefore the lowest ﬂame temperature. It is
+also the only ﬂame tube where two rows of downstream holes are
+closed, which means that more of the secondary air is injected
+Table 3
+Operating conditions of the laboratory tests
+Property
+Symbol
+Value
+Unit
+Thermal power (LHV H2)
+Pth
+24–54
+kW
+H2 mass ﬂow
+_mH2
+0.72–1.62
+kg/h
+Air mass ﬂow
+_mair
+368
+kg/h
+Equivalence ratio
+/global
+0.06–0.15
+H2 temperature
+TH2,in
+20
+C
+Plenum air temperature
+Tair
+450–520
+C
+Fig. 6
+Estimated air distribution in the combustor with ﬂame tube V4
+Table 4
+Flow rates through the mixing tube (M), the cooling slit
+(K), and the dilution holes (L) for different ﬂame tubes
+Flame tube
+M (%)
+K (%)
+L (%)
+/global
+/local
+V1
+17.1
+13.3
+69.7
+0.12
+0.68
+V2
+19.5
+15.1
+65.4
+0.12
+0.60
+V3
+19.0
+14.7
+66.3
+0.12
+0.62
+V4
+20.9
+16.2
+62.9
+0.12
+0.56
+V5
+21.8
+16.9
+61.3
+0.12
+0.54
+V5*
+21.6
+16.8
+61.7
+0.12
+0.54
+V5**
+24.8
+0
+75.2
+0.12
+0.47
+Fig. 7
+Dependence of the primary air on the swirler blockage S
+and the axial injection A with ﬂame tube V4
+021015-4 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+through the upstream holes, giving the ﬂow more time to
+homogenize the temperature ﬁeld. On the other hand, V3 shows
+the narrowest temperature proﬁle. Here, one of the upstream rows is
+closed, which means that more secondary air is injected through the
+downstream holes, which are closer to the measuring position.
+Regarding the temperature proﬁles, V5 seems to be best suited for
+integration in the mGT as a uniform temperature distribution is
+generally desirable for the turbine inlet. However, the mGT in the
+project has a radial turbine, which is less sensitive than axial turbines
+regarding the temperature proﬁles.
+5
+Flame Shape and Stability Range
+Due to the mGT like setup, there is no direct optical access to the
+ﬂame in phase 2 of the project. Therefore, a library of ﬂame shapes
+has been recorded in phase 1 using a fused silica combustion
+chamber and an OH* ﬁltered camera (see Ref. [24]). Please note that
+no secondary air (neither dilution nor cooling) was applied in phase
+1. However, since the ﬂames are rather compact, the inﬂuence on the
+ﬂame shape should be small. The previous publication [24]
+presented a parameter study of the ﬂame shape regarding the
+equivalence ratio, the swirler blockage, the axial injection, center
+body position, and the share of central fuel injection.
+The technically premixed H2/air mixture generally burns in a V-
+or M-shape depending on the operating conditions and parameter
+settings. Figure 9 shows the shape of two stable ﬂames for different
+equivalence ratios. However, geometry parameter changes can alter
+the ﬂow ﬁeld as described in Ref. [24], which may trigger ﬂame
+ﬂashback. Then, the ﬂame propagates quickly upstream into the
+mixing tube. The ﬂame stabilizes itself in the wake of the center
+body and keeps burning as a jet ﬂame in the mixing tube and the
+combustion chamber. In the event of a ﬂashback under laboratory
+conditions, the burner was not damaged and the ﬂame could be
+restored by switching to the pilot ﬂame [24].
+The ﬂame shapes of the other two fuel injection modes can be seen
+in Fig. 10. On the left, 50% of the fuel is injected via the central fuel
+lance, which increases the ﬂame intensity in the center. The right
+image shows the pilot mode, which consists of eight individual jet
+ﬂames.
+Figure 11 depicts the operational range of the ﬂame depending on
+three of the parameters. The different markers symbolize increasing
+levels of fuel share via the fuel lance (P). Hence, points with all ﬁve
+markers feature stability for a variety of fuel distributions and are
+very robust against ﬂashback. The main driver of instability is the
+positioning of the fuel lance (L). For L <¼ 10 mm all ﬂames are
+stable, while for higher L the stability declines with increasing swirl
+intensity as shown by the dashed line in Fig. 11. Due to ﬂow ﬁeld
+changes, L varies the fuel distribution and thus the local equivalence
+ratio and ﬂame speed. However, these ﬂow-induced changes in the
+concentration ﬁeld are smaller than for a variation of P. Since the
+receptivity of ﬂashback is still higher for L than for P, it can be
+concluded that the ﬂashback is dominantly triggered by hydro-
+dynamic effects. A more detailed description of Fig. 11 includingthe
+behavior close to the stability line can be found in Ref. [24].
+The utilization of the burner in the mGT does require not only
+static but also dynamic stability. During the experiments in phase 1,
+the sound pressure levels had been monitored by a microphone in the
+exhaust tube. There are no indications of thermoacoustic insta-
+bilities under normal conditions at any of the tested parameter
+settings.
+6
+Emissions Hydrogen
+This section analyses the NOx emissions of the burner in phases 1
+and 2 with pure H2 fuel. The emissions are normalized to dry
+conditions and 15% O2 in the exhaust using a normalization method
+proposed by Garan et al. [26], which takes the whole exhaust gas
+composition into account to avoid the artiﬁcial fuel-speciﬁc NOx
+Fig. 8
+Exhaust temperature proﬁles of phase 1 (/P150:2) and
+phase 2 (/global50:15)
+Fig. 9
+Deconvoluted OH* intensity of the premixed hydrogen
+ﬂame in phase 1 at two equivalence ratios
+Fig. 10
+Left: deconvoluted OH* intensity of a 50/50% premixed/
+central hydrogen ﬂame in phase 1. Right: line-of-sight OH*
+intensity of the pilot hydrogen ﬂame in phase 1.
+Fig. 11
+Phase 1: stable operating points for variations of the
+parameters S, L, and P (central injector) at /P150:4 and A50
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021015-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+increase of H2 [27]. This method was already used in the previous
+publication [24].
+ca ¼
+1
+1  XH2O
+0:21  XO2,ref
+0:21  XO2
+a þ 1  0:21
+aref þ 1  0:21
+b
+bref
+LHVref
+LHV
+(1)
+The NOx emissions of the ﬂame without secondary injection have
+been measured and analyzed regarding the parameter inﬂuence in
+phase 1. The results are summed up in this paragraph. Please refer to
+Ref. [24] for more information. The strongest impact on the NOx
+emissions has naturally the variation of the equivalence ratio as
+depicted in Fig. 12. Also signiﬁcant is the inﬂuence of the swirl
+parameter S, which reveals a monotonic behavior as increased swirl
+intensity reduces the NOx emissions signiﬁcantly. Shifting fuel from
+premixed to central injection increases NOx quickly ﬁrst and then
+saturates at approximately P ¼ 50%. Shifting it to the pilot leads to a
+slower and more steady increase (Fig. 13). The parameter A and L
+have only little inﬂuence on NOx when varied individually.
+In phase 2, the burner features secondary air in the form of cooling
+and dilution injection as described in Sec. 3. The pattern of dilution
+holes in the ﬂame tube determines the air distribution (see Table 4)
+and, hence, the local equivalence ratio of the ﬂame. Figure 14 shows
+the inﬂuence of ﬁve different ﬂame tubes on the NOx emissions over
+the global equivalence ratio. All the emissions increase as expected
+with /global. However, the gradient depends strongly on the ﬂame
+tube version, i.e., the dilution hole pattern. For high fuel ﬂow the
+NOx level of V1 is three times higher than for V5. The change can be
+mostly attributed to the declining primary air ﬂow. Figure 15 shows
+that the lines for different ﬂame tubes nicely collapse when plotted
+over the local equivalence ratio (calculated from the estimated ﬂow
+distribution). The collapsed emission lines also align with the
+equivalent burner conﬁguration in phase 1, except for the last point.
+This indicates that the dilution of the exhaust ﬂow plays a greater
+role at large /local, where the adiabatic ﬂame temperature is very
+high and secondary air injection leads to rapid cooling and
+quenching of NOx generation. The level of dilution does not appear
+to have any inﬂuence, as V1, V2, and V4 have the same NOx
+emission over /local. The location of injection, on the other side, has
+a (small) effect. The ﬂame tubewith the highest emissions over /local
+is V3, the only ﬂame tube in which one of the three upstream rows of
+holes is closed. This means that, compared to the other ﬂame tubes, a
+higher proportion of the secondary air is injected further down-
+stream. V2, for example, has a similar primary air ﬂow as V3, but
+lower emissions, as more secondary air is blown in closer to the
+ﬂame, which leads to faster cooling of the hot exhaust gases. This
+effect is more pronounced with larger /local due to the higher
+adiabatic ﬂame temperature.
+The ﬂame tubes V1–V5 differ in the total size of the dilution hole
+area. V5 and V5* have the same hole lines, but at different locations.
+The third line (small double holes in Fig. 6) has been moved
+upstream to approximately 25 mm beyond the front plate. V5** has
+the same ﬂame tube as V5*, but the cooling air slit has been closed
+( _mK ¼ 0), leading to a higher ﬂow rate through the mixing tube (see
+Table 4). However, when plotted against the local equivalence ratio,
+all three conﬁgurations show no signiﬁcant difference in NOx
+emissions. This means, while the distribution of secondary air
+between the two clusters of dilution hole lines plays a (small) role,
+Fig. 12
+Phase 1:NOxemissionsfordifferentswirl intensitiesand
+A50, L510 mm, and P50% [24]
+Fig. 13
+Phase 1: evolution of the NOx emissions when switching
+from premixed to pilot or central (L510 mm) injection at /P150:4
+[24]
+Fig. 14
+Phase 2: NOx emissions for different ﬂame tubes over
+global equivalence ratio
+Fig. 15
+Phase 2: NOx emissions for different ﬂame tubes over
+local equivalence ratio (-) and the NOx emissions from the burner
+in phase 1 (- -)
+021015-6 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+the exact position of the holes within the ﬁrst cluster is not
+signiﬁcant.
+Besides the ﬂame tube design, the burner itself features
+geometrical parameters. The swirler blockage shows an interesting
+behavior compared to phase 1. All points in Fig. 16 were measured at
+constant thermal power and constant global equivalence ratio. An
+increase in emissions can be seen at higher swirl, which clearly
+contradicts the results from phase 1 (Fig. 12). In phase 1 the NOx
+emissions show a reduction from S ¼ 5 mm to S ¼ 19 mm, which
+goes along with an increase in the pressure loss of 4 kPa (/P1 ¼ 0:4)
+due to the larger swirler blockage. For the same parameter change in
+phase 2, the pressure loss only increases by 0.9 kPa (V5) because the
+blockage restricts only the ﬂow through the mixing tube and the air
+can divert to the secondary air holes. Thus, the further blockage of
+the swirler leads to a decline in primary air as shown in Fig. 7. This
+increases the local equivalence ratio and, hence, the NOx emissions.
+For example, with ﬂame tube V5, /local rises from 0.51 at S ¼ 5 mm
+to 0.63 at S ¼ 20 mm with nearly constant emissions. Without the
+positive effect of the swirl intensity, such a step in the equivalence
+ratio would correspond to a signiﬁcant increase in NOx (Fig. 15).
+This effect is stronger the larger the dilution holes in the ﬂame tube,
+because the / variation takes place in a higher range of the local
+equivalence ratio with a larger gradient of emissions. A similar
+effect can be seen with the blockage of the axial air injection
+(parameter A). Please note that the effect does not occur in phase 1
+because there is no secondary air and all the air ﬂows through the
+mixing tube even when the pressure loss increases. This explains the
+opposite trend in Fig. 12.
+Shifting the fuel from the premixed nozzles to pilot and central
+injection in Fig. 17 shows a similar trend as in phase 1 (Fig. 13). For
+the central injection the NOx emissions increase quickly due to the
+richer center of the ﬂow. The growth saturates at approximately
+P ¼ 50%. For the pilot injection, NOx rises slowly ﬁrst, followed by
+a sharp step up close to P ¼ 100%. The step appears approximately
+at the point, when the air/fuel mixture in the mixing tube reaches the
+blow off limit and would not be able to burn on its own anymore. The
+remaining hydrogen must be consumed by the pilot ﬂames.
+In terms of NOx, the central injection is always worse than
+premixed, while the relation between pilot and premixed depends
+strongly on the primary/secondary air splitting because the pilot
+ﬂame is not inﬂuenced in the same way by the primary air as the
+premixed ﬂame. The 100% pilot ﬂame can have even lower
+emissions than the premixed ﬂame for high local equivalence ratios.
+The reason for the relatively low pilot emissions is to be seen in the
+miniaturization into eight single ﬂames with high momentum
+injection in the pilot mode (see, e.g., micromixing concept [28]).
+The operating conditions offer a second set of parameters besides
+the geometrical variations. The relevant parameters for the gas
+turbine are the operating pressure, the thermal power and the
+preheating temperature. While the pressure is ﬁxed in the
+atmospheric pressure test rig, the thermal power can be varied in
+two ways. First, the fuel mass ﬂow is increased at constant air mass
+ﬂow resulting in a rise of the thermal power level and the global/
+local equivalence ratio. This type of variation is shown in Figs. 14
+and 15 and displays increasing NOx emissions. The second way is to
+hold the equivalence ratio constant and increase the air and fuel mass
+ﬂow at the same time. Figure 18 shows that this way the emissions
+drop with rising thermal power. The oxygen concentration measured
+in the exhaust indicates that the equivalence ratio was not perfectly
+constant during the measurement series. However, this can be
+corrected (dashed line) and has only a small share in the observed
+decline. One reason for the decreasing NOx could be that the higher
+ﬂow velocity improves the premixing of air and hydrogen leading to
+a more uniform mixture proﬁle in the ﬂame which would reduce
+NOx. The Reynolds numbers in the mixing tube increase from
+35, 000 to 76, 000 for the 500  C series. However, the same
+declining NOx trend also appears for the pilot and central ﬂame,
+which makes it unlikely that it is solely a mixing phenomenon.
+Another factor for the NOx generation is the residence time in the hot
+zone. The large amount of dilution air in this combustor
+conﬁguration (78%) conﬁnes the hot zone spatially. The higher
+transport velocity at higher power reduces the residence time in the
+hot zone and possibly leads to earlier quenching of the NOx
+generation.
+Figure 18 also shows the inﬂuence of the preheating temperature,
+which is increased in steps of 150  C. The exhaust temperature of
+each line is fairly constant at roughly 450  C, 550  C, 650  C, and
+750  C. As expected, NOxrises with the fresh gas temperature due to
+Fig. 16
+Phase2:NOx emissions fordifferentﬂametubesover the
+swirler blockage S
+Fig. 17
+Phase 2: evolution of the NOx emissions when switching
+from premixed to pilot or central (L510 mm) injection for V2 (-)
+and V4 (- -) at /global50:115 [24]
+Fig. 18
+Phase 2: variation of the thermal power (via H2 mass
+ﬂow) and preheating temperature (different lines) at constant
+/global50:115 with ﬂame tube V5*
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021015-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+thermal effects in the NOx formation. However, the decline with
+increasing power can be found for each temperature line.
+7
+Emissions Fuel Mixtures
+The scope of the project is to fuel the entire run of the mGT with
+H2 in phase 3. However from a scientiﬁc and technological
+perspective, it might be also interesting to test mixtures of H2 and
+NG in the mGT. Therefore in phase 2, the burner is tested in the test
+rig with natural gasas well. H2and NG are mixed inthe supply lineto
+the burner with respect to a constant thermal power level and
+constant exhaust temperature. These tests have been done in phase 1
+and phase 2 with different results.
+The ﬁndings of phase 1 regarding fuel mixtures have been
+reported in Ref. [24]. Figure 19 shows the evolution of NOx
+emissions from 100% NG to 100% H2 for a constant burner
+conﬁguration. When normalized using the fuel-corrected method
+(Eq. (1)), the NOx emissions show no signiﬁcant incline from NG to
+H2. The three points with 100% H2 correspond to /P1,H2 ¼ 0:4, 0.5,
+and 0.6, the three 100% natural gas points to /P1,NG ¼ 0:52, 0.64,
+and 0.79.
+A similar series was recorded in phase 2 with ﬂame tube V5* and
+the same burner settings as in phase 1. It is shown in Fig. 20. Please
+note that the exhaust temperatures are lower due to the secondary air
+injection in phase 2. Nevertheless, the local equivalence ratios are
+higher with /local,H2 ¼ 0:53, 0.61, and 0.76 and /local,NG ¼ 0:71,
+0.77, and 0.96, respectively. In contrast to phase 1, the emissions are
+now rising. Even though all three curves indicate higher NOx for H2
+compared to NG, they show slightly different behaviors. For the
+coldest ﬂame, the emissions decline ﬁrst before rising. The middle
+one increases linearly and the hottest ﬂame picks up strongly up to
+20%m and then similarly to the others.
+The three measurement series lie in different ranges of
+equivalence ratios, which might be the reason for the different
+behavior. For clariﬁcation, additional series with constant mixtures
+but varied equivalence ratios have be measured by increasing the
+fuel mass ﬂow at constant air ﬂow for each line. Since H2 and NG
+have different stoichiometry, these lines are plotted in Fig. 21 over
+the adiabatic exhaust temperature instead of the equivalence ratio.
+However, each line still presents an increase in the local equivalence
+ratio. For H2 and the H2 enriched mixtures, Fig. 21 shows the
+expected nonlinear rise of NOx. The pure NG curve, however,
+exhibits a linear increase, which cannot be expected, especially
+when reviewing literature data for similar burners [16,17]. One
+possible explanation is that the size of the natural gas ﬂame, which is
+less compact than the enriched ﬂames (see Ref. [24]), interacts with
+the dilution air leading to reduced NOx at high power. This is also
+indicated by a comparison of ﬂame tube V5 and V5* (earlier dilution
+holes), which show the same NOx values with H2 but lower NOx for
+V5* with NG (Fig. 21). Please note that the NG ﬂames could not be
+measured for lower Tad than shown in the plot due to blow-off, while
+the H2-enriched ﬂames could be operated even well below
+Tad ¼ 650  C, showing the large operating range of the H2 ﬂame.
+To investigate the opposing H2–NG behavior of phases 1 and 2, it
+was tried to reproduce the ﬁndings of phase 1 by testing a ﬂame tube
+without dilution holes (expect one for the spark plug) and without
+cooling air in the phase 2 setup. The increase in NOx for H2
+enrichment is still present for this conﬁguration and has a similar
+gradient as the 743  C line in Fig. 20, which means that the
+secondary air injection seems not to be responsible for the different
+behavior between phase 1 and phase 2. Since this conﬁguration and
+the phase 1 measurements differ mainly in the combustion chamber
+wall material and its surrounding, the difference might be caused by
+heat transfer and radiation properties. However, this point needs
+further investigation.
+Figure 20 shows an increase in NOx over the whole range of H2
+mass fraction. In the literature, H2 enrichment often refers to the H2
+share involume fraction. Ifthe same data are plotted overthe volume
+fraction, the NOx increase occurs mainly above 80%v, which many
+studies do not reach. Hence, the mass fraction with a steadier
+gradient might be the better metric to investigate the inﬂuence of H2
+enrichment.
+8
+Machine Test Preparation
+Besides the investigation of the NOx emissions, the tests in phase
+2 seek to prepare the H2 combustion tests in the actual mGT. First of
+all, the ignitability of the burner needs to be proven. Figure 22 shows
+the ignition window regarding the air and H2 mass ﬂow for two air
+inlet temperatures. Successfully ignited pilot ﬂames are indicated by
+Fig. 19
+Phase 1: NOx of H2/NG mixtures at three different
+exhaust temperatures
+Fig. 20
+Phase 2: NOx of H2/NG mixtures at three different
+exhaust temperatures
+Fig. 21
+Phase 2: NOx of H2/NG mixtures at different H2 mass
+fractions. V5 (  ) and V5* (-).
+021015-8 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+an x, while points without ignition are marked with a circle. In
+general, the ignition window is sufﬁciently large for a cold start
+(Tin ¼ 30  C) and even larger for hot starts after previous operation
+(Tin ¼ 230  C).
+After ignition, the mGT must run up tofull load. To ensure a stable
+start-up, this process is simulated in the atmospheric test rig as
+shown in Figs. 23 and 24. The ﬂame is ignited at t ¼ 25 s in the 100%
+pilot mode. After 120 s, the fuel injection is switched from pilot to
+premixed. Subsequently, the air mass ﬂow is increased to begin the
+start-up process. Since the operating pressure cannot be increased in
+the test rig, the air mass ﬂow setpoints from the mGT are scaled to
+atmospheric conditions. The scaled setpoints are shown by the black
+diamonds in Fig. 23. At the same time, the air inlet temperature in the
+machine climbs due to higher compression and recuperation. It is
+shown in Fig. 24 by the black circles and recreated by increasing the
+preheater power in the test rig. The H2 mass ﬂow is adjusted to match
+the target turbine inlet temperature from the mGT (black squares).
+The ﬂame shows stable operation in the premixed mode from the
+fuel switch to full load. The necessary H2 mass ﬂow increases during
+start-up, but less strongly than the air mass ﬂow. This results in a
+declining equivalence ratio,which can be seen in the declining NOx time
+trace. The large peak of NOx in the beginning can be avoided by
+operating thepilotﬂamelongerbeforeswitching to premix mode.Please
+note that in the test bench, it is also possible to run the entire process in
+pilot mode. This may notbe possiblein the mGT,asthe injector pressure
+loss for pilot is much higher than for premixed (see Table 2).
+9
+Conclusion
+The paper presents the results of the second phase of the H2mGT
+project, which aims to develop and validate a hydrogen burner for a
+microgas turbine. In phase 2, the burner is investigated at
+atmospheric conditions in a machine like setup featuring the
+injection of dilution air. It is shown that the burner can be stably
+operated for multiple parameter settings with 100% hydrogen
+fueling. The inﬂuence of four geometric parameters as well as the
+ﬂame tube’s dilution hole pattern on the ﬂame is presented. The size
+of the holes deﬁnes the ratio of primary and secondary air and, thus,
+the ﬂames local equivalence ratio. This has a large inﬂuence on the
+NOx emissions and the exhaust temperature proﬁles, both getting
+better with increasing primary air ﬂow. The limiting factor here is
+the pressure loss of the burner, which also increases due to the
+smaller dilution holes. Reviewing the temperature proﬁles and
+emission data, ﬂame tube V5 seems to be best suited for the
+integration into the mGT in phase 3. It features around one-third less
+dilution hole area than the original ﬂame tube of the mGT, which is
+used tofor the combustionof NG anddiesel (with adifferent burner).
+Its pressure loss is about 1.3 kPa higher than ﬂame tube V1.
+An interesting aspect of the project is the comparison of phase 1
+and phase 2: the fused silica combustion chamber setup (often used
+in combustion research) and the burner with secondary air injection.
+The NOx analysis showed signiﬁcant difference between both
+setups. First, the inﬂuence of the swirler blockage is reversed
+because it triggers a shift in ﬂow distribution, which has a larger
+effect on NOx than the swirl intensity. A second change can be found
+in the fuel transition from natural gas to hydrogen. While in phase 1,
+NOx remained nearly constant, an increase was measured in phase 2.
+The magnitude of this increase depends on the local equivalence
+ratio and gets larger with higher fuel mass ﬂow. In each case, the
+strongest gradient occurs above 80%v H2 by volume.
+At the end, the ignition and start-up process was successfully
+conducted at atmospheric conditions in preparation of the mGT
+tests, which will take place in phase 3 of the project.
+Funding Data
+ The H2mGT project was funded by the German Federal
+Ministry for Economic Affairs and Climate Action in the frame
+of the 7.Energieforschungsprogramm (03EE5039B; Funder
+ID: 10.13039/501100006360).
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article are
+obtainable from the corresponding author upon reasonable request.
+Nomenclature
+Latin Letters
+ca ¼ fuel-speciﬁc NOx correction factor
+Dcc ¼ combustion chamber diameter (mm)
+Dmt ¼ mixing tube diameter (mm)
+Lcc ¼ combustion chamber length (mm)
+Fig. 22
+Ignition tests in the atmospheric test rig for two air inlet
+temperatures: o no ignition, x successful ignition
+Fig. 23
+Mass ﬂows of the start-up test in the atmospheric test rig
+Fig. 24
+Temperatures of the start-up test in the atmospheric test
+rig
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021015-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+Lmt ¼ mixing tube length (mm)
+_mair ¼ fresh air mass ﬂow (kg/h)
+_mH2 ¼ hydrogen fuel mass ﬂow (kg/h)
+Pth ¼ thermal power (kW)
+X ¼ mole fraction
+Greek Symbols
+/global ¼ global equivalence ratio in phase 2
+/local ¼ local equivalence ratio in phase 2
+/P1 ¼ equivalence ratio in phase 1
+Abbreviations
+LHV ¼ lower heating value (MJ/m3 or MJ/kg)
+mGT ¼ microgas turbine
+NG ¼ natural gas
+NOx ¼ nitrogen oxides
+References
+[1] ETN, 2020, “Hydrogen Gas Turbines—The Path Towards a Zero-Carbon Gas
+Turbine,” European Turbine Network (ETN Global), Brussels, Belgium, Report
+No. 1.
+[2] Cecere, D., Giacomazzi, E., Di Nardo, A., and Calchetti, G., 2023, “Gas Turbine
+Combustion Technologies for Hydrogen Blends,” Energies, 16(19), p. 6829.
+[3] Lingst€adt, T., Seliger, H., Reh, S., and Huber, A., 2018, “Technologiebericht 2.2b
+Dezentrale Kraftwerke (Motoren und Turbinen),” Wuppertal Institut, ISI, IZES,
+Saarbr€ucken, Germany, Technologien f€ur die Energiewende. Teilbericht 2 an das
+Bundesministerium f€ur Wirtschaft und Energie (BMWi) 2.
+[4] Reale, F., and Sannino, R., 2022, “Numerical Modeling of Energy Systems Based
+on Micro Gas Turbine: A Review,” Energies, 15(3), p. 900.
+[5] Liu, A., Yang, Y., Chen, L., Zeng, W., and Wang, C., 2020, “Experimental Study
+of Biogas Combustion and Emissions for a Micro Gas Turbine,” Fuel, 267,
+p. 117312.
+[6] Okafor, E. C., Somarathne, K. A., Ratthanan, R., Hayakawa, A., Kudo, T., Kurata,
+O., Iki, N., Tsujimura, T., Furutani, H., and Kobayashi, H., 2020, “Control of NOx
+and Other Emissions in Micro Gas Turbine Combustors Fuelled With Mixtures of
+Methane and Ammonia,” Combust. Flame, 211, pp. 406–416.
+[7] Du Toit, M., Engelbrecht, N., Oelofse, S. P., and Bessarabov, D., 2020,
+“Performance Evaluation and Emissions Reduction of a Micro Gas Turbine Via
+the Co-Combustion of H2/CH4/CO2 Fuel Blends,” Sustainable Energy Technol.
+Assess., 39, p. 100718.
+[8] de Santoli, L., Lo Basso, G., Barati, S., D’Ambra, S., and Fasolilli, C., 2020,
+“Seasonal Energy and Environmental Characterization of a Micro Gas Turbine
+Fueled With H2NG Blends,” Energy, 193, p. 116678.
+[9] Therkelsen, P., Mauzey, J., McDonell, V., and Samuelsen, S., 2006, “Evaluation
+of a Low Emission Gas Turbine Operated on Hydrogen,” ASME Paper No.
+GT2006-90725.
+[10] Therkelsen, P., Werts, T., McDonell, V., and Samuelsen, S., 2009, “Analysis of
+NOx Formation in a Hydrogen-Fueled Gas Turbine Engine,” ASME J. Eng. Gas
+Turbines Power, 131(3), p. 031507.
+[11] Devriese, C., Penninx, G., de Ruiter, G., Bastiaans, R., and De Paepe, W., 2020,
+“The CFD Design and Optimisation of a 100 kW Hydrogen Fuelled mGT,” ASME
+Paper No. GT2020-14473.
+[12] Banihabib, R., and Assadi, M., 2022, “A Hydrogen-Fueled Micro Gas Turbine
+Unit for Carbon-Free Heat and Power Generation,” Sustainability, 14(20),
+p. 13305.
+[13] Hohloch, M., Lingst€adt, T., and Kutne, P., 2023, “Experimental Analysis of the
+Hydrogen Capability of a Fuel Flexible Jet Stabilized Syngas Micro Gas
+Turbine Combustor Under Atmospheric Conditions,” ASME Paper No. GT2023-
+103418.
+[14] Banihabib, R., Lingst€adt, T., Wersland, M., Kutne, P., and Assadi, M., 2024,
+“Development and Testing of a 100 kW Fuel-Flexible Micro Gas Turbine Running
+on 100% Hydrogen,” Int. J. Hydrogen Energy, 49, pp. 92–111.
+[15] Reichel, T. G., Terhaar, S., and Paschereit, O., 2015, “Increasing Flashback
+Resistance in Lean Premixed Swirl-Stabilized Hydrogen Combustion by Axial Air
+Injection,” ASME J. Eng. Gas Turbines Power, 137(7), p. 071503.
+[16] Kuhn, P., Terhaar, S., Reichel, T., and Paschereit, C. O., 2015, “Design and
+Assessment of a Fuel-Flexible Low Emission Combustor for Dry and Steam-
+Diluted Conditions,” ASME Paper No. GT2015-43375.
+[17] Stathopoulos, P., Kuhn, P., Wendler, J., Tanneberger, T., Terhaar, S., Paschereit,
+C. O., Schmalhofer, C., Griebel, P., and Aigner, M., 2017, “Emissions of a Wet
+Premixed Flame of Natural Gas and a Mixture With Hydrogen at High Pressure,”
+ASME J. Eng. Gas Turbines Power, 139(4), p. 041507.
+[18] Reichel, T. G., and Paschereit, C. O., 2017, “Interaction Mechanisms of Fuel
+Momentum With Flashback Limits in Lean-Premixed Combustion of Hydrogen,”
+Int. J. Hydrogen Energy, 42(7), pp. 4518–4529.
+[19] Reichel, T. G., Terhaar, S., and Paschereit, C. O., 2018, “Flashback Resistance and
+Fuel–Air Mixing in Lean Premixed Hydrogen Combustion,” J. Propul. Power,
+34(3), pp. 690–701.
+[20] Tanneberger, T., Reichel, T. G., Kr€uger, O., Terhaar, S., and Paschereit, C. O.,
+2015, “Numerical Investigation of the Flow Field and Mixing in a Swirl-Stabilized
+Burner With a Non-Swirling Axial Jet,” ASME Paper No. GT2015-43382.
+[21] Mira, D., Lehmkuhl, O., Stathopoulos, P., Tanneberger, T., Reichel, T. G.,
+Paschereit, C. O., Vazquez, M., and Houzeaux, G., 2018, “Numerical
+Investigation of a Lean Premixed Swirl-Stabilized Hydrogen Combustor
+and Operational Conditions Close to Flashback,” ASME Paper No. GT2018-
+76229.
+[22] Mira, D., Lehmkuhl, O., Both, A., Stathopoulos, P., Tanneberger, T., Reichel,
+T. G., Paschereit, C. O., Vazquez, M., and Houzeaux, G., 2020, “Numerical
+Characterization of a Premixed Hydrogen Flame Under Conditions Close to
+Flashback,” Flow, Turbul. Combust., 104(2–3), pp. 479–507.
+[23] Mira, D., Both, A., Lehmkuhl, B. O., Gomez Gonzalez, S., Forck, J., Tanneberger,
+T., Stathopoulos, P., and Paschereit, C. O.,2021, “High-FidelitySimulations of the
+Mixing and Combustion of a Technically Premixed Hydrogen Flame,” Tenth
+European Combustion Meeting: Virtual Edition: Proceedings Volume, Napoli,
+Italy, Apr. 14–15, pp. 1104–1109.
+[24] Tanneberger, T., Mundstock, J., Rex, C., R€osch, S., and Paschereit, C. O.,
+2024, “Development of a Hydrogen Micro Gas Turbine Combustor:
+Atmospheric Pressure Testing,” ASME J. Eng. Gas Turbines Power, 146(4),
+p. 041013.
+[25] Prıkopsky, K., 2007, “Characterization of Continuous Diffusion Flames in
+Supercritical Water,” Ph.D. thesis, ETH Zurich, Zurich, Switzerland.
+[26] Garan, N., Dybe, S., Paschereit, C. O., and Djordjevic, N., 2023, “Consistent
+Emission Correction Factors Applicable to Novel Energy Carriers and Conversion
+Concepts,” Fuel, 341, p. 127658.
+[27] Douglas, C., Emerson, B., Lieuwen, T., Martz, T., Steele, R., and Noble, B., 2022,
+“NOx Emissions from Hydrogen-Methane Fuel Blends,” Georgia Institute of
+Technology, Strategic Energy Institute, Atlanta, GA, Report.
+[28] Funke, H. H.-W., Beckmann, N., and Abanteriba, S., 2019, “An Overview on Dry
+Low NOx Micromix Combustor Development for Hydrogen-Rich Gas Turbine
+Applications,” Int. J. Hydrogen Energy, 44(13), pp. 6978–6990.
+021015-10 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021015/7383487/gtp_147_02_021015.pdf by University of Cincinnati user on 31 December 2025

@@ -1,0 +1,1419 @@
+
+--- Page 1 ---
+
+The thermo-acoustic response of a premixed swirl
+burner
+C J Lawn
+Department of Engineering, Queen Mary and Westﬁeld College, Mile End Road, London E1 4NS, UK
+Abstract:
+Application of the theory of thermo-acoustic excitation of ﬂames requires a detailed
+knowledge of the ﬂame response to plane-wave velocity ﬂuctuations of a given frequency through the
+burner. A model of the type of swirl burner used in some designs of industrial gas turbine is
+investigated, chemiluminescent emission being used as a marker of the heat release from both methane
+and propane premixed ﬂames. The effects of the equivalence ratio and the withdrawal of the swirler so
+as to allow an annulus of unswirled premixture are also examined.
+It is found that there are two distinct modes of self-excitation. The response of different burner
+conﬁgurations in the mode with the higher frequency is analysed in terms of four parameters. These
+characterize the position and spread of the axial distribution of heat release ﬂuctuations, and the origin
+and effective velocity of convection of disturbances.
+From these parameters, the Rayleigh integral can be calculated and this deﬁnes the frequency range
+over which excitation is possible. If the acoustic conditions require that the ﬂame is lengthened,
+retracting the swirler, reducing the equivalence ratio or changing from propane to methane are all
+shown to be possible control measures for this particular burner.
+Keywords:
+premixed ﬂame, thermo-acoustics, Rayleigh criterion, swirl burner
+NOTATION
+A
+ﬂow area
+c
+speed of sound
+Co
+coherence of two signals, e.g.
+Co(p, q)  [jpqj/(p˜ q˜)]2
+d
+diameter of the burner outlet
+f
+frequency
+K
+mean pressure loss coefﬁcient
+M
+Mach number
+p
+ﬂuctuating acoustic pressure
+P
+mean pressure
+q
+ﬂuctuating heat release per unit volume
+Qa
+volumetric ﬂowrate of air
+s
+standard deviation in a Gaussian distribution
+for ﬂuctuating heat release
+Tr
+transfer function between two signals, e.g.
+Tr(q/p)  pq/p2
+u
+ﬂuctuating acoustic velocity
+u1
+ﬂuctuating acoustic velocity at the burner
+outlet
+U
+mean axial velocity through the burner outlet
+Ueff
+effective axial convection velocity of heat
+release ﬂuctuations
+x
+axial distance from burner outlet
+x0
+effective origin of heat release ﬂuctuations
+x1
+centre of the Gaussian distribution for
+ﬂuctuating heat release
+Z1
+acoustic impedance of the supply system at
+burner outlet  pf/(ru1c)
+g
+ratio of speciﬁc heat capacities for
+combustion products
+r
+mean density of gas
+f
+equivalence ratio
+equivalence ratio
+fu/p or Ph(u/p)
+phase of u relative to p, i.e. phase of Tr(u/p)
+Subscripts
+f
+of the combustion chamber at the
+microphone position
+w
+of the air supply system at the microphone
+position
+Superscripts
+-
+time-averaged
+˜
+r.m.s. value
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+333
+The MS was received on 26 October 1999 and was accepted after
+revision for publication on 28 February 2000.
+
+
+--- Page 2 ---
+
+1
+INTRODUCTION
+The current practice of ﬁring lean premixtures of natural
+gas in gas turbines has led to a need for greater under-
+standing of the problem of combustion-induced vibra-
+tions. This is due to the susceptibility of such systems
+(which are operated in the lean mode to suppress NOx
+formation) to thermo-acoustic interactions, and the
+possibility that major structural damage will result. The
+susceptibility arises from the acoustic characteristics of
+the premixture supply system and the combustion
+chamber, and from the sensitivity of the ﬂame to the
+velocity ﬂuctuations associated with plane acoustic
+waves.
+The principles of excitation are well known, having
+been enunciated by Lord Rayleigh. His criterion for
+excitation at a particular frequency may be reﬁned to the
+form
+ ÿ 1
+P
+1
+0
+
+jpjjqj cos fq=p dx dA 5 acoustic losses
+where P is the mean pressure, p is the acoustic pressure
+ﬂuctuation, which can be shown to be essentially constant
+in the main ﬂame zone in the long wavelength limit, q is
+the ﬂuctuating component of heat release per unit
+volume, fq/p is the phase angle between them, and A is
+the cross-sectional area of the ﬂame at axial distance x. If
+the criterion is satisﬁed for a particular acoustic mode, the
+ﬂame will ‘self-excite’ and the magnitude of the
+ﬂuctuations will build up until non-linear processes in
+the ﬂame limit the heat release ﬂuctuation and the
+acoustic losses become such that the equality is satisﬁed.
+At frequencies close to (but not identical with) the
+resonant frequencies of the combustion chamber, little
+energy input is required for very high levels of pressure
+ﬂuctuation to be attained.
+While the principles are established, application of the
+theory to a practical system demands detailed knowledge
+of the ﬂame response. A number of contributions in the
+literature have presented semi-empirical models of the
+response of simple ﬂames, and they have been reviewed
+by Raun et al. [1]. An early noteworthy example was the
+work of Merk [2] on a Bunsen-type ﬂame, since he
+introduced a convective
+time-delay
+concept.
+More
+recently, Keller and Saito [3] and Buechner et al. [4]
+have correlated data from dump combustion systems.
+Shih et al. [5] presented detailed measurements of the
+Rayleigh integral for such a system but did not attempt to
+correlate them. Macquisten and Dowling [6] postulated a
+model for a V-shaped ﬂame and used it in conjunction
+with the acoustic characteristics of their system to
+produce a complete solution, which compared favourably
+with experimental results.
+This must be the goal for more complex systems, and
+the mathematical framework has been set out in papers by
+Lieuwen and Zinn [7], Hobson et al. [8], Abbott [9] and
+Dowling and Hubbard [10]. Sivasegaram and Whitelaw
+[11] have noted the complex effects that swirl can have
+on the regimes of excitation. Thus, realistic ﬂame models
+are required for swirl burners. Although computational
+ﬂuid dynamics (CFD) may make a contribution to this
+(see, for example, reference [12]), comprehensive data on
+the ﬂame response, such as those recently presented by
+Broda et al. [13] and Paschereit et al. [14], are needed.
+The present contribution is directed to this end, with the
+correlation of a large number of sets of measurements on
+a small model. The model was of the type of swirl burner
+found in some commercial combustion systems.
+Most of the
+data
+in the
+investigations
+already
+mentioned were obtained by recording chemiluminescent
+emission as a marker of the heat release. This principle
+was also used here, building on the advanced techniques
+and analysis which have previously been deployed on a
+bluff-body stabilized ﬂame [15, 16]. These are brieﬂy
+described and then the analysis of the acoustics is out-
+lined, before the presentation of the results for the various
+ﬂames. Finally, these are discussed in the context of a
+semi-empirical model which allows calculation of the
+Rayleigh integral.
+The data are unique in that the advanced ultraviolet
+(UV) techniques have been used to demonstrate the
+structure (both axial and radial) of the response, at
+speciﬁc frequencies, of ﬂames that are close in con-
+ﬁguration to those of practical relevance. From this
+knowledge base, the effect of changes in fuel, equiva-
+lence ratio and burner geometry on the acoustic response
+of the ﬂame have been investigated and related to the
+acoustic properties of the premixture supply system. Such
+a comprehensive approach to the thermo-acoustics of a
+swirl burner has not been published previously.
+2
+APPARATUS
+A diagram of the burner, air and fuel supply system, and
+combustion chamber is shown in Fig. 1. The air was
+supplied from the laboratory compressed air system
+through a constriction to the side of a pipe of 51 mm
+diameter with the end blanked off. This effectively
+ensured an acoustic velocity node at the end of the pipe.
+The air then ﬂowed round a bend to the burner mouth
+through a leaf valve and a tapered section in which a 16-
+vane swirler was located. The swirler operated in one of
+four positions for different experiments:
+Conﬁguration 1.
+This is the original conﬁguration, not
+fully seated on the tapered section.
+Conﬁguration 2.
+The swirler in this conﬁguration was
+fully seated.
+Conﬁguration 3.
+In this conﬁguration the swirler is
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+334
+C J LAWN
+
+
+--- Page 3 ---
+
+retracted from the taper by 0.75 mm, so that some air
+passed through the annulus outside the swirler.
+Conﬁguration 4.
+Finally the swirler is further retracted
+from the tapered section, by 1.5 mm.
+When the swirler was properly seated, the swirl number
+was calculated to be about 0.4.
+The fuel was piped to a small plenum below the swirler
+from which it was injected into the air ﬂow through a tree
+of eight pipes, each branch of which had ﬁve down-
+stream-facing holes in it. The fuel was thus entrained into
+the air in the wake of the branch before the mixture was
+accelerated through the swirler. By the time that the air
+and fuel left the burner through an oriﬁce of 19 mm
+diameter, full premixing was assumed, there being no
+ﬁne structure in the resulting ﬂame. In addition, there was
+a 1.2 mm hole in the top of the plenum through which
+undiluted fuel passed into the recirculation zone in the
+centre of the swirler to feed a small diffusion ﬂame. In
+conﬁgurations 3 and 4 this pilot ﬂame consumed 12 per
+cent of the total fuel, but slightly less in conﬁgurations 1
+and 2. Similar fuel injection arrangements are a feature of
+some commercial designs. A ﬁfth conﬁguration, desig-
+nated conﬁguration 3*, in which the swirler was retracted
+to position 3 but the pilot hole was almost completely
+blocked, was also investigated.
+Fuel and air supplies were measured by rotameters,
+corrections to the calibrations being applied to account
+for the pressures in them being greater than atmospheric.
+An absolute accuracy of 2 per cent FSD (full-scale
+deﬂection) may be assumed for these ﬂowrates, giving
+the equivalence ratio typically to about 5 per cent. For
+convenience in discussion, the indicated volumetric
+ﬂowrate Qa is used to label the results. With 1.2 l/min
+of propane, Qa  60 l/min corresponded to a burner exit
+velocity of about 4 m/s.
+The combustion chamber also had a diameter of
+51 mm, and it was a straight pipe, 651 mm long, for
+these experiments. The bottom section was made of
+quartz so as to transmit UV radiation efﬁciently. At the
+top, the combustion gases were exhausted to the
+laboratory.
+Measurements were made of the chemiluminescent
+UV emission from excited OH radicals at a wavelength of
+307 nm, as discussed in detail in another paper [16]. A
+lens mounted on a telescopic tube directed radiation from
+speciﬁc regions of the ﬂame on to a photo diode mounted
+behind a UV ﬁlter. Stops placed in front of the lens, and
+the relative positions of the lens and photodiode,
+determined the dimensions of the collection volume.
+Three arrangements were employed in the current
+programme:
+Arrangement (a).
+A 2 mm horizontal slit (with the lens
+66 mm and the photodiode 180 mm from the centre of
+the combustion chamber) collected UV emission from
+a thin slice of the ﬂame which was 1.1 mm thick at the
+front and less than 0.1 mm thick at the rear. With a
+horizontal width varying from 25 mm to 1 mm over the
+same distance, this collection volume provided a
+reasonable sample of the total cross-section, and the
+telescope was traversed vertically to measure the axial
+distribution of UV emission.
+Arrangement (b).
+A circular stop of 10 mm diameter
+(with the lens 256 mm and the photodiode 320 mm
+from the centre of the combustion chamber) led to a
+Fig. 1
+The premixed swirl burner
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+335
+
+
+--- Page 4 ---
+
+thin waisted collection volume only 1 mm across at
+front and rear, and about 0.2 mm in the centre. The
+photodiode was mounted on a pivot so that sweeping
+the telescope through an angle of 5° allowed the ﬂame
+to be traversed with nearly parallel lines-of-sight.
+These signals were deconvoluted using the Abel
+transform [16] to provide proﬁles of radial emission
+intensity.
+Arrangement (c).
+This was as in arrangement (b) above,
+but with the lens 2 mm closer to the centre of the
+chamber. This moved the conjugate point of the
+photodiode by 27 mm and broadened the collection
+width in the centre to 1.3 mm.
+The r.m.s. value of the ﬂuctuating photodiode output
+voltage, suitably ampliﬁed, was taken as a satisfactory
+measure of the instantaneous rate of heat release from
+the ﬂame in the collection volume, there being a close
+relationship between the time mean of this type of
+signal and the r.m.s. value [16]. This allowed the signals
+to be frequency analysed and correlated with the
+pressure.
+Acoustic pressure ﬂuctuations in the combustion
+chamber at the burner face and in the section of the air
+supply system just below the tapered section were also
+measured, using condenser microphones mounted on the
+ends of short sections of polythene tube. The tubes served
+to insulate the transducers from both heat and vibration
+and gave rise to negligible attenuation of the signal. The
+signals were also ampliﬁed and frequency analysed, and
+their phase, relative to each other and to the UV signals,
+recorded from a spectrum analyser. This was operated
+with a bandwidth of 4 Hz over the range 0–800 Hz and
+the results averaged over 60 samples of 0.25 s.
+3
+ACOUSTIC ANALYSIS
+Typical spectra of acoustic pressure ﬂuctuations in the
+combustion chamber (pf), in the supply system down-
+stream of the leaf valve but before the tapered section
+(pw), and of the UV emission (b) are shown in Fig. 2. The
+two pressure transducers had approximately the same
+calibration; therefore the relative magnitudes of the peaks
+are approximately correct. Their precise frequency was a
+function of the burner conﬁguration, of whether the valve
+was open or nominally shut, and of the fuel, its ﬂowrate
+and the equivalence ratio. However, the absence of
+substantial peaks in the combustion chamber acoustic
+pressure signal, and more particularly in the UV signals,
+above 400 Hz was a constant feature of this burner at the
+ﬂowrates examined.
+The spectrum of the supply system pressure shows the
+same peaks as that of the combustion chamber, plus a
+minor peak at about 500 Hz. An estimate of the
+Fig. 2
+Typical spectra of acoustic pressures and total UV emission from the ﬂame. The pressures were
+measured in the ﬂame region of the combustion chamber, and in the supply system just below the
+swirler and fuel injection ‘tree’, but above the leaf valve, which was nominally shut. Data are given for
+methane at an equivalence ratio of 0.59
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+336
+C J LAWN
+
+
+--- Page 5 ---
+
+relationship of the coherent contributions to these spectra
+is given by
+jTrpw=pfj  1
+2
+pwpf
+p2
+f
+
+ 
+p2
+w
+pwpf
+
+
+ 
+!
+At the excited frequencies, these coherent contributions
+are due to acoustic plane waves. Thus they can be
+compared with the ratio jpw/pfj for these waves and this
+was calculated over the whole of the spectrum using the
+methods described by Lawn [17]. The burner supply
+system was modelled as a cylinder of the diameter of the
+inlet pipe (51 mm), followed by a sudden contraction at
+the entry to the tapered section. This was taken to have a
+uniform diameter of 35 mm, which is the mean of the
+diameters before and after the taper, and a length of
+40 mm. The inlet pipe was ascribed a real acoustic
+impedance at the leaf valve given by KM, where M is the
+Mach number of the air ﬂow in the pipe. The loss
+coefﬁcient was measured from steady ﬂow data to be
+K  16 for the valve open, and K  366 when it was
+nominally shut. The tapered section, containing the fuel
+supply tree and the swirler, was measured to have K 
+161, again based on the full diameter of the inlet pipe.
+Comparison of this acoustic model with data taken
+under three different combustion conditions shows it to
+predict the correct qualitative behaviour for the magni-
+tude of the transfer function with the valve shut (Fig. 3a)
+and, more importantly, to yield the correct phase to
+within about 30° below 400 Hz (Fig. 3b). Some of these
+data are of low coherence; those with Co < 0.2 have been
+excluded altogether from these plots. A peak in the
+magnitude of the transfer function just above 500 Hz
+indicates a Helmholtz resonance, with the entire length of
+pipe contributing to the resonator volume. Similar
+comparisons were obtained for the case of the valve
+open, and in this case the phase predictions were rather
+more accurate below 400 Hz.
+The relevance of these acoustic models is that they
+enable the acoustic impedance of the burner and its
+supply system to be evaluated, and hence the acoustic
+velocity ﬂuctuations u1 at burner exit relative to the
+combustion chamber pressure. The impedance at the
+burner exit plane is
+Z1  pf
+ru1c
+where r and c are the mean density and speed of sound
+respectively. The result for the phase with the two valve
+positions is shown in Fig. 4.
+An attempt was made to correlate the principal
+frequencies of excitation with the Strouhal number based
+on the axial burner exit velocity U and its diameter d. It
+was seen that the two lowest frequencies were usually
+found in the ranges given by fd/U  0.4–0.5 and 0.8–1.0,
+with sometimes the lower frequency dominant and
+sometimes the higher. These ranges are quite wide, and
+the scaling of the frequency on the velocity, even for one
+burner condition and equivalence ratio, did not hold very
+precisely. Very often, but not always, the higher
+frequency was precisely twice the lower frequency.
+4
+RESULTS
+4.1
+Spatial distributions of the magnitude of heat
+release
+Most of the qualitative results recorded here from the
+quantitative UV data were also evident by observation of
+the (blue) visible spectrum. Initial measurements were
+made on a methane ﬂame with the valve open, the swirler
+in the ‘original conﬁguration’, designated conﬁguration 1
+in Section 2, and with the UV collection arrangement
+designated arrangement (b) in Section 3. Taking the full
+spectrum of ﬂuctuations into account, the evolution of the
+radial UV intensity distributions with axial distance at
+f  0.42 was as shown in Fig. 5a. The ﬂame spreads out
+from the region surrounding the pilot ﬂame at x  5 mm,
+the UV intensity reaches a peak near the axis between 15
+and 20 mm, and then the proﬁle ﬂattens and decays.
+The result of seating the swirler to produce burner
+conﬁguration 2, and closing the valve, can be seen by
+comparing Fig. 5b with Fig. 5a. In Fig. 5b the con-
+tributions above and below 300 Hz have been separated
+at two axial distances but, since these contributions have
+similar distributions in both cases, comparison with Fig.
+5a is valid. Clearly, eliminating the annulus of high-speed
+unswirled air around the swirler has produced a much
+hollower ﬂame, with virtually no heat release on the axis
+above the pilot ﬂame and considerable combustion taking
+place in the outer region at an axial distance from the
+burner outlet plane of x  25 mm. While the deconvolu-
+tion analysis makes the radius of cut-off of the ﬂame
+(r  20 mm or 4°) at x  10 mm sharper than it should be,
+there was in fact very little emission outside this position,
+reﬂecting the ‘mushroom’ shape of the ﬂame.
+The same results for x  10 mm are shown in Fig. 5c,
+but there they are compared with some for a higher
+equivalence ratio. This shows that raising the premixture
+to f  0.59 by reducing the air ﬂow for the same fuel
+ﬂow has the effect of initiating combustion in the
+premixture around the pilot ﬂame much earlier.
+With the swirler retracted into conﬁguration 3, further
+results for methane were then built up from radial
+traverses with optical arrangement (c) and deconvolution
+at nine different axial distances for a speciﬁc self-
+excitation frequency (Fig. 6a). (The contribution of the
+pilot ﬂame to the heat release, below x  7.5 mm, is
+exaggerated here by the increased UV emission asso-
+ciated with diffusion burning at stoichiometric condi-
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+337
+
+
+--- Page 6 ---
+
+tions, compared with that in the premixture in the bulk of
+the ﬂame.) The peak contribution of the premixed ﬂame
+to the ﬂuctuating heat release is at a distance of about
+20 mm, and off the axis, but not as far off as with the
+swirler seated. The proﬁle for x  15 mm at this
+frequency is in fact rather similar to that in the lower-
+Fig. 3
+(a) Magnitude and (b) phase of the transfer function between the supply system and combustion
+chamber pressures with the leaf valve nominally shut. Data of coherence greater than 0.2 are compared
+with the plane-wave theory, the excitation being by ﬂames of methane and propane
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+338
+C J LAWN
+
+
+--- Page 7 ---
+
+frequency band for x  10 mm with the swirler seated.
+Thus the general effect of retracting the swirler is to delay
+the heat release at the excited frequencies.
+With the same retracted swirler conﬁguration 3 but
+with the burner operated on propane and f  0.41 and
+0.31 (Fig. 5d), the distributions are very similar to those
+for methane at f  0.42 with conﬁguration 2 (Fig. 5b) for
+both cases, with little combustion on the axis. At
+x  10 mm, the radially restricted ﬂame is again evident.
+Thus, the effect of changing from methane to propane is
+counteracted by retracting the swirler.
+4.2
+Spatial distributions of the phase of heat
+release
+The phases of the UV ﬂuctuations relative to the
+combustion chamber pressure at the same excited
+frequency for methane are shown in Fig. 6b. These
+phases are as recorded along chordal lines of sight and
+hence are not strictly those at the local position shown in
+the plot. However, a deconvolution of the real and
+imaginary components of the signal for one axial position
+in which there was a substantial variation (x  5 mm)
+showed that the error involved in ascribing the phases to
+the closest approach of the line-of-sight to the axis, as
+here, is likely to be small.
+It is seen that the outer regions of the ﬂame are
+approximately in phase and lagging the pressure by 100–
+120°. The pilot ﬂame lags by slightly more but, in the
+region of greatest magnitude, the UV emission is almost
+in phase with the pressure. Further along the ﬂame, the
+phase lag increases steadily.
+4.3
+Axial distributions of the phase of heat release
+Precisely how the phase lag increases was investigated by
+measuring axial distributions using the UV arrangement
+(a). The results are displayed in Fig. 7 relative to the axial
+distance x, and in Fig. 8 relative to f(x ÿ x0)/U. This is the
+distance from an effective origin x0 (determined as
+described
+below), normalized
+by the
+distance
+for
+convection at the burner exit velocity U during 1 cycle.
+In both cases, the phases displayed are not relative to the
+pressure, but to the burner exit velocity ﬂuctuation u1, the
+conversion being through the data of Fig. 4. (The small
+changes in phase due to changes in the mean ﬂowrate
+were ignored in this calculation.)
+The data for methane are those in Fig. 7a. Most of the
+data are for f  0.6 and conﬁguration 1. The degree of
+repeatability, the effect of increasing the air and fuel
+velocities, and the effect of changing from conﬁgurations
+1 and 3 are shown. A second harmonic was recorded for
+one of these runs, and this too is plotted. The ﬁnal data set
+is for the equivalence ratio reduced to 0.46.
+The data for the obvious linear decrease in phase in the
+region of high heat release were extrapolated with best-ﬁt
+lines to establish an effective origin where there would be
+coincidence between the disturbances and the velocity
+Fig. 4
+Theoretical variation in the phase of the acoustic velocity at the inlet to the combustion chamber
+relative to the pressure, for the two extreme positions of the leaf valve in the air supply system
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+339
+
+
+--- Page 8 ---
+
+ﬂuctuations if the convection velocity was constant in the
+axial direction. It is seen that, for the high equivalence
+ratio, these origins lie in the x0 range from ÿ14 to
+ÿ18 mm, in spite of the wide range of frequencies and the
+variation in velocity. When plotted against the dimen-
+sionless ratio discussed above with x0  ÿ14 mm, the
+data effectively collapse on to two parallel lines,
+indicating a common convection velocity which scales
+on the burner exit velocity (Fig. 8a). The region of the
+pilot ﬂame, before the region of high heat release, appears
+to be rather more than 180° out of phase with the main
+ﬂame.
+With the burner operated on propane in conﬁguration
+3, a much larger number of conditions were investigated,
+involving changes to air and fuel ﬂows, and hence
+equivalence ratios (Fig. 7b). In a number of instances, the
+second prominent frequency was recorded, and this was
+often of greater magnitude in the pressure and UV spectra
+than the ﬁrst. A new effective origin at x  ÿ5  4 mm
+for all but one out of eight runs with f > 0.43 was
+Fig. 5
+(continued over)
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+340
+C J LAWN
+
+
+--- Page 9 ---
+
+identiﬁed. (The anomaly is not plotted here.) Then,
+rationalizing these data in the same way as above, the
+phase lag was seen to correlate well with the methane
+data (Fig. 8b), indicating the same convection velocity
+relative to the burner exit velocity.
+Some of the low-frequency modes are now found to
+involve a continuation of the phase relationship which is
+associated with the pilot ﬂame region in the higher
+frequencies. This is a lag of about 230° relative to the
+main region. Between the two distinct regions, there was
+always a transition region in which the correlation
+between UV and pressure virtually disappeared. This
+was probably because one mode was present in the
+central pilot ﬂame and the other, of similar magnitude, in
+a surrounding premixed sheath, as indicated by Fig. 6b.
+Two of the data sets for this conﬁguration 3 are
+compared in Figs 7c and 8c with results from conﬁgura-
+tion 3*, in which the pilot ﬂame hole was blocked. A
+Fig. 5
+Radial distribution of UV intensity in the speciﬁed frequency ranges, deduced by deconvolution of the
+line-of-sight measurements, at various heights: (a) methane in conﬁguration 1, f  0.42; (b) methane
+in conﬁguration 2, f  0.42; (c) methane in conﬁguration 2, f  0.42 and 0.59; (d) propane in
+conﬁguration 3, f  0.31 and 0.41
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+341
+
+
+--- Page 10 ---
+
+completely different effective origin was located, at
+x0  ÿ35 mm, and the initial region disappeared. How-
+ever, the same gradient is observed for the main region on
+the normalized plot (Fig. 8c).
+Finally, the effect of increasing the swirler retraction is
+examined in Figs 7d and 8d, in which results for
+conﬁgurations 2, 3 and 4 are compared. The conﬁguration
+4 results for the swirler further retracted indicate an
+effective origin at x0  ÿ18 mm. For conﬁguration 2,
+with the swirler seated, extrapolation to the effective
+origin with accuracy was difﬁcult, although a value of
+x0  ÿ14 mm was the best estimate. Very different
+convection velocities are observed for the three conﬁg-
+urations.
+4.4
+Axial distributions of the magnitude of heat
+release
+The axial distributions of UV intensity at the most
+Fig. 6
+Axial and radial distributions of (a) the magnitude and (b) the phase (measured along chords) of the UV
+intensity relative to the combustion chamber pressure at a frequency of 160 Hz for methane in
+conﬁguration 3 and f  0.59
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+342
+C J LAWN
+
+
+--- Page 11 ---
+
+prominent frequencies for each condition were measured
+with the optical arrangement (a) at the same time as the
+phase. The units of intensity are arbitrary but consistent
+for the same equivalence ratio. However, the change in
+calibration with f meant that there was no additional
+penalty for scaling the intensity signals for comparative
+purposes.
+As shown in Fig. 9a for methane burnt in conﬁguration
+Fig. 7
+(continued over)
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+343
+
+
+--- Page 12 ---
+
+Fig. 7
+Axial distribution of the phase of the heat release relative to the burner velocity: (a) for methane
+burning in conﬁguration 1, except where noted as conﬁguration 3; (b) for propane burning in
+conﬁguration 3, except where noted as methane (this shows the effect of the equivalence ratio and
+fuel); (c) for propane burning in conﬁguration 3, except where noted as having the pilot blocked
+(conﬁguration 3*); (d) for propane burning in conﬁgurations 2, 3 and 4 (this shows the effect of swirler
+retraction)
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+344
+C J LAWN
+
+
+--- Page 13 ---
+
+1 (corresponding to Figs 7a and 8a), the repeatability of
+these data was also good, although the one result for a
+higher mass ﬂowrate but the same equivalence ratio (0.6)
+suggested a slight lengthening of the spatial distribution
+(by about 3 mm). A lower f (0.46) led to suppression of
+the heat release ﬂuctuation in the main region, leaving the
+Fig. 8
+(continued over)
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+345
+
+
+--- Page 14 ---
+
+Fig. 8
+Distribution of the phase of the heat release relative to the burner velocity as a function of the
+normalized axial distance: (a) for methane burning in conﬁguration 1, except where noted as
+conﬁguration 3, with a common effective origin x0  ÿ14 mm; (b) for propane burning in con-
+ﬁguration 3, except where noted as methane, with a common effective origin x0  ÿ5 mm for propane
+(this shows the effect of the equivalence ratio and fuel); (c) for propane burning in conﬁguration 3,
+except where noted as having the pilot blocked (conﬁguration 3*), with an effective origin
+x0  ÿ5 mm for pilot open and x0  ÿ34 mm for pilot blocked; (d) for propane burning in
+conﬁgurations 2, 3 and 4, with an effective origin x0  ÿ14 mm for the swirler seated (conﬁguration
+2), x0  ÿ5 mm for the swirler retracted (conﬁguration 3) and x0  ÿ18 mm for the swirler retracted
+further (conﬁguration 4) (this shows the effect of swirler retraction)
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+346
+C J LAWN
+
+
+--- Page 15 ---
+
+pilot ﬂame prominent in the initial region. A slightly
+more compressed distribution was evident at a higher
+frequency than at a lower frequency for f  0.6.
+Retracting the swirler to conﬁguration 3 had the effect
+of delaying the ﬂuctuating heat release by about
+7 mm.
+With propane burnt in conﬁguration 3, the lower- and
+higher-frequency
+modes,
+as
+distinguished
+by
+their
+Strouhal numbers, have been separated for clarity in
+presentation. At lower frequencies [Fig. 9b(i)], the
+similarity of the distributions for the same f but different
+velocities is clearly demonstrated, negating the possibi-
+lity of correlation with the transit time x/U. The major
+contributions come from near the burner exit, and they
+are suppressed when f is reduced or the fuel is changed
+to methane. At higher frequencies [Fig. 9b(ii)], there is
+evidence of a longer response as f is reduced. The lowest
+value of f( 0.44) for which an axial traverse was
+undertaken and which led to a high intensity of
+ﬂuctuation inexplicably reverses this trend.
+Two of these data sets are shown again in Fig. 9c,
+where the effect of blocking the pilot jet with the swirler
+in conﬁguration 3 is seen to be quite dramatic in
+shortening the responsive part of the ﬂame. This is
+consistent with the very substantial movement of the
+effective origin into the body of the burner. The lower-
+frequency mode is again dominant in the near-burner
+region and is therefore not dependent on there being a
+pilot ﬂame. With the pilot in operation, seating the
+swirler also shortens the response, while retracting it
+further clearly makes it much longer (Fig. 9d), in both
+high- and low-frequency modes.
+5
+DISCUSSION
+5.1
+The effect of varying the excitation frequency
+For most of the data presented here, there was little
+difference between the radial distributions of UV
+intensity in the lower-frequency band (less than 300 or
+400 Hz) in which the acoustic excitation took place, and
+those in the higher-frequency band associated with the
+background turbulence [16]. This was also true of the
+frequency-integrated axial distributions, although these
+have not been presented. However, in Figs 5c and 5d
+there is evidence of a tendency for the integral over the
+acoustically excited frequencies to be relatively smaller
+on the axis than that over the higher frequencies.
+Moreover,
+the
+lower-frequency
+mode
+(fd/U < 0.5)
+clearly had a different axial distribution from the
+higher-frequency mode (Fig. 9). Both of these modes
+had f < 400 Hz and were thus in the lower-frequency
+band,
+but
+different
+mechanisms
+of
+excitation
+are
+indicated.
+Changing the frequency of excitation by opening the
+air supply valve while maintaining the ﬂowrate and
+equivalence ratio made only a small difference to the
+axial distributions. If the time-averaged heat release
+Fig. 9
+(continued over)
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+347
+
+
+--- Page 16 ---
+
+distribution is unchanged by opening the valve, no
+difference at all would be expected, because the local
+heat release would simply distribute itself in a different
+way around the spectrum in the lower-frequency band
+(less than 400 Hz), not affecting the integral over that
+band, or the integral over higher frequencies. The r.m.s.
+value of UV emission at discrete frequencies can be
+regarded as a measure of the heat release perturbation
+generated by the acoustic wave at that frequency, and
+the integrals as measures of the time-averaged heat
+release.
+These observations indicate that the perturbations to
+the ﬂow and the heat release associated with the higher-
+frequency mode were small, superimposed on the normal
+Fig. 9
+(continued over)
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+348
+C J LAWN
+
+
+--- Page 17 ---
+
+Fig. 9
+Axial distribution of the magnitude of the heat release: (a) for methane burning in conﬁguration 1,
+except where noted as conﬁguration 3; (b) for propane burning in conﬁguration 3, except where noted
+as methane in conﬁguration 1, (i) for the lower-frequency mode and (ii) the higher-frequency mode
+(this shows the effect of the equivalence ratio and fuel); (c) for propane burning in conﬁguration 3,
+except where noted as having the pilot blocked (conﬁguration 3*); (d) for propane burning in
+conﬁgurations 2, 3 and 4 (this shows the effect of the swirler retraction)
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+349
+
+
+--- Page 18 ---
+
+turbulence and probably in the outer regions of the ﬂame
+downstream of the pilot. (Radical changes to the ﬂame
+shape were visibly generated at higher equivalence ratios
+than these, with higher resulting acoustic pressures.) For
+the data presented, an approximate calibration of the
+pressure transducer indicates r.m.s. pressures of the order
+of only 7 Pa. With the calculated exit impedance for the
+premixture supply system, this translates to u˜1  0.2 m/s,
+or u˜1/U  0.03, consistent with the ﬁrst-order perturba-
+tion view.
+On the other hand, the lower-frequency mode involved
+a completely different axial distribution, with some
+contributions on the axis, and a phase relationship which
+suggested a continuation of the pilot ﬂame behaviour. For
+the higher-frequency mode, the complex results for the
+axial distribution can be summarized with the aid of a
+simpliﬁed model which goes some way towards explain-
+ing the conditions under which certain ﬂames are liable to
+produce excitation.
+5.2
+An empirical model for the heat release
+With no attempt to characterize the near-burner region,
+an empirical expression was ﬁtted to the magnitude of
+heat release q for the higher-frequency mode in the main
+region:
+
+jqj dA / exp ÿ x ÿ x12
+2s2
+"
+#
+with the peak position x1 and the standard deviation s of
+the Gaussian distribution chosen to give the best ﬁt.
+Examples of these ﬁts are shown in Figs 9c and d.
+Furthermore, as already explored, the phase lag relative
+to the acoustic velocity can be expressed as
+fq=u  ÿ2p U
+Ueff
+f x ÿ x0
+U
+the slope of the best-ﬁt lines in Fig. 8 determining Ueff/U
+and hence the effective convection velocity. Thus the
+Rayleigh integral can be written in terms of the four
+burner parameters x0, x1, s and Ueff, the frequency and the
+phase of the burner acoustic velocity relative to the
+pressure, fu/p(f), which is determined by the supply
+system acoustics:
+1
+0
+
+jpjjqj cos fq=p dx dA
+/
+1
+0
+exp ÿ x ÿ x12
+2s2
+"
+#
+ cos fu=p ÿ 2pU
+Ueff
+fd
+U
+x ÿ x0
+d
+
+
+dx
+The burner parameters determined by ﬁtting the data in
+Figs 8 and 9 are given in Table 1, which is therefore a
+summary of the experimental results for phase and
+magnitude in a simpliﬁed form.
+5.3
+Explanation for the different ﬂame parameters
+It is possible to explain some of these observations for the
+higher-frequency modes in terms of the overall pattern of
+combustion. Although the pilot ﬂame functions in a way
+which anchors the main ﬂame and broadens the limits of
+ﬂammability, it appears from comparing conﬁgurations 3
+and 3* in Fig. 9c that it delays the combustion in the main
+zone. Certainly, the premixed ﬂame could be seen to burn
+back into the burner exit when there was no pilot.
+The effect of reducing the equivalence ratio appears
+from most of the data for propane in Fig. 9b, and from
+those for methane in Fig. 5c, to be to lengthen the ﬂame.
+This is in agreement with the results of computation and
+observation on a swirled ﬂame by Bradley et al.[18], who
+explained it in terms of the quenching of the ﬂame in the
+shear layer when the laminar burning velocity is small, as
+in lean premixtures. The ﬁt of the model equation to the
+data for f  0.47 and 0.58 is shown in Figs 9c and d.
+As the swirler is retracted progressively, the ﬂame also
+lengthens (Figs 9a and d), coming closer to the axis (Figs
+5a and b). The high-velocity unswirled premixture
+around the periphery of the swirler is carried further
+downstream before it can ignite than when all the ﬂow is
+swirled.
+With the pilot in operation, the effective origin for
+disturbances in the main ﬂame shows remarkable
+consistency at x0  ÿ16  2 mm, a position close to the
+Table 1
+Summary of the ﬁtted data in the main region of the ﬂame for the higher-frequency modes
+Fuel
+Valve
+Swirler
+Conﬁguration
+Equivalence ratio
+x1 (mm)
+s (mm)
+x0 (mm)
+Ueff/U
+CH4
+Open
+Original
+1
+0.60
+18
+7
+ÿ17
+2.3
+CH4
+Shut
+Retracted
+3
+0.60
+25
+7
+ÿ14
+2.0
+C3H8
+Shut
+Seated
+2
+0.41
+16
+8
+ÿ14
+3.5
+C3H8
+Shut
+Retracted
+3
+0.47
+18
+9
+ÿ5
+1.9
+C3H8
+Shut
+Retracted
+3
+0.58
+18
+5
+ÿ5
+1.9
+C3H8
+Shut
+Retracted; no pilot
+3*
+0.41
+11
+6
+ÿ34
+1.7
+C3H8
+Shut
+Further retracted
+4
+0.58
+22
+12
+ÿ18
+2.7
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+350
+C J LAWN
+
+
+--- Page 19 ---
+
+branches of the fuel injection tree, for all conditions but
+those for propane with the swirler retracted to conﬁgura-
+tion 3. The shift in this position to x0  ÿ5  4 mm with
+this conﬁguration and f > 0.43 is not easy to explain.
+This apparent maximum in the approach of the
+effective origin to the outlet is, however, consistent with
+the deduced convection velocities, which show a mini-
+mum in this conﬁguration. These velocities are inﬂu-
+enced by the uniformity of the exit ﬂow, and by the
+balance between the spreading out of the swirled ﬂow and
+the rate of temperature rise and acceleration due to
+combustion. It may be conjectured that in conﬁguration 2
+the temperature effect is dominant and the convection
+more rapid than in conﬁguration 3, while in conﬁguration
+4 the velocities of burning gas are higher due to the
+unrestricted annular ﬂow and to the reduced ﬂame spread.
+The convection velocities are 2.0  0.3 times the
+nominal exit velocity for all the conﬁgurations in which
+there was a modest swirler retraction, increasing to 2.7
+due to the higher proportion of unswirled premixture and
+combustion near the axis with further retraction. When
+the swirler was seated, however, the earlier expansion
+also gave rise to an increased average convection
+velocity, of 3.5 U. Observations on a Bunsen ﬂame by
+Buechner et al. [4] apparently needed no such correction
+to the exit velocity, while those on an annular jet showed
+convection to be slightly slower than the mean burner exit
+velocity [15].
+The possibility that some of these modes were in fact
+helical, as observed by Paschereit et al. [14], was
+speciﬁcally investigated by looking for signiﬁcant phase
+shifts between perpendicular UV lines of sight. None was
+found.
+Finally, Fig. 9bii indicates that the lower laminar
+burning velocity for methane than propane at f  0.6
+(0.07 as opposed to 0.13 m/s [19]) also results in a longer
+ﬂame. Jones and Leng [20] found signiﬁcant differences
+in the behaviour of a pulse combustor with just 20 per
+cent additions of propane to methane. However, the
+possibility of relating the results for the two fuels at
+different equivalence ratios through the laminar burning
+velocity seems to be eliminated by the fact that the
+methane ﬂame was stabilized well below the normal limit
+of lean ﬂammability (f  0.5) by the pilot.
+5.4
+Conditions for excitation
+For each of these ﬂame conditions, the contribution to the
+Rayleigh integral was evaluated as a function of fre-
+quency at each axial location. Similar data were also
+generated directly from the measurements; these showed
+the same trends and that the contributions from the pilot
+ﬂame were small. These model data are presented in Fig.
+10a in order to illustrate the mechanism for producing a
+positive value of the integral more clearly. At the chosen
+frequency of 272 Hz and a velocity corresponding to
+Qa  80 l/min, both the swirler-seated (conﬁguration 2)
+and
+swirler-retracted
+(conﬁguration
+3)
+cases
+have
+positive integrals. However, the negative contribution
+arising from the convection time delay in association
+with the later heat release due to retracting the swirler
+further (conﬁguration 4) prevents a positive integral.
+Similarly, the reduction in Qa to 60 l/min with con-
+ﬁguration 3 also reduces the net energy input at this
+frequency because the smaller convection delay puts the
+peak heat release out of phase with the pressure. Broda et
+al. [13] have produced a complete map of the contribu-
+tions to the Rayleigh integral for one combustion
+condition, and then integrated the data to yield an axial
+variation similar to that of conﬁguration 2.
+These mechanisms lead to the complex variation in the
+Rayleigh integral with frequency illustrated in Fig. 10b.
+Excitation is possible in the bands where the integral of
+these curves is sufﬁciently positive to overcome the
+acoustic dissipation, although its realization depends on
+satisfying the phase relationships of the system acoustics
+as well. Since the magnitude of the acoustic impedance
+for this supply system does not vary dramatically up to
+the Helmholtz resonance frequency, and the combustion
+chamber impedance is similarly ﬂat up to the quarter-
+wave resonance at about 260 Hz, the variation in the
+Rayleigh integral may be expected to be reﬂected in the
+magnitude of the acoustic pressures.
+The computed maxima for these conﬁgurations lie in
+the region 150–250 Hz, consistent with the observations.
+With propane, only the conﬁguration with the swirler
+seated is predicted to excite above 300 Hz and to have a
+maximum at about the observed frequency of 248 Hz. At
+higher frequencies the positive and negative contribu-
+tions from different regions of the ﬂame tend to cancel, as
+seen in Fig. 10a. However, with methane in conﬁguration
+1, the greater distance between the effective origin and
+the peak heat release allows enough time for the Rayleigh
+integral (not plotted here) to become positive again in the
+range 300–400 Hz, which is where the second strong
+peak in the spectrum (at 368 Hz) was observed for these
+conditions.
+A similar model could be constructed to account for
+the lower-frequency mode. However, this is obviously
+not described by the same correlations for the magnitude
+and phase of the heat release as the higher-frequency
+mode, and so is not predicted by the Rayleigh integrals
+calculated for Fig. 10b.
+5.5
+Nature of the disturbances
+While the convection-related time delay concept has
+been used in many thermo-acoustic calculations (see, for
+example, reference [8]) and is strongly endorsed by the
+present measurements, there is little real understanding of
+the nature of the convected disturbance. Lieuwen and
+Zinn [7] and Dowling and Hubbard [10] speciﬁcally
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+351
+
+
+--- Page 20 ---
+
+Fig. 10
+(a) Axial distribution of the model contributions to the Rayleigh integral from the higher-
+frequency mode at f  272 Hz for three burner conﬁgurations at Qa  80 l/min and one at
+Qa  60 l/min. (b) Values of the Rayleigh integral for the above conditions, as a function of the
+frequency. Excitation is possible in the higher-frequency mode at the frequencies for which the
+integral is positive
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+352
+C J LAWN
+
+
+--- Page 21 ---
+
+modelled perturbations in equivalence ratio and success-
+fully predicted their measured instability regimes. There
+were certainly ﬂuctuations in f, and a possibility that
+ﬂuctuations in fuel supply were important, in the present
+experiments. Measurements of pressure ﬂuctuations in
+the fuel plenum indicated similar magnitudes and phases
+to those in the air outside it up to f  200 Hz. This
+suggests little ﬂuctuation in fuel supply, which is to be
+expected with the high pressure drop in the narrow pipe
+upstream of the plenum. However, the full magnitude of
+ﬂuctuating pressure across the fuel supply trees would
+have given rise to a 10 per cent ﬂuctuation in ﬂowrate, so
+that some ﬂuctuations comparable with those in air ﬂow,
+which were only about 3 per cent, cannot be ruled out.
+Ignoring this possibility, the equivalence ratio, and hence
+the burning velocity in these lean conditions, will have
+been out-of-phase with the velocity. This is consistent
+with equivalence ratio ﬂuctuations being the mechanism
+for the excitation of the lower-frequency modes along the
+axis.
+Another well-known mechanism for acoustic interac-
+tion with ﬂames is the generation of large-scale coherent
+vortical structures in the shear layers at the exit from the
+burner, as discussed by Coats [21]. Lin et al. [22] have
+studied such interactions in a lifted jet ﬂame, and Poinsot
+et al. [23], McManus et al. [24], Yu et al. [25] and
+Schadow and Gutmark [26] and others, the interactions in
+shear layers. It is hypothesized that this is the mechanism
+for the higher-frequency mode of excitation, the coherent
+structures generated in the burner when the acoustic
+velocity is at the peak of its cycle giving rise to an
+enhancement of the heat release downstream which is in
+phase with their passage. This speculation can only be
+conﬁrmed by visualizing or measuring the details of the
+ﬂow structure, and this is the next phase of the
+investigation.
+6
+CONCLUSIONS
+1. The ﬂame in this particular swirl burner was suscep-
+tible to two distinct modes of self-excitation. These
+were characterized by different distributions of ﬂuc-
+tuating heat release and different relationships be-
+tween its phase and the acoustic velocity ﬂuctuations
+at the burner exit.
+2. The modes were distinguished by their Strouhal
+numbers, since the frequencies scaled approximately
+on the mean burner exit velocity, and so they could be
+loosely designated ‘lower-frequency’ and ‘higher-
+frequency’ modes.
+3. The response of different burner conﬁgurations in the
+higher-frequency mode were analysed in terms of four
+parameters, which characterize the position and spread
+of the axial distribution of heat release ﬂuctuations,
+and the origin and effective velocity of convection of
+disturbances.
+4. The combination of these parameters with the acoustic
+impedance of the supply system in the Rayleigh
+integral was used to determine the frequency bands
+within which excitation was possible, and these were
+consistent with the data.
+5. Depending on the precise combination of thermo-
+acoustic parameters, it may be desirable either to
+lengthen or to shorten the axial heat release distribu-
+tion, so as to change the convective time delays.
+Retracting the swirler to produce an annular sheath of
+unswirled premixture, reducing the equivalence ratio,
+and changing from propane to methane all lengthened
+the distribution.
+6. It is possible that the lower-frequency mode was due to
+ﬂuctuations in the equivalence ratio associated with
+the acoustic ﬂuctuations in the air supply, and that the
+higher-frequency mode was due to the periodic
+generation of large scale vortical structures in the
+shear layer. Further measurements are required to
+conﬁrm this.
+ACKNOWLEDGEMENTS
+The support of PowerGen plc in the construction of the
+model is gratefully acknowledged. Some of the early
+work on it was undertaken by Mr Nigel Tate as part of his
+MEng project.
+REFERENCES
+1
+Raun, R. L., Beckstead, M. W., Finlinson, J. C. and
+Brooks, K. P. A review of Rijke tubes, Rijke burners and
+related devices. Prog. Energy Combust. Sci., 1993, 19,
+313–364.
+2
+Merk, H. J. An analysis of unstable combustion of pre-
+mixed gases. Proc. Combust. Inst., 1957, 6, 500–512.
+3
+Keller, J. O. and Saito, K. Measurements of the
+combusting ﬂow in a pulse combustor. Combust. Sci.
+Technol., 1987, 53, 137–163.
+4
+Buechner, H., Hirsch, C. and Leuckel, W. Experimental
+investigations on the dynamics of pulsated premixed axial
+jet ﬂames. Combust. Sci. Technol., 1993, 94, 219–228.
+5
+Shih, W.-P., Lee, J. G. and Santavicca, D. A. Stability
+and emissions characteristics of a lean premixed gas
+turbine combustor. Proc. Combust. Inst., 1996, 26, 2771–
+2778.
+6
+Macquisten, M. A. and Dowling, A. P. Combustion
+oscillations in a twin-stream afterburner. J. Sound Vibr.,
+1995, 188(4), 545–560.
+7
+Lieuwen, T. and Zinn, B. T. The role of equivalence ratio
+oscillations in driving combustion instabilities in low NOx
+gas turbines. Proc. Combust. Inst., 1998, 27, 1809–1816.
+A09499
+IMechE 2000
+Proc Instn Mech Engrs Vol 214 Part A
+THE THERMO-ACOUSTIC RESPONSE OF A PREMIXED SWIRL BURNER
+353
+
+
+--- Page 22 ---
+
+8
+Hobson, D. E., Fackrell, J. E. and Hewitt, G. Combus-
+tion instabilities in industrial gas turbines—measurements
+on operating plant and thermoacoustic modelling. In
+Proceedings of the ASME Gas Turbine Conference,
+1999, ASME paper 99-GT-110, 1999 (American Society
+of Mechanical Engineers, New York).
+9
+Abbott, D. J. The prediction of acoustic feedback driven
+oscillations in gas turbine combustors. In Proceedings of
+the IMechE Seminar on Turbulent Combustion of Gases
+and Liquids, Lincoln, December 1998 (Professional
+Engineering Publishing Limited, London).
+10
+Dowling, A. P. and Hubbard, S. Instability in lean
+premixed combustors. Proc. Inst. Mech. Engrs, Part A,
+Journal of Power and Energy, 2000, 214(A4), 317–332.
+11
+Sivasegaram, S. and Whitelaw, J. H. The inﬂuence of
+swirl on oscillations in ducted premixed ﬂames. Combust.
+Flame, 1991, 85, 195–205.
+12
+Smith, C. E. and Leonard, A. D. CFD modeling of
+combustion stability in premixed axisymmetric combus-
+tors. ASME paper 97-GT-305, 1997.
+13
+Broda, J. C., Seo, S., Santoro, R. J., Shirhattikar, G. and
+Yang, V. An experimental study of combustion dynamics
+of a premixed swirl injector. Proc. Combust. Inst., 1998,
+27, 1849–1856.
+14
+Paschereit, C. O., Gutmark, E. and Weisenstein, W.
+Control of thermoacoustic instabilities and emissions in an
+industrial type gas-turbine combustor. Proc. Combust.
+Inst., 1998, 27, 1817–1824.
+15
+Lawn, C. J. The acoustic self-excitation of a bluff-body
+stabilised, premixed ﬂame. Combust. Sci. Technol., 2000,
+154, 57–74.
+16
+Lawn, C. J. Distributions of instantaneous heat release by
+the cross-correlation of chemiluminescent
+emissions.
+Combust. Flame, 2000 (to be published).
+17
+Lawn, C. J. Interaction of the acoustic properties of a
+combustion chamber with those of premixture supply. J.
+Sound Vibr., 1999, 224(5), 785–808.
+18
+Bradley, D., Gaskell, P. H., Gu, X. J., Lawes, M. and
+Scott, M. J. Premixed turbulent ﬂame instability and NO
+formation in a lean-burn swirl burner. Combust. Flame,
+1998, 115, 515–538.
+19
+Taylor, S. C. and Smith, D. B. Comment on ‘Laminar
+burning velocities and Markstein numbers of hydrocarbon/
+air ﬂames’. Combust. Flame, 1995, 102, 523–525.
+20
+Jones, H. R. N. and Leng, J. The inﬂuence of fuel
+composition on emissions of CO, NO, and NO2 from a gas-
+ﬁred pulsed combustor. Combust. Flame, 1996, 104, 419–
+430.
+21
+Coats, C. M. Coherent structures in combustion. Prog.
+Energy Combust. Sci., 1996, 22, 427–509.
+22
+Lin, C.-K., Jeng, M.-S. and Chao, Y.-C. The stabilization
+mechanism of a lifted jet ﬂame. Exp. Fluids, 1993, 14,
+353–365.
+23
+Poinsot, T. J., Trouve, A. C., Veynante, D. P., Candel, S.
+M. and Esposito, E. J. Vortex-driven acoustically coupled
+combustion instabilities. J. Fluid Mechanics, 1987, 177,
+265–292.
+24
+McManus, K. R., Vandsburger, U. and Bowman, C. T.
+Combustor performance enhancement through direct shear
+layer excitation. Combust. Flame, 1990, 82, 75–92.
+25
+Yu, K. H., Trouve, A. and Daily, J. W. Low-frequency
+pressure oscillations in a model ramjet combustor. J. Fluid
+Mechanics, 1991, 232, 47–72.
+26
+Schadow, K. C. and Gutmark, E. Combustion instability
+related to vortex shedding in dump combustors and their
+passive control. Prog. Energy Combust. Sci., 1992, 18,
+117–132.
+Proc Instn Mech Engrs Vol 214 Part A
+A09499
+IMechE 2000
+354
+C J LAWN

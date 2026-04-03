@@ -1,0 +1,1017 @@
+
+--- Page 1 ---
+
+Sofya Buro
+Technical University of Darmstadt,  
+Department of Mechanical Engineering,  
+Institute for Simulation of Reactive  
+Thermo-Fluid Systems,  
+Otto-Berndt-Straße 2,  
+Darmstadt 64287, Germany  
+e-mail: buro@stfs.tu-darmstadt.de
+Ruud Eggels
+Rolls-Royce Deutschland Ltd & Co KG,  
+Eschenweg 11,  
+Blankenfelde-Mahlow 15827, Germany
+Hendrik Nicolai
+Technical University of Darmstadt,  
+Department of Mechanical Engineering,  
+Institute for Simulation of Reactive Thermo-Fluid 
+Systems,  
+Otto-Berndt-Straße 2,  
+Darmstadt 64287, Germany
+Christian Hasse
+Technical University of Darmstadt,  
+Department of Mechanical Engineering,  
+Institute for Simulation of Reactive  
+Thermo-Fluid Systems,  
+Otto-Berndt-Straße 2,  
+Darmstadt 64287, Germany
+Development and Assessment  
+of Dual-Fuel Capabilities  
+in Next-Generation Aero-Engine 
+Injectors for Hydrogen  
+and Liquid Fuels
+Dual-fuel (DF) aero-engines, capable of using hydrogen alongside sustainable aviation fuel 
+(SAF) or kerosene as a fuel, would be a key enabler in the transition to hydrogen operation 
+but have received limited attention in research and development. Therefore, this study 
+explores the potential of retrofitting the kerosene injector in a Rolls-Royce Pearl Rich 
+Quench Lean (RQL) combustor for dual-fuel operation. Adapting the existing injector for the 
+combined use with hydrogen poses a significant challenge due to elevated NOx emissions. To 
+address this, an automated computational fluid dynamics (CFD) workflow is used to optimize 
+the injector geometry for emission performance, enabling rapid evaluation under realistic 
+engine conditions. To explore a broad range of geometry variations, the Reynolds-Averaged 
+Navier–Stokes (RANS) approach is employed for simulations, while large eddy simulations 
+(LES) are performed on selected geometries to validate emission trends. Prior to optimizing 
+the injector, the CFD setup is validated against available measurements for conceptual 
+injector geometries, confirming its capability to accurately predict emission levels. This 
+study demonstrates that dual-fuel capability can be incorporated into an existing 
+combustion system while preserving flame stability and emission levels comparable to 
+standard kerosene injectors. The CFD-based workflow successfully identified optimal 
+geometric features, achieving a reduction of emissions for both fuels during Landing-Take- 
+Off cycle for the proposed injector configuration. Emissions are evaluated in accordance 
+with the International Civil Aviation Organization (ICAO)-prescribed legislation. In the 
+future, the optimized injector will undergo further evaluation through experimental testing 
+to confirm the predicted performance and set the next step toward dual-fuel capable 
+combustion systems. [DOI: 10.1115/1.4069797] 
+Keywords: hydrogen, injection, combustion, dual fuel, emission, optimization 
+1 Introduction
+Hydrogen has gained significant attention as a sustainable fuel for 
+reducing carbon dioxide emissions from aero engines [1,2]. 
+However, the widespread adoption of hydrogen faces significant 
+challenges, including limited availability and infrastructure gaps in 
+many regions. Dual-fuel (DF) capable engines provide a decisive 
+solution for the transition to hydrogen, allowing the seamless 
+integration of hydrogen without sacrificing operational flexibility. 
+Due to hydrogen’s lower volumetric energy density and the added 
+weight of its fuel tanks, long-haul flights are expected to continue 
+relying on liquid fuels such as kerosene and SAFs. In this context, 
+DF engines provide the flexibility to take off with hydrogen and 
+switch to liquid fuels midflight, effectively eliminating soot and CO2 
+emissions during airport residence.
+Research on dual-fuel combustion systems is limited, primarily 
+focusing on reciprocating engines [3], with an emphasis on pollutant 
+emissions and the ignition mechanisms of natural gas–air mixtures. 
+Their potential for gas turbine or aero-engine applications has 
+received little attention [4]. A fundamental study by Vance et al. [5] 
+demonstrates that blending hydrogen with jet fuel improves flame 
+stability and offers the potential to reduce carbon dioxide emissions. 
+However, as an initial step, this study focuses on the single fuel cases 
+of operating with either pure hydrogen or pure kerosene, excluding 
+fuel blend scenarios.
+While hydrogen combustion has the potential to reduce carbon 
+dioxide and particulate emissions, nitrogen oxides (NOx) emissions 
+are a primary concern due to the higher adiabatic flame temperatures 
+and distinct properties of hydrogen as a fuel.
+At equivalent power outputs, systems using conventional fuels 
+can generate significantly lower NOx emissions compared to those 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+Manuscript received July 7, 2025; final manuscript received July 30, 2025; published 
+online November 17, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-1 
+Copyright V
+C 2026 by ASME; reuse license CC-BY 4.0
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 2 ---
+
+burning hydrogen-containing fuels, particularly when rich-quench- 
+lean combustors are utilized. For instance, a numerical study [6] 
+demonstrated that blending hydrogen into natural gas during burner 
+operation results in large increases in NOx emissions. Increasing the 
+hydrogen content in the fuel mixture can lead to a rise in NOx 
+emissions by up to a factor of four. These findings underscore the 
+importance of carefully controlling NOx emissions in hydrogen- 
+based combustion systems.
+Reducing emissions in dual-fuel combustors is particularly 
+challenging due to the need to balance tradeoffs between various 
+pollutants, in particular NOx and soot. For instance, rich combustion 
+with shorter residence times lowers NOx emissions by reducing peak 
+temperatures but increases soot emissions due to incomplete 
+combustion. In contrast, longer residence times promote NOx 
+formation but allow for more complete combustion and reoxidation, 
+thereby reducing particulate emissions like soot. Hence, optimizing 
+the injector’s geometry to create targeted flow patterns and flame 
+structures within the combustor provides an effective method for 
+reducing overall emissions.
+Building on these considerations, current efforts focus on 
+modifying the Pearl 15 engine, designed around the Rich Quench 
+Lean (RQL) concept, to incorporate an injection system compatible 
+with both hydrogen and liquid fuels. This retrofit approach seeks to 
+minimize costs and expedite development. This study aims to 
+advance these developments by adapting a fully automated 
+computational fluid dynamics (CFD) framework to evaluate and 
+optimize fuel injectors for dual operation with hydrogen and 
+kerosene/sustainable aviation fuel, while minimizing emissions.
+The remainder of this work is structured as follows: First, the 
+baseline design for the dual-fuel injector is presented. This is 
+followed by a description of the automated CFD framework and the 
+methodology for optimizing the NOx and soot emissions. It includes 
+the automated meshing process, CFD setup, and a data-driven 
+optimization approach. Following validation of the framework 
+using available experimental data, the optimization results are 
+presented and analyzed. Finally, the conclusions and outlook are 
+given.
+2 Baseline Design for the Dual-Fuel Injector
+Before optimization, a base design of the DF injector, capable of 
+operating with both fuels, is introduced. Based on this initial 
+configuration, parameters are identified that can be optimized under 
+specific constraints to minimize emissions. A schematic of the base 
+injector is provided in Fig. 1. As shown by the arrows, the design 
+features central injection for sustainable aviation fuel/kerosene and 
+hydrogen injection positioned slightly further outward.
+The simulation of the baseline dual-fuel injector operating with 
+kerosene, shown in Fig. 2, provides insight into how the resulting 
+flame stabilizes within the combustor. It presents contour plots of 
+temperature and velocity profiles under full-load conditions. Two 
+distinct combustion zones are observed: a rich zone located 
+upstream of the dilution ports and a lean zone formed downstream 
+of the secondary air injection.
+The velocity and temperature structures observed are highly 
+similar between the standard kerosene injector and the dual-fuel 
+injector operating with kerosene, as the geometry modifications to 
+the kerosene injector are minimal. Achieving a similar flow field and 
+flame topology is essential for hydrogen operation.
+As this work aims to optimize the design for minimal emissions 
+with both fuels, the following outlines a set of geometric and 
+operational constraints, which are also applied to the baseline 
+design, defining the range within which the optimizer can operate.
+2.1 Dimensions of the Injector. The design space for the DF 
+injector is defined by the constraints imposed by the existing Pearl 
+combustor geometry. The available volume determines the maximal 
+geometrical dimensions of the injector, while the required power 
+output at takeoff dictates the required hydrogen mass flow. To 
+ensure consistent turbine inlet temperatures for both hydrogen and 
+kerosene, the air-to-fuel ratio is adjusted, resulting in an air-to-fuel 
+ratio approximately three times higher for hydrogen compared to 
+kerosene. To minimize the impact on kerosene operation, the 
+kerosene passage, and prefilmer retain their standard geometry, 
+while the inner air passage and swirler are resized to allow 
+accommodation of the hydrogen passage.
+2.2 Flame Liftoff. To prevent flame stabilization on the 
+injector tip, maintaining a high axial flow velocity is critical. High 
+shear rates at the injector exit promote local quenching, facilitating a 
+lifted flame. An effective strategy to achieve sufficient inlet velocity 
+is to reduce the swirl in the outer air channel. This minimizes the 
+tangential velocity components and pressure drop, directly contrib­
+uting to higher axial flow velocities. However, reducing the swirl 
+necessitates further design adaptations, as swirl plays a crucial role 
+in stabilizing the primary combustion zone. It enhances fuel-air 
+mixing and generates centrifugal forces, which create a low- 
+pressure region along the centerline. This low-pressure region 
+allows for the recirculation of hot combustion gases, which are 
+essential for maintaining flame stability. In configurations with 
+reduced swirl, stability is ensured through the design of outward- 
+directed air and fuel channels, which create a diverging flow pattern 
+essential for backflow and hot gas recirculation. Therefore, the 
+opening angle must be carefully selected to maintain an open flame 
+for both hydrogen and kerosene operation under reduced swirl 
+conditions.
+2.3 Effective Area. Finally, to maintain the airflow distribution 
+of the combustion system, it is critical to closely match the effective 
+areas of the dual-fuel injector with those of the standard injector. The 
+effective area is defined by the air mass flow through the injector and 
+the pressure drop across it. 
+Aeff ¼
+_m
+ffiffiffiffiffiffiffiffiffiffiffi
+2qDp
+p
+(1)  
+2.4 Geometric Parameters for the Optimization. Building 
+on the previously discussed geometric and operational constraints, a 
+preliminary sensitivity analysis identified three geometric param­
+eters as key factors significantly influencing flow and combustion 
+behavior within the combustion chamber (CC). As illustrated in 
+Fig. 1, the key parameters include Channel Height h of the outer air 
+channel, which determines the air distribution between the primary 
+and secondary combustion zones; Opening Angle a of the outer air 
+channel, which impacts the size of the recirculation zone; and Vane 
+Angle b of the outer swirler, which affects the mixing behavior 
+within the chamber.
+The optimization of the baseline geometry to minimize emissions 
+is restricted to acceptable parameter levels that follow the previously 
+outlined constraints. The considered levels, normalized by their 
+Fig. 1 Schematic of the dual-fuel injector configuration. Air 
+passages are indicated by blue arrows, hydrogen passages by green 
+arrows, and kerosene passages by red arrows. (Color version online.)
+041016-2 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 3 ---
+
+respective maximum simulated values, are shown in Table 1. The 
+values corresponding to the baseline dual fuel injector geometry 
+before optimization are highlighted.
+Bold values indicate the baseline geometry.
+To investigate potential cross-correlational effects between the 
+optimization parameters, a full factorial design of parameter 
+variations is chosen for the study. This design includes all possible 
+combinations of levels across all factors [7], resulting in 100 distinct 
+parameter combinations.
+Investigating a large number of geometries requires a structured 
+and automated optimization approach for the injector design. A 
+manual process for mesh generation across numerous geometries is 
+inefficient and time-intensive, while manual data management 
+challenges productivity and systematization. To address this, an 
+automated workflow is developed to manage mesh generation, CFD 
+simulations, data postprocessing, and optimization with minimal 
+human involvement. The details of this setup are provided in the 
+methodology section.
+3 Computational Fluid Dynamics-Based Optimization 
+Methodology
+The adapted workflow integrates several components: a para­
+meterized CAD geometry defined in Siemens NX, automated mesh 
+generation with ICEM CFD software, CFD simulations with 
+PRECISE-UNS solver, and data-driven postprocessing of the CFD 
+results. Figure 3 provides an overview of the workflow, with each 
+stage detailed in the sections below.
+3.1 Geometry Parameterization and Automated 
+Meshing. The parameterization of the CAD model for the injector 
+and the CC involves defining their design through a set of rules and 
+logical relationships. Instead of setting fixed dimensions, key 
+components of the injector and CC are adjustable with constraints 
+applied for the whole assembly using mathematical equations. 
+These equations govern the relationships between geometric 
+parameters, ensuring design flexibility while maintaining functional 
+consistency. The automated geometry modification is achieved by 
+using Visual Basic Scripting in combination with the expressions 
+functionality of Siemens NX. An interface is established with the 
+meshing software to enable streamlined and automated mesh 
+generation. The meshing process employs the Octree algorithm 
+[8], which initially generates a tetrahedral mesh for the entire 
+computational domain. Subsequently, tetrahedral cells are selec­
+tively merged into hexahedral cells, producing a hex-dominant 
+mesh. This method proves to be both computationally efficient and 
+robust, significantly reducing the need for user intervention while 
+maintaining a good mesh quality throughout the process. The 
+resulting meshes comprise approximately 25  106 cells, with 
+refinement applied in high-shear regions to accurately capture 
+critical flow features, as determined through mesh independence 
+studies. The mesh refinement regions are defined using the mesh 
+density feature in ICEM CFD, with positioning of the refined mesh 
+regions dynamically linked to the applied geometrical modifica­
+tions. The required level of refinement was determined through 
+testing progressively finer meshes, with results being considered 
+mesh-independent when changes in key output emission metrics 
+were negligibly small (less than 1%).
+3.2 Computational Fluid Dynamics Simulations and Emis­
+sions Data Collection. The simulations in this study are conducted 
+using the PRECISE-UNS CFD solver developed by Rolls-Royce 
+[9]. To minimize computational cost, the Reynolds-Averaged 
+Navier–Stokes (RANS) approach is employed, where all turbulent 
+structures are modeled, reducing the required grid resolution. The 
+k– realizable model is used for turbulence modeling [10].
+The combustion process is modeled using a tabulated chemistry 
+approach, which employs precomputed one-dimensional flamelets 
+stored in a lookup table to determine thermo-chemical states during 
+the simulation [11]. For kerosene, the progress variable is defined as 
+a linear combination of the mass fractions of CO2, H2, and H2O, 
+whereas for hydrogen, it is represented by the mass fraction of H2O. 
+Flamelet calculations for the table generation are performed using 
+CHEM1D [12] with a mixture-averaged transport model and an 
+n-Dodecane reaction mechanism. The same reaction mechanism is 
+used for both hydrogen and kerosene to facilitate a direct NOx 
+comparison. A comparison done in Ref. [5] shows that there is a good 
+agreement between the hydrogen-specific mechanisms and the n- 
+Dodecane mechanism for the predicted laminar burning velocities.
+A presumed probability density function approach is used for 
+turbulence-chemistry interaction modeling [13]. The subgrid-scale 
+distribution is modeled using a beta distribution for the mixture 
+fraction and a tri-delta distribution for the progress variable [14]. This 
+results in a four-dimensional chemistry lookup table, comprising the 
+mixture fraction, progress variable, and their respective variances.
+The CFD simulations are conducted for a single sector of the 
+combustion chamber using boundary conditions that reflect realistic 
+operating conditions for the dual-fuel system. The main focus of this 
+study is Idle and Take-off like conditions. To model the single 
+sector, rotational cyclic boundary conditions are applied at the sector 
+interfaces. The turbulent kinetic energy at the inlet is initialized 
+based on values obtained from a compressor simulation, ensuring a 
+realistic turbulence level in the flow. The evolution of the fuel spray 
+for kerosene is modeled using a Lagrangian particle tracking 
+approach [15]. Droplets are introduced at specified injection points, 
+with their sizes determined based on a Rosin–Rammler distribution 
+characterized by defined statistical parameters. A steady-state 
+evaporation model is employed to simulate the droplet behavior. 
+The resulting spray pattern is assumed to represent the distribution 
+following the atomization process [14]. The statistical spray 
+characteristics in the simulations are derived from those of the 
+standard kerosene injector, as the prefilmer geometry remains 
+unchanged in the dual-fuel configuration.
+NOx emission are calculated solving an additional transport 
+equation, with source terms extracted from the chemistry table [16]. 
+The soot model used in this study is the modified two-equation 
+model based on the framework developed by Wen et al. [17]. This 
+Fig. 2 Velocity and temperature contours for the baseline DF 
+injector during kerosene operation and for the standard kerosene 
+injector at full-load conditions. The contours represent a planar 
+slice through the center of the domain.
+Table 1 Levels of normalized design parameters 
+Opening angle
+Air channel height
+Swirler angle
+anorm
+hnorm
+bnorm
+0.64, 0.73, 0.82, 0.90, 1
+0.17, 0.33, 0.53, 0.67, 1
+0, 0.6, 1
+Bold values indicate the baseline geometry.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 4 ---
+
+approach involves solving two transport equations: one for the soot 
+mass fraction and another for the soot number density.
+Emission metrics in form of integrated NOx and soot massflows at 
+the combustor exit, are gathered from each simulation run. This 
+emissions data is stored along with corresponding injector geometry 
+parameters, establishing a structured dataset for the optimization 
+process.
+The pressure drop and air mass flow through the injector, 
+necessary for calculating the effective area, are determined via CFD 
+simulations. Consequently, certain preselected parameter levels are 
+excluded from the optimization space if the simulations reveal that 
+the effective area requirement is not met.
+3.3 Surrogate Modeling With Gaussian Process 
+Regression. In the subsequent stage, a fit using a Gaussian Process 
+Regression algorithm [18] is performed to the optimization dataset 
+obtained from the CFD simulations to create a continuous model 
+enabling the estimation of emissions for any new configuration 
+within the defined parameter bounds.
+A Gaussian Process is a probabilistic model used to describe an 
+unknown function fðxÞ by assuming that any finite set of function 
+values follows a multivariate Gaussian distribution. The model is 
+defined as 
+fðxÞ  GPðmðxÞ, kðx, x0ÞÞ
+(2)  
+where mðxÞ is the mean function and kðx, x0Þ is the kernel function. 
+The kernel is a combination of a radial basis function and a constant 
+kernel: 
+k x, x0
+ð
+Þ ¼ r2
+f exp −k x −x0k2
+2‘2
+
+
+þ r2
+n
+(3)  
+where r2
+f is the data variance, ‘ is the length scale, and r2
+n is the noise 
+variance. The length scale ‘ represents the characteristic distance in 
+the input space over which the function values (NOx or soot mass- 
+flows) notably change. This distance captures how sensitive the 
+output (emission mass flows) is to variations in the input features 
+(geometrical parameters). This approach allows fitting the data 
+points without requiring a predefined fitting function.
+A separate Gaussian Process Regression model is trained for each 
+operational condition, fuel type, and emission type on correspond­
+ing subset of the collected data, resulting in six submodels. The 
+submodel outputs are integrated into a full surrogate model using an 
+objective function, which summarizes emission levels across fuel 
+types and operational conditions, allowing for overall emission 
+minimization.
+3.4 Objective Function and Optimization. The objective 
+function is based on the emission legislation for the Landing and 
+Takeoff cycle prescribed by International Civil Aviation Organiza­
+tion (ICAO) [19]. According to the legislation, operating modes are 
+weighted by corresponding time coefficients tj: 26 min for idling and 
+42 s for takeoff. The equation for the objective function is further 
+extended by incorporating the probabilities of fuel usage under a 
+certain operating mode PU, j and a weighting coefficient Wi, j for the 
+emission massflow _Mi,j, allowing prioritization of optimization for 
+soot or NOx emissions. 
+E x
+ð Þ ¼
+X
+2
+i¼1
+X
+2
+j¼1
+tj Wi,j _Mi,jðxÞ
+ 
+PU,j
+(4)  
+Bayesian optimization is used to find the input parameters x ¼
+½a, b, h that minimize the total emissions EðxÞ.
+The resulting integrated workflow is capable to identify optimal 
+geometry with reduced NOx and soot emissions across different 
+usage scenarios. The schematics of the workflow is summarized in 
+Fig. 3.
+4 Results and Discussion
+The results of the comprehensive CFD study are presented next. 
+Prior to delving into the details of the optimization study, the CFD 
+setup is validated against available experimental data.
+4.1 Validation of the Computational Fluid Dynamics 
+Setup. In a preliminary investigation to evaluate the feasibility of 
+hydrogen operation, various hydrogen injector geometries with 
+distinct topologies were tested in a full-annular rig featuring the 
+Pearl700 combustor at the German Aerospace Center (DLR) HBK5 
+test facility in Cologne, Germany [20].
+The tests encompassed full range of operating conditions, 
+including idle, approach, climb, and takeoff.
+Although these experimental data were collected using injectors 
+different from those studied here, they provide a suitable dataset for 
+validating the CFD setup, ensuring its reliability in accurately 
+predicting emission trends based on injector geometry and operating 
+conditions. The comparison between experimental and numerical 
+NOx predictions are presented in Fig. 4. Geometry 1 is similar to the 
+hydrogen injector configuration used in the present study, but 
+without the centrally integrated kerosene injector. Geometry 2 
+features central hydrogen injection, while geometries 3 and 4 
+incorporate discrete jet-based hydrogen injection with different jet 
+distribution. A more detailed description of the test rig, tested 
+geometries, and measurement approach can be found in Ref. [20].
+The CFD simulations show a consistent ranking of the geometries 
+compared to the experimental measurements.
+The discrepancy observed under full-load conditions—where 
+CFD predicts Geometry 1 to underperform relative to Geometry 3, 
+whereas measurements suggest the opposite—can be attributed to 
+the small absolute difference between their NOx levels. Given the 
+measurement uncertainties, the ranking remains in good qualitative 
+agreement with the CFD results, indicating that CFD effectively 
+Fig. 3 Automated optimization workflow 
+041016-4 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 5 ---
+
+captures the impact of injector geometry and operating conditions 
+on emission level trends.
+To further evaluate the CFD setup, Large Eddy Simulations 
+(LES) are conducted for the full-load hydrogen operating case, 
+focusing on air channel height variations of the baseline dual-fuel 
+injector geometry. To model unresolved subgrid scales in LES, the 
+Sigma model is used [21], which relates the SGS stresses to the 
+singular values of the resolved velocity gradient tensor. A 3D 
+velocity profile, obtained from a compressor simulation, is used in 
+LES as a boundary condition for the inlet air to introduce a realistic 
+level of turbulence into the flow.
+Figure 5 presents a comparison, showing that the LES simulation 
+predicts higher absolute NOx emission levels. This is attributed to 
+the high temporal dynamics of the resolved scales, which reveal a 
+more intense mixing field with fuel-rich pockets and high- 
+temperature regions at stoichiometry, promoting NOx formation. 
+Although this behavior can theoretically be captured with an 
+accurately predicted subgrid probability density function shape, the 
+complex mixing and flow patterns pose a significant challenge for 
+presumed probability density function models. Despite these 
+challenges, the consistent trends observed between RANS and 
+LES simulations confirm the RANS approach’s capability to 
+reliably predict overall emission trends.
+For simulations of kerosene combustion, the computational setup 
+used in the optimization process corresponds to the methodology 
+outlined in Ref. [14]. A thorough validation of this CFD framework, 
+including comparisons with LES and experimental results for a 
+generic combustion chamber, is presented in Ref. [14].
+4.2 Sensitivity Analysis Findings. Using the previously vali­
+dated setup, the simulations of the parametric variations presented in 
+Table 1 are performed. The results of the sensitivity analysis for 
+single-parameter variations are presented in Fig. 6. For each 
+geometrical group, only one parameter of the baseline geometry is 
+varied at a time.
+The emission indices for soot and NOx are normalized by the 
+corresponding EI value of the baseline geometry for each pollutant. 
+The analysis reveals the tradeoffs among different emission types, 
+fuels, and operating conditions. The distinct combustion character­
+istics of hydrogen and kerosene are reflected in opposing trends and 
+differing slopes for the predicted NOx curves. Kerosene operation 
+reveals a clear tradeoff between reducing soot and minimizing NOx 
+emissions. Conflicting trends are also observed under different 
+operating conditions, showing that designs optimized for a specific 
+operating point are likely to deliver suboptimal performance under 
+alternative conditions.
+Hydrogen combustion emissions exhibit a higher sensitivity to 
+geometric modifications, with potential emission reductions of up to 
+20% under idle conditions and 8% under full-load conditions. This is 
+primarily attributed to the significantly elevated adiabatic flame 
+temperatures associated with hydrogen combustion. Since NOx 
+formation is highly temperature-dependent, even small variations in 
+the temperature field, given these elevated adiabatic temperatures, 
+can lead to pronounced changes in NOx emissions. Figure 7 presents 
+normalized temperature profiles, averaged over the radial cross 
+section of the combustion chamber, plotted against the normalized 
+distance from the injection point for the variations of the opening 
+angle. The temperature normalization is based on the maximum 
+radial cross section averaged temperature observed during hydrogen 
+operation. Figure 7 shows considerably higher temperatures within 
+the primary combustion zone for hydrogen operation.
+During kerosene operation, fluctuations in soot emissions are 
+more pronounced than variations in NOx mass flow. This is 
+primarily due to the strong dependence of soot formation on the local 
+gas-phase composition. Even minor changes in fuel-air mixing can 
+lead to significant response in terms of soot production, as soot 
+formation exhibits a nonlinear increase with richer fuel mixtures. 
+Unlike NOx, which is primarily governed by thermal conditions and 
+residence time, soot formation is highly dependent on mixing 
+dynamics and the presence of hydrocarbon-rich regions that 
+promote the formation of soot precursors.
+Among the parameters tested, the outer air channel swirl has the 
+least impact on emissions. This limited influence can be attributed to 
+the dominant effect of the swirler in the central air channel. In the 
+following discussion, the results of the opening angle variation and 
+air channel height variation are examined in more detail to analyze 
+the underlying physics of the observed emission fluctuations. The 
+effects of swirl are omitted for brevity.
+4.3 Effects of the Variation in the Injection Angle 
+anorm. Figures 8(a) and 8(b) depict the temperature field’s 
+dependence on the opening angle for hydrogen and kerosene, 
+respectively. The depicted temperature fields represent planar slices 
+through the center of the domain. The white line represents the 
+isoline of the stoichiometric equivalence ratio for each fuel. 
+Analyzing the mixing behavior and resulting temperature profiles 
+indicates that the observed trends are heavily influenced by the 
+mixing processes within the combustion chamber.
+Below the temperature contour plots in Figs. 8(a) and 8(b), bar 
+charts illustrate the equivalence ratio distributions within the flame 
+region, conditioned by elevated heat release rates, showing the 
+proportions of lean, stoichiometric, and rich mixtures in the primary 
+zone (PZ), secondary zone (SZ), and the entire combustor. 
+Additionally, the averaged equivalence ratio are given for each 
+zone, providing a quantitative assessment of the mixing and 
+combustion behavior for both fuels. The dashed red line marks the 
+stoichiometric equivalence ratio.
+Fig. 4 Comparison of measured EI NOx values with CFD- 
+predicted EI NOx for conceptual dual-fuel geometries across the 
+full range of operating conditions
+Fig. 5 Comparison of NOx emission trends predicted by LES and 
+RANS for a series of geometries with varying air channel heights 
+during hydrogen operation. Normalization is performed using the 
+corresponding values for the baseline geometry.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 6 ---
+
+As shown in Fig. 8(a) the distributions indicate that for hydrogen 
+reaction predominantly occurs under lean conditions in both the 
+primary and secondary zones. Overall, a bimodal behavior is 
+observed, with peaks around equivalence ratios closer to stoichio­
+metric /  0:86 and at lean conditions around /  0:36. The 
+primary combustion zone (PZ), characterized by elevated temper­
+atures, is the predominant region for NO formation. However, to 
+fully account for the observed NOx trends, contributions from both 
+the primary and secondary combustion zones must be considered.
+As the injection angle increases, the recirculation zone in the 
+primary combustion region expands, and the proportion of near- 
+stoichiometric equivalence ratios increases, leading to a rise in the 
+mean temperature within this zone, as illustrated in Fig. 7. 
+Simultaneously, combustion occurs over a larger volume, enhanc­
+ing hydrogen consumption in the primary zone and resulting in a 
+leaner secondary combustion zone. The overall trend for NOx 
+emissions shows an increase for normalized opening angles (anorm) 
+ranging from 0.64 to 0.82 due to the rising temperature in the 
+primary zone. At anorm ¼ 0.9, a local minimum in NOx emissions is 
+observed, as the higher production of NOx in the primary zone is 
+partially counterbalanced by the reduced emissions in the secondary 
+zone.
+At the maximum injection angle, the radial velocity component 
+becomes dominant, resulting in the formation of two distinct flame 
+branches along the walls and an increased proportion of near- 
+stoichiometric conditions, as evident in the contour plot for the 
+maximum value anorm ¼ 1. Consequently, this shift in local 
+equivalence ratios significantly amplifies overall NOx emissions.
+For kerosene operation, shown in Fig. 8(b), the combustion 
+process follows the RQL principle. Increasing the injection angle 
+enhances mixing and results in a reduction in the fraction of highly 
+rich equivalence ratios. Specifically, the peak at an equivalence ratio 
+of /  2:5 disappears in the distribution, with the equivalence ratio 
+shifting closer to stoichiometry from the rich side. As a result, the 
+temperature in the primary zone increases, similar to hydrogen 
+operation, a trend that is also clearly reflected in Fig. 7. 
+Simultaneously, the secondary zone becomes leaner and cooler. 
+Figure 7 illustrates that, for kerosene operation, unlike for hydrogen, 
+temperature levels in the primary and secondary zones are 
+comparable. This observation suggests that both zones contribute 
+comparably to the overall NOx production, particularly when 
+considering the extended length of the combustor beyond the 
+dilution ports, which amplifies the influence of the secondary zone. 
+The overall trend in NOx emissions for injection angle variation for 
+kerosene shows a decrease, as demonstrated in Fig. 6. This is due to 
+the pronounced decrease in NOx formation in the secondary zone 
+outweighing the increase observed in the primary zone.
+Another crucial aspect to consider is soot formation. As illustrated 
+in Fig. 9, the reduced momentum—and consequently, the lower 
+shear and turbulence levels—significantly affect local mixing, as 
+reflected by the increased variance in the mixture fraction. This 
+heightened variance suggests a greater likelihood of forming fuel- 
+rich pockets near the injector, which accounts for the substantial 
+increase in soot production.
+4.4 Effects of the Variation in the Air Channel Height 
+hnorm. The variation in air channel height influences the air split 
+between the primary and secondary airflows while maintaining a 
+constant total airflow rate into the combustion chamber. Figures 10
+and 11 present normalized temperature fields and NOx source terms 
+for different air channel heights, with temperature fields shown as 
+planar slices through the central axis of the domain. The white line 
+represents the isoline of the stoichiometric equivalence ratio for 
+each fuel.
+For the smallest air channel height, for kerosene operation, NOx 
+formation is highly localized. Defined regions of NOx formation can 
+be observed in the secondary zone, where, during the quenching 
+Fig. 6 Sensitivity of emissions to parametrical adaptations for full load (TOP) and idle (BOTTOM) operating 
+conditions. NOx EI shown in orange, soot EI in blue color. Normalization is performed using the corresponding 
+values for the baseline geometry. (Color version online.)
+Fig. 7 Normalized temperature averaged across the radial cross 
+section of the combustion chamber as a function of distance from 
+the injection point for the opening angle variation. Normalization 
+done with the maximum temperature during hydrogen operation.
+041016-6 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 7 ---
+
+process, the stoichiometric mixture fraction is reached due to 
+insufficient mixing rates in the primary zone and a larger amount of 
+unconsumed fuel being transported downstream.
+As the air channel height increases, enhanced mixing occurs due 
+to the larger introduced momentum and air mass, leading to a 
+broader and more gradual reaction zone where combustion 
+progresses at lower average temperatures. Although NOx formation 
+is distributed over a larger volume within both the primary and 
+secondary combustion zones, an overall reduction in NOx emissions 
+is observed as shown in Fig. 6. This can be attributed to the slower 
+NOx formation kinetics by decreased temperature, which mitigates 
+the impact of the extended zone of formation.
+Nearly complete fuel consumption within the primary zone at the 
+maximal value of the air channel height hnorm ¼ 1 is effectively 
+Fig. 8 Influence of the outflow angle anorm on temperature field and equivalence ratio within flame regions conditioned by 
+elevated heat release rates. Analyzes done under full-load operating condition in the primary zone (PZ), secondary zone (SZ), and 
+the entire combustion chamber (full). (Color version online.)
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 8 ---
+
+suppressing NO reduction through hydrocarbon radicals in the 
+secondary zone. In the numerical simulations, this is reflected in low 
+NOx destruction rates after the dilution ports. Consequently, for the 
+largest air channel height (hnorm ¼ 1), NOx emissions increase 
+significantly, as NOx formed in the primary zone is no longer 
+mitigated by subsequent reduction mechanisms.
+Hydrogen combustion, shown in Fig. 11, is characterized by more 
+distributed NOx production due to its higher diffusivity, which 
+promotes enhanced mixing. The effect of varying the air channel 
+height closely resembles that observed with kerosene. As the airflow 
+in the primary combustion zone increases, the mean temperature 
+decreases in both the primary and secondary combustion zones. In 
+the primary zone, this reduction is due to leaner fuel-air mixtures and 
+intensified mixing caused by the increased momentum of the 
+injected air. In the secondary zone, the temperature drop is a result of 
+increased fuel consumption in the primary zone, leading to leaner 
+mixtures downstream of the dilution ports, as well as improved 
+homogenization of the mixture and temperature fields.
+In summary, the implemented geometric modifications result in 
+physically consistent changes in pollutant formation, validating the 
+model’s suitability and enabling the full factorial parameter 
+variation to construct a surrogate model based on these data.
+4.5 Full Factorial Parameter Variation and Response 
+Surface. Figure 12 presents the results of the full factorial 
+parameter variation performed under full-load operating conditions. 
+The dataset for idle operating conditions is not shown for the sake of 
+brevity. The analysis includes 60 geometries out of the initially 
+considered 100 geometries that are found to meet the constraints on 
+effective area and axial velocity outlined in the section on the 
+baseline geometry. The design space is constrained to a maximum 
+normalized outer air channel height of 0.67, as higher values exceed 
+the allowable injector effective area. The swirler vane angle is 
+restricted to a maximum scaled value of 0.76 to prevent excessive 
+tangential velocity components. Emission index values have been 
+normalized by the highest value observed for a given emission type 
+and operational load across all geometries. Consistent with the data 
+representation in Fig. 6, the kerosene results are shown as dots, while 
+hydrogen results are represented by triangles.
+This analysis illustrates interaction effects of combined geomet­
+rical modification and provides a comprehensive overview of the 
+design space. Distinct trends are evident for each geometrical 
+parameter variation, with the air channel height—which influencing 
+the air mass injected into the primary zone—emerging as a 
+particularly significant factor. While key trends from the sensitivity 
+analysis are generally replicated in the full factorial numerical 
+experiment, certain specific effects are not captured. This suggests 
+that optimization based solely on One Factor at a Time tests may 
+lead to the selection of a local minimum rather than an overall 
+optimal geometry. Notably, increasing the air mass introduced into 
+the primary zone (normalized air channel height values between 
+0.33 and 0.53) consistently reduced emissions for both fuels. 
+Furthermore, adjustments to swirl levels reduced the impact of other 
+parameters, as demonstrated by smaller emission level variations in 
+high-swirl cases. The resulting dataset from the full factorial study 
+both for full load and idle operating conditions is utilized for model 
+training. The complete surrogate model, developed using the 
+obtained data and the previously described approach, is presented 
+in Fig. 13. It represents a function that links the combined emission 
+levels, calculated in accordance with ICAO legislation, to the 
+geometric adaptations. Equal weights are assigned to the optimiza­
+tion for hydrogen and soot emissions, with equal probabilities of 
+usage considered for both fuels under both operating conditions.
+For validation of the surrogate predictions, a test is performed on a 
+geometry that is not involved in the fitting process. The results, 
+shown in Fig. 14, compare the EI predicted by the fitted model to the 
+CFD output, along with the uncertainty intervals. The predicted soot 
+emission index shows slightly higher values for both operating 
+conditions but remains in good agreement with the CFD results.
+Fig. 9 Influence of the outflow angle anorm on variance of the mixture fraction under full-load operating condition for kerosene. 
+Normalized opening angle values form left to the right are 0.64, 0.73, 0.82, 0.9, 1.
+Fig. 10 Influence of the air channel height hnorm on temperature field and NOx formation zones under full-load operating 
+condition for kerosene
+041016-8 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 9 ---
+
+The optimization results recommend selecting the largest outer 
+air channel variant within the design space, a shallow injection 
+angle, and low swirl for the outer air channel.
+Table 2 provides an overview of emission levels predicted by 
+CFD and, where available, obtained from measurements. All 
+emissions are expressed as percentages relative to the standard 
+kerosene injector’s values. The comparison includes four injector 
+configurations: the standard kerosene injector, the baseline DF 
+injector, the optimized DF injector, and Geometry 1—a hydrogen- 
+only injector with an identical topology to the hydrogen injection 
+system of the DF injector. Geometry 1 corresponds to the dual-fuel 
+injector with the kerosene channel omitted and is characterized by 
+normalized parameters: anorm ¼ 0:64, bnorm ¼ 0, and hnorm ¼ 0:2.
+The optimized dual-fuel injector achieves reduced emission mass 
+flows across all considered emission types and operational 
+conditions compared to the baseline design, with the sole exception 
+of NOx emissions during kerosene operation at full load. This 
+exception results from an unavoidable tradeoff between conflicting 
+optimization objectives.
+Experimental measurements for Geometry 1 indicate that hydro­
+gen operation results in NOx emissions that are 20% higher under 
+full-load conditions and 46% higher under idle conditions compared 
+to kerosene operation with the standard kerosene injector at the same 
+combustor exit temperature. However, given that the combined NOx 
+emissions for the standard kerosene injector remain well below the 
+maximum ICAO-prescribed limits—and considering the complete 
+Fig. 11 Influence of the air channel height hnorm on temperature field and NOx formation zones under full-load operating 
+condition for hydrogen
+Fig. 12 Results of a full factorial parameter variation under full-load operating conditions. Mean trend shown with dashed 
+red line. Normalization is performed using the corresponding values for the baseline geometry. (Color version online.)
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 10 ---
+
+elimination of CO and soot emissions during hydrogen operation— 
+Geometry 1, even before optimization, remained within regulatory 
+compliance.
+Following the optimization of the dual-fuel injector NOx 
+emissions were reduced to levels even lower than those of Geometry 
+1 for hydrogen operation, as demonstrated by CFD results. 
+Additionally, soot emissions during kerosene operation were further 
+reduced, achieving levels lower than those of the standard kerosene 
+injector.
+These results clearly showcase the potential of designing a dual- 
+fuel injector that, after geometric optimization, can match or even 
+surpass the performance of established single-fuel injectors. This is 
+an exciting development, as it paves the way for retrofitting existing 
+architectures to support dual-fuel operation, enabling a faster 
+transition to low- and zero-CO2 emission aviation.
+5 Conclusion
+The pressing demand for fuel infrastructure-independent aero 
+engines, facilitating a swift transition to a hydrogen-based aviation 
+economy, motivated the evaluation of dual-fuel capable injectors in 
+this study.
+An automated optimization workflow for a DF injector has been 
+developed, integrating a parameterized CAD model with a RANS 
+CFD setup coupled to tabulated chemistry and state-of-the-art 
+emission models. The CFD framework has been successfully 
+validated against experimental and LES data, demonstrating a 
+general overprediction of NOx emissions, while maintaining 
+consistency with experimental trends. This workflow has enabled 
+efficient injector optimization with a focus on minimizing 
+emissions.
+An evaluation of 60 geometries has indicated that all tested 
+designs comply with current legislative limits. The analysis has 
+revealed a significant sensitivity of NOx emissions to injector 
+geometry during hydrogen operation, with an optimization potential 
+of up to 20%. Emissions are strongly influenced by the mixing 
+behavior within the combustion chamber. While hydrogen operation 
+has resulted in higher absolute NOx emissions compared to 
+kerosene, these increases can be partially mitigated through 
+geometric optimization.
+This work demonstrates that retrofitting a dual-fuel injector into 
+an existing combustion chamber, combined with a systematic 
+optimization approach, can effectively achieve NOx emission 
+standards mandated by legislation for both hydrogen and kerosene.
+A comprehensive investigation of the spray behavior will be 
+conducted as part of future work to validate the assumption that it 
+remains identical to that of a standard kerosene injector. This 
+analysis will involve high-fidelity numerical simulations using the 
+Volume of Fluid method to evaluate key parameters such as droplet 
+size distribution, velocity profiles, and atomization dynamics.
+Additionally, future work will focus on manufacturing and testing 
+of the proposed injector, as well as further examining the emission 
+characteristics during blended-fuel operation, as well as during fuel 
+switching scenarios.
+Acknowledgment
+The authors gratefully acknowledge the computing time provided 
+to them on the high-performance computer Lichtenberg II at the 
+Fig. 13 Visualization of the objective function with equal 
+probabilities of kerosene and hydrogen usage, and equal 
+weighting assigned to soot and NOx optimization
+Fig. 14 Comparison of the surrogate Emission Index (EI) 
+predictions for a test geometry (anorm 5 0.9, bnorm 5 0.3, 
+h 5 0.33). Normalization with respect to the corresponding EI 
+values for the baseline geometry.
+Table 2 Comparison of CFD and measured (Mes) emission values for baseline DF geometry, optimized DF geometry, and concept 
+Geometry 1 under full load (FL) and idle conditions to standard kerosene injector 
+Injector (anorm, bnorm, h)
+OP
+CFD Soot: Ker
+CFD NOx: Ker
+CFD NOx: H2
+Mes NOx: Ker
+Mes NOx: H2
+Standard Ker
+FL (%)
+100
+100
+—
+52.9
+—
+(-, -, -)
+Idle (%)
+100
+100
+—
+66.9
+—
+Baseline DF
+FL (%)
+142
+106
+87.2
+—
+—
+(0.9, 0, 0.33)
+Idle (%)
+96.3
+119
+155
+—
+—
+Optimized DF
+FL (%)
+97.8
+114
+83.9
+—
+—
+(0.64, 0.4, 0.67)
+Idle (%)
+80.1
+116
+131
+—
+—
+Geometry 1
+FL (%)
+—
+—
+88.8
+—
+63.4
+(0.64, 0, 0.2)
+Idle (%)
+—
+—
+134
+—
+98
+041016-10 / Vol. 148, APRIL 2026                                                                                                           
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025
+
+
+--- Page 11 ---
+
+NHR Centers NHR4CES at TU Darmstadt and financial support 
+from CAVENDISH (Consortium for the AdVent of aero-Engine 
+Demonstration and aircraft Integration Strategy with Hydrogen), 
+Grant Agreement No. 101102000, EU/HORIZON-JU-Clean-Avia­
+tion-2022-01.
+Funding Data
+ Consortium for the AdVent of aero-Engine Demonstration and 
+aircraft Integration Strategy with Hydrogen (Grant Agreement 
+No. 101102000, EU/HORIZON-JU-Clean-Aviation-2022- 
+01).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+References
+0[1] International Energy Agency (IEA), 2024, “Global Hydrogen Review 2024,” IEA, 
+Paris, accessed June 12, 2024, https://www.iea.org/reports/global-hydrogen- 
+review-2024
+0[2] Baroutaji, A., Wilberforce, T., Ramadan, M., and Olabi, A. G., 2019, 
+“Comprehensive Investigation on Hydrogen and Fuel Cell Technology in the 
+Aviation and Aerospace Sectors,” Renewable Sustainable Energy Rev., 106, 
+pp. 31–40.
+0[3] Chintala, V., and Subramanian, K., 2017, “A Comprehensive Review on 
+Utilization of Hydrogen in a Compression Ignition Engine Under Dual Fuel 
+Mode,” Renewable Sustainable Energy Rev., 70, pp. 472–491.
+0[4] Sidey, J., and Mastorakos, E., 2017, “Visualisation of Turbulent Swirling Dual- 
+Fuel Flames,” Proc. Combust. Inst., 36(2), pp. 1721–1727.
+0[5] Vance, F. H., Nicolai, H., and Hasse, C., 2024, “A Numerical Investigation Into the 
+Stabilization of Hydrogen Enriched n-Dodecane Premixed Flames,” Int. J. 
+Hydrogen Energy, 56, pp. 611–620.
+0[6] Cellek, M. S., and Pınarbas¸ı, A., 2018, “Investigations on Performance and 
+Emission Characteristics of an Industrial Low Swirl Burner While Burning 
+Natural Gas, Methane, Hydrogen-Enriched Natural Gas and Hydrogen as Fuels,” 
+Int. J. Hydrogen Energy, 43(2), pp. 1194–1207.
+0[7] Jankovic, A., Chaudhary, G., and Goia, F., 2021, “Designing the Design of 
+Experiments (DOE) – An Investigation on the Influence of Different Factorial 
+Designs on the Characterization of Complex Systems,” Energy Build., 250, 
+p. 111298.
+0[8] Schneiders, R., 2000, “Octree-Based Hexahedral Mesh Generation,” Int. J. 
+Comput. Geom. Appl., 10(4), 383–398.
+0[9] Anand, M. S., Eggels, R., Staufer, M., Zedda, M., and Zhu, J., 2014, “An Advanced 
+Unstructured-Grid Finite Volume Design System for Gas Turbine Combustion 
+Analysis,” ASME Paper No. GTINDIA2013-3537.
+[10] Shih, T.-H., Liou, W. W., Shabbir, A., Yang, Z., and Zhu, J., 1995, “A New k-e 
+Eddy Viscosity Model for High Reynolds Number Turbulent Flows,” Comput. 
+Fluids, 24(3), pp. 227–238.
+[11] van Oijen, J. A., and de Goey, L. P., 2000, “Modelling of Premixed Laminar 
+Flames Using Flamelet-Generated Manifolds,” Combust. Sci. Technol., 161(1), 
+pp. 113–137.
+[12] Hermanns, R., 2001, “CHEM1D, A One-Dimensional Laminar Flame Code,” 
+Eindhoven University of Technology, Eindhoven, The Netherlands.
+[13] Guo, Z., Zhang, H., Chan, C., and Lin, W., 2003, “Presumed Joint 
+Probability Density Function Model for Turbulent Combustion,” Fuel, 82(9), 
+pp. 1091–1101.
+[14] Eggels, R. L. G. M., 2018, “The Application of Combustion LES Within Industry,” 
+Direct and Large-Eddy Simulation X, D. G. Grigoriadis, B. J. Geurts, H. Kuerten, 
+J. Fr€ohlich, and V. Armenio, eds., Springer International Publishing, Cham, 
+Switzerland, pp. 3–13.
+[15] Cha, C., Zhu, J., Rizk, N., and Anand, M., 2005, “A Comprehensive Liquid Fuel 
+Injection Model for CFD Simulations of Gas Turbine Combustors,” 43rd AIAA 
+Aerospace Sciences Meeting and Exhibit, Reno, NV, Jan. 10–13, pp. 1–17.
+[16] Ihme, M., and Pitsch, H., 2008, “Modeling of Radiation and Nitric Oxide 
+Formation in Turbulent Nonpremixed Flames Using a Flamelet/Progress Variable 
+Formulation,” Phys. Fluids, 20(5), p. 055110.
+[17] Wen, Z., Yun, S., Thomson, M., and Lightstone, M., 2003, “Modeling Soot 
+Formation in Turbulent Kerosene/Air Jet Diffusion Flames,” Combust. Flame, 
+135(3), pp. 323–340.
+[18] Martins, J. R. R. A., and Ning, A., 2021, Engineering Design Optimization, 
+Cambridge University Press, Cambridge, UK.
+[19] ICAO, 2023, ICAO Standards and Recommended Practices: Annex 16, Volume II, 
+International Civil Aviation Organization (ICAO), Montreal, Canada.
+[20] Clemen, C., Ravikanti, M., La Bianca, N., Eggels, R., Wurm, B., and Y., and K., 
+2024, “Considerations for Hydrogen Fueled Aerospace Gas Turbine Combustion 
+Sub-System Design,” ASME Paper No. GT2024-122593.
+[21] Toda, H., Cabrit, O., Balarac, G., Bose, S., Lee, J., Choi, H., and Franck, N., 2010, 
+“A Subgrid-Scale Model Based on Singular Values for LES in Complex 
+Geometries,” Proceedings of the Summer Program, Center for Turbulence 
+Research, Standford University, Stanford, CA, pp. 1–10.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041016-11 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041016/7538124/gtp-25-1299.pdf by guest on 31 December 2025

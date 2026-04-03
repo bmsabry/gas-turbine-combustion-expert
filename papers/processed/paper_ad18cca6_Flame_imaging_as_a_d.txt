@@ -1,0 +1,1516 @@
+
+--- Page 1 ---
+
+Combustion and Flame 155 (2008) 509–528
+www.elsevier.com/locate/combustﬂame
+Flame imaging as a diagnostic tool for industrial
+combustion
+R. Hernández, J. Ballester ∗
+Fluid Mechanics Group/LITEC, Centro Politécnico Superior, CSIC-University of Zaragoza, María de Luna, 3,
+E-50018 Zaragoza, Spain
+Received 21 December 2007; received in revised form 8 April 2008; accepted 24 June 2008
+Abstract
+Different approaches for condition monitoring of combustion systems based on the capture and processing of
+ﬂame images are presented and discussed. The objective is to devise methods capable of converting geometrical
+and luminous data into reliable information on the state of practical combustion systems. Suitable processing
+methods are needed to extract representative information from ﬂame images, as they contain large amounts of data
+whose physical interpretation is not, in general, straightforward. A thorough experimental programme has been
+conducted in a model industrial burner, in order to create a database of ﬂame images for subsequent analysis. One
+of the options is the extraction and analysis of representative image features; even though the parametric studies
+revealed good sensitivity to changes in combustion regimes, this approach may entail some information loss and
+requires adaptation to the speciﬁc system. The other two methods explored are designed as ﬂame identiﬁcation
+techniques based on the whole image. One of them use self-organising feature maps and yields as output the
+most probable combustion regime, among those previously characterised. The other one is an adaptation of a
+speech recognition method and informs about the probability of an unknown state to correspond with the different
+combustion regimes. Their performance was tested in terms of their success rate for identiﬁcation as well as on
+their capabilities to estimate NOx emission, as a representative outcome of the combustion process. Results in
+other combustion situations (oil burner and premixed combustor) are also reported. The good results obtained in
+all cases are thought to support the potential of the methods described for ﬂame monitoring.
+© 2008 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+Keywords: Flame images; Combustion monitoring; Classiﬁcation; Identiﬁcation; Neural networks
+1. Introduction
+Visualisation methods have been historically an
+invaluable diagnostic tool in ﬂuid mechanics and
+combustion, since information on the spatial distribu-
+tion of the relevant variables (even just as qualitative
+* Corresponding author. Fax: +34 976 761 882.
+E-mail address: ballester@unizar.es (J. Ballester).
+patterns) can be most helpful to describe, or even
+understand, important features of a ﬂow or a ﬂame.
+A wide range of imaging techniques are nowadays
+available, enabling qualitative and/or quantitative de-
+scriptions of many different variables (see, e.g., [1]).
+In principle, many of them might be exploited to char-
+acterise industrial ﬂames by providing direct informa-
+tion from the combusting ﬂow, which is recognised to
+be a key step in order to develop cleaner and more ef-
+0010-2180/$ – see front matter © 2008 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.combustﬂame.2008.06.010
+
+
+--- Page 2 ---
+
+510
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+ﬁcient combustion systems [2,3]. However, practical
+reasons still prevent the use of many of them: lack of
+ruggedness, high cost, difﬁcult optical access, etc. In
+the current state-of-art, the recording of radiation nat-
+urally emitted by the ﬂame appears to be a feasible
+method; in particular, it avoids the need for seeding
+or external illumination and is amenable to low-cost,
+rugged CCD cameras. This kind of methods has been
+explored in a number of works, and the results are
+thought to conﬁrm its suitability for practical applica-
+tions.
+Different approaches are possible. Some meth-
+ods are oriented to derive quantitative information for
+some combustion variables. Pyrometry can be used
+to obtain temperature distributions over large regions
+of the ﬂame; two-colour techniques (either in the in-
+frared or simply using two channels of a conventional
+RGB camera) are the most common choice due to
+its reduced sensitivity to uncertainties in emissivity
+or attenuation. Refs. [4–6] describe some application
+examples in coal ﬂames. Emission spectroscopy re-
+quires collecting radiation in narrow bands associ-
+ated to chemiluminescence of excited radicals (e.g.,
+OH∗, CH∗), whose concentration can be related to
+the location of reaction fronts or to the magnitude of
+heat release rates [1,2]. Hence, the emission at spe-
+ciﬁc wavelengths might be more closely related to the
+combustion state than wide-band radiation, and some
+of the works oriented to the diagnostic/control of in-
+dustrial ﬂames [7–10] are based on the analysis of
+bandpass-ﬁltered images.
+Alternatively, ﬂame images can be interpreted as
+a ‘signature’ of a particular combustion state. This
+approach has been applied in several works, always
+aimed at developing novel monitoring techniques
+(and, ultimately, advanced control strategies) for prac-
+tical applications. Instrumentation requirements are
+relatively little demanding: conventional CCD cam-
+eras and frame-grabbers are, in principle, enough to
+collect the data needed; most of the difﬁculties with
+the hardware are associated with installation in the
+combustion chamber and protection of instruments
+from high temperatures and fouling. The main chal-
+lenges are thought to be related with data analysis
+and, above all, the conversion of raw images into us-
+able information.
+The most common approach is ‘feature extrac-
+tion,’ i.e., the derivation of signiﬁcant parameters
+from a ﬂame image. In the ﬁrst place, such a pro-
+cedure greatly reduces the amount of information
+needed to represent an image. In the second place,
+some features might be representative of particular
+behaviours of practical interest, due to their intrinsic
+meaning or their relationship with certain combus-
+tion conditions (e.g., ﬂame length can be relevant for
+some applications or, in some cases, might be used
+as an indicator of staged combustion). The features
+analysed consist of geometrical parameters [10–12],
+different variables related to the level and spatial dis-
+tribution of luminosity [13,14] or colour [15–17], as
+well as combinations of several of those properties
+[6,18]. Characteristic frequencies have also been de-
+rived from high-speed image records, as a relevant
+feature of the process either by itself or combined
+with other image properties [6,14,19].
+The existence of relationships among combus-
+tion conditions and selected image features has been
+demonstrated by parametric studies reported in a
+number of works [6,12,13,18–20]. But, in most cases,
+those parameters do not have an intrinsic physical
+meaning, and serve mainly as indicators of a particu-
+lar combustion state. Therefore, any attempt to exploit
+ﬂame images for practical purposes involves as a nec-
+essary subsequent task that of relating those variables
+with known situations or with real combustion pa-
+rameters. A wide range of approaches and processing
+methods have been reported. Kurihara et al. [11] pro-
+posed an empirical index for the prediction of NOx
+emissions as a function of some selected geometrical
+parameters. Shimoda et al. [4] applied a highly sim-
+pliﬁed physical model to relate unburnt carbon in a
+coal ﬁred plant with luminosity features derived from
+ﬂame images collected at two wavelengths. Baek et
+al. [15] found a linear relationship between a chro-
+matic parameter calculated from ﬂame images and
+the emissions of NOx and unburnt carbon in a pi-
+lot coal-ﬁred furnace. Rahman et al. [14] proposed
+two ‘quality indices,’ combining parameters related
+to luminosity and ﬂuctuation frequency derived from
+ﬂame images, as performance indicators for utility
+boilers. Yu and MacGregor [17] used partial least
+squares to predict NOx and SO2 emissions and heat
+losses in an industrial boiler from a set of image fea-
+tures (related to its geometry, luminosity and colour).
+Artiﬁcial neural networks (ANN, thereafter) have
+been used as ﬁtting tools to relate image features with
+relevant combustion parameters. Lu et al. [10] used
+a feed-forward ANN to predict successfully the com-
+bustion regime from 5 geometrical/luminous param-
+eters of the ﬂame. ANN and fuzzy logic were com-
+bined in [8,21] to adjust air and fuel ﬂow rates, based
+on ﬂame brightness and length. Wang et al. [22] ap-
+plied a back-propagation ANN to relate a set of image
+parameters (average and deviation of temperature, ig-
+nition distance) with NOx emissions. Bae et al. [23]
+used a neural network to distinguish ﬂame on/off con-
+ditions from the analysis of luminosity distributions.
+A different, relatively little explored approach
+consists in treating the image as a data set that can
+be processed as a whole in order to ‘classify’ or
+‘identify’ the image as representative of a particu-
+lar combustion state. Allen et al. [9] reported notably
+
+
+--- Page 3 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+511
+good results using artiﬁcial neural networks to clas-
+sify different combustion states using the full image
+as input data.
+Finally, the use of ﬂame images for control or opti-
+misation purposes has been examined in a few works
+(all in laboratory rigs). Allen et al. [9] and Lu et
+al. [10] coupled an ANN-based state predictor and a
+closed-loop control to bring the system to the desired
+state. Burkhardt et al. [8,21] combined ANN and a
+fuzzy controller to reach optimal conditions. Soot for-
+mation was avoided in [16] using a fuzzy controller
+whose inputs were the levels of blue and orange in
+ﬂame images. It should be noted that all control ap-
+plications mentioned require a ‘state identiﬁcation’
+stage, before a control action can be deﬁned.
+This review demonstrates the growing interest in
+the use of ﬂame images for online monitoring as well
+as the broad range of possible methods. The approach
+selected and investigated in this work is explained in
+the next section, in the framework of a brief discus-
+sion on the possibilities and limitations of the differ-
+ent alternatives.
+2. Monitoring based on ﬂame images: Needs and
+approaches
+A ﬁrst issue in the development of any monitoring
+technique is to deﬁne the amount and type of infor-
+mation needed to characterise a process state. This
+might not be problematic when a system can be fully
+characterised by a few parameters, which is not the
+case for industrial ﬂames. Their thorough descrip-
+tion would require determining the spatial and tem-
+poral variations of many physico-chemical variables,
+still challenging at laboratory scale and unthinkable
+for the moment in real plants. Therefore, a selection
+needs to be made on the information to be collected.
+Gas composition is the type of data most widely used
+to monitor combustion systems, but this is a highly
+incomplete description of the process. A reliable diag-
+nostic is thought to be only possible if based on some
+description of the ﬂame itself.
+In this context, imaging techniques appear as a
+most suitable alternative: they can provide data ob-
+tained directly from the ﬂame, in the form of a 2-D
+distribution (still a simpliﬁcation of reality, but much
+richer than global values). Among the different op-
+tions available, a passive technique based on the col-
+lection of radiation spontaneously emitted by ﬂames
+has been used in this work. This option limits the
+possibilities for quantitative determination of speciﬁc
+variables, but nowadays it is considered the most fea-
+sible alternative for practical applications. Neverthe-
+less, it should be noted that the approaches studied in
+this work should be equally valid for the processing
+of data generated by sophisticated laser-based tech-
+niques.
+A second issue is the type of approach selected
+for the processing and interpretation of image data.
+Two main categories can be established: methods ori-
+ented to the derivation and analysis of physically-
+meaningful parameters and those based on using sen-
+sorial information as a signature of a process state.
+In principle, the ﬁrst one clearly appears as the most
+powerful and desirable. However, their development
+and application is not considered obvious at all. Let’s
+consider the possibilities offered by passive imag-
+ing according to this strategy. As already mentioned,
+spontaneously-emitted radiation can be used to esti-
+mate some physico-chemical parameters of a ﬂame.
+One of them is the determination of temperature
+distribution by pyrometry (actually, only valid for
+particle-laden ﬂames, as Plank’s law does not apply
+in blue ﬂames). Another one is the use of emission
+spectroscopy to derive information on excited radicals
+from radiation collected at speciﬁc wavelengths. This
+kind of information, by itself, can be most valuable if
+the objective is the ‘characterisation’ of ﬂames; how-
+ever, how to exploit it for online ‘monitoring’ of an
+industrial burner is not so straightforward. This would
+require, for example, establishing the desired spatial
+distribution of OH∗or the ability to interpret a par-
+ticular chemiluminescence image in practical terms,
+and both are rarely possible in practice. Alternatively,
+this kind of information can be used to estimate the
+stoichiometry of a ﬂame. In fact, methods based on
+chemiluminescence of excited radicals are probably
+among the most mature technologies for online mon-
+itoring in practical premixed combustors (e.g., [24–
+26]). However, it should be noted that even for this
+application, which has been analysed in many works
+and has a sound physical basis, no universal relation-
+ships are available and the technique needs calibration
+for speciﬁc fuels and facilities [25–27].
+All this argumentation points to the difﬁculty of
+using directly physico-chemical parameters for online
+‘monitoring’; instead, empirical knowledge speciﬁ-
+cally adapted to the particular application needs to
+be added for converting measured data into repre-
+sentative parameters and/or transforming these into
+information adequate to monitor or optimise indus-
+trial ﬂames. In fact, previous works oriented to mon-
+itoring from ﬁltered images (which might be related
+to some physical variables, like temperature or ex-
+cited radicals), actually treated the results as a char-
+acteristic pattern (signature) of the different ﬂame
+states, instead of evaluating directly the implications
+of the temperature or radicals distributions regarding
+the ‘quality’ of the ﬂame. Only in a few cases this
+was attempted, by means of simpliﬁed models, spe-
+ciﬁc of particular applications [4,7]. In general, the
+
+
+--- Page 4 ---
+
+512
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+methods (with the exception of [9]) are thought to re-
+quire careful design and adaptation in order to select
+the most representative parameters and to develop the
+empirical rules needed for ﬂame monitoring in a new
+application. None of the works reviewed reports im-
+plementation in different combustion situations.
+The treatment of image data as a ‘signature’ of a
+ﬂame state is an alternative that can be compatible
+with any type of diagnostic technique: ﬁltered spon-
+taneous radiation (pyrometry, chemiluminescence),
+laser-based techniques (e.g., PLIF), broadband radi-
+ation (explored in this work), etc. In this case, the
+basic assumption is that, due to the huge amount of in-
+formation contained in an image (intensity/colour for
+each pixel), the probability that different combustion
+states produce the same set of data is very low. As
+a fundamental advantage, this type of methods does
+not require interpreting the highly complex physico-
+chemical phenomena involved. At the same time, its
+empirical nature can also be an important weakness.
+Whether this is a serious problem or not will largely
+depend on how the ‘empirical knowledge’ is devel-
+oped and applied. For a method to become a feasible
+monitoring technique, it should be of a generalisable
+nature in the sense that implementation in new ap-
+plications does not require a costly design/adaptation
+procedure and includes as few as possible ad-hoc
+models or parameters.
+The aim of this paper is to evaluate different
+image processing methods regarding their capabili-
+ties for the identiﬁcation of combustion states. Three
+different approaches have been applied (feature ex-
+traction, ANN-based identiﬁcation, probabilistic pat-
+tern recognition), treating images from a conventional
+CCD camera as a signature of ﬂame states. The aim
+was not to develop and ﬁne-tune a method speciﬁ-
+cally adapted to a particular situation, which would
+be of limited interest, but to assess the potential of the
+approach for a relatively general case. In order to ap-
+proach this objective, (1) all results presented were
+obtained by applying the methods as initially con-
+ceived, without any ad-hoc work (apart from some de-
+tails regarding pre-processing of raw images), (2) the
+methods were applied to different burners, again with
+no ad-hoc adaptation (for brevity, only the results ob-
+tained with an air-staged burner are described in de-
+tail) and (3) the use of knowledge or rules speciﬁc to
+the particular burners used was avoided.
+3. Experimental facility
+The tests have been performed in a water-cooled
+experimental furnace, equipped with an industry-type
+natural gas burner (Fig. 1). The burner includes a
+number of adjustable settings, enabling the study of
+Fig. 1. Test facility and instrumentation.
+a wide range of ﬂame types. Combustion air enters
+through two concentric air injections, each with a
+variable swirl generator (moveable blocks). A broad
+range of conditions, from conventional, fast-mixing
+ﬂames to low-NOx, air-staged combustion, can be
+achieved by means of a proper adjustment of air dis-
+tribution and the two swirl settings. Further details on
+this facility and a detailed characterisation of the dif-
+ferent combustion regimes can be found in [28].
+The ﬂow rates of fuel, primary and secondary air
+were measured with thermal mass-ﬂow meters and
+controlled by closed loops acting on the respective
+regulation valves, whereas swirl numbers were ad-
+justed manually. The mass-ﬂow rate of natural gas
+was ﬁxed to 5 m3 N/h throughout the tests and the
+equivalence ratio was kept at 0.88 (3% O2 in ﬂue
+gases, by vol. db). Gas sampling was performed us-
+ing a speciﬁc probe located at the exit of the com-
+bustion chamber, connected to a bank of individual
+on-line analysers for O2 (paramagnetic sensor), CO,
+CO2 (NDIR) and NOx (chemiluminescence).
+
+
+--- Page 5 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+513
+Three of the burner settings were varied in the ex-
+periments: air distribution between primary and sec-
+ondary registers (air ratio, AR, expressed as fraction
+of secondary air over the total air ﬂow rate) and the
+swirl numbers of both air streams (S1 and S2, respec-
+tively; both reported here as the % with respect to
+maximum swirl level). The different combinations of
+S1, S2 and AR tested led to a wide range of ﬂame pat-
+terns. NOx emissions ranged from 15 ppm for deep
+air-staging conditions (AR = 100%) up to 44 ppm
+for fast-mixing ﬂames. Detailed in-ﬂame measure-
+ments revealed signiﬁcant changes in the distribution
+of species and temperatures inside the ﬂame when
+AR, S1 or S2 were varied. The dynamic behaviour of
+the ﬂames was analysed from time-resolved measure-
+ments of pressure and OH∗chemiluminescence (ra-
+diation at 310 nm), yielding widely different results:
+some ﬂames were highly stable (AR < 60% and high
+swirl levels), others displayed signiﬁcant ﬂuctuations
+but pressure and radiation signals were uncorrelated
+(AR = 60–80% or low swirl levels), whereas high
+values of AR led to strong correlations of both signals
+as a clear indication of the onset of thermo-acoustic
+instabilities. The experimental characterisation of the
+different combustion regimes has been reported in
+[28]. No detailed description of the ﬂames is included
+here; ﬁrstly, for brevity and, secondly, because it is not
+essential for the purpose of this work. Exploiting the
+knowledge gained from detailed measurements for
+ﬂame monitoring from images was avoided on pur-
+pose; whereas this might add ‘some physics’ and even
+lead to improved performance, the procedures so de-
+veloped would lose much of their generality. Hence,
+the monitoring methods presented here do not use any
+qualitative or quantitative piece of information not
+contained in the very ﬂame images.
+Flame images were captured using a CCD camera
+(Panasonic WV-CL350) housed inside a water-cooled
+jacket, installed in the furnace wall and oriented per-
+pendicularly to the burner axis, so that a full picture
+of the ﬂame can be obtained. The use of a pinhole
+lens together with a purge of compressed air main-
+tained the optics clean and cool. Monochrome im-
+ages (8-bit greyscale, 320×240 pixels, exposure time
+1/60 s) were recorded in a process computer through
+a frame-grabber board (Data Translation DT3155).
+Image records were collected for a total of 49 differ-
+ent ﬂames, corresponding to different combinations
+of S1, S2 and AR.
+Since objective is the exploration of feasible meth-
+ods for the monitoring of practical ﬂames, an essen-
+tial feature of this study is the use of conventional
+video cameras. This imposes some limitations on the
+information that may be recorded. The radiation col-
+lected by the CCD corresponds basically to the visible
+range; for blue ﬂames, this includes chemilumines-
+cent emission from different radicals: narrow bands
+for CH∗, C∗
+2, broadband radiation from CO∗
+2 and
+other minor contributions [29]. The camera performs
+a line-of-sight integration, so that each pixel accumu-
+lates contributions from points at different distances.
+As explained below, representative images were ob-
+tained by averaging several frames; hence, ﬂuctu-
+ations due to turbulence or (much more important
+in some cases) ﬂame oscillations are smoothed out.
+Therefore, although there must be some connection
+between the images recorded and the physics of the
+ﬂame, the lack of resolution in wavelength, space and
+time makes the derivation of some kind of combustion
+variable from them very difﬁcult. Temporal or spatial
+averaging can be a serious drawback for monitoring
+methods based on physical parameters (e.g., derived
+by pyrometry or chemiluminescence), but they are not
+necessarily when the image is treated as a signature.
+By no means does this imply that low resolution is a
+positive feature. On the contrary, a better resolution
+in wavelength, space or time might produce images
+more representative of the process; but this would
+require much more expensive and delicate instrumen-
+tation (e.g., intensiﬁed CCD, ﬁlters, several cameras
+for 3-D reconstruction, etc.). Furthermore, whereas a
+wide range of conventional, inexpensive CCD cam-
+eras are nowadays available that might provide im-
+ages with better deﬁnition, the good results reported
+with a monochrome, 340 × 240, 8-bit images serves
+to demonstrate the low requirements in this respect of
+the methods studied.
+4. Feature extraction
+Image analysis algorithms were used to derive a
+wide range of parameters from the frames recorded at
+each of the operating conditions tested. An image was
+represented by two different functions (see Fig. 2):
+• Intensity function: I(x,y) = 0–255, where x and
+y are pixel coordinates.
+• Presence function: I∗(x,y) = 0 when I(x,y) =
+0 and = 1 when I(x,y) > 0.
+The presence function was then used to calculate
+various geometrical parameters: area, width distribu-
+tion, maximum width, length, centre of geometry and
+angle at the ﬂame root. Features related to luminosity
+distribution were derived from the intensity function:
+centre of mass, discrete moments, and a number of
+statistical parameters derived from the intensity his-
+togram, such as mean, variance, skewness or kurtosis.
+Fig. 2 illustrates how some of those parameters are
+derived from a ﬂame image.
+
+
+--- Page 6 ---
+
+514
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Fig. 2. Extraction of some features from a ﬂame image.
+The next step was to explore the sensitivity of the
+different parameters to variations in operating condi-
+tions. For this method to be valid, modiﬁcations in
+burner settings must cause a meaningful change (ex-
+ceeding its experimental uncertainty) in a particular
+image feature. For brevity, only a few examples are
+shown in Fig. 3 for variations in the swirl levels of
+the two air streams. The intervals drawn at each data
+point represent the dispersion about the mean value,
+calculated over the full sequence of images recorded
+in a test. Increasing swirl numbers led, as expected, to
+more compact ﬂames with smaller area and length.
+The ﬁnal objective is to identify the combustion
+state from selected features of the ﬂame images; this
+requires some sort of quantitative relationship among
+burner settings and image features. With this purpose,
+multiple linear regression was applied to the full set
+of experimental results. The binary correlation coefﬁ-
+cients were below ±0.5 in all cases, indicating weak
+linear relationships. As shown in Fig. 3, even though
+some variables seem to display well-deﬁned depen-
+dences, their non-linearity justiﬁes the low correla-
+tions obtained. Therefore, other types of functional
+forms, speciﬁcally adapted to each feature, should
+be used to represent adequately the relationships ob-
+served. This is thought to be a signiﬁcant shortcoming
+if the objective is to develop generalisable diagnostic
+methods.
+Some trials were also performed using artiﬁcial
+neural networks as the ﬁtting algorithm, due to their
+ability to handle multivariate, non-linear relation-
+ships. Although this method provided reasonable re-
+sults with some combinations of image features, the
+capabilities for state identiﬁcation were poorer than
+with the approaches explained in the following sec-
+tions. The cause is thought to be the information loss
+associated to the replacement of the full image by a
+few representative parameters.
+5. Identiﬁcation of combustion states with ANNs
+Artiﬁcial neural networks (ANN) are mathemati-
+cal algorithms inspired on the structure of biological
+neural systems and the way information is processed
+by the brain, with good capabilities to handle com-
+plex information with unknown and highly non-linear
+functional relationships among the different variables.
+
+
+--- Page 7 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+515
+Fig. 2. (continued)
+Ref. [30] describes fundamental and application as-
+pects of these methods.
+Images are an outstanding case of complex data
+sets, whose processing and/or interpretation has mo-
+tivated great efforts during the last decades. As de-
+scribed in [31], ANN-based algorithms can be very
+effective for most of the tasks usually faced in im-
+age processing. Object recognition based on features
+is one of them; in fact, ANNs have been success-
+fully used in a number of works speciﬁcally oriented
+to identify combustion states (or, equivalently, to es-
+timate performance parameters like pollutant or un-
+burnt emissions) using as inputs some selected fea-
+tures previously extracted [8,10,22,23]. As noted at
+the end of previous section, this procedure was also
+tested in this work, although its performance was not
+as good as with the other methods reported.
+Alternatively, all pixels forming an image can be
+directly used as input data (i.e., the number of repre-
+sentative features equals the number of pixels). The
+main drawback is the large amount of data to be pro-
+cessed; the advantage is that information loss due to
+data reduction is avoided. The only experience found
+in the open literature is the work by Allen et al. [9]
+where combustion states were successfully identiﬁed
+using a back-propagation ANN fed with the intensity
+levels in 1024 pixels.
+As noted in [31], self-organising feature maps
+(SOFM, thereafter) are suitable for object recogni-
+tion based on pixel data, and was the method selected
+in this work. The so-called Kohonen maps are used
+here, which have been widely applied for classiﬁca-
+tion purposes, especially in pattern recognition [32,
+33]. A SOFM consists of neurons organised on a reg-
+ular low-dimensional grid. The neurons are connected
+to adjacent ones by a neighbourhood relation dic-
+tated by the topology of the map (hexagonal in this
+case). Each neuron in the map contains a weight vec-
+tor with the same dimension than the input vectors
+and represents a ‘pattern’ ﬂame image. During train-
+ing the input vectors are compared with that of each
+neuron by calculating a distance (Euclidean in this
+case) and the weight vectors of the closest neuron
+(winner neuron) and its neighbours are modiﬁed ac-
+cording to the so-called Kohonen learning rule. This
+process is iterated many times so that the distances
+
+
+--- Page 8 ---
+
+516
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Fig. 3. Effect of swirl settings on ﬂame area and length.
+AR = 75% in all cases.
+between the input vectors and the winner neurons and
+the distances among neighbour neurons get smaller;
+the ﬁnal results is a set of ‘pattern images’ that are
+ordered in the map according to their visual features.
+The interested reader can ﬁnd more detailed descrip-
+tions in the references quoted. Once the SOFM has
+been trained, an ‘unknown ﬂame’ representing an
+‘unknown state’ is classiﬁed by the ‘winner neuron’
+when it is shown to the SOFM; identiﬁcation with re-
+spect to ‘known states’ consists in selecting among
+the ﬂames included in the database used for training
+the case yielding the same winner neuron.
+5.1. Image pre-processing
+Different values of the three burner settings (S1,
+S2, AR) were combined to yield a total of 49 dif-
+ferent combustion states. Sequences of 100 images
+(greyscale, 320 × 240 pixels) were captured for each
+of the tests. As a previous stage, the images were pre-
+processed in order to reduce the size of the input vec-
+tor as much as possible without loosing information
+as well as to strengthen some relevant characteristics.
+The steps followed were:
+1. Average: All images recorded for a single test
+were averaged. This step is not only very useful
+for data reduction (99%) but also to ﬁlter out ﬂuc-
+tuations among different frames, resulting in a
+more representative image of the ﬂame. This was
+ensured by averaging over 100 images, although
+most probably a much lower number would suf-
+ﬁce.
+2. Contrast: Luminosity values were normalised, so
+that the darkest pixel of the image was set to 255
+(white in greyscale) and the brightest to 0 (black).
+This operation should not be interpreted as an
+information loss because absolute luminosity de-
+pends on many factors (CCD calibration, lens,
+attenuation along the optical path, etc.) and its
+consideration could make the procedure highly
+dependent on the particular setup.
+3. Segmentation (thresholding): The ﬂame area was
+delimited by setting to 0 all pixels with intensity
+<60.
+4. Trimming: After completing the previous opera-
+tions, large areas of the image consisted of black
+pixels. In order to discard useless data, the ﬂame
+images were trimmed by a rectangle built from
+the disjunction of the smallest rectangles enclos-
+ing non-black parts of the individual images.
+Such rectangular area was deﬁned at the training
+stage, and also used afterwards to trim any new
+image. As a result, images were reduced from
+320 × 240 to 170 × 200 pixels.
+5.2. Conﬁguration and training of the SOFM
+Initially, the topology and number of cells of the
+SOFM need to be deﬁned. For this application, a 3-
+by-10 map might be suitable to represent the matrix
+of test cases: 3 adjustable burner settings and a max-
+imum of 10 different values for each of them. How-
+ever, a larger map was preferred to favour a clear topo-
+logical isolation among different groups of ﬂames,
+and a 10-by-10 map was ﬁnally used.
+As a ﬁrst step, the ANN was trained with im-
+ages captured in 49 different combustion regimes.
+The SOFM was trained for 1000 epochs. In each of
+these epochs, the distance between a particular ﬂame
+image and every neuron in the SOFM (deﬁned by a
+set of weights) was calculated. The neuron yielding
+the shortest distance was marked as the winner and
+the weights of all neurons in the neighbourhood of the
+winner were updated using the Kohonen rule. As a re-
+sult of the training process, each of the 100 neurons
+ends with an associated ‘pattern’ ﬂame image.
+
+
+--- Page 9 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+517
+Fig. 4. Pattern ﬂame images associated to the SOFM neu-
+rons.
+Fig. 5. Swirl level in primary stream, S1, associated to the
+neurons of the SOFM (greyscale: white for S1 = 100%, and
+black for 0%).
+5.3. Topological classiﬁcation
+Fig. 4 displays the pattern images associated to
+the different neurons in a 10-by-10 map. This repre-
+sentation serves also to illustrate the way in which
+the SOFM operates: images are grouped according
+to their degree of similitude. It should be noted that
+although the neurons are represented equidistant in
+the network, actually they are not. The white lines
+have been drawn on the map to indicate the longest
+distances between neighbour neurons. Each subgroup
+so obtained includes images with evident similarities
+among them and is characterised by patterns that are
+appreciably different from those of other groups.
+Fig. 6. Swirl level in secondary stream, S2, associated to
+each of the neurons of the SOFM (greyscale: white for
+S2 = 100%, and black for 0%).
+Fig. 7. NOx emissions associated to each of the neurons
+of the SOFM (greyscale: white indicates the highest value,
+44 ppm, and black the lowest, 14 ppm).
+A basic assumption behind the use of images for
+the diagnostic of combustion states is that geomet-
+rical/luminous properties maintain some relationship
+with operating conditions or system performance. The
+type of classiﬁcation provided by Kohonen maps can
+be particularly useful to evaluate this hypothesis. With
+this purpose, numerical values were assigned to each
+of the 100 neurons, according to the following pro-
+cedure. The parameters (burner settings, emissions)
+characterising each of the 49 combustion tests were
+transferred to the corresponding winner neuron. An
+interpolation procedure was applied to assign numer-
+ical values to those neurons without an associated
+‘real’ combustion regime, using the two coordinates,
+V and H, deﬁning its location in the map (Fig. 4)
+as independent variables. Figs. 5–7 display the re-
+
+
+--- Page 10 ---
+
+518
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Table 1
+Measured NOx emission for the neurons in the bottom-left
+zone of Fig. 4 with an associated real ﬂame
+Neuron coordinates
+Measured
+NOx (ppm)
+V
+H
+1
+1
+37.6
+1
+1
+37.9
+1
+1
+38.2
+1
+3
+35.8
+1
+4
+34.4
+2
+5
+33.4
+3
+1
+41.5
+3
+2
+35.8
+4
+3
+22.7
+4
+5
+22.8
+sults obtained in terms of the swirl levels in the two
+air streams and NOx emissions, respectively. The fol-
+lowing example describes how this assignation pro-
+cedure was implemented. The location of the neurons
+in Figs. 4–7 will be described with the coordinates
+V and H (both in the range 1–10). Let’s take the
+image at V = 2, H = 4 in Fig. 4; like the other im-
+ages shown in Fig. 4, it does not correspond to a real
+ﬂame but was created internally by the SOFM algo-
+rithm from the set of 49 images used for training. In
+a subsequent stage, the SOFM was used to assign a
+neuron to each of the 49 ﬂames. Table 1 displays the
+results: some of the neurons were associated to a real
+ﬂame image (or, in a few cases, to several, like neu-
+ron V = 1, H = 1), but others were not (e.g., V = 2,
+H = 4). Those with an associated real ﬂame were
+assigned its measured NOx emission. For the other
+neurons, a NOx value was calculated by linear inter-
+polation from actual measured emissions assigned to
+neighbour neurons, using the coordinates V and H
+as independent variables. As a result, a NOx concen-
+tration of 37.6 ppm was calculated for the neuron at
+V = 2, H = 4; this method enabled assigning a NOx
+value to all 100 neurons as shown in Fig. 7. An equiv-
+alent procedure was applied to build Figs. 5 and 6 for
+S1 and S2, respectively.
+As shown in Fig. 5, the different degrees of swirl
+in the primary air become automatically grouped in
+the SOFM. Since other burner settings (S2 and AR)
+were also varied, ﬂames with the same S1 can display
+widely different aspects, which explain that similar
+S1 values can be found in different regions of Fig. 5.
+Similar comments are applicable to Fig. 6. This ‘auto-
+matic’ grouping of cases with similar burner settings
+is, obviously, due to the fact that precisely those set-
+tings determine the aerodynamics and mixing pattern
+in the ﬂame, and therefore its visual appearance.
+Fig. 8. Average ﬂame image recorded with the burner ad-
+justed at AR = 50%, S1 = 100%, S2 = 50%; measured
+NOx emission was 37.7 ppm.
+5.4. Estimation of NOx emissions using ﬂame
+images
+An alternative viewpoint is to evaluate whether
+images and NOx emissions (two different results of
+the combustion process) display some correlation.
+This can be observed in Fig. 7, displaying the NOx
+emissions assigned to the 100 neurons of the SOFM.
+The different emission levels are noticeably grouped
+over the map, with gradual transitions between one
+neuron and its neighbours. Since this distribution is
+directly obtained from the distribution generated by
+the Kohonen map according to image properties, the
+close relationship among both aspects becomes ap-
+parent.
+Such strong correlation might be exploited to in-
+fer the NOx emission of a particular ﬂame using the
+image as the only input. With that purpose, a set of
+42 new image records (different from those used for
+training) were classiﬁed using the SOFM developed;
+i.e., each of them was assigned to one of the neurons
+in the 10-by-10 map. The NOx emission estimated
+for that ﬂame was the value previously assigned to its
+winner neuron, as shown in Fig. 7. For example, the
+ﬂame image shown in Fig. 8 was recorded for AR =
+50%, S1 = 100%, S2 = 50%, and the measured NOx
+emission was 37.7 ppm. Classiﬁcation with SOFM
+yielded as winner the neuron at V = 2, H = 4. As
+explained above, no measured NOx was available for
+this neuron, and the value assigned by interpolation
+was 37.6 ppm. Therefore this was the value of NOx
+predicted from the image in this case, very close to the
+actual value of 37.7 ppm. Actual NOx emissions and
+estimations with this method are compared in Fig. 9.
+A fairly good agreement is obtained, with deviations
+<3 ppm in most cases; in particular, high- and low-
+NOx regimes are perfectly distinguished.
+
+
+--- Page 11 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+519
+Fig. 9. Comparison between predicted and measured NOx emissions. Predictions based on classiﬁcation with SOFM.
+This is thought to be a most relevant result for
+practical applications, as the good correlation ob-
+tained among images and NOx emissions might en-
+able the development of advanced diagnostic methods
+by using ﬂame images to estimate NOx emissions
+(i.e., a ‘virtual’ NOx sensor). This could open new
+possibilities for the monitoring of emissions from in-
+dividual ﬂames in multi-burner furnaces, or to greatly
+reduce the response time of gas analysers down to the
+levels acceptable for control purposes.
+Alternatively, the Kohonen map can just be used
+to identify the combustion state with respect to oth-
+ers previously known (used at the training stage). The
+process of assigning a winner neuron to a new in-
+put image yields a particular location in the map that
+can coincide with a particular combustion regime, or
+can be used to ﬁnd the most similar regimes as those
+located at short distances. The comparison between
+estimated and actual NOx emissions serves also as
+an indication of the good accuracy of the SOFM as
+a ﬂame identiﬁcation tool.
+6. A probabilistic classiﬁcation method
+The result of most identiﬁcation methods (e.g.,
+SOFM) is the state, among those previously known,
+that most probably corresponds to the unknown state
+being processed. A shortcoming is that the reliabil-
+ity of this result is not qualiﬁed. It would be most
+desirable, for example, to obtain some information
+about the degree of coincidence with respect to the
+state assigned or, if the unknown ﬂame displays some
+similarity with several states, the relative probabilities
+associated to each of them. This would enable, among
+others, the detection of off-design operations, evaluat-
+ing how reliable is the identiﬁcation or combining the
+result with other sources of information.
+A different approach has been applied for the clas-
+siﬁcation of ﬂame images that provides information
+on the probability of coincidence with each of the
+combustion states previously known. This procedure
+is inspired on the cepstral analysis techniques, com-
+monly used for speech recognition [34]. Although
+sound records are of a type different from image data,
+both can be equally transformed into covariance ma-
+trices, as required in this kind of methods.
+6.1. Image pre-processing
+Ten black and white images (320 × 240 pixels
+each) were recorded for each of the combustion
+regimes tested. Each of them is obtained by averaging
+ten individual frames in the sequence captured.
+As a ﬁrst step, Principal Component Analysis
+(PCA, thereafter) was applied for data reduction.
+Given the large amount of data needed to represent
+the images, minimising the size of the input vectors
+entails signiﬁcant beneﬁts, especially when real-time
+performance is required. PCA is a convenient method
+for image processing, because it allows reducing the
+dimension of the input space while maintaining much
+
+
+--- Page 12 ---
+
+520
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+of the original structure of the input images. It has
+been used extensively in pattern recognition [35] and
+has shown to be an effective method for the analysis
+of ﬂame images [17,20].
+Images are represented by a matrix I of dimen-
+sion 320× 240. Previous to PCA, I is transformed by
+rearranging image blocks into columns. First, I is di-
+vided into p square blocks (if necessary, padded with
+zeros) of s ×s pixels; second, a new matrix X with s2
+rows and p columns is formed by ﬁlling each column
+with the values in one of the blocks. Finally, PCA is
+applied to derive a lower-dimensional representation.
+Given a matrix X, and the desired new dimension, q,
+the PCA algorithm yields the matrix M (q rows and
+s2 columns) and the vector B (q components) needed
+to obtain a matrix Y (q rows and p columns), accord-
+ing to
+(1)
+Yij =
+s2
+
+k=1
+MikXkj + Bi,
+i = 1,...,p.
+Y, M and B can be taken, therefore, as an alternative
+representation of the original matrix X. A parametric
+study on the inﬂuence of s (in the range 5–18) and
+q (from 5 to 20) yielded as the optimal combination
+s = 14, q = 12. Finally, Y , M and B were put to-
+gether in a new matrix Z, with q rows and p + s2 + 1
+columns. Cepstral analysis techniques were applied
+on the matrices Z. The corresponding covariance ma-
+trix, Z_COV, is calculated as
+(2)
+(Z_COV)ij =
+s
+
+k=1
+ZikZt
+kj.
+A library of covariance matrices was created by
+calculating Z_COV for nine of the images stored for
+each of the N combustion regimes tested; therefore,
+each combustion state is characterised by N1 = 9
+different data sets. The degree of similarity among
+different images was compared by calculating a ‘dis-
+tance’ between their respective covariance matrices.
+The parameter chosen was the arithmetic harmonic
+sphericity (AHS) distance, deﬁned for two generic
+matrices A and B of dimension m as
+D(A,B) = log10
+
+Tr
+
+AB−1
+Tr
+
+BA−1
+(3)
+−2log10 m.
+The important data reduction rate achieved should
+be noted, since only q2 = 144 data contained in
+Z_COV are ﬁnally used to evaluate an image, instead
+of 76800 values in the original matrix I.
+6.2. Probability calculation and pattern selection
+Classiﬁcation is performed by calculating the
+probability of an unknown ‘test ﬂame’ (xi) to be
+like each of the N ‘pattern ﬂames’ in the library
+(yj ), P(xi ∼yj). In general, each ‘test ﬂame’ is
+characterised by different ‘test images,’ xi,n with
+n = 1,...,N2, so the probability is averaged over all
+of them:
+(4)
+P(xi ∼yj) =
+N2
+n=1 P(xi,n ∼yj)
+N2
+.
+P(xi,n ∼yj) is calculated as the probability for a
+particular ‘test image,’ xi,n, of ‘test ﬂame’ xi to have
+a null AHS distance from the matrices characteris-
+ing a ‘pattern ﬂame’ yj . Since each ‘pattern ﬂame’
+is deﬁned by N1 ‘pattern images’ yj,m, N1 different
+distances can be calculated. The average of the AHS
+distances between the test image (xi,n) and each of
+the N1 ‘pattern images’ was taken as the representa-
+tive value:
+(5)
+D(xi,n,yj) =
+N1
+m=1 D(xi,n,yj,m)
+N1
+.
+So, the set of N1 ‘pattern images’ is treated as
+an ensemble of data sets providing a statistical rep-
+resentation of a speciﬁc combustion regime; this is a
+relevant feature of the method and provides the ro-
+bustness required to handle ‘noisy’ data (associated,
+for example, to turbulent ﬂuctuations in industrial
+ﬂames). This is represented statistically by a Gaus-
+sian probability distribution, fyj (d), for the AHS dis-
+tance: different occurrences of the same combustion
+regime are expected to provide an ensemble of AHS
+distances with ∼0 mean and a variance associated to
+this particular regime. The width of the distribution
+is estimated from the standard deviation, σyj , of the
+N1(N1 −1)/2 distances calculated among pairs of the
+N1 pattern images available.
+The probability of a ‘test image,’ xi,n, to belong to
+a particular pattern, yj , is estimated as fyj(d) for d =
+D(xi,n,yj). This is illustrated in Fig. 10 for two hy-
+pothetical patterns y1 and y2; if the functions fy1(d)
+and fy2(d) (with respective widths σy1 and σy2) are
+centred respectively at D(xi,n,y1) and D(xi,n,y2),
+the probability sought is directly obtained as the in-
+tercept with the ordinates axis. This example clearly
+shows that not only the mean value must be con-
+sidered, but also the width of the distribution. Even
+though the average AHS distance is shorter for pat-
+tern y1, the most probable combustion regime is y2.
+Pattern y1 is represented by a very narrow distribu-
+tion, and the probability decays rapidly even at short
+AHS distances; on the contrary, pattern y2 is charac-
+terised by a wider range of covariance matrices, and
+the probability of actually representing an unknown
+state maintains signiﬁcant values up to relatively high
+AHS distances.
+Fig. 11 displays the classiﬁcation tests performed
+for two of the ﬂames. The test case on the left (#5)
+
+
+--- Page 13 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+521
+Fig. 10. Evaluation of the probability that a test ﬂame xn corresponds with pattern ﬂames y1 and y2.
+corresponds to the image shown in Fig. 8, already
+mentioned in a previous section. The intercept of the
+Gaussians to the reference patterns, fyj (0), yields a
+measure of the probability of the test image to belong
+to that particular combustion regime. In some cases
+(Fig. 11), several of the reference cases give a non-
+negligible probability. To facilitate the interpretation,
+the results were normalised so that the sum for all pat-
+terns is 100%:
+(6)
+P(xi,n ∼yj) =
+fy,j (0)
+N1
+m=1 fy,m(0)
+.
+For example, test image #5 yielded non-zero prob-
+abilities for three of the ﬂames (see Fig. 11 and Ta-
+ble 2). Since the highest probability was obtained for
+the correct pattern, the identiﬁcation was successful
+in this case. It should also be noted that ﬂames #6
+and #7 were also very similar, because variations in
+swirl number of secondary air in the range 0–50%
+had little inﬂuence on the aerodynamics of the ﬂame
+for S1 = 100%, as evidenced by the very similar NOx
+emissions measured for the three ﬂames.
+6.3. Classiﬁcation tests
+This identiﬁcation method was applied to the same
+N = 49 combustion regimes considered in the previ-
+ous section. N1 = 9 images were used to generate a
+set of covariance matrices for each of those ‘pattern
+ﬂames’; an additional image (N2 = 1), recorded in the
+same operating conditions, was stored for each of the
+49 cases, and then used as ‘test images’ to evaluate the
+performance of the method. Fig. 12 displays the cal-
+culated probabilities, P(xi ∼yj), that a particular test
+image, xi, corresponds to pattern yj . A fully success-
+ful identiﬁcation would be obtained if the probability
+is 0 if i ̸= j and 100 when i = j. Fig. 12 can be inter-
+preted in two complementary ways:
+• The outcome of the identiﬁcation process is that
+‘test image’ xi corresponds to the combustion
+regime, yj , for which P(xi ∼yj) is maximum.
+The results shown in Fig. 12 indicate that iden-
+tiﬁcation has been successful in 32 out of 49
+cases. Nevertheless, it should be noted that all
+wrong identiﬁcations occurred among very simi-
+lar ﬂames, in most cases with probabilities for the
+winner pattern that are only slightly higher than
+those obtained for the correct one. This is an im-
+portant advantage of this method, as the output
+not only includes the most probable pattern but
+also informs about similarities with other ﬂames.
+• The absolute value of the probability obtained for
+the winner pattern can be taken as an indication
+of the reliability of this result. Low probabilities
+can be due, as shown in Fig. 12, to the similarity
+between some reference cases. Otherwise, a low
+value could indicate, for example, that the un-
+known state is out of the range represented by
+the pattern ﬂames, or that some deviation has oc-
+curred in the combustion equipment.
+Similarly to the exercise reported with the SOFM,
+this identiﬁcation tool might be used to estimate
+some relevant parameters of the combustion process.
+Fig. 13 displays the NOx estimations obtained by
+assigning the value measured for the corresponding
+winner patterns to each of the test cases. The co-
+incidence is almost perfect in most cases; even in
+the cases of wrong identiﬁcations, the deviation is
+
+
+--- Page 14 ---
+
+522
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Fig. 11. Classiﬁcation tests for two of the test ﬂames (arbitrary units).
+very small, further conﬁrming the similarities be-
+tween the ﬂames with wrong or ambiguous identiﬁ-
+cations. Signiﬁcant differences are only observed in
+the regimes with lowest NOx emissions, correspond-
+
+
+--- Page 15 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+523
+Table 2
+Results of the classiﬁcation procedure for test image #5
+Pattern ﬂame
+AR (%)
+S1 (%)
+S2 (%)
+NOx (ppm)
+Probability (%)
+#5
+50
+100
+50
+37.6
+49.9
+#6
+50
+100
+25
+37.9
+25.2
+#7
+50
+100
+0
+38.2
+24.9
+Fig. 12. P(xi ∼yj ) estimated by image identiﬁcation for the 49 ﬂames.
+ing to the highest air staging ratios (AR = 90–100%).
+As previously noted, those ﬂames displayed thermo-
+acoustic oscillations, which can result in wider vari-
+ability among ﬂame images and, hence, in less certain
+identiﬁcations.
+6.4. Combination with other classiﬁcation criteria
+As already noted, an advantage of this approach is
+that the result obtained is not limited to a yes/no an-
+swer, but also quantiﬁes the degree of similarity with
+respect to all the patterns available. This can be fur-
+ther exploited, for example, to combine this type of
+diagnostic with other potential sources of informa-
+tion.
+This possibility is illustrated by using NOx emis-
+sion as a representative feature of the different com-
+bustion states. Similar steps were followed in order
+to obtain a classiﬁcation based only in NOx emis-
+sions. The probability distributions associated to the
+‘pattern ﬂames’ consisted of a Gaussian function with
+the measured NOx emission as the mean value, and a
+standard deviation representing the experimental un-
+certainty (⩽2 ppm, as estimated from repeatability
+tests). A procedure similar to that just described was
+followed to estimate P ′(xi ∼yj), using the differ-
+ence between average NOx emissions of the unknown
+and pattern cases was used instead of the mean AHS
+distance. The results with this procedure are presented
+in Fig. 14, in terms of P ′(xi ∼yj). These results
+demonstrate that the NOx criterion is clearly insuf-
+ﬁcient to distinguish one particular ﬂame among all
+cases included in the test set. Success rate is very
+low and only 6 out of 49 ﬂames yielded probabilities
+>20% for the correct pattern. Hence, NOx emission
+can help in classifying different regimes but this crite-
+rion alone is not a reliable method to identify ﬂames.
+The results obtained with the two classiﬁcation
+methods (images and NOx) can be combined together
+by multiplying the probability matrices. The results
+are normalised to 100% and shown in Fig. 15. Only
+slight differences can be observed between Figs. 12
+and 15, due to the ambiguous predictions obtained
+
+
+--- Page 16 ---
+
+524
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Fig. 13. Comparison between predicted and measured NOx emissions.
+Fig. 14. P ′(xi ∼yj ) estimated by comparing NOx emissions for the 49 ﬂames.
+with the NOx criterion. Nevertheless, all the changes
+were in the correct direction and some improvement
+can be seen in many of the probabilities along the
+diagonal. In particular, the superposition of both cri-
+teria reduced off-diagonal probabilities for test ﬂames
+C11–13 and C15–17. In these and other cases, the
+
+
+--- Page 17 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+525
+Fig. 15. P ′′(xi ∼yj ) = P(xi ∼yj )∗P ′(xi ∼yj ), for the 49 ﬂames.
+NOx criterion contributed with different weights that
+ﬁnally led to increase the conﬁdence of the prediction,
+or even to a correct identiﬁcation.
+As already noted, NOx emission is not a distinc-
+tive feature among most of the ﬂames contained in
+this set of cases. Nevertheless, it serves to illustrate
+a general procedure that could be applied using other
+features to distinguish among cases with similar im-
+age patterns. If that additional feature displays clear
+variations for the cases where image classiﬁcation is
+ambiguous, the combined probability would help to
+discard the wrong pattern (if there is no feature that
+displays signiﬁcant variations in dubious cases, prob-
+ably those combustion regimes are so similar that a
+wrong classiﬁcation does not entail any practical con-
+sequence).
+7. Application to other combustion situations
+The potential of monitoring methods should not be
+evaluated from the results in a particular application
+but strongly depends on their capabilities to handle
+different situations. Moreover, ideally, they should be
+applicable without needing a costly process of ad-hoc
+design and adjustment and should avoid as much as
+possible the use of speciﬁc parameters and interpreta-
+tion criteria that can be adequate for one particular ap-
+plication but not for many others. Due to the nature of
+the methods reported here, it is not possible to demon-
+strate their generality on physical grounds; although
+there is a relationship among visual and physical char-
+acteristics of the ﬂames, it involves many different
+physico-chemical processes that are not well under-
+stood yet and whose role strongly depends on the
+particular system. However, some insight in this re-
+spect can be gained from experiences with other types
+of ﬂames.
+A preliminary version of the SOFM method was
+also applied to a commercial oil-ﬁred burner with a
+nominal capacity of 60 kW. The ﬂames in this case
+were yellow and highly radiating, with characteris-
+tics (physical and visual) very different from those
+of the blue ﬂames described. In particular, the na-
+ture and origin of emission spectra are expected to be
+deeply different: dominated by black-body radiation
+from soot particles, with a much smaller contribu-
+tion due to chemiluminescence of excited radicals.
+An exercise similar to that reported in Section 5.4
+was performed to estimate NOx concentration from
+ﬂame images. NOx emissions varied in the range 53–
+94 ppm for the ﬂames analysed; the estimation error
+was within ±5 ppm in practically all cases, very sim-
+ilar in relative terms to the results shown in Fig. 9.
+The probabilistic method was used for the identi-
+ﬁcation of lean-premixed ﬂames. The facility was a
+dump combustor with an axial swirler (60◦vanes) in
+the mixture injection duct and was operated at a ther-
+
+
+--- Page 18 ---
+
+526
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+Fig. 16. Comparison between predictions and measurements. NOx and CO emissions have been normalised by characteristic
+maximum values (50 and 3000 ppm, respectively).
+mal input of 33 kW with natural gas. Equivalence ra-
+tio was varied in the range 0.57–1.0, and the objective
+was to identify the operating conditions using ﬂame
+images as the only input. The method was applied ex-
+actly as described above, initially developed for the
+diffusion ﬂame, without any adaptation work speciﬁc
+to the new facility. The visual and physical charac-
+teristics of the ﬂames were, obviously, very different
+from those of the air-staged burner. Fig. 16 compares
+actual and predicted values for equivalence ratio (ER),
+NOx and CO emissions, obtained in an identiﬁca-
+tion exercise based exclusively on ﬂame images. Each
+test ﬂame was assigned the parameters measured in a
+previous test campaign for the pattern ﬂame yielding
+the highest probability. Signiﬁcant deviations resulted
+only for some CO estimations, although only in cases
+of relatively high emissions (>1000 ppm) where even
+experimental repeatability is rather low. In general,
+the quality of the predictions is considered satisfac-
+tory, suggesting that this technique offers also a good
+potential for the monitoring of premixed ﬂames.
+Background radiation was easily removed in all
+the cases explored by image thresholding. However,
+this issue might become more critical in combustion
+chambers with very hot and radiative walls and could
+require a careful selection of threshold values or re-
+moving a part of the incoming radiation by low-pass
+optical ﬁltering. For the burners studied in this work,
+image databases included ∼3–4 different values for
+each of the burner settings (e.g., 49 cases were char-
+acterised, including simultaneous variations in 3 inde-
+pendent burner settings). Nevertheless, a wider study
+would be needed to establish the minimum amount of
+information needed to apply this type of methods.
+8. Conclusions and ﬁnal remarks
+The potential of ﬂame imaging as a monitoring
+tool has been investigated through the application of
+different processing methods to an image database
+generated in a model industrial burner. Similarly
+to other works, parametric analyses conﬁrmed that
+variations in operating conditions affect signiﬁcantly
+some image characteristics. However, much better
+results were obtained with two other approaches treat-
+ing the image as a whole. The main differences and
+novelties with respect to other works in this ﬁeld are:
+• The methods were conceived as general proce-
+dures, in contrast with feature-based techniques
+which always need adaptation to particular situ-
+ations in terms of feature selection, development
+of empirical correlations among image features
+and combustion parameters as well as deﬁnition
+of the most suitable functional forms.
+• They have been evaluated in widely different ap-
+plications. To the authors’ knowledge, no previ-
+
+
+--- Page 19 ---
+
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+527
+ous work in this ﬁeld reports attempts to apply
+and evaluate other methods in more than one sit-
+uation.
+• The methods proposed are suitable to any kind
+of image. The sensor can be a conventional CCD
+camera, or any other imaging technique such as
+planar laser techniques. Moreover, the perfor-
+mance might still improve, as the information
+generated with advanced diagnostic techniques is
+usually more intimately related to ﬂame proper-
+ties and displays stronger gradients and sensitiv-
+ity to operating conditions than the luminosity in
+the visible range.
+One of the methods exploits the good capabilities
+of self-organising feature maps for pattern classiﬁca-
+tion (and, therefore, identiﬁcation). Although these
+techniques are conceived for qualitative classiﬁca-
+tion, values for the relevant parameters can be readily
+obtained through the assignation/interpolation proce-
+dure proposed. The second method uses an approach
+similar to those used for speaker recognition. In this
+case, principal component analysis demonstrated to
+be an effective data-reduction technique. A proba-
+bilistic approach was followed to quantify the degree
+of similarity of an ‘unknown’ image with all reference
+patterns; the representation of patterns by a set of im-
+ages is thought to be a salient feature of this method,
+as it provides the robustness required to account for
+the variability inherent to each combustion state. Both
+procedures are completely general; none of the oper-
+ations performed for image analysis (except, perhaps,
+a part of the pre-processing) was speciﬁc to this par-
+ticular combustion rig. Besides being always a valu-
+able virtue, the generality of the method greatly alle-
+viates one of the main potential drawbacks of empiri-
+cal approaches, which is the invalidation of the empir-
+ical model due to changes in system behaviour. The
+ﬂame classiﬁers described can be designed to adapt
+to new situations (e.g., fuel switching) by updating
+the reference patterns (even during normal operation)
+and with little intervention of highly-skilled person-
+nel.
+The methods described were also applied to
+other types of ﬂames, including an oil burner and a
+lean-premixed combustor, yielding results of qual-
+ity similar to those presented for the gas diffusion
+ﬂame. It is important to note that these techniques
+have been applied, without speciﬁc adaptations for
+the different cases, to widely different ﬂames: oil-/
+gas-ﬁred, stable/pulsating, diffusion/premixed, fast-
+mixing/staged, attached/detached. The good results
+obtained in all cases are thought to strongly support
+the generalisable nature of the approaches presented.
+This must be considered, however, an empirical con-
+clusion, as it is not possible to justify on physical
+grounds the existence of a deﬁned relationship among
+visible images and ﬂame characteristics for the gen-
+eral case.
+This kind of techniques is thought to enable the de-
+velopment of advanced monitoring methods in prac-
+tical combustion systems, either for the identiﬁcation
+of ﬂame state (e.g., control applications, anomaly de-
+tection, etc.) or as a virtual sensor for the prediction
+of relevant parameters such as NOx emissions. Com-
+pared to monitoring based on ﬂue gas analysis, the
+techniques described offer, besides a much richer di-
+agnostic, the possibility to monitor individual ﬂames
+in multiburner chambers and a dramatic reduction in
+response time (evaluation times were 0.9 s for the
+SOFM and 0.25 s for cepstral analysis), very relevant
+for control purposes.
+Acknowledgments
+Financial support for R. Hernández during his
+PhD studies was provided by the FPU programme of
+the Spanish Ministry of Education and Science. The
+authors are most grateful to A. Sanz and L. Ojeda for
+their valuable help with the experimental tasks as well
+as to R. Ichaso and M. Artigas for their contribution
+in the early stages of this study. This work was partly
+funded by the Spanish Ministry of Education and Sci-
+ence (grant ENE2007-63641) and by the European
+Commission (contract ENK5-CT2002-000662, ‘Al-
+ternative fuels for industrial gas turbines’—AFTUR).
+References
+[1] K. Kohse-Höinghaus, R.S. Barlow, M. Aldén, J. Wol-
+frum, Proc. Combust. Inst. 30 (2005) 89–123.
+[2] N. Docquier, S. Candel, Prog. Energy Combust. Sci. 28
+(2002) 107–150.
+[3] J.-B. Michel, C. Champinot, J. Dugue, State of the art
+on emerging combustion control sensors, in: Sixth In-
+ternational Conference on Technologies and Combus-
+tion for a Clean Environment, Oporto, 2001.
+[4] M. Shimoda, A. Sugano, T. Kimura, Y. Watanabe, K.
+Ishiyama, IEEE Trans. Energy Convers. 5 (1990) 640–
+645.
+[5] Y. Huang, Y. Yan, G. Riley, Measurement 28 (2000)
+175–183.
+[6] G. Lu, G. Gilabert, Y. Yang, J. Phys. Conf. Ser. 15
+(2005) 194–200.
+[7] M. Ruão, M. Costa, M.G. Carvalho, Fuel 78 (1999)
+1283–1292.
+[8] W. Tao, H. Burkhardt, Part. Part. Syst. Charact. 12
+(1995) 87–94.
+[9] M.G. Allen, C.T. Butler, S.A. Johnson, E.Y. Lo, F.
+Russo, Combust. Flame 94 (1993) 205–214.
+
+
+--- Page 20 ---
+
+528
+R. Hernández, J. Ballester / Combustion and Flame 155 (2008) 509–528
+[10] G. Lu, Y. Yan, Y. Huang, A. Reed, Meas. Control 32
+(1999) 164–168.
+[11] N. Kurihara, M. Nishikawa, A. Watanabe, Y. Satoh,
+K. Ohtsuka, H. Miyagaki, T. Higashi, T. Masai, IEEE
+Trans. Energy Convers. EC-1 (1986) 99–103.
+[12] J. Wu, M. Zhang, H. Fan, W. Fan, Y. Zhou, Chem. Eng.
+Sci. 59 (2004) 1473–1479.
+[13] J.S. Marques, P.M. Jorge, Signal Process. 80 (2000)
+1577–1589.
+[14] M.G.A. Rahman, J.R. Gibbins, A.K. Forrest, Combus-
+tion in power station boilers—Advanced monitoring
+using imaging, Report No. Coal R264 DTI/Pub URN
+04/1797, 2004.
+[15] W.B. Baek, S.J. Lee, S.Y. Baeg, C.H. Cho, Flame image
+processing and analysis for optimal coal ﬁring of ther-
+mal power plant, in: IEEE International Symposium on
+Industrial Electronics Proceedings, 2001, pp. 928–931.
+[16] A. Tuntrakoon, S. Kuntanapreeda, Image-Based Flame
+Control of a Premixed Gas Burner Using Fuzzy Logics,
+Foundations of Intelligent Systems, Springer-Verlag,
+Berlin/Heidelberg, 2003, 2871/2003, pp. 673–677.
+[17] H. Yu, J.F. MacGregor, Am. Inst. Chem. Eng. J. 50
+(2004) 1474–1483.
+[18] Y. Yan, G. Lu, M. Colechin, Fuel 81 (2002) 647–656.
+[19] Y. Huang, Y. Yan, G. Lu, A. Reed, Meas. Sci. Tech-
+nol. 10 (1999) 726–733.
+[20] D. Sbarbaro, O. Farias, Z. Zawadsky, Combust. Flame
+132 (2003) 591–595.
+[21] H. Burkhardt, L. Oest, W. Tao, Vision-Guided Flame
+Control, SENSOR 95 Kongreß, 1995.
+[22] F. Wang, X.J. Wang, Z.Y. Ma, J.H. Yan, Y. Chi, C.Y.
+Wei, M.J. Ni, K.F. Cen, Fuel 81 (2002) 2113–2120.
+[23] H. Bae, S. Kim, B.-H. Wang, M.H. Lee, F. Hrashima,
+IEEE Trans. Ind. Electron. 53 (2006) 338–348.
+[24] N. Docquier, F. Lacas, S. Candel, Proc. Combust. Inst.
+29 (2002) 139–145.
+[25] T.M. Muruganandam, B.-H. Kim, M.R. Morrell, V.
+Nori, M. Patel, B.W. Romig, J.M. Seitzman, Proc.
+Combust. Inst. 30 (2005) 1601–1609.
+[26] Y. Hardalupas, M. Orain, C.S. Panoutsos, A.M.K.P.
+Taylor, J. Olofsson, H. Seyfried, M. Richter, J. Hult,
+M. Aldén, Chemiluminescence sensor for local equiv-
+alence ratio of reacting mixtures of liquid fuel vapour
+in air, in: D. Pollard, P.A. Pilavachi (Eds.), Proceed-
+ings of the 1st International Conference on Industrial
+Gas Turbine Technologies, July 10–11, 2003, Brussels,
+Belgium.
+[27] V.N. Nori, J.M. Seitzman, Chemiluminescence mea-
+surements and modelling in syngas, methane and Jet-A
+fuelled combustors, in: 45th Aerospace Sciences Meet-
+ing and Exhibit, AIAA-2007-0466, January 2007.
+[28] A. Sanz, J. Ballester, M.A. González, Exp. Therm.
+Fluid Sci. 32 (2008) 776–790.
+[29] A.G. Gaydon, The Spectroscopy of Flames, Chapman
+& Hall, London, 1974.
+[30] S. Haykin, Neural Networks: A Comprehensive Foun-
+dation, Macmillan/IEEE Press, New York, 1994.
+[31] M. Egmont-Petersen, D. de Ridder, H. Handels, Pattern
+Recognit. 35 (2002) 2279–2301.
+[32] R.F. Molz, P.M. Engel, F.G. Moraes, L. Torres, M.
+Robert, A fast prototyping neural network model for
+image classiﬁcation, in: Proceedings of the XV Con-
+ference on Design of Circuit and Integrated Systems
+(DCIS), vol. 1, 2000, pp. 836–841.
+[33] L. Franco, A. Treves, A neural network facial expres-
+sion recognition system using unsupervised local pro-
+cessing, in: Proceedings of the Second International
+Symposium on Image and Signal Processing and Anal-
+ysis (ISPA 01), 2001, pp. 628–632.
+[34] J.P. Campbell, Proc. IEEE 85 (1997) 1437–1462.
+[35] M.A. Vicente, O. Reinoso, C. Pérez, J.A. Sabater, J.A.
+Azorín, Recognition of 3D objects by PCA analysis (in
+Spanish), in: XXIII Jornadas de Automática, Tenerife,
+2002.

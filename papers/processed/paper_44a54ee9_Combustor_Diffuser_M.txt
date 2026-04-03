@@ -1,0 +1,6855 @@
+
+--- Page 1 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+1
+ 
+Combustor Diffuser Modeling 
+Part I: Inlet Profiles & 2-D Calculations 
+ 
+H. MongiaC, G. Hsiao, and D. Burrus, GE Aircraft Engines, Cincinnati,  
+PSVS Sreedhar, A. Rao, and P. Naik, EACoE, Bangalore 
+ 
+ABSTRACT 
+2-D axisymmetric simulation of a typical gas turbine 
+diffusion system is conducted with two turbulence 
+models, the standard k-ε, Shear Stress Turbulence, SST 
+k-ω including its low-Reynolds number formulation. 
+Effect of diffuser inlet profile, center-, inner- and outer-
+peaked on pressure recovery and loss coefficient is 
+modeled with two approaches for specifying the inlet 
+conditions: 1) Measured inlet mean axial velocity with 
+reasonable assumptions for turbulence quantities; 2) 
+Through-the-rig inlet, profiler, duct, prediffuser and 
+dump region 3-D CFD simulation to calculate the pre-
+diffuser inlet profiles. Best agreement with data is 
+obtained with the standard k-ε model starting with the 
+calculated diffuser inlet conditions. 
+ 
+INTRODUCTION 
+ 
+2-D and 3-D CFD calculations are generally done 
+during the gas turbine combustion system design process 
+to aid in the optimization of the diffusion system. Early 
+work by Karki et al1 as well as the follow-on 
+publications, e.g., Reference 2 have shown that the 
+standard k-ε model with wall functions overpredicts CP 
+by 5-15% compared to data. A preliminary assessment of 
+various advanced turbulence models indicates3 that SST 
+k- ω turbulence model has shown potential for giving 
+better agreement with data for flows subject to adverse 
+pressure gradients including separation. However due to 
+lack of systematic validation of CFD-based approach 
+with data of combustor diffusion systems of practical 
+interest to designers, the current design process relies on 
+empirical data collected on simulated full-scale 3-D 
+diffuser rigs coupled with qualitative guidance from 
+CFD.  
+Let us review a typical 3-D diffuser experimental 
+investigation in order to establish an outline of what 
+CFD-based diffuser model validation effort needs to 
+undertake so that “CFD-friendly combustor designers” 
+don’t need to rely on diffuser rig testing as part of the 
+design process. 
+Karki et al1 made a significant contribution to the art 
+of combustor diffuser modeling even though there still  
+C: Copyright  2004 by the authors. Published by AIAA 
+with permission.
+ 
+ 
+remained several unresolved issues due mainly to: 
+1. Mean square root error, σ of measured CP was 
+of the order of 10% since the data was from a 
+full-annular combustor rig, which is normally 
+not as well instrumented and controlled as 
+typical special purpose diffuser rig is. 
+2. No total pressure loss coefficient, Ω data was 
+available for model validation. 
+3. Limited 2-D grid refinement investigations were 
+undertaken. 3-D calculations with coarse-grid 
+arrangement were made to illustrate that 
+practical combustor diffusers need to employ 3-
+D CFD techniques before reaching any definite 
+conclusions about the standard k-ε model’s 
+capabilities in this area. 
+4. Data was available only on one baseline 
+combustion system with only one prediffuser 
+inlet profile and a set level of airflow splits 
+around the combustor.   
+ 
+Prompted by recent advances in CFD simulation 
+technology, turbulence modeling and availability of an 
+excellent data set, the designers’ need to undertake 
+integrated combustor liner and diffuser modeling4, we 
+have undertaken a comprehensive investigation to study 
+the effect of the following on CP and Ω: 
+ 
+1. Diffusion system design parameters including 
+inlet profiles, pre-diffuser area ratio, L/H, 
+cowling geometry, blockages due to dome 
+swirlers, nozzle stem and tip, airflow splits 
+between the dome, inner and outer annuli of the 
+combustor liner. 
+2. Procedures 
+for 
+calculating 
+diffuser 
+inlet 
+conditions. 
+3. 2-D versus 3-D CFD simulations. 
+4. Different turbulence models and near-wall 
+treatments to capture boundary layer losses and 
+flow separation. 
+This paper, Part I, focuses on the procedures for 
+calculating the inlet profiles specific to Runs 3, 4 and 5 
+of Table 1 and determine how far one can go with 2-D 
+CFD simulations, the standard k-ε model along with the 
+40th AIAA/ASME/SAE/ASEE Joint Propulsion Conference and Exhibit
+11 - 14 July 2004, Fort Lauderdale, Florida
+AIAA 2004-4168
+Copyright © 2004 by The authors. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+2
+two near-wall treatments, and SST k-ω turbulence model 
+coded in FLUENT software. 
+ 
+DATA SETS 
+A typical annular diffuser rig, Figure 1a, 
+consists of a cylindrical annular inlet section, which 
+extended from a rounded entrance to the diffuser inlet. 
+The length of this inlet section from the bell mouth 
+entrance to the prediffuser inlet was ~12.0”or ~16 
+passage heights. The axial distance from the inlet section 
+entrance to the diffuser inlet measurement plane was ~ 
+8.7” or ~11 passage heights. The distance from the 
+measurement plane to the pre-diffuser inlet was ~3.2” or 
+~4 passage heights. Within the inlet section at a distance 
+of ~2.5” downstream from the rounded entrance were 
+located the inlet profilers. In the initial rig configuration 
+the profiles consisted of a pair of 360-degree rings 
+designed to protrude 0.10” into the flow stream from 
+both the inner and outer flow path walls, called opposed-
+ring profiler.  The location of these rings placed them 
+~12 passage heights upstream of the diffuser inlet. The 
+testing reported in this paper used “bow tie” profilers, 
+Fig. 1b. The three shown produce center-, inner- and 
+outer-peak profiles, respectively. 
+The prediffuser exit angle, exit height, L/H and 
+geometric area are  ~10.25O, 1.17”, 2.27 and 74.8 in2, 
+respectively. Cowl opening height, Hcowl, geometric area, 
+axial location, Lcowl and (L/H)cowl are 0.729”, 100 in2, 
+2.125” and 2.92, respectively. Outer and inner annuli 
+areas at stations 3.5 (toward the farther end of the 
+annulus) are 39.4 and 30.5 in2, respectively. The airflow 
+splits between the three streams (dome, inner and outer 
+annuli) are controlled independently in order to evaluate 
+the effect of the flow splits on CP and Ω. 
+ 
+A total of 118 static and total pressure taps were 
+installed on the diffuser model test rig, shown 
+schematically in Fig. 1a. Of these 64 were located in the 
+rig inlet and prediffuser sections, the remaining 54 were 
+located in the dump regions, the combustor dome, and 
+upstream of the metering orifices. As part of the inlet 
+instrumentation there were four 5-element total pressure 
+rakes along with wall static pressures for each rake. The 
+elements of these rakes were located at y/h = 0.1033, 
+0.3081, 0.5095, 0.7078, and 0.9031, bottom to top. At 
+the diffuser discharge plane another set of four 5-element 
+total pressure rakes along with associated wall statics 
+were located.  The radial positions of these total pressure 
+elements were at y/h = 0.1045, 0.3136, 0.5227, 0.7365, 
+and 0.9233, bottom to top. As part of the combustor 
+dome instrumentation two mixer cups were each 
+instrumented with five total pressures and five static 
+pressures equally spaced around the cup circumferences. 
+These taps were placed to quantify the pressure variation 
+around the mixer cups. Pt3 is based on the calculated 
+value determined from the measured diffuser inlet static 
+pressure and the known inlet mass flow rate, assuming 
+CD of 1.0. The dome total pressure is taken from the 
+average of the dome pressures mounted onto the dome 
+plate facing upstream, assuming stagnation flow 
+conditions.   
+ 
+For the selected series of 3-D diffuser rig testing to 
+be compared with predictions in this paper and 
+References 7-9, a total of 10 good quality runs  (Table 1) 
+are used to quantify the effect of the following on 
+pressure recovery and total pressure loss coefficients, CP 
+and Ω: 
+1. Diffuser inlet profiles, Runs 3, 4, 5 and 8   
+Tables 2 and 3; 
+2. Diffuser area ratio and length, Runs 3 and 9; 
+3. W/ and w/o combustor dome cowling, Runs 3 
+and 6; 
+4. Cowling inlet area, Runs 3 and 7; 
+5. Nozzle tip diameter, Runs 3 and 11; 
+6. Blockage due to nozzle stem, Runs 3 and 12; 
+7. Airflow splits between dome, inner and outer 
+passages that was conducted for all the 10 test 
+cases. 
+Here static pressure recovery and total pressure loss 
+coefficients CP and Ω are: 
+CP = (Ps-Ps3)/q3 
+Ω  = (Pt3-Pt)/q3 
+Subscripts s, t and 3 denote static and total pressures, 
+combustor inlet station, respectively; q3 is the diffuser 
+inlet dynamic head. 
+Tables 2 and 3 list the average CP, total pressure loss 
+coefficients, Ω and their root mean square error 
+(σ) values for each of the 10 runs at the pre-diffuser exit 
+plane. Each run included a set of 18 test conditions 
+involving variations in airflow splits between the three 
+streams, namely outer passage, inner passage and the 
+dome. As noted in Table 1, Run #10 was a repeat of Run 
+#3 for establishing typical test-to-test variability. From 
+this we observe the following: 
+1. 
+Sum of root mean squares, so-called pool σ for 
+CP and Ω at the pre-diffuser exit of 2.08% and 
+8.05% are comparable with the test-to-test 
+variability of 2.64% and 9.71%. 
+2. 
+On the other hand, the max to min variation in 
+CP for the test Runs 3, 4 and 5 (conducted to 
+quantify the effect of inlet profile) is 13.3%, which 
+is ~5 times the test to test variability σ or ~6.4 
+times the pool σ. The overall σ  for the 10 runs is 
+~8% or 4 times the pool sigma. Essentially similar 
+ratios may be observed for Ω. 
+3. 
+It is a reasonable assumption to make that the 
+pool σ’s for the dome, inner and outer passages 
+should be ≥ those of the diffuser exit plane. 
+
+
+--- Page 3 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+3
+4. 
+Therefore, 
+consistent 
+with 
+our 
+long-term 
+objectives4 for pretest “no-fudge factor” prediction 
+capability for combustor design, the CFD-based 
+diffusion system design tools should match CP and 
+Ω data for each design options (e.g., 9 in this 
+experimental investigation) with σ of 2.1% and 
+8.1%, respectively. Moreover, the models should 
+have enough credibility with the designers that the 
+predicted σ variations of CP and Ω between the 
+nine configurations of the orders of 9.1% and 
+27.4%, 
+respectively 
+can 
+be 
+believed, 
+and 
+consequently there would be no need to run a 
+special purpose diffuser rig test as a part of the 
+design process. 
+ 
+We would like to achieve agreement for CP and 
+Ω 
+Ω 
+Ω 
+Ω data within root-mean square errors of ~5% and 
+15%, respectively. 
+ 
+CALCULATIONS PROCESS  
+ 
+A commercially available code, FLUENTR CFD was 
+used in our investigation since it already has the 
+turbulence models we had investigated in our earlier 
+studies, e.g., References 1 and 3, in addition to having an 
+excellent 
+griding 
+strategy 
+suitable 
+for 
+the 
+test 
+configuration of interest to us. The reader should refer to  
+FLUENT software documentation for details on the 
+two turbulence models and the two types of wall 
+functions, (standard k-ε and shear stress transport SST k-
+ω models; standard and non-equilibrium wall functions) 
+used in this study. Brief description is given in the 
+following paragraphs. 
+  
+The standard k-ε model is a semi-empirical model 
+based on model transport equations for the turbulence 
+kinetic energy (k) and its dissipation rate (ε). The model 
+transport equation for k is derived from the exact 
+equation while the model equation for ε is obtained using 
+physical reasoning. The transport equations for k and 
+ε used in the standard k-ε model are: 
+ 
+m
+b
+k
+j
+k
+t
+j
+i
+i
+Y
+G
+G
+x
+k
+x
+ku
+x
+k
+t
+−
+−
++
++
+∂
+∂
++
+∂
+∂
+=
+∂
+∂
++
+∂
+∂
+ρε
+σ
+µ
+µ
+ρ
+ρ
+]
+)
+[(
+)
+(
+)
+(
+ 
+k
+C
+G
+C
+G
+k
+C
+x
+x
+u
+x
+t
+b
+k
+j
+k
+t
+j
+i
+i
+2
+2
+3
+1
+)
+(
+]
+)
+[(
+)
+(
+)
+(
+ε
+ρ
+ε
+ε
+σ
+µ
+µ
+ρε
+ρε
+ε
+ε
+ε
+−
++
++
+∂
+∂
++
+∂
+∂
+=
+∂
+∂
++
+∂
+∂
+  
+Gk represents the generation of turbulence kinetic energy 
+due to mean velocity gradients and is given by, 
+  
+i
+j
+j
+i
+k
+x
+u
+u
+u
+G
+∂
+∂
+−
+=
+'
+'
+ρ
+             
+Gb represents the generation of turbulence kinetic energy 
+due to buoyancy and is given by, 
+  
+i
+t
+t
+i
+k
+x
+T
+g
+G
+∂
+∂
+=
+Pr
+µ
+β
+         
+Where Prt is the turbulent Prandtl number for energy, gi 
+is the component of gravitational vector in the ith 
+direction and β is the coefficient of thermal expansion. 
+Ym represents the contribution fluctuating dilatation in 
+compressible turbulence to the overall dissipation rate 
+and is given by, 
+2
+2
+t
+m
+M
+Y
+ρε
+=
+ 
+Where Mt is the turbulent Mach number, defined as  
+2
+α
+k
+M t =
+ Where α is the speed of sound. 
+C1ε, C2ε, C3ε are constants and σk, σε are the turbulent 
+Prandtl numbers for k and ε. The turbulent viscosity µt is 
+calculated using k and ε: 
+ε
+ρ
+µ
+µ
+2
+k
+C
+t =
+ Where Cµ is a constant. 
+ In this study the following values for these constants 
+were used: 
+ C1ε = 1.44, C2ε  = 1.92, Cµ   = 0.09, σk  = 1.00, σε = 1.30. 
+ 
+The standard wall functions in FLUENT software are 
+based on proposition of Launder and Spalding6 and have 
+been most widely used for industrial applications.  
+         The law of the wall for mean velocity yields: 
+)
+ln(
+1
+*
+*
+Ey
+U
+κ
+=
+ 
+where,
+ρ
+τ
+µ
+/
+2
+/
+1
+4
+/
+1
+*
+w
+p
+p
+k
+C
+U
+U
+=
+ 
+ 
+µ
+ρ
+µ
+p
+p
+y
+k
+C
+y
+2
+/
+1
+4
+/
+1
+* =
+ 
+and  κ = von Karman constant (0.42) 
+             E = empirical constant (9.81) 
+        Up = mean velocity at point P near the wall. 
+        kp = turbulence kinetic energy at point P. 
+         yp = distance from point P to the wall 
+              µ = dynamic viscosity of the fluid. 
+The logarithmic law for mean velocity is used when  
+y* > 11.225. When the grid is such that y* < 11.225 the 
+laminar stress-strain relationship U* = y* is used. 
+    The production of kinetic energy, Gk, and its 
+dissipation rate ε, at the wall adjacent cells, which are the 
+
+
+--- Page 4 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+4
+source terms in the k equation are computed on the basis 
+of the local equilibrium hypothesis. Under this 
+hypothesis, the production of k and its dissipation rate 
+are assumed to be equal in the wall adjacent control 
+volume. 
+ Thus the production of k is given by, 
+  
+p
+p
+w
+w
+w
+k
+y
+k
+C
+y
+U
+G
+2
+/
+1
+4
+/
+1
+µ
+κρ
+τ
+τ
+τ
+=
+∂
+∂
+≈
+ 
+and ε is computed from  
+p
+p
+P
+y
+k
+C
+κ
+ε
+µ
+2
+/
+3
+4
+/
+3
+=
+ 
+There are two key differences in the non-equilibrium 
+wall functions as compared to the standard wall function: 
+1. Launder and Spalding’s log law for mean 
+velocity is sensitized to pressure-gradient 
+effects. 
+2. The two layer based concept is adopted to 
+compute the budget of turbulence kinetic energy 
+(Gk, ε) in the wall neighboring cells. 
+ 
+The log-law for mean velocity sensitized to pressure 
+gradients is  
+)
+ln(
+1
+/
+2
+/
+1
+4
+/
+1
+2
+/
+1
+4
+/
+1
+~
+µ
+ρ
+κ
+ρ
+τ
+µ
+µ
+y
+k
+C
+E
+k
+C
+U
+w
+=
+ 
+ 
+where 
+]
+)
+ln(
+[
+2
+1
+2
+~
+µ
+ρκ
+ρκ
+v
+v
+v
+v
+y
+k
+y
+y
+y
+y
+k
+y
+dx
+dp
+U
+U
++
+−
++
+−
+=
+ 
+and yv is the physical viscous sub-layer thickness, and is 
+computed from 
+2
+/
+1
+4
+/
+1
+*
+p
+v
+v
+k
+C
+y
+y
+µ
+ρ
+µ
+=
+ 
+where yv
+* = 11.225. 
+The non-equilibrium wall function employs the two-
+layer concept in computing the budget of turbulence 
+kinetic energy at the wall-adjacent cells, which is needed 
+to solve the k equation at the wall-neighboring cells. The 
+wall-neighboring cells are assumed to consist of a 
+viscous sub-layer and a fully turbulent layer. The 
+following profile assumptions for turbulence quantities 
+are made:  
+{
+v
+w
+v
+t
+y
+y
+y
+y
+>
+<
+=
+,
+,0
+τ
+τ
+
+{
+v
+p
+v
+p
+v
+y
+y
+k
+y
+y
+k
+y
+y
+k
+>
+<
+=
+,
+,
+)
+(
+2
+ 
+{
+v
+l
+v
+y
+y
+y
+C
+k
+y
+y
+y
+k
+>
+<
+=
+,
+,
+2
+2
+/
+3
+2
+ν
+ε
+
+where 
+4
+/
+3
+−
+=
+µ
+κC
+Cl
+and yv is the dimensional thickness 
+of the viscous sub-layer. 
+Using these profiles the cell averaged  production of k 
+for quadrilateral cells for which the volume average can 
+be approximated with a depth-average, is given by 
+
+∂
+∂
+=
+n
+y
+t
+k
+dy
+y
+U
+G
+0
+τ
+
+)
+ln(
+1
+2
+/
+1
+4
+/
+1
+2
+v
+n
+p
+w
+y
+y
+k
+C
+y
+n
+µ
+ρ
+τ
+κ
+=
+ 
+
++
+=
+=
+n
+y
+p
+n
+l
+p
+v
+n
+n
+k
+y
+y
+C
+k
+y
+y
+dy
+y
+0
+2
+/
+1
+)]
+ln(
+2
+[
+1
+1
+ν
+ε
+ε
+
+Where yn is the height of the cell (yn  = 2 yp). 
+The Shear Stress Transport (SST) k-ω model is an 
+empirical model based on model transport equations for 
+the turbulence kinetic energy (k) and the specific 
+dissipation rate (ω), which can also be thought of as the 
+ratio of ε to k. It is so named because the definition of the 
+turbulent viscosity is modified to account for the 
+transport of the principal turbulent shear stress. Other 
+modifications include the addition of a cross-diffusion 
+term in the ω equation and a blending function to ensure 
+that the model equations behave appropriately in both the 
+near-wall and far-field zones. The transport equations for 
+k and ω used in the SST k-ω model are given below: 
+k
+k
+j
+k
+j
+i
+i
+Y
+G
+x
+k
+x
+ku
+x
+k
+t
+−
++
+∂
+∂
+Γ
+∂
+∂
+=
+∂
+∂
++
+∂
+∂
+]
+[
+)
+(
+)
+(
+ρ
+ρ
+ 
+ω
+ω
+ω
+ω
+ω
+ρω
+ρω
+D
+Y
+G
+x
+x
+u
+x
+t
+j
+j
+i
+i
++
+−
++
+∂
+∂
+Γ
+∂
+∂
+=
+∂
+∂
++
+∂
+∂
+]
+[
+)
+(
+)
+(
+
+In these equations, Gk represents the generation of 
+turbulence kinetic energy due to mean velocity gradients 
+and is given by, 
+
+
+--- Page 5 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+5
+i
+j
+j
+i
+k
+x
+u
+u
+u
+G
+∂
+∂
+−
+=
+'
+'
+ρ
+ 
+Gω represents the generation of ω and is given by, 
+k
+G
+k
+G
+ω
+α
+ω
+−
+=
+  
+The coefficient α is given by 
+)
+/
+Re
+1
+/
+Re
+(
+0
+*
+ω
+ω
+α
+α
+α
+α
+R
+R
+t
+t
++
++
+=
+∝
+
+where, 
+)
+/
+Re
+1
+/
+Re
+(
+*
+0
+*
+*
+k
+t
+k
+t
+R
+R
++
++
+=
+∝
+α
+α
+α
+
+
+µω
+ρk
+t =
+Re
+Rk = 6, 
+3
+*
+0
+i
+β
+α =
+,βi=0.072 
+Γk and Γω  represent the effective diffusivity of k and ω, 
+respectively, which are calculated as described below.  
+k
+t
+k
+σ
+µ
+µ +
+=
+Γ
+and
+ω
+ω
+σ
+µ
+µ
+t
++
+=
+Γ
+where σk and σω 
+are the turbulent Prandtl numbers for k and ω, 
+respectively. The turbulent viscosity, µt , is computed as 
+follows:
+]
+,
+1
+max[
+1
+1
+2
+*
+ω
+α
+α
+ω
+ρ
+µ
+F
+k
+t
+Ω
+=
+;
+where  
+ij
+ijΩ
+Ω
+=
+Ω
+2
+ 
+]
+/)
+1(
+/
+1
+2
+,
+1
+1,
+1
+k
+k
+k
+F
+F
+σ
+σ
+σ
+−
++
+=
+ 
+]
+/)
+1(
+/
+1
+2
+,
+1
+1,
+1
+ω
+ω
+ω
+σ
+σ
+σ
+F
+F
+−
++
+=
+ 
+Ωij is the mean rate-of-rotation tensor. 
+The blending functions F1 and F2 , are given by 
+)
+tanh(
+4
+1
+1
+Φ
+=
+F
+ 
+]
+4
+),
+500
+,
+09
+.0
+min[max(
+2
+2
+,
+2
+1
+y
+D
+k
+y
+y
+k
++
+=
+Φ
+ω
+ω
+σ
+σ
+ω
+ρ
+µ
+ω
+ 
+]
+10
+,
+2
+max[
+20
+2
+,
+−
++
+∂
+∂
+∂
+∂
+=
+j
+j
+x
+x
+k
+D
+ω
+ω
+σ
+ρ
+ω
+ω
+ 
+)
+tanh(
+2
+2
+2
+Φ
+=
+F
+  
+]
+500
+,
+09
+.0
+2
+max[
+2
+2
+ω
+ρ
+µ
+ω
+ρ
+y
+y
+k
+=
+Φ
+ 
+Y k and Y ω represent the dissipation of k and ω due to 
+turbulence and is given by 
+ω
+ρβ
+β k
+f
+Yk
+*
+*
+=
+; 
+where  
+{
+0
+,
+400
+1
+680
+1
+0
+,1
+2
+2
+*
+>
++
++
+≤
+=
+k
+k
+k
+k
+x
+x
+x
+x
+f β
+
+ 
+j
+j
+k
+x
+x
+k
+x
+∂
+∂
+∂
+∂
+=
+ω
+ω 3
+1
+
+  
+)]
+(
+1[
+*
+*
+*
+t
+i
+M
+F
+ς
+β
+β
++
+=
+ 
+ 
+)
+)
+/
+(Re
+1
+)
+/
+(Re
+15
+/
+4
+(
+4
+4
+*
+*
+β
+β
+β
+β
+R
+R
+t
+t
+i
++
++
+=
+∝
+
+ζ1.5, Rβ = 8, β*
+∝ = 0.09. 
+2
+ω
+ρβ β
+ω
+f
+Y =
+ 
+ 
+ω
+ω
+β
+x
+x
+f
+80
+1
+70
+1
++
++
+=
+
+          
+3
+*
+)
+(
+ω
+β
+ω
+∝
+Ω
+Ω
+=
+ki
+jk
+ij
+S
+x
+ 
+
+
+--- Page 6 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+6
+
+)
+(
+2
+1
+i
+j
+j
+i
+ij
+x
+u
+x
+u
+∂
+∂
+−
+∂
+∂
+=
+Ω
+
+Ski  is the strain rate tensor and  
+)]
+(
+1[
+*
+*
+t
+i
+i
+i
+M
+F
+ς
+β
+β
+β
+β
+−
+=
+ where F(Mt) is the 
+compressibility correction. 
+Dω represents the cross-diffusion term, and is defined as   
+j
+j
+x
+x
+k
+F
+D
+∂
+∂
+∂
+∂
+−
+=
+ω
+ω
+ρσ ω
+ω
+1
+)
+1(
+2
+2
+,
+1
+ ; 
+The model constants used in this study are  
+α
+∝α∝	α
+β
+∝β
+	βω	ζ
+	σ	σω	σσω	σ	
+σω	αββ	
+	
+ 
+INLET CONDITIONS 
+ 
+Gridding was done in the FLUENT software 
+pre-processor, GAMBIT. An excellent quality all-quad 
+2d mesh, with 40k cells, was generated for the 2-D axi-
+symmetric simulation (fig. 1e) ensuring y+ ~40 that is 
+required for using with standard k-ε model with wall-
+functions. ~10k cells were distributed in the pre-diffuser 
+region, ~6k cells in the inner and outer annulus passages 
+each, and the rest for the dump region. For use with 
+Shear Stress Transport SST k-ω model, the same mesh 
+(of ~40k cells) was locally refined to 475k cells within 
+the solver, FLUENT CFD, to achieve the required y+ 
+~1, for all the walls. 
+ 
+Starting w/ measured profiles 
+Since the measurements were available only at five 
+points across the passage height, reasonable and 
+consistent assumption for the near-wall treatment needs 
+to be made for center, inner and outer peaked profiler 
+runs. All the results presented in this report for the cases 
+with 
+measured 
+profiles 
+at 
+inlet 
+use 
+a 
+linear 
+approximation from the last available measurement 
+down to the wall. Another reasonable assumption would 
+be to use 1/7th power law. But it has to be noted that, 
+since 1/7th power law is strictly applicable for a fully 
+developed turbulent flow it will not exactly match the 
+next to the wall measured point at the diffuser inlet. 
+Moreover, the boundary layers along the inner and outer 
+walls are highly dependent on the wake created behind 
+the profiler that varies with the kind of profiler (center/ 
+inner/outer) used, hence the same 1/7th power law 
+approximation will not be suitable for all the three 
+profilers the same way. This leaves us with making 
+approximations for a smooth transition to 1/7th power 
+law, from each of the measured profile for the three 
+profilers. With these assumptions, minor impact was 
+noted for the predicted static pressure recovery and loss 
+coefficient.   Turbulence quantities (k and ε) at the 
+diffuser inlet, is calculated by assigning turbulence 
+intensity, I and length scale l, as 
+          
+h
+D
+l
+07
+.0
+=
+ 
+        
+2)
+(
+2
+3
+I
+u
+k
+avg
+=
+ 
+Turbulence dissipation rate is then calculated using the 
+relationship 
+                
+l
+k
+C
+2
+/
+3
+4
+/
+3
+µ
+ε =
+ 
+ 
+Starting w/ calculated profiles 
+Since the bow-tie profiler geometries are 3-
+dimensional in nature (Fig. 1b), a 3d analysis of each of 
+center, inner and outer peaked profilers were taken up by 
+simulating the test conditions.   GAMBIT software was 
+used for gridding the inlet geometry through the 
+prediffuser. For the through the profiler (TTP) analysis, 
+an all hexahedral mesh comprised of ~512k cells was 
+used, Fig. 1d.  A total of 245 grid points were used in the 
+axial direction over a physical length of 9.2” starting 
+from the upstream dump exit to the diffuser inlet. 
+Similarly 20×96 cells were employed at the inlet section 
+(fig. 1c) over a 180 sector with a channel height of 0.76”.  
+A very fine mesh was employed near the profiler walls 
+with the minimum cell size of 0.0155” and 0.033” in the 
+axial and radial direction respectively.  The dimensions 
+of the upstream dump were 8h*5h in the radial and axial 
+direction respectively, where h is the height of the 
+profiler (0.764”).  Subsequent studies involving different 
+reasonable assumptions for the plenum upstream of the 
+bell mouth entrance did not make any noticeable impact 
+on the calculated diffuser inlet conditions. 
+ 
+CFD calculated through the inlet-profiler for the 
+prediffuser inlet plane shown in Figures 2 and 3 clearly 
+show the complexity of the flow field approaching the 
+prediffuser. From iso-axial velocity contours and 
+circumferential variation in the axial velocity (Fig 2), 
+contours of total pressure (Fig. 3a) and turbulence kinetic 
+energy (Fig. 3b), circumferential variation of k (Fig. 3c) 
+and ε (Fig. 3d) at the prediffuser inlet, one can clearly 
+question the validity of simplistic assumptions for 
+specifying the inlet conditions based on measurements of 
+
+
+--- Page 7 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+7
+four 5-element total pressure rakes along with wall static 
+pressures for each rake. 
+This paper starts calculations with circumferentially 
+averaged measured and CFD-calculated inlet profiles. 
+The follow-on paper7 will have calculations with 2-D 
+inlet profiles to show back-to-back comparison between 
+1-D and 2-D inlet profiles as well as 3-D simulation of 
+the diffusion system. 
+ 
+COMPARISON 
+ 
+Comparison between data and predictions are 
+made in the following paragraphs for Runs 3, 4 and 5, 
+center-, inner- and outer-peaked diffuser inlet profiles. A 
+detailed comparison is presented for Run #3 to help 
+convey the extent of the analysis conducted in this 
+investigation. Since the details in regard to comparison 
+between data and model predictions for the Runs 4 and 5 
+are not too different from that of Run #3, only summary 
+tables are presented for the other two runs. 
+ 
+Run #3 Center-Peak Profile 
+ 
+Results 
+are 
+presented 
+in 
+the 
+following 
+paragraphs for CP and Ω of the combustor inner and 
+outer annuli, pre-diffuser and dome. 
+ 
+CP of Outer and Inner Passages 
+Fig. 4 shows typical comparison between CP 
+data and predictions with the standard k-ε model in 
+conjunction with the use of standard wall function. The 
+calculations are presented with the measured inlet 
+profiles 
+(identified 
+as 
+stdke_wallfunc_meas) 
+and 
+calculated profiles, indicated by stdke_wallfunc_pred.  
+Abscissa represents flow through the outer or inner 
+annuls as appropriate, expressed as fraction of the total 
+flow; y-axis presents CP. 14 out of 18 measured points 
+were used for the model calculations so that the trend 
+lines for predictions and data can be compared 
+qualitatively. Data and calculations are presented for 
+both the outer and inner passages for stations 3.4 (closer 
+to annulus inlet), and 3.5, toward the end of the annulus. 
+With the measured inlet profiles, the standard k-
+ε model over predicts outer and inner passages CP with 
+considerable error defined as [(Data-Prediction)/Data]. 
+On the average, this most popular current practice 
+approach over-predicts CP for the two axial stations of 
+the outer passage by 26 and 30%, respectively; see 
+entries in Table 4.  On the other hand, model when used 
+with the through-the-profiler calculations (so-called with 
+calculated inlet profiles for mean velocity components, k 
+and ε) over-predicts CP by 6% and 13%, respectively. 
+Similarly for the inner passage, model’s over-predictions 
+of 30 and 26% (w/ the measured profiles) reduce to 12% 
+and 10%, respectively. This means, with calculated inlet 
+profiles, the standard k-ε model w/ standard wall 
+function over predicts annuli CP by ~10% compared to 
+28% w/ measured profiles; see Table 5. Perhaps, a 
+plausible explanation for this unexpected conclusion is 
+that for most of the engineering-purpose diffuser rigs we 
+don’t have sufficiently resolved measurements for the 
+mean quantities; turbulence quantities are rarely 
+measured for these set-ups. One should not expect four 
+5-element Pt rakes with wall static pressures to pick up 
+representative flow field characteristics. Moreover, it is 
+not easy to measure combustor diffuser inlet profiles in 
+gas turbine engines. We therefore feel that is better to 
+have a process for numerically calculating inlet profiles 
+through a well posed through the inlet simulation than to 
+rely 4-5 Pt rakes to specify inlet conditions. 
+Figure 5 shows back-to-back comparison 
+between the standard k-ε/wall function and SST low-
+Reynolds number k-ω models, both w/ measured inlet 
+profiles. The SST model appears to have slight 
+advantage over the k-ε model, the former w/ average 
+over predictions of ~25% compared to ~28% for the k-ε 
+model. However, when compared for the calculated inlet 
+profile, Figure 6, the average over prediction by SST is 
+~16% compared to ~10% by the k-ε model. This is rather 
+a disappointment considering: 1) the SST calculations 
+are with ~475k cells compared to ~40k cells used by the 
+k-ε model; 2) SST was specifically formulated and 
+validated for flows involving adverse pressure gradients. 
+However when appropriate, we are in favor of using SST 
+for diffuser calculations.    
+Figure 7 compares the standard k-ε model 
+predictions with the two wall functions (standard and 
+non-equilibrium), measured and calculated inlet profiles. 
+Even though the use of non-equilibrium wall function 
+did not show any advantage over the standard wall 
+function (average over-prediction for the passages being 
+~11% compared to ~10% w/ the standard wall function), 
+we recommend its use because in future investigations 
+we plan to replace it with wall functions appropriate for 
+flows involving reverse-flow and separation with the 
+hope of getting better correlation between model and 
+data.  The built-in advantage of including stream-wise 
+pressure-gradient term in the non-equilibrium wall 
+function is quite evident even though it has not shown 
+any benefit for Run 3. 
+ 
+Ω of Outer and Inner Passages 
+ 
+Figure 8 shows a comparison between the 
+measured and predicted total pressure loss coefficient, 
+Ω with the standard k-ε/wall function starting with 
+measured and calculated inlet profiles. Abscissa 
+represents flow through the outer or inner annuls, 
+expressed as fraction of the total flow; y-axis presents Ω. 
+Average error reduces from ~30% (with measured inlet 
+profiles) to ~13% with the calculated diffuser inlet 
+profiles.   
+
+
+--- Page 8 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+8
+Back to back comparison between the standard 
+k-ε and SST models with the measured inlet profiles, 
+Figure 9 shows that the average error (~30% w/ the 
+former) reduces to ~28%, showing no noticeable 
+advantage of SST over the k-ε model. On the other hand 
+predictions with the calculated diffuser inlet profiles 
+show that average errors of the two models are ~13 and 
+~18%, indicating the inferior performance of SST model.   
+ 
+Pre-diffuser, Dome CP, Ω  
+ 
+Unlike the outer and inner passages, the flow 
+split variations don’t impact the prediffuser’s CP and Ω. 
+Therefore, the comparison between data and model 
+predictions can be shown through a summary Table 4. 
+All the three approaches (SST and standard k-ε models 
+with standard or nonequilibrium wall function) with 
+measured inlet profiles overpredict CP by ~22. The k-ε 
+model w/ calculated inlet values has average error 
+<0.5%; SST model on the other hand over-predicts by 
+10%. There is no consistent trend predicted for the 
+prediffuser exit total pressure loss coefficient Ω; some of 
+it could possibly be due to the approximation used in 
+calculating experimental value of Ω. However, CFD 
+calculated Ω that fall in the range 0.09 to 0.123 look 
+reasonable. 
+2-D calculated dome total pressure recovery 
+compare poorly with the data for this particular 
+combustor diffuser set-up that involves high flow 
+through the dome. We could not get 2-D CFD reproduce 
+the data after having simulated the set-up in several 
+reasonable ways. However, 3-D CFD simulation as 
+reported in Reference 7 did considerably better job in 
+correlating with data. 
+In summary, as given in Tables 4 and 5, 2-D 
+CFD with calculated diffuser inlet flow conditions over-
+predicted CP of prediffuser, outer and inner passages 
+(stations 3.4 and 3.5) on an average by 0.4%, 5.8%, 
+13.1%, 
+12.1% 
+and 
+10.1%, 
+respectively. 
+The 
+corresponding under-prediction for Ω was 7.1%, 6.1%, 
+13.7%, 16.5% and 14.9%, respectively. 
+ 
+Comparison between Runs 3, 4 and 5 
+ 
+             It 
+is 
+a 
+common 
+practice 
+to 
+document 
+performance of combustor diffusers with different inlet 
+profiles that are created by bow-tie profilers as shown 
+previously in Figure 1b. It is also well recognized that 3-
+5 multi-element static and total pressure rakes can not do 
+full justice in characterizing the inlet and exit profiles of 
+the prediffuser. For example, Figure 2 shows the 
+predicted diffuser inlet axial velocity contours produced 
+by the three profilers corresponding to Runs 3 (center-
+peak), 4 (inner-peak) and 5 (outer-peak), respectively. 
+Clearly, circumferentially averaged radial profile from 
+CFD if it agrees with data averaged from 3-5 rakes 
+should be considered coincidental. Consequently, the 
+flowfield development through the prediffuser will be 
+different for each of the six modeling approaches studied 
+in this paper. 
+Figure 10 for example compares inlet and exit profiles 
+calculated by the six modeling approaches with data. 
+Data can’t be explained intuitively. However, model 
+trends are explainable even though the agreement 
+between data and calculations is rather poor, Figure 11.       
+As will become evident from the studies of References 7 
+through 15, we don’t expect models to agree with data 
+from engineering diffuser rigs with bow-tie type profilers 
+The turbulence levels generated by bow-tie profilers are 
+distinctly different from those studied in typical research 
+diffuser set-ups. Nevertheless, combustion designer 
+needs to use CFD for designing the combustor diffusion 
+system, and it is for this reason, we present comparison 
+between data and predictions for Runs 4 and 5, as 
+summarized in Table 5. From this table and tables for 
+Runs 4 and 5 similar to Table 4 for Run 3, we summarize 
+the following findings: 
+For Run 4, average errors for prediffuser, dome, 
+outer passage (stations 3.4 and 3.5) and inner passage 
+(stations 3.4 and 3.5) CP are 2.1, 25.8, -3.1, -7.9, -15.9 
+and –11.2%, respectively. Recall, positive error means 
+underprediction 
+and 
+negative 
+values 
+mean 
+overprediction. The corresponding errors in total 
+pressure loss coefficient are: -23.2, -72, 3.3, 8.5, 17.0 and 
+12.5%.   
+CP errors for Run 5 are: 11.7, 33.7, 0.98, -2.1, 
+4.3 and 5.8%. The corresponding errors in total pressure 
+loss coefficient are: -57.6, -230, -1.5, 2.6, -10.4 and –
+14.6%.   
+ 
+ 
+Summary 
+ 
+ 
+This is a 1st paper in the planned ten papers to 
+conduct systematic assessment of the available CFD and 
+turbulence 
+modeling 
+capabilities 
+for 
+predicting 
+performance of combustor diffusion systems used in gas 
+turbine engines. As summarized in Table 5, we have 
+conducted 2-D diffusion system simulations with the 
+standard k-ε (with two different wall functions – 
+standard and non-equilibrium) and SST k-Ω turbulence 
+models. 3-D CFD simulation through the three profilers 
+(that give respectively center-, inner- and outer-peak 
+diffuser inlet profiles) clearly showed that the measured 
+inlet profile (with four 5-element total pressure rakes 
+along with wall static pressures) couldn’t capture the 
+complexity of the flow field. Consequently, the model 
+predictions starting with measured profiles performed 
+poorly against the simulation with the calculated inlet 
+profiles. 2-D CFD for the diffusion system with high-
+dome flow predicted the dome pressure recovery poorly. 
+
+
+--- Page 9 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+9
+However, as shown in Reference 7, 3-D CFD simulation 
+gives good agreement. 
+ 
+Prediffuser CP was predicted rather very well 
+(average error <2% which is within the experimental 
+accuracy) for Runs 3 and 4; but the error went up to 
+~12% for Run #5, outer-peak profile, which we have not 
+been to explain. On the other hand, the average error for 
+the passage recovery is only 2% (under-prediction) for 
+Run #5 compared to approximately ~10% (CP over-
+predicted) for Runs 3 and 4. 3-D simulation reported in 
+Ref. 7 partially explains this discrepancy. 
+ 
+Figures 12 and 13 show pictorially comparison 
+between data (along x-axis) and 2-D CFD predictions for 
+CP first with the measured profiles, then w/ calculated 
+values for both the standard k-ε and SST k-ω models, 
+followed by the total pressure loss coefficient Ω for Run 
+3. Similar sets for Runs 4 and 5 follow. With the current 
+standard practice of measured inlet profiles, average 
+overprediction for CP is 27, 23.5 and 12.5%, respectively 
+for Runs 3, 4 and 5. However, these overpredictions 
+reduce to 7.5, 6 and -2.5%, respectively with the 
+calculated inlet profiles. The corresponding errors with 
+SST k-Ω model are 12.5, 17 and 2.5%. The average 
+underpredictions for Ω are 12.5, 0 are –2.5%. 
+ 
+From Figure 14 for the dome total pressure 
+recovery coefficient predicted with the standard k-ε 
+model with calculated inlet velocity is on the average 
+27.5% lower than data. 
+ 
+Future Diffuser Modeling Plan 
+ 
+In follow-on publications 7 through15 we plan to 
+study the effect of the following on CP and Ω: 
+ 
+1. 
+2-D versus 3-D simulations 
+2. 
+Different turbulence models and near-wall 
+treatments to capture boundary layer losses for 
+diffusers close to or beyond incipient flow 
+separation.  
+3. 
+Diffusion system design parameters including 
+inlet profiles, pre-diffuser area ratio, L/H, cowling, 
+blockages due to dome swirlers, nozzle stem and tip, 
+airflow splits between the dome, inner and outer 
+annuli of the combustor liner. 
+4. 
+Multi-passage diffusers validation 
+5. 
+Engine to rig correlation. 
+ 
+REFERENCES 
+ 
+1. 
+Karki, K.C, Oeschle, V.L., and Mongia, H.C., 
+“A Computational Procedure for Combustor Diffuser 
+Interaction”, ASME GT-90-95, published in J. Eng. Gas 
+Turbines and Power, January 1992, Vol. 114, pp 1-7. 
+2. 
+Agrawal, A.K, Kapat, J.S., and Yang, T.T., 
+1998, 
+“An 
+Experimental/Computational 
+Study 
+of 
+Airflow in the Combustor-Diffuser System of a Gas 
+Turbine for Power Generation,” J. Eng. For Gas Turbines 
+and Power, v120, pp. 24-33, January 1998. 
+3. 
+Nikjoo, M., and Mongia, H., 1999, “Predictions 
+of Flows with Adverse Pressure Gradients”, AIAA Paper 
+99-2817. 
+4. 
+Mongia, Hukam C., 2004, “Perspective of 
+Combustion Modeling for Gas Turbine Combustors”, 
+AIAA Paper 2004-0156.  
+5. 
+FLUENT CFD  
+6. 
+B.E. Launder, D.B. Spalding, “The numerical 
+computation of turbulent flows”, Computer methods in 
+applied mechanics and Engineering, Vol. 3, pp. 269-289 
+(1974). 
+7. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, and Rao, A., 2004, “Combustor Diffuser 
+Modeling Part II: Inlet Profiles and 3-D Calculations”, 
+AIAA Paper 2004-4169.  
+8. 
+Mongia, H., Hsiao, G., Burrus, D., Habeeb, K., 
+Sreedhar, PSVS, 2004, “Combustor Diffuser Modeling 
+Part III: Validation w/ Typical Separating Single Passage 
+Diffusers Combustor Diffuser Modeling”, AIAA Paper 
+2004-4170.  
+9. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, and Rao, A., 2004, “Combustor Diffuser 
+Modeling Part IV: Effect of Cowling Geometry, Mixer 
+Size and Nozzle Blockage”, AIAA Paper 2004-4171.  
+10. 
+Mongia, H., Hsiao, G., Ravindra, MVV, and 
+Sreedhar, PSVS, 2004, “Combustor Diffuser Modeling 
+Part V: Validation with a Three Passage Diffuser Rig 
+Data”, AIAA Paper 2004-4172.  
+11. 
+Mongia, H., Hsiao, G., Mueller, M., Dai, Z., 
+Ravindra, MVV, Sreedhar, PSVS, and P. Arvind, 2004, 
+“Combustor Diffuser Modeling Part VI: Validation with 
+a Four Passage Diffuser Rig Data”, AIAA Paper 2004-
+4173.  
+12. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, and Rao, A., 2005, “Combustor Diffuser 
+Modeling Part VII: Validation w/ Data of a Single 
+Passage Diffuser Rig Behind Compressor”, AIAA Paper 
+2005-TBD.  
+13. 
+Mongia, H., Hsiao, G., Burrus, D., Thomsen, D. 
+and Habeeb, K., 2005, “Combustor Diffuser Modeling 
+Part VIII: Single-Passage Diffuser Combustor Rig to 
+Engine Correlation”, AIAA Paper 2005-TBD. 
+14. 
+Mongia, H., Hsiao, G., Burrus, D., Murthy 
+R., Ramesh 
+Kumar, 
+MC, 
+and 
+Naik, 
+P., 
+2005, 
+“Combustor Diffuser Modeling Part IX: Effect of Dome 
+Flow on Pressure Recoveries”, AIAA Paper 2005-TBD. 
+15. 
+Mongia, Hukam C., 2005, “Perspective of CFD 
+Modeling of Gas Turbine Combustor Diffusers”, AIAA 
+Paper 2005-TBD. 
+ 
+ 
+ 
+ 
+
+
+--- Page 10 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+10
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Run #
+CP
+σ
+Value
+% CP
+3
+0.4933
+0.0078
+1.59%
+4
+0.5037
+0.0112
+2.23%
+5
+0.5665
+0.0111
+1.97%
+10
+0.5003
+0.0132
+2.64%
+6
+0.5104
+0.0048
+0.94%
+7
+0.5067
+0.0050
+0.99%
+8
+0.4346
+0.0079
+1.81%
+9
+0.4269
+0.0132
+3.09%
+11
+0.4980
+0.0117
+2.34%
+12
+0.4733
+0.0105
+2.22%
+Avg
+0.4914
+0.0101
+2.08%
+σ
+0.0398
+Pool sigma
+%
+8.09%
+Table 2: Summary of prediffuser CP and σ
+Run #
+Ω
+σ
+Value
+% Ω
+3
+0.1397
+0.0076
+5.47%
+4
+0.1295
+0.0110
+8.46%
+5
+0.0681
+0.0109
+15.99%
+10
+0.1327
+0.0129
+9.71%
+6
+0.1229
+0.0047
+3.80%
+7
+0.1270
+0.0049
+3.87%
+8
+0.1971
+0.0077
+3.90%
+9
+0.2042
+0.0129
+6.31%
+11
+0.1349
+0.0114
+8.44%
+12
+0.1601
+0.0102
+6.38%
+Avg
+0.1416
+0.0098
+8.05%
+σ
+0.0388
+Pool sigma
+%
+27.43%
+Table 3: Summary of prediffuser  Ωand σ
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Run #
+CP
+σ
+Value
+% CP
+3
+0.4933
+0.0078
+1.59%
+4
+0.5037
+0.0112
+2.23%
+5
+0.5665
+0.0111
+1.97%
+10
+0.5003
+0.0132
+2.64%
+6
+0.5104
+0.0048
+0.94%
+7
+0.5067
+0.0050
+0.99%
+8
+0.4346
+0.0079
+1.81%
+9
+0.4269
+0.0132
+3.09%
+11
+0.4980
+0.0117
+2.34%
+12
+0.4733
+0.0105
+2.22%
+Avg
+0.4914
+0.0101
+2.08%
+σ
+0.0398
+Pool sigma
+%
+8.09%
+Table 2: Summary of prediffuser CP and σ
+Run #
+Ω
+σ
+Value
+% Ω
+3
+0.1397
+0.0076
+5.47%
+4
+0.1295
+0.0110
+8.46%
+5
+0.0681
+0.0109
+15.99%
+10
+0.1327
+0.0129
+9.71%
+6
+0.1229
+0.0047
+3.80%
+7
+0.1270
+0.0049
+3.87%
+8
+0.1971
+0.0077
+3.90%
+9
+0.2042
+0.0129
+6.31%
+11
+0.1349
+0.0114
+8.44%
+12
+0.1601
+0.0102
+6.38%
+Avg
+0.1416
+0.0098
+8.05%
+σ
+0.0388
+Pool sigma
+%
+27.43%
+Table 3: Summary of prediffuser  Ωand σ
+
+
+--- Page 11 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+11
+ 
+ 
+ 
+ 
+ 
+ 
+Table 4: Comparison between average (for the entire range of Run #3, Center-Peak Profile) measured and 
+predicted CP and total pressure loss coefficient w/ the six modeling/inlet condition approaches.
+Approach
+Ouer Passage Station 3.4
+Inner Passage Station 3.4
+#
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+1
+Avg
+0.503
+0.626
+-26.37%
+0.481
+0.360
+25.91%
+0.503
+0.671
+-29.52%
+0.377
+0.252
+32.66%
+σ
+0.025
+0.024
+2.69%
+0.015
+0.017
+2.47%
+0.083
+0.042
+9.30%
+0.025
+0.010
+2.94%
+σ%/Max
+4.87%
+3.83%
+-30.27%
+3.10%
+4.67%
+29.03%
+16.53%
+6.29%
+-52.80%
+6.59%
+4.12%
+37.58%
+2
+Avg
+0.503
+0.525
+-5.77%
+0.481
+0.456
+6.11%
+0.503
+0.583
+-12.06%
+0.377
+0.312
+16.53%
+σ
+0.025
+0.044
+5.50%
+0.015
+0.035
+5.62%
+0.083
+0.057
+3.81%
+0.025
+0.014
+3.08%
+σ%/Max
+4.87%
+8.31%
+-10.45%
+3.10%
+7.59%
+11.54%
+16.53%
+9.84%
+-21.51%
+6.59%
+4.37%
+22.15%
+3
+Avg
+0.503
+0.611
+-23.42%
+0.481
+0.373
+23.12%
+0.503
+0.659
+-27.33%
+0.377
+0.254
+32.15%
+σ
+0.025
+0.015
+3.92%
+0.015
+0.009
+2.35%
+0.083
+0.040
+10.19%
+0.025
+0.032
+7.44%
+σ%/Max
+4.87%
+2.45%
+-31.59%
+3.10%
+2.34%
+27.85%
+16.53%
+6.08%
+-47.49%
+6.59%
+12.70%
+37.88%
+4
+Avg
+0.503
+0.559
+-12.82%
+0.481
+0.423
+12.70%
+0.503
+0.611
+-17.81%
+0.377
+0.292
+22.07%
+σ
+0.025
+0.017
+3.55%
+0.015
+0.010
+2.79%
+0.083
+0.046
+8.18%
+0.025
+0.036
+8.37%
+σ%/Max
+4.87%
+3.00%
+-19.82%
+3.10%
+2.40%
+17.72%
+16.53%
+7.57%
+-30.92%
+6.59%
+12.40%
+29.02%
+5
+Avg
+0.503
+0.630
+-27.04%
+0.481
+0.356
+26.65%
+0.503
+0.672
+-29.67%
+0.377
+0.250
+33.11%
+σ
+0.025
+0.025
+2.48%
+0.015
+0.018
+2.58%
+0.083
+0.043
+9.18%
+0.025
+0.010
+2.90%
+σ%/Max
+4.87%
+4.04%
+-30.42%
+3.10%
+5.08%
+29.97%
+16.53%
+6.39%
+-52.72%
+6.59%
+4.05%
+38.02%
+6
+Avg
+0.503
+0.535
+-7.81%
+0.481
+0.446
+8.13%
+0.503
+0.587
+-12.83%
+0.377
+0.308
+17.73%
+σ
+0.025
+0.034
+3.06%
+0.015
+0.024
+3.35%
+0.083
+0.059
+3.94%
+0.025
+0.013
+3.55%
+σ%/Max
+4.87%
+6.32%
+-11.10%
+3.10%
+5.37%
+12.19%
+16.53%
+10.04%
+-21.27%
+6.59%
+4.10%
+24.09%
+Approach
+Ouer Passage Station 3.5
+Inner Passage Station 3.5
+#
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+1
+Avg
+0.510
+0.654
+-29.96%
+0.474
+0.332
+30.46%
+0.518
+0.672
+-26.18%
+0.363
+0.251
+30.59%
+σ
+0.021
+0.012
+4.14%
+0.012
+0.007
+2.36%
+0.073
+0.044
+4.77%
+0.032
+0.010
+3.73%
+σ%/Max
+4.15%
+1.76%
+-36.13%
+2.55%
+2.00%
+34.30%
+14.10%
+6.50%
+-32.65%
+8.72%
+3.94%
+37.57%
+2
+Avg
+0.510
+0.569
+-13.07%
+0.474
+0.411
+13.70%
+0.518
+0.588
+-10.05%
+0.363
+0.307
+14.93%
+σ
+0.021
+0.016
+3.57%
+0.012
+0.009
+3.04%
+0.073
+0.061
+3.81%
+0.032
+0.012
+4.83%
+σ%/Max
+4.15%
+2.74%
+-19.02%
+2.55%
+2.17%
+18.75%
+14.10%
+10.34%
+-17.92%
+8.72%
+4.02%
+24.03%
+3
+Avg
+0.510
+0.635
+-26.16%
+0.474
+0.349
+26.79%
+0.518
+0.663
+-24.54%
+0.363
+0.250
+31.00%
+σ
+0.021
+0.008
+4.11%
+0.012
+0.005
+2.43%
+0.073
+0.047
+4.81%
+0.032
+0.021
+4.75%
+σ%/Max
+4.15%
+1.32%
+-32.56%
+2.55%
+1.52%
+31.15%
+14.10%
+7.13%
+-31.09%
+8.72%
+8.25%
+38.19%
+4
+Avg
+0.510
+0.586
+-16.47%
+0.474
+0.396
+16.96%
+0.518
+0.615
+-15.39%
+0.363
+0.287
+20.63%
+σ
+0.021
+0.009
+3.94%
+0.012
+0.007
+3.00%
+0.073
+0.054
+4.40%
+0.032
+0.023
+5.71%
+σ%/Max
+4.15%
+1.56%
+-22.87%
+2.55%
+1.71%
+22.20%
+14.10%
+8.84%
+-23.11%
+8.72%
+7.99%
+29.74%
+5
+Avg
+0.510
+0.659
+-30.90%
+0.474
+0.327
+31.50%
+0.518
+0.672
+-26.19%
+0.363
+0.250
+30.86%
+σ
+0.021
+0.012
+4.04%
+0.012
+0.007
+2.25%
+0.073
+0.044
+4.64%
+0.032
+0.009
+3.72%
+σ%/Max
+4.15%
+1.83%
+-36.89%
+2.55%
+2.04%
+34.96%
+14.10%
+6.62%
+-32.45%
+8.72%
+3.74%
+37.80%
+6
+Avg
+0.510
+0.575
+-14.12%
+0.474
+0.406
+14.84%
+0.518
+0.587
+-9.90%
+0.363
+0.308
+14.85%
+σ
+0.021
+0.015
+3.40%
+0.012
+0.008
+2.82%
+0.073
+0.062
+3.84%
+0.032
+0.011
+4.85%
+σ%/Max
+4.15%
+2.70%
+-19.84%
+2.55%
+2.03%
+19.58%
+14.10%
+10.50%
+-17.72%
+8.72%
+3.71%
+23.86%
+Prediffuser Exit
+Combustor Dome
+Run # 3 Center-Peak Profile
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Std k-ε, Std wall func
+Avg
+0.493
+0.603
+-21.63%
+0.140
+0.117
+14.77%
+0.840
+0.712
+15.97%
+0.160
+0.288
+-95.88%
+w/ measured inlet profiles
+σ
+0.008
+0.006
+1.09%
+0.008
+0.006
+3.90%
+0.037
+0.025
+2.33%
+0.037
+0.025
+29.48%
+Approach #1
+σ%/Max
+1.59%
+1.03%
+-24.58%
+5.47%
+5.33%
+24.32%
+4.39%
+3.45%
+18.04%
+23.04%
+8.52%
+-32.97%
+Std k-ε, Std wall func
+Avg
+0.493
+0.494
+0.36%
+0.140
+0.127
+7.05%
+0.840
+0.641
+24.40%
+0.160
+0.359
+-144.28%
+w/ calculated inlet profiles
+σ
+0.008
+0.008
+1.43%
+0.008
+0.008
+5.17%
+0.037
+0.030
+2.30%
+0.037
+0.030
+37.45%
+Approach #2
+σ%/Max
+1.59%
+1.67%
+-3.08%
+5.47%
+6.47%
+19.02%
+4.39%
+4.72%
+27.19%
+23.04%
+8.41%
+-65.61%
+SST k-ω model
+Avg
+0.493
+0.596
+-20.18%
+0.140
+0.090
+34.51%
+0.840
+0.677
+20.12%
+0.160
+0.323
+-118.61%
+w/ measured inlet profiles
+σ
+0.008
+0.002
+0.61%
+0.008
+0.002
+1.54%
+0.037
+0.034
+2.42%
+0.037
+0.034
+30.21%
+Approach #3
+σ%/Max
+1.59%
+0.33%
+-21.43%
+5.47%
+2.48%
+37.58%
+4.39%
+5.08%
+22.81%
+23.04%
+10.65%
+-51.32%
+SST k-ω model
+Avg
+0.493
+0.541
+-9.03%
+0.140
+0.107
+21.81%
+0.840
+0.628
+25.92%
+0.160
+0.372
+-151.89%
+w/ calculated inlet profiles
+σ
+0.008
+0.002
+0.51%
+0.008
+0.002
+1.32%
+0.037
+0.038
+2.60%
+0.037
+0.038
+35.28%
+Approach #4
+σ%/Max
+1.59%
+0.37%
+-10.07%
+5.47%
+1.87%
+24.00%
+4.39%
+6.06%
+29.83%
+23.04%
+10.23%
+-74.46%
+Std k-ε
+Avg
+0.493
+0.605
+-22.00%
+0.140
+0.112
+18.27%
+0.840
+0.709
+16.30%
+0.160
+0.291
+-97.65%
+Nonequil wall function
+σ
+0.008
+0.006
+1.07%
+0.008
+0.006
+3.83%
+0.037
+0.025
+2.24%
+0.037
+0.025
+29.54%
+w/ measured inlet profiles
+σ%/Max
+1.59%
+1.01%
+-24.94%
+5.47%
+5.48%
+27.70%
+4.39%
+3.54%
+18.31%
+23.04%
+8.62%
+-35.45%
+Std k-ε
+Avg
+0.493
+0.497
+-0.25%
+0.140
+0.123
+10.45%
+0.840
+0.636
+24.98%
+0.160
+0.364
+-147.50%
+Nonequil wall function
+σ
+0.008
+0.008
+1.40%
+0.008
+0.008
+5.07%
+0.037
+0.031
+2.20%
+0.037
+0.031
+37.56%
+w/ calculated inlet profiles
+σ%/Max
+1.59%
+1.62%
+-3.68%
+5.47%
+6.58%
+22.28%
+4.39%
+4.86%
+27.63%
+23.04%
+8.49%
+-69.27%
+Approach
+Ouer Passage Station 3.4
+Inner Passage Station 3.4
+#
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+1
+Avg
+0.503
+0.626
+-26.37%
+0.481
+0.360
+25.91%
+0.503
+0.671
+-29.52%
+0.377
+0.252
+32.66%
+σ
+0.025
+0.024
+2.69%
+0.015
+0.017
+2.47%
+0.083
+0.042
+9.30%
+0.025
+0.010
+2.94%
+σ%/Max
+4.87%
+3.83%
+-30.27%
+3.10%
+4.67%
+29.03%
+16.53%
+6.29%
+-52.80%
+6.59%
+4.12%
+37.58%
+2
+Avg
+0.503
+0.525
+-5.77%
+0.481
+0.456
+6.11%
+0.503
+0.583
+-12.06%
+0.377
+0.312
+16.53%
+σ
+0.025
+0.044
+5.50%
+0.015
+0.035
+5.62%
+0.083
+0.057
+3.81%
+0.025
+0.014
+3.08%
+σ%/Max
+4.87%
+8.31%
+-10.45%
+3.10%
+7.59%
+11.54%
+16.53%
+9.84%
+-21.51%
+6.59%
+4.37%
+22.15%
+3
+Avg
+0.503
+0.611
+-23.42%
+0.481
+0.373
+23.12%
+0.503
+0.659
+-27.33%
+0.377
+0.254
+32.15%
+σ
+0.025
+0.015
+3.92%
+0.015
+0.009
+2.35%
+0.083
+0.040
+10.19%
+0.025
+0.032
+7.44%
+σ%/Max
+4.87%
+2.45%
+-31.59%
+3.10%
+2.34%
+27.85%
+16.53%
+6.08%
+-47.49%
+6.59%
+12.70%
+37.88%
+4
+Avg
+0.503
+0.559
+-12.82%
+0.481
+0.423
+12.70%
+0.503
+0.611
+-17.81%
+0.377
+0.292
+22.07%
+σ
+0.025
+0.017
+3.55%
+0.015
+0.010
+2.79%
+0.083
+0.046
+8.18%
+0.025
+0.036
+8.37%
+σ%/Max
+4.87%
+3.00%
+-19.82%
+3.10%
+2.40%
+17.72%
+16.53%
+7.57%
+-30.92%
+6.59%
+12.40%
+29.02%
+5
+Avg
+0.503
+0.630
+-27.04%
+0.481
+0.356
+26.65%
+0.503
+0.672
+-29.67%
+0.377
+0.250
+33.11%
+σ
+0.025
+0.025
+2.48%
+0.015
+0.018
+2.58%
+0.083
+0.043
+9.18%
+0.025
+0.010
+2.90%
+σ%/Max
+4.87%
+4.04%
+-30.42%
+3.10%
+5.08%
+29.97%
+16.53%
+6.39%
+-52.72%
+6.59%
+4.05%
+38.02%
+6
+Avg
+0.503
+0.535
+-7.81%
+0.481
+0.446
+8.13%
+0.503
+0.587
+-12.83%
+0.377
+0.308
+17.73%
+σ
+0.025
+0.034
+3.06%
+0.015
+0.024
+3.35%
+0.083
+0.059
+3.94%
+0.025
+0.013
+3.55%
+σ%/Max
+4.87%
+6.32%
+-11.10%
+3.10%
+5.37%
+12.19%
+16.53%
+10.04%
+-21.27%
+6.59%
+4.10%
+24.09%
+Approach
+Ouer Passage Station 3.5
+Inner Passage Station 3.5
+#
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+1
+Avg
+0.510
+0.654
+-29.96%
+0.474
+0.332
+30.46%
+0.518
+0.672
+-26.18%
+0.363
+0.251
+30.59%
+σ
+0.021
+0.012
+4.14%
+0.012
+0.007
+2.36%
+0.073
+0.044
+4.77%
+0.032
+0.010
+3.73%
+σ%/Max
+4.15%
+1.76%
+-36.13%
+2.55%
+2.00%
+34.30%
+14.10%
+6.50%
+-32.65%
+8.72%
+3.94%
+37.57%
+2
+Avg
+0.510
+0.569
+-13.07%
+0.474
+0.411
+13.70%
+0.518
+0.588
+-10.05%
+0.363
+0.307
+14.93%
+σ
+0.021
+0.016
+3.57%
+0.012
+0.009
+3.04%
+0.073
+0.061
+3.81%
+0.032
+0.012
+4.83%
+σ%/Max
+4.15%
+2.74%
+-19.02%
+2.55%
+2.17%
+18.75%
+14.10%
+10.34%
+-17.92%
+8.72%
+4.02%
+24.03%
+3
+Avg
+0.510
+0.635
+-26.16%
+0.474
+0.349
+26.79%
+0.518
+0.663
+-24.54%
+0.363
+0.250
+31.00%
+σ
+0.021
+0.008
+4.11%
+0.012
+0.005
+2.43%
+0.073
+0.047
+4.81%
+0.032
+0.021
+4.75%
+σ%/Max
+4.15%
+1.32%
+-32.56%
+2.55%
+1.52%
+31.15%
+14.10%
+7.13%
+-31.09%
+8.72%
+8.25%
+38.19%
+4
+Avg
+0.510
+0.586
+-16.47%
+0.474
+0.396
+16.96%
+0.518
+0.615
+-15.39%
+0.363
+0.287
+20.63%
+σ
+0.021
+0.009
+3.94%
+0.012
+0.007
+3.00%
+0.073
+0.054
+4.40%
+0.032
+0.023
+5.71%
+σ%/Max
+4.15%
+1.56%
+-22.87%
+2.55%
+1.71%
+22.20%
+14.10%
+8.84%
+-23.11%
+8.72%
+7.99%
+29.74%
+5
+Avg
+0.510
+0.659
+-30.90%
+0.474
+0.327
+31.50%
+0.518
+0.672
+-26.19%
+0.363
+0.250
+30.86%
+σ
+0.021
+0.012
+4.04%
+0.012
+0.007
+2.25%
+0.073
+0.044
+4.64%
+0.032
+0.009
+3.72%
+σ%/Max
+4.15%
+1.83%
+-36.89%
+2.55%
+2.04%
+34.96%
+14.10%
+6.62%
+-32.45%
+8.72%
+3.74%
+37.80%
+6
+Avg
+0.510
+0.575
+-14.12%
+0.474
+0.406
+14.84%
+0.518
+0.587
+-9.90%
+0.363
+0.308
+14.85%
+σ
+0.021
+0.015
+3.40%
+0.012
+0.008
+2.82%
+0.073
+0.062
+3.84%
+0.032
+0.011
+4.85%
+σ%/Max
+4.15%
+2.70%
+-19.84%
+2.55%
+2.03%
+19.58%
+14.10%
+10.50%
+-17.72%
+8.72%
+3.71%
+23.86%
+Prediffuser Exit
+Combustor Dome
+Run # 3 Center-Peak Profile
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Cp - DATA
+Cp - CFD
+% Diff
+Ω - DATA
+Ω-CFD
+% Diff
+Std k-ε, Std wall func
+Avg
+0.493
+0.603
+-21.63%
+0.140
+0.117
+14.77%
+0.840
+0.712
+15.97%
+0.160
+0.288
+-95.88%
+w/ measured inlet profiles
+σ
+0.008
+0.006
+1.09%
+0.008
+0.006
+3.90%
+0.037
+0.025
+2.33%
+0.037
+0.025
+29.48%
+Approach #1
+σ%/Max
+1.59%
+1.03%
+-24.58%
+5.47%
+5.33%
+24.32%
+4.39%
+3.45%
+18.04%
+23.04%
+8.52%
+-32.97%
+Std k-ε, Std wall func
+Avg
+0.493
+0.494
+0.36%
+0.140
+0.127
+7.05%
+0.840
+0.641
+24.40%
+0.160
+0.359
+-144.28%
+w/ calculated inlet profiles
+σ
+0.008
+0.008
+1.43%
+0.008
+0.008
+5.17%
+0.037
+0.030
+2.30%
+0.037
+0.030
+37.45%
+Approach #2
+σ%/Max
+1.59%
+1.67%
+-3.08%
+5.47%
+6.47%
+19.02%
+4.39%
+4.72%
+27.19%
+23.04%
+8.41%
+-65.61%
+SST k-ω model
+Avg
+0.493
+0.596
+-20.18%
+0.140
+0.090
+34.51%
+0.840
+0.677
+20.12%
+0.160
+0.323
+-118.61%
+w/ measured inlet profiles
+σ
+0.008
+0.002
+0.61%
+0.008
+0.002
+1.54%
+0.037
+0.034
+2.42%
+0.037
+0.034
+30.21%
+Approach #3
+σ%/Max
+1.59%
+0.33%
+-21.43%
+5.47%
+2.48%
+37.58%
+4.39%
+5.08%
+22.81%
+23.04%
+10.65%
+-51.32%
+SST k-ω model
+Avg
+0.493
+0.541
+-9.03%
+0.140
+0.107
+21.81%
+0.840
+0.628
+25.92%
+0.160
+0.372
+-151.89%
+w/ calculated inlet profiles
+σ
+0.008
+0.002
+0.51%
+0.008
+0.002
+1.32%
+0.037
+0.038
+2.60%
+0.037
+0.038
+35.28%
+Approach #4
+σ%/Max
+1.59%
+0.37%
+-10.07%
+5.47%
+1.87%
+24.00%
+4.39%
+6.06%
+29.83%
+23.04%
+10.23%
+-74.46%
+Std k-ε
+Avg
+0.493
+0.605
+-22.00%
+0.140
+0.112
+18.27%
+0.840
+0.709
+16.30%
+0.160
+0.291
+-97.65%
+Nonequil wall function
+σ
+0.008
+0.006
+1.07%
+0.008
+0.006
+3.83%
+0.037
+0.025
+2.24%
+0.037
+0.025
+29.54%
+w/ measured inlet profiles
+σ%/Max
+1.59%
+1.01%
+-24.94%
+5.47%
+5.48%
+27.70%
+4.39%
+3.54%
+18.31%
+23.04%
+8.62%
+-35.45%
+Std k-ε
+Avg
+0.493
+0.497
+-0.25%
+0.140
+0.123
+10.45%
+0.840
+0.636
+24.98%
+0.160
+0.364
+-147.50%
+Nonequil wall function
+σ
+0.008
+0.008
+1.40%
+0.008
+0.008
+5.07%
+0.037
+0.031
+2.20%
+0.037
+0.031
+37.56%
+w/ calculated inlet profiles
+σ%/Max
+1.59%
+1.62%
+-3.68%
+5.47%
+6.58%
+22.28%
+4.39%
+4.86%
+27.63%
+23.04%
+8.49%
+-69.27%
+ 
+
+
+--- Page 12 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+12
+ 
+ 
+Table 5: Comparison between average (for the entire range of Runs 3, 4 and 5) measured and 
+predicted CP and total pressure loss coefficient w/ the six modeling/inlet condition approaches. 
+Run #3
+Run #4
+Run #5
+Avg
+Run #3
+Run #4
+Run #5
+Avg.
+Prediffuser Exit Data
+0.493
+0.504
+0.566
+14.0%
+0.140
+0.130
+0.0681
+63.7%
+(Max-Min) Dome /Avg Prediffuser CP
+27.3%
+24.4%
+24.8%
+25.5%
+(Max-Min)OP/Avg Prediffuser CP
+17.8%
+14.7%
+14.4%
+15.6%
+10.6%
+7.7%
+8.4%
+8.9%
+(Max-Min)IP/Avg Prediffuser CP
+64.5%
+67.4%
+61.9%
+64.6%
+27.9%
+32.2%
+28.9%
+29.7%
+Modeling & Inlet Conditions
+Avg Error Prediffuser CP
+Avg Error Prediffuser Ω
+measured profile_ske with std wall func
+-21.63% -19.87%
+-6.19%
+17.33%
+14.77%
+8.54%
+-83.37% 49.13%
+calculated profile_ske with std wall func
+0.36%
+2.07%
+11.69%
+6.86%
+7.05% -23.19% -57.55% 36.05%
+measured profile_sst k-w
+-20.18% -18.82%
+-4.58%
+16.15%
+34.51% 30.48% -82.58% 54.59%
+calculated profile_sst k-w
+-9.03%
+-8.98%
+2.75%
+7.52%
+21.81%
+4.34%
+-95.39% 56.55%
+measured profile_ske with NE wall func
+-22.00% -20.10%
+-7.03%
+17.68%
+18.27% 12.16% -28.55% 20.79%
+calculated profile_ske with NEwall func
+-0.25%
+2.24%
+11.04%
+6.51%
+10.45% -22.96% -48.67% 31.65%
+Modeling & Inlet Conditions
+Avg Error Dome CP
+Avg Error Dome Ω
+measured profile_ske with std wall func
+15.97% 16.51%
+23.92%
+19.15% -95.88%
+-4.51%
+-160.5% 108.0%
+calculated profile_ske with std wall func
+24.40% 25.78%
+33.73%
+28.27% -144.3% -71.97% -230.4% 162.4%
+measured profile_sst k-w
+20.12% 20.90%
+28.04%
+23.30% -118.6% -28.80% -223.0% 146.8%
+calculated profile_sst k-w
+25.92% 25.41%
+30.98%
+27.55% -151.9% -47.22% -272.5% 182.2%
+measured profile_ske with NE wall func
+16.30% 17.04%
+24.83%
+19.77% -97.65%
+-4.28%
+-155.8% 106.2%
+calculated profile_ske with NEwall func
+24.98% 26.71%
+32.14%
+28.11% -147.5% -156.6% -517.7% 323.7%
+Modeling & Inlet Conditions
+Avg Error Passage CP
+Avg Error Passage Ω
+measured profile_ske with std wall func
+-28.01% -26.70% -11.33% 23.28%
+29.91% 27.15%
+13.79%
+24.64%
+calculated profile_ske with std wall func
+-10.24%
+-9.53%
+2.26%
+8.18%
+12.82% 10.31%
+-5.99%
+10.11%
+measured profile_sst k-w
+-25.36% -24.08%
+-7.67%
+20.67%
+28.26% 25.33%
+9.11%
+22.54%
+calculated profile_sst k-w
+-15.62% -16.52%
+-1.17%
+13.14%
+18.09% 17.98%
+-1.47%
+14.75%
+measured profile_ske with NE wall func
+-28.45% -27.50% -13.01% 24.05%
+30.53% 28.02%
+16.68%
+25.79%
+calculated profile_ske with NEwall func
+-11.17% -10.11%
+2.34%
+8.80%
+13.89% 10.92%
+-6.20%
+10.81%  
+
+
+--- Page 13 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+13
+ 
+ 
+ 
+ 
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+Figure 1: Diffuser rig schematic and typical grid used for inlet and diffuser calculations.
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+Figure 1: Diffuser rig schematic and typical grid used for inlet and diffuser calculations.
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+
+
+--- Page 14 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+14
+Figure 2: Calculated velocity contours for Runs 3, 4and 5, normalized 
+with average velocity. Diffuser inlet velocity profiles.
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Run03-CFD
+Run03-Data
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+Run04-CFD
+Run04-Data
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+Run05-CFD
+Run05-Data
+Average
+Data
+CFD
+Average
+Data
+CFD
+Average
+CFD
+Data
+Figure 2: Calculated velocity contours for Runs 3, 4and 5, normalized 
+with average velocity. Diffuser inlet velocity profiles.
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+Run03-CFD
+Run03-Data
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+Run04-CFD
+Run04-Data
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+1.8
+Run05-CFD
+Run05-Data
+Average
+Data
+CFD
+Average
+Data
+CFD
+Average
+CFD
+Data
+
+
+--- Page 15 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+15
+ 
+ 
+Figure 3a : Calculated 3-dimensional 
+contours of Pt at the diffuser inlet.
+Figure 3b : Calculated 3-dimensional 
+contours of turbulent kinetic energy, 
+k at the diffuser inlet.
+Figure 3a : Calculated 3-dimensional 
+contours of Pt at the diffuser inlet.
+Figure 3b : Calculated 3-dimensional 
+contours of turbulent kinetic energy, 
+k at the diffuser inlet.
+
+
+--- Page 16 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+16
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+Run03-TTP
+Run03-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+200
+400
+600
+8 00
+100 0
+1200
+Run04- TTP
+Run04- 2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+200
+400
+600
+800
+1000
+1200
+Run05-TTP
+Run05-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+-5.E+05 0.E+00
+5.E+05
+1 .E+06
+2.E+06
+2.E+0 6
+3.E+06
+3.E+06
+4.E+06
+4.E+06
+Run03-TTP
+Run03-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+-5.E+0
+5
+0.E+00 5.E+05 1.E+06 2.E+06 2.E+06 3.E+06 3.E+06 4.E+06 4.E+06 5.E+06
+Run04-TTP
+Run04-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+- 5.E+05
+2.E+06
+4.E+06
+6.E+06
+8.E+06
+1.E+07
+Run05-TTP
+Run05-2d- inlet
+Inlet k profiles
+Assumed
+Calculated
+Inlet ε profiles
+Assumed
+Calculated
+(3c) Diffuser inlet k profiles                                  (3d) Diffuser inlet ε profiles
+Figure 3: Diffuser inlet conditions for Pt, k and ε for diffuser modeling with measured
+and CFD-based through the profiler calculations
+Run 3: Center-peak bow-tie profiler
+Run 4: Inner-peak bow-tie profiler
+Run 5: Outer-peak bow-tie profiler
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+Run03-TTP
+Run03-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+200
+400
+600
+800
+1000
+1200
+Run04- TTP
+Run04- 2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+200
+400
+600
+800
+1000
+1200
+Run05-TTP
+Run05-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+-5.E+05 0.E+00
+5.E+05
+1 .E+06
+2.E+06
+2.E+0 6
+3.E+06
+3.E+06
+4.E+06
+4.E+06
+Run03-TTP
+Run03-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+-5.E+0
+5
+0.E+00 5.E+05 1.E+06 2.E+06 2.E+06 3.E+06 3.E+06 4.E+06 4.E+06 5.E+06
+Run04-TTP
+Run04-2d-inlet
+ 
+0
+0.2
+0.4
+0.6
+0.8
+1
+- 5.E+05
+2.E+06
+4.E+06
+6.E+06
+8.E+06
+1.E+07
+Run05-TTP
+Run05-2d- inlet
+Inlet k profiles
+Assumed
+Calculated
+Inlet ε profiles
+Assumed
+Calculated
+(3c) Diffuser inlet k profiles                                  (3d) Diffuser inlet ε profiles
+Figure 3: Diffuser inlet conditions for Pt, k and ε for diffuser modeling with measured
+and CFD-based through the profiler calculations
+Run 3: Center-peak bow-tie profiler
+Run 4: Inner-peak bow-tie profiler
+Run 5: Outer-peak bow-tie profiler
+
+
+--- Page 17 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+17
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε, wall functions; 
+w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε, wall functions; 
+w/ measured and calculated inlet profiles.
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stdke_Wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stadke_wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_Stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε, wall functions; 
+w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε, wall functions; 
+w/ measured and calculated inlet profiles.
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stdke_Wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stadke_wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_Stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε, wall functions; 
+w/ measured and calculated inlet profiles.
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stdke_Wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_wallfunc_meas
+Run03_stadke_wallfunc_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_Stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_stdke_pred
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Figure 4: Run 3 passage CP average error between data and predictions ((Data-CFD)/Data) 
+reduces from -28% (overprediction) to -10%  by using calculated diffuser inlet profiles. 
+
+
+--- Page 18 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+18
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ measured inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ measured inlet profiles.
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ measured inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ measured inlet profiles.
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_meas
+Run03_SST_meas
+comparison of Cp w/  std ke model   vs sst k-
+w model with measured velocity profile
+Figure 5: SST k-ω model slightly better (average error –25%) than the standard k-ε model (-28%) with standard 
+wall functions when calculations performed w/ measured inlet velocity profiles 
+ 
+
+
+--- Page 19 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+19
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ calculated inlet profiles.
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard 
+k-ε, wall functions and SST k−ω models; w/ calculated inlet profiles.
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_stdke_pred
+Run03_SST_pred
+comparison of Cp w/  std ke model   vs sst k-
+w model with predicted velocity profile
+Figure 6: SST k-ω model (avg. error -16%) inferior to the standard k-ε model (-10%) with standard wall 
+functions starting w/ calculated inlet profiles of velocity, k and ε. 
+
+
+--- Page 20 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+20
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε,
+standard and non-equilibrium wall functions; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε,
+standard and non-equilibrium wall functions; w/ measured and calculated inlet profiles.
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas(std wf)
+Run03_ke_pred(std wf)
+Run03_ke_meas_(newf)
+Run03_ke_pred_ske(newf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_basemesh_meas
+Run03_basemsh_pred
+Run03_ke_meas_(neqwf)
+Run03_ke_pred_(neqwf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_basemsh_meas
+Run03_ke_pred(stwf)
+Run03_ke_meas_(neqwf)
+Run03_ke_pred_(neqwf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (stdwf)
+Run03_ke_pred (stdwf)
+Run03_ke_meas_(newf)
+Run03_ke_pred_(newf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Run # 3 Outer passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε,
+standard and non-equilibrium wall functions; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 CP data and predictions w/ standard k-ε,
+standard and non-equilibrium wall functions; w/ measured and calculated inlet profiles.
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas(std wf)
+Run03_ke_pred(std wf)
+Run03_ke_meas_(newf)
+Run03_ke_pred_ske(newf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_basemesh_meas
+Run03_basemsh_pred
+Run03_ke_meas_(neqwf)
+Run03_ke_pred_(neqwf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_basemsh_meas
+Run03_ke_pred(stwf)
+Run03_ke_meas_(neqwf)
+Run03_ke_pred_(neqwf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (stdwf)
+Run03_ke_pred (stdwf)
+Run03_ke_meas_(newf)
+Run03_ke_pred_(newf)
+comparison of Cp w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Figure 7: Non-equilibrium wall functions (average error 11%) don’t show any advantage over the standard 
+wall functions (10%). The former should be preferred or replaced by wall functions appropriate for diffusers 
+flows especially when close to incipient separation. 
+ 
+
+
+--- Page 21 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+21
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 Ωdata and predictions w/ the 
+k-ε model; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 Ωdata and predictions w/ the 
+k-ε model; w/ measured and calculated inlet profiles.
+Outer Passage - Ω: Station 3.4
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+comparison of Ω w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Ω: Station 3.5
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+comparison of Ω w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - W:Station3.4
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_ke_meas (std wall
+func)
+Run03_ke_pred (std wall func
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+Run # 3 Outer passage stations 3.4 & 3.5 Ωdata and predictions w/ the 
+k-ε model; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 Ωdata and predictions w/ the 
+k-ε model; w/ measured and calculated inlet profiles.
+Outer Passage - Ω: Station 3.4
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+comparison of Ω w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Outer Passage - Ω: Station 3.5
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+comparison of Ω w/ measured vs predicted 
+velocity profiles with std ke model (Y+ ~ 40)
+Inner Passage - W:Station3.4
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_ke_meas (std wall
+func)
+Run03_ke_pred (std wall func
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_ke_meas (std wall func)
+Run03_ke_pred (std wall func)
+Figure 8: Standard k-ε model correlations w/ calculated inlet profiles are better than those w/ measured velocity 
+profiles; average Ω under-prediction being ~30% versus ~13% .  
+ 
+
+
+--- Page 22 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+22
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run # 3 Outer passage stations 3.4 & 3.5 Ωdata and predictions w/ SST 
+k-ω, model; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 Ωdata and predictions w/ SST 
+k-ω, model; w/ measured and calculated inlet profiles.
+Outer Passage Ω Station 3.4
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ω w/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Inner Passage Ω - :Station3.4
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ω w/ measured vs 
+predicted velocity profiles with sst k-w 
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ωw/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Outer Passage - Ω: Station 3.5
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ωw/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Run # 3 Outer passage stations 3.4 & 3.5 Ωdata and predictions w/ SST 
+k-ω, model; w/ measured and calculated inlet profiles.
+Run # 3 Inner passage stations 3.4 & 3.5 Ωdata and predictions w/ SST 
+k-ω, model; w/ measured and calculated inlet profiles.
+Outer Passage Ω Station 3.4
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ω w/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Inner Passage Ω - :Station3.4
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ω w/ measured vs 
+predicted velocity profiles with sst k-w 
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ωw/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Outer Passage - Ω: Station 3.5
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+Run03_SST_meas
+Run03_SST_pred
+comparison of Ωw/ measured vs predicted 
+velocity profiles with sst k-w model (Y+ <1)
+Figure 9: SST k-ω model correlations w/ calculated inlet profiles are better than those w/ measured velocity profiles; 
+average Ω under-prediction being  ~28% versus ~18% .  
+
+
+--- Page 23 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+23
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Diffuser Inlet Velocity Profile
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+U/Uavg
+Y/H
+Run03_DATA
+Run04_DATA
+Run05_DATA
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+U/Uavg
+Y/H
+Run03_DATA
+Run04_DATA
+Run05_DATA
+Diffuser Exit Velocity Profile - Std k-e _measured inlet profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_ske_wf_meas
+Run04_ske_wf_meas
+Run05_ske_wf_meas
+Diffuser Exit Velocity Profile - SST -k-w _measured inlet profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_SST_meas
+Run04_SST_meas
+Run05_SST_meas
+Diffuser Exit Velocity Profile  - Std k-e _inlet predicted profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_ske_wf_Pred
+Run04_ske_wf_Pred
+Run05_ske_wf_Pred
+(a) Measured prediffuser inlet and exit velocity profiles
+(b) Standard k-ε and SST k-ω models predicted diffuser exit profiles starting w/ measured inlet profiles
+(c) Standard k-ε and SST k-ω models predicted diffuser exit profiles starting w/ calculated inlet profiles.
+Diffuser Exit Velocity Profile - SST -k-w _inlet predicted profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_SST_Pred
+Run04_SST_Pred
+Run05_SST_Pred
+Diffuser Inlet Velocity Profile
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+U/Uavg
+Y/H
+Run03_DATA
+Run04_DATA
+Run05_DATA
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+U/Uavg
+Y/H
+Run03_DATA
+Run04_DATA
+Run05_DATA
+Diffuser Exit Velocity Profile - Std k-e _measured inlet profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_ske_wf_meas
+Run04_ske_wf_meas
+Run05_ske_wf_meas
+Diffuser Exit Velocity Profile - SST -k-w _measured inlet profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_SST_meas
+Run04_SST_meas
+Run05_SST_meas
+Diffuser Exit Velocity Profile  - Std k-e _inlet predicted profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_ske_wf_Pred
+Run04_ske_wf_Pred
+Run05_ske_wf_Pred
+(a) Measured prediffuser inlet and exit velocity profiles
+(b) Standard k-ε and SST k-ω models predicted diffuser exit profiles starting w/ measured inlet profiles
+(c) Standard k-ε and SST k-ω models predicted diffuser exit profiles starting w/ calculated inlet profiles.
+Diffuser Exit Velocity Profile - SST -k-w _inlet predicted profile 
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_SST_Pred
+Run04_SST_Pred
+Run05_SST_Pred
+Figure 10: Measured and calculated prediffuser inlet and exit profiles. 
+
+
+--- Page 24 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+24
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_DATA
+Run03_ske_wf_meas
+Run03_ske_wf_Pred
+Run03_SST_meas
+Run03_SST_Pred
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run04_DATA
+Run04_ske_wf_meas
+Run04_ske_wf_Pred
+Run04_SST_meas
+Run04_SST_Pred
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run05_DATA
+Run05_ske_wf_meas
+Run05_ske_wf_Pred
+Run05_SST_meas
+Run05_SST_Pred
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run03_DATA
+Run03_ske_wf_meas
+Run03_ske_wf_Pred
+Run03_SST_meas
+Run03_SST_Pred
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run04_DATA
+Run04_ske_wf_meas
+Run04_ske_wf_Pred
+Run04_SST_meas
+Run04_SST_Pred
+Diffuser Exit Velocity Profile
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+0.7
+0.8
+0.9
+1.0
+1.1
+1.2
+1.3
+Run05_DATA
+Run05_ske_wf_meas
+Run05_ske_wf_Pred
+Run05_SST_meas
+Run05_SST_Pred
+Figure 11: Comparison between measured and calculated prediffuser exit plane velocity profiles for Runs 3, 
+4 and 5.
+
+
+--- Page 25 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+25
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Run #3 CP   k-ε   w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++27%Fit
++35%
++20%
+Run #3 CP   k-ε   w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++7.5%
++15%
+IdealFit
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++23.5%
++32%
++15%
+Run #4 CP  k-ε  w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++6%
++15%
+-3%
+Run #4 CP  k-ε  w/ calculated inlet profiles
+Run #3 Ω   k-ε   w/ calculated inlet profiles
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run # 3Dif W
+OP W
+IP W
+-12.5%
+IdealFit
+-25%
+Run #3 CP SST   k-Ω   w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++12.5%Fit
++25%
+IdealFit
+Run #3 CP   k-ε   w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++27%Fit
++35%
++20%
+Run #3 CP   k-ε   w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++7.5%
++15%
+IdealFit
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++23.5%
++32%
++15%
+Run #4 CP  k-ε  w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++6%
++15%
+-3%
+Run #4 CP  k-ε  w/ calculated inlet profiles
+Run #3 Ω   k-ε   w/ calculated inlet profiles
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run # 3Dif W
+OP W
+IP W
+-12.5%
+IdealFit
+-25%
+Run #3 CP SST   k-Ω   w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run # 3Dif CP
+OP CP
+IP CP
++12.5%Fit
++25%
+IdealFit
+Figure 12: Data versus 2-D CFD results for Runs 3 (center-peak), 4 (inner-peak) and 5 (outer-peak profiler). 
+Top and middle figures: Run 3 CP results measured and calculated diffuser inlet profiles w/ k-ε and standard 
+wall function; CP w/ SST k-Ω  and total pressure loss coefficient Ω w/ k-ε model. 
+Bottom 2 figures: Run 4 CP results measured and calculated diffuser inlet profiles w/ k-ε and standard wall  
+
+
+--- Page 26 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+26
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++17%
++30%
++4%
+Run #4 CP  SST  w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
++12.5%Fit
++20%
++5%
+Run #5 CP k-ε w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
+-2.5%Fit
++5%
+-10%
+Run #5 CP k-ε w/ calculated inlet profiles
+0.00
+0.20
+0.40
+0.60
+0.80
+1.00
+0.00
+0.20
+0.40
+0.60
+0.80
+1.00
+Data
+CFD
+Run #5 Dif W
+OP W
+IP W
++2.5%Fit
++15%
+-10%
+Run #5 Ωk-ε w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
++2.5%Fit
++5%
+-10%
+Run #5 CP SST w/ calculated inlet profiles
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run#4 DifW
+OP W
+IP W
+IdealFit%
++20%
+-20%
+Run #4 Ω k-ε  w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+Data
+CFD
+Run#4 Dif CP
+OP CP
+IP CP
++17%
++30%
++4%
+Run #4 CP  SST  w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
++12.5%Fit
++20%
++5%
+Run #5 CP k-ε w/ measured inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
+-2.5%Fit
++5%
+-10%
+Run #5 CP k-ε w/ calculated inlet profiles
+0.00
+0.20
+0.40
+0.60
+0.80
+1.00
+0.00
+0.20
+0.40
+0.60
+0.80
+1.00
+Data
+CFD
+Run #5 Dif W
+OP W
+IP W
++2.5%Fit
++15%
+-10%
+Run #5 Ωk-ε w/ calculated inlet profiles
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.30
+0.40
+0.50
+0.60
+0.70
+0.80
+Data
+CFD
+Run #5 Dif CP
+OP CP
+IP CP
++2.5%Fit
++5%
+-10%
+Run #5 CP SST w/ calculated inlet profiles
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run#4 DifW
+OP W
+IP W
+IdealFit%
++20%
+-20%
+Run #4 Ω k-ε  w/ calculated inlet profiles
+Figure 13: Data versus 2-D CFD results for Runs 3 (center-peak), 4 (inner-peak) and 5 (outer-peak profiler). 
+Top 2 figures: Run 4 CP w/ SST k-Ω and total pressure loss coefficient Ω w/ k-ε model. 
+Middle and bottom figures: Run 5 CP results measured and calculated diffuser inlet profiles 
+ w/ k-ε and standard wall function; CP w/ SST k-Ω and total pressure loss coefficient Ω w/ k-ε model. 
+
+
+--- Page 27 ---
+
+                                                                                                                          AIAA Paper 2004-4168 
+ 
+27
+ 
+ 
+Dome Total Pressure Recovery 
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.70
+0.75
+0.80
+0.85
+0.90
+0.95
+1.00
+Data
+CFD
+Run #3
+Run #4
+Run #5
+-27.5%
+-20%
+-35%
+Figure 14: Dome total pressure recovery data compared with 2-D simulation w/ the standard k-ε model with 
+calculated inlet profiles; comparison between Runs 3, 4 and 5. 

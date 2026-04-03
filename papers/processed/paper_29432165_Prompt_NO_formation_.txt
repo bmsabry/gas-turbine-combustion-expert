@@ -1,0 +1,1396 @@
+
+--- Page 1 ---
+
+Combustion and Flame 153 (2008) 186–201
+www.elsevier.com/locate/combustﬂame
+Prompt-NO formation in methane/oxygen/nitrogen ﬂames
+seeded with oxygenated volatile organic compounds:
+Methyl ethyl ketone or ethyl acetate
+N. Lamoureux ∗, A. El-Bakali, L. Gasnot, J.F. Pauwels, P. Desgroux
+UMR CNRS 8522 PC2A “Physicochimie des Processus de Combustion et de l’Atmosphère,” Université des Sciences et
+Technologies de Lille, 59655 Villeneuve d’Ascq Cedex, France
+Received 25 April 2007; received in revised form 23 July 2007; accepted 25 July 2007
+Available online 29 October 2007
+Abstract
+In the present work, CH and NO proﬁles are determined using laser-induced ﬂuorescence (LIF) measurements
+in eight low-pressure laminar ﬂames of CH4/O2/N2 containing various amounts of methyl ethyl ketone or ethyl
+acetate with respect to the equivalence ratio. Relative CH LIF signals are calibrated using cavity ring-down spec-
+troscopy (CRDS), while NO LIF calibration is performed in the burned gases of NO seeded ﬂames. Temperature
+measurements are obtained using a coated Pt/Rh thermocouple and serve as temperature proﬁles input for Chemkin
+modeling. Volatile organic compound (VOC) submechanisms, previously validated upon major and intermediate
+species proﬁles measured using sampling techniques, are incorporated into the GDF-Kin 3.0_NCN for the CH4
+oxidation. This mechanism is adjusted and validated to predict the effect of VOCs seeding on CH and NO for-
+mation. It takes into account not only the CH and NO proﬁles but those previously measured. When methane is
+replaced by either MEK or EA, the NO mole fraction in the burned gases and the CH peak value are found to
+jointly decrease, indicating that NO is mainly formed according to the prompt-NO mechanism. According to the
+kinetic analysis, the VOC impact on NO formation is demonstrated. It is shown that CH radical formation, through
+the C1 sequence, mainly involves the CH3 radical, which is formed with the same propensity by one molecule
+of methane, MEK, or EA. Due to the methane replacement by VOC while the equivalence ratio is maintained
+constant, we found that the CH peak value decrease follows the total fuel volumetric ﬂow rate decrease, yielding,
+an NO decrease in the burned gases.
+© 2007 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+Keywords: Prompt-NO; Oxygenated VOC; CH; NCN; LIF; Chemical kinetic mechanism
+* Corresponding author. Fax: +33 3 20 43 69 77.
+E-mail address: nathalie.lamoureux@univ-lille1.fr
+(N. Lamoureux).
+1. Introduction
+Nowdays, tremendous efforts are made to pre-
+vent pollutant emissions in the atmosphere. Volatile
+organic compounds (VOCs) are known to be pre-
+cursors of ozone formation in the troposphere un-
+der UV radiations in the presence of NOx. VOCs
+0010-2180/$ – see front matter © 2007 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.combustﬂame.2007.07.011
+
+
+--- Page 2 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+187
+are mainly formed from either transportation emis-
+sions or solvent industries. Different ways of degra-
+dation of VOCs are generally proposed in order to
+prevent their release in air: catalytic oxidation or ther-
+mal degradation. Thermal degradation requires a rela-
+tively high level of temperature (700–1700 K), which
+means fuel consumption and NOx formation. This
+process presents the main advantage that it works
+continuously and is able to treat a large quantity of
+compounds without restrictions about their nature,
+unlike the catalytic processes. Two different ther-
+mal processes are proposed for industrial applica-
+tions; regenerative [1] or recuperative [2]. In order
+to better overcome NOx formation, it is necessary to
+have a better knowledge of the VOCs’ kinetic chem-
+istry.
+Only a few studies have been performed on the
+inﬂuence and/or effect of oxygenated compounds on
+NOx formation. In a well-stirred reactor at a temper-
+ature lower than 1450 K, it has been shown that in the
+presence of oxygenated compounds (involving differ-
+ent kinds of C–O bonds), NO reduction by urea can
+be obtained not only at a lower temperature but also
+within a wider temperature range [3]. The efﬁciency
+of the NO reduction was shown to depend on the ad-
+ditive but was found to be similar for methyl acetate
+and propylaldehyde (both C3 species, respectively
+CH3COOCH3 and C2H5CHO). In a small-scale re-
+cuperative incinerator, Salvador et al. [2] conducted
+a parametric study to improve the operating condi-
+tions of industrial devices. The VOCs are added to the
+heated air ﬂux before entering into a burner supplied
+with natural gas. Different parameters were consid-
+ered. Only ethyl acetate was examined in this study.
+They showed that NOx emissions decrease when the
+ethyl acetate ﬂow rate in air increases while the nat-
+ural gas supply to the burner decreases.
+The present work aims to propose a detailed ki-
+netic model for the oxygenated VOCs’ oxidation in
+the presence of N-species in order to predict NO for-
+mation in low-pressure methane/O2/N2 ﬂames seeded
+with VOCs. Two oxygenated compounds, containing
+the same number of C-atoms and H-atoms, represen-
+tative of ketones and esters were chosen: methyl ethyl
+ketone (MEK), which is commonly used in paint and
+adhesive manufacture and application, and ethyl ac-
+etate (EA), which is commonly used as a solvent, no-
+tably in some segments of the printing industry. The
+detailed kinetic scheme is based on two kinds of ﬂame
+structure studies performed in our laboratory. The ﬁrst
+one was devoted to the fulﬁllment of a kinetic mecha-
+nism describing methyl ethyl ketone (CH3COC2H5)
+and ethyl acetate (CH3COOC2H5) oxidation [4,5].
+Experiments were conducted in low-pressure laminar
+ﬂames seeded with either MEK or EA using probe
+sampling techniques [6,7]. The second one, dedicated
+to NO formation in natural gas ﬂames, made it pos-
+sible to propose a new detailed kinetic mechanism,
+GDF-Kin 3.0_NCN [8]. Experiments were performed
+in natural gas/air ﬂames and focused on the quantita-
+tive measurements, using laser induced ﬂuorescence
+(LIF), of two major species involved in the prompt-
+NO mechanism: CH and NO [9].
+In this work, several methane/O2/N2 ﬂames see-
+ded with either MEK or EA have been stabilized
+and analyzed in terms of NO formation by measuring
+NO and CH radicals by laser diagnostics. During this
+work, ﬂames have been analyzed at a relatively lean
+equivalence ratio with respect to fuel consumption.
+Meanwhile, NO formation will be limited. The initial
+detailed kinetic scheme has been modiﬁed to better
+predict experimental CH and NO proﬁles. Modiﬁca-
+tions were performed with respect to species proﬁles
+previously measured by GC techniques. It will be
+shown that oxidation in the presence of oxygenated
+VOCs leads to NO diminution.
+2. Experimental setup
+Experiments were performed in different lami-
+nar, premixed ﬂames stabilized at 5.3 kPa (40 Torr).
+The homemade 63-mm-diameter burner (the plate is
+equally perforated with 800-µm-diameter holes) is the
+one previously used for studies of ﬂames containing
+VOCs [6,7]. The inner side is ﬁlled with small balls
+to better stabilize the ﬂame. The burner is vertically
+mobile in a stainless enclosure. The setup (burner, en-
+closure, gas supply lines) was heated at 353 K. The
+pressure was controlled via a 0–13.3 kPa pressure
+gauge. The facility is equipped with four optical ac-
+cesses for the laser diagnostics.
+The mixture composition was controlled via mass
+ﬂow meters. The liquid VOCs are preheated at 353 K
+in an enclosed stainless device in order to work with
+the vapor phase. Several ﬂames have been studied.
+In a ﬁrst series where MEK has been added to the
+mixture, the mixture equivalence ratio is close to
+0.78 and the N2/O2 ratio is equal to 3.26. In a sec-
+ond series where EA has been added to the mix-
+ture, the equivalence ratio is close to 0.85 and the
+N2/O2 ratio is equal to 3.10. The N2/O2 ratio value
+varies only by 5% between the two series, which does
+not affect the temperature proﬁles. A problem in the
+mass ﬂow controller calibration procedure was high-
+lighted during the data process, explaining the dif-
+ference of the equivalence ratio between the MEK
+and the EA seeded ﬂames. In order to have a stan-
+dard ﬂame for modeling, the study was completed
+with a CH4/O2/N2 ﬂame, hereafter called the refer-
+ence ﬂame. Premixed gas compositions are given in
+Table 1.
+
+
+--- Page 3 ---
+
+188
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+Table 1
+Flames mixture compositions
+Flame
+VOC
+φ
+N2/O2
+Q
+QCH4
+QVOC
+QO2
+QN2
+Qfuel
+FLRT
+Reference
+0.94
+3.48
+269
+25.9
+0.0
+54.8
+190.4
+25.90
+2.96 × 10−3
+Ref/MEK
+0.78
+3.26
+246
+20.8
+0.0
+53.3
+173.8
+20.80
+2.73 × 10−3
+1-MEK
+MEK
+0.80
+3.26
+246
+18.5
+1.1
+53.6
+174.9
+19.55
+2.76 × 10−3
+2-MEK
+MEK
+0.78
+3.26
+246
+12.1
+3.4
+54.5
+177.8
+15.40
+2.82 × 10−3
+3-MEK
+MEK
+0.76
+3.26
+245
+5.5
+5.6
+55.4
+180.8
+11.10
+2.89 × 10−3
+Ref/EA
+0.85
+3.10
+246
+23.3
+0.0
+54.8
+169.9
+23.29
+2.72 × 10−3
+1-EA
+EA
+0.87
+3.10
+247
+18.8
+2.1
+55.7
+172.6
+20.97
+2.79 × 10−3
+2-EA
+EA
+0.84
+3.10
+247
+11.8
+4.8
+56.7
+175.9
+16.62
+2.87 × 10−3
+Note. Q represents the standard volumetric ﬂow rate (L/h), φ is the equivalence ratio, FLRT is the mass ﬂux (g/cm2/s), and
+Qfuel represents the total volumetric ﬂow rate of fuel in the ﬂame.
+3. Temperature proﬁles
+The temperature proﬁles, corrected for radia-
+tion, were determined using a 100-µm-diameter wire
+coated Pt-6%Rh/Pt-30%Rh thermocouple. The ther-
+mocouple was placed parallel to the burner surface.
+More details about the method and the radiation
+losses correction were given previously [6,10]. For
+example, at 20 mm above the burner in the reference
+ﬂame, the temperature was determined to be 1680 K.
+Taking into account the radiation losses, the tempera-
+ture was corrected to be 1890 K. The global accuracy
+of the temperature measurements is estimated to be
+about 5% along the temperature proﬁle. Repeatabil-
+ity of the temperature measurements under each set
+of ﬂame conditions was better than ±5 K.
+4. Laser diagnostics
+The laser system consists of a frequency-doubled
+Quantel Nd:YAG laser pumping a dye laser. Wave-
+lengths around 317 nm for the CH radical excitation
+were provided by doubling the fundamental dye ra-
+diation (obtained with a mixture of dyes: Rh640 and
+DCM) pumped with 532 nm. For the NO excitation,
+wavelengths around 225 nm were obtained by mixing
+the frequency-doubled output of the dye laser (con-
+stituted by a mixture of Rh590 and Rh610) with the
+residual infrared radiation of the YAG laser. The re-
+sulting FWHM linewidth was around 1 cm−1. Dye
+laser wavelengths were systematically calibrated with
+the LIF-excitation spectra using the LIFBASE soft-
+ware [11].
+Species (CH and NO) proﬁles were locally mea-
+sured by LIF. The laser beam was focused be-
+fore entering into the burner enclosure (focal length
+500 mm). The laser energy ﬂuctuations were moni-
+tored by a postﬂame photodiode. The LIF signal was
+collected at f/4 by a two-lens system and focused
+on the entrance slit of a 0.25-m monochromator, pro-
+viding a high degree of rejection of background ra-
+diation. The entrance slit was parallel to the laser
+axis, and the output slit was adjustable to provide a
+bandpass adapted to the ﬂuorescence band under in-
+vestigation. The ﬂuorescence spectra were collected
+with a 1.5-ns rise-time Philips XP2020Q photomul-
+tiplier tube. The ﬂuorescence and laser intensity sig-
+nals were simultaneously resolved and averaged over
+500 pulses and stored by a digital scope (LECROY
+9354A, 8-bit, 500-MHz bandwidth, 1-GS/s sampling
+rate). LIF signals were measured at their temporal
+peak to minimize the effect of quantum yield vari-
+ation along the ﬂame on N(J ′′) determination. The
+LIF signal being proportional to the rotational pop-
+ulation N(J ′′), conversion into total density num-
+ber has been completed by dividing the signal by
+the Boltzmann fraction fB(J ′′,T ), easily calculated
+using the experimental temperature data. Compari-
+son with modeling data being based on the species
+mole fraction, this last one is derived from the to-
+tal density and the ideal gas law. The speciﬁc con-
+ditions of the relative LIF measurements are given
+below.
+The relative species proﬁles in each ﬂame were
+measured by LIF. Thus, the peak LIF signals obtained
+in the different ﬂames have been linked to each other
+by comparing their LIF intensity to that obtained in
+the reference ﬂame (see Table 1), for which a direct
+calibration has been undertaken. The “linking” proce-
+dure has made it necessary to change the ﬂame con-
+ditions between ﬂame (i) and the reference ﬂame and
+to compare the peak LIF signals. That procedure has
+been repeated several times to limit the uncertainty.
+The standard deviation was less than 3%. The calibra-
+tion of the LIF signals obtained in the reference ﬂame
+was performed in the zone where the species concen-
+tration is maximal. So it was performed at the peak
+value for the CH calibration and at 20 mm above the
+burner for the NO calibration.
+
+
+--- Page 4 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+189
+4.1. CH measurements
+CH LIF measurements were performed using
+the predissociative C2Σ+ ←X2Π(0,0) state near
+315 nm, according to an excitation/detection scheme
+previously used in the lab [9,12]. The doublet P1(10)/
+P2(10) near 317.3 nm was selected for the CH exci-
+tation because it is characterized by a weak variation
+of the ratio fB(J ′′,T )/T in the ﬂame temperature
+range. CH measurements at low pressure are weakly
+affected by quenching variation because of the predis-
+sociative feature of the excited state. In order to reject
+all the interferences due to the ﬂame emission, the
+ﬂuorescence was collected in the entire Q-branch at
+314.7 nm with a narrow bandwidth of 3.0 nm selected
+by the monochromator.
+The calibration step was performed by cavity ring-
+down spectroscopy (CRDS) measurements in the ref-
+erence ﬂame. The laser beam was shaped with a sys-
+tem of a 100-µm pinhole aperture and two 100-mm
+focal lenses in order to match approximately the
+TEM00 transverse mode of the CRD cavity. The
+390-mm-length CRD cavity consisted of two high-
+reﬂectivity mirrors (radius curvature 250 mm, R =
+99.7% at 317 nm). The CRD signal was recorded
+using the same PMT and scope, both as in LIF mea-
+surements, and processed in order to measure the
+decay time of the CRD cavity. The measurements
+were performed at the CH-peak by scanning the laser
+around the P1(8) and P2(8) lines (on resonance). The
+CRD lifetime was found to be 400 ns with the laser
+tuned off resonance and decreased to about 335 ns
+with the laser tuned on resonance (with the P1(8)
+line) at the CH peak location. From the measured
+lifetimes on and off resonance, one obtains the inte-
+grated absorptivity according to the procedure pre-
+viously described [13]. The P1(8) and P2(8) lines
+have been preferred because they are separated one
+from the other, unlike the doublet P1(10)/P2(10), for
+which a deconvolution is required to determine the
+integrated absorptivity. From the integrated absorptiv-
+ity of the lines P1(8) and P2(8) and considering the
+absorption constant across the ﬂame diameter (one-
+dimensional ﬂame), the absolute number density of
+the excited rotational level (J ′′ = 8) was determined.
+Knowing the temperature at the measured location
+(T = 1725 ± 100 K), the CH-peak mole fraction was
+determined as being 2.7 ± 0.2 ppm in the reference
+ﬂame.
+As previously pointed out [9,14], due to the fact
+that the CRDS is a line-of-sight absorption technique,
+inhomogeneities along the laser beam in the entire
+ﬂame diameter have to be taken into account, since
+they lead to underestimation of the concentration on
+the burner axis. Luque et al. [14] have shown, using
+planar LIF, that corrections could reach 20%. Sim-
+Fig. 1. Off-resonance proﬁles at 225.45 nm in the different
+ﬂames containing MEK; see Table 1 for the full gas compo-
+sition. Dashed lines show the reaction zone position based
+on the position of the peak LIF signal of the CH radical.
+ilarly, Pillier et al. [9] have found a correction fac-
+tor of 25%. In this work, assuming the same correc-
+tion factor (1.25), the previous CH-peak mole frac-
+tion was corrected to 3.4 ± 0.25 ppm in the reference
+ﬂame.
+4.2. NO measurements
+NO-LIF measurements in ﬂames have been per-
+formed by excitation of the A2Σ+ ←X2Π(0–0)
+band (Q1(23) or Q2(27) lines) near 225.6 nm.
+The ﬂuorescence collection was achieved using the
+A2Σ+ ←X2Π(0–2) band at 246 nm with a band-
+width of 8 nm selected by the monochromator.
+The excitation range is possibly disturbed by O2
+Schumann–Runge bands. Caution has been taken
+to prevent this background signal by recording the
+off resonance signals [15]. In the presence of MEK
+in the premixed gases, the off resonance (at 225.45
+nm) proﬁles show an increase around the ﬂame front
+zone (Fig. 1). This effect was negligible in ﬂames
+containing EA. The background signal in the pres-
+ence of MEK may be attributed to acetone emis-
+sion and/or ﬂuorescence, which was shown to be
+present in the ﬂame front of MEK-containing ﬂames
+from previous gas chromatography (GC) measure-
+ments [6]. The background signal in the ﬂame 3-
+MEK could reach 55% of the total signal collected
+at 246 nm. It was subtracted on the basis of on–
+off measurements. Finally, the relative NO proﬁles
+were determined from the difference between the
+on and the off resonance signals in each ﬂame, i.e.,
+the off-resonance-corrected LIF signal. The LIF sig-
+nals measured at 20 mm above the burner were
+
+
+--- Page 5 ---
+
+190
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+then related to the one measured in the reference
+ﬂame.
+The NO concentration was quantitatively deter-
+mined in the reference ﬂame by measuring the LIF
+signal in the reference ﬂame seeded with different
+known amounts of NO added in the premixed gases
+(from 0 to 600 ppm of NO was substituted for N2
+in the cold mixture). Measurements were performed
+at 20 mm above the burner. According to the mod-
+eling results, only 4% of the 600 ppm added in
+the premixed gases is removed due to the reburning
+process. The calibration method based on NO seed-
+ing was preferred to the one previously used in our
+lab using CRDS measurements [9]. Due to the line-
+of-sight absorption and the presence of background
+NO in the enclosure, CRDS measurements needed to
+be corrected according to a complicated procedure.
+The calibration of NO by LIF in seeded ﬂames has
+been detailed in a few papers. Particularly, Thom-
+sen et al. [16] insisted on the background effects on
+NO-LIF calibration. Berg et al. [17] studied the NO
+reburning process affecting the seeded NO in the cal-
+ibration procedure, particularly under relatively high-
+seeding conditions (up to 3% NO added in the pre-
+mixed gas) in lean and in rich methane ﬂames. These
+difﬁculties have been thoroughly taken into account
+in this work. In the slightly lean reference ﬂame,
+we noticed, according to [16], that both LIF signals
+(on and off resonance) increased linearly with the
+amount of added NO. Without NO added in the pre-
+mixed gases, the off-resonance-corrected LIF signal
+(LIF(on–off)(native NO)) is proportional to the native
+NO. When NO was added in the premixed gases, the
+off-resonance-corrected LIF signal (LIF(on–off)(total
+NO)) is proportional to the total NO in the burned
+gas (native NO + added NO). Fig. 2 shows that
+the off-resonance-corrected LIF signal 20 mm above
+the burner depends linearly on the NO added in
+the reference ﬂame indicating negligible reburning.
+The native NO was determined according to the in-
+verse of the slope of the quantity ((LIF(on–off)(total
+NO)/LIF(on–off)(native NO)) −1) as a function of the
+added NO. In the reference ﬂame, at 20 mm above the
+burner, the native NO was found to be 11.6 ppm with
+an accuracy of 15%.
+Due to the very low LIF signal (especially in the
+ﬂame containing VOC), the Q1(23) line was pre-
+ferred to the Q2(27) one in the relative LIF proﬁle
+measurements because it presents a rotational energy
+value (1910 cm−1) lower than the one of the Q2(27)
+line (2322 cm−1). But for the calibration measure-
+ments, the Q2(27) line was selected because the as-
+sociated Boltzmann fraction is less dependent on the
+temperature than that of the Q1(23) line. In the ref-
+erence ﬂame, the relative NO LIF signal was high
+enough even when the Q2(27) line was selected. The
+Fig. 2. Off-resonance-corrected LIF signal versus the known
+NO added in the reference ﬂame at 20 mm above the burner.
+Vertical bars represent the uncertainties.
+comparison of the relative NO proﬁles measurements
+by exciting either the Q1(23) or the Q2(27) lines did
+not show any effect of the chosen excited line, except
+that the signal-to-noise ratio is much better in the for-
+mer case.
+5. Modeling
+5.1. Methodology
+The premix code of the Chemkin-II package
+[18,19] was used during this work in order to perform
+modeling computations. Kinetic analysis is essen-
+tially based on the rate of production and consump-
+tion. The rate of production/consumption of each
+species is systematically computed using the appro-
+priate subroutines in the Chemkin package (CKQYP,
+CKCONT) [19]. Following the Chemkin formalism,
+for each species k and each reaction i, the rate of
+progress is given by Rk,i = νk,iqi, where νk,i is the
+stoichiometric number relative to species k in reaction
+i, and qi is the net rate of reaction i. The summa-
+tion of Rk,i over the I reactions is the production
+rate of species k. For species k, the involved reactions
+are sorted out in respect to their maximum absolute
+value. Their sign indicates if the species is consumed
+or produced. Then they are rearranged to determine
+the species ﬂux when the same species are involved
+in both hands. The rate of progress depending on the
+species concentration and the temperature depends on
+the location as well. So, in order to better account for
+this variation along the burner axis, we choose to con-
+sider the species molar ﬂux by integrating the rate of
+
+
+--- Page 6 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+191
+progress versus the height above the burner. The in-
+tegrated rate of progress for each reaction or group
+of reactions represents the contribution of this reac-
+tion or group of reactions to the species formation
+or consumption (according to the sign of the rate of
+progress).
+All computations have been performed using ex-
+perimental temperature proﬁles, which have been ex-
+tended close to the burner surface at 400 K. The mass
+ﬂuxes, computed with respect to the standard volu-
+metric ﬂow rate and the burner surface area, are re-
+ported in Table 1.
+5.2. Initial mechanism
+The detailed kinetic scheme devoted to NO forma-
+tion prediction in methane/air ﬂames containing VOC
+(MEK or EA) requires three submechanisms: (i) for
+the methane oxidation, (ii) for the VOC oxidation, and
+(iii) a full description of nitrogen chemistry.
+The VOC submechanisms (for methyl ethyl ke-
+tone and ethyl acetate oxidation), proposed by Decot-
+tignies et al. [4] and Gasnot et al. [5], involve 156
+reactions and 30 species. They both involve propanal,
+acetone, acetaldehyde, ethanol, DME (dimethyl et-
+her), and methanol oxidation submechanisms. The
+MEK oxidation involve a methyl vinyl ketone (MVK)
+oxidation submechanism, while the EA oxidation in-
+volve acetic acid and vinyl acetate oxidation sub-
+mechanisms. The VOC submechanisms were initially
+validated in conjunction with the GRI2.11 mechanism
+[20] for the methane oxidation. Full details concern-
+ing their validation were given in [4,5]. Hereafter this
+mechanism will be called the VOC-GRI2.11 mecha-
+nism.
+The recent detailed mechanism GDF-Kin 3.0_
+NCN proposed by El-Bakali et al. [8] appeared to
+offer a good compromise for points (i) and (iii). It
+has been fully validated for natural gas oxidation in
+the presence of N species. It takes into account the
+new route of NCN contribution in the prompt NO for-
+mation. This model involves 883 reactions and 121
+species.
+In this work, the GRI2.11 mechanism was re-
+placed by the GDF-Kin 3.0_NCN one. In the case of
+duplicate reactions (for example, as for the methanol
+or acetaldehyde oxidation submechanisms), the ones
+given in the GDF-Kin 3.0_NCN were adopted. The
+resulting mechanism, hereafter called the initial mech-
+anism, has been associated with thermodynamic and
+transport databases initially considered. The reaction
+number affected to each reaction refers to the origi-
+nal order of the reactions of the GDF-Kin 3.0_NCN
+followed by the VOC submechanisms (starting from
+reaction 884).
+5.3. Validation of the mechanism
+The initial mechanism has been tested on the ba-
+sis of the comparison between the experimental and
+the predicted proﬁles of CH radical and NO. Mean-
+while, caution has been paid to preserve the initial
+overall good agreement between the experimental and
+the modeling proﬁles (according to the VOC-GRI2.11
+mechanism) of the major species involved into the ox-
+idation process of both methane and VOC. As a ﬁrst
+step, the initial mechanism was tested according to the
+previous experimental data measured in low-pressure
+methane/O2/N2 ﬂames containing different amounts
+of either MEK or EA [6,7].
+The comparison between the experimental species
+proﬁles and those simulated showed that acetone
+was absolutely not predicted according to the ini-
+tial mechanism. Decottignies et al. [4] showed that
+acetone is mainly produced by the recombination
+reaction between CH3 and CH3CO radicals (956)
+CH3COCH3 = CH3 + CH3CO. It appeared that the
+rate constant of the reaction (244) CH3CO + M =
+CH3 +CO+M, initially selected according to Wilk et
+al. [21] in GDF-Kin 3.0_NCN, led to a very fast con-
+sumption of the CH3CO radical, inhibiting acetone
+formation. So we introduced the value, ﬁrst selected
+in the VOC submechanisms [4,5] according to the
+recommendations of Baulch et al. [22] and recently
+conﬁrmed by ab initio calculation [23]. Finally, in or-
+der to improve the acetone prediction by the model,
+the rate constant of the reaction (956) proposed by
+Sato and Hidaka [24] was selected.
+Modiﬁcation of the methane oxidation due to the
+replacement of the GRI2.11 mechanism by the GDF-
+Kin 3.0_NCN one affects principally the C2H6 and
+C3H8 simulated proﬁles. Based on the experimen-
+tal proﬁles reported by Gasnot et al. [6,7] and the
+present ones (for CH and NO), few rate constant ad-
+justments were proposed, as reported in Table 2. The
+involved reaction rate constants (except for reactions
+(244), (956), (967), and (985)) were initially esti-
+mated by analogy with the unsaturated hydrocarbon
+species according to Warnatz [25] for H-abstraction
+reactions and Dean [26] for thermal degradation re-
+actions. Some oxygenated species proﬁles are given
+in Fig. 3; dimethyl ether or DME (CH3OCH3), ace-
+tone (CH3COCH3), methanol, methyl vinyl ketone
+or MVK (C2H3COCH3), vinyl acetate (CH3COO-
+C2H3), and acetaldehyde (CH3HCO). The simulated
+proﬁles that are issued from the VOC-GRI2.11 mech-
+anism and from the ﬁnal version of the present work
+are compared to the experimental proﬁles in a stoi-
+chiometric CH4/VOC/O2/N2 ﬂame containing 2% in
+volume of VOC. Globally, the VOC-GRI2.11 and the
+new mechanism lead to similar predictions for the
+VOC intermediates proﬁles and therefore the ﬁnal ki-
+
+
+--- Page 7 ---
+
+192
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+Fig. 3. Experimental oxygenated species proﬁles measured by probe sampling techniques in stoichiometric methane/VOC/O2/N2
+ﬂames containing 2% VOC [6,7]. Comparison with simulated data using previous kinetic mechanism (VOC-GRI2.11) (thin lines)
+and the present kinetic mechanism (thick lines); see text.
+
+
+--- Page 8 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+193
+Table 2
+List of reactions whose kinetic parameters have been adjusted compared with GDF-Kin 3.0_NCN (reaction 244) [8] and the
+initial VOCs submechanisms [4,5]
+Reaction
+Rate constant
+Adj. Ref.
+244
+CH3CO + M = CH3 + CO + M
+k∞= 2.8 × 1013 exp(−17,260/RT ); k0 = 8.428 × 106
+[22]
+910
+C2H5COCH3 = CH3 + C2H5CO
+k = 2.0 × 1016 exp(−75,200/RT )
+/5
+[26]
+912
+C2H5COCH3 = CH3 + CH3COCH2
+k = 5.0 × 1017 exp(−89,890/RT )
+∗5
+[26]
+913
+C2H5COCH3 + H = CH2CH2COCH3 + H2
+k = 4.69 × 107T 2.0 exp(−7703/RT )
+*5
+[25]
+914
+C2H5COCH3 + H = CH3CHCOCH3 + H2
+k = 9.0 × 105T 2.0 exp(−5000/RT )
+/5
+[25]
+915
+C2H5COCH3 + H = C2H5COCH2 + H2
+k = 4.69 × 107T 2.0 exp(−7703/RT )
+∗5
+[25]
+920
+C2H5COCH3 + OH = CH3CHCOCH3 + H2O
+k = 1.30 × 108T 1.25 exp(−703.4/RT )
+/5
+[25]
+935
+CH3CHCOCH3 = CH2CHCOCH3 + H
+k = 4.5 × 1016 exp(−38,170/RT )
+∗5
+[26]
+956
+CH3COCH3 = CH3 + CH3CO
+k = 5.65 × 1016 exp(−81,700/RT )
+∗1.9 [24]
+967
+C2H5 + OH = C2H5OH
+k = 4.345 × 1014
+∗5
+[31]
+985
+C2H5O + O2 = CH3HCO + HO2
+k = 2.4 × 1015 exp(−5017/RT )
+∗5
+[32]
+1000 CH3COOC2H5 + H = CH3COOCH2CH2 + H2
+k = 2.25 × 106T 2.0 exp(−5000/RT )
+/2
+[25]
+1003 CH3COOC2H5 + O = CH3COOCH2CH2 + OH
+k = 1.3 × 1013 exp(−5215/RT )
+/2
+[25]
+1006 CH3COOC2H5 + OH = CH3COOCH2CH2 + H2O k = 3.2 × 108T 1.25 exp(−703/RT )
+/2
+[25]
+1018 CH3COOCHCH3 = CH3CO + CH3HCO
+k = 1.0 × 1012 exp(9230/RT )
+/2
+[26]
+1019 CH3COOCHCH3 = CH3COOC2H3 + H
+k = 1.2 × 1013 exp(−2708/RT )
+/2
+[26]
+Note. Numbers refer to the reaction number. Adj. indicates the adjustment factor to the preexponential constant compared to the
+rate constant value initially adopted in the VOCs submechanisms.
+netic scheme will deliberately not be modiﬁed in the
+following. The discrepancy between the predicted and
+experimental proﬁles in the EA ﬂame was already dis-
+cussed in [5].
+Fig. 4 shows the MEK rate of consumption as a
+function of the height above the burner. Computa-
+tions were performed according to the VOC-GRI2.11
+mechanism (Fig. 4a) and the present validated one
+(Fig. 4b). Adjustment of the rate constant values for
+the MEK consumption (implying reactions 910 to 920
+presented in Table 3) involved an increase of the im-
+portance of the reactions 913 and 915 compared to the
+reaction 912.
+Finally, the proposed detailed kinetic model is
+based on the kinetic mechanism GDF-Kin 3.0_NCN,
+in which the rate constant of the reaction (244) was
+updated and adjusted according to the recommen-
+dations of Baulch et al. [22] on one hand, and on
+the VOC submechanisms for MEK and EA oxidation
+proposed by Decottignies et al. [4] and Gasnot et al.
+[5], in which 15 rate constant values have been ad-
+justed. The updated VOCs submechanisms are avail-
+able by request from the authors.
+5.4. VOCs oxidation schemes
+In order to describe the VOCs’ oxidation path-
+ways, the relative importance of each reaction is de-
+termined according to the maximum value of its ab-
+solute net reaction rate. This determination has been
+found necessary to interpret the following discus-
+sion related to the CH and NO formation in seeded
+ﬂames. The VOC’s oxidation is governed by either
+H-abstraction or thermal degradation reactions which
+are not necessarily occurring at the same location
+above the burner. As reported in Fig. 4 in the case
+of the ﬂame 2-MEK, the thermal degradation reac-
+tions (910 and 912) occurred 1 mm downstream from
+the H-abstraction reactions. So, in the present work,
+the relative pathways importance was established ac-
+cording to the molar species ﬂux. Figs. 5 and 6 show
+the main pathways of the MEK and EA oxidation,
+respectively. The arrow thickness represents the rela-
+tive pathway importance according to the ratio of the
+species molar ﬂux of the involved reaction or group of
+reactions over the overall species molar ﬂux. The un-
+derlined named species characterized the species that
+were previously measured by sampling techniques
+[4,5]. Numbers beside the arrows refer to the char-
+acteristic reaction numbers, whose rate constant has
+been adjusted. Those whose importance in the CH3
+formation has been highlighted, are underlined.
+Considering the ﬂame 2-MEK conditions as re-
+ported in Fig. 5, the main pathways of MEK degra-
+dation consist in H-abstraction reactions leading to
+CH2CH2COCH3, C2H5COCH2, and CH3CHCO-
+CH3 radicals in the following percentages of MEK
+consumption: 34.8%, 34.8%, and 9.7%. MEK is ther-
+mally degraded, leading to CH3COCH2 and CH3
+radicals and to C2H5CO and CH3 radicals, respec-
+tively, for 14.2 and 6.4% of the MEK removal.
+Considering the ﬂame 2-EA conditions as reported
+in Fig. 6, EA is consumed via H-abstraction re-
+actions yielding CH2COOC2H5, CH3COOCHCH3,
+and CH3COOCH2CH2 radicals for 24.8, 12.1, and
+7.3%, respectively. The thermal degradation leads to
+
+
+--- Page 9 ---
+
+194
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+Fig. 4. MEK rate of consumption/production in the ﬂame 2-MEK according to (a) the VOC-GRI2.11 mechanism and (b) the
+present model. Dotted lines represent thermal degradation reactions, solid lines represent H-abstraction reactions, and dashed
+lines represent MEK proﬁle. Numbers besides the lines correspond to the reaction numbers listed in Table 2.
+Table 3
+Experimental CH-peak mole fractions (ppm) measured by LIF in different ﬂames
+Flame
+CH peak
+(ppm)
+CH peak
+rel
+CH area
+rel
+VOC/fuel
+(%)
+C-atoms
+(×1023)
+CH4
+rel
+Qfuel
+rel
+C-atoms
+rel
+CH3-VOC/CH3
+total (%)
+Ref/MEK
+1.69
+1.00
+1.00
+0.0
+5.59
+1.00
+1.00
+1.00
+0.0
+1-MEK
+1.55
+0.92
+0.99
+5.4
+6.11
+0.89
+0.94
+1.09
+8.0
+2-MEK
+1.26
+0.75
+0.78
+21.8
+6.84
+0.58
+0.74
+1.22
+24.7
+3-MEK
+1.05
+0.62
+0.60
+50.9
+7.54
+0.26
+0.53
+1.35
+46.4
+Ref/EA
+1.90
+1.00
+1.00
+0.0
+6.26
+1.00
+1.00
+1.00
+0.0
+1-EA
+1.90
+1.00
+0.86
+10.2
+7.35
+0.81
+0.90
+1.17
+13.2
+2-EA
+1.15
+0.60
+0.64
+29.0
+8.35
+0.51
+0.71
+1.33
+28.5
+Note. The relative value of the experimental CH-peak and the determined CH-area are indicated. Considering the mixtures
+composition (see Table 1), the following values are reported: the VOC percentage in the fuel (VOC/fuel (%)), the C-atoms
+ﬂow rate (atom/h), the relative values of CH4, fuel volumetric ﬂow rate and C-atoms. According to the integrated CH3 rate of
+progress, the VOC contribution into the CH3 formation is given (see text).
+C2H5OCO radicals for 15.9% and acetic acid and eth-
+ylene for 39.7% of the EA removal. One can notice
+that the EA oxidation scheme is more dense than the
+MEK oxidation scheme.
+6. Results and discussions concerning CH and
+NO proﬁles
+6.1. Experimental proﬁles
+CH and NO proﬁles, combined with the temper-
+ature proﬁle, are plotted versus the height above the
+burner (Fig. 7). Temperature proﬁles measured by
+thermocouple are reported, showing that the burned
+gas temperature is close to 1800 K in all the studied
+ﬂames. Experimental temperature proﬁles were ex-
+trapolated to zero position with a value of 400 K. NO
+is formed in the ﬂame front area where the CH radical
+is present according to the prompt-NO mechanism.
+The NO proﬁle is constant in the burned gases zone,
+indicating negligible contribution of the thermal-NO
+mechanism. Nevertheless, it is also noteworthy that
+the NO production starts upstream from the CH radi-
+cal onset, as previously shown in several works [9,27].
+According to kinetic considerations, NO is formed in
+the reaction zone while the experimental and simu-
+lated NO proﬁles show that NO is present upstream
+the reaction zone close to the burner surface. This
+might be due to preferential species diffusion towards
+the cold burner surface.
+The absolute uncertainties during the calibration
+procedure have been shown to be 15% for CH and
+NO in the reference ﬂame. However, the relative un-
+certainty in the LIF signal measurements during the
+linking process between the different ﬂames was bet-
+ter than 10%, which is fairly good considering the
+very low CH peak and NO mole fraction (a few ppm).
+Therefore, any variation greater than 10% of the LIF
+signal between the investigated ﬂames can be inter-
+preted as being representative of an actual species
+variation in the ﬂame. CH proﬁles measured in ﬂames
+
+
+--- Page 10 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+195
+Fig. 5. MEK oxidation scheme. The arrow thickness depends on the contribution of the route to the species consumption in the
+ﬂame 2-MEK. Underlined species were measured by GC sampling [4]. Numbers beside the arrows indicate the involved reaction
+number.
+1-MEK and 1-EA are close to those measured in
+ﬂames ref/MEK and ref/EA, respectively. The same
+observations can be done with NO proﬁles. The CH-
+peak values are reported in Table 3 for the different
+studied ﬂames. It seems that the CH peak mole frac-
+tion decreases more rapidly in the presence of EA
+than in the presence of MEK. However, as the equiva-
+lence ratio is higher with the EA mixtures, this could
+probably affect the CH variation.
+Both CH peak values and NO mole fractions in the
+burned gases were found to diminish when methane
+was replaced by VOCs. In Fig. 8, the NO mole frac-
+tions in the burned gases are plotted as a function of
+the CH peak mole fraction for numerous low-pressure
+ﬂames in which the width of the CH proﬁle is quite
+similar. Despite the different ﬂame conditions (fuel,
+pressure, equivalence ratio, nitrogen dilution), it is
+noteworthy that NO and CH mole fractions depend
+on each other through a close to linear representation.
+6.2. Comparison between experimental and
+simulated proﬁles
+The CH radical is well known to be produced
+from the C1 sequence involving CH3, CH2, and
+CH radicals. Methane substitution by VOC in our
+ﬂames leads to a CH4 decrease in the premixed gases
+and could partially explain the observed CH radical
+diminution. However, the added VOC is expected to
+produce CH radicals also. Modeling study will make
+it possible to determine the exact contribution of VOC
+substitution to CH variation.
+Experimental proﬁles have been compared to the
+simulated ones using the present model. In the three
+methane/O2/N2 ﬂames, the agreement between ex-
+perimental and simulated proﬁles is good. This result
+was expected due to the wide validation of GDF-Kin
+3.0_NCN [8].
+When methane is partially replaced by MEK or
+EA, the simulated CH peak values decrease in over-
+all good agreement with the experimental results, as
+shown in Fig. 9, while the opposite effect was ob-
+served with the GRI2.11-VOC or the initial mecha-
+nisms.
+Similarly, Fig. 10 presents a comparison between
+the experimental and simulated proﬁles of NO. The
+modeling reﬂects the VOC substitution effect on the
+NO formation well. According to the prompt-NO
+mechanism, the CH peak mole fraction decrease, pre-
+viously observed with the VOC seeding, leads to a
+substantial NO decrease in the burned gases. The gra-
+dient of the NO concentration is particularly well pre-
+
+
+--- Page 11 ---
+
+196
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+Fig. 6. EA oxidation scheme. The arrow thickness depends on the contribution of the route to the species consumption in the
+ﬂame 2-EA. Underlined species were measured by GC sampling [5]. Numbers beside the arrows indicate the involved reaction
+number.
+Fig. 7. Experimental proﬁles of (+) temperature, (") CH, and (E) NO in different ﬂames stabilized at 40 Torr; see Table 1 for
+details.
+
+
+--- Page 12 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+197
+Fig. 8. NO density in the burned gas as a function of the CH
+peak values for different ﬂames stabilized at 40 Torr. Results
+concerning additional ﬂames (number 9–13) are reported.
+Experimental data (at P = 33 Torr) after Pillier et al. [9]
+are reported with respect to their ﬂame labels; r: φ = 1.25,
+s: φ = 1.0, p: φ = 0.7.
+dicted in all the investigated ﬂames. Predicted NO
+values in the burned gases are within 20% of the ex-
+perimental ones.
+6.3. Discussions
+Considering the good agreement between exper-
+imental and simulated proﬁles, modeling has been
+used to analyze the CH formation pathways in or-
+der to understand the VOC impact on the CH forma-
+tion and consequently on the (prompt) NO formation.
+CH radicals being mainly formed through the C1 se-
+quence, the CH3 pathways are ﬁrst detailed and com-
+pared under four different ﬂame conditions, ref/MEK
+and 2-MEK, and ref/EA and 2-EA, in order to high-
+light the VOC contribution to the CH formation via
+the CH3 route.
+6.3.1. CH3 rates of production and consumption
+The rates of production of the CH3 radical were
+calculated according to the detailed kinetic model
+proposed in this work, under different ﬂame condi-
+tions. Comparison between the pathways in seeded
+and nonseeded ﬂames has made it possible to char-
+acterize a speciﬁc CH3 route of formation when VOC
+is added in the gas.
+In methane/O2/N2 ﬂames, the analysis has shown
+that the CH3 radical (well known to be formed by H-
+abstraction of CH4 reactions) is mainly produced ac-
+cording to only three major steps: (39) CH4 + OH =
+CH3 + H2O, (40) CH4 + O = CH3 + OH, and (41)
+CH4 + H = CH3 + H2. According to the CH3 molar
+ﬂux, these three reactions are responsible for 95% of
+the total amount of CH3 production.
+When methane is replaced by MEK in the pre-
+mixed gases, new steps are responsible for the CH3
+radical formation: (965) CH3COCH2 = CH2CO +
+CH3, (−57) CH3 + CH3 = C2H5 + H, (912) C2H5-
+COCH3 = CH3 +CH3COCH2, (209) CH2CO+H =
+CH3 +CO, (989) CH3CO+OH ⇒CH3 +CO+OH,
+(910) C2H5COCH3 = CH3 + C2H5CO, and (934)
+CH3CHCOCH3 = CH3CHCO + CH3. These reac-
+tions are highlighted in the MEK oxidation scheme
+shown in Fig. 5. The reactions involved in the CH3
+formation have been divided into two groups; the
+ﬁrst one characterizes the CH4 oxidation contribu-
+tion, while the second one represents the CH3 speciﬁ-
+cally issued from MEK oxidation. Fig. 11a shows the
+CH3 rate of production due to both fuels as a func-
+tion of the height above the burner with respect to the
+Fig. 9. Comparison between experimental (symbols) and simulated (lines) CH proﬁles (a) in ﬂames containing MEK and (b) in
+ﬂames containing EA. Flame compositions are given in Table 1.
+
+
+--- Page 13 ---
+
+198
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+Fig. 10. NO proﬁles measured by LIF excitation (symbols) in the different ﬂames for which the gas composition is reported in
+Table 1. Comparison with simulated proﬁles (lines) in the presence of (a) MEK, (b) EA in the ﬂame.
+ﬂame 2-MEK condition. According to the CH3 rate of
+production, 24.7% of the total amount of CH3 is pro-
+duced from MEK oxidation, while MEK represents
+22% of the fuel in the mixture.
+The same procedure has been performed with
+the EA-containing ﬂames. The following ten reac-
+tions are speciﬁcally responsible for the CH3 rad-
+ical formation in the presence of EA in the mix-
+ture: (997) CH3COOC2H5 = CH3 + C2H5OCO,
+(−57) CH3 + CH3 = C2H5 + H, (986) CH3CH2O =
+CH3 + CH2O, (209) CH2CO + H = CH3 + CO,
+(965) CH3COCH2 = CH2CO + CH3, (158) C2H4 +
+O = CH3 + HCO, (1029) CH3COO = CH3 + CO2,
+(989) CH3CO + OH ⇒CH3 + CO + OH, (245)
+CH2HCO = CH3 + CO, and (208) CH2CO + OH =
+CH3 + CO2. These reactions are highlighted in the
+EA oxidation kinetic scheme shown in Fig. 6. As pre-
+viously, both fuels’ contributions to CH3 formation
+were identiﬁed and their rates of production are plot-
+ted in Fig. 11b. In ﬂame 2-EA, containing 29% of EA
+in the fuel, the respective integrated rates of produc-
+tion show that 28.5% of the CH3 radical comes from
+the EA oxidation.
+CH3 radical rates of consumption have been ex-
+amined and do not depend on the source of CH3
+formation. CH3 consumption yields mainly CH2O
+(∼50%), 1CH2 (∼23%), CH4 (∼8%), and CH3OH
+(∼5%). In the presence of VOC, a very small part of
+CH3 (<2%) leads to acetone (through reaction (956)).
+Simulated CH3-peak values are plotted as function
+of the CH-peak values (Fig. 12) and show a strong
+correlation with the CH-peak values owing to the C1
+sequence.
+The VOC contribution to the CH3 formation was
+computed in all studied ﬂames, and the relative value
+is reported in Table 3 ((CH3-VOC)/CH3 total). One
+can notice that the percentage of CH3 due to the VOC
+oxidation over the total CH3 production is close to the
+percentage value of VOC in the fuel mixture, showing
+that one molecule of VOC presents the same ability
+for CH3 formation as one molecule of methane. It
+must be emphasized, however, that a molecule of ei-
+ther MEK or EA contains four times as many carbon
+atoms as a molecule of methane.
+6.3.2. CH radical formation
+In order to take into account not only the CH-
+peak value, but the proﬁle shape, one can determine
+the area of the CH proﬁle. The values are reported
+in Table 3. In order to take into account the fuel
+amount variation in our ﬂames and to make easier any
+comparison, relative values (labeled “rel”) have been
+calculated according to the value obtained in the ref-
+erence ﬂames; ref/MEK for MEK seeded ﬂames and
+ref/EA for EA seeded ﬂames. One can notice that the
+relative CH-peak value is close to the relative CH-area
+value, indicating that the CH proﬁle shape is similar
+from one ﬂame to the other.
+In our ﬂame conditions, as reported in Table 3, the
+methane replacement by VOC implies a decrease of
+methane (CH4 rel) and also of the total fuel amount
+(Qfuel rel) in the premixed gases, while the total num-
+ber of C-atoms increases (C-atomsrel). The relative
+behavior of CH-peak value in ﬂames reﬂects the im-
+pact of methane decrease (which tends to reduce the
+CH radical production) and of the total number of
+C-atoms increase (which contributes partly to CH
+formation). It is noteworthy that the behavior of the
+relative CH-peak value is quite similar to that of
+the relative fuel volumetric ﬂow rate. This is consis-
+
+
+--- Page 14 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+199
+Fig. 11. Rate of production of the CH3 radical in two different ﬂames: (a) ﬂame 2-MEK, (b) ﬂame 2-EA. Contribution of CH4
+oxidation and VOC contribution to the CH3 formation. The involved reactions are identiﬁed in the text.
+Fig. 12. Simulated CH3-peak values vs the simulated CH-
+peak values according to the different ﬂame conditions re-
+ported in Table 1.
+tent with the fact that methane and VOC (MEK or
+EA) produce CH3 radicals with a comparable efﬁ-
+ciency (as reported in the previous section), which
+then is converted into CH radicals according to the
+C1 route.
+With the two examined VOCs, when the oxy-
+genated compound is added in the premixed gas keep-
+ing constant the equivalence ratio, the N2/O2 ratio,
+and the total ﬂow rate, the total C-atoms increases
+but the CH-peak value decreases. This means that the
+oxygenated compounds are less efﬁcient in the CH
+formation than CH4. Consequently, NO formation
+mainly due to the prompt-NO mechanism decreases
+when methane is replaced by VOC.
+6.3.3. NO formation
+Recently, the NCN route in prompt-NO forma-
+tion has been proposed as the new route instead
+of the classical HCN route [28,29]. A few authors
+have replaced the reaction CH + N2 = HCN + N
+by CH + N2 = NCN + H in kinetic models. El-
+Bakali et al. [8] found that the theoretical rate constant
+of the reaction CH + N2 = NCN + H proposed by
+Moskaleva and Lin [28] led to an important under-
+estimation of prompt-NO formation. El-Bakali et al.
+[8] found that a rate constant (k(cm3/mols) = 5.1 ×
+1011 exp(−13,600/RT )) led to satisfactory agree-
+ment between experimental and simulated results.
+However, the kinetic rate constant of this reaction
+still requires validation. Full discussion of the rate
+constant value choice and validation in the GDF-Kin
+3.0_NCN mechanism is proposed by El-Bakali et al.
+[8]. It has not been changed in the present version of
+the mechanism. The ability of this mechanism to pre-
+dict NO formation has been conﬁrmed in the present
+work in various lean VOC-containing ﬂames exhibit-
+ing very low concentrations of CH and NO without
+any change of the nitrogen chemistry.
+Williams and Fleming [30] recently proposed to
+include the C2O route in the prompt-NO formation
+in order to take into account the stoichiometry and
+fuel type effect on the NO formation. So the pos-
+sible role of C2O as precursor has been considered
+here because of the propensity of VOC oxidation to
+form C2O. As shown in Fig. 5, from CH3CHCOCH3
+radical, CH3CHCO is mainly formed with CH3, lead-
+ing to CH2CCO and then to C2O. Due to MEK, the
+maximum value of C2O concentration can reach 100
+times the value simulated without the MEK added,
+keeping constant the equivalence ratio. In the pres-
+
+
+--- Page 15 ---
+
+200
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+ence of EA in the premixed gas, the maximum value
+of C2O density is close to the one simulated in the
+CH4/O2/N2 ﬂame, keeping constant the equivalence
+ratio and the N2/O2 ratio. If the C2O route as NO pre-
+cursor were considered in our ﬁnal detailed kinetic
+mechanism, the NO formation would be widely af-
+fected. Therefore, in this work, the C2O route does
+not appear satisfying for the NO formation in the in-
+vestigated VOC-containing ﬂames, and the NO route
+of formation was found satisfactorily described by
+the one initially postulated in the GDF-Kin 3.0_NCN
+mechanism.
+7. Conclusions
+LIF measurements of CH radicals and NO in low-
+pressure CH4/O2/N2 ﬂames containing either MEK
+(methyl ethyl ketone) or EA (ethyl acetate) have been
+performed in order to examine the VOC seeding effect
+on the NO formation. CH–LIF signal (using a pre-
+dissociative state of CH: C2Σ+ ←X2Π(0,0) with
+a collection bandpass limited to the Q-branch) was
+calibrated using CRDS measurements. NO–LIF sig-
+nal (using the A2Σ+ ←X2Π state by excitation of
+the (0–0) band and collection of the (0–2) band in
+order to minimize the background perturbation) was
+calibrated using NO seeded procedure. Special at-
+tention has been paid in order to take into account
+background effects [15,16] and possible NO reburn-
+ing effects [17]. Relative NO–LIF signals were sys-
+tematically determined from the difference between
+the on and the off resonance signals. During the cal-
+ibration procedure, the same attention was followed
+by recording the LIF signals (on/off resonance) in the
+burned gases for different amounts of NO added in
+the ﬂame.
+Measurements along the ﬂame have been realized
+for different ﬂame compositions with a close to con-
+stant total volumetric ﬂow rate. In a ﬁrst series where
+MEK has been added to the mixture, the mixture
+equivalence ratio is close to 0.78. In a second series
+where EA has been added to the mixture, the equiva-
+lence ratio is close to 0.85. Temperature proﬁles have
+been measured using a coated Pt/Rh thermocouple.
+A detailed mechanism for both MEK and EA ox-
+idation has been validated according to CH and NO
+proﬁles. This mechanism consists of MEK and EA
+submechanisms previously proposed by Decottignies
+et al. [4] and Gasnot et al. [5]. These submechanisms
+initially incorporated with the GRI2.11 mechanism
+(for CH4 oxidation) were validated under intermedi-
+ates proﬁles measured using GC sampling techniques.
+In order to take into account the N2 chemistry, the
+GRI2.11 mechanism [20] was replaced by the GDF-
+Kin 3.0_NCN one, recently proposed in our Lab [8].
+Few rate constant values have been adjusted or up-
+dated in order ﬁrstly to maintain the initial good
+agreement between experimental and simulated pro-
+ﬁles for the major and intermediate species, and sec-
+ondly to improve the agreement between experimen-
+tal and simulated species proﬁles of CH and NO.
+When CH4 is substituted by either MEK or EA in
+the ﬂame, CH-peak values decrease similarly to the
+NO mole fraction in the burned gases, indicating that
+NO is mainly formed according to the prompt-NO
+mechanism. Considering the overall good agreement
+between experimental and simulated proﬁles, a mod-
+eling study has been performed in order to understand
+the VOC impact on CH radical and NO formation.
+According to the C1 sequence, analysis of the CH3
+radical formation, mainly based on species ﬂux deter-
+mination, made it possible to show that ﬁrst the CH3
+radical is consumed independent of its source of for-
+mation; second one molecule of VOC (MEK or EA)
+has the same ability for CH3 formation as one mole-
+cule of methane (even if the considered VOC contain
+four times as many C-atoms than CH4). The CH-peak
+values decrease is close to the total fuel volumetric
+ﬂow rates diminishing when methane is substituted by
+a VOC, which is consistent with the fact that a mole-
+cule of VOC presents the same propensity to the CH3
+formation as a molecule of CH4.
+Since the NO formation follows mainly the prompt-
+NO mechanism, the CH-peak values decrease implies
+that the NO mole fraction diminishes in the burned
+gases. So, the VOC oxidation leads to less NO release
+than a CH4-based ﬂame in respect to the equivalence
+ratio.
+Acknowledgments
+This work was supported by the Air Quality Pro-
+gram of IRENI (Institut de Recherche en ENviron-
+nement Industriel) and the ACI RemediaCOV na-
+tional program. The authors thank the Nord-Pas de
+Calais Region and the European Funds for Regional
+Economic Development for their ﬁnancial support.
+References
+[1] B.-S. Choi, J. Yi, Chem. Eng. J. 76 (2) (2000) 103–114.
+[2] S. Salvador, Y. Kara, J.-M. Commandré, Appl. Therm.
+Eng. 26 (14–15) (2006) 1640–1651.
+[3] R. Rota, E.F. Zanoelo, Fuel 82 (7) (2003) 765–770.
+[4] V. Decottignies, L. Gasnot, J.-F. Pauwels, Combust.
+Flame 130 (3) (2002) 225–240.
+[5] L. Gasnot, V. Decottignies, J.-F. Pauwels, Fuel 84 (5)
+(2005) 505–518.
+[6] L. Gasnot, V. Decottignies, A. Turbiez, J.-F. Pauwels,
+Combust. Sci. Technol. 161 (2000) 1–25.
+
+
+--- Page 16 ---
+
+N. Lamoureux et al. / Combustion and Flame 153 (2008) 186–201
+201
+[7] L. Gasnot, V. Decottignies, J.-F. Pauwels, Fuel 83 (4–5)
+(2004) 463–470.
+[8] A. El-Bakali, L. Pillier, P. Desgroux, B. Lefort, L. Gas-
+not, J.-F. Pauwels, I. da Costa, Fuel 85 (7–8) (2006)
+896–909. The GDF-Kin 3.0_NCN mechanism is avail-
+able by request from to the authors: abderrahman.el-
+bakali@univ-lille1.fr.
+[9] L. Pillier, A. El-Bakali, X. Mercier, A. Rida, J.-F. Pau-
+wels, P. Desgroux, Proc. Combust. Inst. 30 (2005)
+1183–1191.
+[10] H.W. Wagner, U. Bonne, T. Grewer, Z. Phys. Chem. 26
+(1960) 93.
+[11] J. Luque, D.R. Crosley, LIFBASE: Database and spec-
+tral simulation (version 1.5), SRI International Report
+MP 99-009, 1999.
+[12] C. Moreau, E. Therssen, P. Desgroux, J.-F. Pauwels,
+A. Chapput, M. Barj, Appl. Phys. B 76 (5) (2003) 597–
+602.
+[13] X. Mercier, P. Jamette, J.F. Pauwels, P. Desgroux,
+Chem. Phys. Lett. 305 (5–6) (1999) 334–342.
+[14] J. Luque, J.B. Jeffries, G.P. Smith, D.R. Crosley, J.J.
+Scherer, Combust. Flame 126 (3) (2001) 1725–1735.
+[15] P. Desgroux, P. Devynck, L. Gasnot, J.-F. Pauwels,
+L.-R. Sochet, Appl. Opt. 37 (21) (1998) 4951–4962.
+[16] D.D. Thomsen, F.F. Kuligowski, N.M. Laurendeau,
+Appl. Opt. 36 (15) (1997) 3244–3252.
+[17] P.A. Berg, G.P. Smith, J.B. Jeffries, D.R. Crosley, Proc.
+Combust. Inst. 27 (1998) 1377–1384.
+[18] R.J. Kee, J.F. Grcar, M.D. Smooke, J.A. Miller, A FOR-
+TRAN program for modelling steady laminar one-
+dimensional premixed ﬂames, Sandia report SAND85-
+8240, 1985.
+[19] R.J. Kee, F.M. Rupley, J.A. Miller, Chemkin-II:
+A FORTRAN chemical kinetics package for the analy-
+sis of gas phase chemical kinetics, Sandia report
+SAND89-8009B, 1989.
+[20] C.T. Bowman, R.K. Hanson, D.F. Davidson, W.C. Gar-
+diner Jr., V. Lissianski, G.P. Smith, D.M. Golden, M.
+Frenklach, M. Goldenberg, http://www.me.berkeley.
+edu/gri_mech/.
+[21] R.D. Wilk, N.P. Cernansky, W.J. Pitz, C.K. Westbrook,
+Combust. Flame 77 (2) (1989) 145–170.
+[22] D.L. Baulch, C.J. Cobos, R.A. Cox, C. Esser, P. Frank,
+Th. Just, J.A. Kerr, M.J. Pilling, J. Troe, R.W. Walker,
+J. Warnatz, J. Phys. Chem. Ref. Data 21 (1992) 411–
+473.
+[23] J. Lee, J.W. Bozzelli, Int. J. Chem. Kinet. 35 (1) (2003)
+20–44.
+[24] K. Sato, Y. Hidaka, Combust. Flame 122 (3) (2000)
+291–311.
+[25] J. Warnatz, Proc. Combust. Inst. 24 (1992) 553–579.
+[26] A.M. Dean, J. Phys. Chem. 89 (21) (1985) 4600–4608.
+[27] V.M. van Essen, A.V. Sepman, A.V. Mokhov, H.B.
+Levinsky, Proc. Combust. Inst. 31 (2007) 329–337.
+[28] L.V. Moskaleva, M.C. Lin, Proc. Combust. Inst. 28
+(2000) 2393–2401.
+[29] J.A. Miller, M.J. Pilling, J. Troe, Proc. Combust. Inst.
+30 (2005) 43–88.
+[30] B.A. Williams, J.W. Fleming, Proc. Combust. Inst. 31
+(2007) 1109–1117.
+[31] K. Fagerström, A. Lund, G. Mahmoud, J.T. Jodkowski,
+E. Ratajczak, Chem. Phys. Lett. 208 (3–4) (1993) 321–
+327.
+[32] M.P. Dunphy, P.M. Patterson, J.M. Simmie, J. Chem.
+Soc. Faraday Trans. 87 (16) (1991) 2549–2559.

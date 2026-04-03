@@ -1,0 +1,1610 @@
+
+--- Page 1 ---
+
+l i  
+AIAA-83-0286 
+Calculations of a Plane Turbulent Jet 
+S.B. Pope, Cornell Univ., Ithaca, NY 
+AlAA 21 st Aerospace Sciences Meeting 
+January 10-1 3, 1983lRen0, Nevada 
+Y 
+
+
+--- Page 2 ---
+
+Sibley School of Mechanical 
+and Aerospace Engineering 
+Cornell University 
+Ithaca, New York 14853 
+Abstract 
+A conditionally-modelled joint pdf transport equa- 
+tion has been solved to calculate the properties of 
+the self-similar, plane, turbulent jet. The joint 
+probability density function (pdf) is that of the 
+three velocity components and of the nozzle-f h i d  
+concentration, which is a conserved passive sca- 
+lar. In the pdf transport equation, convective 
+transport does not have to be modelled, while the 
+effects of dissipation and of the fluctuating pres- 
+sure gradient are modelled conditional upon the 
+state of the fluid - 
+turbulent or irrotational. 
+The calculated intermittency factor, and condition- 
+al velocities and. Reynolds stresses are compared 
+with the available experimental data. 
+Introduction 
+A *odelled joint pdf equation1 has been solved 
+to calculate the one-point statistical properties 
+of a self-similar plane jet. The equation solved 
+is for the joint probability density function (pdf) 
+of the three velocity components U(x,t) and a con- 
+served passive scalar +(x,t). 
+wih-8 being the 
+non-dimensional cross-stream variable, the joint 
+pdf is f (V, $; O), 
+where 1 - VI ,V2,V3 and li, are the 
+independeKt variables corresponding to 
+and $. 
+The conserved scalar $(x,t) is zero in the 
+irrotational ambient fluid and is positive within 
+the turbulent jet. Thus the condition {$(x,t) 
+> 
+$*} (where the threshold $* is a small positive 
+number) can be used to distinguish between turbu- 
+lent and non-turbulent, irrotational fluid. In the 
+joint pdf equation, conditional modelling is used: 
+that is, different models are used depending upon 
+whether the fluid is locally turbulent or non-tur- 
+bulent. The results of the calculations include 
+conditional statistics which are compared with the 
+experimental data of Gutmark and wygnanski2. This 
+work is an extension of previous calculations3 in 
+which a similar pdf equation was solved, but with 
+unconditional modelling. 
+Copyright O American Institute of Aeronautics and 
+Astronautics. Inc., 1983. All rights resewed. 
+Transport equations for pdf 's are useful in 
+modelling turbulent flows because non-linear one- 
+point processes (such as convection and reaction) 
+can be treated without approximation1 
+r 4 r  5 .  
+The 
+transport equation for the joint pdf of a set of 
+scalars (e.g. compositions) is particularly useful 
+in reactive flows because the term pertaining to 
+reaction appears in closed form, irrespective of 
+the complexit and non-linearity of the reaction 
+scheme. Popez and Janicka, Kolbe and ~ollmann' 
+have reported accurate calculations of premixed and 
+diffusion flames based on the scalar joint pdf 
+equation. 
+The joint pdf of several scalars or the joint 
+pdf of velocity and scalars is a function of many 
+independent variables. (The joint pdf considered 
+here £(I, $; 8) is a function of five independent 
+variables. ) Because of this large dimensionality, 
+it is impracticable to obtain solutions to the 
+joint pdf equations by f inite-dif ference methods: 
+but Monte Carlo m e t h ~ d s ~ ~ ~ h a v e  
+been developed 
+that allow the equations to be solved for the gen- 
+eral case, without excessive demands on computer 
+time or storage. The calculations reported here 
+required 7 minutes CPU time on an IBM 3701168. 
+The first experimental study of intermittency 
+in free shear flows was performed in 1949 by Town- 
+send1' ,which was followed by the detailed investi- 
+gation of Corrsin and Kistler ''in 
+1955. In the 
+last fifteen years, many experiments have been per- 
+formed on free shear flows and boundary layers in 
+which the intermittency and conditional statistics 
+have been measured: these experiments are reviewed 
+by ~ntonia". 
+Since the turbulent fluid is highly 
+rotational while the nonturbulent fluid is irrota- 
+tional, the fluid behavior can be expected to be 
+significantly different in these two states. The 
+experiments confirm this expectation. 
+It can also be expected that a model that ex- 
+plicitly accounts for the different behavior of 
+turbulent and non-turbulent fluid can be more 
+accurate than one that makes no distinction. 
+In 
+
+
+--- Page 3 ---
+
+1975 ~ i b b ~ ' ~ .  
+14made the f i r s t  attempt t o  derive 
+and model a s e t  of transport equations f o r  t h e  in- 
+termittency f a c t o r  and conditional s t a t i s t i c s .  
+Since then there have been s e v e r a l  works [e.g. 
+r e f s .  15-18] a l o y j  s i m i l a r  l i n e s  
+Recently, Koll- 
+mann and Janicka 
+and ~ o l l m a n n l '  have modelled t h e  
+transport eequation f o r  the pdf of a s i n g l e  conser- 
+ved s c a l a r  taking intermittency i n t o  account. 
+The 
+modelled s c a l a r  pdf equation was solved by a f i n -  
+i t e - d i f  f ereace technique t o  c a l c u l a t e  the i n t e r m i t  - 
+tency f a c t o r  and conditional s t a t i s t i c s  i n  two 
+plane shear flows. 
+I n  t h i s  work it i s  t h e  j o i n t  
+pdf of velocity and a conserved s c a l a r  t h a t  is con- 
+s i d e r e d ,  and t h e  conditionally-modelled t r a n s p o r t  
+equation is solved by a Monte Carlo method. 
+I n  t h e  next s e c t i o n  the j o i n t  pdf equation and 
+its unconditional modelling a r e  described. 
+The 
+following t h r e e  s e c t i o n s  then describe the condi- 
+t i o n a l  modelling, the s o l u t i o n  procedure, and t h e  
+r e s u l t s  of c a l c u l a t i o n s  f o r  t h e  self-similar plane 
+j e t .  
+Conclusions a r e  drawn i n  t h e  f i n a l  section. 
+J o i n t  pdf Equation 
+The j o i n t  pdf f ( l , $ ; z , t )  is t h e  p r o b a b i l i t y  
+density of the j o i n t  events 
+and 
+It contains a l l  t h e  one-point s t a t i s t i c a l  informa- 
+t i o n  about the v e l o c i t y  and the conserved passive 
+s c a l a r  i n  a constant-density turbulent flow. 
+I f  
+Q(U, 9) is any function of 
+and 9, then its mean 
+vaiue ( a t  any 2 , t )  can be determined from t h e  j o i n t  
+pdf by 
+Here and below, Idv represents i n t e g r a t i o n  over t h e  
+whole of t h e  v e l o c E y  space and, s i m i l a r l y ,  Id$ re- 
+presents i n t e g r a t i o n  over a l l  possible values of $. 
+S u b s t i t u t i n g  Q(1,g) = Uj i n  equation (1) shows 
+the mean velocity t o  be 
+Similarly the Reynolds s t r e s s e s  a r e  
+and the s c a l a r  fluxes a r e  
+Thus, any one-point s t a t i s t i c  can be obtained from 
+£(I,$). 
+For a constant-density ( p a l )  Newtonian f l u i d ,  
+t h e  continuity and momentum equations a r e  
+and 
+au J 
+au. 
+a P 
+- + U  
+J = u v u  - - ,  
+a t  
+i a x  i 
+j 
+axj 
+where P ( x , t )  is t h e  pressure and u is t h e  visco- 
+s i t y .  
+~ r t h  
+r being the molecular d i f f u s i v i t y ,  t h e  
+t r a n s p o r t  equation f o r  the conserved s c a l a r  is 
+A transport equation f o r  the velocity-scalar 
+j o i n t  pdf, f ( x , $ ; z , t ) ,  can be derived from Eqs. 
+(5-7) l :  
+Here ~ ( 5 . t )  and p ( 5 , t )  a r e  the f l u c t u a t i n g  compon- 
+e n t s  of velocity and pressure; and, f o r  any 
+quantity Q, <Q V, $> is the expectation of Q condi- 
+t i o n a l  upon thl-joint 
+events LJx,t ) - I and ((5.t 1 
+- $. 
+The l a s t  t e r m  on the left-hand s i d e  of Eq. 
+( 8 )  is n e g l i g i b l e  a t  high Reynolds number and is 
+henceforth neglected. 
+The remaining terms on t h e  
+left-hand s i d e  represent, respectively, the r a t e  of 
+change with time, convection, and t h e  e f f e c t  of t h e  
+mean pressure gradient. 
+These terms a r e  i n  closed 
+form and t h e r e f o r e  require no modelling. 
+That t h e  
+convective term appears i n  closed form is a major 
+a t t r i b u t e  of t h i s  approach, since gradient-diffu- 
+s i o n  models f o r  turbulent transport a r e  avoided. 
+The terms on the right-hand s i d e  of Eq. (8) 
+contain (as unknowns t o  be modelled) conditionally- 
+-expected values. 
+These terms and t h e i r  (uncondi- 
+t i o n a l )  modelling f o r  f u l l y  turbulent flow is now 
+described: 
+t h i s  serves a s  a b a s i s  f o r  the descrip- 
+t i o n  of the conditional modelling i n  the next sec- 
+tion. 
+The f i r s t  term on the right-hand s i d e  of Eq. 
+(8) 
+represents the e f f e c t s  of the f l u c t u a t i n g  pressure 
+gradient. 
+The term can he decomposed i n t o  three 
+parts1: 
+a transport term and two r e d i s t r i b u t i o n  
+terms. 
+As i n  Reynolds-s t r e s s  models 19-", 
+the re- 
+d i s t r i b u t i o n  terms do not a f f e c t  the mean v e l o c i t y  
+o r  the turbulent k i n e t i c  energy, but they r e d i s t r i -  
+bute the energy i n  velocity space. 
+The rapid p a r t  
+of t h e  r e d i s t r i b u t i o n  is due t o  pressure fluctua- 
+t i o n s  caused by mean-velocity gradients: 
+t h e  Rotta 
+p a r t 2 1  is due s o l e l y  t o  the turbulence. 
+~
+o
+d
+e
+l
+x
+ 
+a l l  three contributions t o  R(V,$;x,t) a r e  a v a i l -  
+able1, but i n  t h e  present s t d y  ozly the Rotta term 
+is included. 
+I n  Reynolds-stress models, the Rotta term cor- 
+responds t o  a l i n e a r  r e t u r n  t o  isotropy, i.e. 
+
+
+--- Page 4 ---
+
+where CR is a constant and w(x,t) is the 
+turbulent frequency ( d i s s i p a t i o n  r a t e l t u r b u l e n t  
+k i n e t i c  energy). 
+In t h e  j o i n t  pdf equation, t h i s  
+term is modelled by a s t o c h a s t i c  process t h a t  
+randomly r e o r i e n t a t e s  the energy i n  v e l o c i t y  
+space. 
+The e f f e c t  on the Reynolds s t r e s s e s  is j u s t  
+t h a t  given by equation (10). 
+The second term on t h e  right-hand s i d e  of Eq. 
+(8) 
+corresponds t o  d i s s i p a t i o n  - it does not a f f e c t  the 
+mean velocity but decreases the turbulent k i n e t i c  
+energy. 
+Neglecting low-Reynolds-number 
+terms, D i s  
+r e l a t e d  t o  the d i s s i p a t i o n  E by 
+I n  t h e  j o i n t  pdf equation a s t o c h a s t i c  mixing 
+is used t o  represent t h i s  process. 
+(Because the turbulent frequency w is defined i n  
+terms of E, no a d d i t i o n a l  model constant a r i s e s . )  
+The f i n a l  term i n  equation (8) 
+corresponds t o  s c a l a r  d i s s i p a t i o n  and is analogous 
+t o  the velocity d i s s i p a t i o n  term D. 
+The e f f e c t  of 
+t h e  term is t o  reduce the s c a l a r  variance < + 1 2 >  
+without a f f e c t i n  $2the mean <$>. 
+Again, a stochas- 
+t i c  mixing model 
+is used t o  represent the pro- 
+cess. 
+The model involves a constant Cg which is 
+t h e  r a t i o  of the v e l o c i t y  t o  s c a l a r  turbulent time 
+scales. 
+Following conventional modelling23 we t a k e  
+c+ = 2.0. 
+For the s e l f - s i m i l a r  plane j e t ,  i n  accord with 
+experimental evidence2, i t  is assumed t h a t  the tur- 
+bulent frequency does not vary across the flow. 
+Then the condition of s e l f - s i m i l a r i t y  requires t h a t  
+the normalized frequency 
+be a constant. 
+(<U>, is t h e  mean center-line 
+velocity and y 
+is t h e  j e t  half-width.) 
+The modelA1iescribed a r e  t h e  same a s  those 
+used previously3 except t h a t  Curl's m ~ d e l ~ ~ h a s  
+been 
+replaced by an improved mixing modelz2. 
+I n  t h e  
+previous work3, t h e  values of the constants w* = 
+0.165 and CR = 4.5 were chosen t o  produce approx- 
+imately the c o r r e c t  spreading r a t e  (dyl12/dx = 
+0.1) and center-line turbulent k i n e t i c  energy (112 
+< U ~ U ~ > ~ / < U > ~ ~  
+= 0.065). 
+(The value of 
+CR i s  g r e a t e r  than the usual value Cg = 1.519 
+because t h e  modelled r e d i s t r i b u t i o n  term has t o  ac- 
+count f o r  both t h e  Rotta and rapid terms.) 
+The 
+same values of the constants a r e  used here. 
+Conditional Modelling 
+Conditioned Variables 
+In order t o  examine the e f f e c t  of intermit- 
+tency on the j o i n t  pdf, we follow Kollmann and 
+.Janicka17 i n  considering the pdf of the conserved 
+scalar: 
+Measurements of f + i n  i n t e r m i t t e n t  regions of 
+turbulent shear flows show a s i k e  a t  $ = 0 corres- 
+ponding t o  non-turbulent 
+fluidz5. 
+The width of t h e  
+spike i s  a function of the experimental noise25. 
+But i n  an i d e a l  flow a t  high Reynolds number, t h e  
+spike approximates a d e l t a  function a s  shown on 
+f i g u r e  1. 
+For t h i s  i d e a l  case, the threshold $* 
+used t o  d i s t i n g u i s h  turbulent and nan-turbulent 
+f l u i d  can be taken a s  an a r b i t r a r i l y  small p o s i t i v e  
+number. 
+Fig. 1. 
+Sketch of a pdf of a conserved passive 
+s c a l a r  showing the d e l t a  function 
+corresponding t o  non-turbulent f l u i d .  
+A t  any time t, t h e  equation 
+defines the surface (not necessarily simply connec- 
+t e d )  t h a t  separates turbulent from non-turbulent 
+f l u i d .  
+I n  t h e  turbulent region $ ( x , t )  exceeds $* 
+and i n  t h e  non-turbulent region + ( x , t )  is less than 
+$*. 
+(Provided t h a t  the surface + ( F , t )  = $* has 
+zero volume, t h e  event + ( x , t )  = $*has 
+probabi- 
+l i t y  zero and f ($*;x,t) Ts f i n i t e . )  
+The interm!tten~y 
+f a c t o r  y ( 5 , t )  is defined a s  
+the probability of the f l u i d  being turbulent. 
+This 
+is r e a d i l y  r e l a t e d  t o  the s c a l a r  pdf: 
+Similarly, the probability of non-turbulent f l u i d  
+y(5.t) is j u s t  the magnitude of the spike a t  J, = 0: 
+
+
+--- Page 5 ---
+
+The velocity-scalar joint pdf can be decompos- 
+ed into turbulent and non-turbulent parts in two 
+ways. 
+The first way is 
+With u' and u; being the turbulent and non- 
+i 
+turbulent velocity fluctuations, the instantaneous 
+velocity can be decomposed as 
+Correlations of conditional fluctuations can, 
+again, be obtained from the conditional joint 
+pdf's. 
+For example, the turbulent scalar flux is 
+where H is the Heaviside function: I+($-$*) 
+is 
+zero in the non-turbulent re ion ($<$*) and unity 
+Conditioned 
+g 
+in the turbulent region ($>$ ); and conversely 
+A transport equation for fT(X,$;x,t) - 
+for H($*-$I). 
+fT and fN represent the turbu- 
+the turbulent contribution to the joint pdf f, Eq. 
+lent and non-turbulent contributions to f; but 
+(20) - 
+is obtained by multiplying the transport 
+they are not joint pdf's since they do not satisfy 
+for f' 
+Eq. (')' by H(J/-'*): 
+the normalization condition analogous to 
+a f ~  
+afT 
+afT a<P> 
+a 
+f/f(x,$;x.t)dEdJ, 
+= 1. 
+- 
++ v - 
+- -- 
+= - 
+{fT&X,$> 
+(22) 
+at 
+i axi 
+avi ax i 
+avi 
+axi I
+'
+ 
+Rather, the integrals of f~ and f~ are 
+- - 
+a 
+{fT<uv 2 .  
+ui(v, $4 - - 
+a 
+{f,<rv 2 $11, $>I+ G, (33) 
+avi 
+a $J 
+fjfTdld$ = Y . 
+(23) 
+where 
+and 
+Equations (23) and (24) indicate that a second 
+way of decomposing f is 
+where 
+and 
+In this case 
+and f satisfy the normalization 
+condition and thus represent the joint pdf's of 
+turbulent and non-turbulent fluid-respectively. 
+The conditional joint pdf 's f and f are useful 
+in determining conditional means. Means condition- 
+al upon the fluid being turbulent are indicated by 
+an overbar or, alternatively, by < >T. Non-tur- 
+bulent conditional means are denoted by a tilde or 
+by < )N. 
+Thus, the turbulent and non-turbulent 
+mean velocities are 
+and 
+It may be seen that, except for the addition of the 
+final term, Eq. (33) for f~ if the same as Eq. 
+(8)for f. 
+The additional term pertains to the en- 
+trainment of non-turbulent fluid. The delta func- 
+tion indicates that the only contribution is from 
+fluid on the turbulentlnon-turbulent interface 
+(9-6"). 
+Since $* is close to zero - 
+the 
+minimum possible value of $ - 
+the curvature 7'$, 
+and hence G, is positive. 
+The transport equation for the non-turbulent 
+contribution, fN(l,$;x,t), 
+can be derived in a 
+similar way. The result is the same as Eq. (33) 
+but with the sign of the final term reversed. Thus 
+entrainment appears as a source at $=$* in the 
+equation for f~ and as an equal sink in the equa- 
+tion for f Y' 
+Libby 3and ~ o ~ a z o ' ~  
+devised methods for deriv- 
+ing transport equations for conditioned variables. 
+An alternative method is simply to take the moments 
+of Eq. (33): 
+this is done in the Appendix. The 
+conditioned continuity equation is 
+where g(x,t) is the rate of entrainment of non-tur- 
+bulent fiuid. 
+The condit ioned momentum equations are 
+and 
+ir =ai> 
+= JJvi f d ~ d q  
+, 
+i 
+N 
+(29) 
+a 
+-- 
+a
+-
+ 
+a<p> 4 
+- 
+(vUj) + - 
+(YU u ) + Y - 
+= 
+at 
+i j 
+ax 
+j' 
+(37 
+and the unconditional mean can be recovered from 
+j 
+
+
+--- Page 6 ---
+
+where 
+is w r i t t e n  f o r  (1-y). 
+The term 
+is due 
+p a r t l y  t o  viscous processes but p r i n c i p a l l y  t o  the 
+f l u c t u a t i n g  pressure gradient. 
+It is t h e  r a t e  of 
+t r a n s f e r  of momentum between turbulent and non-tur- 
+bulent f l u i d .  
+In terms of conditional q u a n t i t i e s ,  the mean 
+square v e l o c i t y  f l u c t u a t i o n s  a r e  
+Thus the unconditional turbulent k i n e t i c  energy k. E 
+1/2<uiui> is due, not only t o  f l u c t u a t i o n s  
+w i t h i n  turbulent and non-turbulent f l u i d ,  but a l s o  
+t o  the d i f f e r e n c e  i n  conditional mean v e l o c i t i e s .  
+It is well known1 '
+9
+ ''that 
+i n  homogeneous 
+turbulence the f l u c t u a t i n g  pressure gradient has no 
+e f f e c t  upon t h e  unconditional k i n e t i c  energy. 
+But 
+t h e  same is not t r u e  of t h e  conditional energies: 
+pressure f l u c t u a t i o n s  can t r a n s f e r  energy from t u r -  
+bulent t o  non-turbulent f l u i d .  
+I n  a d d i t i o n ,  i f  
+momentum reducing 
+Eq. (38) t h a t  t h e  - 
+energy i n  the f l u c t u a t i o n s  [~uT 
++ (1-y)u"u"] 
+must 
+i i 
+increase i n  order t h a t  <u u > remain constank. 
+i i 
+Conditional Modelling 
+The modelling i s  performed on the conditional 
+expectations appearing i n  Eq. (33).' But the models 
+a r e  more e a s i l y  understood i n  terms of 
+i )  t h e  r a t e  of entrainment, g, 
+i i )  t h e  r a t e  of momentum t r a n s f e r ,  fl, 
+i i i )  the r a t e  of energy t r a n s f e r .  
+The r a t e  of entrainment g ( 5 . t )  -which 
+has 
+dimensions of inverse time i
+s
+ 
+the r a t e  a t  
+which turbulent f l u i d  imparts v o r t i c i t y  t o  non-tur- 
+bulent f l u i d  v i a  viscous d i f f u s i o n .  
+Since t h e  pre- 
+sence of both turbulent and non-turbulent f l u i d  is 
+necessary t o  t h e  process, g ( x , t )  is zero i f  y ( 5 . t )  
+is e i t h e r  zero o r  unity. 
+As discussed by Town- 
+send2', 
+the experiments of ~ o b b s ~ ~  
+suggest t h a t  
+g ( 5 , t )  is zero (or very small) unless t h e r e  a r e  
+mean velocity gradients and t h e  turbulence is ani- 
+sotropic. 
+Consistent with these observations, t h e  
+simplest possible model is 
+2 
+where 2 is t h e  anisotropy tensor 
+and Cg is a constant t o  be determined. 
+It may be 
+noted t h a t  - a i j  a<Ui>/axj i s  the r a t e  of pro- 
+duction of k i n e t i c  energy k, divided by k. 
+There have been s e v e r a l  previous suggestions 
+f o r  g ( r e f s .  14,15,16): 
+t h e  present model d i f f e r s  
+from t h a t  of Byggstoyl and ~ o l l m a n n ' ~  
+only i n  t h a t ,  
+f o r  s i m p l i c i t y ,  unconditional q u a n t i t i e s  have been 
+used i n  Eqs. (39) and (40), and t h a t  t h e  absolute 
+value of the production r a t e  is used, t o  ensure 
+t h a t  g i s  positive. 
+It is assumed t h a t  t h e  r a t e  of entrainment is 
+independent of the s t a t e  of t h e  non-turbulent f l u -  
+id. 
+Thus the equivalent term i n  t h e  t r a n s p o r t  eq- 
+uation f o r  f~ (Eq. 33) is 
+It is assumed t h a t  the f l u c t u a t i n g  pressure 
+gradient causes a t r a n s f e r  of momentum between 
+turbulent and non-turbulent f l u i d  t h a t  tends t o  
+decrease A:-U/. 
+The model f o r  t h i s  process (see 
+Eqs. 36 a d 3 ) is 
+where C, is a constant t o  be determined. 
+I n  t h e  
+j o i n t  pdf equation i t  is assumed t h a t  t h i s  process 
+is independent of the velocity and composition. 
+The corresponding model is 
+af T , 
+.... , .... - 1; 
+a f ~  
+a t  
+jT' 
+j 
+and 
+The f l u c t u a t i n g  pressure gradient can a l s o  
+cause an energy t r a n s f e r .  
+The r a t e  of energy 
+i r a n s f e r  from the turbulent f l u i d  i s  denoted by 
+E ~ ( 5 . t )  and is modelled by 
+where Ce i s  a constant t o  be determined. 
+The 
+term tends t o  equalize the magnitude of t h e  fluctu- 
+a t i o n s  i n  the turbulent and non-turbulent f l u i d .  
+As would be expected, it i s  found t h a t  throughout 
+t h e  flow f i e l d  the turbulent f l u c t u a m s  
+ex- 
+~ e e d  
+the non-turbulent f l u c t u a t i o n s  u"u" 
+his 
+E ~ ( 5 . t )  is p o s i t i v e  everywhere. 
+i is 
+The r a t e  of energy l o s s  from f~ ( t h e  turbu- 
+l e n t  contribution t o  the j o i n t  pdf) is modelled a s  
+being proportional t o  the f l u c t u a t i n g  velocity. 
+The corresponding model is 
+The r a t e  of energy t r a n s f e r  from the turbulent 
+< h i d  t o  the non-turbulent f l u i d  i s  denoted by 
+E N ( l , t ) .  
+Since pressure f l u c t u a t i o n s  do not a£- 
+f e c t  the unconditional k i n $ t i c  energy <uiui>, 
+EN can be determined from M j  and ET. 
+The re- 
+s u l t  i s  
+The i n t e r a c t i o n s  between turbulent and non- 
+turbulent f l u i d  - 
+entrainment, momentum ex- 
+change, and energy exchange - 
+have now been 
+modelled. 
+It is assumed t h a t  t h e  unconditional, 
+fully-turbulent models apply unaltered t o  t h e  pro- 
+cesses within the turbulent f l u i d .  
+Thus t h e  model- 
+l e d  t r a n s p o r t  equation f o r  fT(V,$;+,t) 
+is: 
+- 
+
+
+--- Page 7 ---
+
+The details of the stochastic mixing models for C 
+and D can be found in ref. (22) and the stochastic 
+reorientation model for R is described in refs. 
+(1,3 and 9). 
+Within the non-turbulent fluid there are sig- 
+nificant pressure fluctuations, but the velocity 
+and scalar fluctions are not on a sufficient1 
+$7 
+small scale for dissipation to be significant . 
+For reasons given below, it is assumed that the 
+pressure fluctuations cause the non-turbulent velo- 
+city fluctuations to be isotropic and to adopt a 
+normal pdf. With I(l,$;x,t) denoting this effect 
+of the pressure fluctuations, the transport equa- 
+tion for fN(l,$;x,t) (the non-turbulent contribu- 
+tion to f) is 
+The conditionally modelled transport equation for 
+f (l,+;z,t) can be obtained by summing Eqs. (48) and 
+(49). 
+The conditionally-modelled transport equation 
+contains the same model constants as the uncondi- 
+tional equation ( w *  = 0.165, CR = 4.5, C$ = 
+2.0), 
+and also three new constants. The values 
+Cg = 1.5, Cm = 1.5 and Ce = 5.0 are chosen to 
+produce approximate agreement with the measured 
+- - 
+profiles of y, c-t and u'u' - u"u" 
+No attempt was 
+i i 
+made at f ine-tuKiGg these constinti. 
+Solution Procedure 
+For the self-similar plane jet, the modelled 
+joint pdf transport equation is written in polar- 
+cylindrical coordinates. The flow is predominantly 
+in the radial, r-direction; z is the spanwise co- 
+ordinate; and 8 is the angle to the plane of sym- 
+metry. Because of the two-dimensionality, z-deri- 
+vatives of statistical quantities are zero; and the 
+condition of self-similarity can be used to elimin- 
+ate r-derivatives. 
+Thus only one independent vari- 
+able in physical space, 0, is required. 
+From (almost) arbitrary initial conditions, a 
+Monte Carlo method is used to solve the evolution 
+equation for f(X.$;B,t). 
+After a transient period, 
+a statistically-stationary state is reached in 
+which £(I,$; 8,t) is independent of t and of the 
+initial conditions. 
+The equation is solved in the interval 
+0
+(
+8
+(
+8
+,
+,
+ 
+= 0.5. 
+Symmetry conditions are applied 
+at 8 4 ,  and at 0=0,, 
+the boundary conditions 
+correspond to irrotational flow. 
+In the Monte Carlo method, the joint pdf is 
+represented indirectly by a large number M of 
+notional particles. At time t the mth particle has 
+velocity ~(~)(t), composition $(m)(t) 
+and posi- 
+tion 0(~)7t). 
+A discrete distribution, 
+fM(x, $; G,t ), composed of delta functions, is de- 
+fined by 
+(The ordering of the particles is irrelevant.) 
+The 
+state [u(~), $(m), o(~) 1 of each particle evol- 
+ves so That, for any M, 
+In the Monte Carlo calculation, the states of the 
+particles are known, but the expectations of their 
+states are not. Thus, rather than Eq. (51). the 
+approximation 
+is used. From this approximation, mean quantities 
+can be determined with a statistical error of order 
+M - ~ I ~ :  
+see ref. (9) for details. The calcula- 
+tions were performed with M a 7,000. 
+(It follows directly from Eqs. (50 and 51) 
+that the expected particle number density in physi- 
+cal space is uniform and equal to M/Brnax.) 
+If the mth particle has the composition 
+~$(~)(t) 
+= 0, then the particle is representative 
+of the non-turbulent fluid. If +~(~)(t) is great- 
+er than zero, then the particle represents turbu- 
+lent fluid. (That is, the threshold $J* has been 
+taken to be 0+ - 
+the smallest positive number 
+that the computer used can represent.) Thus the 
+discrete approximation for f~ (the contribution 
+to f from turbulent fluid) can be written 
+where 
+The states of the particles at time t+At are 
+computed from the states at time t in several frac- 
+tional steps. The first fraction step is determin- 
+istic: in the subsequent fractional steps, the 
+particles are subject to stochastic processes. The 
+changes in state are determined by requiring that 
+<fM> evolves according to the conditionally- 
+modelled evolution equation for f. Eqs. (48 and 
+49). 
+Specifically, if at time t <fM> = f, then 
+at time t+At we require 
+where f is the solution to Eqs. (48 and 49). 
+In the first fractional step, the turbulent 
+contribution f~ evolves by 
+
+
+--- Page 8 ---
+
+This is t h e  modelled evolution equation Eq. (48) 
+with the entrainment term and t h e  terms R, C and D 
+omitted. 
+In a Cartesian coordinate system, t h e  
+p r o p e r t i e s  [ ~ ( m ) ,  
+$(m),x(m)] 
+- 
+of t h e  mth par- 
+title evolve by 
+With t h i s  evolution of t h e  p a r t i c l e  s t a t e s  (Eq. 
+57). the expectation of the d i s c r e t e  d i s t r i b u t i o n  
+<fM> evolves according t o  Eq. (56) (with a truca- 
+t i o n  e r r o r  of order At). 
+The con-turbulent particle: 
+evolve s i m i l a r l y  
+but with M and aT replaced by -2 and a~ i n  Eq. 
+(57): 
+(With the components of g expressed i n  polar- 
+c y l i n d r i c a l  coordinates and the conditions of s e l f -  
+s i m i l a r i t y  imposed, Eq. (57) becomes s i g n i f i c a n t l y  
+more involved. 
+But the physical content is t h e  
+same. ) 
+After the f i r s t  f r a c t i o n a l  s t e p  the p a r t i c l e s  
+a r e  s o r t e d  i n t o  c e l l s  i n  physical space. 
+The 
+i n t e r v a l  059 (Omax 
+is divided i n t o  K=48 equal 
+sub-intervals of width A8=Ornax/K. The k t h  c e l l  
+(k=l, 2, *OK) covers t h e  i n t e y a l  (k-l)A8<8<kA8 and 
+i s  centered on 8(k) 5 
+(k- ')AB. 
+The c e l l  width 
+AO i s  s u f f i c i e n t l y  small t h i t  s t a t i s t i c a l  proper- 
+t i e s  can be considered t o  be homogeneous w i t h i n  
+each c e l l .  
+Consequently, the j o i n t  pdf a t  8(k) 
+is well approximated by the average of f M  over 
+the kth c e l l :  
+where M(k) i s  the number of p a r t i c l e s  i n  the k t h  
+c e l l  and the summation is over a l l  these p a r t i -  
+cles. 
+(This r e s u l t  follows from the d e f i n i t i o n  of 
+fM, Eq. 
+(50) and from t h e  f a c t  t h a t  t h e  p a r t i c l e  
+number density i s  approximately uniform i n  physical 
+space. ) 
+The expected value of any function of 1 and 4 
+can be obtained by 
+Thus, a t  8=8(k) we have t h e  approximation 
+That i s ,  the cell-average of Q approximates the 
+expectation <Q>: 
+t h e  s t a t i s l j 5 a l  e r r o r  i n  t h i s  
+approximation i s  of order M 
+. 
+Of the M 
+) p a r t i c l e s  $?l)the kth c e l l ,  
+(D 
+M T ( ~ )  have $ 
+>O corresponding t o  turbulent 
+f l u i d  and M N ( ~ )  = M(kl-M~(k) have $(m) = 0 
+corresponding t o  non-turbulent 
+f l u i d .  
+The 
+intermittency f a c t o r  i s  then, 
+I n  the subsequent f r a c t i o n a l  s t e p s ,  s t o c h a s t i c  
+processes a f f e c t  t h e  s t a t e s  of t h e  p a r t i c l e s  t o  
+t r e a t  the remaining terms i n  t h e  modelled j o i n t  pdf 
+equation. 
+I n  these s t o c h a s t i c  processes, each of 
+t h e  K c e l l s  is t r e a t e d  i n  turn. 
+At 8 = 8(k) i n  t h e  time s t e p  A t ,  t h e  frac- 
+t i o n  of the f l u i d  t h a t  becomes turbulent is 
+g(8(k), t )At. 
+This corresponds t o  a number 
+Mg(k) 
+of the non-turbulent p a r t i c l e s  i n  the k t h  c e l l  be- 
+coming turbulent. 
+Thus, i n  the s t o c h a s t i c  model of 
+entrainment, M (k) of t h e  non-turbulent p a r t i c l e s  
+i n  t h e  k t h  c e l f  a r e  s e l e c t e d  a t  random and made 
+turbulent by s e t t i n g  t h e i r  compositions t o  
+@(m) = 0+ - 
+t h e  smallest p o s i t i v e  number t h e  
+computer can represent. 
+Next, the improved s t o c h a s t i c  mixing model is 
+used t o  t r e a t  the terms C and D, and the s t o c h a s t i c  
+r e o r i e n t a t i o n  model is used t o  t r e a t  t h e  term R. 
+These models a r e  described i n  r e f s .  (1,3,9 and 
+22). 
+Since t h e  d i s s i p a t i o n  and r e d i s t r i b u t i o n  pro- 
+cesses represented by these terms a f f e c t  t h e  turbu- 
+l e n t  f l u i d  only, the s t o c h a s t i c  models operate only 
+on t h e  turbulent p a r t i c l e s .  
+The f i n a l  term t o  be t r e a t e d  i s  t h e  term I i n  
+t h e  non-turbulent pdf equation (Eq. 49). 
+The e f -  
+f e c t  of t h i s  modelled term is t o  make the non-tur- 
+bulent v e l o c i t y  f l u c t u a t i o n s  i s o t r o p i c  and t o  adopt 
+a normal pdf. 
+This is r e a d i l y  achieved by replac- 
+i n g  the non-turbulent v e l o c i t i e s  ~
+(
+~
+1
+ 
+within t h e  
+k t h  c e l l  with joint-normally d i s t r i b u t e d  random 
+vectors with mean {(8(k)) and covariance tensor 
+M. 
+ugl "1. 
+e s o  u t i o n  procedure described was implemen- 
+t e d  i n  a FORTRAN computer program and run on an IBM 
+3701168 d i g i t a l  computer. 
+The s i z e  of t h e  t i m e  
+s t e p  was 
+where y112 is t h e  j e t  half-width and <U>o is 
+t h e  center-line mean velocity. 
+A t o t a l  of 200 time 
+s t e p s  were taken: 
+150 s t e p s  t o  reach t h e  s t a t i s t i -  
+c a l l y  s t a t i o n a r y  s t a t e  and then 50 s t e p s  over which 
+the r e s u l t s  were time-averaged ( t h i s  reduces the 
+s t a t i s t i c a l  e r r o r ) .  
+The r e s u l t i n g  CPU time was 7 
+minutes. 
+
+
+--- Page 9 ---
+
+Results and Discussion 
+The calculations reported i n  t h i s  s e c t i o n  were 
+obtained from the Monte Carlo s o l u t i o n  of the con- 
+ditionally-modelled j o i n t  pdf equation. 
+The resu- 
+lts a r e  compared with t h e  hot-wire measurements of 
+Gutmark and wygnanskiP, Bradbury2' and ~ e s k e s t a d ~ ' .  
+( I n  Bradbury's experiment t h e r e  was a slow coflow- 
+i n g  f r e e  stream r a t h e r  than quiescent surround- 
+ings. ) 
+Although the c a l c u l a t i o n s  were performed i n  
+polar-cylindrical coordinates, t h e  r e s u l t s  a r e  pre- 
+sented i n  the conventional Cartesian coordinates: 
+x = r cose is t h e  predominant flow d i r e c t i o n ,  y = r 
+s i n 0  is the cross-stream coordinate, and z is t h e  
+spanwise coordinate. 
+The v e l o c i t y  components a r e  
+U ,  V and W. 
+A l l  t h e  v e l o c i t i e s  a r e  normalized by 
+the mean a x i a l  velocity on t h e  plane of symmetry. 
+The half width y112(x) of the j e t  is defined by 
+and the normalized cross stream coordinate is 
+Since the j e t  is (by assumption) s e l f - s i m i l a r ,  a l l  
+normalized p r o f i l e s  a r e  functions of q only, inde- 
+pendent of x. 
+The spreading r a t e  of t h e  j e t  d ~ i / ~ / d x  
+is 
+calculated t o  be 0.097. 
+This i s  i n  good agreement 
+with the values of 0.1 and 0.11 measured by Gutmark 
+and Wygnanski and by Heskestad. 
+( I t  may be recal- 
+l e d  t h a t  i n  the unconditional model. t h e  constants 
+CR and w* were s e l e c t e d  t o  give app;oximately 
+t h e  c o r r e c t  spreading r a t e . )  
+Fig. 2. 
+Mean a x i a l  v e l o c i t y  a g a i n s t  l a t e r a l  
+distance. 0 Gutmark and Wy nanski2; 
+BradburyZ9; 1, HeskestadqO; 
+- 
+present calculations. 
+Fig. 3. 
+Intermittency f a c t o r  against l a t e r a l  dis- 
+tance. 
+Symbols the same a s  on Figure 2. 
+Figures 2 and 3 show the mean a x i a l  v e l o c i t y  
+<U> and the intermittency f a c t o r  y compared with 
+the three s e t s  of experimental data. 
+The 
+c a l c u l a t i o n s  l i e  within t h e  s c a t t e r  of t h e  data. 
+The p r o f i l e s  of t h e  t h r e e  r.m.6. 
+v e l o c i t y  
+f l u c t u a t i o n s  <u2>1/2, <v2>1/2 and <w2>1/2 a r e  
+shown on Figures 4, 5 and 6. 
+It may be seen t h a t  
+t h e r e  i s  considerable s c a t t e r  i n  the experimental 
+d a t a ,  i n d i c a t i n g  an uncertainty of about 25%. 
+Nevertheless i t  a pears t h a t  the claculated values 
+3 
+of <u2>1/2 and <w >1/2 a r e  too small, especial- 
+l y  towards the edge of t h e  j e t .  
+The shapes of t h e  
+p r o f i l e s  a r e  calculated accurately, t h e r e  being a 
+maximum i n  < u > l l 2  away from t h e  plane of 
+symmetry, whereas t h e  p r o f i l e s  of < v ' > ~ / ~  
+and 
+<w2>lI2 a r e  f l a t  f o r  0<0<1. 
+The r e l a t i v e  
+magnitudes on the plane of symmetry 
+a r e  a l s o  calculated accurately. 
+The calculated p r o f i l e  of the shear s t r e s s  
+<uv> i s  i n  good agreement with the data of Gutmark 
+and Wygnanski and with those of Bradbury (see 
+Figure 7). 
+Since <uv> can be determined from t h e  
+mean v e l o c i t y  p r o f i l e  ( v i a  the a x i a l  moment;um 
+equation), t h i s  agreement confirms t h e  consistency 
+of both the calculations and of these 
+measurements. 
+However, a s  previously observed3, 
+the measurements of Heskestad appear t o  be i n  e r r o r  
+by 15-207. 
+
+
+--- Page 10 ---
+
+Fig. 4. Intensity of unconditional axial velocity 
+~ i g .  6 .  
+Intensity of unconditional spanwise velo- 
+fluctuations against lateral distance. 
+city fluctuations against lateral dis- 
+Symbols the same as on Figure 2. 
+tance. Symbols the same as on Figure 2. 
+Fig. 5. 
+Intensity of unconditional lateral velo- 
+Fig. 7. Unconditional shear stress against lateral 
+city fluctuations against lateral dis- 
+distance. Symbols the same as on Figure 
+tance. Symbols the same as on Figure 2. 
+2. 
+
+
+--- Page 11 ---
+
+The c o r r e l a t i o n  c o e f f i c i e n t  puv between u 
+and v 
+is shown on Figure 8. 
+I n  the region 0 5 ~ 5 1  t h e r e  i s  
+reasonably agreement between the experimental d a t a ,  
+but the calculated values appear t o  be too l a r g e  by 
+about 20%. 
+(This disagreement is because t h e  cal- 
+culated values of <u2><v2> a r e  too small.) 
+Beyond 
+n=1, it may be seen t h a t  t h e r e  is considerable dis- 
+agreement amongst the d a t a ;  and no conclusion about 
+the accuracy of the c a l c u l a t i o n s  can be drawn. 
+The same behavior of the non-turbulent mean 
+v e l o c i t i e s  i s  found i n  other shear flows. 
+I n  a 
+boundary layer3' 
+i n  a plane wake32, and i n  t h e  
+axisymmetric j e t i 5  measurements show t h a t ,  a s  non- 
+t u r b u l e n t  f l u i d  flows i n ,  U changes i n  the d i r e c -  
+t i o n  of U. 
+These d a t a  t h e r e f o r e  support t h e  fofm 
+of t h e  modelling of the momentum exchange r a t e  M_, 
+Eq. (42). 
+For t h e  t h r e e  flows mentioned t h e r e  a r e  
+a l s o  d i r e c t  ,measurements of v3 ' 9  3 2  15: 
+they 
+show t h a t  t h e  non-turbulent f l u i d  speeds up a s  it 
+flows inward - 
+j u s t  a s  t h e  ptesent c a l c u l a t i o n s  
+indicate. 
+Fig. 8. 
+Shear s t r e s s  c o r r e l a t i o n  c o e f f i c i e n t  
+a g a i n s t  l a t e r a l  distance. 
+Symbols t h e  
+same a s  on Figure 2. 
+Figures 9-14 show the calculated conditional 
+v e l o c i t i e s ,  turbulence i n t e n s i t i e s  and Reynolds 
+shear s t r e s s e s  compared with the d a t a  of Gutmark 
+and Wygnanski. 
+The turbuleng and non-turbulent mean a x i a l  
+v e l o c i t i e s  U and U a r e  shown on Figure 9. 
+It may 
+be seen (both from t h e  c a l c u l a t i o n s  and from t h e  
+measurements) t h a t  the non-turbulent v e l o c i t y  U in- 
+creases from zero a s  f l u i d  moves i n t o  the j e t  (de- 
+creasing 0). 
+The p r i n c i p a l  mechanism f o r  t h i s  ac- 
+c e l e r a t i o n  i s  t h e  turbulent/non-turbulent momentum 
+exchange v i a  th: 
+f l u c t u a t i n g  pressure gradient 
+(i.e. 
+t h e  term M). 
+The values of the model con- 
+s t a n t s  Cg and Cm were chosen t o  produce (ap- 
+proximately) the-correct p r o f i l e  of y and t h e  cor- 
+r e c t  value of U-U. 
+The conditional and unconditional mean l a t e r a l  
+v e l o c i t i e s  a r e  shown on Figure 10. 
+The uncondi- 
+t i o n a l  velocity <V> is p o s i t i v e  near t o  t h e  plane 
+of symmetry ( r e f l e c t i n g  the a x i a l  d e c e l e r a t i o n  
+t h e r e )  but becomes negative f o r  l a r g e r  
+( r e f l e c -  
+t i n g  the entrainment of f l u i d  i n t o  the j e t ) .  
+The 
+turbulent v e l o c i t y  V  is p o s i t i v e  nearly everywhere 
+i n d i c a t i n g  t h a t  t h e  mean motion of turbulent f l u i d  
+i s  generally outward. 
+The mean v e l o c i t y  of non- 
+turbulent f l u i d  V ,  on the other hand, is negative 
+a t  l a r g e  n, and a s  t h e  f l u i d  t r a v e l s  i n t o  the j e t  
+(decreasing 0) it a c c e l e r a t e s  t o  l a r g e r  negative 
+v e l o c i t i e s .  
+I n  t h i s  case, t h e  a c c e l e r a t i o n  is 
+caused by the mean l a t e r a l  pressure gradient 
+The modelled momentum exchange term M a c t s  i n  t h e  
+opposite direction. 
+Fig. 9. 
+Conditional mean a x i a l  v e l o c i t i e s  ?gainst 
+l a t e r a l  distance. 
+Turbulent mean U: 
+I 
+experiment2, , 
+- - 
+calculation. 
+Non-turbulent mean U: A experiment2, 
+------ calculation. 
+Figures 11, 12 and 13 show the calculated con- 
+d i t i o n a l  and unconditional r.m.s. 
+velocity fluctua- 
+tions. 
+They a r e  compared with the unconditional 
+and turbulent means measured by Gutmark and Wygnan- 
+s k i  ( t h e  non-turbulent f l u c t u a t i o n s  were not repor- 
+ted). 
+It is evident t h a t  t h e  calculated uncondi- 
+t i o n a l  means <u2> and <w2> a r e  smaller than those 
+measured (as already noted). 
+In both c a l c u l a t i o n s  and measurements, t h e  
+turbulent f l u c t u a t i o n s  7, 
+7, 
+7 
+a r e  l a r g e r  
+than t h e i r  unconditional counterparts. 
+The calcu- 
+7 - 7  
+l a t e d  differences i n  the r.m.s. 
+values [Ju' -J<u >] 
+e t c .  a r e  i n  reasonable agreement with t h e  data: but 
+t h i s  is not a precise t e s t  of the modelling. 
+A 
+b e t t e r  t e s t  of the modelling - 
+i n  p c r t i c u l a r  t h e  
+modelling of the energy t r a n s f e r  r a t e  ET i
+s
+ 
+t h e  p g n i t u d e  of the non-turbulent f l u c t u a t i o n s .  
+I f  ET were zero, then there would be no non-tur- 
+bulent fluctuations. 
+Table 1 shows t h e  r a t i o s  of 
+the non-turbulent t o  turbulent r.m.s. 
+v e l o c i t y  
+f l u c t u a t i o n s  i n  various shear flows, measured a t  
+
+
+--- Page 12 ---
+
+Fig. 11. I n t e n s i t i e s  of a x i a l  v e l o c i t y  f l u c t u a t i o n s  
+against l a t e r a l  distance. 
+Calculations: 
+- 
+, unconditional <u2>lI2; 
+- 
+----- non-turbulent 
+(u"') 
+- - - 
+turbulent 7 ; ~ x ~ e r i m e n t ~ :  , 
+unconditional; I , turbulent; A , 
+non-turbulent 
+(used i n  l a t e r  figures). 
+t h e  location where y = 1/2. 
+Also shown a r e  the 
+values of these r a t i o s  from t h e  present calcula- 
+tions. 
+It may be seen t h a t  c a l c u l a t i o n s  f a l l  with- 
+i n  the range of the measurements 0.2-0.5. 
+On t h e  
+b a s i s  of t h i s  evidence we conclude (provisionally) 
+t h a t  the energy t r a n s f e r  model (Eq. 45) is s a t i s -  
+factory. 
+The conditional and unconditional shear s t r e s -  
+s e s  a r e  showa on Figure 14. 
+It may be seen t h a t  a t  
+the edge of the j e t  (a>1.5) t h e  calculated values 
+of <uv> a r e  l e s s  than those measured. 
+Also, t h e  
+c a l c u l a t e d  d i f f e r e n c e  between t h e  turbulent and un- 
+conditional s t r e s s  [ m - < u v > ]  is s i g n i f i c a n t l y  
+l e s s  than t h a t  measured. 
+For example, a t  t h e  loca- 
+- 
+t i o n  where y = 1/2, the calculated r a t i o  [ u l v l /  
+< u v > ] ~ = ~ / ~  
+is 1.311 whereas t h a t  w-asured is 1.84. 
+Fig. 10. Mean l a t e r a l  v e l o c i t i e s  a g a i n s t  l a t e r a l  
+distance. 
+Calculations: - 
+, 
+u_nconditional <V>; - 
+-- , turbulent 
+v; ------ , non-turbulent i ;  ~ x ~ e r i m e n t ' :  
+, <V> deduced from mean continuity 
+equation and measured <U>. 
+Table 1: Ratio of non-turbulent t o  turbulent velo- 
+c i t y  f l u c t u a t i o n s  a t  t h e  l o c a t i o n  where 
+y = 112. 
+Velocity 
+Flow 
+Round j e t L 5  
+x 
+0.3 
+In other f r e e  shear flows t h e  measured turbu- 
+l e n t  shear s t r e s s  p r o f i l e s  a r e  s i m i l a r  t o  t h a t  cal- 
+culated here. 
+I n  an axisymmetric j e t ,  Chevray and 
+~ u t u ' ~  
+measured [
+;
+;
+"
+;
+F
+/
+<
+U
+V
+>
+]
+~
+=
+~
+/
+~
+ 
+= 1.33: 
+i n  a 
+- 
+plane wake Fabris3' measured [utv'/<uv>] y,l/2 
+= 
+1.1. 
+There is a l s o  a s i g n i f i c a n t  difference be- 
+tween the c o r r e l a t i o n  c o e f f i c i e n t s  
+Mixing l a y e r 3  
+Plane wake 32 
+Boundary layer3 
+x 
+0.4 
+Plane j e t  
+x 
+Present c a l c u l a t i o n s  
+Y 
+Z 
+
+
+--- Page 13 ---
+
+Fig. 12. I n t e n s i t i e s  of l a t e r a l  v e l o c i t y  fluctua- 
+t i o n s  a g a i n s t  l a t e r a l  distance. 
+Symbols 
+t h e  same a s  on f i g u r e  11. 
+Fig. 13. I n t e n s i t i e s  of spanwise v e l o c i t y  fluctua- 
+t i o n s  a g a i n s t  l a t e r a l  distance. 
+Symbols 
+t h e  same a s  on Figure 11. 
+At y = 112, Gutmark & Wygnanski measured putv* = 
+0.8 and t h e  value increases t o  u n i t y  a t  t h e  edge of 
+the j e t .  
+On the o t h e r  hand, t h e  present calcula- 
+t i o n s  and the data of ~ a b r i s ~ ~ ~ i v e  
+(purvr) 
+= 0.6 and / p U t v t 1  - 0.5, respectively; 
+and=;L2 
+both cases t h e  c r r e l a t i o n  c o e f f i c i e n t  remains a t  
+approximately t h i s  l e v e l  t o  t h e  edge of t h e  j e t .  
+Fig. 14 Shear s t r e s s e s  a g a i n s t  l a t e r a l  distance. 
+Symbols the same a s  on Figure 11. 
+Considering the d i f f i c u l t i e s  involved i n  mak- 
+i n g  accurate hot-wire measurements near t h e  edges 
+of shear flows i n  (nominally) quiescent surround- 
+i n g s ,  and considering the differences between t h e  
+measurements ( a l b e i t  i n  d i f f e r e n t  flows), i t  is not 
+~ 0 s ~ i b l e  
+t o  draw firm conclusions about the accura- 
+- 
+cy of the model c a l c u l a t i o n s  of u'v'. 
+We now t u r n  our a t t e n t i o n  t o  t h e  non-turbulent 
+veloci;$ 
+f l u c t u a t i o n s .  
+A consequence of P h i l l i p s '  
+theory 
+i s  t h a t ,  remote from t h e  j e t  (y+O), the 
+mean-square l a t e r a l  velocity f l u c t u a t i o n  is twice 
+t h a t  of the o t h e r  two components: 
+CV - - 
+v-2 = 2 u-2 = 2 "*.2 
+(72) 
+This r e s u l t  has been confirmed b 
+measurements3 t 33. 
+MeasurementsY 
+9 32* "also 
+stlow t h a t  the non-turbulent shear s t r e s s  is not 
+zero: 
+F a b r i s J 2  measured a c o r r e l a t i o n  c o e f f i c i e n t  
+of -0.2 
+i n  a plane wake. 
+In view of these r e s u l t s ,  the assumption of 
+isotropy of the non-turbulent f l u c t u a t i o n s  i s  
+c l e a r l y  i n c o r r e c t ,  since i t  implies 
+7
+-
+N
+ 
+u"2 = v..2 , 
+,..2 
+-, 
+and 
+u"v" = 0 . 
+(74) 
+But t h e  non-turbulent f l u c t u a t i n g  v e l o c i t i e s  have 
+l i t t l e  e f f e c t  on the flow a s  a whole. 
+The energy 
+i n  these f l u c t u a t i o n s  112 = 
+is t y p i c a l l y  one 
+i i 
+t e n t h  of t h a t  i n  the turbulent f l u c t u a t i o n s  - 
+- 
+1/2 u;u;(see 
+t a b l e  1): 
+and the shear s t r e s s  u"vW 
+is t y p i c a l l y  l e s s  than one twentieth of 
+( s e e  
+r e f s .  2, 32, 33). 
+Rather than assuming i s o t r o p y ,  we attempted t o  
+model t h e  e f f e c t  of the f l u c t u a t i n g  pressure gradi- 
+e n t  on the non-turbulent f l u i d .  
+The s t o c h a s t i c  re- 
+o r i e n t a t i o n  model was used (as i t  is on the turbu- 
+
+
+--- Page 14 ---
+
+l e n t  f l u i d )  which tends t o  make the f l u c t u a t i o n s  
+i s o t r o p i c :  
+As the model constant C R ~  
+approaches i n f i n i t y  
+t h i s  process dominates a l l  others and leads t o  iso- 
+tropy. 
+But, f o r  p l a u s i b l e  values of t h e  constant 
+(CRN<5), it was found t h a t  the non-turbulent Rey- 
+nolds s t r e s s e s  u ; u  
+became approximately equal t o  
+'J 
+t h e i r  turbulent counterparts 
+This i s  most 
+& causes energy 
+l i k e l y  because the shear s t r e s s  
+production ( v i a  t h e  term -m a<U>/ay), and t h e r e  
+is no d i s s i p a t i o n  i n  t h e  non-turbulent f l u i d .  
+Summary and Conclusion 
+A conditionally-modelled j o i n t  pdf equation 
+has been solved by a Monte Carlo method t o  calcu- 
+l a t e  the one-point s t a t i s t i c a l  p r o p e r t i e s  of a 
+self-similar plane turbulent j e t .  
+I n  t h e  j o i n t  pdf 
+transport equation, convective t r a n s p o r t  appears i n  
+closed form, and s o  gradient-diffusion modelling is 
+avoided. 
+Within t h e  turbulent f l u i d ,  a s t o c h a s t i c  
+mixing model and a s t o c h a s t i c  r e o r i e n t a t i o n  model 
+a r e  used t o  model t h e  e f f e c t s  of d i s s i p a t i o n  and 
+the f l u c t u a t i n g  pressure gradient. 
+Within t h e  non- 
+-turbulent f l u i d  t h e r e  is no d i s s i p a t i o n ,  and i t  is 
+assumed t h a t  the velocity f l u c t u a t i o n s  a r e  i s o t r o -  
+p i c  with a j o i n t  normal pdf. 
+The modelling of t h e  i n t e r a c t i o n s  between tur- 
+bulent and non-turbulent f l u i d  c e n t e r s  on t h e  r a i e  
+of entrainment g, t h e  r a t e  of mom$ntum e ~ c h a n g e  5, 
+and the r a t e s  of energy t r a n s f e r  ET and EN: 
+models f o r  these processes a r e  given by equations 
+(39), (42), (45) and (47). 
+According t o  t h e  mo- 
+d e l s ,  momentum is t r a n s f e r r e d  a t  a r a t e  proportion- 
+a l  t o  the turbulent frequency w and proportional t o  
+t h e  velocity d i f f e r e n c e  (2-5). Similarly t h e  r a t e  
+T V -  
+of energy t r a n s f e r  i s  proportional t o  w(u"u"-ulu'). 
+i i  i i  
+( I n  both cases, the d i r e c t i o n  of t h e  t r a n s f e r  is 
+such a s  t o  decrease the d i f f e r e n c e  i n  momentum and 
+energy. ) 
+A Monte Carlo method was used t o  solve the 
+modelled j o i n t  pdf transport equation. 
+On an IBM 
+3701168 computer t h e  numerical s o l u t i o n  was 
+obtained i n  7 minutes of CPU time. 
+The calculated intermittency f a c t o r  and uncon- 
+ditional. mean velocity and Keynolds s t r e s s e s  agree 
+well with the three a v a i l a b l e  s e t s  of experimental 
+data. 
+Lhe c a i  -111atttd conditional mean velocity is 
+i n  agreement with Gutmark and wygnanski's2 measure- 
+ments, but t h e  agreement with the conditional Rey- 
+nolds s t r e s s e s  does not appear t o  be so good. 
+The 
+calculated r a t i o  of non-turbulent t o  turbulent vel- 
+o c i t y  f l u c t u a t i o n s  i s  i n  the range of values mea- 
+sured i n  shear flows ( t a b l e  l). 
+Several of the model constants (viz. w*, 
+CR, Cg, Cm and Ce) have been chosen by ref- 
+erence t o  plane j e t  data. 
+Future c a l c u l a t i o n s  f o r  
+o t h e r  f r e e  shear flows w i l l  determine t h e  univer- 
+s a l i t y  of the modelling. 
+Appendix 
+The conditioned equations of continuity and 
+momentum a r e  derived from t h e  t r a n s p o r t  equation 
+f o r  f~ ( x , $ ; x , t ) ,  Eq. (33). 
+The conditioned continuity equation is obtain- 
+ed by i n t e g r a t i n g  Eq. (33) over a l l  ! 
+and $: 
+g is the r a t e  of generation of turbulent f l u i d .  
+An equation f o r  the momentum of turbulent 
+f l u i d  is obtained by multiplying Eq. 
+(33) by Vj 
+and then i n t e g r a t i n g :  
+where 
+2 
+li. : 
+-
+<
+ 
++ y < u v  uj>, + g U; , 
+J 
+(A4 
+axi T 
+and we have used the a l t e r n a t i v e  notation f o r  tur- 
+bulent means, 
+The f i n a l  term i n  Eq. (A4) represents the gain i n  
+momentug of turbulent f l u i d  a s  a r e s u l t  of entrain- 
+ment: U. is the v e l o c i t y  a t  the i n t e r f a c e  weighted 
+w i t h  t h J  r a t e  of entrainment 
+By a s i m i l a r  procedure, the equation f o r  t h e  
+momentum of non-turbulent f l u i d  can be obtained: 
+where 
+and < 
+>N i n d i c a t e s  the non-turbulent mean. 
+.
+-
+ 
+The sum Yj + M j  represents the net source 
+of momentum due t o  entrainment, viscous s t r e s s e s ,  
+and the f l u c t u a t i n g  pressure gradient. 
+We show now 
+t h a t  t h i s  sum i s  zero, and hence t h a t  t h e  terms re- 
+present a t r a n s f e r  of momentum between turbulent 
+and non-turbulent f l u i d .  
+Adding Eqs. (A4) and (A81 
+y i e l d s  
+The entrainment terms concel, and t h e  means of t h e  
+f l u c t u a t i o n s  (p and u j )  a r e  zero. 
+Thus we ob- 
+t a i n ,  
+( A l l )  
+
+
+--- Page 15 ---
+
+Acknowledgements 
+17. 
+Kollmann, W., and Janicka, J., "The 
+Probability Density Function of a Passive 
+This work was supported in part by grant num- 
+Scalar in Turbulent Shear Flows," Phys. 
+ber CPE8000026 from the National Science Foundation 
+Fluids, Vol. 25, 
+1982, p. 1755. 
+(Engineering Energetics Program). 
+References 
+Pope. S.B., "Transport Equation for the Joint 
+PDF of Velocity and Scalars in Turbulent 
+Flow," Phys. Fluids, Vol. 24, 
+1981, p. 588. 
+Gutmark, E., and Wygnanski, I., "The Planar 
+Turbulent Jet," J. Fluid Mech., Vol. 73, 
+1976, 
+p. 465. 
+Pope. S.B.. 
+"Calculations of Velocity-Scalar 
+~oint 
+PDF';," in Turbulent Shear ~10"s 111, 
+(ed. Bradbury et al.), 
+Springer-Verlag, 
+Heidelberg, 1983, p. 113. 
+Lundgren, T.S. 
+"Model Equation for 
+Nonhomogeneous Turbulence," Phys. Fluids, 
+Vol. 12, 1969, p. 485. 
+Do~azo. C.. 
+"A Probabilistic Approach to 
+.
+,
+,
+ 
+. . 
+Turbulent Flame Theory," Acta Astronautica, 
+Vol. 3, 
+1976, p. 853. 
+Pope, S.B., 
+"Monte Carlo Calculations of 
+Premixed Turbulent Flames," Eighteenth 
+Symposium (International) on Combustion, The 
+Combustion Institute, 1981. p. 1001. 
+Janj cka, J . ,  Kolbe, W., and Kollmann, W., "The 
+Solution of a PDF-Transport Equation for 
+Turbulent Diffusion Flames," Proc. Heat 
+Transfer and Fluid Mech. Inst., Stanford 
+University Press, 1978. p. 296. 
+Pope, S.B., "A Monte Carlo Method for the PDF 
+Equations of Turbulent Reactive Flow," 
+Combust. Sci. Technol., Vol. 25, 
+1981, p. 159. 
+Pope, S.B.. 
+"PDF Methods for Turbulent 
+. . 
+Reactive Flows," Progress in Energy and 
+Combustion Science, (to be published), 1983. 
+Townsend. A.A., 
+"The Fully-Developed Turbulent 
+Wake of a Circular cylinder," ~ust. J. Sci. 
+Res.,Vol. 2, 1949, p. 451. 
+- 
+Corrsin, S., and Kistler. A.L., "Free Stream 
+Boundaries in Turbulent Flows," NACA Rep. 
+1244, 1955. 
+Antonia, K.A., 
+"Conditional Sampling in 
+- 
+- 
+Turbulence Measurement," Ann. Review. Fluid. 
+Mech., Vol. 13, 1981, p. 131. 
+- 
+Libby, P.A., "On the Prediction of 
+Intermittent Turbulent Flows," J. Fluid Mech., 
+Vol. 68, 1975, p. 273. 
+Libby, P.A., "Prediction of the Intermittent 
+Turbulent Wake of a Heated Cylinder," 
+Fluids, Vol. 19, 1976, p. 494, 
+Chevray, R., and Tutu, N.K., 
+"Intermittency 
+and Preferential Transport of Heat in a %und 
+Jet," J. Fluid Mech., Vol. 88, 1978, p. 133. 
+Byggstoyl, S. and Kollmann, W., "Closure Model 
+for Intermittent Turbulent Flows," Int. J. 
+Heat Mass Transfer, Vol. 24, 
+1981, p. 1811. 
+Kollmann, W., "Prediction of the Intermittency 
+Factor for Turbulent Shear Flows," AIAA paper 
+83-0382, 
+1983. 
+Launder, R.E., 
+Reece, G.J., and Rodi, W., 
+"Progress in the Development of a 
+Reynolds-Stress Turbulence Closure," J. Fluid 
+Mech., Vol. 68, 
+1975, p. 537. 
+- 
+Lumley. J.L., "Computational Modelling of 
+~urbuiint Flaws," -Adv. Appl. Mech., ~ o l ,  
+18, 
+1978, p. 123. 
+Rotta, J.C. "Statistische Theorie 
+Nichthomogener Turbulenz ," 2. Phys., Vol 129, 
+1951, p. 547. 
+Pope, S.B., "An Improved Turbulent Mixing 
+Model," Combust. Sci. Technol., Vol. 28, 
+1982, p. 131. 
+Spalding, D.B., 
+"Concentration Fluctuations in 
+a Round Turbulent Free Jet," Chem. Eng. Sci., 
+Vol. 26, 1971, p. 95. 
+Curl, R.L., 
+"Dispersed Phase Mixing: I. Theory 
+and Gffects of Simple Reactors," A.I.Ch.E.J., 
+Vol. 9, 
+1963, p. 175. 
+Bilger, R.W.. 
+Antonia, R.A., Sreenivasan, 
+K.R., 
+"Determination of Intermittency from the 
+Probability Density Function of a Passive 
+Scalar," Phys. Fluids, Vol. 19, 1976, p. 1471. 
+Do~azo. C.. "On Conditioned Averages for 
+=
+.
+,
+ 
+- 
+Intermittent Turbulent Flows," J. Fluid Mech., 
+Vol. 81, 
+1977, p. 433. 
+Townsend, A.A., 
+"The Structure of Turbulent 
+Shear Flows," 2nd Ed., Cambridge University 
+-- 
+Press, 1976. 
+Mobbs, F.R., 
+"Spreading and Contraction at the 
+Boundaries of Free Turbulent Flows," J. Fluid 
+e, 
+Vol. 33, 
+1968, p. 227. 
+Bradbury. L.J.S., 
+"The Structure of a 
+. , 
+Self-Preserving Plane Jet," J. Fluid Mech., 
+Vol. 23, 
+1965, p. 31. 
+Heskestad. G.. "Hot-wire Measurements in a 
+, 
+. 
+Plane Turbulent Jet." 
+J. Appl. Mech., Val., 
+32, 
+1965, p. 721. 
+Kovasznay, L.S.G., 
+Kibens, V., and 
+Blackwelder, R.F., 
+"Large-Scale Motion in the 
+Intermittent Region of a Turbulent Boundary 
+Layer," J. Fluid =, 
+Vol. 41, 
+1970, p. 283. 
+Fabris, G., "Conditional Sampling Study of the 
+Turbulent Wake of a Cylinder, Part 1," 
+J, 
+Fluid Mech., Vol. 94, 1979, p. 673. 
+-- 
+Wygnanski, I., and Fiedler, H.E., 
+"The 
+Two-Dimensional Mixing Region," J. Fluid 
+Mech., Vol. 41, 
+1970, p. 327. 
+Phillips, O.M., 
+"The Irrotational Motion 
+Outside a Free Turbulent Boundary Layer," 
+Proc. Camb. Phil. Soc., Vol. 51, 
+1955, p. 220. 

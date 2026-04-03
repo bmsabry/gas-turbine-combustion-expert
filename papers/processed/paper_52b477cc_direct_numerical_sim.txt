@@ -1,0 +1,1270 @@
+
+--- Page 1 ---
+
+43rd AIAA Aerospace Sciences Meeting and Exhibit, Jan 10–13, Reno, Nevada
+Direct numerical simulation of turbulent jets in crossﬂow
+Suman Muppidi∗and Krishnan Mahesh†
+University of Minnesota, Minneapolis, MN, 55455, USA
+Direct numerical simulations are used to study a round turbulent jet in a laminar crossﬂow.
+The velocity ratio of the jet to that of the crossﬂow is 5.7 and the Reynolds number based on
+the bulk jet velocity and the jet–exit diameter is 5000. The mean velocity and turbulent inten-
+sities from the simulations are compared to data from the experiments by Su & Mungal(2004)
+and good agreement is observed. A study of the jet cross–section at locations along the jet tra-
+jectory explains the diﬀerences observed when the trajectories are deﬁned diﬀerently – based
+on the center streamline, the vorticity, and the scalar concentration.
+The counter–rotating
+vortex pair is observed all along the length of the jet, though its spatial size is small close to
+the jet–exit and increases away from it. A recent scaling law for jet trajectory by Muppidi &
+Mahesh (2005) is used to predict the jet trajectory and shows a reasonable agreement.
+I.
+Introduction
+A jet in crossﬂow is deﬁned as the ﬂow ﬁeld where a jet of ﬂuid enters and interacts with a crossﬂowing
+ﬂuid. Important examples of jets in crossﬂow are fuel injectors, smokestacks, ﬁlm cooling on turbine blades and
+dilution holes in gas turbine combustors. Margason (1993) provides a comprehensive review of the past work
+on this problem. The emphasis has been on the study of the velocity and vorticity ﬁelds (Kamotani & Greber
+1972, Fearn & Weston 1974, Andreopoulos & Rodi 1985, Fric & Roshko 1994, Krothapalli et al. 1990, Kelso &
+Smits 1995), study of the scalar ﬁeld and mixing (Smith & Mungal 1998, Shan & Dimotakis 2000, Su & Mungal
+2004) and attempts at modeling the ﬂow ﬁeld and jet trajectory (Broadwell & Breidenthal 1984, Karagozian
+1986, Hasselbrink & Mungal 2001, Muppidi & Mahesh 2005).
+Some of the recent work on jets in crossﬂow involves numerical simulations. Chochua et al. (2000) performed
+RANS calculations and compared their results to experiments (UTRC). It was seen that though their simulations
+predicted the mean velocities reasonably, their turbulent intensities showed signiﬁcant diﬀerences from those of
+the experiment. Yuan et al.(1999) performed LES of a round jet in crossﬂow and showed reasonable agreement
+for mean velocities and turbulent intensities with experimental results of Sherif & Pletcher (1989). Schluter &
+Schonfeld (2000) compared the results of their LES with experimental velocity proﬁles of Andreopoulos & Rodi
+(1984) and scalar ﬁelds of Smith & Mungal (1998), and obtain reasonable agreement with the experiments.
+The objective of this paper is to study the features of a round turbulent jet in crossﬂow using direct numerical
+simulations. The simulations are performed at conditions corresponding to the experiment by Su & Mungal
+(2004).
+This paper is organized as follows.
+Section II describes the problem and the relevant parameters.
+Section III provides the details of the simulations. Results are provided in section IV: the comparison with Su
+& Mungal’s (2004) experiments are presented in subsection A and the velocity ﬁeld in the near–ﬁeld is discussed
+in subsection B. The evolution of the jet as it moves away from the jet–exit is studied in subsection C and a
+method to predict jet trajectories is presented in subsection D. The paper ends with a short summary in section
+V.
+∗Graduate Research Assistant
+†Assistant Professor
+Copyright
+c⃝2005 by Suman Muppidi.
+Published by the American Institute of Aeronautics and Astronautics, Inc. with
+permission.
+1 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 2 ---
+
+crossflow
+y
+x
+z
+jet
+d
+u∞
+Figure 1.
+Schematic of the problem.
+II.
+Problem
+Figure 1 shows a schematic of the problem, where a jet issues perpendicularly from a round pipe into the
+crossﬂow. The crossﬂow is in the x–direction and the jet is in the y–direction. The origin is located at the center
+of the jet exit as shown. u∞is the crossﬂow free stream velocity. The velocity ratio is deﬁned as r = uj/u∞,
+where uj is the mean jet velocity obtained by averaging uj over the pipe cross–section.
+Simulations are performed under the conditions pertaining to experiments by Su & Mungal (2004). The
+velocity ratio (r), deﬁned as above, is 5.7 and the Reynolds number of the ﬂow, based on the bulk jet velocity
+and the jet–exit diameter is 5000. In the experiment, the jet exits out of a round pipe (of length, about 70
+d) into the crossﬂow. In the absence of any crossﬂow, fully developed pipe ﬂow conditions are expected at the
+jet–exit (Su & Mungal, section 2). Their experiment considered two cases – one where the jet–exit was ﬂush
+with the wall and another where the pipe protruded into the crossﬂow and away from the ﬂow boundaries. The
+simulations are conﬁned to the case of the jet–exit ﬂush with the wall of the crossﬂow, as seen in ﬁgure 1. The
+crossﬂow is laminar and the 80% boundary layer thickness is δ80% = 1.32d at the location of the center of the
+jet–exit, and in the absence of the jet.
+III.
+Simulation details
+A.
+Algorithm
+The numerical scheme solves the incompressible Navier Stokes equations
+∂ui
+∂t + ∂uiuj
+∂xj
+= −∂p
+∂xi
++ ν ∂2ui
+∂xjxj
+,
+∂ui
+∂xi
+= 0
+(1)
+on unstructured grids. Here ui, p and ν denote the velocities, pressure and kinematic viscosity respectively.
+The density of the ﬂuid is assumed constant and is absorbed into the pressure. The numerical scheme has been
+described by Mahesh et al. (2004) and will not be dealt with here in detail. The algorithm stores the Cartesian
+velocities and the pressure at the centroids of the cells (control volumes) and the face normal velocities are stored
+independently at the centroids of the faces. The scheme is a predictor–corrector formulation which emphasizes
+discrete energy conservation on unstructured grids. This property makes the algorithm robust at high Reynolds
+numbers without numerical dissipation. The predicted velocities at the control volume centroids are obtained
+using the viscous and the non–linear terms of equation 1 which are then used to predict the face normal velocities
+2 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 3 ---
+
+u/u∞
+η
+0
+2
+4
+6
+8
+10
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+(a)
+v/vb
+r/d
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+(b)
+u+
+rms, v+
+rms & w+
+rms
+r/d
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0
+0.5
+1
+1.5
+2
+2.5
+3
+(c)
+u′v′/u2
+τ
+r/d
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+(d)
+Figure 2.
+(a) Validation of the crossﬂow. Comparison with analytical Blasius solution. ◦: simulations,
+:
+Analytical solution.
+(b), (c)& (d) Validation of the turbulent pipe ﬂow.
+Comparison to data from Eggels et al.
+(1994).
+: simulation,
+: Eggels et al.
+on the faces. The predicted face normal velocity is projected so that continuity is discretely satisﬁed. This yields
+a Poisson equation for pressure which is solved iteratively using a multigrid approach. The pressure ﬁeld is used
+to update the Cartesian control volume velocities. Implicit time–stepping is performed using a Crank–Nicholson
+scheme. The algorithm has been validated for a variety of problems (see Mahesh et al. 2004) over a range of
+Reynolds numbers.
+B.
+Computational Domain and Boundary Conditions
+The computational domain extends 32d × 64d × 64d in the axial, wall-normal and spanwise directions (x, y
+and z) respectively. Preliminary computations showed that a domain of this size does not constrain the jet,
+and the ﬂow does not feel the eﬀects of conﬁnement by the boundary. A length of pipe 2d is included in the
+computational domain in order to allow the fully developed turbulent pipe ﬂowﬁeld (at the inlet) to adjust to the
+interaction between the jet and the crossﬂow. The crossﬂow inﬂow plane is located 4d upstream of the jet–exit.
+The crossﬂow is modeled as a laminar ﬂow past a ﬂat plate (Schlichting 1968). In the absence of the jet,
+the crossﬂow has a boundary layer thickness of δ80% = 1.32d at the center of the jet–exit. At the crossﬂow
+inﬂow plane, the velocity ﬁeld is speciﬁed, based on the analytical solution to the Blasius boundary layer, to
+give the required δ at the jet–exit in the absence of the jet. In order to validate the crossﬂow, a simulation
+of only the crossﬂow is performed on a domain without the pipe. The mesh used for the the validation was
+3 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 4 ---
+
+considerably coarser than the one used in the jet in crossﬂow DNS: the mesh edgelengths in the streamwise and
+the spanwise directions were 5–10 times the corresponding ones in the current DNS. Figure 2(a) shows the results
+of this validation. Streamwise velocity u is plotted, at all the points of the domain, as a function of the similarity
+variable η. The symbols show the results from the simulation and are compared to the analytical Blasius solution
+(shown in a solid line) for laminar ﬂow past a ﬂat plate. Note that the comparison shows a good agreement.
+The jet in the experiment is turbulent and fully developed by the time the ﬂuid exits the jet–exit. In order
+to simulate such a jet, a separate computation is performed to simulate fully developed turbulent ﬂow in a pipe.
+This computation is performed at a Reynolds number, based on the pipe diameter and the mean axial velocity,
+of 5000. Figures 2(b), (c) & (d) show the validation of the results of this simulation by comparing the radial
+proﬁles of velocity and intensity to the results of Eggels et al. (1994). Mean axial velocity v is normalized with
+the bulk velocity vb (ﬁgure 2(b)). The rms velocities in ﬁgure 2(c) are normalized with the friction velocity uτ,
+and the Reynolds shear stress in ﬁgure 2(d) is normalized by the shear stress at the wall. The proﬁles shown
+in solid lines are from the present simulation and the square symbols denote the results of Eggels et al. (1994).
+Note that a good agreement is obtained. The mesh used to compute the pipe ﬂow is structured, and contained
+256 × 96 × 128 points in the axial, radial and the azimuthal directions respectively. In terms of wall units, the
+grid spacing is ∆x+ = 6.762, ∆r+ = 1.802, and in the azimuthal direction, the minimum and maximum spacings
+are ∆θ+ = 0.0042 and 8.447 respectively. A time–dependent velocity ﬁeld at a cross–section plane from the pipe
+ﬂow simulation is fed at the inﬂow plane of the pipe, as the boundary condition for the jet. In order to do this,
+once the solution for the pipe ﬂow simulation achieves a steady mean discharge, the instantaneous velocity ﬁeld
+(at the plane) over 80 time units (d/u∞) is stored. The boundary condition speciﬁcation also involves an amount
+of interpolation since the computational mesh on the cross–section plane of the turbulent pipe simulations is
+diﬀerent from the mesh on the inﬂow plane of the pipe in the jet in crossﬂow simulation. More details about the
+mesh used on the inﬂow plane are provided in subsection C.
+On the exit plane (x/d = 32), a zero–gradient boundary condition is used for the velocities. On the spanwise
+boundaries (z/d = ± 32), the velocity ﬁeld corresponding to the laminar crossﬂow is speciﬁed.
+Freestream
+velocity boundary condition is speciﬁed on the top boundary (y/d = 64).
+C.
+Computational Mesh
+The computational mesh is unstructured and consists of approximately 11 million hexahedral elements. The
+ﬁnest elements are found at the walls of the pipe and of the crossﬂow. The largest elements are found away from
+the jet–exit and away from the wall. The mesh is constructed as follows. The inﬂow plane for the pipe (y/d
+= –2) is ﬁrst meshed. 128 elements are used in the azimuthal direction and 72 elements in the radial direction
+(up to a depth of about 0.4d inwards from the wall). This part of the face mesh is structured. The rest of the
+plane is meshed using unstructured elements of size (edge length) 0.005d. This face mesh is now swept in the
+y–direction up until the jet–exit (y/d = 0). The mesh size in this direction is 0.02d. Note that the mesh in this
+part of the domain is based on the mesh used to simulate the turbulent pipe ﬂow speciﬁed at the inlet. The
+wall of the crossﬂow is then meshed. The size of the mesh elements in the region around the jet–exit is allowed
+to grow (with 128 azimuthal elements) linearly outward at a ratio of 1.05. This is done till the elements grow
+to a size of 0.1d. The region of interest, roughly spanning 5d either side of the symmetry plane and up to 20d
+downstream of the jet–exit, is meshed using unstructured elements of size 0.1–0.15d. The rest of the plane is
+then meshed with elements that are allowed to grow large, away from the region of interest. Mesh elements of
+around 1.0d are found at distances about 24d away from the symmetry plane and around 24d downstream of
+the jet–exit. The mesh size variation is not allowed to be unreasonably high anywhere in or near the region of
+interest. The mesh on the plane y/d = 0 is now swept in the y–direction. A boundary layer at the crossﬂow
+wall allows ﬁne elements near the wall (∆y = 0.01d) and the mesh size increases linearly away from it at a rate
+of 1.05 till the mesh size is 0.1d. ∆y is kept constant until a height of y/d = 24. Past this plane (note that jet
+exits the domain before crossing this plane), ∆y is allowed to grow linearly at a rate of 1.1. Figure 3(a) provides
+a horizontal slice of the mesh. The ﬁne elements in and around the jet–exit and in the vicinity of the symmetry
+plane are noticeable. Since the mesh on the wall is swept in the vertical (y–axis) direction, a horizontal section
+at any height above the jet–exit shows the same computational mesh as ﬁgure 3(a). Note that the complete
+domain is not shown.
+The details provided above (for the computational domain, mesh and the boundary conditions) are arrived at,
+after a series of simulations at diﬀerent computational parameters. For example, the simulation was performed
+4 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 5 ---
+
+z/d
+x/d
+0
+5
+10
+15
+-10
+-5
+0
+5
+10
+(a)
+y/d
+x/d
+(b)
+Figure 3. (a) Horizontal slice of the computational mesh shows the elements in the region around the jet–exit and
+on the symmetry plane where the proﬁles are compared. Shown is only a part of the domain. (b) Time–averaged
+contours of velocity (v) on the symmetry plane. Also shown is a mean streamline. The white horizontal lines show
+the stations at which the computational results are measured with that of the experiment (section IV subsection
+A).
+on domain sizes extending, in the x, y and z–directions respectively, 32d × 32d × 12d and 32d × 64d × 12d
+before the present simulation where the domain is 32d × 64d × 64d, and which does not restrict/conﬁne the jet.
+The computational mesh used in the preliminary simulations contained 2.4 million elements, which was reﬁned
+to a mesh containing about 6 million elements and, later, 8 million elements, and the present mesh contains
+about 11 million elements. Particular care was taken to prescribe the boundary conditions for the simulation
+and especially for the jet at the jet inﬂow which is 2d upstream of the jet–exit. The preliminary simulations have
+shown that this length of pipe is suﬃcient, at this velocity ratio, to let the jet develop naturally before issuing
+into the crossﬂow. Such a conclusion was reached after using a pipe of length 10d and observing the velocity
+proﬁle of the ﬂuid inside the pipe between the jet inﬂow plane and the jet–exit. As explained in section B the jet
+inﬂow boundary conditions are prescribed that match validated results for a fully turbulent ﬂow in a pipe, and
+the computational mesh in the near–ﬁeld of the jet–exit is determined based on the computational mesh used in
+the turbulent pipe ﬂow simulation.
+IV.
+Results
+The simulation was performed at a time step of 0.0025 non–dimensional time units (d/u∞). The computation
+is begun with a ‘no–ﬂow’ initial condition. The solution is allowed to evolve until about 80 time units by which
+time the transients exit the computational domain. Statistics are then computed over 40 time units.
+Contours of time–averaged velocity (v) on the symmetry plane are shown in ﬁgure 3(b).
+The jet ﬂuid
+decelerates, away from the jet–exit as observed in the ﬁgure.
+Also shown is a mean centerline streamline,
+representing the path taken by the jet ﬂuid as it interacts with the crossﬂow. Note that the jet is not symmetric
+about the mean streamline. The jet appears thinner on the upstream side of the streamline and thicker on the
+downstream side. This aspect is further discussed in subsection B.
+A.
+Comparison to experiments
+Note that ﬁgure 3(b) shows three horizontal lines on the symmetry plane corresponding to distances, from the
+wall, of 0.1rd, 0.5rd and 1.0rd.
+Su & Mungal (2004) provide detailed experimental proﬁles of velocity and
+turbulent intensities at these stations, as a function of the non–dimensionalized streamwise distance (x/rd).
+Figure 4 shows proﬁles of v, v′v′, u′u′ and u′v′ from the simulation and are compared to the experimental
+results. The solid lines in these plots are results from the present simulation while the symbols are the results
+5 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 6 ---
+
+0
+1
+2
+0
+0.2
+0.4
+0.6
+0
+1
+2
+0
+0.4
+0.8
+1.2
+0
+1
+2
+0
+0.4
+0.8
+1.2
+(a)
+x/rd
+v/r
+y=0.1 rd
+0.5 rd
+1.0 rd
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+0.08
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+(b)
+x/rd
+v′v′/r2
+y=0.1 rd
+0.5 rd
+1.0 rd
+-0.5
+0
+0.5
+1
+1.5
+0
+0.01
+0.02
+0.03
+-0.5
+0
+0.5
+1
+1.5
+0
+0.004
+0.008
+0.012
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+(c)
+x/rd
+u′u′/r2
+y=0.1 rd
+0.5 rd
+1.0 rd
+-0.5
+0
+0.5
+1
+1.5
+-0.02
+-0.01
+0
+0.01
+0.02
+-0.5
+0
+0.5
+1
+1.5
+-0.01
+0
+0.01
+-0.5
+0
+0.5
+1
+1.5
+-0.01
+0
+0.01
+(d)
+x/rd
+u′v′/r2
+y=0.1 rd
+0.5 rd
+1.0 rd
+Figure 4.
+Comparison of mean vertical velocity (v) and turbulent intensity (v′v′, u′u′ and u′v′) proﬁles with the
+experimental results.
+Simulation,
+experiment. Proﬁles are at stations y = 0.1 rd, 0.5 rd and 1.0 rd.
+from the experiment.
+Plots of v, in ﬁgure 4(a), show that the peak vertical velocity is observed near the center of the jet–exit at
+the closest station. Moving away from the wall, the location of peak v is observed downstream of the jet–exit.
+This can be explained in terms of the jet trajectory, the jet bending in the direction of the crossﬂow. Also, the
+value of the peak velocity decreases away from the wall as can be observed. Figure 4(b) shows proﬁles of v′v′. At
+y/rd = 0.1, v′v′ shows two peaks corresponding to the edges of the jet, at locations indicated by the leading and
+the trailing edges of the jet–exit (x/d = ± 0.5). The two peaks appear to have the same value. At the second
+station (y/rd = 0.5), the plot still shows two peaks, however, with diﬀerent peak values. The upstream edge of
+the jet shows a higher v′v′ than the downstream edge of the jet, suggesting a higher shear rate on the upstream
+edge. The farthest station shows a single peak. It may be noticed that the peak v′v′ at the three stations is of
+the same order and that no signiﬁcant change in the peak value is observed moving away from the wall. Proﬁles
+of u′u′ (ﬁgure 4(c)) also show a twin–peak close to the wall and a single–peak at the station farthest from the
+wall. In addition, the peak u′u′ is observed to increase with the distance from the wall. Figure 4(d) shows the
+proﬁles of u′v′ and it is seen that the proﬁle changes sign between the peaks. The peak u′v′ value increases in
+magnitude from y/rd = 0.1 to y/rd = 0.5 and decreases by y/rd = 1.0. Note that the magnitude of the peak u′v′
+is slightly higher on the upstream edge of the jet than on the downstream edge. The proﬁles also suggest that
+the width of the peaks increases moving away from the jet–exit. This is observed by noting that the gradient of
+the proﬁle (around the peak) at the closest station seems sharper than that seen at the other two stations. It
+should be mentioned that all the proﬁles (as observed in the v proﬁles) show a shift of the location of the peak
+in the downstream direction, away from the wall.
+Though ﬁgure 4 shows a reasonable agreement between the simulation and the experiment, a few discrepancies
+can be noticed. The peak vertical velocity v (ﬁgure 4(a)) from the experiment is higher than that observed in
+the simulations, particularly at the ﬁrst two stations. Similar diﬀerences can be seen with regards to the peaks
+while comparing u′u′ in ﬁgure 4(c), and u′v′ in ﬁgure 4(d). While the v proﬁle shows the greatest discrepancy
+at the location closest to the jet–exit, the proﬁles for u′u′ and u′v′ show the greatest diﬀerence at the location
+6 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 7 ---
+
+y/rd
+x/rd
+0
+0.5
+1
+1.5
+2
+2.5
+3
+0
+0.5
+1
+1.5
+2
+2.5
+3
+(a)
+y/reffd
+x/reffd
+0
+0.5
+1
+1.5
+2
+2.5
+3
+0
+0.5
+1
+1.5
+2
+2.5
+3
+(b)
+Figure 5.
+Comparison of jet trajectory from the simulation (
+) to that from the experiment (
+). (a) scaled
+using r, and (b) scaled using reff .
+farthest from the jet–exit. Attempts to explain these diﬀerences follow.
+Su & Mungal report that the bulk jet velocity (uj) in their experiment is 16.9 m/s and that the freestream
+crossﬂow velocity (u∞) is 2.95 m/s, which gives a velocity ratio (r = uj/u∞) of 5.7. The velocity ratio in the
+simulations, is also 5.7 based on the bulk jet velocity and the freestream crossﬂow velocity. The Reynolds number,
+based on the bulk jet velocity and the jet–exit diameter, is 5000 and matches that in the experiment. Yet, as
+mentioned above, a few diﬀerences are seen comparing the experimental results with that of the simulation.
+One possible reason for the diﬀerences could be the diﬀerence in densities. The simulation assumes both the
+jet ﬂuid and the crossﬂow ﬂuid to have the same density. In the experiment, the jet ﬂuid (nitrogen) is seeded
+with acetone vapor which gives the jet ﬂuid, a 10 % higher density (ρj/ρ∞= 1.1, Su & Mungal 2004). If the
+velocity ratio (reff) were to be deﬁned based on the momentum :
+reff
+2 =
+ρjuj2
+ρ∞u∞2 = ρj
+ρ∞
+r2,
+(2)
+the ﬂow parameters described in Su & Mungal (2004) provide a reff = 6.008. As a jet of ﬂuid with a density
+10% higher than that of the crossﬂow exits the jet–exit, it has a momentum that is 10% higher than a jet
+with the same ﬂuid density as that of the crossﬂow ﬂuid. This higher momentum could lead to higher peak
+velocities (v), sharper intensity gradients and a trajectory that penetrates deeper into the crossﬂow. It has
+been previously noted (Muppidi & Mahesh 2005) that the ﬂow ﬁeld of a jet in crossﬂow is very sensitive to
+the jet inﬂow at the jet–exit. This 10% momentum diﬀerence, hence, could be responsible for the discrepancies
+observed. The diﬀerences seen in ﬁgure 4 seem consistent with the above explanation. Figure 5(a) compares the
+experimentally observed jet trajectory to the trajectory extracted from the simulations. As predicted above, the
+jet in the experiment penetrates deeper into the crossﬂow (as a result of having a higher momentum). It should
+be mentioned here that the jet trajectory from the experiment is extracted using the local scalar maxima, and
+the trajectory from the present computation is deﬁned based on the streamline passing through the jet–exit on
+the symmetry plane. It has been shown (Su & Mungal 2004, ﬁgure 19) that the trajectory deﬁned based on
+the center streamline penetrates deeper into the crossﬂow than the trajectory that is deﬁned based on the local
+scalar maxima. Figure 5(a) shows, however, that due to the diﬀerence in the densities, the trajectory based on
+the center streamline penetrates less than the scalar maxima trajectory from the experiment.
+A reasonable approach to compare the experimental and computed results is to use reff to scale the results
+instead of r. Such a scaling would account for the density ratio of the jet and the crossﬂow ﬂuids. Jet trajectories
+scaled using reff are shown in ﬁgure 5(b). reff = 5.7 for the simulation and reff = 6.008 for the experiment, a
+diﬀerence of about 6.7 %. It is observed that rescaling the trajectories brings them considerable closer to each
+other. At an x location 15d downstream of the jet–exit, the diﬀerence between the trajectories scaled with rd is
+about 6.5 % while scaling the trajectories using reffd reduces the diﬀerence to 2.8%.
+7 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 8 ---
+
+0
+1
+2
+0
+0.4
+0.8
+1.2
+0
+1
+2
+0
+0.4
+0.8
+1.2
+-0.5
+0
+0.5
+1
+1.5
+2
+0
+0.2
+0.4
+0.6
+(a)
+x/reffd
+v/reff
+y=0.1 reffd
+0.5 reffd
+1.0 reffd
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+0.08
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+(b)
+x/reffd
+v′v′/r2
+eff
+y=0.1 reffd
+0.5 reffd
+1.0 reffd
+-0.5
+0
+0.5
+1
+1.5
+0
+0.02
+0.04
+0.06
+-0.5
+0
+0.5
+1
+1.5
+0
+0.01
+0.02
+0.03
+-0.5
+0
+0.5
+1
+1.5
+0
+0.004
+0.008
+0.012
+(c)
+x/reffd
+u′u′r2
+eff
+y=0.1 reffd
+0.5 reffd
+1.0 reffd
+-0.5
+0
+0.5
+1
+1.5
+-0.01
+0
+0.01
+-0.5
+0
+0.5
+1
+1.5
+-0.02
+-0.01
+0
+0.01
+0.02
+-0.5
+0
+0.5
+1
+1.5
+-0.01
+0
+0.01
+0.02
+(d)
+x/reffd
+u′v′r2
+eff
+y=0.1 reffd
+0.5 reffd
+1.0 reffd
+Figure 6.
+Comparison of mean vertical velocity (v) and turbulent intensity (v′v′, u′u′ and u′v′) proﬁles with the
+experimental results.
+simulation,
+experiment. Plots normalized using reff.
+The velocity and intensity proﬁles (ﬁgure 4) can be similarly re-scaled using reff and these proﬁles are
+shown in ﬁgure 6. As earlier, the lines show results from the simulations and the symbols show results from the
+experiment. The proﬁles correspond to the locations y/reffd = 0.1, 0.5 and 1.0, and the mean velocity and the
+intensities are scaled with reff. The velocity (v) proﬁles in ﬁgure 6(a) show a good agreement, even for the peak
+v values at the ﬁrst two locations (as compared to ﬁgure 4(a)). The peak velocity on the farthest station (y/reffd
+= 1.0), however, shows a slight diﬀerence. The proﬁle from the simulation is observed to be higher than that
+obtained from the experiment. Proﬁles of v′v′ (ﬁgure 6(b)) also show a good agreement with the experiment at
+all the three y/reff locations. Comparison of proﬁles of u′u′ ((ﬁgure 6(c)) show a slight diﬀerence in the peak
+values at the leading edge of the jet at the ﬁrst two locations. Good agreement is obtained at y/reff = 1.0d.
+Note that this proﬁle, when scaled using r, in ﬁgure 4(c) showed the most diﬀerence between the simulation and
+the experiment. Figure 6(d) shows a comparison of u′v′. At the ﬁrst two stations, a very good agreement is
+observed, while the proﬁles at the farthest station show a diﬀerence. The experimental peaks appear to occur
+slightly more downstream of the jet–exit than seen in the proﬁles obtained from the computation. Overall, for
+all the quantities compared and at all the locations, the agreement presented is quite reasonable, particularly,
+when seen in the context of the sharp gradients that the proﬁles possess (e.g. v′v′ and u′v′ at y/reffd = 0.1).
+The comparisons shown above (ﬁgures 4, 5 and 6) can be summarized as follows :
+• Velocity and intensity proﬁles show signiﬁcant diﬀerences when plotted on axes scaled using r. Experimental
+velocity and intensity peaks are higher than those computed. This suggests that the velocity ratio r does
+not completely scale the ﬂow ﬁeld.
+• Jet trajectories,plotted on axes scaled with rd show the experimental trajectory to penetrate deeper into
+the crossﬂow than that from the simulation. When plotted on axes scaled using reffd, the trajectories
+show a better collapse.
+• Re-scaling the proﬁles with reff brings the proﬁles signiﬁcantly closer. This suggests that a velocity ratio
+reff based on the momentum (and which accounts for the density ratio) is more applicable than r to scale
+8 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 9 ---
+
+y/d
+x/d
+(a)
+y/d
+z/d
+(b)
+Figure 7.
+(a)Instantaneous contours of spanwise velocity (w) on the symmetry plane. (b)Instantaneous contours
+of velocity (u) on the end-on plane (x/d = 0).
+the ﬂow ﬁeld.
+B.
+Velocity Field
+Figure 7(a) shows the instantaneous contours of spanwise velocity (w) on the symmetry plane. Note the small
+scales of motion seen inside the pipe and close to the jet–exit. Note that the crossﬂow ﬂuid upstream of and
+above the jet shows zero spanwise velocity (w) and that the crossﬂow ﬂuid downstream of the jet–exit shows
+a small velocity. The extent of the jet on the symmetry plane is, thus, well represented by these contours and
+provide an idea of the jet–width on the symmetry plane. Also shown is an instantaneous streamline on the
+symmetry plane passing through the center of the jet–exit. It may be observed that the jet is wider downstream
+of this streamline (positive x side of the centerline) as compared to the upstream side. This asymmetry has been
+noted by Su & Mungal (2004, ﬁgure 8) and they cite the reason to be due to the ‘jet ﬂuid that is stripped away
+from the developing region of the jet by the crossﬂow and is deposited in the wake region’. This suggests that the
+jet ﬂuid seen downstream of the streamline exits the jet–exit lying on the periphery (of the jet) and not on the
+symmetry plane. Also note that the crossﬂow ﬂuid has a higher momentum upstream side of the jet (negative
+x side of the jet centerline) as compared to the downstream side (the ‘wake’ region) of the jet. This diﬀerence
+in momentum could also aid in accentuating the above seen asymmetry in the jet width. Such an asymmetry is
+also observed in ﬁgure 3(b) where the time–averaged velocity contours are shown. Instantaneous contours of the
+streamwise velocity (u) on the end–on plane (x/d = 0) are shown on ﬁgure 7(b). The direction of the crossﬂow
+ﬂuid, in this ﬁgure, is into the plane of the paper. Small scale ﬂow features are clearly seen inside the pipe
+and near the jet–exit as the jet ﬂuid exits into the crossﬂow. The three–dimensionality of the ﬂow ﬁeld is also
+apparent. Outside this interaction region (past about 5 to 8 diameters away from the jet–exit), the crossﬂow
+ﬂuid appears relatively quiescent. The contours show the crossﬂow boundary layer thickness to reduce, close to
+the jet–exit. This is due to the acceleration of the crossﬂow ﬂuid as it ﬂows past (around) the jet.
+As mentioned earlier, the inﬂow condition at the pipe entrance is a time–dependent velocity ﬁeld from the
+computation of a fully developed turbulent ﬂow in a pipe. The length of pipe included in the domain allows the
+jet to develop naturally prior to exiting into the crossﬂow. Figure 8(a) shows the velocity (v) proﬁles on the
+symmetry plane across the pipe diameter at diﬀerent stations parallel to the wall (x–z plane). Shown are the
+proﬁles at y/d = –2, –1, 0, 1, 2, and 3. Note that the ﬁrst three proﬁles shown (y/d = –2, –1 and 0) do not
+diﬀer much from each other. This would suggest that the length of pipe used in the computations is suﬃcient
+to model the problem. The diﬀerences, though small, between the proﬁle at the pipe inlet and the proﬁle at the
+jet–exit, suggest the necessity of including some length of pipe in the computational domain. This aspect has
+been earlier mentioned by Yuan & Street (1999) and Muppidi & Mahesh (2005). The proﬁles in ﬁgure 8(a) show
+that moving away from the jet–exit, as might be expected, the peak velocity decreases and the peak shifts to
+9 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 10 ---
+
+v/u∞
+x/d
+-0.5
+-0.25
+0
+0.25
+0.5
+0
+2
+4
+6
+8
+(a)
+v′v′
+x/d
+-0.5
+-0.25
+0
+0.25
+0.5
+0
+0.5
+1
+1.5
+2
+2.5
+3
+(b)
+Figure 8. Proﬁles of velocity(v) and turbulent intensity (v′v′) across the jet diameter at diﬀerent stations parallel
+to the wall :
+y/d = –2,
+–1,
+0,
+1,
+2 and
+3.
+the right. The jet decelerates as it interacts with the crossﬂow, and the momentum of the crossﬂow forces the
+jet to move to the right, hence shifting the location of the peak velocity. proﬁles of turbulent intensity (v′v′)
+are presented in ﬁgure 8(b). At the inﬂow of the pipe, the proﬁle shows two peaks of almost equal value and is
+symmetric about the origin. As the jet ﬂuid gets closer to the jet–exit, the proﬁle begins to lose the symmetry.
+Both the peaks are shifted to the right, and the peak on the right side (downstream edge) has a value higher
+than that of the peak on the left side (upstream edge) of the origin. Once the ﬂuid exits the jet and interacts
+with the crossﬂow, there is a signiﬁcant increase in the turbulent intensity as is clearly seen. Also noticeable is
+the shift of the locations of the peak intensity in the direction of the crossﬂow.
+C.
+Evolution of the jet
+x
+y
+s
+n
+z
+θ
+Figure 9. Schematic of the axes used to show the evolution of the jet along the trajectory. θ is the angle by which
+the x–y axes are rotated about the z–axis to obtain the s–n axes system.
+It is well known that as a jet issues into the crossﬂow, not only does it deﬂect in the direction of the crossﬂow,
+but also forms a pair of counter–rotating vortices. The counter–rotating vortex pair (CVP) has been considered
+to be a dominant feature of this ﬂow and has been observed to persist far downstream (Keﬀer & Baines 1963,
+Pratte & Baines 1967, Kelso et al. 1996). It is convenient to study the evolution of the jet in a coordinate system
+that is aligned with the jet. A schematic of this coordinate system is presented in ﬁgure 9. At any point along
+the centerline of the jet (deﬁned by the mean jet trajectory) a new coordinate system s–n is obtained by rotating
+10 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 11 ---
+
+the x–y axes about the z–axis. The angle of rotation is θ. Very close to the jet–exit, θ ∼90◦. In the far–ﬁeld,
+when the jet is horizontal, θ ∼0 and the s–n axes are the same as the x–y axes. The z–coordinate is the same
+in both the coordinate systems. On the s–n plane, note that s is the coordinate along the jet centerline, and
+n is the coordinate normal to the centerline. By a simple coordinate transformation, the velocity ﬁeld can be
+expressed in terms of us, un and w, along the s,n,z–axes. Figure 11 shows the jet on planes perpendicular to
+the jet at diﬀerent s locations. The in–plane coordinates are z and n. Shown are the contours of out–of–plane
+velocity (us) along with a few in–plane streamlines. The origin on these planes indicates the location where the
+jet centerline crosses the plane. The plots are at locations s = d, 4d, 7d, 10d, 13d and 15d. At these locations, θ
+is, respectively, 89.75◦, 81.44◦, 62.26◦, 40.71◦, 30.3◦and 24.49◦.
+The cross–section of the jet changes along the jet trajectory. Close to the jet–exit (s = d, ﬁgure 11a), the jet
+has a circular cross–section, and the highest velocity is seen in the middle of the jet cross–section, around the
+centerline. Away from the jet–exit, the jet cross–section begins to ﬂatten at the trailing edge (ﬁgures 11b and
+c) giving the jet a ‘kidney–shaped’ structure, and even further away (ﬁgures 11d–f), velocity contours show the
+trailing edge to move closer to the leading edge. The higher velocity contours, away from the jet–exit, are seen
+on the edges of the jet cross–section and the ﬂuid in the middle appears to have a relatively lower velocity.
+At s = d, streamlines show a signiﬁcant entrainment of the crossﬂow ﬂuid by the jet. This entrainment
+appears to inﬂuence (entrain) crossﬂow ﬂuid that is as far as 3d away from the jet center. At the trailing edge
+of the jet, the streamlines show the presence of a vortex pair, restricted to a small spatial region. When s =
+4d, the streamlines do not show any entrainment of the crossﬂow ﬂuid, and roughly resemble the ﬂow past a
+circular obstacle. The counter–rotating vortex pair (CVP) is clearly seen and seems to extend across the jet.
+In general, moving away from the jet–exit, the size of the CVP appears to increase. However, the jet appears
+slightly displaced from the CVP, particularly when s > 4d. The velocity contours indicate the jet to be above
+(+’ve n side) the CVP. This explains why the trajectory of a jet deﬁned as the center streamline penetrates
+deeper into the crossﬂow than a trajectory deﬁned based on the vorticity (Fearn & Weston 1974). Imagine the
+jet to carry a passive scalar. Due to the CVP being below the origin, and because the leading edge of the the
+jet is close to the origin, it might be guessed that comparatively more ﬂuid containing the scalar would be seen
+below the origin (‘-’ve n side) than above the origin. As mentioned earlier, the origin represents the point where
+the center streamline crosses the z–n plane. Hence, a trajectory based on the scalar centerline would penetrate
+less into the crossﬂow than the center streamline. Note that moving away from the jet–exit, the size of the jet
+cross–section and that of the CVP increases, which would suggest that the diﬀerence between the two trajectories
+increases with the distance from the jet–exit.
+Figures 11(d)–(f) also show the horseshoe vortex close to the wall. These horseshoe vortices are formed
+upstream of the jet, similar to the ones formed around an obstacle in a boundary layer ﬂow. They wrap around
+the jet and extend far into the downstream. The horseshoe vortices have been studied in detail, notably by
+Krothapalli et al. (1990) for a square jet in crossﬂow and by Kelso & Smits (1995) for a round jet in crossﬂow.
+Note that since the planes are not perpendicular to the wall, ﬁgures 11(d)–(f) do not show the true proﬁle of the
+horseshoe vortex.
+D.
+Jet trajectory
+The trajectory of the jet has been the subject of considerable investigation. Models for jet trajectories have been
+suggested by Broadwell & Breidenthal (1984), Karagozian (1986), Hasselbrink & Mungal (2001) and Muppidi
+& Mahesh (2005). Broadwell & Breidenthal consider the jet–exit as a point source of momentum and, using
+similarity theory, conclude that the global length scale in this problem is ‘rd’. The trajectory is scaled as
+y
+rd = A
+ x
+rd
+B
+(3)
+where A and B are constants. Pratte & Baines (1967) obtain A = 2.05 and B = 0.28 from their experimental
+results. Margason (1993) provides a list of experimental values for A and B. Various experimental results in
+the literature provide a scatter in the value for these constants, 1.2 < A < 2.6 and 0.28 < B < 0.34. Muppidi &
+Mahesh (2005) show, by plotting trajectories from a few experiments on rd axes, that this rd scaling does not
+completely collapse trajectories and hence results in a considerable scatter (Muppidi & Mahesh (2005), ﬁgure
+1). One reason for this lack of collapse is that the near–ﬁeld of the jet-exit and jet trajectory depend not only
+on the velocity ratio r but also on the velocity proﬁles of the jet and of the crossﬂow. By performing controlled
+11 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 12 ---
+
+simulations at two velocity ratios, two velocity proﬁles for the jet and by varying the crossﬂow boundary layer
+thickness, it was shown that rd scaling is insuﬃcient to scale the trajectories (Muppidi & Mahesh (2005), ﬁgures
+7 & 8). A scaling law was proposed which would take the velocity proﬁle parameters into account, to scale the
+trajectory.
+The jet trajectory was explained in terms of the competing inertias of the jet and of the crossﬂow. A near
+ﬁeld parameter ‘h’ was deﬁned as the height until which the jet remained vertical. Under the hypothesis that
+at h, the inertia of the jet was comparable to the pressure gradient applied by the crossﬂow on the jet (and
+hence to the momentum ﬂux of the crossﬂow), the analytical equation relating h to the diﬀerent parameters was
+presented as
+Z h
+0
+d
+ucf
+u∞
+2
+dy
+=
+Cmr2π d2
+j
+4 ,
+(4)
+where h appears as the integral limit on the left hand side, ucf is the crossﬂow velocity (and a function of y),
+and dj is eﬀective diameter of the jet deﬁned as
+ρj
+Z
+A
+u2
+j dA = πd2
+j
+4 ρjuj2
+(5)
+where uj on the left hand side is a function of the spatial coordinate (x, z in the present problem) and uj is the
+mean jet velocity. Note that dj allows the jet velocity proﬁle to be parameterized. It was shown that equation
+4 displayed the dependence of h on r and the jet and crossﬂow velocity proﬁles that was consistent with the
+observed results of the simulations. An analytical method to estimate h was presented by approximating the
+crossﬂow velocity ucf as a piece–wise linear function of y :
+h
+d
+=
+(
+3
+4πCmr2 δ2d2
+j
+d4
+) 1
+3
+, when h ≤δ,
+and
+h
+d
+=
+2
+3
+δ
+d
++
+π
+4 Cmr2 d2
+j
+d2 , when h ≥δ.
+(6)
+and a scaling law
+y
+rd = A′  x
+rd
+B h
+d
+C
+(7)
+was proposed, where C is 0.15 and A′ and B are constants. Since equation 7 contains h, eﬀects of velocity proﬁles
+of the jet and the crossﬂow, along with r, on the jet trajectory are taken into account. Figure 15 in Muppidi
+& Mahesh (2005) shows that scaling jet trajectories using equation 7 reduces the scatter signiﬁcantly, thereby
+supporting the use of h to account for the eﬀect of the jet and crossﬂow velocity proﬁles on the jet–trajectory.
+The scope of that study (Muppidi & Mahesh 2005) was conﬁned to scaling the trajectories from the diﬀerent
+simulations using h. A way to predict jet trajectories using h is now presented.
+As mentioned previously, values of A found in the literature demonstrate a large scatter in the range of
+1.2–2.6. An important reason ascribed to this scatter is the diﬀerent deﬁnitions used to deﬁne the jet trajectory
+(Hasselbrink & Mungal 2001). Despite a complete consistency in this deﬁnition (the trajectory is deﬁned as the
+center streamline on the symmetry plane), Muppidi & Mahesh (2005) obtain values of A ranging between 1.45
+and 2.39 (see 1). B had a comparatively small range, 0.32 < B < 0.34. A comparison of equations 3 and 7
+shows that the constant A from the ﬁrst equation is now substituted by the term A′(h/d)C in the second. Table
+1 provides the values of A, h and A′ from the nine simulations reported in Muppidi & Mahesh (2005). It maybe
+observed that the spread of A′ is less than that seen in A, and more signiﬁcantly, a majority of values for A′ seem
+to lie around 1.8. An average value for A′ obtained from table 1 is 1.85. In order to use equation 7 to predict
+the jet trajectory, an estimate for h is required. Using equation 6 and the parameters for the current simulation
+(δ = 1.32d, dj = 1.05d, r = 5.7 ), the estimated value for h is 2.29d. Since h is deﬁned as the height up to
+which the trajectory is vertical, this value can also be extracted as the y coordinate of the trajectory at a small
+distance downstream of the jet–exit. The value of h thus extracted (as the y coordinate at x = 0.05 d) from
+the trajectory provides h = 2.62 d, a diﬀerence of about 11%. Approximating the crossﬂow velocity proﬁle with
+the piece–wise linear function might be a reason for this discrepancy. Thus, having computed h, and taking the
+12 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 13 ---
+
+h
+A
+A′
+1
+0.608268
+2.0215
+2.1780
+2
+0.528857
+1.75505
+1.9310
+3
+0.323492
+1.58726
+1.8800
+4
+0.255544
+1.45267
+1.7826
+5
+2.573220
+2.13378
+1.8517
+6
+2.375180
+1.99401
+1.7513
+7
+1.844540
+2.00177
+1.8261
+8
+1.764860
+1.86196
+1.7099
+9
+3.145660
+2.39052
+2.0129
+Table 1. Values of near–ﬁeld scaling parameter h, and the constants A and A′, from the simulations in Muppidi &
+Mahesh (2005).
+y/rd
+x/rd
+0
+1
+2
+3
+4
+5
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+Figure 10.
+Jet trajectory predicted using equation 7 (
+) compared to the jet trajectory obtained from the
+simulation (
+).
+value of A′ as 1.85, the jet trajectory can be predicted. Figure 10 shows the predicted trajectory along with the
+trajectory obtained from the simulations. Note that the agreement is reasonable. Even as far away as 4rd (about
+23 diameters downstream of the jet–exit) downstream of the jet–exit, the diﬀerence between the predicted and
+the actual trajectories is about 9%, which appears reasonable.
+V.
+Summary
+Direct numerical simulations of a round turbulent jet in crossﬂow are performed. The conditions are the
+same as the experiments of Su & Mungal (2004). Velocity and turbulent intensity proﬁles from the simulation
+are compared to those from the experiments. It is seen that the proﬁles, when scaled with the velocity ratio r
+do not completely agree. The cause of the discrepancy is shown to be the jet–to–crossﬂow density ratio in the
+experiments, and this factor explains the diﬀerences seen. The proﬁles are re–scaled with the ‘eﬀective velocity
+ratio’ reff and it is shown that such re–scaling brings the proﬁles and the jet–trajectory from the simulations
+closer to the experimental results and the agreement observed is good. The diﬀerent stages seen as the jet evolves
+from one of a circular cross–section in the near–ﬁeld to a ‘kidney–shaped’ structure in the far ﬁeld are presented.
+The evolution of the CVP along the length of the jet is also studied. The CVP forms very close to the jet–exit
+on the downstream edge of the jet. Moving away from the jet–exit, the CVP appears to increase in size. A
+13 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 14 ---
+
+study of this evolution also explains why a jet trajectory based on the center streamline penetrates deeper than
+one deﬁned based on either the vorticity or the scalar concentration. The jet trajectory is predicted using the
+scaling law proposed by Muppidi & Mahesh (2005) and the prediction is shown to be satisfactory. Scaling and
+predicting jet trajectories in this manner aids in accounting for diﬀerent jet and crossﬂow velocity proﬁles that
+the existing rd scaling cannot.
+Acknowledgments
+This work was supported by the National Science Foundation under grant CTS–0133837. Computer time
+was provided by The National Center for Supercomputing Applications (NCSA), Minnesota Supercomputing
+Institute (MSI) and the San Diego Supercomputer Center (SDSC).
+References
+1Andreopoulos, J. & Rodi, W. 1984 Experimental investigation of jets in a crossﬂow J. Fluid Mech. 138: 93–127.
+2Broadwell, J.E. & Breidenthal, R.E. 1984 Structure and mixing of a transverse jet in incompressible ﬂow J. Fluid Mech. 148:
+405–412.
+3Chochua, G., Shyy, W., Thakur, S., Brankovic, A., Lienau, K., Porter, L. & Lischinsky, D. 2000 A computational and
+experimental investigation of turbulent jet and crossﬂow interaction. Numer. Heat Transfer, Part A. 38: 557–572.
+4Eggels, J.G.M., Unger, F., Weiss, M.H., Westerweel, J., Adrian, R.J., Friedrich, R. & Nieuwstadt, T.M. 1994 Fully developed
+turbulent pipe ﬂow : a comparison between numerical simulation and experiemnt. J. Fluid Mech. 268: 175 –209.
+5Fearn, R.L. & Weston, R.P. 1974 Vorticity associated with a jet in crossﬂow. AIAA J. 12: 1666–1671.
+6Fric, T.F. & Roshko, A. 1994 Vortical structure in the wake of a transverse jet J, Fluid Mech. 279: 1–47.
+7Hasselbrink, E.F & Mungal, M.G. 2001 Transverse jets and jet ﬂames. Part 2. Velocity and OH ﬁeld imaging J. Fluid Mech.
+443: 27–68.
+8Karagozian, A.R. 1986a An analytical model for the vorticity associated with a transverse jet AIAA J. 24: 429–436.
+9Kamotani,Y. & Greber, I. 1972 Experiments on turbulent jet in a crossﬂow AIAA J. 10: 1425 – 1429.
+10Keﬀer, J.F. & Baines, W.D. 1963 The round turbulent jet in a cross wind J. Fluid Mech. 15: 481–496.
+11Kelso, R.M. & Smits, A.J. 1995 Horseshoe vortex systems resulting from the interaction between a laminar boundary layer
+and a transverse jet Phys. Fluids 7: 153–158.
+12Kelso, R.M., Lim, T.T & Perry, A.E. 1996 An experimental study of round jets in cross–ﬂow. J. Fluid Mech. 306: 111–144.
+13Krothapalli, A., Lourenco,L. & Buchlin, J.M. 1990 Separated ﬂow upstream of a jet in a crossﬂow AIAA J. 28: 414–420.
+14Mahesh, K., Constantinescu, G. & Moin, P. 2004 A numerical method for large–eddy simulation in complex geometries. J.
+Comput. Phys. 197: 215–240.
+15Margason, R.J. 1993 Fifty years of jet in crossﬂow research. In AGARD Symp. on a jet in Cross Flow, Winchester, UK,
+AGARD CP–534.
+16Muppidi, S. & Mahesh, K. 2005 ‘Study of trajectories of jets in crossﬂow using direct numerical simulations’ J. Fluid. Mech.,
+accepted for publication.
+17Pratte, B.D. & Baines, W.D. 1967 Proﬁles of the round turbulent jet in a cross ﬂow J. Hydraul. Div., ASCE 92 (HY6), 53–64.
+18Schlichting, H.T. 1963 Boundary Layer Theory, McGraw Hill.
+19Schluter, J.U. & Schonfeld, T. 2000 LES of Jets in Crossﬂow and its Application to a Gas Turbine Burner Flow Turbulence
+and Combustion 65(2): 177–203.
+20Shan, J.W. & Dimotakis, P.E. 2001 Turbulent mixing in transverse jets GALCIT FM:2001.006.
+21Sherif, S.A. and Pletcher, R.H. 1989 Measurements of the Thermal Characteristics of Heated Turbulent Jets in Cross Flow.
+ASME J. Heat Transfer 111: 897–903.
+22Smith, S.H. & Mungal, M.G. 1998 Mixing, structure and scaling of the jet in crossﬂow J. Fluid Mech. 357: 83–122.
+23Su, L.K. & Mungal, M.G. 2004 Simultaneous Measurement of Scalar and Velocity Field Evolution in Turbulent Crossﬂowing
+Jets J. Fluid Mech. 513: 1–45.
+24Yuan, L.L. & Street, R.L. 1998 Trajectory and entrainment of a round jet in crossﬂow Phys. Fluids 10: 2323–2335.
+25Yuan, L.L., Street, R.L. & Ferziger, J.H. 1999 Large–eddy simulations of a round jet in crossﬂow J. Fluid Mech. 379: 71–104.
+14 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115
+
+
+--- Page 15 ---
+
+n
+z
+-5
+0
+5
+-8
+-7
+-6
+-5
+-4
+-3
+-2
+-1
+0
+1
+2
+3
+(a)
+n
+z
+-10
+-5
+0
+5
+-12
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+(b)
+n
+z
+-10
+-5
+0
+5
+-12
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+(c)
+n
+z
+-10
+-5
+0
+5
+10
+-12
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+6
+(d)
+n
+z
+-10
+-5
+0
+5
+10
+-12
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+6
+(e)
+n
+z
+-10
+-5
+0
+5
+10
+-12
+-10
+-8
+-6
+-4
+-2
+0
+2
+4
+6
+(f)
+Figure 11.
+Evolution of the jet at diﬀerent points along the jet centerline. Shown are contours of out–of–plane
+velocity and on planes normal to the jet. The location of the jet is (a) s = d, (b) s = 4d, (c) s = 7d, (d) s = 10d, (e)
+s = 13d and (f) s = 15d.
+15 of 15
+American Institute of Aeronautics and Astronautics Paper 2005-1115

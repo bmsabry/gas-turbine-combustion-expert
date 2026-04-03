@@ -1,0 +1,861 @@
+
+--- Page 1 ---
+
+Qingguo Zhang
+Santosh J. Shanbhogue
+Tim Lieuwen
+School of Aerospace Engineering,
+Georgia Institute of Technology,
+Atlanta, GA 30332-0150
+Dynamics of Premixed H2/CH4
+Flames Under Near Blowoff
+Conditions
+Swirling ﬂows are widely used in industrial burners and gas turbine combustors for ﬂame
+stabilization. Several prior studies have shown that these ﬂames exhibit complex dynam-
+ics under near blowoff conditions, associated with local ﬂamelet extinction and alteration
+in the vortex breakdown ﬂow structure. These extinction events are apparently due to the
+local strain rate irregularly oscillating above and below the extinction strain rate values
+near the attachment point. In this work, global temporally resolved and detailed spatial
+measurements were obtained of hydrogen/methane ﬂames. Supporting calculations of
+extinction strain rates were also performed using detailed kinetics. It is shown that ﬂames
+become unsteady (or local extinctions happen) at a nearly constant extinction strain rate
+for different hydrogen/methane mixtures. Based upon analysis of these results, it is sug-
+gested that classic Damköhler number correlations of blowoff are, in fact, correlations
+for the onset of local extinction events, not blowoff itself. Corresponding Mie scattering
+imaging of near blowoff ﬂames also was used to characterize the spatio-temporal dy-
+namics of holes along the ﬂame that are associated with local extinction.
+DOI: 10.1115/1.4000601
+Keywords: swirling, hydrogen, lean blowout
+1
+Introduction
+Swirling ﬂows are widely used in industrial burners and gas
+turbine combustors for ﬂame stabilization. A number of opera-
+tional and performance issues are of concern in modern highly
+tuned dry low NOx DLN combustion systems utilizing swirl
+stabilized ﬂames, including blowout, ﬂashback, combustion insta-
+bilities, and emissions 1,2. The issue of lean blowoff is the focus
+of this study, a concern due to the requirement to operate DLN
+systems under very fuel lean conditions and, therefore, close to
+their blowoff limits. Flames can only be stabilized in high velocity
+reactant streams over a certain range of conditions. Determining
+these conditions, and those where the ﬂame cannot be stabilized—
+referred to here as blowoff—is an important issue in any practical
+combustion device.
+A large literature on predicting, measuring, and correlating
+blowoff limits already exists 3–6. Several different theories or
+physical considerations have been used in past blowout correla-
+tion studies, such as those of Zukoski and Marble 7, Spalding
+8, Longwell 9,10, and others. As noted by Glassman 4, how-
+ever, they lead to essentially the same form of correlation that
+relates the blowoff limits to a Damköhler number, i.e., ratio of a
+ﬂuid mechanic and chemical kinetic time, res/chem. The work of
+Hoffman et al. 3 is of particular interest here, as it demonstrated
+that related scaling could be used to correlate blowoff limits in
+swirling premixed ﬂames.
+We next brieﬂy review several prior phenomenological charac-
+terizations of blowoff. Longwell et al. 9 suggested that blowoff
+occurs when it is not possible to balance the rate of entrainment of
+reactants into the recirculation zone, viewed as a well-stirred re-
+actor, and the rate of burning of these gases. Since entrainment
+rates scale as D/U 11, this criterion reduces to a Damköhler
+number blowoff criterion, using a chemical time that is derived
+from the well-stirred reactor, PSR. A similar idea relates to an
+energy balance between heat supplied by the hot recirculating
+ﬂow to the fresh gases and that released by reaction 12–15. In
+this view, blowoff occurs when the heat required by the combus-
+tible stream exceeds that received from the recirculation zone.
+This leads to the same entrainment based, ﬂuid mechanical time
+scaling as above, and the resultant similar Damköhler number
+blowoff criterion.
+A different view is that the contact time between the combus-
+tible mixture and hot gases in the shear layer must exceed a
+chemical ignition time 8,15–17. For example, Zukoski 16,18
+suggested that ignition of the incoming fresh unburnt mixture oc-
+curs in the shear layer as it mixes with combustion products from
+the recirculation zone behind the bluff body. The relevant chemi-
+cal time in this description is an ignition time. The ﬂuid mechanic
+time scaling associates the characteristic dimension by the recir-
+culation zone length, which also being proportional to the bluff
+body size, leads to a similar Damköhler number correlation.
+Finally, several studies have proposed a ﬂamelet based descrip-
+tion based on local extinction by excessive ﬂame stretch 19,20.
+It is difﬁcult to determine which of the above descriptions most
+accurately describes the controlling processes based on analyses
+of Da correlations alone because the different velocity, length, and
+chemical time scales generally lead to comparable groupings of
+the data. However, improvements in fundamentals of turbulent
+combustion provide further insight for evaluation of these differ-
+ent blowoff descriptions. As emphasized by Driscoll 21 in a
+recent review, there is little evidence of the existence of distrib-
+uted combustion or well-stirred reactors. Rather, modern diagnos-
+tics and computations have demonstrated that ﬂamelets exist un-
+der a very broad range of conditions; reaction regions deemed to
+be spatially distributed from line of sight images have often been
+shown to consist of highly contorted three-dimensionally oriented
+reaction sheets when visualized with planar laser imaging tech-
+niques. This point is illustrated in Fig. 1, which illustrates two OH
+planar laser induced ﬂuorescence PLIF images and a single short
+time exposure line of sight image of the same swirling ﬂame.
+There is some possibility of the existence of a “thickened ﬂame-
+let” regime, where turbulent diffusivity plays a role due to “stir-
+ring” by Kolmogorov scale eddies in the preheat zone, but evi-
+Contributed by the International Gas Turbine Institute of ASME for publication in
+the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript received May
+8, 2009; ﬁnal manuscript received September 3, 2009; published online August 5,
+2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111502-1
+Copyright © 2010 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+dence is lacking at this point 21. As such, blowoff theories
+postulating the existence of well-stirred reactor regimes, such as
+in the recirculation zone, probably do not correctly capture the
+controlling processes. Furthermore, a critical component to sev-
+eral of the above described blowoff theories is heat exchange from
+the hot wake to the reactants. However, given the fact that a pre-
+mixed ﬂame acts as an interface between reactants and products,
+there is no “contact” between the wake zone and fresh reactants,
+except for the thermodiffusive processes and possibly mixing by
+Kolmogorov scale eddies conﬁned to the preheat zone of the
+ﬂamelet. In other words, no such exchange occurs outside of
+points very near the attachment region, except for ﬂames near
+blowoff where extensive holes in the ﬂame sheet exist.
+Given these points, the subsequent discussion will focus on
+ﬂamelet based descriptions of the controlling blowoff processes,
+which are also captured by Damköhler number scalings. Extinc-
+tion of ﬂamelets occurs through two mechanisms: heat transfer
+and ﬂame straining 23,24. Flame strain is apparently the domi-
+nant effect, with heat/radical losses only dominant very near the
+bluff body. Flame strain occurs due to gradients in ﬂow velocity,
+such as if the ﬂame resides in a shear layer, or ﬂame curvature,
+such as when it is rolled up in a vortex. Flames are only capable
+of withstanding certain levels of strain before extinction, denoted
+as the extinction strain rate, ext. As detailed in Ref. 23, the
+extinction strain rate is a function of fuel composition particu-
+larly its molecular weight relative to air, stoichiometry, and
+chemical time scale. The inverse of the extinction strain rate forms
+a chemical time, ext=1/ESR, whose relationship to other kinetic
+time scales is discussed in a number of references 25–27.
+The local Damköhler number deﬁnition used in this paper can
+be written as a ratio of the extinction ﬂame strain rate and the ﬂow
+strain rate
+Da = flow
+ESR
+= ext
+
+1
+where  denotes the reference strain rate, inversely proportional to
+the reference ﬂuid mechanical time, flow.
+As suggested in several prior studies, it is clear that ﬂamelet
+extinction occurs near blowoff, but does not immediately lead to
+blowoff 28,29. In other words, blowoff does not occur the instant
+when ext= at some point along the ﬂame. As such, the presence
+of strain induced extinction of the ﬂame sheet near blowoff con-
+ditions, and the fact that the Da describes such extinction, is use-
+ful, but not a complete description of the blowoff phenomenon.
+Local extinction is known to lead to substantial unsteadiness in
+ﬂames near blowoff 20,30–33. Holes on the ﬂame sheet are
+initiated at points of high ﬂame strain. This topic has received
+extensive discussion in the more general turbulent combustion
+literature 34–36. The formation of “edges” that are associated
+with holes on the ﬂame sheet is a more general combustion prob-
+lem that has received recent attention for both premixed and non-
+premixed ﬂames 37–41, including a recent review by Buckmas-
+ter 42. Once a ﬂame hole is initiated by excessive local strain/
+scalar dissipation rates, it can stay the same size, grow, or shrink,
+associated with whether the edge ﬂame stays stationary, retreats,
+or advances into the hole, respectively. In addition, the hole is
+convected with the mean ﬂow at the local tangential mean ﬂow
+velocity, as will be discussed further in this paper. For premixed
+ﬂames, it is important to note that the advance/retreat velocity of
+the ﬂame edge is not related to the laminar burning velocity. Fur-
+thermore, while ﬂame holes appear at points where the local strain
+rate, , exceeds ext in the quasisteady case, the ﬂame edge does
+not correspond to the point in the ﬂow where =ext. Rather, Liu
+and Ronney’s results 41 show that the ﬂow strain rate at the
+ﬂame edge value, edge, is lower than ext by a factor of up to two
+i.e., 0.5edge/ext1. In other words, once a hole is initiated
+in a region of high strain, it can lead to ﬂamelet extinction at
+adjoining points that would otherwise not have extinguished at the
+local conditions.
+It has been suggested that ﬂames approach blowoff in two
+phases, the ﬁrst characterized by local extinction on the ﬂame
+sheet, and the second by large-scale alteration of the ﬂuid mechan-
+ics. The objective of this study is to characterize these dynamical
+blowoff processes in this ﬁrst phase. This study closely follows
+several related studies of our group, which have characterized the
+dynamic blowoff process of pilot, bluff body, and swirl stabilized
+ﬂames 29,43. In the swirling ﬂame, Muruganadam et al. 29
+and Zhang et al. 44 showed that the swirling ﬂame tends to
+oscillate between extinction and re-ignition phases. The number of
+extinction/re-ignition events per unit time monotonically grows as
+blowoff is approached. Very near blowoff, the entire structure of
+the vortex breakdown appears to change in a complex manner,
+with various helical ﬂow features appearing and reappearing in a
+sporadic fashion.
+2
+Instrumentation, Experimental Facility, Experimen-
+tal Procedures, and Data Reduction
+Measurements were obtained in a lean premixed swirl combus-
+tor, which was duplicated from an experimental rig at Sandia Na-
+tional Laboratories 45. This was done in order to have the same
+test facility to facilitate comparisons of data and simulations with
+the Sandia group. The combustor is schematically shown in Fig. 2.
+The facility consists of a swirler/nozzle, combustor, and exhaust
+sections. Premixed gas, consisting of H2/CH4 mixtures, and air
+ﬂows through a swirler/nozzle section. The nozzle is an annular
+tube with inner diameter of 28 mm. The center body has an outer
+diameter of 20 mm. The overall ﬂow area remains constant at
+3.0 cm2 inside the nozzle. Tests were performed with a six-vane
+Fig. 1
+Two instantaneous OH PLIF images of acoustically
+forced swirling ﬂame „left and middle… and associated line of
+sight image „right…. Flow bottom to top. Reproduced from Ref.
+†22‡.
+Fig. 2
+Schematic of the combustor facility with Mie measure-
+ment window and optical probe
+111502-2 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+45 deg swirler, which is located in the annulus between the cen-
+terbody and nozzle wall. The theoretical swirl number, which is
+0.85, is calculated from the relation 46
+S = 2
+3
+1 −dh/d3
+1 −dh/d2tan 
+2
+where dh and d are the diameters of centerbody and swirler, re-
+spectively, and  is the swirler vane angle. The fuel is injected 150
+cm upstream of the combustor to achieve a premixed condition.
+The combustor consists of a 305 mm 12 in. long quartz tube,
+with a 115 mm and 120 mm inner and outer diameter, respec-
+tively. It rests in a circular groove in a base plate. An exhaust
+nozzle has a 152 mm contraction section with the area ratio 0.44,
+and a 102 mm long, 51 mm inner diameter chimney section.
+The air and fuel ﬂow rates are measured with a ﬂowmeter and
+mass ﬂow controllers MFCs, respectively. Both the ﬂowmeter
+and MFCs were calibrated using the speciﬁc gas with which they
+were to meter. The maximum resultant uncertainty in ratios is
+0.01–0.02 for most of the cases. The largest uncertainty in  of
+0.03 occurs with pure CH4. The air is choked before the mixing
+section, and the premixed air/fuel is choked again inside the inlet
+tube of the combustor not shown upstream of the swirler to
+minimize the impact of perturbations in the combustor impacting
+the fuel/air mixing process.
+All experimental measurements were obtained at a constant
+nozzle exit velocity of 33 m/s. Tests were performed at a combus-
+tor pressure of 1.0 atm and 300 K reactants.
+The Mie scattering test in the combustor was performed using
+particle image velocimetry PIV facility. The system consists of a
+dual head Nd:YAG laser, a high resolution charge coupled device
+CCD camera, a mechanical shutter, and a centralized timing
+generator. In addition a cyclone seeder was used to supply anhy-
+drous aluminum oxide Al2O3 with an average particle size of
+3 m.
+Each laser head delivered a 5 mm 120 mJ/pulse beam at a
+wavelength of 532 nm. The beams pass though an optical arrange-
+ment for generation of a light sheet with desired height and thick-
+ness. This arrangement consisted of a convex spherical f =1 m
+and a convex cylindrical lens f =25.4 mm that resulted in a light
+sheet 1 mm thin at the centre of the combustor. The CCD camera
+captured the images of the illuminated particles at a resolution of
+16001200 pixels corresponding to 5239 mm2 in frame
+straddling mode. The duration between laser shots was set at
+5 s. In addition the camera was also ﬁtted with a 532 nm laser
+line ﬁlter with a FWHM of 3 nm to restrict any background noise.
+For each image group two images, the ﬁrst image was used.
+In addition, UV radiation from ﬂames was monitored with an
+optical ﬁber bundle NA=0.44, with the head located 46 mm
+above the dump plate of the combustor and 171 mm radially from
+the combustor centerline, see Fig. 2. This volume was placed such
+that light is collected from the lower one-third of the combustor,
+in order to image the inner recirculation zone IRZ. The light
+passes through an interference ﬁlter centered at 308 nm and with
+a full-width-half-maximum FWHM of 10 nm, which corre-
+sponds to the primary spectral region of OH emission. This ra-
+diation was detected by a miniature metal package photomultiplier
+tubes PMT Hamamatsu H5784-04. This PMT has a built-in
+ampliﬁer bandwidth of 20 kHz to convert the current to voltage
+and operates from a 12 VDC source.
+The signal output from the sensors was low pass ﬁltered by a
+Krohn-Hite Model 3362 digital Butterworth ﬁlters and then fed
+into a National Instruments A/D board. The sampling frequency
+was 2 kHz. The low pass ﬁlter frequency for anti-aliasing was
+set at half the sampling frequency, 1 kHz.
+3
+Results and Discussion
+3.1
+Global Dynamics-Observation. The blowoff limits for
+this combustor are indicated by the dashed red line in Fig. 6.
+However, the ﬂame becomes unsteady and exhibits transient be-
+haviors before blowoff. This section presents typical results of
+these ﬂames under near blowoff conditions.
+We ﬁrst present “global,” but time resolved characterization of
+near blowoff dynamics. Figure 3 plots the OH chemiluminescence
+signal from the optical probe see Fig. 2 at three equivalence
+ratios approaching the blowoff value. There is clearly a signiﬁcant
+change in characteristics of these time series as blowoff is
+approached.
+A detail of the time series for a near blowoff case is shown in
+Fig. 4. The regions associated with a drop and rise in chemilumi-
+nescence signal are referred to here as “events,” which are inter-
+preted as local extinction and/or convection of the ﬂame down-
+stream, followed by re-ignition and/or propagation of the ﬂame
+into the mass of unburned reactants, which accumulate due to the
+ﬂame moving downstream. Following the method of Muruganan-
+dam et al. 29, events are deﬁned here as initiating at the point in
+time where the intensity of the signal drops lower than some
+threshold, and ending when the signal goes above a second higher
+Fig. 3
+Time series data of OH signal of CH4 ﬂame at equiva-
+lence ratios of 0.8 „top…, 0.62 „middle…, and 0.51 „bottom…, where
+OHo
+ denotes time average of OH„t…
+Fig. 4
+Time series data of OH signal for methane ﬂame at
+equivalence ratio of 0.54
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111502-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+valued threshold. This second threshold value is needed to elimi-
+nate multiple counts of the same event that oscillates above and
+below the same threshold. For these data, 0.3 and 0.5 of the
+mean were used as the ﬁrst and second thresholds for local ex-
+tinction. These distinctive extinction and re-ignition events span a
+period from O1s to O0.001s, without any obvious periodicity
+or frequency prior to blowoff. As the LBO limit is approached,
+more of these events occur in a given time period and thus the
+time between successive events decreases.
+The average number and duration of events per unit time can be
+quantiﬁed for a given set of prescribed threshold values. Typical
+results are shown in Fig. 5 as a function of equivalence ratio for
+three CH4/H2 mixtures. The test was initiated under stable condi-
+tions with the equivalence ratio decremented over steps of 0.01,
+with 30 s of data taken at each point all the way to blowoff. These
+sweeps were repeated three times and the results averaged. The
+near zero value of the event count far from blowoff, the “knee in
+the curve” associated with the initiation of events, and the mono-
+tonic rise in event count with further reduction in fuel/air ratio are
+evident in the ﬁgure. Similar results are exhibited for three fuel
+blends, with the higher hydrogen ones shifted towards lower
+equivalence ratios, as expected 6, but the curves have similar
+characteristics. The absolute value of equivalence ratio at which
+events begin is a function of the speciﬁc threshold values used to
+ﬂag events, but does not change the trends shown in this ﬁgure.
+An alternative way of plotting these data is indicated by the
+dashed lines in Fig. 6. This ﬁgure plots lines of constant event
+count as a function of equivalence ratio and percentage of H2 in
+the fuel. These data illustrate that these lines are roughly parallel
+to each other.
+3.2
+Global Dynamics-Discussion. This section describes an
+analysis of the above data using computed chemical times. Three
+chemical times were calculated: 1 the “blowoff residence time”
+of a perfectly stirred reactor, PSR, i.e., the minimum residence
+time for which non-negligible reaction progress occurs 2 un-
+stretched laminar premixed ﬂame time scale, given by the ratio of
+the premixed ﬂame thickness and ﬂame speed, /SL
+2. 3 inverse
+of the extinction strain rate of an opposed ﬂow, laminar premixed
+ﬂame, ESR=1/ext, and the ﬁrst two times were determined using
+CHEMKIN software tools PSR and PREMIX, respectively. Extinc-
+tion strain rates were calculated using an arc-length continuation
+method,
+implemented
+in
+COSILAB
+2.0
+using
+the
+GRI
+3.0
+mechanism.
+Referring back to Fig. 6, computations of extinction strain rate
+were also performed for similar ranges of  and CH4/H2 ratios.
+These calculations were interpolated and used to plot isolines of
+extinction strain rates, indicated by the solid black lines. Since all
+geometric and dimensions and ﬂow velocities were ﬁxed, these
+lines also correspond to lines of constant global Damköhler num-
+ber, as will be discussed in the context of Fig. 7.
+Signiﬁcantly, these data show that these iso-event count lines
+are parallel to constant Damköhler number lines, showing that
+each Damköhler number can be associated with a particular event
+rate. Deﬁne the ﬂow time in the Damköhler number deﬁnition, see
+Eq. 1, as D/Uo, where D indicates the diameter of the center-
+body and U0 is the ﬂow speed at nozzle exit. With this deﬁnition,
+event counts of 1 events/s, 2 events/s, and 3 events/s correspond
+to Da=0.5, 0.35, and 0.2, respectively.
+Using these ideas, the data shown in Fig. 5 can be replotted by
+replacing the x-axis with the calculated Damköhler number, see
+Fig. 7. This ﬁgure shows a very similar relationship between
+Damköhler number and event rate across the three different fuel
+blends. Note that the lowest equivalence ratio data shown in Fig.
+5 is not presented in Fig. 7 due to difﬁculties in obtaining con-
+verged chemical time solutions at these points.
+These data can also be used to support the argument that the
+extinction strain rate, ext=1/ESR, as opposed to other kinetic
+time scales, is the most physically meaningful in describing these
+near blowoff dynamics. In many cases, different kinetic time
+Fig. 5
+Dependence of local extinction event frequency on
+equivalence ratio of CH4/H2 ﬂames
+Fig. 6
+Dependence of ext, blowoff limits, and event rate on
+percentage of hydrogen and equivalence ratio. Contour lines of
+extinction strain rate are indicated at 1400 1/s, 1200 1/s, 800 1/s,
+400 1/s, and 200 1/s. These contours were estimated by calcu-
+lating ext at 0/100%, 20/80%, 40/60%, 50/50%, and 75/25%
+H2/CH4 mixtures with equivalence ratio steps of 0.02. Blowoff
+limits and event information „dash lines… were collected for
+0/100, 20/80, 50/50, and 75/25 H2/CH4 mixtures.
+Fig. 7
+Dependence of extinction event rate upon Damköhler
+number of CH4/H2 ﬂames
+111502-4 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+scales, such as those based on PSR or ignition times, are closely
+related and, thus, give comparable Damköhler scaling. However,
+there are substantial variations in chemical time relationships for
+CH4/H2 mixtures with H2 levels greater than about 20%, particu-
+larly between extinction strain rate based time scales and un-
+strained ﬂame or PSR based time scales. Note that the latter is
+purely a kinetic time scale, while the former two time scales also
+depend on diffusive processes. Given the substantial difference in
+diffusivity of the fuel relative to oxidizer with increasing H2 lev-
+els, it then follows that appropriate choice of time scale becomes
+increasingly important with high H2 fuels. To restate, systematic
+differences between different kinetic time scales can be antici-
+pated when comparing over a range of fuels with different diffu-
+sivities. This point is born out in this data. Figure 8 compares
+three calculated chemical times for near blowout conditions at
+constant event rates for CH4/H2 ﬂames. Again, nozzle velocity
+and geometry were ﬁxed so it is reasonable to presume relatively
+constant ﬂuid mechanic time scale. As such, the y-axis on this
+graph is inversely proportional to the global Damköhler number.
+These data show that the extinction based kinetic scale is roughly
+constant across the whole range of H2 levels, while the PSR and
+ﬂame propagation based scales are not.
+Further insight into these results can be obtained by distinguish-
+ing between a global average Damköhler number, Da, such as
+used in plots in the Results section, and the actual instantaneous
+Damköhler number at the ﬂame.1 The actual strain rate is a ﬂuc-
+tuating quantity with a mean and variance given by ¯ and 	k. For
+a given Da and strain ﬂuctuation amplitude and time scale, the
+ﬂame sheet at a given point will be extinguished for some fraction
+of time, 
+. This is illustrated in Figure 9, which reproduces a plot
+from Shanbhogue et al. 28. This ﬁgure plots a notional time
+series of the instantaneous Da value at some position, as well as
+the extinction value and time averaged value, Da. The vertical
+highlighted stripes correspond to regions where the instantaneous
+Da value falls below the extinction value. If Da is decreased e.g.,
+by decreasing fuel/air ratio, the ﬂame sheet is extinguished at this
+point for a larger fraction of time, illustrated by comparing the top
+and bottom ﬁgures. The fraction of time, which the ﬂame is ex-
+tinguished, will be denoted as 
+Consider this extinction fraction, 
+, in further detail. Figure 10
+overlays a hypothetical probability density function of the ﬂame
+strain rate, with the extinction strain rate at a particular point
+along the ﬂame, s. For illustrative purposes, it is assumed that ext
+is a single number, not a distribution itself and that extinction
+occurs at points where the local strain rate, , exceeds the extinc-
+tion strain rate, ext. The latter assumption assumes a quasilocal2
+and quasisteady3 ﬂamelet 47. The fraction of time that the ﬂame
+is extinguished is given by the hatched area under the curve. This
+is given by the integral
+
+s =
+−
+ext−
+P,sd +
+ext+
+
+P,sd
+3
+where ext−and ext+ denote the negative and positive extinction
+strain rates. In order to see the form of the results, consider a
+Gaussian probability density function PDF in general, not a
+good representation of strain rate PDFs, but one that allows for
+illustrative analytical treatment
+P = exp −¯2/2	k
+2
+2	k
+2
+4
+Assuming equality of ext−and ext+, setting ¯ =ref, integrating,
+and rearranging the resulting expression to solve for the average
+Damköhler number, Da=ext/¯, leads to
+Das = ext/¯ = 1 + 2	s
+s erf−11 −
+s
+5
+Or equivalently, the local extinction fraction can be expressed in
+terms of Da and 	/¯ as
+
+s = 1 −erf Das −1
+2	s/¯s
+6
+These expressions relate the fraction of the ﬂame sheet that is
+locally quenched for a given average Damköhler number and
+strain rate ﬂuctuation. They nicely mirror the experimental data
+shown earlier which show that each average Damköhler number is
+1Much of the discussion in this section closely follows arguments from Ref. 28,
+made in the context of bluff body ﬂames.
+2This quasilocal treatment of the ﬂame holes neglects the fact that once a ﬂame
+hole is initiated, it can advance into a region with a strain rate that is lower than ext,
+as discussed earlier.
+3This reasoning can also be generalized to the non quasisteady ﬂamelet case. A
+more general parameterization of ﬂame extinction and strain rate is with functions of
+the form ext= f,˙ ,¨ ,... and P,˙ ,¨ ,.... We will not carry through the details
+of the calculation, but a similar integration can be performed.
+Fig. 8
+Comparison of three chemical time scales at fuel/air
+ratios associated with event rate of 1 event/s
+Fig.
+9
+Notional
+description
+of
+time
+variation
+of
+local
+Damköhler number at given point on ﬂame sheet, illustrating
+local extinction events at two average Damköhler number val-
+ues, Da, one farther „top… and closer „bottom… to blowoff
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111502-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+associated with a given event count rate. Our bluff body blowoff
+review suggested that from a fundamental point of view, the av-
+erage Damköhler number should not be considered as a blowoff
+predictor, but rather a local extinction predictor—in particular,
+that each Da value is associated with a certain probability/event
+count of local extinction on the ﬂame sheet.
+3.3
+Local Dynamics-Observations. We next consider more
+“local” characterization of these extinction processes. Mie scatter-
+ing diagnostics were used to visualize a density-based boundary
+between product and reactants. Such an approach is less direct and
+spatio/temporally precise than, say CH PLIF or other reaction rate
+measurements, but provides some indicator of where breaks in the
+ﬂame exist. As long as the ﬂame is sufﬁciently removed from
+blowoff, the raw image has two regions of high and low particle
+density regions, which indicate the cold reactants and hot prod-
+ucts, see Fig. 11. Holes in the ﬂame are associated with regions of
+signiﬁcantly lower gradient in seed density. The raw image is
+ﬁltered and processed in order to determine an edge between re-
+gions of high and low particle density. A threshold level 40% is
+selected by examining the probability density function of the in-
+tensity gradients of a stable ﬂame image. Flame holes are deﬁned
+as the broken area along the ﬂame, where the gradient of particle
+densities falls below the threshold, see Fig. 11. An instantaneous
+isovorticity ﬁeld is also plotted on the top of ﬂame fronts. It shows
+that each ﬂame hole is associated with a region of high vorticity.
+However, it should be pointed out that there is a time delay be-
+tween ﬂame extinction and when a hole is evident from the den-
+sity. When local extinction occurs, the density will not change
+immediately but over a molecular and turbulent diffusive time
+scale.
+Figure 12 quantiﬁes the spatial distribution of holes for a CH4
+ﬂame. Out of 30 total images, the fraction of these that contained
+a hole regardless of its size in the inner ﬂame branch was deter-
+mined at each axial location from y to y+y, where y=1 mm.
+Interestingly, no holes are evident near the centerbody 2–5 mm
+downstream, even though this is the region of highest shear.
+There are two possibilities for this. One is that holes are initiated,
+but not yet evident in the Mie scattering intensity gradient, due to
+the ﬁnite time required for the temperature to smooth out. The
+second is that this is a region of product recirculation, which
+causes ignition of this region in the nearﬁeld and which renders
+the ﬂame difﬁcult to locally extinguish. Similar situations occur in
+bluff body ﬂames, where ﬂame extinction usually initiates down-
+stream and moves progressively closer to the bluff body as blow-
+off is approached and opposite to nonpiloted jet ﬂames which lift
+off the burner before blowoff 28.
+Moving downstream, the fraction of images with holes in-
+creases monotonically in a roughly linear manner. Note that the
+threshold used for ﬂagging a hole does affect the location of the
+inferred hole. However, changing the threshold value shifts the
+linearly increasing region up or downstream downstream but not
+the basic shape of this plot. Also shown is data for a 50/50
+H2/CH4 ﬂame, which shows similar behavior.
+3.4
+Local Dynamics-Discussion. These data show that ﬂame
+holes locations are not uniformly distributed along the ﬂame—
+rather they increase monotonically with downstream distance.
+This behavior can be understood by noting that once a hole is
+formed, it is convected downstream at the local tangential veloc-
+ity. The size of these holes will change with downstream distance,
+initially growing and then shrinking. However, if the time re-
+quired for these holes to close is slow relative to the time in the
+viewing
+window
+	20 mm/30 m/s=0.67 ms,
+then
+once
+formed, the hole will persist. Denote the probability of initiation
+of a hole per unit axial location and per unit time as p. If this
+probability is spatially uniform i.e., equal likelihood of hole be-
+ing initiated over entire viewing window, then the probability of
+a hole being present at a given axial location, x, per unit axial
+distance, Px, is simply
+Fig. 10
+Notional PDF of ﬂame strain rate and extinction strain
+rate at a particular point along the ﬂame, s
+Fig. 11
+Flame front in raw Mie scattering images „top left…;
+Instantaneous isovorticity ﬁeld and ﬂame front „remaining im-
+ages… of methane ﬂame at equivalence ratio of 0.61
+Fig. 12
+Distribution of holes along the ﬂame front for CH4 „…
+and 50/50 H2/CH4„O… ﬂame at equivalence ratio of 0.62 and
+0.43, respectively. Line denotes calculated result assuming
+holes are generated uniformly and randomly along the ﬂame
+and propagate downstream with the speed of 30 m/s.
+111502-6 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+Px = px/Ut
+7
+where Ut denotes the axial convection velocity of the hole. In
+other words, this equation shows that a spatially uniform probabil-
+ity of hole initiation implies a linearly increasing probability of a
+hole being present with axial location, x. Thus, the slope of the
+data shown in Figure 12 can be interpreted as the probability of
+hole initiation. The dashed line in the data is a ﬁt to these data
+with a slope of p=0.7 hole initiation events/ms.
+4
+Concluding Remarks
+We close this paper with some speculations regarding the pro-
+cesses controlling swirling ﬂames near blowoff. Many of these
+comments are very similar to hypotheses raised in our bluff body
+work 28. Lean blowoff occurs in at least two phases. The ﬁrst is
+associated with spatiotemporally localized extinction events, lead-
+ing to ﬂame “holes.” Such a phenomenon is largely independent
+of the recirculation zone dynamics. This study has shown that
+H2/CH4 mixtures reach this limit at similar global Damköhler
+numbers. The actual blowoff event is a more complex phenom-
+enon that also involves interactions between the inner recircula-
+tion zone vortex breakdown bubble, outer recirculation zone of
+the rapid expansion, and ﬂame extinction/reignition phenomenon,
+which are not well understood. Some appreciation for the com-
+plexity of these “Stage 2” dynamics can be gained by studying the
+image sequences and discussion in the Ph.D. theses of Murugan-
+dam 48 and Zhang 49.
+It appears that classical Damköhler number scalings based on
+average quantities are correlations for the ﬁrst preblowoff stage
+where holes in the ﬂame occur. That is, from a fundamental point
+of view, these global Damköhler number correlations do not de-
+scribe the ultimate blowoff condition itself, but rather the condi-
+tion at which ﬂame extinction begins to occur. Figure 6 shows that
+these two limits are correlated: the lines representing these two
+limits are almost parallel with each other. Global Damköhler num-
+ber scaling cannot describe, however, what is the critical I value,
+Icrit, at which blowoff occurs; this critical value is likely inﬂu-
+enced by the recirculating phenomenon that provides a “torch” for
+the near separation point region from which the ﬂame then propa-
+gates out from. As such, the ability of Da correlations to describe/
+predict the actual blowoff condition is directly linked with the
+extent to which the ultimate blowoff event is correlated with these
+extinction events. Local extinction and global blowoff must be
+related, e.g., ﬂame holes appear under near blowoff conditions and
+increase in frequency and duration as one gets closer to blowoff.
+Moreover, given the fact that average Damköhler number scalings
+can reasonably collapse blowoff data also indicates that they are
+related 44. The problem, however, lies in the fact that the ﬂame
+can withstand a certain amount of extinction, but not “too much,”
+i.e., 0
+
+crit. It is clear from data that the ﬂame can withstand
+some extinction, but that blowoff occurs well before the majority
+of the ﬂame sheet is extinguished. However, determination of
+what constitutes this critical level of ﬂamelet disruption and ex-
+tinction is unclear at this point and is, we suggest, a key unsolved
+problem remaining to understand the blowoff phenomenology.
+Nomenclature
+D, d  diameter
+Da  Damköhler number
+S  swirl number
+s  ﬂame surface
+SL  laminar ﬂame speed
+U  ﬂow speed
+P  probability of presenting a hole
+p  probability of initiation a hole
+x,y  coordinate
+  thermal diffusivity
+  strain rate
+  swirl angle
+	  variance
+  time scale
+
+  extinction fraction
+Subscripts
+chem  chemical
+edge  ﬂame edge
+ESR  extinction strain rate
+ext  extinction
+ﬂow  based on ﬂow
+PSR  perfectly stirred reactor
+res  residence
+References
+1 Lieuwen, T., McDonell, V., Santavicca, D., and Sattelmayer, T., 2008, “Fuel
+Flexibility Inﬂuences on Premixed Combustor Blowout, Flashback, Autoigni-
+tion, and Stability,” ASME J. Eng. Gas Turbines Power, 130, p. 011506.
+2 Richards, G. A., McMillian, M. M., Gemmen, R. S., and Cully, S. R., 2001,
+“Issues for Low Emission, Fuel Flexible Power Systems,” Prog. Energy Com-
+bust. Sci., 27, pp. 141–169.
+3 Hoffmann, S., Habisreuther, P., and Lenze, B., 1994, “Development and As-
+sessment of Correlations for Predicting Stability Limits of Swirling Flames,”
+Chem. Eng. Process., 33, pp. 393–400.
+4 Glassman, I., 1996, Combustion, 3rd ed., Academic, San Diego, CA.
+5 Plee, S. L., and Mellor, A. M., 1979, “Characteristic Time Correlation for Lean
+Blow off of Bluff-Body Stabilized Flames,” Combust. Flame, 35, pp. 61–80.
+6 Strakey, P., Sidwell, T., and Ontko, J., 2006, “Investigation of the Effects of
+Hydrogen Addition on Lean Extinction in a Swirl Stabilized Combustor,”
+Proc. Combust. Inst., 31, pp. 3173–3180.
+7 Zukoski, E. E., and Marble, F. E., 1956, “Experiments Concerning the Mecha-
+nism of Flame Blowoff From Bluff Bodies,” Proceedings of the Gas Dynamics
+Symposium on Aerothermochemistry, pp. 205–210.
+8 Spalding, D. B., 1953, “Theoretical Aspects of Flame Stabilization,” Aircr.
+Eng., 25, pp. 264–276.
+9 Longwell, J. P., 1952, “Flame Stabilization by Bluff Bodies and Turbulent
+Flames in Ducts,” Proc. Combust. Inst., 4, pp. 90–97.
+10 Longwell, J. P., Chenevey, J. E., Clark, W. W., and Frost, E. E., 1948, “Flame
+Stabilization by Bafﬂes in a High Velocity Gas Stream,” Proc. Combust. Inst.,
+3, pp. 40–44.
+11 Bovina, T. A., 1959, “Studies of Exchange Between Re-Circulation Zone Be-
+hind the Flame-Holder and Outer Flow,” Proc. Combust. Inst., 7, pp. 692–
+696.
+12 Kundu, K. M., Banerjee, D., and Bhaduri, D., 1980, “On Flame Stabilization
+by Bluff-Bodies,” ASME J. Eng. Power, 102, pp. 209–214.
+13 Kundu, K. M., Banerjee, D., and Bhaduri, D., 1977, “Theoretical Analysis on
+Flame Stabilization by a Bluff-Body,” Combust. Sci. Technol., 17, pp. 153–
+162.
+14 Williams, G. C., Hottel, H. C., and Scurlock, A. C., 1951, “Flame Stabilization
+and Propagation in High Velocity Gas Streams,” Proc. Combust. Inst., 3, pp.
+21–40.
+15 Williams, F. A., 1966, “Flame Stabilization of Premixed Turbulent Gases,”
+Applied Mechanics Surveys, Spartan Books, Washington, pp. 1157–1170.
+16 Zukoski, E. E., 1954, “Flame Stabilization on Bluff Bodies at Low and Inter-
+mediate Reynolds Numbers,” Ph.D. thesis, California Institute of Technology,
+Pasadena.
+17 Zukoski, E. E., 1997, Afterburners, G. Oates, ed., Afterburners, AIAA, Reston,
+VA.
+18 Zukoski, E. E., and Marble, F. E., 1955, “The Role of Wake Transition in the
+Process of Flame Stabilization on Bluff Bodies,” AGARD Combustion Re-
+searches and Reviews, Butterworth Scientiﬁc Publishers, London, pp. 167–
+180.
+19 Pan, J. C., and Ballal, D. R., 1992, “Chemistry and Turbulence Effects in Bluff
+Body Stabilized Flames,” 30th Aerospace Sciences Meeting and Exhibit.
+20 Yamaguchi, S., Ohiwa, N., and Hasegawa, T., 1985, “Structure and Blow-Off
+Mechanism of Rod-Stabilized Premixed Flame,” Combust. Flame, 62, pp.
+31–41.
+21 Driscoll, J., 2008, “Turbulent Premixed Combustion: Flamelet Structure and
+Its Effect on Turbulent Burning Velocities,” Prog. Energy Combust. Sci., 34,
+pp. 91–134.
+22 Bellows, B., and Lieuwen, T., 2007, “Nonlinear Flame Transfer Function
+Characteristics in a Swirl Stabilized Combustor,” ASME J. Eng. Gas Turbines
+Power, 129, pp. 954–961.
+23 Law, C. K., 2006, Combustion Physics, Cambridge University Press, Cam-
+bridge, England.
+24 Poinsot, T., and Veynante, D., 2001, Theoretical and Numerical Combustion,
+RT Edwards, Flourtown, PA.
+25 Kobayashi, H., and Kitano, M., 1989, “Extinction Characteristics of a
+Stretched Cylindrical Premixed Flame,” Combust. Flame, 76, pp. 285–296.
+26 Wang, P., Hu, S., Wehrmeyer, J., and Pitz, R., 2004, “Stretch and Curvature
+Effects on Flames,” 42nd AIAA Aerospace Sciences Meeting and Exhibit,
+AIAA Paper No. 2004-148.
+27 Chung, S. H., Chung, D. H., Fu, C., and Cho, P., 1996, “Local Extinction
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111502-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+Karlovitz Number for Premixed Flames,” Combust. Flame, 106, pp. 515–520.
+28 Shanbogue, S., Hussain, S., and Lieuwen, T., 2009, “Lean Blowoff of Bluff
+Body Stabilized Flames: Scaling and Dynamics,” Prog. Energy Combust. Sci.,
+35, pp. 98–120.
+29 Muruganandam, T., Nair, S., Scarborough, D., Neumeier, Y., Jagoda, J., Lieu-
+wen, T., Seitzman, J., and Zinn, B. T., 2005, “Active Control of Lean Blowout
+for Turbine Engine Combustors,” J. Propul. Power, 21, pp. 807–814.
+30 Hertzberg, J. R., Shepherd, I. G., and Talbot, L., 1991, “Vortex Shedding
+Behind Rod Stabilized Flames,” Combust. Flame, 86, pp. 1–11.
+31 Yang, J. T., Yen, C. W., and Tsai, G. L., 1994, “Flame Stabilization in the
+Wake Flow Behind a Slit V-Gutter,” Combust. Flame, 99, pp. 288–294.
+32 Kim, W., Lienau, J., van Slooten, P., Colket, M., Malecki, R., and Syed, S.,
+2006, “Towards Modeling Lean Blowout in Gas Turbine Flameholder Appli-
+cations,” ASME J. Eng. Gas Turbines Power, 128, pp. 40–48.
+33 Karlovitz, B., Denniston, D. W., Knapschaefer, D. H., and Wells, F. E., 1953,
+“Studies on Turbulent Flames,” Proc. Combust. Inst., 4, pp. 613–620.
+34 Chen, J., and Im, H., 2000, “Stretch Effects on the Burning Velocity of Tur-
+bulent Premixed Hydrogen/Air Flames,” Proc. Combust. Inst., 28, pp. 211–
+218.
+35 Kostiuk, L. W., Bray, K. N. C., and Cheng, R. K., 1993, “Experimental Study
+of Premixed Turbulent Combustion in Opposed Streams. Part II—Reacting
+Flow Field and Extinction,” Combust. Flame, 92, pp. 396–409.
+36 Bradley, D., Lauu, A. K. C., and Lawes, M., 1992, “Flame Stretch Rate as a
+Determinant of Turbulent Burning Velocity,” Philos. Trans. R. Soc. London,
+Ser. A, 338, pp. 359–387.
+37 Pantano, C., and Pullin, D. I., 2003, “On the Dynamics of the Collapse of a
+Diffusion-Flame Hole,” J. Fluid Mech., 480, pp. 311–332.
+38 Buckmaster, J., 1996, “Edge-Flames and Their Stability,” Combust. Sci. Tech-
+nol., 115, pp. 41–68.
+39 Nayagam, V., Balasubramaniam, R., and Ronney, P. D., 1999, “Diffusion
+Flame-Holes,” Combust. Theory Modell., 3, pp. 727–742.
+40 Brown, C. D., Watson, K. A., and Lyons, K. M., 1999, “Studies on Lifted Jet
+Flames in Coﬂow: The Stabilization Mechanism in the Near-and Far-Fields,”
+Flow, Turbul. Combust., 62, pp. 249–273.
+41 Liu, J.-B., and Ronney, P. D., 1999, “Premixed Edge Flames in Spatially
+Varying Straining Flows,” Combust. Sci. Technol., 144, pp. 21–45.
+42 Buckmaster, J. , 2002, “Edge-Flames,” Prog. Energy Combust. Sci., 28, pp.
+435–475.
+43 Nair, S., and Lieuwen, T., 2005, “Acoustic Detection of Blowout in Premixed
+Flames,” J. Propul. Power, 21, pp. 32–39.
+44 Zhang, Q., Noble, D., Shanbogue, S., and Lieuwen, T., 2007, “Impacts of
+Hydrogen Addition on Near Lean Blowout Dynamics in a Swirling Combus-
+tor,” ASME Paper No. 2007-27308.
+45 Williams, T. C., Schefer, R. W., Oefelein, J. C., and Shaddix, C. R., 2007,
+“Idealized Gas Turbine Combustor for Performance Research and Validation
+of Large Eddy Simulations,” Rev. Sci. Instrum., 78, p. 035114.
+46 Beer, J., and Chigier, N., 1972, Combustion Aerodynamics, Wiley, New York.
+47 Im, H., Bechtold, J., and Law, C. K., 1996, “Response of Counterﬂow Pre-
+mixed Flames to Oscillating Strain Rates,” Combust. Flame, 105, pp. 358–
+372.
+48 Muruganandam, T., 2006, “Sensing and Dynamics of Lean Blowout in a Swirl
+Dump Combustor,” Ph.D. thesis, Georgia Institute of Technology, Atlanta, GA.
+49 Zhang, Q., 2008, “Lean Blowoff Characteristics of Swirling H2/CO/CH4
+Flames,” Ph.D. thesis, Georgia Institute of Technology, Atlanta, GA.
+111502-8 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

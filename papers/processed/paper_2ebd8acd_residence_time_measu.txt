@@ -1,0 +1,1384 @@
+
+--- Page 1 ---
+
+RESEARCH ARTICLE
+Residence time measurement of an isothermal combustor
+ﬂow ﬁeld
+Liangta Cheng • Adrian Spencer
+Received: 30 September 2010 / Revised: 8 March 2011 / Accepted: 20 March 2011
+ Springer-Verlag 2011
+Abstract
+Residence times of combustors have commonly
+been used to help understand NOx emissions and ﬂame
+blowout. Both the time mean velocity and turbulence ﬁelds
+are important to the residence time, but determining the
+residence time via analysis of a measured velocity ﬁeld is
+difﬁcult due to the inherent unsteadiness and the three-
+dimensional nature of a high-Re swirling ﬂow. A more
+direct approach to measure residence time is reported here
+that examines the dynamic response of fuel concentration
+to a sudden cutoff in the fuel injection. Residence time
+measurement was mainly taken using a time-resolved
+planar laser-induced ﬂuorescence (PLIF) technique, but a
+second camera for particle image velocimetry (PIV) was
+added to check that the step change does not alter the
+velocity ﬁeld and the spectral content of the coherent
+structures. Characteristic timescales evaluated from the
+measurements are referred to as convection and half-life
+times: The former describes the time delay from a fuel
+injector exit reference point to a downstream point of
+interest, and the latter describes the rate of decay once the
+effect of the reduced scalar concentration at the injection
+source has been transported to the point of interest. Resi-
+dence time is often deﬁned as the time taken for a con-
+served scalar to reduce to half its initial value after
+injection is stopped: this equivalent to the sum of the
+convection time and the half-life values. The technique was
+applied to a high-swirl fuel injector typical of that found in
+combustor applications. Two test cases have been studied:
+with central jet (with-jet) and without central jet (no-jet).
+It was found that the relatively unstable central recircula-
+tion zone of the no-jet case resulted in increased transport
+of fuel into the central region that is dominated by a pre-
+cessing vortex core, where long half-life times are also
+found. Based on this, it was inferred that the no-jet case
+may be more prone to NOx production. The technique is
+described here for a single-phase isothermal ﬂow ﬁeld, but
+with consideration, it could be extended to studying
+reacting ﬂows to provide more insight into important
+mixing phenomena and relevant timescales.
+1 Introduction
+Measurement of residence time and temperature is of
+practical interest in gas turbine combustor research because
+the two parameters have usually been used to correlate
+with various emission indices. For example, Roffe and
+Venkataramani (1978) showed for a propane ﬂame that the
+NO emission index, NOEI, was described well by the
+empirical expression:
+lnðNOEI=tGÞ ¼ 72:28 þ 2:80
+ﬃﬃﬃﬃﬃﬃﬃ
+TAF
+p
+ TAF=38
+ð1Þ
+where TAF is the adiabatic ﬂame temperature (Kelvin), tG is
+the characteristic combustor residence time (ms), and
+numerical
+constants
+have
+units
+consistent
+with
+the
+equation. The residence time only becomes insigniﬁcant
+for very lean mixtures (equivalence ratios below *0.4)
+because the temperature, which determines the equilibrium
+point of the dissociation reaction (e.g., NO production from
+Extended version of Lisbon 2010 Paper #1736 for consideration of
+Special Issue in Lisbon 2012, Revision 2, March 2011.
+Electronic supplementary material
+The online version of this
+article (doi:10.1007/s00348-011-1085-3) contains supplementary
+material, which is available to authorized users.
+L. Cheng  A. Spencer (&)
+Department of Aero & Auto Engineering,
+Loughborough University, Loughborough, UK
+e-mail: a.spencer@lboro.ac.uk
+123
+Exp Fluids
+DOI 10.1007/s00348-011-1085-3
+
+
+--- Page 2 ---
+
+O2 and N2 in the Zeldovich chain mechanism (Heywood
+et al. 1970)), is then very low. In a relevant study, Driscoll
+et al. (1992) showed that the Damkho¨ler number, which
+may be interpreted as the ratio of residence time, sres, and
+chemical kinetic time, schem, correlated well with NOx
+emission data in hydrogen and helium ﬂames that have
+simple chemistry. The Damkho¨ler number, as deﬁned in
+Eq. 2, has also been used to predict ﬂame blowoff with
+success (Lieuwen 2006; Noble et al. 2006):
+Da ¼ sres
+schem
+¼ S2
+Ld
+aUref
+ð2Þ
+where SL is the laminar ﬂame speed, a is the thermal dif-
+fusivity, Uref is the reference velocity (e.g., temperature-
+scaled fuel velocity), and d is typically taken to be the
+length of the combustor or recirculation zone. Hence, res-
+idence time under this deﬁnition (sres = d/Uref) simply
+refers to the convective time it takes to complete one
+through ﬂow or recirculation in the case of a ﬂame holder.
+Although such global measures of residence time allow
+correlations of emissions to be made and hence allow
+combustor scaling to be done, they do not help identify the
+regions of emission production. Such estimates of sres are
+also questionable because there are many routes via which
+ﬂuid could travel through the combustor, and the length of
+recirculation zone could also be subject to inconsistencies
+in interpretation. Other methods to estimate residence
+times in a combustor have been reported. For example,
+residence time can be inferred from tracing particles
+through a measured (Giordano et al. 2001) or CFD-pre-
+dicted velocity ﬁelds (Di Nardo et al. 2009). Ozdemir and
+Peters (2001) used TiO2 as a particulate passive tracer in
+the mild combustion reaction zone of a combustor. Con-
+centration was measured at a point via Mie-scattering in
+response to ceasing the tracer injection and referred to as a
+‘‘step-down’’ procedure. Highly skewed residence time
+distributions were observed with the PDF biased strongly
+toward long residence times. First- through fourth-order
+statistics of residence time distributions were calculated
+and discussed in the context of NOx emissions. The long
+time average of the residence time was shown to be a
+misleading quantity when strongly skewed distributions
+were observed. This is particularly true if the tail of the
+PDF has timescales associated with it that are signiﬁcantly
+longer than the chemical kinetic timescales when the
+average or global residence time is not. However, these
+methods can be questioned due to the differences between
+the equations governing the transport of momentum and of
+a conserved scalar: The former is inﬂuenced by the pres-
+sure ﬁeld, while the latter is not; turbulent diffusion rates of
+the two quantities will therefore be different (Pantano et al.
+2003). The estimation of residence time from conserved
+scalar tracking, on the other hand, has also been reported.
+For example, Arai et al. (1998), followed by similar work
+of van der Lans et al. (1997), used helium as a tracer and
+injected it into a swirl-stabilized combustion chamber with
+and without reaction. The helium injection was stopped
+suddenly, and the attenuation curves (helium concentration
+decay) at various locations were studied in response. The
+authors observed slightly shorter residence times due to
+heat release as would be expected due to ﬂow acceleration
+caused by density reduction. Accuracy of the absolute
+concentration measurement was relatively poor in absolute
+terms (*20%), but it is the rate of concentration change,
+which was found to be of importance to the technique.
+Despite these ﬁndings, the two aforementioned techniques
+were single-point-based measurements that do not help
+identify the source of emissions without extensive mea-
+surement traversing campaigns.
+A simple and efﬁcient technique is reported here to
+provide spatially resolved estimates of residence time using
+temporally resolved planar-induced ﬂuorescence (PLIF).
+This measurement approach, applied to a representative
+high-swirl combustor ﬂow, examines the dynamic response
+of non-reacting and isothermal fuel concentration after the
+injection of fuel is suddenly switched off. It is believed that
+this is the ﬁrst time that planar LIF has been used in this
+step-down approach, particularly for a combustion-related
+ﬂow. Previous work that has been reported has utilized
+point measurements, non-simultaneously and at low spatial
+resolution.
+2 Experimental setup
+Measurements were taken in water under isothermal con-
+ditions. Using water as the working ﬂuid has many
+advantages. First, seeding particles are prone to slippage in
+air while they are neutrally buoyant in water. Second, water
+allows gravity to be utilized as the stable driving force,
+thereby eliminating ﬂuctuations in the pump delivery rate
+by the use of a constant head tank with an overﬂow branch.
+Finally, if geometrical scale (d) and Reynolds number
+(Urefd/m) are matched (along with careful considerations of
+the momentum ﬂux ratio between the swirl stream and the
+central jet stream), then the water test reference velocity
+will be in the opposite ratio to the kinematic viscosity (m) of
+air and water, which is 14.6 at standard laboratory condi-
+tions. Thus, for a ﬂow feature of a particular Strouhal
+number (fd/Uref), the actual frequency in water will be
+lower than that in air by this same factor. This is beneﬁcial
+to measurement devices of low temporal resolution relative
+to typical timescales in air ﬂows: The 500 Hz data capture
+rate used here is approximately equivalent to 7.3 kHz in air
+ﬂow at the same Reynolds number and geometrical scale.
+Exp Fluids
+123
+
+
+--- Page 3 ---
+
+2.1 Test rig
+The test rig is an isothermal, vertically ﬂowing, closed-
+loop, 5-m-tall constant head water rig capable of delivering
+up to 15 kg/s to the test section. A full description of the
+facility can be found in Spencer (1998) or more brieﬂy in
+Spencer et al. (2008). For concentration measurements, a
+dye injection system is required to simulate the fuel feed.
+Details of the dye system and its performance have been
+documented in Midgley (2005). Brieﬂy, the system consists
+of a header tank that contains up to 30 l of dye solution of a
+ﬁxed, well-mixed Rhodamine B concentration. A pump is
+used to overcome pressure loss in the pipe work and to
+deliver the solution to the test section. Dyed water mass
+ﬂow rate is monitored via a ﬂow meter calibrated against
+PIV and direct collection of the delivered ﬂow. An elec-
+trical switch allows instantaneous opening and closing of
+the solenoid valve that controls the ﬂow in the fuel feed
+hose pipe.
+2.2 Fuel injector test cases
+The test case is a partially premixed fuel injector for the
+combustor of an industrial gas turbine based on the Tur-
+bomeca lean premix design, as shown in Fig. 1a. The ﬂow
+streams indicated show fuel injected into the annular swirl
+stream with a central air jet that can be stopped to produce
+the no-jet case. The fuel and air streams are found to be not
+fully premixed at the annulus exit, exhibiting some radially
+biased unmixedness. The injector geometry is modiﬁed
+only slightly to accommodate high optical access for the
+PIV/LIF measurements and also provides a well-deﬁned
+exit ﬂow separation point, as shown in Fig. 1b. The ori-
+ginal measurements were motivated by a need to provide
+validation data for Large Eddy Simulation studies; thus,
+this geometrical change also eased the computational
+expense of modeling the exit ﬂow separation point using
+LES. The fuel injector has been tested previously in the
+non-premixed mode where fuel is introduced via the cen-
+tral jet only. Here, a simple modiﬁcation was made to
+inject the dye solution into the premixing cavity via a
+single pipe. After ﬁlling up the cavity, the dye exits through
+the 12 premixing ports into the radial entry slots, such that
+some premixing takes place with an air-to-fuel mass ﬂow
+ratio of 20.1–1.
+Two test conﬁgurations have been studied: with central
+jet (with-jet) and without central jet (no-jet). The mass ﬂow
+split (central jet to swirl stream) in the with-jet case was
+determined by matching the momentum ﬂux ratio of a
+combusting ﬂow as reported in Janus et al. (2007). Meier
+et al. (2007) have also investigated the reacting no-jet case.
+The radially fed swirler has an annular swirl stream outer
+diameter Ds = 37.63 mm at the fuel injector exit, which
+for convenience was at 1.35:1 scale compared to the
+experiments of Janus and Meier. The inner diameter of the
+annulus was formed by the outer wall of a central jet nozzle
+inner diameter Dj = 5.4 mm. The test conditions corre-
+sponded to swirler and jet exit Reynolds numbers of
+7.48 9 104 and 2.63 9 104, respectively. Re is here
+deﬁned using Ds and Dj and the bulk mean axial velocities
+based
+on
+geometrical
+exit
+areas:
+Vx,j = 4.88 m/s,
+Vx,s = 1.99 m/s. Note, however, that the discharge coefﬁ-
+cient of the swirl passage was measured to be 0.5, so the
+peak velocity in the swirl stream is about 1.5Vx,s. It can be
+seen in Table 1 that because the axial momentum ﬂux ratio
+(Mx,j/Mx,s) has been matched, the velocity ratio and mass
+ﬂow rate ratios (mj/ms) for the with-jet condition are
+slightly different to the engine condition because the
+engine condition has a density difference between the jet
+and swirl streams not present in the water ﬂow rig. This
+also means that there is some Re number discrepancy, but
+additional tests at  and  Re showed no discernable
+Annulus Pipe
+Feed pipe for central jet  
+Premixing ports (x12)
+Radial entry swirl slots (x12)
+Spigotted flange
+Swirler passage
+Central jet passage
+Core Pipe
+Feed holes for premixing ports (x6)
+(a)
+(b)
+Fig. 1 Fuel injector geometry: a partial premixed engine conﬁguration b test section
+Exp Fluids
+123
+
+
+--- Page 4 ---
+
+effect on the resultant velocity ﬁeld. A higher Re was
+chosen, and desirable, to ensure that the rig inlet ﬂow
+conditions were suitably away from transitional effects to
+aid with inlet condition deﬁnition for subsequent CFD
+predictions. See Midgley (2005) for a detailed description
+of these scaling issues. No correction is made for the fuel/
+dye shutoff which could reduce the swirl stream mass ﬂow
+by 5%: Once the jets in cross-ﬂow are removed from the
+swirl slots, their blockage effect is also removed, and the
+PIV measurements indicate a smaller change in mean
+velocity of less than 3%. The fuel/dye injection momentum
+ratio is approximately 5:1 based on bulk average velocities,
+though the velocity distribution in the swirl slots is
+unknown. The level of swirl that a ﬂow contains can be
+assessed via the Swirl number, which is deﬁned as the axial
+ﬂux of swirl momentum divided by the axial ﬂux of axial
+momentum times a characteristic radius, (Ds/2), Chigier
+and Beer (1972). Extensive PIV measurements have shown
+that the resultant swirl number for this injector is 0.74.
+2.3 Optical arrangement and instrumentation
+Combined 2C-PIV/PLIF was carried out in the x-r plane
+with two cameras placed perpendicular to each other, and
+their distances from the dichroic image splitter were
+adjusted so that they both viewed the same area on the
+calibration plate, as shown in Fig. 2. The ﬁelds of views
+(FoVs) of the two HighSpeedStar 6 cameras were mapped
+using the calibration algorithm provided by LaVision
+DaVis 7.2. Thus, the FoV of around 60 9 60 mm was
+resolved by 1,024 9 1,024 pixels at 10-bit resolution,
+giving 1024 grayscales. The area of interest was illumi-
+nated by a pulsed laser, generated by the Quantronix
+Darwin Duo Nd-YLF 30 mJ laser system. The Depth of
+Focus (DoF) was maintained to be just larger than the laser
+sheet thickness of 1 mm. Thus, the minimum measurement
+volume
+for
+scalar
+measurements
+was
+approximately
+0.06mm2 9 1 mm. The PIV was carried out simulta-
+neously with PLIF to check that the sudden fuel cutoff does
+not have a pronounced effect on the velocity time history.
+Polyamide spheres of 20 lm in diameter were used as
+seeding particles.
+2.4 PIV and PLIF processing
+To minimize errors in the PIV-deduced velocity, parame-
+ters such as particle image diameter and inter-frame time
+were optimized using an established guideline (Adrian
+1991) for error reduction. A multipass (64 9 64 pixels
+interrogation cell size in the ﬁrst pass and 32 9 32 in the
+second) was applied with a 50% overlap along with other
+optimization parameters in the DaVis 7.2 software. The
+velocity ﬁelds presented here and the PIV methods used to
+obtain them have previously been well documented, see
+Midgley (2005) for further details.
+Rhodamine B (C27H31ClN2O3), abbreviated as Rh-B, is
+well suited for concentration measurements due to its high
+solubility in water and its ﬂuorescence stability. Several
+steps were performed on the raw intensity ﬁeld. First, the
+background intensity, time averaged over 20 images, was
+subtracted to eliminate the camera’s dark image intensity,
+background noise, and non-ﬂuorescent light that leaked
+through the ﬁlter lens. To correct for spatial variation of
+light sheet energy (due to Gaussian beam intensity and
+sheet spreading), DaVis’ sheet correction algorithm was
+applied. The Rh-B concentration used was low enough
+(*20 lg/l) such that the intensity decay in the sheet
+propagation direction was within 8% with the test section
+completely ﬁlled with the reference dye solution (the
+concentration in the ﬁnal test is expected to be much lower
+due to mixing with water in the swirl stream). Hence, no
+absorption correction was required or applied. Finally, a
+Table 1 Comparison of isothermal experimental test conditions with reacting cases
+Condition
+Vx,s (m/s)
+Vx,j/Vx,s
+Res 9 104
+Rej
+mj/ms
+Mx,j/Mx,s
+Janus et al. (2007)
+37.9
+2.24
+2.9
+3.3 9 104
+0.053
+0.124
+Meier et al. (2007)
+*24
+0
+3.5
+0
+0
+0
+With-Jet
+1.99
+2.41
+7.48
+2.63 9 104
+0.0514
+0.124
+No-Jet
+1.99
+0
+7.48
+0
+0
+0
+Fig. 2 Combined 2-component-PIV/PLIF optical arrangement
+Exp Fluids
+123
+
+
+--- Page 5 ---
+
+3 9 3 pixel averaging with uniform weighting was used as
+a spatial ﬁlter to reduce contamination by light sheet
+streaks (caused by variations in Perspex wall optical
+quality) and pixel sensitivity noise. This results in a
+0.18 mm2 9 1 mm measurement volume. The concentra-
+tion calibration consisted of measuring intensity in the
+central region of the FoV when the test section was ﬁlled
+with dyed ﬂuid at 10 concentration levels. A linear rela-
+tionship between the resulting 10 intensity levels (photon
+counts) and concentration was obtained. Fluctuation in the
+light sheet energy was measured by recording 100 images
+and calculating its rms, which was found to be around 2%
+of the mean.
+3 Measurement technique
+For a near one-dimensional ﬂow with gradual area
+increase, it may be expected that the arrival time at point B
+of the impulse of a tracer released at point A would have a
+near Gaussian distribution, as shown on the right of Fig. 3,
+with mixing happening equally in the upstream and
+downstream directions. If the ﬂow deceleration is instead
+performed suddenly, then recirculations will be formed as
+in Fig. 4. Now, the impulse released at A may become
+entrained into the recirculations, and the transport time to
+the exit plane of some of the tracer will be considerably
+increased, particularly at C where the streamlines interact
+strongly within the recirculation shear layer. This will skew
+the arrival time distribution at the exit plane as shown. If a
+steady input followed by a step reduction of trace gas is
+used at A rather than an impulse, then the response at the
+exit plane will be (one minus) the cumulative arrival time
+distribution derived from the impulse. Thus, at B and C, the
+tracer concentration will remain high until the step has
+been transported to that location. Because of mixing,
+however, there will be a characteristic decay curve
+dependent upon how the history of the ﬂow has affected its
+transit time. By calculating the normalized gradient of the
+cumulative arrival distribution in Fig. 4c, the arrival or
+residence time distribution (RTD) can be derived corre-
+sponding to the curve in Fig. 4b, see van der Lans et al.
+(1997) for example.
+For typical combustor swirling ﬂows, it would be
+expected that recirculations feature strongly. Here, scalar
+responses were found to be well approximated by an
+exponential decay for most of the measurement points:
+supported by the ﬁndings of Ozdemir and Peters (2001) and
+others as discussed in the introduction. Ozdemir and Peters
+(2001) described his point measurements of residence
+times in terms of nth order statistics. The ﬁrst being
+equivalent to a mean convection time, the second a rms of
+the residence time distribution, and the third being the
+skewness of this distribution. The ﬁrst- and second-order
+statistics were found to be of similar importance to
+understanding NOx formation in the mild combustor. The
+skewness indicated that the residence time distributions
+were far from Gaussian; thus, the (second order) rms value
+had a vague relevance to the distribution curve. van der
+Lans et al. (1997) employed a similar point-based step-
+down procedure using a helium tracer applied to a geom-
+etry not dissimilar to the one employed here involving
+swirl-induced vortex breakdown and associated recircula-
+tion zones. Their helium concentration decay curves were
+similar to curve C of Fig. 3c, and they attempted to
+determine the residence time distribution curve with some
+success by differentiating the normalized (by the initial
+value) decay curve, which appeared close to exponential in
+nature. Because of ﬂow turbulence, the repeatability was
+poor when differentiating the decay signal that contains
+steep gradients so some temporal ﬁltering was required.
+Stability behind ﬂame holders has received attention in the
+Fig. 3 Flow without
+recirculation; scalar response at
+B to impulse at A
+Fig. 4 Two-dimensional ﬂow with recirculation; conserved scalar response
+Exp Fluids
+123
+
+
+--- Page 6 ---
+
+past by Winterﬁeld (1965), among others, who have also
+shown that exponential decay is a reasonable model for the
+rate at which a tracer concentration reduces from a recir-
+culation trapped behind a triangular ﬂame holder. To avoid
+the problems of repeatability, it is thus attempted here to
+parameterize the decay curve as a ‘‘convection time’’ over
+which the scalar concentration remains statistically con-
+stant after the tracer injection has been stopped, followed
+by a ‘‘decay time’’ or ‘‘half-life’’ as determined from an
+exponential ﬁt to the decaying curve after the convection
+time period has ended. When measuring a combustor
+global residence time using a probe at the combustor exit
+plane, the usual deﬁnition is the time delay from stopping
+the injection of the tracer at inlet to the point at which the
+concentration at the exit probe has reached half its initial
+value. It can be seen that this will correspond to the sum of
+the convection time and the half-life for the parameterized
+curve proposed here. There should be good, near linear,
+agreement between the measured value and a ‘‘global’’
+combustor residence time based on suitable reference
+velocity and length scale that is often used to correlate
+emissions performance as in Eq. 1.
+Thus, the technique used here is essentially represented
+by Fig. 4c. The rig is set running with the required test
+conditions for a few seconds until steady condition is
+reached, after which the recording sequence was started
+with the pulsed laser and cameras operating at 500 Hz
+(allowing a total recording time of 6.144 s for 3,072 image
+pairs). Then, the electrical switch connected to the solenoid
+valve described is used to shut the fuel feed. A switch-
+triggered laser pointer then turns on and projects a beam
+into the ﬁeld of view, causing a slight brightening in a spot
+near the edge of the FOV, marking the time instant at
+which the dye was shut. After the dye shut signal is reg-
+istered, there is a characteristic response time of the
+injection and pre-mixing system. This depends on the valve
+response time and ﬂow paths from the fuel injection point
+to the exit of the swirler. These aspects are not investigated
+here, and this characteristic delay time is subtracted from
+the results presented. In this way, the residence times will
+refer to the period from which the air is directly exposed to
+high temperatures, with the time origin starting as the ﬂuid
+exits the premixing duct.
+3.1 Characteristic times
+After the response period, the concentration ﬁeld starts to
+decay very rapidly near the fuel injector exit until a near-
+zero concentration is reached throughout majority of the
+FoV. The time at which the response period ends (i.e., the
+starting point of concentration decay at the swirl stream
+exit) is taken to be the reference value. The difference
+between the time for concentration to begin falling at
+another location and that at the reference point is then
+interpreted as the convection time, as shown in Fig. 5. The
+reference starting point of decay, td,ref, is determined by
+examining the time histories of scalar concentration at the
+exit. For other downstream points in the FoV (e.g., the corner
+recirculation also shown in Fig. 5), td is detected using an
+algorithm. It ﬁrst identiﬁes when the concentration last
+drops–and remains–below one standard deviation of the
+mean value after td,ref, and then, an exponential ﬁt is applied
+to the data after this point. The ﬁt coefﬁcients of this expo-
+nential curve provide the location in time at which the model
+curve intercepts the steady time average intensity. The curve
+originating from this crossing point is then ﬁtted again to the
+concentration decay signal, producing a second set of curve
+ﬁt coefﬁcients. This step is iterated until the location of the
+intercept point of the time mean and exponential curve
+converges, typically in less than 10 iterations.
+As shown in Fig. 5, the rates of decay for the two points
+are also signiﬁcantly different. An exponential function has
+therefore been ﬁtted to describe the rate of decay for all
+locations:
+IðtÞ ¼ I0ebðttdÞ
+ð3Þ
+where I0 is the initial time mean intensity (concentration)
+before decay occurs, the time td coincides with the inter-
+cept point found, and b is the decay coefﬁcient. The
+exponential decay coefﬁcient, b, is converted to a half-life
+time using t1/2 = ln(2)/b, which gives the time interval
+required for the concentration, once started, to decay to half
+of its original value.
+The two timescales characterized here, namely convec-
+tion time and half-life time, can then be normalized to give a
+dimensionless values using s = Vx,s.t/Ds, which allows the
+results to be scaled from the experiment onto various com-
+bustor conditions using a reference velocity and dimension.
+For the present work, Vxs and Ds are the swirl stream axial
+velocity and swirler diameter, respectively, as given in
+the test conditions. Thus, the non-dimensionalized times
+Fig. 5 Illustration of characteristic times
+Exp Fluids
+123
+
+
+--- Page 7 ---
+
+presented are the convection time sconv, the half-life time
+s1/2, and the sum of these two, the residence time, sres. This
+terminology is used because this will correspond to the
+maximum point on the equivalent residence time distribu-
+tion. Referring back to Fig. 4(b), this is the time difference in
+time between the peaks of the two scalar concentration
+curves at A and C.
+4 Results
+A detailed description of the mean velocity and turbulence
+intensity ﬁelds of the with-jet and the no-jet cases can be
+found in Midgley and Spencer (2005), Spencer et al.
+(2008), Dunham et al. (2009) and of the steady-state scalar
+mixing in Cheng et al. (2010). Key ﬁndings from this
+previous work will be mentioned brieﬂy here, but it is
+worth noting that the velocity ﬁeld results from the non-
+reacting isothermal water tests of this work were in very
+close agreement with those of the combusting air test
+(Janus et al. 2007) in terms of both time-averaged and
+unsteady ﬂow features, including the spectral content. Two
+instantaneous PIV velocity ﬁelds for the with-jet case are
+shown in Fig. 6 taken from Midgley and Spencer (2005).
+These are from two perpendicular planes: a plane con-
+taining the axial centerline and a radial axis and the other is
+coincident with the injector exit plane containing the radial
+and circumferential directions. These authors have identi-
+ﬁed two vortex pairs that originate from inside the swirler
+passage, the stronger pair of which can be clearly seen in
+cross-section in Fig. 6b. These follow helical paths as they
+travel downstream, entrained in the inner shear layer of the
+conical jet issuing from the swirl stream, evident as peri-
+odic structures in Fig. 6a. This vortex pair is best
+visualized in 3-dimensions, shown here in Fig. 6c as an
+isosurface of correlation in the radial velocity taken from
+LES predictions of Dunham et al. (2009). The extent over
+which velocities correlate to a reference point in the
+injector exit signiﬁes the level of coherence and periodicity
+present. A much weaker pair of vortices also exists 90o out
+of phase with those identiﬁed here, and this ﬂow ﬁeld
+rotates about the centerline at a frequency consistent with
+the mean tangential velocity. It was identiﬁed that the
+central jet pushes the central recirculation zone down and
+stabilizes it, damping the precessing vortex core that is
+otherwise present without the central jet.
+The residence times measured via scalar tracking are
+only valid under the condition that the sudden upstream
+impulse does not alter the downstream velocity ﬁeld and
+the dominant ﬂow features identiﬁed which contribute
+signiﬁcantly to scalar transport. Therefore, the velocity
+time histories at multiple points in the ﬂow have been
+inspected, and no signiﬁcant step change in terms of both
+the mean and RMS velocities was found after the dye
+shutoff point. In addition, it is also important to check
+whether the step change alters the spectral content of the
+vortex pairs. An example of this check is shown in Fig. 7
+for the no-jet and with-jet conditions, just at the exit of the
+annulus at a point through which the helical vortices pass.
+The resolution of the spectra changes in these plots
+depending upon the number of samples available before
+and after dye shutoff. For both cases, it can be seen that the
+dominant frequencies are not altered due to the transient in
+dye injection. Both with- and without-jet conditions are
+shown in Fig. 7 to highlight an important difference in the
+two ﬂow ﬁelds, (other than the reduced upstream penetra-
+tion of the central recirculation zone with the central jet). It
+is clear that the no-jet condition has a fundamental
+Fig. 6 Unsteady ﬂow structures in fuel injector ﬂowﬁelds (Spencer et al. (2008))
+Exp Fluids
+123
+
+
+--- Page 8 ---
+
+frequency close to a half of that with the central jet. This
+happens because the central jet stabilizes the ﬂow ﬁeld and
+makes it more symmetrical. This can be demonstrated using
+Fig. 8, which shows the spatial correlation ﬁelds of tangen-
+tial velocity with respect to the velocity at the highlighted
+reference point which is located at the center of one of the
+strong vortices. In the no-jet case, there is little mirror
+symmetry of the 2 vortex pairs (about a vertical or horizontal
+line though the center point of Fig. 8a); thus, a periodic
+signal is only picked up once per revolution of this ﬂow. With
+the central jet, symmetry of the left- and right-hand vortices
+and the top and bottom weaker vortices is evident, and a
+periodic signal is picked up twice per revolution. The pos-
+sible interaction between these coherent structures and
+thermo-acoustic excitations makes this fuel injector an
+interesting test case from an instability point of view. Meier
+et al. (2007) present reacting data for the no-jet case at
+different fuel air ratios. It is found that at lower fuel injection
+rates, a self-generated combustion oscillation occurs at
+290 Hz. Correcting for scale (Ds = 27.8 mm) and Reynolds
+number differences between experiments, this corresponds
+to a Strouhal number of 0.71 here, which is slightly higher
+than the isothermally deduced one of 0.63. This may be
+expected due to the acceleration effect that the heat release
+will have on velocity as the density reduces. At higher fuel
+injection rates, the ﬂame stability improves because it moves
+away from the weak extinction but also possibly because the
+fuel injection jets are at a higher velocity, penetrate further
+into the swirl stream, and improved premixing occurs.
+4.1 Time mean and RMS scalar ﬁelds
+In Fig. 9, the mean velocity and RMS scalar ﬁelds are
+shown for the two cases. To indicate the locations of the
+St
+m
+2s
+2/Hz
+10
+-1
+10
+0
+10
+-3
+10
+-2
+10
+-1
+10
+0
+Before cut-off
+After cut-off
+5/3
+St-0.63
+St=1.21
+St
+m
+2s
+2/Hz
+10
+-1
+10
+0
+10
+1
+10
+-3
+10
+-2
+10
+-1
+10
+0
+Before cut-off
+After cut-off
+5/3
+St=1.20
+St=2.38
+(a)
+(b)
+Fig. 7 PSD of axial velocity at (x/Ds, r/Ds) = (0.04, 0.27)
+Fig. 8 Spatial correlation in tangential velocity at injector exit plane
+Exp Fluids
+123
+
+
+--- Page 9 ---
+
+swirl streams, as well as the central jet stream for the with-
+jet case, streamlines are shown on the left hand side of the
+mean scalar plots and RMS plots. The scalar has been non-
+dimensionalized in each case by the peak value in the FoV.
+For the with-jet case shown in Fig. 9b, regions of high
+mean concentration are found just beneath the exit plane,
+bound by the inner shear layer (r/Ds * 0.35) of the swirl
+stream and the jet stream (r/Ds * 0.07) of undyed water. A
+slight backﬂow in the time mean is seen in this region,
+implying that localized high-temperature fuel-concentration
+ﬂuid could be transported back into the swirl passage—a
+condition that could lead to ﬂashback (Huang and Yang
+2005). In addition, signiﬁcant variation in scalar across the
+swirler exit also indicates incomplete mixing in the swirler
+passage, which is also seen in instantaneous images. The
+no-jet case as shown in Fig. 9a also shows high-concen-
+tration ﬂuid bound by inner swirl cone and unmixedness at
+the swirler exit, though clearly the lack of the central jet
+does not wash the high scalar concentration away from the
+centerline, and the concentration is uniform in the radial
+direction below the central body. It may be noted that the
+high level of unmixedness at the swirler exit, which has also
+been observed in the CH4 combustion data of Meier et al.
+(2007), is probably due to a short mixing distance from the
+premixing port to the swirler exit along with insufﬁciently
+penetrating fuel jets in the swirl slots as previously men-
+tioned. The strong inner-radial bias of the fuel distribution is
+also seen in exit plane measurements (r-h plane, taken at
+x/Ds = 0.13 not shown), but these demonstrated a good axis
+symmetry in the long time mean and were consistent with a
+cross-section at the same axial distance through all of the
+x–r plane measurements shown in Fig. 9.
+High scalar ﬂuctuations are found in the swirl stream
+shear layer for both cases as shown in Fig. 9c and d. These
+localized regions of high scalar ﬂuctuation (larger than
+20% of the mean) at the immediate swirler exit indicate the
+region where the helical vortex structures rapidly mix out
+the radial bias in scalar concentration such that the dye is
+more or less fully mixed at between 1 and 1.5 injector
+diameters downstream, where the scalar concentration
+values approach 0.5. In the with-jet case, the scalar RMS
+values are also increased along the centerline down to the
+Fig. 9 Scalar statistics normalized by maximum value
+Exp Fluids
+123
+
+
+--- Page 10 ---
+
+free stagnation point. This is important because the mag-
+nitude of ﬂuctuations compared to the local mean value is
+around 20–25%, whereas ﬂuctuations in the no-jet case in
+the central recirculation zone are much smaller.
+4.2 Characteristic residence times
+The characteristic times evaluated for the two test cases are
+shown in Fig. 10. The convection time, sconv, for no-jet and
+with-jet are in Fig. 10a and b, respectively. For the with-jet
+case, the region along the centerline where the highest
+gradient of convection time is found (x/Ds * 0.7) is
+midway within the free stagnation region (x/Ds * 0.5 to
+1.0) between forward ﬂowing central jet and backward
+central recirculation zone (CRZ). The convection time of
+the with-jet case is markedly longer than that of the no-jet
+case because the central jet damps the PVC and stabilizes
+the CRZ, resulting in a steadier convective path, which
+Fig. 10 Normalized characteristic times
+Exp Fluids
+123
+
+
+--- Page 11 ---
+
+involves the swirl stream recirculating back into the FoV
+from downstream locations (x/Ds [ 1.5). The convection
+path for the no-jet case, on the other hand, is subject to
+signiﬁcant variation over time associated with a strong
+low-frequency PVC. The center of ﬂow rotation orbits the
+geometrical centerline at a radius of around r/Ds of 0.1–0.2,
+and the swirling conical ﬂow exiting the fuel injector is
+quickly entrained into the central recirculation zone.
+Hence, the no-jet case shorter convection time implies that
+disturbances that originate from inside the fuel injector are
+likely to be transported into the CRZ through large-scale
+turbulent features more quickly than the with-jet case. This
+difference may be exaggerated by the deﬁnition for sconv,
+which requires the scalar to fall by one standard deviation
+below the steady mean. It was seen in Fig. 9 that the with-
+jet case has higher scalar RMS values along the centerline
+than the no-jet case; thus, it will take longer at a given
+decay rate to exceed this condition. This is further dis-
+cussed in the next section when looking at examples of
+decay curves. Supplementary videos are available of the
+scalar decay, which also demonstrates this behavior. The
+outer shear layer of the swirl stream (between it and
+the corner recirculation) also shows some differences
+between the two test cases, with the no-jet case having a
+longer convection time. This demonstrates that the corner
+recirculation regions have a different dynamic. This is
+explained because it is found that the reverse ﬂow on the
+outer wall of the test section extends to x/Ds of 1.5 for the
+no-jet case, whereas the with-jet case corner recirculation
+is smaller, extending to x/Ds of 1.25 and is more stable in
+location.
+The half-life times shown in Fig. 10c and d reveal two
+major differences, which are highlighted in the regions
+bounded by the dashed lines. First, the with-jet convection
+time in region (A) is up to 40% higher than the no-jet one.
+Region (A) falls within the swirl shear layer, featuring the
+vortex pairs, in which high scalar concentration ﬂuid could
+be trapped. Indeed, the longer half-life time there in the
+with-jet case is consistent with the fact that the vortex pairs
+in this case are more coherent than those in the no-jet case
+as discussed earlier. The less coherent structures of the no-
+jet case dissipate and mix out more quickly and are
+entrained into the central recirculation zone, whereas for
+the with-jet case, the mixing between the coherent struc-
+tures and the central recirculation zone is reduced. This is
+also consistent with the convection times discussed above,
+where scalar disturbances take longer to be entrained into
+the central recirculation zone. The second most striking
+difference is located in the region marked by (B), where the
+half-life times of the no-jet case are about 20–30% higher
+than the with-jet. This is believed to be due to the presence
+of a stronger PVC, as dye appears trapped in its low-
+pressure and velocity center, which precesses about the
+geometric centerline at a low-frequency as described
+above. This highest contour level on the centerline of
+Fig. 10c highlights the region over which the helical swirl
+center associated with a PVC is seen to exist through ﬂow
+visualization. The central jet in the with-jet case helps to
+quickly dilute the scalar trapped in the top of the CRZ, but
+in both cases, the rest of the CRZ is relatively stagnant, and
+thus, the decay rates are relatively long.
+Given the above differences in convective and half-life
+times, the residence times shown in Fig. 10e and f are
+found to be not too dissimilar. In general, the CRZ of the
+with-jet case is dominated by long convection times and
+short half-life times, while the no-jet case exhibits an
+opposite phenomenon. Both test conditions have essen-
+tially the same global timescale Ds/Uref as deﬁned in the
+introduction. An experimentally determined residence time
+distribution derived global timescale, sres, would therefore
+perhaps be expected to be similar. Although that happens
+to be the case here, the breakdown into a convective and
+decay component indicates a very dissimilar ﬂow history.
+The combustion chamber sees inlet disturbances relatively
+quickly in the case of the no-jet case compared to the with-
+jet case, but then, the effect of the disturbance takes longer
+to decay from the chamber. It is interesting to note that the
+reacting no-jet case exhibits pulsating behavior under cer-
+tain operating conditions as identiﬁed by Meier et al.
+(2007). This is not found to be the case when operating in
+the with-jet case, though both conditions have strong spikes
+in the ﬂow spectra of near equal magnitude as seen in
+Fig. 7 (but no-jet frequencies are half of those in the with-
+jet case).
+In the introduction, it is indicated that NOx production is
+dependent on residence time and also temperature. Thus,
+the difference in ﬂow history—in particular how ﬂow
+enters the central recirculation zone—could be quite
+important to the emissions in each case. In the with-jet
+case, the evidence suggests that the CRZ is predominantly
+ﬁlled from downstream which could be at reduced tem-
+peratures (due to wall cooling for example) compared to
+the near-ﬁeld reaction zone. Thus, to fully understand
+emission production, an idea of the temperature ﬁeld is also
+required. Some evidence of this is provided by Meier et al.
+(2007), but combining these measurement techniques for a
+reacting case is therefore potentially a valuable exercise to
+help determine where maximum production rates of
+emissions are in a given combustor geometry.
+4.3 Examples of exponential ﬁts
+The single exponential function has been identiﬁed as the
+most suitable for describing the decay trend in swirl-sta-
+bilized ﬂows and has been employed by a number of
+authors (Arai et al. 1998; Spencer and Cheng 2010; Read
+Exp Fluids
+123
+
+
+--- Page 12 ---
+
+and Hochgreb 2010). Examples of reasonably good expo-
+nential ﬁts are shown in Fig. 11. Within the FoV explored
+for this ﬂow conﬁguration, the model decay function is a
+good estimate for around 60–70% of the region. However,
+due to strong localized turbulence, coherent vortex struc-
+tures, and some unmixedness of the mixture at the swirler
+exit, the concentration decay can feature strong ﬂuctuations
+in some regions which make the exponential best-ﬁt seem
+crude. Figure 12 shows three examples of such crude ﬁts.
+High scalar ﬂuctuation in the free stagnation region is due
+to temporal variation of the jet penetration length; thus, the
+decay rate may be under predicted while the convection
+time over predicted. A crude ﬁt is also seen at the swirler
+exit (r/Ds = 0.43), where the RMS scalar is at its peak (see
+Fig. 9). In these regions, bimodal distributions of the
+concentration have been found, and it can be seen that two
+separate exponential curves could better describe these
+data. This is consistent with the radial gradient in scalar at
+the swirler exit being started to be stirred by the emerging
+vortex pairs, which would cause intermittent high then low
+values of scalar. Further downstream in the swirl stream the
+bimodal distribution is mixed out, and the scatter in vari-
+ation becomes more normal in nature.
+4.4 Repeatability
+Repeat measurements have been conducted for the no-jet
+case, and the timescales evaluated for these measurements
+are compared in Fig. 13 for a proﬁle taken along the cen-
+terline. This direction has been chosen since it contains
+both the near ﬁeld, dominated by high exit velocities (and
+therefore short timescales), and also the central recircula-
+tion zone, with low-velocity reverse ﬂow (and associated
+long timescales). A good level of repeatability is seen,
+despite very high turbulence levels, particularly in the
+combined residence time. Discrepancy does occur in con-
+vection time and half-life. This appears to be due to a
+difference in the shape of the initial decay curve for the two
+measurements within the central recirculation zone. The
+low PVC precession frequency (St * 0.014 using the
+deﬁnition in Sect. 2, see Spencer et al. (2008)) corresponds
+to a non-dimensional period of around 70 on these ﬁgures,
+so the phase angle of the precession is probably becoming
+important to the measurement and affecting where the
+algorithm determines the intercept point that deﬁnes the
+start of the decay. This region is where the largest dis-
+crepancies have occurred in all measurements reported
+t (s)
+φ/φmean
+0
+0.04
+0.08
+0.12
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.16,0.03)
+inner swirl near exit
+t (s)
+φ/φmean
+0
+0.5
+1
+1.5
+2
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.88,0.13)
+corner recirculation zone
+t (s)
+φ/φmean
+0
+0.05
+0.1
+0.15
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.21, 0.21)
+swirl inner shear
+Fig. 11 Examples of reasonably good exponential ﬁts to decay data (With-jet)
+φ
+t (s)
+/φmean
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.02, 0.74)
+free stagnation region
+φ
+t (s)
+/φmean
+0
+0.05
+0.1
+0.15
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.43, 0.05)
+outer swirl near exit
+φ
+t (s)
+/φmean
+0
+0.5
+1
+1.5
+2
+2.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+data
+exp. fit
+(x/Ds, r/Ds)=(0.80, 0.80)
+downstream swirl penetration
+Fig. 12 Examples of poor exponential ﬁts to decay data (With-jet)
+Exp Fluids
+123
+
+
+--- Page 13 ---
+
+here and demonstrates that with a low number of param-
+eters describing the decay (sconv, s1/2) single measurements
+are probably acceptable providing the model decay curve is
+representative and that the derived parameters are longer or
+at least the same order of magnitude when compared to the
+ﬂow timescales being investigated.
+The level of circumferential variation is also a good test
+of repeatability in the sense that over a long time average,
+the velocity and scalar ﬁelds are found to be axis sym-
+metric; thus, it would also be expected of the scalar time-
+scales. Looking close to the exit plane of the injector
+(x/Ds = 0.13) on an r–h plane is now a rotating vortex
+pattern that has a non-dimensional rotation period of about
+1.6 (see Fig. 6b). In general, it can be seen from Fig. 14
+that the circumferential variation in timescales does not
+exceed ±5% in the swirl stream exit (r/Ds \ 0.5). In the
+corner recirculation region for r/Ds [ 0.5, the variation is
+typically less than 10%, but here, the ﬂow timescales are an
+order of magnitude larger than for the swirl stream exit.
+The data in Fig. 14 have been circumferentially aver-
+aged to produce the radial proﬁle of characteristic times in
+Fig. 15. This process allows for the best estimate of the
+average of multiple measurements in order to remove
+variations due to the ﬂow structure rotational phase angle.
+The near-zero convection times in Fig. 15a and c indicates
+the region around the time reference point at the swirl
+stream exit has uniform values and is a reliable base time
+for the time at which the dye shutoff enters the combustion
+chamber. The circumferentially averaged proﬁles are
+compared to an equivalent proﬁle extracted from the
+x–r plane measurement at x/Ds = 0.13 (which can contain
+no circumferential averaging). There is good agreement
+between the two with-jet tests on perpendicular planes,
+demonstrating good repeatability of the technique. The
+agreement in the no-jet case is also reasonable, but the very
+long timescale PVC that exists in this condition has
+reduced the level of agreement that is seen in the with-jet
+case. This could of course be improved by performing
+multiple realizations if the additional accuracy is required.
+5 Conclusion
+This paper describes an experimental technique using
+combined PIV/PLIF that has been used here to quantify
+residence time distribution in a swirling ﬂow representative
+x/Ds
+τconv
+0
+0.5
+1
+0
+5
+10
+15
+20
+25
+30
+main test
+repeat
+x/Ds
+τ1/2
+0
+0.5
+1
+0
+10
+20
+30
+40
+50
+main test
+repeat
+x/Ds
+τtotal
+0
+0.5
+1
+0
+20
+40
+60
+80
+main test
+repeat
+Fig. 13 Repeatability: Characteristic times along centerline (No-jet)
+Fig. 14 Measurements of
+residence times in the r–h plane
+at x/Ds = 0.13 (with-jet case)
+Exp Fluids
+123
+
+
+--- Page 14 ---
+
+of that found in partially premixed combustors. The tech-
+nique has only been performed in isothermal ﬂows in
+water, but it could be adapted for reacting ﬂows in air in the
+future. It relies on looking at the temporal response to the
+cessation of the injection of a conserved scalar at the inlet
+to a particular region of interest. This has been described in
+literature previously for point-based measurements, but
+here, planar measurements are performed providing good
+spatial resolution of timescales within a region of interest.
+The measured decay curves are characterized using a
+model decay function consisting of a convection time and
+half-life time: The former describes the shortest time span
+by which a disturbance at the fuel injector exit can be
+transported to the point of interest, and the latter describes
+the rate of exponential decay after the reduction in con-
+centration due to fuel shut is transported to the point of
+interest. The residence time (time to reach half of the initial
+value) can be considered to be the sum of these two
+quantities. Residence timescales are important in deter-
+mining NOx emissions, for example, and many correlations
+exist which relate emission index to residence time and
+temperature. With a spatially resolved statistical descrip-
+tion of the residence time, along with some knowledge of
+the temperature distribution, it may be possible to identify
+the main regions of emission production. The technique has
+been applied to the study of the ﬂow ﬁeld downstream of a
+radially fed swirl fuel injector in the vortex breakdown
+region, and a comparison was provided between the with-
+jet and no-jet cases.
+It was found that for the no-jet case, ﬂuid is likely to be
+transported to the center recirculation zone (x/Ds * 0.5 to
+1.2) much more quickly than the with-jet case due to the
+former’s relatively unstable nature. The with-jet case
+contains two pairs of very coherent helical vortices along
+with a more stable central recirculation zone, and the rate
+of mixing between these two regions is seen to be reduced.
+Thus, in the with-jet case, the CRZ is ﬁlled more from the
+downstream direction rather than direct turbulent transport
+through the shear layer between it and the swirl cone that
+surrounds it. In the same region, it was also found that the
+half-life times of the no-jet case are signiﬁcantly higher,
+associated with the presence of the PVC that appears to
+trap ﬂuid in the swirl center.
+Once inlet disturbances had been convected to a location
+of interest, it was found that an exponential decay function
+was a good model to the actual decay for around two-thirds
+of the locations investigated. Demonstrating the technique
+in a high-swirl combustor ﬂow is the motivation of this
+work, but there are wider potential combustion-related
+applications of the method. Bluff body ﬂame stabilization
+for example requires the determination of wake charac-
+teristic timescales. This has previously been demonstrated
+by ﬁlling wakes with smoke and using whole-ﬁeld, non-
+calibrated
+light
+attenuation
+techniques
+(Winterﬁeld
+1965)—a
+measurement
+which
+could
+be
+signiﬁcantly
+improved using the techniques described here.
+References
+Adrian RJ (1991) Particle-imaging techniques for experimental ﬂuid
+mechanics. Ann Rev Fluid Mech 23:261–304
+Arai M, Nomura T, Hiroyasu H (1998) Residence time measurement
+in a swirl type combustor with helium tracer. Jap Soc Mech Eng
+86(1302A):2619–2625
+Cheng L, Dianat M, Spencer A, McGuirk JJ (2010) SPIV/PLIF
+validation of LES predictions of scalar mixing in high-swirl fuel
+injector ﬂows. In: ETMM8: 8th Int. ERCOFTAC Symp.
+Marseille, France. (Invited to Jnl Flow Turb. And Comb.)
+Chigier NA, Beer JM (1972) Combustion aerodynamics. Applied
+Science, England
+Di Nardo A, Calchetti G, Mongiello C, Giammartini S, Rufoloni M
+(2009) CFD Modelling of an experimental scaled model of a
+trapped vortex combustor. In: Proceedings of the European
+combustion meeting
+Driscoll J, Chen RH, Yoon Y (1992) Nitric oxide levels of turbulent
+jet diffusion ﬂames: effects of residence time and Damkohler
+number. Comb Flame 88:37–49
+Dunham D, Spencer A, McGuirk JJ, Dianat M (2009) Comparison of
+unsteady reynolds averaged navier–stokes and large eddy
+simulation computational ﬂuid dynamics methodologies for air
+swirl fuel injectors. J Eng Gas Turbines Power 131:011502. doi:
+10.1115/1.2969096
+Giordano D, Giammartini S, Manfredi F, Guj G (2001) Non
+dimensional numbers dependency on a Dry Low NOx Annular
+r/Ds
+τconv
+0
+0.2
+0.4
+0.6
+0.8
+0
+5
+10
+15
+20
+x-r extract
+r-θ
+r/Ds
+τ1/2
+0
+0.2
+0.4
+0.6
+0.8
+0
+5
+10
+15
+20
+25
+30
+x-r extract
+r-θ
+r/Ds
+τconv
+0
+0.2
+0.4
+0.6
+0.8
+0
+5
+10
+15
+20
+x-r extract
+r-θ
+r/Ds
+τ1/2
+0
+0.2
+0.4
+0.6
+0.8
+0
+5
+10
+15
+20
+25
+30
+x-r extract
+r-θ
+Fig. 15 Convection and half-life times on x–r and r–h plane measurements at x/Ds = 0.13
+Exp Fluids
+123
+
+
+--- Page 15 ---
+
+Burner Analysed with PIV technique. In: 9th National Confer-
+ence AIVELA, Ancona, 2001
+Heywood JB, Fay JA, Lindern LH (1970) Jet aircraft air pollutant
+production and dispersion. AIAA 70-115
+Huang Y, Yang V (2005) Effect of swirl on combustion dynamics in a
+lean-premixed swirl-stabilized combustor. Proc Comb Inst
+30:1775–1782
+Janus B, Dreizler A, Janicka J (2007) Experiments on swirl stabilized
+non-premixed natural gas ﬂames in a model gasturbine combus-
+tor. Proc Comb Inst 31:3091–3098
+LieuwenT(2006)Thegasturbinehandbook.DepartmentofEnergy,USA
+Meier W, Weigand P, Duan XR, Giezendanner-Thoben R (2007)
+Detailed characterization of the dynamics of thermoacoustic
+pulsations in a lean premixed swirl ﬂame. Comb Flame 150
+Midgley KK (2005) An isothermal experimental study of the unsteady
+ﬂuid mechanics of gas turbine fuel injector ﬂowﬁelds. Ph.D.
+thesis, Loughborough University, UK
+Midgley K, Spencer A (2005) Unsteady ﬂow structures in radial
+swirler fed fuel injectors. ASME J Eng Gas Turbine Power
+127:755–764
+Noble D, Zhang Q, Shareef A, Tootle J, Meyers A, Lieuwen T (2006)
+Syngas mixture composition effects upon ﬂashback and blowout.
+ASME 2006-90470
+Ozdemir IB, Peters N (2001) Characteristics of the reaction zone in a
+combustor operating at mild combustion. Exp Fluids 30:683–695
+Pantano C, Sarkar S, Williams FA (2003) Mixing of a conserved
+scalar in a turbulent reacting shear layer. J Fluid Mech
+481:291–328
+Read R, Hochgreb S (2010) Isothermal ﬂow measurements in a gas
+turbine combustor using a fast ﬂame ionization detector. Meas
+Sci Technol 21:1–10
+Roffe GK, Venkataramani KS (1978) Emissions measurements for
+lean premixed propane/air systems at pressures up to 30
+atmospheres. NASA CR-159421
+Spencer A (1998) Gas turbine combustor port ﬂows. Ph.D. thesis,
+Loughborough University, UK
+Spencer A, Cheng L (2010) Combustor residence time measurement
+using planar laser induced ﬂuorescence. In: Proc ASME Turbo
+Expo GT2010-22573
+Spencer A, McGuirk J, Midgley K (2008) Vortex breakdown in
+swirling fuel injector ﬂows. ASME J Eng Gas Turbines Power
+130:021503.1–021503.8
+van der Lans RP, Glarborg P, Dam-Johansen K, Larsen PS (1997)
+Residence time distributions in a cold, conﬁned swirl ﬂow:
+implications for chemical engineering combustion modeling.
+Chem Eng Sci 52:2743–2756
+Winterﬁeld G (1965) On processes of turbulent exchange behind
+ﬂame holders, The Combustion Institute, pp 1265–1275
+Exp Fluids
+123

@@ -1,0 +1,2366 @@
+
+--- Page 1 ---
+
+A review of acoustic dampers applied to combustion chambers in
+aerospace industry
+Dan Zhao n, X.Y. Li
+Division of Aerospace Engineering, School of Mechanical and Aerospace Engineering, College of Engineering, Nanyang Technological University, Singapore
+639798, Singapore
+a r t i c l e i n f o
+Article history:
+Received 18 March 2014
+Received in revised form
+14 November 2014
+Accepted 10 December 2014
+Available online 23 December 2014
+Keywords:
+Acoustic dampers
+Engine system
+Propulsion
+Aeroacoustics
+Combustion instability
+Passive control
+a b s t r a c t
+In engine combustion systems such as rockets, aero-engines and gas turbines, pressure ﬂuctuations are al-
+ways present, even during normal operation. One of design prerequisites for the engine combustors is stable
+operation, since large-amplitude self-sustained pressure ﬂuctuations (also known as combustion instability)
+have the potential to cause serious structural damage and catastrophic engine failure. To dampen pressure
+ﬂuctuations and to reduce noise, acoustic dampers are widely applied as a passive control means to stabilize
+combustion/engine systems. However, they cannot respond to the dynamic changes of operating conditions
+and tend to be effective over certain narrow range of frequencies. To maintain their optimum damping
+performance over a broad frequency range, extensive researches have been conducted during the past four
+decades. The present work is to summarize the status, challenges and progress of implementing such
+acoustic dampers on engine systems. The damping effect and mechanism of various acoustic dampers, such
+as Helmholtz resonators, perforated liners, bafﬂes, half- and quarter-wave tube are introduced ﬁrst. A
+summary of numerical, experimental and theoretical studies are then presented to review the progress made
+so far. Finally, as an alternative means, ‘tunable acoustic dampers’ are discussed. Potential, challenges and
+issues associated with the dampers practical implementation are highlighted.
+& 2014 Elsevier Ltd. All rights reserved.
+Contents
+1.
+Introduction. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+1.1.
+Brief description of the damping mechanism . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 115
+1.2.
+Other passive control approach . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117
+1.3.
+Active control approach . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 117
+2.
+Description of combustion-excited oscillations and acoustic dampers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+2.1.
+Unsteady combustion as an efﬁcient sound source . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 118
+2.2.
+Acoustic dampers applied in engine systems. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+2.2.1.
+Helmholtz resonator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 119
+2.2.2.
+Acoustic liners . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 120
+2.2.3.
+Quarter- and half-wave tube . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 121
+2.2.4.
+Bafﬂes and other damping approaches. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+3.
+‘Tunable’ acoustic dampers . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 122
+3.1.
+Tunable Helmholtz resonator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 123
+3.2.
+Tunable acoustic liners . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 125
+3.3.
+Challenges and issues associated with acoustic dampers implementation. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 126
+4.
+Discussion and conclusions. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 127
+Acknowledgments. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+References . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 128
+Contents lists available at ScienceDirect
+journal homepage: www.elsevier.com/locate/paerosci
+Progress in Aerospace Sciences
+http://dx.doi.org/10.1016/j.paerosci.2014.12.003
+0376-0421/& 2014 Elsevier Ltd. All rights reserved.
+n Corresponding author.
+E-mail address: zhaodan@ntu.edu.sg (D. Zhao).
+Progress in Aerospace Sciences 74 (2015) 114–130
+
+
+--- Page 2 ---
+
+1. Introduction
+Combustion systems such as rocket motors and aero-engines
+are associated with acoustic pressure ﬂuctuations even during
+normal, stable operation of engine systems [1–7]. These pressure
+ﬂuctuations are typically quite random. The corresponding fre-
+quency spectrum is continuous in nature. However, in unstable
+combustion systems, large concentrations of acoustical energy
+appear at some frequencies (corresponding to the combustor re-
+sonance ones) in the spectrum. The easily recognized peaks (har-
+monics or non-harmonics) are different from the spectrum of the
+stable systems with random noise [8–10,3]. For engine combus-
+tors, stable operation is one of design prerequisites [2,11], since
+large-amplitude self-sustained pressure ﬂuctuations (also known
+as combustion instability) have great potential to cause serious
+damage and catastrophic engine failure. However, no engine type
+or propulsion system can be considered inherently ‘stable’ [12].
+There are many factors affecting engine stability, for example the
+conﬁguration of the engine-feed systems, injector, and thrust
+chamber as well as operating conditions. Therefore, it is important
+to address the issue of mitigating self-sustained pressure ﬂuctua-
+tions as well as engine performance during the early stages of
+engine design. Otherwise, required modiﬁcations might become
+too difﬁcult to implement [13,14].
+Combustion systems are associated with the burning of the
+mixture of fuel and oxidizer/air. Unsteady combustion is an efﬁ-
+cient acoustic source. It generates acoustic pressure waves. These
+pressure waves propagate within the combustor, and partially
+reﬂect from boundaries to arrive back at the combustion zone,
+where they can cause more unsteady heat release. This feedback
+can result in the pressure oscillation amplitudes successively in-
+creasing, which is what is meant by a combustion instability [15–
+19]. Eventually, some nonlinearity in the combustion system will
+limit the amplitude of the oscillations. Whether or not an in-
+stability occurs depends on the nature of the coupling between the
+unsteady heat release and acoustic waves, as shown in Fig. 1.
+Self-sustained combustion oscillations occur frequently in
+many types of combustion systems, including aero-engine after-
+burners [20], ramjets [21], stationary power gas turbines [22,23],
+boilers and furnaces [24]. However, the present work focuses on
+reviewing how to improve the stability of aeroengines as shown in
+Fig. 2(a) and rocket motors [25,26], as shown in Fig. 2(b).
+In a few instances, aerial vehicles and rockets are lost during
+ﬂight tests due to combustion instability. However, combustion
+stability [1,27–29] issues can be resolved during the engine de-
+velopment stage. There are two general approaches to stabilize
+combustion systems. One is to modify the propellant supply sys-
+tem. The other is to change the combustor geometry. These two
+approaches have been widely used in different types of propulsion
+systems [30]. For solid rockets, it is general practice to change
+the propellant composition or to modify the geometry of the
+propellant grain. However, it is difﬁcult to alter the reactants in
+liquid-fueled rocket motors. Thus it has become common practice
+to adjust the design of the fuel supply system or to add acoustic
+dampers to the liquid-fueled rocket motors. However, it is worth
+noting that implementing acoustic dampers may enhance com-
+bustion system stability but may also affect combustion perfor-
+mance and combustor heat loads [4,1].
+The most commonly used acoustic dampers include Helmholtz
+resonators, perforated liners, quarter-and half-wave tubes, and
+bafﬂes [31,8,32,33]. As all of these are relevant to the present
+work, we will now introduce brieﬂy their damping mechanisms
+one by one. Detailed discussion on their implementation and
+performance is reported in the following sections.
+1.1. Brief description of the damping mechanism
+ Helmholtz resonators.
+Helmholtz resonators (HRs) have been widely used as acoustic
+dampers
+to
+dampen
+combustion-excited
+oscillations
+[34,23,8,35]. A schematic of a typical set-up is shown in Fig. 3
+(a). It consists of a volume connected to the combustor by
+means of a short neck. At resonance, a large volume of ﬂuid in
+the cavity compresses and expands periodically, while a mass
+of the ﬂuid in the neck oscillates. This can be explained by
+studying the relation between the pressure perturbation p t( )
+′
+at the neck and the cavity volume ﬂow rate Q
+t( )
+′
+of the re-
+sonator with a cavity volume V. For harmonic disturbances i.e.
+t
+exp{j
+}
+ω
+, the density change in the cavity
+Q
+V
+( )
+( )/j
+cρ ω
+ω
+ω
+^
+= ^
+is
+due to the mass ﬂowing into the cavity [36]. It is also related to
+the pressure ﬂuctuation in the cavity as
+p
+c
+c Q
+V
+( )
+( )
+( )
+j
+(1)
+c
+c
+0
+2
+0
+2
+ω
+ρ ω
+ω
+ω
+^
+=
+^
+=
+^
+where c0 is the speed of sound. According to the momentum
+conservation law in the neck, the pressure difference between
+the neck ends equals the rate of momentum change as
+p
+p
+p
+l
+Q
+S
+( )
+( )
+( )
+j
+( )
+(2)
+i
+c
+eff
+ω
+ω
+ω
+ω
+ω
+Δ^
+= ^
+−^
+=
+^
+where S and leff are the cross-sectional area and the effective
+length of the neck respectively. After substituting for p ( )
+c ω
+^
+, it
+can be shown that
+⎜
+⎟
+⎛
+⎝
+⎞
+⎠
+Q
+p
+S
+l
+( )
+( )
+j
+(3)
+i
+c S
+Vl
+2
+eff
+02
+eff
+ω
+ω
+ω
+ω
+^
+^
+=
+−
+The damper resonates at a frequency of
+c S
+Vl
+(4)
+res
+0
+2
+eff
+ω
+=
+Near this frequency very small pressure disturbances can lead
+to large mass variations. The acoustic damping effect provided
+by a Helmholtz resonator at its resonant frequency depends
+on the bulk geometry of the resonator. It has been shown
+[37,2] that the maximum damping occurs by tuning/varying
+the resonator geometry so that the resonant frequency
+res
+ω
+is
+close to the oscillation frequency that is to be mitigated in the
+combustor.
+Factors such as neck shapes are also found to have an
+inﬂuence on the resonator damping effect; for example
+rounded (see Fig. 3(b)) and square shaped necks [38] produce
+signiﬁcantly different acoustic responses [11]. Furthermore, it
+is found that installing a perforated plate at the resonator neck
+can dramatically increase the acoustic damping [39].
+Fig. 1. Schematic of a simpliﬁed combustion system.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+115
+
+
+--- Page 3 ---
+
+There are two different damping mechanisms associated with
+Helmholtz resonators: linear and nonlinear. When the ampli-
+tude of incident pressure waves is small, the damping is a
+linear one, which is associated with thermal and viscous
+boundary layer losses. The nonlinear one involves energy
+conversion from acoustical energy to produce vortex shedding
+and ‘jet’, when the incident pressure wave amplitude is large.
+Thus the damping of combustion-excited oscillations arises
+primarily due to the thermo-viscous and/or vortex shedding
+losses, that result from the periodic motion of the air
+[37,40,41] through the resonator neck. The relative contribu-
+tion of these two mechanisms depends on the acoustic
+Strouhal number.
+ Perforated liners:
+Another type of acoustic dampers is the perforated plate/liner,
+which
+has
+received
+wide-spread
+interest
+for
+stabilizing
+Fig. 2. (a) Perspective view of a turbofan aeroengine with perforated liners installed in the combustion chamber. (b) Cutaway view of a rocket combustion chamber with
+longitudinal injector-face bafﬂes and acoustic liner implemented. Taken from Harrje and Reardon [2].
+Fig. 3. (a) Schematic of a typical Helmholtz resonator. (b) 3D drawing of a Helmholtz resonator with a cylindrical cavity.
+Fig. 4. (a) Schematic of a typical perforated plate. (b) 3D drawing of a cylindrical acoustic liner with circular oriﬁces.
+x(m)
+y(m)
+0
+0.02
+0.04
+0.06
+0.08
+0.1
+0.12
+0.14
+0
+0.01
+0.02
+0.03
+0.04
+0.05
+velocity(m/s): 0.50
+1.57
+2.64
+3.71
+4.79
+5.86
+6.93
+8.00
+Fig. 5. Velocity contour of acoustically-excited ﬂow through an in-duct oriﬁce.
+Taken from Ji and Zhao [50,51].
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+116
+
+
+--- Page 4 ---
+
+combustion systems [42–44]. It is a metal sheet with perfo-
+rated oriﬁces ﬁtted along the bounding wall of the combustor
+[45]. A typical perforated plate and a cylindrical acoustic liner
+are illustrated in Fig. 4(a) and (b) respectively. They are fre-
+quently arranged in layers. In practice, cooling air ﬂows
+through the perforated holes (known as a bias ﬂow) to pre-
+vent the liners from being damaged by high temperature.
+The damping mechanism mainly involves vortex shedding
+[46–51] generated over the rims of the perforated holes, as
+shown in Fig. 5. When incident sound waves interact and
+destabilize with shear layers formed at the oriﬁce rims, vortex
+rings are formed and the sound energy is converted into
+kinetic energy being dissipated by the surrounding ﬂuid.
+Generally,
+the
+ﬂuctuating
+aperture
+volume
+ﬂux
+8 t( )
+′
+=
+8
+c t
+( ) exp(j /
+)
+0
+ω
+ω
+^
+is related to the stagnation enthalpy differ-
+ence across the aperture via Rayleigh conductivity [52,53].
+And it is given in dimensionless form [48] as
+8
+K
+p
+j
+( )
+( )
+( )
+j ( )
+(5)
+R
+0
+ρ ω
+ω
+ω
+γ ω
+δ ω
+= −
+^
+Δ^
+=
++
+the real part of Rayleigh conductivity describes the reactance
+and the imaginary part denotes the impedance, which gives
+rise to the acoustic damping effect. Here ρ0 denotes the mean
+density of the air ﬂow through the oriﬁce.
+ Quarter-/half-wave tube:
+A quarter- and half-wave tubes [33,32,11] as shown in Fig. 6
+are another type of acoustic dampers. Their damping me-
+chanism is mainly due to resonance-induced thermo-viscous
+and/or vortex shedding effects, which is similar to Helmholtz
+resonators. The quarter- or half-wave tube geometry para-
+meters such as the length lres and diameter dres affect the tube
+damping performance, since they are related to their resonant
+frequencies. When the frequencies of combustion-excited os-
+cillations are close to the resonant ones of these tubes, the
+oscillations can be effectively dampened due to viscous effect.
+The resonant frequencies of the tubes are given as
+5
+c
+l
+l
+2
+(
+)
+(6)
+res
+res
+0
+ω
+π
+=
++ Δ
+where
+l
+Δ denotes open end correction. 5 is a constant. For a
+half-wave tube, 5
+2
+=
+and 5
+4
+=
+for a quarter-wave one.
+ Bafﬂes and other damping approaches:
+A ‘bafﬂe’ [11,1,2] is a structure placed in a rocket combustion
+chamber
+to
+dampen
+unwanted
+oscillations,
+as
+shown
+in Fig. 7. Generally, the bafﬂe modiﬁes the acoustic resonance
+properties of the combustion system. It can be used to miti-
+gate both longitudinal and transverse modes, as shown in
+Fig. 8, depending on the bafﬂe implementation. It is shown
+[1,2,54] that the vortices generated at the bafﬂe edges dis-
+sipate acoustical energy and thus increases the acoustic
+damping. One of the earliest bafﬂes used in a liquid-fueled
+rocket engine system might be a resonance rod [54]. The
+damping performance of such bafﬂe will be discussed further
+in the following section.
+1.2. Other passive control approach
+Combustion-excited oscillations occur in different types of
+combustion chambers. The generation mechanisms of such oscil-
+lations are different. Thus various passive control approaches are
+developed in addition to the acoustic dampers discussed above.
+One of the control approaches is to inject coaxial ﬂows to suppress
+combustion oscillations driven by vortex shedding in dump
+combustors [55], where large-scale vortices trigger the self-
+sustained oscillations. In addition, a secondary heat source such
+as an electrical heater could be used as another simple ‘passive
+control’ approach to mitigate combustion-excited oscillations
+[56]. Experiments are being conducted to evaluate the perfor-
+mance of using a secondary heater on stabilizing a combustion
+system [57].
+1.3. Active control approach
+Stabilizing combustion systems can also be achieved by ap-
+plying active control techniques. It involves using a dynamic ac-
+tuator such as a loudspeaker or fuel supply valve to modify some
+input to combustion systems. Depending on the form of actuation,
+they may alter the dynamics of energy source or increase the
+surface/boundary loss. For example, modulating the fuel ﬂow rate
+into the combustor will principally cause the unsteady energy
+source to be ‘stabilized’ (if the actuation has been designed cor-
+rectly). Active control can be applied in open-loop or closed-loop
+conﬁguration. In open-loop, the control action does not depend on
+the combustor response, while for closed-loop (feedback) control
+as shown in Fig. 9, the controller drives the actuator in response to
+a sensor measurement. The sensor (e.g. a microphone, pressure
+transducer or photomultiplier) continuously ‘senses’ the condition
+of the unstable combustion system. This information is used by the
+controller to determine an actuation signal, which is fed into the
+actuator. The actuator ‘perturbs’ the state of the system in a
+manner that either prevents the onset or dampens the combus-
+tion-excited oscillations. The design of the controller i.e. the re-
+lationship between the sensor and the actuator signal is crucial in
+ensuring that instability is suppressed. Detailed reviews of feed-
+back control techniques are reported in the previous works
+[58,13].
+Fig. 6. Schematics of a half-wave (a) and quarter-wave tube (b). Taken from Sohn
+and Park [33].
+Fig. 7. Example forms of bafﬂes/rods used in solid propellant rockets. Taken from
+Culick [1].
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+117
+
+
+--- Page 5 ---
+
+2. Description of combustion-excited oscillations and acoustic
+dampers
+2.1. Unsteady combustion as an efﬁcient sound source
+In order to gain insight on the generation mechanism of com-
+bustion-excited oscillations and to study the damping effect of
+acoustic dampers, thermodynamic analysis of heat-to-sound en-
+ergy conversion is conducted. It is known that unsteady combus-
+tion is a monopole-like sound source [59,36]. It produces acoustic
+pressure waves efﬁciently [60]. This could be explained by con-
+sidering a control volume of ﬂuid with heat added. If the internal
+energy of the ﬂuid mixture is denoted by e, then the ﬁrst law of
+thermodynamics [56,61] considering energy conservation can be
+described by
+e
+t
+T s
+t
+p
+t
+d
+d
+d
+d
+d(
+)
+d
+(7)
+1
+ρ
+=
+−
+−
+Since
+p s
+( , )
+ρ
+is related to the pressure p and speciﬁc entropy s, it
+can be shown that
+t
+p
+p
+t
+s
+s
+e
+c
+p
+t
+s
+s
+t
+d
+d
+d
+d
+d
+d
+1 d
+d
+d
+d
+(8)
+s
+p
+p
+2
+ρ
+ρ
+ρ
+ρ
+= ∂
+∂
++ ∂
+∂
+=
++ ∂
+∂
+For a perfect gas
+p RT
+p c
+/
+/ 2
+ρ
+γ
+=
+=
+,
+s
+T
+c
+c
+/
+(
+1)/
+/
+p
+p
+2
+ρ
+ρ
+γ
+ρ
+∂
+∂| = −
+−
+= −
+.
+Eq. (8) can then be rewritten as
+t
+c
+p
+t
+c
+T s
+t
+c
+p
+t
+c
+Q
+d
+d
+1 d
+d
+(
+1) d
+d
+1 d
+d
+(
+1)
+(9)
+2
+2
+2
+2
+ρ
+ρ γ
+γ
+=
+−
+−
+=
+−
+−
+where Q
+T
+s
+t
+Q
+Q t
+d /d
+( )
+0
+ρ
+=
+=
++
+′
+is the heat addition per unit vo-
+lume. It consists of a mean Q 0 and ﬂuctuating part Q t( )
+′
+. The mean
+part is used to heat up the working ﬂuid. However, the ﬂuctuating
+part is an efﬁcient sound source.
+The mass and momentum equations over the control volume
+[60,62–64], when linearized with respect to the perturbation
+quantities, can be written as
+t
+u
+x
+0
+(10)
+i
+i
+0
+ρ
+ρ
+∂′
+∂
++
+∂
+∂
+=
+′
+S
+u
+t
+x
+p
+(
+)
+0
+(11)
+i
+i
+ij
+0
+ρ
+δ
+∂
+∂
++
+∂
+∂
+′
+−
+=
+′
+where S denotes the ‘friction’/damping (e.g. viscous stress) effect.
+By substituting linearized Eq. (9) into Eq. (10), multiplying Eq. (10)
+with c0
+2ρ′, Eq. (11) with ui ′ and addition, an energy conservation
+equation is obtained namely,
+S
+⎡
+⎣
+⎢⎢
+⎤
+⎦
+⎥⎥
+t
+u
+c
+x
+p
+u
+u
+x
+p
+p Q
+1
+2
+1
+2
+(
+)
+(
+1)
+(12)
+i
+i
+ij
+i
+i
+i
+0
+2
+0
+2
+2
+0
+0
+ρ
+ρ
+ρ
+δ
+γ
+γ
+∂
+∂
++
+′
++
+∂
+∂
+′
+−
+∂
+∂
+=
+−
+′ ′
+′
+′
+′
+Integrating Eq. (12) over the control volume leads to
+=
+=
+>
+D
+⎡
+⎣
+⎢⎢
+⎤
+⎦
+⎥⎥
+t
+c
+p
+p Q
+u
+1
+2
+1
+2
+d
+(
+1)
+d
+(13)
+V
+V
+0
+2
+2
+0
+0
+2
+0
+∫
+∫
+ρ
+ρ
+ρ
+γ
+γ
+∂
+∂
+′
++
+′
+=
+−
+′ ′
+−
+−
+−1
+−0.5
+0
+0.5
+1
+Fig. 8. Normalized pressure contour plots of the solution of Helmholtz equation in a cylindrical combustor with coordinates (r
+z
+,
+,θ
+), i.e. p(r,θ,1)/max(p(r,θ,1)) (a) mode(2,1,1),
+(b) mode(3,1,1), (c) mode(2,2,1) and (d) mode(3,2,1).
+Fig. 9. Typical active feedback control system scheme.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+118
+
+
+--- Page 6 ---
+
+where
+>
+D
+S
+x
+p
+u
+x
+u
+x
+x
+(
+)d
+d
+(14)
+i
+ij
+i
+i
+i
+i
+i
+∭
+∭
+δ
+=
+∂
+∂
+′
+=
+−
+∂
+∂
+′
+′
+It can be seen from Eq. (13) that the term on the left hand side
+describes the classical acoustical energy ,a as deﬁned as
+,
+=
+⎡
+⎣
+⎢⎢
+⎤
+⎦
+⎥⎥
+c
+u
+1
+2
+1
+2
+d
+(15)
+a
+V
+0
+2
+2
+0
+0
+2
+∫
+ρ
+γρ
+ρ
+=
+′
++
+′
+,a consists of a kinetic part i.e. ,
+u /2
+a
+k
+0
+2
+ρ
+=
+′
+and a potential part
+,
+c
+/2
+a
+p
+0
+2
+2
+0
+ρ
+γρ
+=
+′
+.
+The ﬁrst term on the right-hand-side of Eq. (13) as deﬁned as
+,e:
+,
+=
+p
+p Q
+(
+1)
+d
+(16)
+e
+V
+0
+∫
+γ
+γ
+=
+−
+′ ′
+describes the energy exchange within the control volume V be-
+tween pressure waves and heat input. The second term > de-
+scribes the mechanical work done by the ﬂuid supporting an ex-
+ternally induced normal stress p′ and moving with velocity ui ′. The
+last term D is associated with thermal and viscous dissipation.
+If the damping term S is neglected, substituting Eq. (9) into
+Eq. (10) differentiating Eq. (10) with respect to time t, taking di-
+vergence
+of
+Eq.
+(11),
+an
+inhomogeneous
+combustion-driven
+acoustic wave equation is obtained namely,
+⎛
+⎝
+⎜⎜
+⎞
+⎠
+⎟⎟
+c
+p
+t
+p
+c
+Q
+t
+1
+1
+1 .
+( )
+(17)
+0
+2
+2
+2
+0
+0
+0
+2
+ρ
+ρ
+γ
+∂
+′
+∂
+−
+∇·
+∇′ =
+−
+′
+where overdot denotes the time derivative. Eq. (17) describes a
+general combustion-driven acoustic wave equation. Q
+t
+.
+( )
+′
+describes
+the time rate of heat addition from an unsteady heat source. It can
+be seen that the unsteady combustion is an efﬁcient monopole-
+like sound source.
+Substituting Eqs. (15) and (16) into Eq. (13) and integrating it
+over one period leads to
+,
+,
+>
+;
+;
+;
+D
+t
+t
+d
+[
+] d
+(18)
+t
+t
+e
+a t
+t
+t
+t
+∫
+∫
+=
++
++
++
++
++
+Eq. (18) reveals that the input thermal energy is partially con-
+verted into acoustical energy, partially dissipated by thermal and
+viscous effect, and partially used to produce mechanical work.
+When there is no heat addition, Q
+0
+′ =
+, and the working ﬂuid is
+quiescent (stagnant and uniform) and frictionless, Eq. (13) can be
+simpliﬁed into the classical acoustic energy balance equation:
+,
+>
+t
+S
+I n d
+(19)
+a
+S∫
+∂
+∂
+= −
+= −
+·
+where
+p
+I
+u
+=
+′ ′ is the acoustic intensity. S is the surface enclosing
+the control volume with outer normal n. Here the Gauss theorem
+is used to transform
+I
+V
+(
+) d
+V∫
+∇·
+into the surface integral
+S
+I n
+(
+) d
+S∫
+·
+.
+Eq. (19) can be used to calculate the acoustic power generated by
+heat addition.
+When
+p Q
+90
+|∠′ ′| <
+°, i.e. p′ and Q′ are in phase, then the energy
+exchange rate ,
+0
+e >
+. Self-sustained combustion oscillations may
+be produced, depending on the system overall damping and dis-
+sipation. This is known as ‘Rayleigh criterion’ [65]. To stabilize
+combustion systems, it is necessary to ensure a critical condition
+as given as
+,
+>
+D
+t
+t
+d
+[
+] d
+(20)
+t
+t
+e
+t
+t
+2 /
+2 /
+∫
+∫
+<
++
+π ω
+π ω
++
++
+That is to say the heat exchange over one period must be less than
+the sum of that used to generate mechanical work and that
+dissipated due to thermal and viscous or other damping effects.
+Eq. (20) suggests that the combustion system stability can be
+enhanced by introducing acoustic dampers, i.e. increasing the
+damping effect D.
+2.2. Acoustic dampers applied in engine systems
+The approach of implementing acoustic dampers is strongly
+weighted toward stabilizing the combustion process in the aero-
+engine, rocket and gas turbine combustion literature. And the
+approach has been proven to be very effective when properly
+designed. However, this is not to imply that the acoustic damper
+design is easy or has no uncertainties. However, given the cost of
+retroﬁtting a combustion system to achieve stability, implement-
+ing acoustic dampers may be worthwhile. These dampers are re-
+viewed next.
+2.2.1. Helmholtz resonator
+In most industrial applications [34,8], the design of Helmholtz
+resonators is ﬁnalized by experimental ‘cold-’ or ‘hot-ﬂow (ﬁring)’
+tests. This is primarily because the resonator ﬂuid can include
+combustion products and purge cooling gas, making the speed of
+sound uncertain. These difﬁculties make the design of the re-
+sonators a time consuming process. The practical issues concern-
+ing the use of Helmholtz resonators on gas turbines were ad-
+dressed and discussed by Dupére and Dowling [34] and reviewed
+by Richards et al. [8]. It is shown that Helmholtz resonators with a
+large neck area, large volume, short neck and low temperature are
+required in order to achieve high power absorption over a broad
+frequency range.
+Bellucci et al. [23] utilized Helmholtz resonators to stabilize an
+ALSTOM GT11N2 gas turbine system. They used experimental test
+results to establish the parameters for a nonlinear Helmholtz re-
+sonator model. The model was then used to design actual re-
+sonators applicable to industrial combustors. By installing several
+resonators on the combustors, good attenuation over a broad
+frequency range was achieved as shown in Fig. 10. It can be seen
+that the implementation of Helmholtz resonators leads to p p
+/ 0
+′
+reduced by approximately 40%. A similar experimental investiga-
+tion was conducted by Gysling et al. [35].
+Selamet et al. [66–68] conducted a series of numerical studies
+on various geometric Helmholtz resonators. Circular concentric
+and asymmetric resonators were studied ﬁrst. 2D and 3D bound-
+ary element (BEM) simulations were conducted. They then studied
+Helmholtz resonators with extended neck or absorbing materials.
+0
+St
+p’/p0
+Measurement
+Simulation
+0
+p’/p0
+Fig. 10. Comparison of measured pressure spectrum from an ALSTOM GT11N2 gas
+turbine without (a) and with (b) Helmholtz resonator implemented. Taken from
+Bellucci et al. [23].
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+119
+
+
+--- Page 7 ---
+
+It was shown that without changing the cavity dimensions, the
+resonator damping performance may be modiﬁed considerably by
+adding the ﬁbrous material or changing the length of the neck.
+Tang and Sirignano [69] developed a generalized Helmholtz re-
+sonator model. It was based on the ‘jet’ ﬂow model manifesting
+the nonlinearity of the oriﬁce ﬂowing upon the passage of a high
+intensity acoustic wave. The model can also be used to study the
+damping effect of a quarter-wave tube. The nonlinear damping
+effect of a Helmholtz resonator was theoretically studied by sev-
+eral group researchers [37,70,71]. It is shown that viscous damping
+and energy loss associated with the dissipation of the kinetic en-
+ergy of the ‘jets’ which are periodically formed at both ends of the
+oriﬁce/neck contribute to the damping mechanism. However, the
+latter mechanism is amplitude dependent.
+2.2.2. Acoustic liners
+Acoustic liners have received wide-spread interest for stabi-
+lizing propulsion systems. They are used more widely in aero-
+engines than in any other application [8]. When they are part of
+the engine inlet design, acoustic noise radiated forward of aircrafts
+can be dramatically reduced. When they are applied to cover all or
+part of the lateral boundary of a combustor, combustion-excited
+oscillations can be signiﬁcantly dampened. However, there are two
+main problems arising with the installation of such liners in
+combustors. One is to tune such a pressure oscillation in the un-
+wanted frequency range so that they are attenuated, and the other
+is cooling. A good discussion of the cooling problem and its
+practical solution for liquid rockets was reported by Harrje and
+Reardon [2].
+The acoustic liners are associated with millimeter-size perfo-
+rated holes. Since the holes are too small to simulate accurately
+in most computational codes, and therefore the analysis of
+such
+liners
+is
+currently
+restricted
+to
+theoretical
+modelling,
+measurement and specialized direct numerical simulations (DNS)
+[53].
+The majority of modelling work has been carried out in the
+frequency domain. Howe [48] modelled the acoustic energy dis-
+sipated by the periodic shedding of vorticity for a single oriﬁce in a
+high Reynolds-number ﬂow using Rayleigh conductivity.
+Following Howe's research, Jing and Sun [72,73] experimentally
+and numerically investigated the effect of the oriﬁce thickness and
+the bias ﬂow rate, showing that an appropriate bias ﬂow rate can
+signiﬁcantly increase damping and that the oriﬁce thickness is
+crucial. Their results were consistent with those of Howe in the
+limit to zero thickness [48].
+In comparison with theoretical modeling [52,74], time-domain
+numerical simulations [75,53,76] become more and more popular.
+This is most likely due to the availability of high performance
+computers and the development of more efﬁcient computational
+methods. Tam et al. [76] carried out direct numerical simulation
+(DNS) of a single aperture, showing that vortex shedding was the
+dominant
+damping
+mechanism
+for
+large-amplitude
+incident
+waves. Fig. 11 shows the time evolution of the vortex shedding and
+the vorticity-involved damping mechanism.
+Sbardella et al. [77] developed a 1D acoustic liner model, which
+was coupled with 2D duct ﬂow equations. The model can solve
+multi-frequency problems. It was shown that the model can pre-
+dict the sound attenuation with or without mean grazing ﬂow.
+Reichert and Biringen [78] proposed a time-domain approach
+which introduced a source term to the momentum equations, and
+assessed the effect of a bias ﬂow. They found that with an opti-
+mum bias ﬂow rate, the liners damping efﬁciency was signiﬁcantly
+improved over that with no bias ﬂow. This ﬁnding, shared by Follet
+et al. [79], has supported the idea of optimizing the bias ﬂow rate
+to
+improve
+the
+liners’
+damping
+performance.
+Mendez
+and
+Eldredge [80] conducted compressible large-eddy simulations
+B
+A
+B
+A
+B
+A
+B
+A
+B
+A
+Fig. 11. Evolution of vortex shedding (left column) and pressure ﬂuctuations (right column) during one period, as the sound wave incident to an in-duct oriﬁce is set to
+f¼318.32 Hz. Taken from Ji and Zhao [49].
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+120
+
+
+--- Page 8 ---
+
+(LES) on a single or multiple oriﬁces to study the aeroacoustics
+characteristics. Burak et al. [81] also used LES to solve linearized
+Navier–Stokes equations to study the damping performance of an
+acoustic liner in the presence of grazing ﬂow. Zhang and Bodony
+[53] used DNS to investigate the acoustics behavior of a honey-
+comb liner. They found that the oriﬁce boundary layer played a
+critical role in affecting the nonlinearity.
+The numerical simulations described above attempt to solve
+the Navier-Stokes equations by using ﬁnite volume (FV) or ﬁnite
+difference (FD) methods. As an alternative computational tool,
+lattice Boltzmann method (LBM) could be used to model and si-
+mulate complex physics in ﬂuids [82] and aeroacoustics, such as
+jet [83], cavity [84] and airfoil [85] noise. Unlike the conventional
+numerical schemes, LBM is intended to solve the discrete lattice
+Boltzmann equation (LBE) by using the pseudo-particle based
+technique [83–85,49,50]. The LBE controls the particles associated
+with collision and propagation over a discrete lattice mesh. Thus
+LBM is thought to be one of the particle techniques. And it pos-
+sesses the required accuracy to capture the weak acoustic pressure
+ﬂuctuations [83–85]. Ji and Zhao [49,50] used the lattice Boltz-
+mann method to simulate the acoustic damping effect of an in-
+duct circular oriﬁce.
+Experimental investigations focus on measuring the liner im-
+pedance or power absorption coefﬁcient [74,86], since it is easier
+to measure in comparison with the ﬂow ﬁeld near the tiny oriﬁce.
+Ingard and Labate [87] experimentally visualized that the incident
+sound amplitude, frequency, the oriﬁce diameter and thickness
+affected the induced motion of the ﬂuid near the oriﬁce. Hughes
+and Dowling [46] showed that the sound incident on a perforated
+liner with a bias ﬂow might be completely absorbed, if the ﬂow
+speed and the liner geometry were chosen properly. Jing and Sun's
+experiments [72] conﬁrmed that the oriﬁce thickness and the bias
+ﬂow Mach number played dominant roles in affecting the liners’
+damping performance. Eldredge and Dowling [52] measured the
+variation of the damping performance of a double-layer liner with
+the incident sound frequency. The damping performance was de-
+ﬁned and evaluated in two different ways. One is by measuring the
+power absorption coefﬁcient as shown in Fig. 12(a), which de-
+scribes the fraction of incident waves being absorbed.
+The other is by measuring transmission loss coefﬁcient as
+shown in Fig. 12(b), which denotes the fraction of the acoustical
+energy that is transmitted downstream of the lined section. It can
+be seen that the liners' damping effect depends strongly on the
+forcing frequency and the damping measure deﬁned. Recently Tam
+et al. [88] conducted experiments to study the grazing ﬂow effect
+on the damping performance of acoustic liners. They showed that
+the acoustic liner could generate self-noise, which might result
+from a feedback resonance mechanism driven by a Kelvin–Helm-
+holtz instability wave of the free shear layer spanning the open-
+ings of the liner cavity. Furthermore, the drag was found to in-
+crease by about 4% for an acoustic liner with a 10% open area ratio
+in comparison to the turbulent boundary layer drag over a ﬂat
+wall.
+2.2.3. Quarter- and half-wave tube
+In order to evaluate the acoustic damping characteristics of a
+half- and quarter-wave tube, a series of numerical and experi-
+mental studies were conducted by Sohn and Park [33,32]. They
+showed that a quarter wave tube had a much larger damping ca-
+pacity than a half-wave one with the same diameter as shown in
+Fig. 13(a), although they were associated with the same damping
+mechanism. However, a Helmholtz resonator has the largest
+damping capacity in comparison with the quarter-and half-wave
+tubes, as shown in Fig. 13(b) and (c). This is most likely due to the
+increased vortex shedding and resonance effect of the resonator
+cavity.
+Oschwald et al. [89] applied multiple quarter-wave tubes to
+dampen the pressure oscillations in a cylindrical combustor. Both
+hot-ﬂow/ﬁring and cold-ﬂow tests were conducted. It was shown
+that the addition of the acoustic dampers to the combustor lead to
+eigenfrequencies of the coupled system different from that of a
+pure cylindrical resonance volume.
+0
+140
+280
+420
+560
+700
+0
+0.2
+0.4
+0.6
+0.8
+1
+Frequency (Hz)
+Power Absorption Δ
+0
+200
+400
+600
+0
+0.2
+0.4
+0.6
+0.8
+1
+Frequency (Hz)
+Transmission Loss
+unsimplifed model
+Eldredge’s model
+experimental data
+simplified model
+Fig. 12. The variation of power absorption with forcing frequency in a lined duct with a double-liner for (a) M
+0.03
+h1 =
+and Mu¼0.046. (b) The variation of transmission loss
+with forcing frequency in a lined duct with a double-liner for M
+0
+u
+¯
+=
+.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+121
+
+
+--- Page 9 ---
+
+2.2.4. Bafﬂes and other damping approaches
+Besides the acoustic dampers discussed above, bafﬂes can also
+be used to dampen combustion-driven oscillations by the obstacle
+of bafﬂe hub-and-blades in a combustion chamber [2,4]. They are
+as reliable as other acoustic dampers. Laudien et al. [11] proposed
+an experimental procedure to assess the effectiveness of both
+acoustic resonator and bafﬂes on stabilizing a model combustor at
+room temperature. Fig. 14(a) shows their experimental setup. They
+measured the decay rate α per cycle of acoustic oscillation for the
+ﬁrst ﬁve tangential modes of the model combustor. Here α is de-
+ﬁned as a measure characterizing the damping effect as illustrated
+in Fig. 14(b). They found that the decay rate α is increased with the
+bafﬂes or resonators applied, especially for lower tangential
+modes. Note that the values for the decay rate measured at the
+room temperature will not be the same as those in a real engine
+with ﬂame and ﬂow conﬁned. However, as a qualitative indication,
+cold-ﬂow (room-temperature) measurements are very useful.
+In combustion chambers, particularly when ﬂow occurs past
+blunt ﬂame-holders and rearward-facing steps, shedding of large-
+scale vortices is a well known phenomenon. Unsteady heat addi-
+tion associated with such large-scale vortices interaction with
+chamber acoustics is believed to be one of the main causes of the
+self-sustained pressure oscillations. Coaxial ﬂow can also be used
+to dampen vortex-driven combustion instabilities, where large
+scale vortices trigger the instability. Schluter [55] numerically
+studied the performance of implementing coaxial ﬂow to stabilize
+a combustion system with low Mach number ﬂow. It was shown
+that the swirled coaxial ﬂow can destroy large scale structures and
+suppress the periodic ﬂow response. A series of experimental tests
+with simple axisymmetric dump combustors has been conducted
+at the Naval Air Warfare Center Weapons Division. Detailed re-
+views of the vorticity-driven combustion instability and passive
+control techniques can be found in reference [90].
+As an alternative potential means, the active control approach
+[13,58,91,92] remains in the design and preliminary test stage,
+although recent works suggest that it has many attractive features.
+It can be applied to many types of combustion systems and can be
+made to be effective over a wide range of operating conditions,
+particularly if adaptive control is used. However, there are many
+difﬁculties associated with the design and implementation of the
+active control approach. Choosing an adequate control actuator
+provides a particular challenge [58]. An actuator requires mod-
+iﬁcations to either the combustor or the air/fuel supply system.
+Moreover, its frequency response and its durability must match
+the frequency of the combustion-excited oscillations, limiting the
+range of applications, which are practical. Designing an effective
+and robust controller [13,58] is complicated by the frequent
+changes in operating conditions and the different nature/me-
+chanism of combustion-driven oscillations in different types of
+industrial combustors. Finally, additional energy (corresponding to
+secondary fuel injection) might be continually added to the sys-
+tem, which means that there is the possibility of making com-
+bustion systems more unstable [91,92].
+3. ‘Tunable’ acoustic dampers
+Ideally, a good way of stabilizing combustion systems would
+combine both active and passive control features. This can be
+Fig. 13. Variation of power absorption coefﬁcient in the model enclosure with a single half-, quarter-wave tube and a Helmholtz resonator. Taken from Sohn and Park [33,32].
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+122
+
+
+--- Page 10 ---
+
+achieved by designing ‘tunable’ acoustic dampers [93,86]. A con-
+trol system is used to actively tune acoustic dampers in response
+to changes in operating conditions. The feature of tunability
+overcomes the main disadvantage of traditional passive control.
+Moreover, actuation only needs to be on the time scale of the
+changes in operating condition, which is typically much slower
+than the time scale of the instability [86]. The required actuator
+bandwidth is therefore small, representing a major advantage over
+active control. The durability requirements of the actuator are also
+reduced, since it is typically only active when operating conditions
+change, rather than continuously. A key feature of applying
+acoustic dampers, that it is not possible to worsen an instability, is
+also retained. Tunable acoustic dampers [86,94,95,74] therefore
+are associated with many of the advantages of active and passive
+control approaches.
+3.1. Tunable Helmholtz resonator
+In the past few decades, researchers have begun investigating
+tunable Helmholtz resonators (HRs). The geometry change can be
+achieved by varying the neck area. However, only a few in-
+vestigations have been carried out. Esteve and Johnson [96] used
+iris valves (which work like a camera lens) to change the neck
+radius of HRs. They tuned multiple HRs over a broad low fre-
+quency range (40–160 Hz) and achieved a 7.5 dB noise reduction.
+Nagaya et al. [97] used two rotating inner cylinders to achieve
+changes in the HR neck area. According to Eq. (4), the neck area
+variation gives rise to the resonance frequency change and so the
+damping effect of the resonators. They used a FFT (fast Fourier
+transform) analysis to determine the noise signatures so that the
+resonators damping is tuned/optimized to simultaneously at-
+tenuate two dominant frequencies. Little et al. [98] described an
+electro-rheological ﬂuid valve which can be used to change the
+neck area to provide continuous tuning. Zhao and Morgans [86]
+applied two tunable Helmholtz resonators with variable neck
+areas to stabilize an unstable combustion system. Experiments
+were conducted on a Y-shaped Rijke tube with such tunable re-
+sonators, as shown in Fig. 15. The neck areas of both resonators can
+be varied by means of ‘iris’ valves, which open and close like a
+camera lens. On implementing the procedure of tuning the neck
+areas, both unstable modes are stabilized, and stability is main-
+tained for large changes in operating condition, as shown in
+Fig. 16. This conﬁrms that the tunable Helmholtz resonators have
+the potential for use in real combustion systems exhibiting mul-
+tiple unstable modes.
+Altering the resonator geometry can also be achieved by
+varying the cavity volume. This has been investigated and applied
+fairly extensively. Both Matsuhisa et al. [99,100] and Wang and
+Dowling [101] used a piston to change the cavity volume, so that
+the phase of the sound pressure in the HR volume was a quarter
+cycle out of phase with that inside the duct at the HR location.
+Both studies achieved signiﬁcant sound reductions. DeBedout et al.
+[102] developed a two-stage control algorithm for tuning the
+cavity volume. The ﬁrst stage implemented ‘coarse tuning’ and
+obtained an initial guess of the optimum volume by using the
+measured frequency together with the lumped parameter model
+of a HR. The second stage implemented ‘ﬁne tuning’ based on a
+gradient descent method, which minimized the pressure ampli-
+tude. The resonator cavity volume was changed by rotating an
+internal radial wall inside the cavity. The international patent of
+McDonald and Hutchins [103] used an adjustable resonator in
+which both the cavity volume and the neck length were varied
+simultaneously according to the phase relationship between the
+pressure in the resonator cavity and the duct system. Yamanaka
+and Shioda [104] achieved a varying volume by moving a piston
+inside of the HR. They simultaneously tuned two HRs to two se-
+parate frequencies present in an experimental combustion system,
+using a FFT algorithm to track these frequencies.
+Tuning the neck length of a Helmholtz resonator has been
+rarely proposed by researchers, even though this would also pro-
+vide frequency tuning. This is likely to be due to the fact that
+varying the neck length is difﬁcult to implement in an engine
+environment, and because sealing issues would arise.
+A rather different approach is to continually oscillate the re-
+sonator geometry, and to tune some features (such as the phase) of
+this oscillation [105–107,62]. This approach avoids the sealing is-
+sues that occur when the geometry dimensions are altered slowly,
+and also allows for a more compact system. However, it does re-
+quire movement on the time scale of the instability (the oscillation
+frequency is matched to the instability frequency1) and so does
+introduce durability issues.
+Birdsong and Radcliffe [105] developed a HR model for volume
+oscillation achieved using a vibrating back-plate, which showed
+that both the resonant frequency range and the acoustic power
+absorption of the resonator could be varied. Liu et al. [106,108]
+performed
+numerical
+and
+experimental
+investigations
+of
+a
+Fig. 14. (a) Experimental setup of a rocket chamber, (b) deﬁned decay rate α. Taken
+from Laudien et al [11].
+1 This could be classed as active control due to the dynamic input, but we will
+regard it as a special case of tunable Helmholtz resonator in the present work as it
+concerns geometry changes of a passive control device.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+123
+
+
+--- Page 11 ---
+
+Helmholtz resonator with a compliant piezoelectric composite
+back-plate. It was shown that the damping frequency range of the
+resonators could be expanded. Zaikin and Rudenko [109] devel-
+oped a nonlinear model of a Helmholtz resonator with a movable
+wall, based on Newton's second law. By matching the boundary
+conditions at the movable wall, the model showed that the re-
+sonant frequency of the resonator could be altered by vibrating the
+back-plate. Zhao et al. [86] designed a Helmholtz resonator with
+the cavity volume continually oscillating (at the same frequency as
+that present in the system). This can be achieved by vibrating the
+back-plate of the cavity volume via an electro-magnetic shaker, as
+shown in Fig. 17(a). Experimental tests showed that volume os-
+cillation can either improve or deteriorate the acoustic damping of
+the resonator, depending on the phase with which the back-plate
+is driven, as shown in Fig. 17(b).
+They also developed a nonlinear numerical model of a Helm-
+holtz resonator with an oscillating volume to simulate the ex-
+periments and to gain insight into how to obtain maximum
+damping. Excellent agreement between the numerical and ex-
+perimental results is found. It is also shown that the effective
+Fig. 15. The experimental apparatus in the Y-shaped Rijke tube: (a) Y-shaped Rijke tube with two tunable Helmholtz resonators attached and (b) the ‘iris’ valve used to vary
+the neck area. Taken from Zhao and Morgans [86].
+Fig. 16. (a)–(c) Damping effect of tunable Helmholtz resonators on the Y-shaped
+Rijke tube: -○-, HR1, -  , HR2. (d) Pressure spectrum showing the typical damping
+effect of the tunable Helmholtz resonators:— 1st limit cycle; - - - 2nd limit cycle;
+and …, after control.
+Fig. 17. (a) Schematic of the experimental setup. (b) Variation of power absorption
+Δ with phase Ψ at 184 Hz.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+124
+
+
+--- Page 12 ---
+
+frequency range of such tunable resonator is increased dramati-
+cally. Applying a volume-oscillating Helmholtz resonator to sta-
+bilize a combustion system with a premixed turbulent ﬂame
+conﬁned is then numerically investigated by Zhao and Li [95]. The
+resonant frequency of the tunable resonator at which it offers
+maximum damping, as shown in Fig. 18(a), is shifted due to the
+volume oscillation. Here, the tunable resonator is analyzed by
+using the electrical analogy approach, as shown in Fig. 18(b).
+3.2. Tunable acoustic liners
+The damping effect of acoustic liners can also be tuned due to
+the fact that their damping effects are strongly dependent on the
+vortex shedding generated over the rim of perforated holes. The
+excited vorticity has been shown to be related to several para-
+meters, such as the bias ﬂow rate [72,79], the downstream length
+of the liner [52], the oriﬁce geometries and the cavity volume
+encasing the liners [72,78]. Thus by varying these parameters, the
+frequency at which they perform best can also be varied and so the
+damping effect, as shown in Fig. 19.
+The damping effect is characterized by the pressure amplitude.
+Howe [110] demonstrated that choosing an appropriate Strou-
+hal number of the bias ﬂow in the oriﬁce can result in a large
+proportion of acoustic energy being absorbed. Jing and Sun [72,73]
+also showed that an appropriate bias ﬂow rate can maximize the
+acoustical energy being absorbed by liners. Eldredge and Dowling
+[52] systematically studied an axial pipe system with a double-
+liner attached in both numerical simulations and experiments, and
+showed that about 80% of the incoming sound energy can be ab-
+sorbed by a perforated liner at some frequencies, provided the bias
+ﬂow rate is chosen appropriately and the liner is well-located.
+Heuwinkel and Enghardt [111] recently showed that oscillating the
+cavity encasing the liner by attaching loudspeakers had great po-
+tential for increased absorption of sound energy. Besides this,
+there have been almost no studies on tuning perforated liners as a
+means of extending the operating range of their effectiveness.
+Fig. 18. (a) Bode diagram of the transfer function Q
+p
+( )/
+( )
+h
+h
+ω
+ω
+^
+^
+of a Helmholtz resonator with an oscillating volume. (b) Schematic of electrical analogy of a Helmholtz
+resonator with an oscillating volume.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+125
+
+
+--- Page 13 ---
+
+Recently, Zhao et al. [74] conducted experimental tests to tune
+two parameters to maximize the damping effect of a double-layer
+perforated liner. It involved varying both a combustor length
+parameter and the bias ﬂow rate (the mean ﬂow through the holes
+of the liner) simultaneously. A multiple-parameter tuning scheme
+was developed. And it was implemented in a cold-ﬂow acousti-
+cally driven pipe system, as shown in Fig. 20.
+Optimal liner performance in terms of power absorption coef-
+ﬁcient Δ was achieved over a broad frequency range, as shown in
+Fig. 21. Δ is deﬁned as
+R
+R
+I
+I
+1.0
+( )
+( )
+( )
+( )
+.
+(21)
+d
+u
+u
+d
+2
+2
+2
+2
+Δ
+ω
+ω
+ω
+ω
+=
+−|^
+| + |^
+|
+|^
+| + |^
+|
+where R ( )
+ω
+^
+and I ( )
+ω
+^
+are Fourier transform of reﬂected and in-
+cident waves to the lined section (see Fig. 2 of the work [74]).
+In general, acoustic dampers offer a practical means of stabi-
+lizing combustion systems. The design and implementation of
+such dampers on suppressing combustion-excited oscillations are
+reviewed and summarized in Table 1.
+3.3. Challenges and issues associated with acoustic dampers
+implementation
+The implementation of conventional acoustic dampers is as-
+sociated with four main challenges. One is the cooling problem. It
+can be solved by directing a ‘cooling’ ﬂow through the dampers.
+However, the cooling ﬂow affects the performance of the dampers.
+The second one is the space issue. Generally, the space available
+for applying such acoustic dampers in the combustion system is
+limited. In order to effectively use the space and to reduce the
+effect of pressure ﬂuctuations on the combustion process, opti-
+mum design is needed. The third one is to conduct ‘ﬁring’ or ‘hot-
+ﬂow’ tests and retroﬁt the dampers. It is an accepted practice to
+conduct cold-ﬂow tests to predict the performance of the acoustic
+dampers. The cold-ﬂow measurement as a qualitative indication is
+Fig. 19. Variation of predicted pressure amplitude with Mh1 and Ld. Taken from Zhao et al. [74].
+Fig. 20. Schematics of ‘tunable’ perforated liner. Taking from Zhao and Dowling
+[74].
+Fig. 21. (a) Variation of forcing frequency with time (simulating the operating
+condition change), (b) and (c) real-time tuning downstream pipe length, and bias
+ﬂow Mach number respectively, and (d) variation of power absorption coefﬁcient.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+126
+
+
+--- Page 14 ---
+
+useful. However, the damping characteristics of such dampers will
+not be the same as those applicable under operating conditions at
+high temperature and with ﬂow. Thus ‘ﬁring/hot-ﬂow’ test and
+‘damper retroﬁt’ are needed, which is costly and time-consuming.
+Last but not the least is the position and number of acoustic
+dampers to be implemented. The position and number of such
+dampers play important roles, in particular for annular aeroengine
+combustors exhibiting circumferential modes (see Fig. 8).2 The
+damper should not be located near a pressure node, as here the
+acoustic pressure amplitude is so small that there is insufﬁcient
+driving force for ‘resonance’ and little damping is provided. When
+circumferential mode-shapes are present in annular combustors,
+attempts to position resonators at pressure antinodes can be fru-
+strated by the repositioning (rotation) of the node to the new re-
+sonator location. Thus, it is essential to use multiple dampers and
+to position these relative to one another carefully [112]. Similar
+problems are associated with the implementation of bafﬂes. There
+are less well-deﬁned criteria available for deﬁning how many
+bafﬂes are needed, i.e. the necessary bafﬂe spacing or bafﬂe length
+required to achieve engine stability. In addition, the bafﬂes may
+degrade combustion efﬁciency and the heat loads to the bafﬂes
+may be prohibitive. Thus it usually causes manufactural problems
+since they are installed additionally inside a combustion system.
+When tunable acoustic dampers are implemented in practical
+combustion systems, the ‘hot-ﬂow’ test and ‘dampers retroﬁt ’
+might be unnecessary due to the feature of tunability. However,
+the ‘cooling’ issue is still present. In addition, there are three main
+issues associated with the implementation of such tunable dam-
+pers, which involve a control system:
+ Sensor selection and placement:
+A sensor is needed to continuously ‘sense’ the condition of the
+combustion system and ‘tune’ the damper's damping. Mea-
+sured signals at pressure nodes introduce signiﬁcant error for
+control due to the low signal-to-noise (SNR), which can result
+in an unsuccessful ‘stabilizing’ effect. Thus multiple sensors
+might be needed in case of a sensor being placed at a pressure
+node position. In addition, pressure sensors cannot be placed
+near the ﬂame region due to high temperature.
+ Identiﬁcation algorithm:
+The ‘sensed’ information is used to determine the ‘optimum’
+actuation signal, which is fed into the damper. For this, a robust
+algorithm is needed, which can choose the reference signal
+with large SNR. With the development of control theory, such
+algorithms are available. Two typical examples are illustrated in
+the previous section.
+ Actuator selection and placement:
+There are different types of tunable acoustic dampers. Each
+type of acoustic dampers is involved with various parameters
+to be tuned. Two central questions are: (1) What type of tun-
+able dampers should be applied? (2) Which parameter should
+be chosen? The one feasible to tune or the one more effective
+on damping combustion-excited oscillations?
+In summary, ‘tunable’ acoustic dampers open up new possibi-
+lities for effectively stabilizing combustion systems. However in
+order to apply such dampers in practical propulsion systems, more
+validation tests are needed.
+4. Discussion and conclusions
+Combustion systems such as rocket motors, aeroengines and
+gas turbines are associated with acoustic pressure ﬂuctuations,
+even during stable operation. Unsteady combustion is an efﬁcient
+sound source. It may produce large-amplitude self-sustained os-
+cillations (also known as combustion instability). Some engine
+systems are more susceptible to combustion instability. Since
+Table 1
+Summary of acoustic dampers applied for stabilizing combustion systems.
+Reference
+Experiment/model (E/M)
+Damper type (H/L/QH/B/O)
+Tunable/ﬁx (T/F)
+Firing/cold test (F/C)
+Oberg [114]
+E and M
+Q
+F
+F
+Sohn and Park [33]
+E&M
+H&Q
+F
+C
+Park and Sohn [32]
+M
+QH
+F
+C
+Zhao et al. [93]
+E&M
+H
+T
+C
+Zhao and Morgans [86]
+E&M
+H
+T
+F
+Dupere and Dowling[34]
+M
+H/Q
+F
+C
+Gysling et al. [35]
+E&M
+H
+F
+F
+Bellucci et al. [23]
+E&M
+H
+F
+F
+Birdsong and Radcliffe[105]
+M
+H
+T
+C
+Esteve and Johnson [96]
+E
+H
+T
+C
+DeBedout et al. [102]
+E&M
+H
+T
+C
+Yamanaka et al[104]
+E
+H
+F
+F
+Laudien et al[11]
+E
+H/Q-H/B
+F
+C
+Schluter [55]
+M
+O
+F
+Tam et al. [76]
+E
+H/L
+F
+C
+Zhao et al. [74]
+E
+L
+T
+C
+Noiray et al. [115]
+E
+L
+F
+F
+Zhao and Li [62]
+M
+H
+T
+F
+Rehman and Eldredge [44]
+M
+L
+F
+F
+Eldredge and Dowling [52]
+M
+L
+F
+C
+Acker and Mitchell [116]
+M
+H/Q
+F
+F
+Harrje and Reardon [2]
+E&M
+H/L/Q/B-H
+F
+F
+Keller [117]
+E&M
+L
+F
+F
+Searby et al. [89]
+M
+Q-H
+F
+C
+Bothien et al. [118]
+E&M
+H
+F
+F
+Rupp et al. [43]
+E
+L
+F
+F
+Lewis and Garrison [119]
+E
+H
+T
+C
+Tran et al. [120]
+E
+L
+F
+F
+Richards et al. [8]
+E
+L/H/Q-H
+F
+F
+2 Aero-engines and many gas turbines typically have combustors with an an-
+nular geometry.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+127
+
+
+--- Page 15 ---
+
+stable operation is one of the design prerequisites for engine
+combustors, the paper reviews the status of applying acoustic
+dampers to mitigate combustion-excited ﬂuctuations. Four of the
+most commonly used types of acoustic dampers are (1) Helmholtz
+resonators, (2) perforated liners, (3) bafﬂes, and (4) quarter-/half-
+wave tubes. Their damping mechanisms are described ﬁrst. A
+detailed review of their working principles and practical applica-
+tion is then conducted. These conventional acoustic dampers have
+many advantages, such as low maintenance and high durability.
+However, they are typically only effective over certain narrow
+frequency ranges. Moreover, they cannot respond to changes in
+operating conditions, due to the absence of a control system.
+In order to develop an effective approach to stabilize combus-
+tion systems, ‘tunable acoustic dampers’ are designed and tested.
+A control system is used to actively optimize the damping effect of
+the dampers in response to changes in operating conditions. The
+feature of tunability overcomes the main disadvantage of tradi-
+tional acoustic dampers. Moreover, actuation only needs to be on
+the time scale of the changes in operating conditions, which is
+typically much slower than the time scale of the combustion-ex-
+cited ﬂuctuations. Tunable Helmholtz resonators are ﬁrstly dis-
+cussed. Its tunability is achieved by varying the cavity volume or
+the neck area. This is due to the fact that the resonator damping
+effect depends on its geometry. Experimental measurements on a
+Y-shape Rijke-type combustion system showed that applying such
+tunable resonators ensure the combustion system to be stable, and
+the stability was maintained for large changes in operating
+conditions.
+Tunable perforated liners are then described. The tunability is
+achieved due to the fact that their damping effects are strongly
+dependent on the vortex shedding generated over the rim of the
+perforated oriﬁce. The excited voriticity has been shown to relate
+to several parameters, such as the bias ﬂow rate, the downstream
+length of the liner, the oriﬁce geometries and the cavity volume
+encasing the liners. Numerical and experimental investigations
+conﬁrm that there is great potential to apply such ‘tunable liners’,
+which can extend the operating range of their effectiveness. Al-
+though the tunable acoustic dampers offer many attractive fea-
+tures, implementing such tunable dampers present issues and
+challenges. The selection of the parameter to be tuned, the posi-
+tions of such dampers, the selection and placement of the sensor
+and the robustness of the tuning algorithm are important con-
+siderations. It does little good to place a sensor or a damper at an
+acoustic node.
+During the past few decades, further development has been
+achieved by the use of computational tools to aid design of
+acoustic dampers applied in engine systems. The numerical ap-
+proach has become more and more important as the computa-
+tional cost is reduced, experience grows, and procedures improve.
+Nevertheless, experimental tests (ﬁring/cold) remain the critical
+basis for developing practical means of implementing acoustic
+dampers in propulsion systems.
+Acknowledgments
+This work is supported by Singapore MOE/NTU AcRTier1-RG91/
+13-M4011228. This ﬁnancial support is gratefully acknowledged.
+The corresponding author would like to thank Dr. Aimee Morgans,
+Imperial College London and Prof. Dame Ann Dowling, Cambridge
+University for introducing him to this interesting problem. Matlab/
+LabVIEW codes for Electro-acoustic analysis of a Helmholtz re-
+sonator or two-microphone technique [113] available upon re-
+quest by email the corresponding author (zhaodan@ntu.edu.sg).
+References
+[1] F.E.C. Culick, Unsteady Motions in Combustion Chambers for Propulsion
+Systems. Technical Report, AG-AVT-039, 2006 (Chapter 8).
+[2] D.T Harrje, F.H. Reardon, Liquid Propellant Rocket Combustion Instability.
+NASA SP-194, NASA Special Publication 194, 1972.
+[3] T.C. Lieuwen, V. Yang, Combustion Instabilities in Gas Turbine Engines: Op-
+erational Experience, Fundamental Mechanisms, and Modeling, AIAA Inc.,
+USA, 2005.
+[4] V. Yang, W. Anderson, Liquid Rocket Engine Combustion Instability, AIAA
+Inc., USA, 1995.
+[5] C. Ji, D. Zhao, X. Li, Nonorthogonality analysis of a thermoacoustic system
+with a premixed V-shaped ﬂame, Energy Convers. Manag. 85 (1) (2014)
+102–111.
+[6] D. Zhao, M. Reyhanoglu, Feedback control of acoustic disturbance transient
+growth in triggering thermoacoustic instability, J. Sound Vib. 333 (1) (2014)
+3639–3656.
+[7] S. Li, D. Zhao, C. JI, J. Li, Combustion instabilities in a bifurcating tube: open-
+and closed-loop measurements. AIAA J. 52(11) (2014) 2513–2523.
+[8] G.A. Richards, D.L. Straub, E.H. Robey, Passive control of combustion dy-
+namics in stationary gas turbines, J. Propuls. Power 19 (5) (2003) 795–810.
+[9] G. Kopasakis, High Frequency Adaptive Instability Suppression Controls in
+Liquid-Fueled Combustor. Tech. Rep., NASA/TM-2003-212535, Glenn Re-
+search Center, NASA, USA, 2003.
+[10] J.C. Delaat, C.T. Chang, Active Control of High Frequency Combustion In-
+stability in Aircraft Gas-Turbine Engines. Tech. Rep., NASA/TM-2003-212611,
+Glenn Research Center, NASA, USA, 2003.
+[11] E. Laudien, R. Pongratz, P. Pierro, D. Prelick, Experimental procedures aiding
+the design of acoustic cavities, in: Liquid Rocket Combustion Instability, 1995,
+pp. 377–399.
+[12] H.C. Mongia, T.J. Held, G.C. Hsiao, R.P. Pandalai, Challenges and progress in
+controlling dynamics in gas turbine combustors, J. Propuls. Power 19 (5)
+(2003) 822–829.
+[13] K.R. McManus, T. Poinsot, S.M. Candel, A review of active control of com-
+bustion instabilities, Prog. Energy Combust. Sci. 19 (1993) 1–29.
+[14] R. Mohanraj, Y. Neumeier, B.T. Zinn, Combustion model for simulation of
+combustion instabilities and their active control, J. Propuls. Power 16 (3)
+(2000) 485–491.
+[15] D. Zhao, Z.H. Chow, Thermoacoustic instability of a laminar premixed ﬂame
+in Rijke tube with a hydrodynamic region, J. Sound Vib. 332 (14) (2013)
+3419–3437.
+[16] C. Ji, D. Zhao, S. H. Li, Numerical and experimental investigation of the
+acoustic damping effect of single-layer perforated liners with joint bias-
+grazing ﬂow, J. Sound Vib. (2015), in preparation.
+[17] D. Zhao, S. H. Li, Numerical investigation of the effect of distributed heat
+sources on heat-to-sound converion in a T-shaped thermoacoustic system,
+Appl. Energy (2015), in preparation.
+[18] D. Zhao, S. H. Li, Transient energy growth of acoustic disturbances in trig-
+gering self-sustained thermoacoustic oscillations, Energy (2015), in
+preparation.
+[19] X.Y. Li, D. Zhao, S.H. Li, C.Z. Ji, Effect of heat source on transient energy
+growth analysis of a thermoacoustic system, Energy Convers. Manag. 89
+(2015) 309–317.
+[20] J.G. Bloxsidge, A.P. Dowling, P.J. Langhorne, Reheat buzz—an acoustically
+coupled combustion instability part I: experiment, J. Fluid Mech. 193 (1988)
+417–443.
+[21] U. Hedge, D. Reuter, B.T. Zinn, B. Daniel, Fluid Mechanically Coupled Com-
+bustion Instabilities in Ramjet Combustors. AIAA Paper 1987-0216, 1987.
+[22] G. Kelsall, C. Troger, Prediction and control of combustion instabilities in
+industrial gas turbines, Appl. Thermal Eng. 24 (2004) 1571–1582.
+[23] V. Bellucci, P. Rohr, C.O. Paschereit, F. Magni, On the use of Helmholtz re-
+sonators for damping acoustic pulsations in industrial gas turbines, ASME J.
+Eng. Gas Turbines Power 126 (2) (2004) 271–275.
+[24] A.A. Putnam, Combustion Driven Oscillations in Industry, Elsevier, New York,
+1971.
+[25] L. Crocco, Aspects of combustion instability in liquid propellant rocket mo-
+tors, J. Am. Rocket Soc. 22 (1) (1952) 7–16.
+[26] L. Crocco, S.I. Cheng, Theory of Combustion Instability in Liquid Propellant
+Rocket Motors, Butterworths, London, 1956.
+[27] T.C. Lieuwen, Unsteady Combustor Physics, Cambridge University Press,
+Cambridge, UK, 2012.
+[28] D. Zhao, Nonlinear self-excited combustion oscillations of a premixed la-
+minar ﬂame, Appl. Mech. Mater. 110–116 (1) (2012) 1150–1154.
+[29] D. Zhao, Self-selected, self-excited combustion oscillations in a Rijke–Zhao
+tube. In: 18th AIAA/CEAS Aeroacoustics Conference. AIAA Paper 2012-2088,
+2012.
+[30] K. Schadow, V. Yang, Active Combustion Control for Propulsion Systems.
+Tech. Rep. AGARD, 1996.
+[31] R.C. Steele, L.H. Cowell, S.M. Cannon, C.E. Smith, Passive control of combus-
+tion instability in lean premixed combustors, ASME J. Eng. Gas Turbines
+Power 122 (3) (2000) 412–419.
+[32] I. Park, C.H. Sohn, Nonlinear acoustic damping induced by a half-wave re-
+sonator in an acoustic chamber, Aerosp. Sci. Technol. 14 (1) (2010) 442–450.
+[33] C.H. Sohn, I. Park, A comparative study on acoustic damping indcued by half-
+wave, quarter-wave and Helmholtz resonators, Aerosp. Sci. Technol. 15 (1)
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+128
+
+
+--- Page 16 ---
+
+(2011) 606–614.
+[34] I.D.J. Dupère, A.P. Dowling, The use of Helmholtz resonators in a practical
+combustor, ASME J. Eng. Gas Turbines Power 127 (2) (2005) 268–275.
+[35] D.L. Gysling, G.S. Copeland, D.C. McCormick, W.M. Proscia, Combustion sys-
+tem damping augmentation with Helmholtz resonators, ASME J. Eng. Gas
+Turbines Power 122 (2) (2000) 269–274.
+[36] A.P. Dowling, J.E. Ffowcs-Williams, Sound and Sources of Sound, Ellis Hor-
+wood, Chichester, UK, 1983.
+[37] B.T. Zinn, A theoretical study of non-linear damping by Helmholtz re-
+sonators, J. Sound Vib. 13 (3) (1970) 347–356.
+[38] C. Ji, D. Zhao, Two-dimensional lattice Boltzmann investigation of sound
+absorption of perforated oriﬁces with different geometric shapes, Aerosp.
+Sci. Technol. 39 (2014) 40–47.
+[39] R.P. Pandalai, H.C. Mongia, Combustion instability characteristics of in-
+dustrial engine dry low emission combustion systems. In: 4th AIAA/CEAS
+Aeroacoustics Conference, AIAA Paper 1998-3379, 1998.
+[40] L.E. Kinsler, A.R. Frey, A.B. Coppens, J.V. Sanders, Fundamentals of Acoustics,
+John Wiley and Sons, 2000.
+[41] A. Cummings, Acoustic nonlinearities and power losses at oriﬁces, AIAA J. 22
+(6) (1984) 786–792.
+[42] L. Li, Z. Guo, C. Zhang, X. Sun, A passive method to control combustion in-
+stabilities with perforated liner, Chin. J. Aeronaut. 23 (6) (2010) 623–630.
+[43] M. Rupp, J. Macquisten, J. Carrotte, The use of perforated damping liners in
+aero gas turbine combustion systems, J. Eng. Gas Turbines Power 134 (7)
+(2012) 071502.
+[44] S.F. Rehman, J.D. Eldredge, Numerical investigation of a bias ﬂow perforated
+liner for damping of thermoacoustic instabilities. In: ASME Turbo Expo.
+Montreal, Canada, 2007. pp. 1–11.
+[45] D. Zhao, A real-time plane-wave decomposition algorithm for characterizing
+perforated liners damping at multiple mode frequencies, J. Acoust. Soc. Am.
+129 (3) (2011) 1184–1192.
+[46] I.J. Hughes, A.P. Dowling, The absorption of sound by perforated linings, J.
+Fluid Mech. 218 (1990) 299–335.
+[47] M.S. Howe, Attenuation of sound in a low Mach number nozzle ﬂow, J. Fluid
+Mech. 91 (1979) 209–229.
+[48] M.S. Howe, On the theory of unsteady high Reynolds number ﬂow through a
+circular aperture, Proc. R. Soc. Lond. A 336 (1979) 205–223.
+[49] C. Ji, D. Zhao. Numerical investigation of acoustically-excited ﬂow through an
+oriﬁce using lattice Boltzmann method. In: 19th AIAA/CEAS Aeroacoustics
+Conference. AIAA Paper 2013-2127, 2013.
+[50] C. Ji, D. Zhao, Lattice Boltzmann simulation of sound absorption of an in-duct
+oriﬁce, Int. Congr. Acoust. (2013), http://dx.doi.org/10.1121/1.4799686.
+[51] C. Ji, D. Zhao, Lattice Boltzmann investigation of acoustic damping me-
+chanism and performance of an in-duct circular oriﬁce, J. Acoust. Soc. Am.
+135 (6) (2014) 3243–3251.
+[52] J.D. Eldredge, A.P. Dowling, The absorption of axial acoustic waves by a
+perforated liner with bias ﬂow, J. Fluid Mech. 485 (2003) 307–335.
+[53] Q. Zhang, D.J. Bodony, Numerical investigation and modelling of acoustically
+excited ﬂow through a circular oriﬁce backed by a hexagonal cavity, J. Fluid
+Mech. 693 (2012) 367–401.
+[54] N.P. Yadav, A. Kushari, Passive control of premixed lifted ﬂame in a dump
+combustor, Fuel 93 (1) (2012) 67–74.
+[55] J.U. Schluter, Static control of combustion oscillations by coaxial ﬂows: a
+large-eddy-simulations investigation, J. Propuls. Power 20 (3) (2004)
+460–467.
+[56] D. Zhao, C. Ji, S. Li, J. Li, Thermodynamic measurement and analysis of dual-
+temperature thermoacoustic oscillations for energy harvesting application,
+Energy 65 (2014) 517–526.
+[57] D. Zhao, Minimizing transient energy growth of nonlinear thermoacoustic
+oscillations, Int. J. Heat Mass Transf. 81 (2015) 188–197.
+[58] A.P. Dowling, A.S. Morgans, Feedback control of combustion oscillations,
+Annu. Rev. Fluid Mech. 37 (2005) 151–182.
+[59] A.P. Dowling, The calculation of thermoacoustic oscillations, J. Sound Vib. 180
+(4) (1995) 557–581.
+[60] B.T. Chu, On the energy transfer to small disturbances in ﬂuid ﬂow (Part I),
+Acta Mech. 1 (3) (1964) 215–234.
+[61] D. Zhao, S. Li, Heat ﬂux and acoustic power in a convection-driven T-shaped
+thermoacoustic system, Energy Convers. Manag. 75 (2013) 336–347.
+[62] D. Zhao, Transient growth of ﬂow disturbances in triggering a Rijke tube
+combustion instability, Combust. Flame 159 (6) (2012) 2126–2137.
+[63] D. Zhao, Y. Chew, Energy harvesting from a convection-driven Rijke–Zhao
+thermoacoustic engine, J. Appl. Phys. 112 (11) (2012) 114507.
+[64] D. Zhao, Waste thermal energy harvesting from a convection-driven Rijke–Zhao
+thermo-acoustic-piezo system, Energy Convers. Manag. 66 (2012) 87–97.
+[65] F.E.C. Culick, A note on Rayleigh's criterion, Combust. Sci. Tech. 56 (4) (1987)
+159–166.
+[66] A. Selamet, Z.L. Ji, Circular asymmetric Helmholtz resonators, J. Acoust. Soc.
+Am. 107 (5) (2001) 2360–2369.
+[67] A. Selamet, I.J. Lee, Helmholtz resonator with extended neck, J. Acoust. Soc.
+Am. 113 (4) (2005) 1975–1985.
+[68] A. Selamet, M.B. Xu, I.J. Lee, N.T. Huff, Helmholtz resonator lined with ab-
+sorbing material, J. Acoust. Soc. Am. 117 (2) (2005) 725–733.
+[69] P.K. Tang, W.A. Sirignano, Theory of a generlized Helmholtz resonators, J.
+Sound Vib. 26 (2) (1973) 247–262.
+[70] D.K. Singh, S.W. Rienstra, A systematic impedance model for nonlinear
+Helmholtz resonator liner, in: 19th AIAA/CEAS Aeroacoustics Conference,
+Berlin, Germany. AIAA-2013-2223, 2013.
+[71] A.S. Hersh, B.E. Walker, J.W. Celano, Helmholtz resonator impedance model,
+Part 1 nonlinear behavior, AIAA J. 41 (5) (2003) 795–808.
+[72] X.D. Jing, X.F. Sun, Experimental investigations of perforated liners with bias
+ﬂow, J. Acoust. Soc. Am. 106 (1999) 2436–2441.
+[73] X.D. Jing, X.F. Sun, Effect of plate thickness on impedance of perforated plates
+with bias ﬂow, AIAA J. 38 (2000) 1573–1578.
+[74] D. Zhao, A.S. Morgans, A.P. Dowling, Tuned passive control of acoustic
+damping of perforated liners, AIAA J. 49 (4) (2011) 725–734.
+[75] Z. Zhong, D. Zhao, Time-domain characterization of the acoustic damping
+of a perforated liner with bias ﬂow, J. Acoust. Soc. Am. 132 (1) (2012)
+271–281.
+[76] C.K.W. Tam, K.A. Kurbatskii, K.K. Ahuja, R.J. Gaeta, A numerical and experi-
+mental investigation of the dissipation mechanisms of resonant acoustic
+liners, J. Sound Vib. 245 (3) (2001) 545–557.
+[77] L. Sbardella, B.J. Tester, M. Imregun, A time-domain method for the predic-
+tion of sound attenuation in lined ducts, J. Sound Vib. 239 (2001) 379–396.
+[78] R.S. Reichert, S. Biringen, Time-domain simulation of acoustic propagation in
+a lined duct, Appl. Acoust. 62 (2001) 1049–1068.
+[79] J.I. Follet, J.F. Betts, J.J. Kelly, Improvements to acoustic liner broadband ab-
+sorption using bias ﬂow. In: 7th AIAA/CEAS Aeroacoustics Conference and
+Exhibit. AIAA Paper 2001-0823, 2001.
+[80] S. Mendez, J.D. Eldredge, Acoustic modelling of perforated with bias ﬂow for
+large eddy simulations, J. Comput. Phys. 228 (1) (2009) 4757–4772.
+[81] M.O. Burak, M. Billson, L. Eriksson, S. Baralon, Validation of a time and fre-
+quency domain grazing ﬂow acoustic liner model, AIAA J. 47 (8) (2009)
+1841–1849.
+[82] S. Succi, The Lattice Boltzmann Equation for Fluid Dynamics and Beyond,
+Oxford University Press, Oxford, UK, 2001.
+[83] P. Lew, L. Mongeau, A. Lyrintzis, Noise prediction of a subsonic turbulent
+round jet using the lattice Boltzmann method, J. Acoust. Soc. Am. 128 (1)
+(2010) 1118–1127.
+[84] D. Ricot, V. Maillard, C. Bailly, Numerical simulation of unsteady cavity ﬂow
+using lattice Boltzmann method. In: 10th AIAA/CEAS Aeroacoustics Con-
+ference. AIAA Paper 2002-2532, 2002.
+[85] M. Sanjose, S. Moreau, M. Kim, F. Perot, Direct self-noise simulation of the
+installed controlled diffusion airfoil. In: 17th AIAA/CEAS Aeroacoustics Con-
+ference. AIAA Paper 2011-2716, 2011.
+[86] D. Zhao, A.S. Morgans, Tuned passive control of combustion instabilities
+using multiple Helmholtz resonators, J. Sound Vib. 320 (2) (2009)
+744–757.
+[87] U. Ingard, S. Labate, Acoustic circulation effects and the nonlinear impedance
+of oriﬁces, J. Acoust. Soc. Am. 22 (2) (1950) 211–218.
+[88] C.K.W Tam, N.N. Pastouhenko, M.G. Jones, W.R. Watson. A experimental
+validation of numerical simulations for an acoustic liner in grazing ﬂow. In:
+19th AIAA/CEAS Aeroacoustics Conference. AIAA Paper 2013-2222, 2013.
+[89] M. Oschwald, Z. Farago, G. Searby, F. Cheuret, Resonance frequencies and
+damping of a combustor acoustically coupled to an absorber, J. Propuls.
+Power 24 (3) (2008) 524–533.
+[90] K. Schadow, E. Gutmark, Combustion instability related to vortex shedding in
+dump combustors and their passive control, Prog. Energy Combust. Sci. 18
+(2) (1992) 117–132.
+[91] D. Zhao. Experimental investigation of LMS algorithm for active control of
+combustion instabilities: FIR or IIR. In: 18th AIAA/CEAS Aeroacoustics Con-
+ference. AIAA Paper 2012-2084, 2012.
+[92] X. Li, D. Zhao, J. Li, Y. Xu, Experimental evaluation of anti-sound approach in
+damping self-sustained thermoacoustic oscillations, J. Appl. Phys. 114 (20)
+(2013) 204903.
+[93] D. Zhao, C. Barrow C, A.S. Morgans, J. Carrotte. Acoustic damping of a
+Helmholtz resonator with an oscillating volume. In: 14th AIAA/CEAS Aero-
+acoustics Conference, no. AIAA-2008-2804, 2008.
+[94] D. Zhao, Transmission loss analysis of a parallel-coupled Helmholtz re-
+sonator network, AIAA J. 50 (6) (2012) 1339–1346.
+[95] D. Zhao, J. Li, Feedback control of combustion instabilities using a Helmholtz
+resonator with an oscillating volume, Combust. Sci. Technol. 184 (5) (2012)
+694–716.
+[96] S. Esteve, M. Johnson, Adaptive Helmholtz resonators and passive vibration
+absorbers for cylinder interior noise control, J. Sound Vib. 288 (4–5) (2005)
+1105–1130.
+[97] K. Nagaya, Y. Hano, A. Suda, Silencer consisting of two-stage Helmholtz re-
+sonators with auto-tuning control, J. Acoust. Soc. Am. (2001) 289–295.
+[98] E. Little, A.R. Kashani, J. Kohler, F. Morrison, Tuning of an electrorheological
+ﬂuid-based intelligent Helmholtz resonators as applied to hydraulic engine
+mounts. In: ASME DSC Transportation Systems, DE-76, 1994.
+[99] H. Matsuhisa, B. Ren, S. Sato, Semiactive control of duct noise by a volume-
+variable resonator, Jpn. Soc. Mech. Eng. Int. J. 35 (1992) 223–228.
+[100] H. Matsuhisa, S. Sato, Semi-active noise control by a resonator with variable
+parameters. In: Proceedings of Inter-Noise, 1990, pp. 1305–1308.
+[101] C.H. Wang, A.P. Dowling AP, Actively tuned passive control of combustion
+instabilities. In: International Colloquium on Combustion and Noise Control,
+2003.
+[102] J.M. Debedout, M.A. Franchek, R.J. Bernhard, L. Mongeau, Adaptive-passive
+noise control with self-tuning Helmholtz resonators, J. Sound Vib. 202 (1)
+(1997) 109–123.
+[103] S.J. McDonald, A.M. Hutchins, Method and Apparatus for Attenuating
+Acoustic Vibrations in a Medium. Patent No. WO92/15088, 1992.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+129
+
+
+--- Page 17 ---
+
+[104] S. Yamanaka, K. Shioda, Application of Helmholtz resonators for reducing the
+combustion oscillation in a gas turbine. In: Proceedings of the International
+Gas Turbine Congress, no. IGTC-TS-146, 2003.
+[105] C. Birdsong, C.J. Radcliffe, A compensated acoustic actuator for systems with
+strong dynamic pressure coupling, ASME J. Vib. Acoust. 121 (1) (1997) 89–94.
+[106] F. Liu, S. Horowitz, T. Nishida, L. Cattafesta, M. Sheplak, A tunable electro-
+mechanical Helmholtz resonator. In: 9th AIAA/CEAS Aeroacoustics Con-
+ference and Exhibit, no. AIAA Paper 2003-3145, 2003.
+[107] S. Horowitz, T. Nishida, L. Cattafesta, M. Sheplak. Characterisation of com-
+pliant-backplate Helmholtz resonators for an electromechanical acoustic
+liner. In: 40th Aerospace Sciences Meeting and Exhibit. AIAA Paper 2002-
+0666, 2002.
+[108] F. Liu, S. Horowitz, T. Nishida, L. Cattafesta, M. Sheplak, Optimisation of an
+electromechanical Helmholtz resonator. In: 12th AIAA/CEAS Aeroacoustics
+Conference and Exhibit. AIAA Paper 2006-2524, 2006.
+[109] A.A. Zaikin, O.V. Rudenko, A nonlinear model of the Helmholtz resonator
+with a movable wall, Acoust. Phys. 42 (3) (1996) 329–333.
+[110] M.S. Howe, Attenuation of sound due to vortex shedding from a splitter plate
+in a mean duct ﬂow, J. Sound Vib. 105 (1986) 385–396.
+[111] C. Heuwinkel, L. Enghardt, I. Rohle, Concept and experimental investigation
+of a zero mass ﬂow liner. In: 14th AIAA/CEAS Aeroacoustics Conferences.
+AIAA Paper 2008-2931, 2008.
+[112] S.R. Stow, A.P. Dowling, Modelling of circumferential modal coupling due to
+Helmholtz resonators. In: Proceedings of ASME Turbo Expo: Power for Land,
+Sea and Air, no. GT2003-38168, 2003.
+[113] A.F. Seybert, D. Ross, Experimental determination of acoustic properties using
+a two-microphone random-excitation technique, J. Acoust. Soc. Am. 61 (5)
+(1977) 1362–1370.
+[114] C.L. Oberg, Combustion stabilization with acoustic cavities, J. Spacecr. Rocket
+8 (1) (1971) 1220–1225.
+[115] N. Noiray, D. Durox, T. Schuller, S. Candel, Passive control of combustion in-
+stabilities involving premixed ﬂames anchored on perforated plates, Proc.
+Combust. Inst. 31 (1) (2007) 1283–1290.
+[116] T.L. Acker, C.E. Mitchell, Combustion zone-acoustic cavity interactions in
+rocket combustors, J. Propuls. Power 10 (2) (1994) 235–243.
+[117] R.B. Keller, C.E. Mitchell, Liquid Rocket Engine Combustion Stabilization De-
+vices. NASA SP 8113, Nov. 1974.
+[118] M.R. Bothien, N. Noiray, B. Schuemans, A novel damping device for broad-
+band attenuation of low-frequency combustion pulsations in gas turbines, J.
+Eng. Gas Turbines Power 136 (4) (2013) 041504.
+[119] G.D. Lewis, G.D. Garrison, The Role of Acoustic Absorbers in Preventing
+Combustion Instability. AIAA paper 71-699, 1971.
+[120] N. Tran, S. Ducruix, T. Schuller, Damping combustion instabilities with per-
+forates at the premixed inlet of a swirled burner, Proc. Combust. Inst. 32 (1)
+(2009) 2917–2924.
+D. Zhao, X.Y. Li / Progress in Aerospace Sciences 74 (2015) 114–130
+130

@@ -1,0 +1,3344 @@
+
+--- Page 1 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+1
+Combustor Diffuser Modeling 
+Part II: Inlet Profiles & 3-D Calculations 
+ 
+H. MongiaC, G. Hsiao, and D. Burrus, GE Aircraft Engines, Cincinnati,  
+PSVS Sreedhar, and A. Rao, EACoE, Bangalore 
+ 
+ABSTRACT 
+3-D simulation of a typical gas turbine diffusion 
+system is conducted with the standard k-ε model along 
+with the non-equilibrium wall function of FLUENT 
+software.  The diffuser inlet conditions were estimated 
+by using through-the-rig inlet 3-D calculations including 
+the bow-tie profilers. Calculations were compared with a 
+typical 3-D diffuser rig data for the three inlet profiles, 
+namely center-, inner- and outer-peak velocity profiles. 
+Back-to-back comparison with 2-D calculations clearly 
+showed superior performance achieved with 3-D 
+simulation.  
+ 
+INTRODUCTION 
+ 
+2-D and 3-D CFD calculations are generally done 
+during the gas turbine combustion system design process 
+to aid in the optimization of the diffusion system. Early 
+work by Karki et al1 as well as the follow-on 
+publications, e.g., Reference 2 have shown that the 
+standard k-ε model with wall functions overpredicts CP 
+by 5-15% compared to data. A preliminary assessment of 
+various advanced turbulence models indicates3 that SST 
+k- ω turbulence model has shown potential for giving 
+better agreement with data for flows subject to adverse 
+pressure gradients including separation. However due to 
+lack of systematic validation of CFD-based approach 
+with data of combustor diffusion systems of practical 
+interest to designers, the current design process relies on 
+empirical data collected on simulated full-scale 3-D 
+diffuser rigs coupled with qualitative guidance from 
+CFD.  
+ 
+Prompted by recent advances in CFD simulation 
+technology, turbulence modeling4,5 and availability of an 
+excellent data set6, we have undertaken a comprehensive 
+investigation to study the effect of the following on CP 
+and Ω: 
+ 
+1. Diffusion system design parameters including inlet 
+profiles, pre-diffuser area ratio, L/H, cowling, blockages 
+due to dome swirlers, nozzle stem and tip, airflow splits 
+between the dome, inner and outer annuli of the 
+combustor liner. 
+C: Copyright  2004 by the authors. Published by 
+AIAA with permission.  
+ 
+ 
+2.  Procedures for calculating diffuser inlet conditions. 
+3.  2-D versus 3-D simulations. 
+4.  Different turbulence models and near-wall treatments 
+to capture boundary layer losses and flow separation. 
+ 
+The Part I paper6, focuses on the procedures for 
+calculating the inlet profiles specific to Runs 3, 4 and 5 
+of Table 1 and determine how far one can go with 2-D 
+simulations, the standard k-ε model along with the two 
+near-wall treatments, and SST k-ω turbulence model 
+coded in FLUENT5. Best agreement with data is 
+obtained with the standard k-ε model starting with the 
+calculated diffuser inlet conditions instead of estimating 
+it from 4-5 Pt rakes and the accompanying wall static 
+pressure taps. With measured diffuser inlet profiles and 
+2-D 
+simulation, 
+the 
+average 
+overprediction 
+for 
+prediffuser CP is 27, 23.5 and 12.5%, respectively for 
+Runs 3, 4 and 5. However, these overpredictions reduce 
+to 7.5, 6 and -2.5%, respectively with the calculated inlet 
+profiles. The corresponding errors with SST k-Ω model 
+are 12.5, 17 and 2.5%. The average underpredictions for 
+Ω are 12.5, 0 are –2.5%. 2-D simulation gave very poor 
+agreement with the dome total pressure recovery 
+coefficient data; prediction is on the average 27.5% 
+lower than data. 
+ 
+This paper, Part II therefore focuses on 3-D 
+calculations for Runs 3, 4 and 5 starting with the 3-D 
+calculated diffuser inlet profiles. The standard k-ε model 
+with non-equilibrium wall function5 is used for making 
+back-to-back comparison between 2-D reported in 
+Reference 6 and 3-D diffuser simulations presented in 
+this paper. 
+ 
+ 
+DATA SETS & INLET CONDITIONS 
+ 
+A typical annular diffuser rig, Figure 1a, 
+consists of a cylindrical annular inlet section, which 
+extended from a rounded entrance to the diffuser inlet. 
+The length of this inlet section from the bell mouth 
+entrance to the prediffuser inlet was ~12.0”or ~16 
+passage heights. The axial distance from the inlet section 
+entrance to the diffuser inlet measurement plane was ~ 
+8.7” or ~11 passage heights. The distance from the 
+40th AIAA/ASME/SAE/ASEE Joint Propulsion Conference and Exhibit
+11 - 14 July 2004, Fort Lauderdale, Florida
+AIAA 2004-4169
+Copyright © 2004 by The authors. Published by the American Institute of Aeronautics and Astronautics, Inc., with permission.
+
+
+--- Page 2 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+2
+measurement plane to the pre-diffuser inlet was ~3.2” or 
+~4 passage heights. Within the inlet section at a distance 
+of ~2.5” downstream from the rounded entrance were 
+located the inlet profilers. In the initial rig configuration 
+the profiles consisted of a pair of 360-degree rings 
+designed to protrude 0.10” into the flow stream from 
+both the inner and outer flow path walls, called opposed-
+ring profiler.  The location of these rings placed them 
+~12 passage heights upstream of the diffuser inlet. The 
+testing reported in this paper used “bow tie” profilers, 
+Fig. 1b. The three shown produce center-, inner- and 
+outer-peak profiles, respectively. 
+The prediffuser exit angle, exit height, L/H and 
+geometric area are  ~10.25O, 1.17”, 2.27 and 74.8 in2, 
+respectively. Cowl opening height, Hcowl, geometric area, 
+axial location, Lcowl and (L/H)cowl are 0.729”, 100 in2, 
+2.125” and 2.92, respectively. Outer and inner annuli 
+areas at stations 3.5 (toward the farther end of the 
+annulus) are 39.4 and 30.5 in2, respectively. The airflow 
+splits between the three streams (dome, inner and outer 
+annuli) are controlled independently in order to evaluate 
+the effect of the flow splits on CP and Ω. 
+ 
+A total of 118 static and total pressure taps were 
+installed on the diffuser model test rig, shown 
+schematically in Fig. 1a. Of these 64 were located in the 
+rig inlet and prediffuser sections, the remaining 54 were 
+located in the dump regions, the combustor dome, and 
+upstream of the metering orifices. As part of the inlet 
+instrumentation there were four 5-element total pressure 
+rakes along with wall static pressures for each rake. The 
+elements of these rakes were located at y/h = 0.1033, 
+0.3081, 0.5095, 0.7078, and 0.9031, bottom to top. At 
+the diffuser discharge plane another set of four 5-element 
+total pressure rakes along with associated wall statics 
+were located.  The radial positions of these total pressure 
+elements were at y/h = 0.1045, 0.3136, 0.5227, 0.7365, 
+and 0.9233, bottom to top. As part of the combustor 
+dome instrumentation two mixer cups were each 
+instrumented with five total pressures and five static 
+pressures equally spaced around the cup circumferences. 
+These taps were placed to quantify the pressure variation 
+around the mixer cups. Pt3 is based on the calculated 
+value determined from the measured diffuser inlet static 
+pressure and the known inlet mass flow rate, assuming 
+CD of 1.0. The dome total pressure is taken from the 
+average of the dome pressures mounted onto the dome 
+plate facing upstream, assuming stagnation flow 
+conditions.   
+ 
+For the selected series of 3-D diffuser rig testing to 
+be compared with predictions in this paper and 
+References 7-9, a total of 10 good quality runs  (Table 1) 
+are used to quantify the effect of the following on 
+pressure recovery and total pressure loss coefficients, CP 
+and Ω: 
+1. Diffuser inlet profiles, Runs 3, 4, 5 and 8   
+Tables 2 and 3; 
+2. Diffuser area ratio and length, Runs 3 and 9; 
+3. W/ and w/o combustor dome cowling, Runs 3 
+and 6; 
+4. Cowling inlet area, Runs 3 and 7; 
+5. Nozzle tip diameter, Runs 3 and 11; 
+6. Blockage due to nozzle stem, Runs 3 and 12; 
+7. Airflow splits between dome, inner and outer 
+passages that was conducted for all the 10 test 
+cases. 
+Here static pressure recovery and total pressure loss 
+coefficients CP and Ω are: 
+CP = (Ps-Ps3)/q3 
+Ω  = (Pt3-Pt)/q3 
+Subscripts s, t and 3 denote static and total pressures, 
+combustor inlet station, respectively; q3 is the diffuser 
+inlet dynamic head. 
+Since the measurements were available only at 
+five points across the passage height, reasonable and 
+consistent assumption for the near-wall treatment needs 
+to be made for center, inner and outer peaked profiler 
+runs. The calculated results are therefore strongly 
+influenced by the assumptions made for estimating the 
+inlet conditions.  
+Gas turbine combustor designers reliance on 
+CFD for pre-test predictions can not be realized without 
+tackling the issues of inlet conditions for the entire 
+combustion system including diffuser inlet, fuel nozzles, 
+mixers, primary/dilution, liner and dome cooling air. 
+Significant progress has been made in this area in the last 
+three years4. A similar process has been used to deal with 
+analyzing the bow-tie profiler geometries and attendant  
+3-dimensional flow field characteristics (Fig. 1b), of each 
+of center, inner and outer peaked profilers were taken up 
+by simulating the test conditions. GAMBIT was used for 
+griding the inlet geometry through the prediffuser. For 
+the through the profiler (TTP) analysis, an all hexahedral 
+mesh comprised of ~512k cells was used, Fig. 1d.  A 
+total of 245 grid points were used in the axial direction 
+over a physical length of 9.2” starting from the upstream 
+dump exit to the diffuser inlet. Similarly 20×96 cells 
+were employed at the inlet section (fig. 1c) over a 180 
+sector with a channel height of 0.76”.  A very fine mesh 
+was employed near the profiler walls with the minimum 
+cell size of 0.0155” and 0.033” in the axial and radial 
+direction respectively.  The dimensions of the upstream 
+dump were 8h*5h in the radial and axial direction 
+respectively, where h is the height of the profiler 
+(0.764”).  
+ 
+The results reported in the Part I paper6 are with 
+circumferentially 
+averaged 
+measured 
+and 
+CFD-
+calculated inlet profiles, refer to Figures 2 and 3 of 
+Reference 6. The Part II paper presents calculations with 
+2-D inlet profiles to show back-to-back comparison 
+
+
+--- Page 3 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+3
+between 1-D and 2-D inlet profiles as well as 3-D 
+simulation of the diffusion system. 
+Description of Models & Grids 
+ 
+A commercially available code, FLUENT was 
+used in our investigation since it already has the 
+turbulence models we had investigated in our earlier 
+studies, e.g., References 1 and 3, in addition to having an 
+excellent 
+griding 
+strategy 
+suitable 
+for 
+the 
+test 
+configuration of interest to us. The reader should refer to 
+FLUENT’s documentation5 and the Part I paper6 for 
+details on the two turbulence models and the two types 
+of wall functions, (standard k-ε and shear stress transport 
+SST k-ω models; standard and non-equilibrium wall 
+functions) used in this study.  
+Gridding was done in the FLUENT’s pre-
+processor, GAMBIT. An excellent quality all-quad 2d 
+mesh, with 40k cells, was generated for the 2-D axi-
+symmetric simulation (fig. 1e) ensuring y+ ~40 that is 
+required for using with standard k-ε model with wall-
+functions. ~10k cells were distributed in the pre-diffuser 
+region, ~6k cells in the inner and outer annulus passages 
+each, and the rest for the dump region. For 3-D 
+simulations, the same 2-D mesh (of ~40k cells) was 
+rotated to give a total of 2.64 million cells to resolve the 
+geometrical details of the fuel nozzle and the concentric 
+simulated mixer as shown in Figure 1e. Some of the 
+critical details of the grids are summarized in the 
+following table. 
+RESULTS 
+ 
+Table 2 and Figures 2 through 9 show back-to-
+back comparison between 2-D and 3-D simulations with 
+the standard k-ε model that uses non-equilibrium wall 
+function described in References 5 and 6. For example in 
+Table 2 for Runs 3 and 4 that correspond to the profilers 
+that gave respectively center- and inner-peak velocity 
+profiles at the diffuser inlet.  Here the agreement for the 
+prediffuser data is excellent with both 2-D and 3-D 
+simulations, average errors are less than 2.5% for CP, the 
+static pressure recovery coefficient. However, the total 
+pressure loss coefficient Ω is reduce by ~50% with 3-D 
+compared to 2-D modeling approach.   
+ 
+Since it is difficult to simulate 3-D features of 
+fuel nozzles and the concentric mixers properly by 2-D, 
+2-D modeling does not give good agreement with dome 
+total pressure recovery or loss coefficient being off by as 
+much as 25% for CP and 150% for Ω. On the other hand, 
+the 3-D modeling approach reduces these errors to less 
+than 8% and 50% respectively for CP and Ω. Similarly 
+for both the combustor outer and inner annuli (passages), 
+the average errors by 3-D modeling are ~50% lower than 
+those with 2-D modeling. Moreover, the model’s 
+agreement with data in regard to Ω is reasonably well 
+which among other things could be attributed at least 
+partly to the way it has been estimated experimentally. 
+ 
+ 
+ 
+     2.64 M hex+tet grids
+    1.14 M tets
+Equiangle skewness< 0.9
+Aspect Ratio < 14
+Prediffuser
+112.5K all hex; 74x29x49
+Equiangle skewness< 0.16
+y+ 40 approximately
+Dump upstream of dome cowling
+hex+tet grids: 332K
+  262k hex+70k tets
+Equiangle skewness< 0.84
+y+ 40-120 approximately
+Dome cowling region
+ 832K tets
+Equiangle skewness< 0.9
+y+=100-250 approximately
+Comb. Outer annulus passage
+ 280K all hex; 97x23x125 cells
+Equiangle skewness< 0.74
+y+= min.1-max.146 approximately, avg. 42
+Comb. inner annulus passage
+hex+tets: 196 K; 95x21-29x65-67   
+ ~ 35k tets
+Equiangle skewness< 0.83
+y+= min. 1- max. 176 approximately, avg. 32
+Combustor grids
+849K hex cells
+Equiangle skewness< 0.88 
+90x77-111,   Y-Z cells typical
+y+=80-150 approximately
+Inlet calculations*
+2.52M all hex cells
+Equiangle skewness< 0.9
+Aspect ratio< 25
+   ξ−cells:
+    114 Upstream of bell mouth
+72 Upstream of profiler
+238 Downstream of profiler
+  x  cells for Leading face of profiler
+y+= 30-100 approximately
+* For SST y+ 5-10 improved by 
+Fluent to achieve y+ around 1
+     2.64 M hex+tet grids
+    1.14 M tets
+Equiangle skewness< 0.9
+Aspect Ratio < 14
+Prediffuser
+112.5K all hex; 74x29x49
+Equiangle skewness< 0.16
+y+ 40 approximately
+Dump upstream of dome cowling
+hex+tet grids: 332K
+  262k hex+70k tets
+Equiangle skewness< 0.84
+y+ 40-120 approximately
+Dome cowling region
+ 832K tets
+Equiangle skewness< 0.9
+y+=100-250 approximately
+Comb. Outer annulus passage
+ 280K all hex; 97x23x125 cells
+Equiangle skewness< 0.74
+y+= min.1-max.146 approximately, avg. 42
+Comb. inner annulus passage
+hex+tets: 196 K; 95x21-29x65-67   
+ ~ 35k tets
+Equiangle skewness< 0.83
+y+= min. 1- max. 176 approximately, avg. 32
+Combustor grids
+849K hex cells
+Equiangle skewness< 0.88 
+90x77-111,   Y-Z cells typical
+y+=80-150 approximately
+Inlet calculations*
+2.52M all hex cells
+Equiangle skewness< 0.9
+Aspect ratio< 25
+   ξ−cells:
+    114 Upstream of bell mouth
+72 Upstream of profiler
+238 Downstream of profiler
+  x  cells for Leading face of profiler
+y+= 30-100 approximately
+* For SST y+ 5-10 improved by 
+Fluent to achieve y+ around 1
+
+
+--- Page 4 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+4
+ 
+Whereas the modeling does good job for Runs 3 
+and 4, it does not show higher prediffuser CP and lower 
+Ω values observed experimentally in Run 5, the outer-
+peak inlet profile. Consequently, the average CP error 
+with the 3-D approach is slightly higher than that with 2-
+D simulation, being respectively 11.1% and 8.6%. 
+Consequently, the advantage of 3-D over 2-D approach 
+is somewhat less pronounced compared to Runs 3 and 4. 
+Nevertheless, the composite effect for all the three runs 
+as shown in the bottom part of Table 2 still favors 3-D 
+simulation over 2-D modeling approach which is the 
+current design practice for its obvious expediency. 
+Further elaboration is shown in Figure 10 where 
+comparison between data (along x-axis) and model 
+predictions along y-axis for  CP and Ω is shown for the 
+prediffuser, dome, outer and inner passages. This figure 
+should be compared with similar Figures 12 and 13 of 
+Reference 6 for the 2-D simulation.  
+From visual representation, one can conclude the 
+following main points of comparison in Table 3. 
+1. On an overall basis 3-CFD reproduces data well 
+for Runs 3 and 4, average errors being 1 and 
+1.5%, respectively, for CP; the range of error 
+being -8 to 10% for Run 3, and  -7 to 10% for 
+Run 4. The corresponding errors with 2-D 
+simulation are 7.5%, 6%, (0 to15%) and (-3 to 
+15%). 
+2. On the other hand for Run #5, the agreement is 
+not as good; being –7.5% and (0 to –15%) with 
+3-D, and -2.5 and (5 to –10%) with 2-D 
+simulation. 
+3. Similar statement can be made for CP of the 
+prediffuser and dome in that the model do better 
+correlation job for Runs 3 and 4 than Run #5. 
+However, for the outer and inner passages the 
+average errors are comparable. 
+4. 2-D simulation with SST k-ω model is not as 
+good as with the k-ε model, and the both are 
+inferior to that of 3-D simulation. 
+5. Nevertheless, there is enough disagreement 
+between predictions and CP data from the 
+simulated 3-D diffuser rig, an integrated 
+diffuser and combustor liner analysis for 
+predicting performance, profiles, emissions and 
+wall temperatures should not be expected 
+without applying proper correction at the critical 
+inlets around the combustor to account for 
+deviations between data and model predictions. 
+ 
+ 
+Dome Total Pressure Recovery and Ω 
+ 
+Figure 2 shows typical total pressure recovery 
+versus dome flow rate, % compressor flow rate, %Wa3. 
+Data shows that CP decreases from ~0.9 at ~30% flow 
+through the dome to ~0.75 at ~70%Wa3; ~17% decrease 
+in CP. It may be noticed that this paper as well as others 
+in this series of investigation the calculations are also 
+done for several test conditions so that it is possible to 
+draw a trend line to compare with the data. 2-D 
+predictions are considerably lower than data whereas the 
+3-D simulations for Runs 3 and 4 are quite close to data, 
+achieving qualitative trend rather very well. On the other 
+hand for Run 5, 3-D predictions fall in between 2-D 
+calculations and data. Figure 3 shows comparison 
+between measured and predicted total pressure loss 
+coefficient for the dome. 3-D predictions even though 
+higher than data reproduce experimental trend rather 
+very well. 
+ 
+CP and Ω 
+Ω 
+Ω 
+Ω of Passages 
+ 
+Data for the static pressure recovery and total 
+pressure loss coefficient, CP and Ω was taken near the 
+entrance and discharge planes of both the outer and inner 
+passages, denoted respectively by stations 3.4 and 3.5, 
+see Figure 1a. Figures 4 through 6 show back-to-back 
+comparison between 2-D and 3-D with CP data for the 
+center-, inner- and outer-peak profilers. Clearly 3-D 
+simulations give significantly better agreement with data 
+compared to 2-D approach. 
+Table summarizes the key findings for the 3-D 
+calculations versus data. Both the experimental and CFD 
+results can be represented well by quadratics with 
+reasonable values of the standard deviation σ, less than 
+1.5% for the outer passage and 4% for the inner passage 
+recovery coefficients. CFD overpredicts CP by 4 to 10% 
+for Runs 3 and 4 but underpredicts for Run 5 by 5 to 7%. 
+The qualitative behavior for slight increase in CP from 
+the plane 3.4 (near the entrance) to plane 3.5 is captured 
+well by CFD. 
+ 
+Figures 7, 8 and 9 show measured total pressure loss 
+coefficient versus flow splits for the outer and inner 
+passages at stations 3.4 and 3.5 for the center-, inner- and 
+outer-peak profilers, in addition to the corresponding 
+predictions with 2-D and 3-D modeling techniques. 
+Again 
+3-D simulations show significantly better 
+performance than the 2-D. From summary given in the 
+following table, we can see that similar to results 
+presented about CP,  
+• 
+Correlation with quadratics is slightly inferior to 
+that for CP, but is good nevertheless. 
+• 
+Model underpredicts outer passage Ω by ~5% 
+for Runs 3 and 4 but overpredicts Run 5 by 
+Run 3
+Run 4
+Run 5
+Exp
+CFD
+Exp
+CFD
+Exp
+CFD
+Outer Passage Summary
+Correlation σ
+1.48%
+0.97%
+0.89%
+0.75%
+1.08%
+1.26%
+Average CP
+0.503
+0.534
+0.510
+0.529
+0.579
+0.536
+CFD/Exp
+1.061
+1.037
+0.926
+%increase CP 3.4 to 3.5
+1.54
+1.88
+1.57
+1.53
+2.01
+1.77
+Inner Passage Summary
+Correlation σ
+3.58%
+0.72%
+3.55%
+1.35%
+3.38%
+0.89%
+Average CP
+0.521
+0.571
+0.541
+0.588
+0.605
+0.577
+CFD/Exp
+1.095
+1.085
+0.953
+%increase CP 3.4 to 3.5
+2.52
+4.95
+2.72
+5.37
+2.16
+4.61
+
+
+--- Page 5 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+5
+11%. The corresponding values are slightly 
+higher for the inner passage, being ~10% and 
+14%. 
+• 
+The predictions give qualitative good agreement 
+in regard to slight decrease in the loss 
+coefficient at station 3.5 compared to station 
+3.4. 
+ 
+ 
+Figure 10 gives visual summary of the data and 3-D 
+predictions by plotting CP and Ω data of the prediffuser, 
+dome, outer and inner passages versus the corresponding 
+predicted values. It clearly shows that predictions though 
+reasonable are still not good enough for undertaking a 
+“black box” integrated diffuser combustor calculations 
+for pretest predictions. However once the design 
+guidelines have been established based on correlation 
+with existing data, it would be possible to estimate 
+whether a particular design would be predicted to have 
+lower or higher performance compared to data, 3-D 
+CFD-based modeling approach would provide the details 
+not easily available through even detail testing effort, as 
+illustrated in the following paragraphs. 
+ 
+CFD PROVIDES INSIGHT 
+ 
+ 
+Even with less than majority consensus on the 
+usefulness of 3-D CFD model-based diffusion system 
+design approach, one can’t overestimate the importance 
+of having the ability to characterize 3-D flow field, as 
+shown in Figures 11, 12 and 13. When this information 
+suitably combined with a most recent combustion 
+modeling approach4, it will be possible to explain the 
+occurrence of isolated liner and dome hot spots in 
+addition to quantifying the effect of fuel nozzle 
+manufacturing tolerances on predicting pattern factor. 
+ 
+Finally, comparing 2-D diffusion modeling 
+based predicted distribution of Pt, Ps, CP and turbulence 
+kinetic energy contours, Figure 14 are significantly 
+different from 3-D predictions, Figures 11 and 12. 3-D 
+diffusion 
+system 
+modeling 
+therefore 
+strongly 
+recommended over 2-D diffuser modeling. 
+ 
+SUMMARY 
+ 
+A systematic evaluation of 3-D modeling 
+approach including the diffuser inlet conditions for a 
+given profiler has been conducted to assess its limitations 
+as a design tool for future diffuser design activities. 
+Experimental data from a typical 3-D diffuser rig with 
+three different profilers was compared with both 2-D and 
+3-D modeling approaches. In both the cases, the diffuser 
+inlet conditions were calculated by doing realistic 3-D 
+simulation of the experimental set-up. Based on earlier 2-
+D work6, the standard k-ε model with nonequilibrium 
+wall function was used. Average errors in predicting 
+static pressure recovery coefficient CP for prediffuser 
+(PD), dome (D), outer passage (OP) and inner passage 
+(IP) for the three runs Runs 3 (center-peak), 4 (inner-
+peak) and 5 (outer-peak) are given in the table: 
+ 
+ 
+Center-Peak 
+Inner-Peak 
+Outer-Peak 
+Prediffuser 
+2.2% 
+1.1% 
+11.1% 
+Dome 
+7.7% 
+6.6% 
+15.9% 
+Outer Passage 
+7.0% 
+7.1% 
+7.8% 
+Inner Passage 
+10.8% 
+9.5% 
+5.0% 
+ 
+Model overpredicts passage recoveries for Runs 
+3 and 4 by ~9% and underpredicts for Run 5 by ~5%. 
+ 
+Back to back comparison between 3-D and 2-D 
+simulations is summarized in Table 3. 
+Table 3: Back to back comparison between 3-D and 2-D 
+simulations. 
+From this table and Figures 11 through 14, it is quite 
+clear that 3-D simulation with through-the-rig set-up 
+calculations for estimating the diffuser inlet conditions 
+should be preferred over the current practice: mostly 2-D 
+simulations with inlet velocity profiles estimated from 4-
+5 total pressure rakes and the accompanying wall static 
+pressure data. 
+Run 3
+Run 4
+Run 5
+Exp
+CFD
+Exp
+CFD
+Exp
+CFD
+Outer Passage Summary
+Correlation σ
+1.52%
+1.15%
+0.94%
+0.85%
+1.48%
+1.50%
+Average Ω
+0.479
+0.450
+0.471
+0.455
+0.406
+0.451
+CFD/Exp
+0.940
+0.966
+1.110
+%increase Ω 3.4 to 3.5
+-1.59
+-2.18
+-1.67
+-1.80
+-2.79
+-2.06
+Inner Passage Summary
+Correlation σ
+4.73%
+1.24%
+5.11%
+1.88%
+6.43%
+1.38%
+Average Ω
+0.370
+0.333
+0.350
+0.312
+0.294
+0.334
+CFD/Exp
+0.901
+0.893
+1.136
+%increase Ω 3.4 to 3.5
+-3.41
+-7.91
+-4.03
+-8.83
+-4.26
+-7.45
+Overall 
+% Error in CP of
+agreement for
+Prediff
+Dome
+Outer 
+Inner 
+Ω
+CP
+Passage Passage
+Avg.
+10.0
+1.0
+2.4
+-7.0
+6.8
+10.0
+Run #3 (Center-Peak)
+Min
+-10.0
+-8.0
+1.5
+-5.0
+2.0
+6.0
+Max
+30.0
+10.0
+3.3
+-9.0
+11.5
+14.0
+Avg.
+5.0
+1.5
+1.5
+-4.7
+3.0
+8.5
+Run #4 (Inner-Peak)
+Min
+-10.0
+-7.0
+-7.0
+-1.5
+0.0
+5.0
+Max
+20.0
+10.0
+10.0
+-8.0
+6.0
+12.0
+Avg.
+65.0
+-7.5
+-10.5
+-15.5
+-6.2
+-7.5
+Run #5 (Outer-Peak)
+Min
+10.0
+0.0
+-9.0
+-14.0
+-4.0
+0.0
+Max
+120.0
+-15.0
+-12.0
+-17.0
+-8.5
+-7.0
+Average, minimum and maximum errors w/ 3-D k-ε model 
+& calculated inlet profiles
+Average, minimum and maximum errors w/ 2-D k-ε & SST models & 
+calculated inlet profiles, k-ε model w/ inlet velocity from measured Pt/Ps
+k-ε*
+SST*
+k-ε**
+Ω
+CP
+CP
+CP
+Avg.
+-12.5
+7.5
+12.5
+27.5
+Run #3 (Center-Peak)
+Min
+0.0
+0.0
+0.0
+20.0
+Max
+-25.0
+15.0
+25.0
+35.0
+Avg.
+0.0
+6.0
+17.0
+23.5
+Run #4 (Inner-Peak)
+Min
+-20.0
+-3.0
+4.0
+15.0
+Max
+20.0
+15.0
+30.0
+32.0
+Avg.
+2.5
+-2.5
+2.5
+12.5
+Run #5 (Outer-Peak)
+Min
+-10.0
+5.0
+-10.0
+5.0
+Max
+15.0
+-10.0
+15.0
+20.0
+Error <0.0 means model underpredicts, >0.0 means overpredicts.
+* With calculated inlet profiles
+**Velocity profiles measured Pt and Ps
+Overall 
+% Error in CP of
+agreement for
+Prediff
+Dome
+Outer 
+Inner 
+Ω
+CP
+Passage Passage
+Avg.
+10.0
+1.0
+2.4
+-7.0
+6.8
+10.0
+Run #3 (Center-Peak)
+Min
+-10.0
+-8.0
+1.5
+-5.0
+2.0
+6.0
+Max
+30.0
+10.0
+3.3
+-9.0
+11.5
+14.0
+Avg.
+5.0
+1.5
+1.5
+-4.7
+3.0
+8.5
+Run #4 (Inner-Peak)
+Min
+-10.0
+-7.0
+-7.0
+-1.5
+0.0
+5.0
+Max
+20.0
+10.0
+10.0
+-8.0
+6.0
+12.0
+Avg.
+65.0
+-7.5
+-10.5
+-15.5
+-6.2
+-7.5
+Run #5 (Outer-Peak)
+Min
+10.0
+0.0
+-9.0
+-14.0
+-4.0
+0.0
+Max
+120.0
+-15.0
+-12.0
+-17.0
+-8.5
+-7.0
+Average, minimum and maximum errors w/ 3-D k-ε model 
+& calculated inlet profiles
+Average, minimum and maximum errors w/ 2-D k-ε & SST models & 
+calculated inlet profiles, k-ε model w/ inlet velocity from measured Pt/Ps
+k-ε*
+SST*
+k-ε**
+Ω
+CP
+CP
+CP
+Avg.
+-12.5
+7.5
+12.5
+27.5
+Run #3 (Center-Peak)
+Min
+0.0
+0.0
+0.0
+20.0
+Max
+-25.0
+15.0
+25.0
+35.0
+Avg.
+0.0
+6.0
+17.0
+23.5
+Run #4 (Inner-Peak)
+Min
+-20.0
+-3.0
+4.0
+15.0
+Max
+20.0
+15.0
+30.0
+32.0
+Avg.
+2.5
+-2.5
+2.5
+12.5
+Run #5 (Outer-Peak)
+Min
+-10.0
+5.0
+-10.0
+5.0
+Max
+15.0
+-10.0
+15.0
+20.0
+Error <0.0 means model underpredicts, >0.0 means overpredicts.
+* With calculated inlet profiles
+**Velocity profiles measured Pt and Ps
+
+
+--- Page 6 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+6
+Future Work 
+Effect of inlet conditions on diffuser separation, 
+and performance of shorter and higher area ratio diffuser 
+is covered in Reference 7, followed by effect of cowling 
+geometry, mixer size and nozzle blockage in Reference 
+8. Validation of model validation with multi-passage 
+diffusers is presented in References 9 and 10 along with 
+more topics of interest in diffuser design are planned for 
+future work11-14. 
+ 
+REFERENCES 
+ 
+1. 
+Karki, K.C, Oeschle, V.L., and Mongia, H.C., 
+“A Computational Procedure for Combustor Diffuser 
+Interaction”, ASME GT-90-95, published in J. Eng. Gas 
+Turbines and Power, January 1992, Vol. 114, pp 1-7. 
+2. 
+Agrawal, A.K, Kapat, J.S., and Yang, T.T., 
+1998, 
+“An 
+Experimental/Computational 
+Study 
+of 
+Airflow in the Combustor-Diffuser System of a Gas 
+Turbine for Power Generation,” J. Eng. For Gas Turbines 
+and Power, v120, pp. 24-33, January 1998. 
+3. 
+Nikjoo, M., and Mongia, H., 1999, “Predictions 
+of Flows with Adverse Pressure Gradients”, AIAA Paper 
+99-2817. 
+4. 
+Mongia, Hukam C., 2004, “Perspective of 
+Combustion Modeling for Gas Turbine Combustors”, 
+AIAA Paper 2004-0156.  
+5. 
+FLUENT code  
+6. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, Rao, A., and Naik, P., 2004, “Combustor Diffuser 
+Modeling Part I: Inlet Profiles and 2-D Calculations”, 
+AIAA Paper 2004-4168.  
+7. 
+Mongia, H., Hsiao, G., Burrus, D., Habeeb, K., 
+Sreedhar, PSVS, 2004, “Combustor Diffuser Modeling 
+Part III: Validation w/ Typical Separating Single Passage 
+Diffusers Combustor Diffuser Modeling”, AIAA Paper 
+2004-4170.  
+8. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, and Rao, A., 2004, “Combustor Diffuser 
+Modeling Part IV: Effect of Cowling Geometry, Mixer 
+Size and Nozzle Blockage”, AIAA Paper 2004-4171.  
+9. 
+Mongia, H., Hsiao, G., Ravindra, MVV, and 
+Sreedhar, PSVS, 2004, “Combustor Diffuser Modeling 
+Part V: Validation with a Three Passage Diffuser Rig 
+Data”, AIAA Paper 2004-4172.  
+10. 
+Mongia, H., Hsiao, G., Mueller, M., Dai, Z., 
+Ravindra, MVV, Sreedhar, PSVS, and P. Arvind, 2004, 
+“Combustor Diffuser Modeling Part VI: Validation with 
+a Four Passage Diffuser Rig Data”, AIAA Paper 2004-
+4173.  
+11. 
+Mongia, H., Hsiao, G., Burrus, D., Sreedhar, 
+PSVS, and Rao, A., 2005, “Combustor Diffuser 
+Modeling Part VII: Validation w/ Data of a Single 
+Passage Diffuser Rig Behind Compressor”, AIAA Paper 
+2005-TBD.  
+12. 
+Mongia, H., Hsiao, G., Burrus, D., Thomsen, D. 
+and Habeeb, K., 2005, “Combustor Diffuser Modeling 
+Part VIII: Single-Passage Diffuser Combustor Rig to 
+Engine Correlation”, AIAA Paper 2005-TBD. 
+13. 
+Mongia, H., Hsiao, G., Burrus, D., Murthy 
+R., Ramesh 
+Kumar, 
+MC, 
+and 
+Naik, 
+P., 
+2005, 
+“Combustor Diffuser Modeling Part IX: Effect of Dome 
+Flow on Pressure Recoveries”, AIAA Paper 2005-TBD. 
+14. 
+Mongia, Hukam C., 2005, “Perspective of CFD 
+Modeling of Gas Turbine Combustor Diffusers”, AIAA 
+Paper 2005-TBD. 
+ 
+
+
+--- Page 7 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+7
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Table 2: Comparison between average data and 2-D & 3-D predictions for CP and Ω, 
+total pressure loss coefficient at prediffuser exit, dome, outer and inner passages .
+Prediffuser exit
+Dome
+Outer Passage
+Inner Passage
+CP
+Ω
+CP
+Ω
+CP
+Ω
+CP
+Ω
+Run 3 Data
+0.496
+0.138
+0.846
+0.154
+0.505
+0.476
+0.532
+0.361
+2-D Pred
+0.497
+0.123
+0.636
+0.364
+0.575
+0.406
+0.587
+0.308
+3-D Pred
+0.506
+0.127
+0.779
+0.223
+0.539
+0.445
+0.584
+0.319
+2-D σ
+1.37%
+11.53%
+25.07%
+151.87%
+14.50%
+15.08%
+10.57%
+15.57%
+3-D σ
+2.21%
+8.44%
+7.74%
+50.22%
+6.97%
+6.64%
+10.75%
+11.76%
+Run 4 Data
+0.504
+0.129
+0.848
+0.152
+0.516
+0.466
+0.544
+0.343
+2-D Pred
+0.494
+0.157
+0.622
+0.355
+0.562
+0.421
+0.587
+0.302
+3-D Pred
+0.503
+0.123
+0.796
+0.204
+0.533
+0.450
+0.603
+0.298
+2-D σ
+2.00%
+18.87%
+21.62%
+139.88%
+7.14%
+7.65%
+11.53%
+11.64%
+3-D σ
+1.09%
+8.69%
+6.56%
+47.09%
+3.77%
+3.64%
+9.51%
+12.31%
+Run 5 Data
+0.567
+0.068
+0.930
+0.070
+0.582
+0.402
+0.594
+0.289
+2-D Pred
+0.506
+0.097
+0.622
+0.364
+0.604
+0.381
+0.573
+0.330
+3-D Pred
+0.505
+0.127
+0.772
+0.235
+0.541
+0.446
+0.590
+0.321
+2-D σ
+8.62%
+40.44%
+24.94%
+484.87%
+3.80%
+4.89%
+6.82%
+15.86%
+3-D σ
+11.14%
+98.69%
+15.86%
+321.11%
+7.84%
+12.07%
+5.00%
+14.98%
+2-D σ
+5.17%
+26.61%
+23.93%
+304.26%
+9.58%
+10.16%
+9.85%
+14.49%
+3-D σ
+6.59%
+57.41%
+10.87%
+189.61%
+6.44%
+8.23%
+8.78%
+13.09%
+Overall σ for Predictions
+CP
+Ω
+2D
+14.04%
+152.97%
+3D
+8.37%
+99.35%
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Run #
+Comments
+3
+Center-peaked inlet profile.
+4
+Inner-peaked inlet profile.
+5
+Outer-peaked inlet profile.
+10
+Repeat of Run #3
+6
+Center-peaked inlet profile w/o cowling
+7
+Center-peaked inlet profile w/ reduced cowling open area
+8
+Opposed ring inlet profiler to compare w/ Run 3
+9
+Center-peaked profile; increased area shorter diffuser
+11
+Center-peaked profile; increased nozzle dia to 1.9", slightly 
+modified cowling.
+12
+Run 11 w/ 20% increased nozzle blockage.
+Table 1: Typical 3-D Combustor Diffuser Runs
+Table 2: Comparison between average data and 2-D & 3-D predictions for CP and Ω, 
+total pressure loss coefficient at prediffuser exit, dome, outer and inner passages .
+Prediffuser exit
+Dome
+Outer Passage
+Inner Passage
+CP
+Ω
+CP
+Ω
+CP
+Ω
+CP
+Ω
+Run 3 Data
+0.496
+0.138
+0.846
+0.154
+0.505
+0.476
+0.532
+0.361
+2-D Pred
+0.497
+0.123
+0.636
+0.364
+0.575
+0.406
+0.587
+0.308
+3-D Pred
+0.506
+0.127
+0.779
+0.223
+0.539
+0.445
+0.584
+0.319
+2-D σ
+1.37%
+11.53%
+25.07%
+151.87%
+14.50%
+15.08%
+10.57%
+15.57%
+3-D σ
+2.21%
+8.44%
+7.74%
+50.22%
+6.97%
+6.64%
+10.75%
+11.76%
+Run 4 Data
+0.504
+0.129
+0.848
+0.152
+0.516
+0.466
+0.544
+0.343
+2-D Pred
+0.494
+0.157
+0.622
+0.355
+0.562
+0.421
+0.587
+0.302
+3-D Pred
+0.503
+0.123
+0.796
+0.204
+0.533
+0.450
+0.603
+0.298
+2-D σ
+2.00%
+18.87%
+21.62%
+139.88%
+7.14%
+7.65%
+11.53%
+11.64%
+3-D σ
+1.09%
+8.69%
+6.56%
+47.09%
+3.77%
+3.64%
+9.51%
+12.31%
+Run 5 Data
+0.567
+0.068
+0.930
+0.070
+0.582
+0.402
+0.594
+0.289
+2-D Pred
+0.506
+0.097
+0.622
+0.364
+0.604
+0.381
+0.573
+0.330
+3-D Pred
+0.505
+0.127
+0.772
+0.235
+0.541
+0.446
+0.590
+0.321
+2-D σ
+8.62%
+40.44%
+24.94%
+484.87%
+3.80%
+4.89%
+6.82%
+15.86%
+3-D σ
+11.14%
+98.69%
+15.86%
+321.11%
+7.84%
+12.07%
+5.00%
+14.98%
+2-D σ
+5.17%
+26.61%
+23.93%
+304.26%
+9.58%
+10.16%
+9.85%
+14.49%
+3-D σ
+6.59%
+57.41%
+10.87%
+189.61%
+6.44%
+8.23%
+8.78%
+13.09%
+Overall σ for Predictions
+CP
+Ω
+2D
+14.04%
+152.97%
+3D
+8.37%
+99.35%
+
+
+--- Page 8 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+8
+ 
+ 
+ 
+ 
+ 
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+Figure 1: Diffuser rig schematic and typical grid used for inlet and diffuser calculations.
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+(b) Opposed ring and ‘bow tie” profilers are 
+used to create profiles for the diffuser inlet.
+1,2,3,4
+5,6,7,8
+55 - 74
+17 - 20
+21 - 24
+9 - 12
+13 - 16
+75 - 94
+25,26
+31,32
+29,30
+35,36
+35,36
+53,54
+49,50
+51,52
+45,46
+47,48
+41 - 44
+37 - 40
+27,28
+117,118
+115,116
+105 - 114
+95 - 104
+Figure 1: Diffuser rig schematic and typical grid used for inlet and diffuser calculations.
+(a) Full-scale annular diffuser rig.
+(c) Inlet grid
+(d) 3-D grid for simulating
+through inlet/profiler
+(e) Diffuser rig grid
+
+
+--- Page 9 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+9
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Run 3 Center-Peak Velocity Profile.
+(b) Run 4 Inner-Peak Velocity Profile.
+(c) Run5 Outer-Peak Velocity Profile.
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.30
+0.40
+0.50
+0.60
+0.70
+Run03_DATA
+2DPredictions
+3DPredictions
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.20
+0.30
+0.40
+0.50
+0.60
+0.70
+Run05_DATA
+2d Predictions
+3d Predictions
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.30
+0.40
+0.50
+0.60
+0.70
+Run04_DATA
+2DPrediction
+3DPredictions
+(a) Run 3 Center-Peak Velocity Profile.
+(b) Run 4 Inner-Peak Velocity Profile.
+(c) Run5 Outer-Peak Velocity Profile.
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.30
+0.40
+0.50
+0.60
+0.70
+Run03_DATA
+2DPredictions
+3DPredictions
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.20
+0.30
+0.40
+0.50
+0.60
+0.70
+Run05_DATA
+2d Predictions
+3d Predictions
+Dome - Cp
+0.50
+0.60
+0.70
+0.80
+0.90
+1.00
+0.30
+0.40
+0.50
+0.60
+0.70
+Run04_DATA
+2DPrediction
+3DPredictions
+ 
+Figure 2: Comparison between data and 2-D and 3-D predictions for dome CP (y-axis)versus flow split 
+through the dome (x-axis). 
+
+
+--- Page 10 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+10
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Run 3 Center-peak profile
+(b) Run 4 Inner-peak profile
+(c) Run5 Outer-Peak Velocity Profile.
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.30
+0.40
+0.50
+0.60
+0.70
+Run03_DATA
+2DPredictions
+3DPredictions
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.30
+0.40
+0.50
+0.60
+0.70
+Run04_DATA
+2DPredictions
+3DPredictions
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.20
+0.30
+0.40
+0.50
+0.60
+0.70
+Run05_DATA
+2DPredictions
+3DPredictions
+(a) Run 3 Center-peak profile
+(b) Run 4 Inner-peak profile
+(c) Run5 Outer-Peak Velocity Profile.
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.30
+0.40
+0.50
+0.60
+0.70
+Run03_DATA
+2DPredictions
+3DPredictions
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.30
+0.40
+0.50
+0.60
+0.70
+Run04_DATA
+2DPredictions
+3DPredictions
+Dome - Ω
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.20
+0.30
+0.40
+0.50
+0.60
+0.70
+Run05_DATA
+2DPredictions
+3DPredictions
+ 
+Figure 3: Comparison between data and 2-D and 3-D predictions for dome Ω (y-axis), total pressure loss 
+coefficient versus flow split through the dome (x-axis).
+ 
+
+
+--- Page 11 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+11
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03Center-PeakProfile_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03Center-PeakProfile_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Figure 4: Comparison between Run 3 (center-peak inlet profile)data and 2-D and 3-D predictions for CP (y-
+axis) of combustor outer and inner passages versus flow split for the respective passages (x-axis). Station 3.4 
+is closer to passage inlet, Station 3.5 toward the end.
+ 
+
+
+--- Page 12 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+12
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.54
+0.56
+0.58
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPrediction
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.54
+0.56
+0.58
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPrediction
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.54
+0.56
+0.58
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPrediction
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.54
+0.56
+0.58
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPrediction
+3DPredictions
+Figure 5: Comparison between Run 4 (inner-peak inlet profile) data and 2-D and 3-D predictions for CP (y-axis) 
+of combustor outer and inner passages versus flow split for the respective passages (x-axis). Station 3.4 is closer 
+to passage inlet, Station 3.5 toward the end.
+
+
+--- Page 13 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+13
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Cp: Station 3.4
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Cp: Station 3.5
+0.45
+0.50
+0.55
+0.60
+0.65
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.4
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Cp:Station3.5
+0.30
+0.35
+0.40
+0.45
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Figure 6: Comparison between Run 5 (outer-peak inlet profile)data and 2-D and 3-D predictions for CP (y-
+axis) of combustor outer and inner passages versus flow split for the respective passages (x-axis). Station 3.4 
+is closer to passage inlet, Station 3.5 toward the end.
+
+
+--- Page 14 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+14
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2dPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2dPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.30
+0.40
+0.50
+0.60
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.20
+0.30
+0.40
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run03_DATA
+2DPredictions
+3DPredictions
+Figure 7: Comparison between Run 3 (center-peak inlet profile)data and 2-D and 3-D predictions for Ω (y-axis), 
+total pressure loss coefficient of combustor outer and inner passages versus flow split for the respective passages 
+(x-axis). Station 3.4 is closer to passage inlet, Station 3.5 toward the end.
+
+
+--- Page 15 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+15
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.40
+0.42
+0.44
+0.46
+0.48
+0.50
+0.52
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.50
+0.00
+0.10
+0.20
+0.30
+0.40
+Run04_DATA
+2DPredictions
+3DPredictions
+Figure 8: Comparison between Run 4 (inner-peak inlet profile)data and 2-D and 3-D predictions for Ω (y-axis), 
+total pressure loss coefficient of combustor outer and inner passages versus flow split for the respective passages 
+(x-axis). Station 3.4 is closer to passage inlet, Station 3.5 toward the end.
+ 
+
+
+--- Page 16 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+16
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.35
+0.40
+0.45
+0.50
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.35
+0.40
+0.45
+0.50
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+(a) Outer Passage Stations 3.4 and 3.5
+(b) Inner Passage Stations 3.4 and 3.5
+Outer Passage - Ω: Station 3.4
+0.35
+0.40
+0.45
+0.50
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Outer Passage - Ω: Station 3.5
+0.35
+0.40
+0.45
+0.50
+0.00
+0.05
+0.10
+0.15
+0.20
+0.25
+0.30
+0.35
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.4
+0.25
+0.30
+0.35
+0.40
+0.45
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Inner Passage - Ω:Station3.5
+0.25
+0.30
+0.35
+0.40
+0.45
+0.00
+0.10
+0.20
+0.30
+0.40
+Run05_DATA
+2DPredictions
+3DPredictions
+Figure 9: Comparison between Run 5 (outer-peak inlet profile)data and 2-D and 3-D predictions for Ω (y-axis), 
+total pressure loss coefficient of combustor outer and inner passages versus flow split for the respective passages 
+(x-axis). Station 3.4 is closer to passage inlet, Station 3.5 toward the end.
+ 
+
+
+--- Page 17 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+17
+ 
+ 
+ 
+Run #3 Center-Peak Profiler CP Data versus CFD
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #3Dif CP
+Dome CP
+OP CP
+IP CP
++1%
+"+10%"
+-8%
+Run #3 Center-Peak Profiler Ω Data versus CFD
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run #3Dif W
+Dome W
+OP W
+IP W
++10%
++30%
+-10%
+σ = 4%
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #4 Dif CP
+Dome CP
+OP CP
+IP CP
++1.5%
++10%
+-7%
+Run #4 Inner-Peak Profiler CP Data versus CFD
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run #4 Dif W
+Dome W
+OP W
+IP W
++5%
++20%
+-10%
+Run #4 Inner-Peak Profiler Ω Data versus CFD
+σ =9%
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #5 Dif CP
+Dome CP
+OP CP
+IP CP
+-7.5%
+0%
+-15%
+Run #5 Outer-Peak Profiler CP Data versus CFD
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+Data
+CFD
+Run #5 Dif W
+Dome W
+OP W
+IP W
++65%
++120%
++10%
+Run #5 Outer-Peak Profiler Ω Data versus CFD
+σ =15%
+Run #3 Center-Peak Profiler CP Data versus CFD
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #3Dif CP
+Dome CP
+OP CP
+IP CP
++1%
+"+10%"
+-8%
+Run #3 Center-Peak Profiler Ω Data versus CFD
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run #3Dif W
+Dome W
+OP W
+IP W
++10%
++30%
+-10%
+σ = 4%
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #4 Dif CP
+Dome CP
+OP CP
+IP CP
++1.5%
++10%
+-7%
+Run #4 Inner-Peak Profiler CP Data versus CFD
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+0.00
+0.10
+0.20
+0.30
+0.40
+0.50
+0.60
+Data
+CFD
+Run #4 Dif W
+Dome W
+OP W
+IP W
++5%
++20%
+-10%
+Run #4 Inner-Peak Profiler Ω Data versus CFD
+σ =9%
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1.0
+Data
+CFD
+Run #5 Dif CP
+Dome CP
+OP CP
+IP CP
+-7.5%
+0%
+-15%
+Run #5 Outer-Peak Profiler CP Data versus CFD
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+Data
+CFD
+Run #5 Dif W
+Dome W
+OP W
+IP W
++65%
++120%
++10%
+Run #5 Outer-Peak Profiler Ω Data versus CFD
+σ =15%
+Figure 10: Data versus 3-D CFD prediction for Runs 3, 4 and 5 for CP and total pressure loss
+Coefficient for the prediffuser, dome, outer and inner passages. 
+
+
+--- Page 18 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+18
+ 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 (Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 (Blue)
+to 1.00 (Red)
+k contours Range 0 (Blue)
+to 1469 m2/s2 (Red) 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 (Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 (Blue)
+to 1.00 (Red)
+k contours Range 0 (Blue)
+to 1469 m2/s2 (Red) 
+ 
+Figure 11: Typical contours of Pt, Ps (superimposed velocity vectors), CP
+And turbulence kinetic energy in-line with fuel nozzle stem. 
+
+
+--- Page 19 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+19
+ 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 
+(Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 
+(Blue)
+to 1.00 (Red)
+k contours Range 0 
+(Blue)
+to 1498.65 m2/s2 (Red) 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 
+(Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 
+(Blue)
+to 1.00 (Red)
+k contours Range 0 
+(Blue)
+to 1498.65 m2/s2 (Red) 
+ 
+Figure 12: Typical contours of Pt, Ps (superimposed velocity vectors), CP and turbulence 
+kinetic energy in-between fuel nozzle stem.
+
+
+--- Page 20 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+20
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Pt at inlet
+Pt at outlet
+Ps at inlet
+Ps at outlet
+Pt at inlet
+Pt at outlet
+Ps at inlet
+Ps at outlet
+Figure 13: Typical contours of total and static pressure contours around the mixer holes – inlets and outlets.
+
+
+--- Page 21 ---
+
+                                                                                                                          AIAA Paper 2004-4169 
+ 
+21
+ 
+ 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 (Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 (Blue)
+to 1.00 (Red)
+k contours Range 0 (Blue)
+to 1498.65 m2/s2 (Red) 
+Pt contours Rage 14.007 (Blue)
+to 16.705 psia (Red)
+Ps contours Range 13.98 (Blue)
+to 15.55 psia (Red)
+CP contours Range –0.48 (Blue)
+to 1.00 (Red)
+k contours Range 0 (Blue)
+to 1498.65 m2/s2 (Red) 
+ 
+Figure 14: Typical contours of Pt, Ps (superimposed velocity vectors), CP and turbulence 
+kinetic energy from 2d calculations.

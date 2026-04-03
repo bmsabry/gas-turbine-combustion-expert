@@ -1,0 +1,1525 @@
+
+--- Page 1 ---
+
+AIAA JOURNAL
+Vol. 44, No. 4, April 2006
+Large-Eddy Simulations as a Design Tool
+for Gas Turbine Combustion Systems
+S. James,∗J. Zhu,† and M. S. Anand‡
+Rolls–Royce, Indianapolis, Indiana 46206
+In recent years, large-eddy simulation (LES) has emerged as a promising next-generation computational tool for
+design applications. Compared to Reynolds-averaged Navier–Stokes simulation, the advantages that LES offers,
+in terms of improved turbulent mixing and ability to predict unsteady phenomena, makes it attractive for gas
+turbine combustor applications. An overview of recent activities related to LES being pursued at Rolls–Royce is
+provided. The LES methodology is reviewed both from numerical and modeling perspectives. The state of the art in
+subgrid-scale (SGS) modeling and spray modeling is discussed. Recently developed SGS reaction-rate closures such
+as the transport ﬁltered density function method are reviewed and discussed. Validation experiments performed
+on several benchmark ﬂows (nonreacting and reacting) and practical gas turbine combustor conﬁgurations are
+presented. Finally, ongoing developments for improving the LES methodology are highlighted.
+Nomenclature
+⟨A⟩
+=
+expected value of A
+⟨A|B⟩
+=
+expected value of A conditioned on B
+Bm
+=
+mass transfer number
+BT
+=
+heat transfer number
+C
+=
+standard Smagorinsky constant
+CD
+=
+coefﬁcient of drag of a spray particle
+Ck
+=
+turbulent-viscosity constant in the one-equation
+kinetic-energy model
+Cε
+=
+dissipation term constant in the one-equation
+kinetic-energy model
+Cφ
+=
+model constant in the Interaction by exchange with
+the mean model
+cpg
+=
+gas-phase speciﬁc heat coefﬁcient
+at constant pressure
+cpp
+=
+speciﬁc heat capacity of a droplet
+D
+=
+molecular diffusivity
+DT
+=
+turbulent diffusivity
+dk
+=
+diameter of the kth spray particle
+FL
+=
+ﬁltered mass density function
+G
+=
+ﬁlter kernel
+J α
+i
+=
+diffusional ﬂux of species α in the ith-coordinate
+direction
+k
+=
+turbulent kinetic energy
+kg
+=
+gas-phase thermal conductivity
+ksgs
+=
+subgrid scale kinetic energy
+Mα
+i
+=
+subgrid scale mass ﬂux of scalar α
+˙m p
+=
+rate of change of mass of a spray particle
+p
+=
+pressure
+Rek
+=
+Reynolds number of the kth spray particle
+Sct
+=
+turbulent Schmidt number
+Si j
+=
+strain-rate tensor
+Sm
+=
+spray source term in the continuity equation
+Smi
+=
+spray source term in the momentum equation
+Smα
+=
+spray source term in the scalar transport equation
+Sα
+=
+chemical source term of species α
+Received 4 January 2005; revision received 24 October 2005; accepted
+for publication 26 October 2005. Copyright c⃝2005 by Rolls–Royce Corpo-
+ration. Published by the American Institute of Aeronautics and Astronautics,
+Inc., with permission. Copies of this paper may be made for personal or inter-
+nal use, on condition that the copier pay the $10.00 per-copy fee to the Copy-
+right Clearance Center, Inc., 222 Rosewood Drive, Danvers, MA 01923;
+include the code 0001-1452/06 $10.00 in correspondence with the CCC.
+∗Specialist, P.O. Box 420, Speed Code T-14, Combustion Systems. Mem-
+ber AIAA.
+†Senior Specialist, P.O. Box 420, Speed Code T-14, Combustion Systems.
+‡Group Leader/Consultant, P.O. Box 420, Speed Code T-14, Combustion
+Systems. Member AIAA.
+˜Sα
+=
+ﬁltered reaction rate of scalar α
+Ti j
+=
+subgrid stress tensor
+ui
+=
+instantaneous velocity in the ith-coordinate
+direction
+˜ui
+=
+Favre ﬁlter of ui
+V k
+i
+=
+velocity of the kth spray-particle in the
+ith-coordinate direction
+xi
+=
+Cartesian coordinate in the i direction
+
+=
+ﬁlter width
+δ
+=
+Dirac delta function
+δi j
+=
+Kronecker delta
+ε
+=
+turbulent dissipation
+μ (or μg)
+=
+gas-phase molecular viscosity
+μT
+=
+turbulent viscosity
+νT
+=
+turbulent kinematic viscosity
+ξ
+=
+instantaneous mixture fraction
+ρ (or ρg)
+=
+gas-phase density
+ρp
+=
+density of a spray particle
+¯ρ
+=
+ﬁltered (or mean) density
+τd
+=
+spray particle relaxation time
+τi j
+=
+ﬁltered viscous stress tensor
+φα
+=
+mass fraction of species α in physical space
+¯φ
+=
+ﬁltered value of a scalar φ
+ψα
+=
+mass fraction of species α in composition space
+ω
+=
+mixing frequency
+Introduction
+T
+HERE are three main avenues to computing turbulent re-
+acting ﬂows: Reynolds-averaged Navier–Stokes simulations
+(RANS), large-eddy simulations (LES), and direct numerical sim-
+ulations (DNS). In the gas turbine industry, RANS is the primary
+means of analyzing combusting ﬂows, mainly due to its relatively
+fast turnaround time and success in providing design guidance for
+meeting exit temperature proﬁle requirements. RANS has also been
+used to predict emissions, but such predictions have met with mixed
+success. Predictions are also known to be sensitive to the turbulence
+model used. For example, when both the liner and annuli of a gas
+turbine combustor are included in the computational ﬂow model,
+the standard k–ε model predicts incorrect turbulence levels at the
+primary and dilution ports of the liner. At the other extreme, DNS
+is computationally affordable only for simple conﬁgurations at low
+Reynolds numbers and is mainly a tool to validate turbulence and
+combustion submodels for RANS and LES. At high Reynolds num-
+bers, the enormous grid resolution requirement makes DNS unaf-
+fordable for practical applications. LES is also computationally in-
+tensive, however, to a lesser degree than DNS. Unlike in DNS, where
+all length scales and timescales are resolved, only large-scale struc-
+tures are directly resolved in LES. The small scales are modeled.
+674
+
+
+--- Page 2 ---
+
+JAMES, ZHU, AND ANAND
+675
+With the availability of powerful computers and distributed
+computing platforms, increasing applications of LES to complex ge-
+ometries are being reported in literature.1−4 LES is now considered
+to be the next-generation practical design tool for gas turbine com-
+bustors. With low emissions being an important aspect of combustor
+design, it is becoming increasingly important to overcome new tech-
+nological barriers to combustor design such as combustion instabil-
+ities. RANS-based tools cannot provide insight into these phenom-
+ena. LES, due to its time-accurate nature, may be used to understand
+and predict these instabilities. Additionally, combustion mainly oc-
+curs away from walls in gas turbine combustors; therefore, sophisti-
+cated wall treatments are not required, a favorable feature for LES.
+For LES to be a reliable combustion design tool, extensive vali-
+dations of various submodels used in the methodology are required.
+Numerics play an important role in LES, and close attention has
+to be paid to the numerical scheme used. In this paper, the LES
+methodology for application to complex conﬁgurations is reviewed.
+Both numerical and modeling aspects of the methodology are exam-
+ined. The state of the art in subgrid-scale modeling and liquid-fuel
+spray modeling for LES is presented and discussed. A hierarchy
+of validation cases performed on several nonreacting and reacting
+benchmark ﬂows are presented. These cases, ranging from simple
+lid-driven cavity ﬂow to complex gas turbine combustor ﬂow, high-
+light the predictive capabilities of LES.
+Theoretical and Numerical Aspect of LES
+In LES, the most energetic ﬂow structures are directly resolved,
+whereas the small-scale ﬂow structures are modeled. The instan-
+taneous numerical solution from LES represents an instantaneous
+realization of the turbulent ﬂow with frequencies above a certain cut-
+off value ﬁltered out. This is in contrast to RANS, which produces
+a time average of the turbulent ﬂow. LES also affords advantages
+over RANS in modeling aspects. Small-scale structures are not sig-
+niﬁcantly affected by inhomogeneities; therefore, it is believed that
+modeling these structures is less daunting than the modeling that
+accounts for all scales as in RANS.
+Filtering Operation
+The large-scale or ﬁltered ﬁeld can be mathematically expressed
+as5
+¯φ(x, t) = 1
+
+ +∞
+−∞
+φ(x′, t) G
+
+|x −x′|
+
+
+dx′
+(1)
+where φ(x′, t) is the instantaneous ﬁeld and G is a localized ﬁlter
+kernel with ﬁlter width  having the following properties:
+ +∞
+−∞
+G(ψ) dψ = 1
+(2a)
+G(−ψ) = G(ψ)
+(2b)
+ +∞
+−∞
+xmG(ψ) dψ
+exist for m ≥0
+(2c)
+Examples of ﬁlters include a box ﬁlter, a Gaussian ﬁlter, and a
+Fourier cutoff ﬁlter (see Ref. 6). An interpretation of Eq. (1) is that
+the mean (or ﬁltered) ﬁeld is constructed from an instantaneous ﬁeld
+by ﬁltering eddies of size smaller than .
+Governing Equations
+Applying the ﬁltering operation to the instantaneous transport
+equations, we obtain the following:
+∂¯ρ
+∂t + ∂¯ρ ˜ui
+∂xi
+= Sm
+∂¯ρ ˜u j
+∂t
++ ∂¯ρ ˜ui ˜u j
+∂xi
+= −∂¯p
+∂x j
++ ∂τi j
+∂xi
+−∂Ti j
+∂xi
++ Smj
+∂¯ρ ˜φα
+∂t
++ ∂¯ρ ˜ui ˜φα
+∂xi
+= −∂
+∂xi
+
+¯ρ ˜D ∂˜φα
+∂xi
+
+−∂Mα
+i
+∂xi
++ ¯ρ ˜Sα + Smα
+(3)
+where ρ is the density, τi j is the viscous stress tensor, and φα
+is the scalar array, Ti j = ρuiu j −ρ ˜ui ˜u j and Mα
+i = ρuiφα −ρ ˜ui ˜φα
+denote the subgrid-scale (SGS) stress and SGS scalar mass ﬂux,
+respectively. ˜Sα are the ﬁltered reaction source terms. Sm, Smi, and
+Smα are the liquid fuel source terms in the continuity, momentum,
+and scalar equations, respectively. Note that in the preceding equa-
+tions, quantities with the tilde represent Favre-average ﬁlters.
+In most LES, the ﬁltering operation is not explicitly performed
+in simulations. Instead, it is argued that the discretization scheme
+for derivatives and the ﬁnite spectral support of the computational
+grid (where only wave numbers smaller than π/x can be repre-
+sented on a grid with spacing x) mimic the ﬁltering operation.
+This is commonly referred to as implicit ﬁltering. The ﬁlter width
+in the implicit ﬁltering approach is typically assumed to be the local
+grid spacing. An assumption implied in the derivation of Eq. (3)
+is that the ﬁltering operation commutes with spatial differentiation,
+that is, ∂φ/∂x = ∂¯φ/∂x. However, this is not true in the case when
+nonuniform grids are used. Nevertheless, the error incurred due to
+loss of commutative property is second order in the ﬁlter width.7
+Hence, in most LES applications employing second-order schemes,
+this error is typically neglected. A consequence of linking the ﬁlter
+width to the grid spacing is that, as the grid is reﬁned, the ﬁlter width
+also becomes smaller. Consequently, more scales are resolved in the
+ﬂowﬁeld and the contribution of the SGS model becomes smaller.
+Eventually, the LES simulation converges to a DNS as the grid size
+is made smaller and smaller.
+Numerical Method
+Equation (3) can be solved by a density-based or a pressure-
+based method. In the RANS context, the pressure-based method
+has been widely used for simulating gas turbine combustor ﬂows.8
+The density-based method can also be applied to such ﬂows; how-
+ever, appropriate preconditioners have to be used to avoid time-step
+restrictions imposed by the low-speed ﬂow.
+Robustness and low numerical dissipation of the numerical
+scheme are issues of utmost importance in LES of gas turbine com-
+bustors. For RANS applications in complex geometries, upwind-
+type methods are typically used and have been known to produce
+reasonable results. However, studies9 have shown that these meth-
+ods when applied to LES simulations show undue damping of
+small-scale structures. Central differencing schemes are typically
+preferred9 because these schemes do not exhibit numerical dissi-
+pation. A drawback of these schemes is that computations are sen-
+sitive to nonuniformities in the grid. Grids, therefore, have to be
+constructed with care. However, even with the utmost care, grid
+spacing can vary quite rapidly in regions near the fuel nozzle of gas
+turbine combustors, triggering numerical instabilities in LES.
+A means to enhance the robustness of LES simulations on such
+grids is to ensure discrete kinetic energy conservation.10−14 In the
+inviscid limit (or high-Reynolds-number ﬂows) and in the absence
+of time-discretization errors, kinetic energy, deﬁned as uiui/2, is
+considered to be discretly conserved if the numerical approxima-
+tion of all of the terms in its transport equation can be expressed
+in divergence form. This implies that, in a computational domain
+with periodic boundaries, the numerical scheme will force the to-
+tal kinetic energy of the system to be constant at all times (as ex-
+pected). Numerical methods that employ central difference schemes
+but do not satisfy energy conservation are often unstable at high
+Reynolds numbers. Discrete kinetic energy conservation in stag-
+gered and collocated numerical schemes has been investigated in
+detail by Morinishi et al.10 Because of their simplicity, collocated
+schemesareusuallypreferredoverstaggeredschemesforsimulating
+ﬂows in complex geometries. In collocated schemes, the cell-face
+ﬂuxes are typically computed using a procedure outlined by Rhie
+and Chow.15 This procedure, although preventing checkerboarding
+of the pressure ﬁeld, results in violation of discrete kinetic-energy
+conservation. The impact of this violation has not been extensively
+studied, but limited studies performed by Benhamadouche et al.13
+suggest that it may not be serious. Kinetic-energy conservation
+is also lost when cell-face quantities are computed by weighted
+interpolations.11 This is not an issue when uniform grids are used.
+
+
+--- Page 3 ---
+
+676
+JAMES, ZHU, AND ANAND
+However, the problem can be easily overcome by using a symmetric
+interpolation scheme.11,12,14
+Assessing the convergence of LES solutions is an issue that has
+not been given importance by LES practitioners. A grid-independent
+instantaneous ﬁeld cannot be achieved in LES, because the ﬁl-
+ter width is linked to the local grid spacing. However, in most
+LES studies, one is interested in time-averaged quantities, which
+can be shown to be grid independent by reﬁning the grid. Hence,
+when assessing different submodels, the model that provides opti-
+mal accuracy at a minimum computational cost could be consid-
+ered as superior. More details on appraising LES are discussed by
+Pope.16
+The LES method used for simulations presented in this paper
+is implemented in the Rolls–Royce corporate combustion design
+analysis system, PRECISE. The LES solver is based on a col-
+located, ﬁnite volume, structured-grid, incompressible, pressure-
+based method.8 Spatial derivatives for velocities are discretized by a
+second-order central scheme. For the scalar ﬁelds, the hybrid or the
+hybrid-linear parabolic approximation scheme17 is typically used
+to ensure boundedness of scalars. Time derivatives are discretized
+by a second-order backward difference scheme. A SIMPLE-type18
+method is used to converge the discretized equations at each time
+step. For reacting ﬂows, roughly 10 iterations sufﬁce for conver-
+gence at each time step.
+Modeling
+In Eq. (3), the unclosed terms are SGS stress, SGS scalar ﬂux,
+and ﬁltered reaction rates. For liquid fuels, additional modeling of
+spray source terms is required. In the following sections, we will
+review models for these terms and present some sample results.
+SGS Stress and Scalar Flux
+ThemajorityofSGSstressmodelsarebasedontheeddy-viscosity
+approach. Since the early pioneering work by Smagorinsky,19 there
+have been several variants20−24 of the eddy viscosity model that have
+shown improved predictive capabilities.
+The Smagorinsky model is given by the expression
+Ti j −(δi j/3)Tkk = −2νT ˜Si j = −2(C)2| ˜S| ˜Si j
+(4)
+where ˜Si j = 1
+2(∂˜ui/∂x j + ∂˜u j/∂xi) is the strain rate tensor, νT is the
+turbulent viscosity, and | ˜S| is the magnitude of the strain rate tensor.
+The ﬁlter width  is typically considered to be the local grid spacing.
+In the standard Smagorinsky model, the constant C is assumed to
+have a ﬁxed value. A review of literature shows signiﬁcant variation
+in the value used for C; values ranging from 0.065 to 0.17 have been
+used.
+The dynamic model proposed by Germano et al.20 overcomes the
+limitation of tuning the constant C. In this model, C is computed
+dynamically via an identity that relates stresses at different scales.
+There are several variants of the dynamic model that provide im-
+proved predictions, for example, the localized dynamic model,21 the
+dynamic localization model,22 the Lagrangian dynamic model (see
+Ref. 23), and scale-dependent dynamic model.24
+Another class of SGS stress models is based on the one-equation
+model, in which the transport equation for the SGS turbulent kinetic
+energy equation is solved.25 It has been argued that by solving this
+equation, the equilibrium assumption, that is, production equals dis-
+sipation of SGS kinetic energy, inherent in algebraic eddy-viscosity
+models, is no longer required. Therefore, a relatively coarser
+grid could be used. The SGS kinetic energy equation is deﬁned
+as
+ksgs = 1
+2(
+ukuk −˜uk ˜uk)
+(5)
+and its transport equation can be derived to be
+∂¯ρksgs
+∂t
++
+∂
+∂x j
+( ¯ρ ˜uiksgs) = Psgs −Dsgs + ∂
+∂xi
+
+ρνt
+Prt
+∂ksgs
+∂xi
+
+(6)
+The terms on the right-hand side represent production, dissipation,
+and transport of the subgrid kinetic energy, respectively. Here, the
+production term is
+Psgs = −Ti j
+
+∂˜ui
+∂x j
+
+(7)
+The SGS stress is modeled as
+Ti j = −2 ¯ρCkk
+1
+2sgs
+ ˜Si j −1
+3 ˜Skkδi j
+
++ 2
+3 ¯ρksgsδi j
+(8)
+where the turbulent viscosity is deﬁned as νt = Ckk1/2
+sgs . The dissi-
+pation term is modeled as
+Dsgs = Cε ¯ρk
+3
+2 
+
+(9)
+The two parameters Ck and Cε are assumed to be either a constant
+or computed dynamically.
+To illustrate the predictive capability of the eddy-viscosity model,
+an assessment of RANS with the k–ε model and LES with standard
+Smagorinsky model, localized dynamic model, and one-equation
+kinetic-energy equation model is performed for the ﬂow in a lid-
+driven, three-dimensional cavity. The value of the constant C in the
+standard Smagorinsky model is set to 0.17. In the kinetic-energy
+equation model, a dynamic procedure is used to compute Ck, but a
+constant value of 0.916 is used for Cε. The ﬂow conﬁguration con-
+sists of a three-dimensional cavity bounded by walls with the upper
+wall (or lid) moving at a velocity UB. Fluid motions are generated by
+shear stresses at the moving wall. Past studies have shown that at a
+Reynolds number Re lower than 5 × 103 the ﬂow is essentially lam-
+inar with inherent unsteadiness. At Re > 6 × 103, the ﬂow becomes
+unstable near the downstream eddy and at Re > 1 × 104, the ﬂow
+near the downstream eddy becomes fully turbulent. The experimen-
+tal data used for comparisons with the present LES calculations were
+collected by Prasad and Koseff.26 Data were collected for three dif-
+ferent Reynolds numbers at different spanwise aspect ratios (SAR),
+deﬁned as L/B, where L is the cavity span and B is the breadth of the
+cavity. Simulations are conducted for Re = 1 × 104 and SAR = 0.5
+with a mesh resolution of 64 × 64 × 32. Figure 1 presents the mean
+streamwise, u, and transverse, v, velocities from the three simu-
+lations at the spanwise midplane of the cavity. It can be seen that
+the predictions using the dynamic and one-equation models show
+very good agreement with data. RANS shows poor agreement with
+data. The standard Smagorinsky model shows an improvement over
+RANS; however, predictions are not as good as those from the other
+LES models. This is even more apparent in Fig. 2, which shows the
+rms of u and v velocities at the same plane. The dynamic and one-
+equation models show reasonable agreement with data, whereas the
+Fig. 1
+Comparison of mean u and v velocities with experimental data
+for lid-driven cavity ﬂow using various models: ——, localized dy-
+namic; - - - -, kinetic-energy equation; —·—, standard Smagorinsky;
+— —, RANS; , experimental data for u velocity; and , experimental
+data for v velocity.
+
+
+--- Page 4 ---
+
+JAMES, ZHU, AND ANAND
+677
+Fig. 2
+Comparison of turbulence intensities with experimental data
+for lid-driven cavity ﬂow various models: ——, localized dynamic; - - - -,
+kinetic-energy equation; —·—, standard Smagorinsky; , experimental
+data for u velocity; and , experimental data for v velocity.
+Fig. 3
+Comparison of mean u velocity using dynamic and kinetic-
+energymodelswithDNSandexperimentaldataforplaneturbulentCou-
+ette ﬂow: ——, localized dynamic; - - - -, kinetic-energy equation; — —,
+DNS data of Bech et al.27; —·—, RANS (note wall functions not used at
+moving wall); and , experimental data of Aydin and Leutheusser.28
+standard Smagorinsky model shows signiﬁcant deviation from the
+data. It may be possible to improve the predictions of the standard
+Smagorinsky model by tuning the constant C.
+Results from LES of a plane turbulent Couette ﬂow are shown
+in Figs. 3 and 4. This ﬂow is essentially driven by shear generated
+by the relative motion of two parallel plates. Physical experiments
+on this ﬂow conﬁguration were performed by Bech et al.27 and
+Aydin and Leutheusser.28 Bech et al.27 also performed DNS of this
+ﬂow. In the present simulations, the upper wall has a ﬁxed velocity
+Uw, whereas the lower wall is ﬁxed. Periodic boundary conditions
+are imposed in the axial and spanwise directions. The transitional
+Reynolds number for plane Couette ﬂows is approximately 300 and
+fully developed turbulence is achieved at Reynolds numbers above
+500. For the present study, the Reynolds number is Re = 2.6× 103;
+the ﬂow is, therefore, fully turbulent. The computational domain has
+dimensions 4πh × 2h × 2πh in the streamwise, normal, and span-
+wise directions, where h is the channel half-height. A grid resolu-
+tion of 32 × 32 × 32 grid is used in the simulations. As in the cavity
+case, simulations of the Couette ﬂow are performed with the lo-
+calized dynamic and one-equation models. Figure 3 presents the
+mean streamwise velocities in the spanwise midplane. The predic-
+tions are in good agreement with both experimental data and DNS
+simulation. Note that RANS shows a very different prediction. In
+the RANS simulation, no wall functions are used at the moving wall
+and, therefore, may be a cause for the poor prediction. In the LES
+simulations, no wall functions are imposed. Figure 4 shows rms of
+Fig. 4
+Comparison of rms of u velocity using dynamic and kinetic-
+energymodelswithDNSandexperimentaldataforplaneturbulentCou-
+ette ﬂow: ——, localized dynamic model; - - - -, kinetic-energy model;
+— —, DNS data of Bech et al.27; , experimental data of Bech et al.27;
+and , experimental data of Aydin and Leutheusser.28
+Fig. 5
+Schematic
+of
+Sommerfeld
+and
+Qiu29
+experimental
+conﬁguration.
+the streamwise velocity normalized by the wall-shear velocity. It can
+be seen that the LES predictions are in reasonable agreement with
+data and DNS. The turbulent kinetic energy in RANS (not shown)
+does not show the same behavior.
+The third test case presented is the experiment of Sommerfeld
+and Qiu.29 The ﬂow conﬁguration, shown in Fig. 5, is more complex
+than the preceding two cases. Heated air is blown from an annular
+injection tube into a test section that has an inner diameter of 200 mm
+and a length of 1500 mm. The inner and outer diameters of the
+annulus are 40 and 64 mm, respectively. The air mass ﬂow rate is
+29 g/s, and the air temperature is 373 K. A hollow cone pressure
+atomizer is mounted in the cylindrical centerbody of the inlet tube.
+A set of measurements obtained without the atomizer in operation
+is used to validate LES of this ﬂow conﬁguration. The localized
+dynamic model is used in the simulations.
+The computational domain is constructed entirely by H-elements
+and consists of 9 blocks. A total of 1.2 million grid points are used to
+represent the ﬂow domain. To take advantage of parallel processing
+capabilities, the domain is decomposed into ﬁve subdomains. Each
+subdomain is acted on by an independent processor. A laminar pro-
+ﬁle is used at the inlet and full-developed conditions are assumed
+at the exit boundary. No perturbations are imposed on the inlet pro-
+ﬁle. Instantaneous contours of u velocity are shown in Fig. 6. As
+reported in the experiments, a small recirculation region is seen in
+front of the atomizer, and the recirculation region at the edge of
+the pipe expansion extends throughout the ﬂow domain. Figure 7
+shows a comparison of the prediction of mean u velocity against
+data at several axial locations. It can be seen that the predictions
+are in reasonable agreement with data. Figure 8 presents the rms of
+u velocity at the same axial stations. Again, the rms predictions are
+also in reasonable agreement with the data.
+The preceding three cases show that the localized dynamic and
+one-equation kinetic-energy models are able to predict the ﬂow-
+ﬁeld reasonably without having to tune boundary conditions. A
+third class of subgrid stress models proposed in literature is scale-
+similarity models. In this model, the unﬁltered velocity in the SGS
+stress terms is approximated by the ﬁltered velocity.30 However,
+
+
+--- Page 5 ---
+
+678
+JAMES, ZHU, AND ANAND
+Fig. 6
+Instantaneous u-velocity contours in Sommerfeld and Qiu29 experiment study.
+a)
+b)
+c)
+Fig. 7
+Comparison of mean u velocity at several axial locations in
+Sommerfeld and Qiu29 experiment: a) x = 0.05 m, b) x = 0.1 m, and
+c) x = 0.3 m: ——, computations and , experimental data.
+simulations based on this model suffer from lack of sufﬁcient dissi-
+pation and the model has to be supplemented by an eddy-viscosity
+model to stabilize the calculations.31 A fourth category of subgrid
+stress models is based on the idea of reconstructing the unresolved
+primitive variables and directly computing the stresses from their
+deﬁning equations. The approximate deconvolution model32 and the
+SGS estimation model33 fall in this category. These models are yet
+to be tested in complex reacting ﬂow conﬁgurations. For a detailed
+exposition on SGS stress models, the reader may refer to recent
+review articles.34,35
+The most widely used model for closure of the SGS scalar ﬂux
+term is the gradient diffusion model36−42 given by the expression
+Mi
+α = −¯ρDt
+∂˜φα
+∂xi
+(10)
+where Dt = νt/Sct. The turbulent Schmidt number can be either
+assumedtobeaconstantorcomputeddynamically.42 TheSGSstress
+a)
+b)
+c)
+Fig. 8
+Comparison of rms of u velocity at several axial locations in
+Sommerfeld and Qiu29 experiment: a) x = 0.05 m, b) x = 0.1 m, and
+c) x = 0.3 m: ——, computations and , experimental data.
+and scalar ﬂux terms can be computed exactly when the transport
+equation of the joint ﬁltered density function (FDF) of velocity and
+scalars is solved.43 However, there are other unclosed terms in the
+joint FDF transport equation for which appropriate models have to
+be devised.
+Spray Modeling
+The spray methodology that is typically used in LES is for
+the most part adopted from RANS applications.8 The Lagrangian
+method with two-way coupling is the most common approach used
+to simulate droplet dynamics. The dispersed phase is represented by
+computational particles with no particle–particle interactions. Each
+computational particle is a representation of a group of actual spray
+particles having the same size, velocity, and temperature. To rep-
+resent the spray physics, spray tracking and evaporation processes
+need to be modeled accurately. In RANS, because time accuracy is
+usually not important, each computational particle is tracked until it
+
+
+--- Page 6 ---
+
+JAMES, ZHU, AND ANAND
+679
+completely evaporates or leaves the computational domain, before
+another particle is injected. In LES, due to the constraint of time ac-
+curacy, several particles are injected from the fuel nozzle and tracked
+for the duration of the time step. Subsequently, more particles are
+injected from the fuel nozzle and the process repeated. Hence, at a
+given instant of time, there may be a large number of particles in
+the ﬂow domain.
+The governing equation of motion for the kth particle in the i di-
+rection is given by44
+dV k
+i
+dt
+=
+
+ui −V k
+i
+
+τd
+(11)
+where
+τd =
+4dkρp
+3CDρg|u −Vk|
+(12)
+In Eqs. (11) and (12), u is the instantaneous gas-phase velocity
+at the particle location and Vk is velocity of the kth particle. CD
+is the drag coefﬁcient, and ρp and ρg are densities of the particle
+phaseandgasphase,respectively.CD iscomputedthroughnonlinear
+relationships45 that are dependent on the particle Reynolds number,
+deﬁned as
+Rek = ρp|u −Vk|dk
+μg
+(13)
+Note that instantaneous gas-phase velocities are needed in
+Eqs. (11–13). The standard approach in RANS is to use the turbu-
+lent kinetic energy to reconstruct the ﬂuctuating velocities. A similar
+approach was used by Pannala and Menon,46 where they used the
+SGS kinetic energy to reconstruct the unknown velocities. Studies
+by Miller and Bellan47 showed that neglecting the subgrid veloc-
+ity ﬂuctuations results in erroneous predictions of the droplet drag
+force. Apte et al.48 performed LES of swirling particle-laden ﬂow in
+a coaxial-jet combustor without accounting for these ﬂuctuations.
+Their predictions were in good agreement with data.
+The commonly used evaporation model, to mimic heat and mass
+transfer from spray droplets, is based on a quasi-steady analysis of
+an isolated droplet in a quiescent environment.49 The rate of change
+of mass of a particle is deﬁned as
+˙m p = 2πdk(k/cp)g ln(1 + Bm)
+(14)
+where k and cp are the thermal conductivity and the speciﬁc heat
+capacity, respectively, of the gas phase. Bm is the mass transfer
+number.49 The rate of change of drop surface temperature is given
+by
+dTs
+dt = ˙m pL
+cppm
+	
+BT
+Bm
+−1
+
+(15)
+where L is the latent heat of fuel vaporization and BT is the heat
+transfer number.49 The effects of convection on heat and mass trans-
+fer rates can be accommodated by a correction factor, which is a
+function of Reynolds number and Schmidt (or Prandtl) number (see
+Ref. 49).
+Fig. 9
+Spray particles from LES simulation of Sommerfeld and Qiu29 experiment superimposed on instantaneous u-velocity ﬁeld.
+Modeling the inlet conditions for the spray injection process is
+another issue that is equally important. The common procedure is to
+inject spray size groups from a Rossin–Rammler distribution (e.g.,
+see Ref. 50). More recent approaches are based on modeling the
+primary breakup of the liquid ﬁlm issuing from the fuel nozzle,
+followed by a secondary breakup process (e.g., Refs. 51 and 52).
+As an illustrative example, LES of an evaporating ﬂuid in a tur-
+bulent airstream is performed for the ﬂow conﬁguration studied by
+Sommerfeld and Qiu.29 The ﬂow conﬁguration is the same as that
+shown in Fig. 5. The hollow cone pressure atomizer issues iso-
+propyl alcohol into the cylindrical tube. Detailed measurements of
+droplet particle velocities and diameters are available at several ax-
+ial locations.29 In the LES, spray droplets are injected around a ring
+with radius 3 mm. The cone angle of the spray is set to 60 deg
+(Ref. 29). Mean axial velocity is set to 18 m/s and Sauter mean di-
+ameter is set to 40. The fuel ﬂow rate is 0.44 g/s, and the airﬂow rate
+is 28.3 g/s. At each time step, 10 spray droplet size groups are sam-
+pled from a modiﬁed Rossin–Rammler distribution (see Ref. 50).
+At the next time step another 10 spray droplet size groups (not the
+same as those in the previous time step) are sampled and so on.
+This procedure ensures that over a large number of time steps the
+droplet distribution is accurately mimicked. The key to performing
+accurate spray simulations is an accurate spray-tracking algorithm.
+The spray-tracking algorithm implemented in the LES code is the
+same as that implemented for tracking computational particles in the
+transport probability density function (PDF) method.53 This algo-
+rithm, which is based on identifying cell-face crossings of particles,
+is quite robust even in complicated geometries. The spray-tracking
+algorithm has also been parallelized to take advantage of distributed
+computing. Figure 9 shows the spray particles in the computational
+domain at one instant of time. Large droplets are present in the near
+ﬁeld of the spray nozzle and typically found at large radii. Farther
+downstream droplets evaporate and only smaller droplets are found.
+Figure 10 presents the mean particle velocities at several axial lo-
+cations. Note that the predictions are in reasonable agreement with
+data. Figure 11 presents the mean particle diameters at several ax-
+ial locations. Again, the predictions and the data match very well.
+Figure 11 also shows that large droplets are found at the edge of
+the spray, whereas small droplets are found in the core region. Far
+downstream of the inlet, particle diameters decrease and become
+more uniform due to evaporation. Ham et al.52 also report similar
+predictions using an unstructured LES code.
+Turbulent-Combustion Model
+For applications of LES to turbulent reacting ﬂows, appropriate
+turbulence–chemistryinteractionmodelisrequiredtoclosethereac-
+tion source terms [see Eq. (3)]. In the past decade, signiﬁcant strides
+have been made in combustion modeling for LES. The majority of
+the models have been extensions of RANS models.
+The eddy breakup model has been successfully used in reacting
+RANS simulations of gas turbine combustors.8 The model has been
+extended for LES applications by Fureby and Lofstrom,54 where
+they applied it to bluff-body stabilized ﬂames. In this model, the
+mean reaction rate is assumed to be the minimum of the kinetically
+controlled reaction rate and the mixing controlled reaction rate. The
+
+
+--- Page 7 ---
+
+680
+JAMES, ZHU, AND ANAND
+a)
+b)
+c)
+Fig. 10
+Particle velocity predictions at several axial locations in
+Sommerfeld and Qiu29 experiment: a) x = 0.05 m, b) x = 0.1 m, and
+c) x = 0.3 m: , experimental data and ——, LES predictions.
+mixing controlled rate is assumed to be proportional to the mix-
+ing frequency, computed based on the ﬁlter width and SGS kinetic
+energy.
+More recently, ﬂamelet models37,55−57 based on single-variable
+and two-variable formulations have become popular. The advan-
+tage of ﬂamelet-based approaches is that detailed chemical kinetics
+could be used to describe the ﬂame. In the single-variable formula-
+tion, chemical species are functions of mixture fraction ξ only. The
+PDF of ξ is modeled as an assumed beta function, parameterized
+by the mean and variance of ξ. The mean value is computed from
+a transport equation, and the variance is computed from an alge-
+braic relation, derived by assuming production equals dissipation in
+the variance transport equation.57 In the two-variable formulation,56
+chemical species are functions of ξ and a reaction progress variable
+η. The PDF of η is typically assumed to be a Dirac-delta function.
+More recently,58 other forms such as a beta PDF, parameterized by
+the mean and variance of η, have been assumed. Other SGS reac-
+tion models based on conditional moment closure59 and closures for
+SGS stress terms60,61 have also been proposed in literature.
+A promising new development in subgrid reaction closures that
+avoids a priori speciﬁcation of the PDF of scalars is the FDF trans-
+port method.41,43,62−65 This method is analogous to the PDF trans-
+port method used in RANS simulations. In the scalar FDF transport
+method, a transport equation for the ﬁltered mass density function
+a)
+b)
+c)
+Fig. 11
+Particle mean diameters at several axial locations in Sommer-
+feld and Qiu29 experiment: a) x = 0.05 m, b) x = 0.1 m, and c) x = 0.3 m:
+, experimental data and ——, LES predictions.
+(FMDF) is solved for. The FMDF is deﬁned as
+FL(ψ, x; t) =
+ +∞
+−∞
+ρ(x′, t)δ[ψ −φ(x, t)]G(x′ −x) dx′
+(16)
+where δ is the delta function, ψ is the scalar variable in composition
+space, and G is the ﬁlter function. The transport equation for FLcan
+be derived to be of the form
+∂
+∂t (FL) + ∂
+∂xi
+(⟨ui⟩i FL) =
+∂
+∂ψα
+
+1
+ρ
+∂
+∂xi
+J α
+i
+ψ
+
+FL
+
+−∂
+∂xi
+[(⟨ui|ψ⟩−⟨ui⟩)FL] −
+∂
+∂ψα
+(Sα FL)
+(17)
+There are two terms in this equation that require modeling: the
+molecular mixing term (ﬁrst term on the right-hand side) and the tur-
+bulent convection term (second term on the right-hand side). One of
+the mixing models used for the molecular mixing term is the inter-
+action by exchange with the mean (IEM) model, given by
+∂
+∂ψα
+
+1
+ρ
+∂J α
+i
+∂xi
+ψ
+
+FL
+
+=
+∂
+∂ψα
+[Cφω(ψα −⟨φα⟩)FL]
+(18)
+A value of 2.0 is typically used for the model constant Cφ. The
+mixing frequency ω is expressed in terms of the SGS viscosity and
+
+
+--- Page 8 ---
+
+JAMES, ZHU, AND ANAND
+681
+the ﬁlter size. The turbulent convection term is typically modeled
+by the gradient diffusion model given by
+(⟨ui|ψ⟩−⟨ui⟩)FL = −⟨ρ⟩DT
+∂
+∂xi
+
+FL
+⟨ρ⟩
+
+(19)
+In Eq. (17), it can be seen that the last term on the right-hand side is
+due to chemical reactions and is in a closed form. Thus, reactions of
+arbitrary complexity could be used to describe chemical reactions.
+Given this advantage of the FDF method and also the fact that the
+PDF is not speciﬁed a priori as in ﬂamelet models, it is expected that
+the LES/FDF method will yield better predictions of not only overall
+turbulent ﬂame structures, but also local extinction and reignition
+scenarios in these ﬂames.
+The large dimensionality of Eq. (17) precludes the use of ﬁnite
+difference or ﬁnite volume schemes for the solution of this equa-
+tion. The standard method to solve Eq. (17) is via Monte Carlo
+methods. In these methods, the FMDF in each computational cell is
+represented by an ensemble of notional particles, each with a set of
+scalars and position vector. The transport of these particles in phys-
+ical and compositional space mimics the solution of Eq. (17). The
+mean velocities at the particle locations are computed by interpolat-
+ing the velocities computed by an Eulerian ﬂow solver. The ﬁltered
+scalar values in each cell are constructed by ensemble averaging the
+particle scalar values in that cell.
+In the FDF transport method, the main link between the ﬂow
+solver and the particle solver is the density ﬁeld. This ﬁeld, typi-
+cally computed from the particle solver, has been the cause of severe
+numerical difﬁculties in pressure-based methods because the den-
+sity ﬁeld computed from a ﬁnite ensemble size of particles is quite
+noisy. There are several methods available to address this problem.
+One method is to use density underrelaxation to smooth out the
+density ﬁeld. A similar approach was successfully used by Forkel
+and Janicka37 in their LES of a turbulent hydrogen diffusion ﬂame
+with an assumed PDF model. A second method41 to overcome the
+problem is to solve the scalar transport equations in addition to the
+velocity and pressure equations. The ﬁltered reaction rates required
+in the scalar equations are computed from the particle ﬁeld. In this
+approach, the reaction rates are the main link between the ﬂow and
+particle solvers. The disadvantage of this approach is that a large
+number of transport equations have to be solved when the number
+of scalars is large. A third method to overcome numerical difﬁ-
+culties is as suggested by Muradoglu et al.,66 in a RANS context,
+in which the transport equation of total sensible internal energy is
+solved for. The source term in this equation is computed from the
+particle solver. Filtered density is then computed from an expres-
+sion that involves mean pressure, total sensible internal energy, and
+velocities. A fourth method to overcome numerical instabilities is
+via the solution of the transport equation for
+ = R0  T φα
+Mα
+The source terms in this equation are computed from the particle
+solver. Given ˜, mean density could be easily computed from the
+relation ¯ρ = ¯p/ ˜.
+A few examples of LES of turbulent reacting ﬂows are presented
+next. The ﬁrst case presented is the LES of a model gas turbine com-
+bustor for which experimental data are presented by Pitsch et al.67
+A schematic of the combustor is shown in Fig. 12. The combustor
+consists of concentric tubes, with the central tube feeding methane
+and an outer tube feeding air into a test section. Both the air and
+fuel are coswirled to provide liftoff of the ﬂame in the test section.
+The test section terminates into a narrow pipe. LES of the ﬂow are
+performed using the mixture fraction-based assumed PDF model in
+Fig. 12
+Schematic of swirl-stabilized model gas turbine combustor.
+conjunction with an equilibrium chemistry description of the ﬂame.
+Simulations are also performed with the FDF model in conjunc-
+tion with the Westbrook and Dryer two-step chemistry model. In
+the FDF solver, combustion chemistry is integrated using a table
+lookup algorithm. Density is underrelaxed with a factor of 0.001 to
+stabilize the FDF calculations. This is akin to performing a running
+time average of the density ﬁeld over 1000 time steps. In the FDF
+calculations, 10 particles/cell are used. Inlet boundary conditions
+for both calculations are taken from a previous simulation of the
+same combustor.68 The computational grid for the present calcu-
+lation consists of 1.1 million grid points and is constructed using
+O- and H-grid elements. Calculations are performed on six pro-
+cessors. The FDF calculation with the two-step chemistry model is
+henceforth denoted as FDF/2-step.
+The swirling ﬂow establishes a recirulating region, which acts as
+a stabilization mechanism for the ﬂame. Figure 13 shows the mean
+velocities at several axial locations in the test section. Note that, at
+x = 0.043 m, which is very close to the inlet of the test section, peak
+velocities are better predicted by the assumed PDF model. Near
+the centerline, the FDF/2-step model shows better predictions. At
+x = 0.115 m and 0.151 m, the FDF/2-step model shows superior
+predictions. The rms of the axial velocity is shown in Fig. 14 at
+several axial locations. At x = 0.043 m, both of the models show
+poor predictions near the centerline. The comparison improves away
+from the centerline. At x = 0.115 and 0.151 m, both models show
+excellent prediction of ﬂuctuations.
+Figure 15 shows the instantaneous temperature ﬁelds from the
+assumed PDF model and the FDF/2-step model. The FDF/2-step
+model shows a highly lifted ﬂame compared to that shown by the
+a)
+b)
+c)
+Fig. 13
+Mean axial velocities at several axial locations: a) x = 0.043 m,
+b) x = 0.115 m, and c) x = 0.151 m: ——, assumed PDF model; - - - -, FDF
+model; and , experimental data.
+
+
+--- Page 9 ---
+
+682
+JAMES, ZHU, AND ANAND
+assumed PDF model. Note that with the assumed PDF model, tem-
+peratures are higher and the ﬂame shows two tails at the ﬂame sta-
+bilization location. The fast burning seen with this model is due to
+the single variable used to parameterize methane combustion chem-
+istry. A two-variable assumed PDF formulation does not show this
+behavior.67
+Detailed comparisons of the mean temperatures at several ax-
+ial locations are shown in Fig. 16. In Fig. 16, an additional curve
+is shown for predictions from the FDF method using a detailed
+a)
+b)
+c)
+Fig. 14
+Axial velocity rms at several axial locations: a) x = 0.043 m,
+b) x = 0.115 m, and c) x = 0.151 m: ——, assumed PDF model; - - - -, FDF
+model; and , experimental data.
+a)
+b)
+Fig. 15
+Instantaneous temperatures in model gas turbine combustor: a) mixture fraction variable-based assumed PDF model in conjunction with
+equilibrium chemistry used for turbulent combustion and b) FDF turbulent combustion model in conjunction with Westbrook and Dryer two-step
+methane reaction model.
+15-step, 21-species chemical kinetics mechanism.69 Integration of
+the detailed chemical kinetics scheme is achieved using the in situ
+adaptive tabulation70 scheme. Also, in addition to the three LES
+calculations, results from RANS with a transport PDF model and
+2-step chemistry are also shown in Fig. 16.
+At x = 0.043 m, the FDF/2-step and RANS/PDF models un-
+derpredict the temperatures near the centerline signiﬁcantly. The
+assumed PDF model shows a temperature spike at r ∼0.03 m,
+a)
+b)
+c)
+Fig. 16
+Mean temperatures at several axial locations: a) x = 0.043 m,
+b) x = 0.151 m, and c) x = 0.26 m: ——, FDF model with detailed chem-
+ical kinetics; — —, assumed PDF model; - - - -, FDF model; —·—,
+RANS/PDF transport model; , experimental data.
+
+
+--- Page 10 ---
+
+JAMES, ZHU, AND ANAND
+683
+Fig. 17
+Computational grid of sector model of developmental gas
+turbine combustor.
+which is an artifact of the single-variable PDF as explained be-
+fore. The FDF model with detailed chemical kinetics shows rea-
+sonable agreement with data. At x = 0.151 m, the assumed PDF
+model consistently overpredicts temperatures. The RANS/PDF and
+FDF/detailed-chemistry models show higher temperatures near the
+centerline. Away from the centerline, the FDF/detailed-chemistry
+model shows good agreement with data. At x = 0.26 m, all of the
+models show overprediction of temperature values. Because radia-
+tion is not accounted for in the simulations, this overprediction is
+expected. These results suggest that the ﬂame is highly lifted in the
+FDF/2-step and RANS/PDF calculations. Flame liftoff is reason-
+ably predicted using detailed chemical kinetics. At the base of lifted
+ﬂames, ﬁnite-rate chemistry effects are signiﬁcant. Hence, ﬂame
+liftoff height is sensitive to the accuracy of the chemical kinetic
+mechanism and mixing model in FDF (or RANS/PDF) transport cal-
+culations. In the present simulations, the two-step mechanism may
+not be accurate enough to predict the correct ﬂame liftoff height.
+Deﬁciences with the IEM mixing model are well known. More ac-
+curate mixing models such as the Euclidean minimum spanning
+tree71 model may yield better results. Nevertheless, the present cal-
+culations demonstrate that LES/FDF calculations of complex ﬂow
+conﬁgurations are feasible.
+LES results from a single-sector model of a developmental gas
+turbine combustor are presented next. The grid for the combus-
+tor, presented in Fig. 17, consists of roughly 1 million cells. The
+combustor model has all of the elements of a practical gas turbine
+combustor, swirlers, fuel nozzles, primary and dilution holes, cool-
+ing ﬂows, etc. Note that the annuli of the combustor and the liner
+are also included in the computational ﬂow model. The jet-A fuel is
+simulated using a surrogate two-step Westbrook and Dryer mecha-
+nism with propane rate parameters. The localized dynamic and the
+eddy breakup models are used in the calculations. Figure 18 shows
+contours of the instantaneous velocity magnitude and temperature
+ﬁelds in the azimuthal centerplane of the combustor. A recirculating
+zone is seen in the primary zone, which helps to stabilize combus-
+tion. High temperatures are seen in the primary zone and also in
+regions downstream of the dilution holes.
+Figure 19 shows the mean exit temperature proﬁles from calcu-
+lations and full-annular rig measurements. Also shown in Fig. 19
+are proﬁles from LES calculations of the liner alone (without the
+annuli), RANS calculations, and rig measurements. Note that LES
+of the liner plus annuli model and the RANS of the liner-only model
+show similar proﬁles. However, LES of the liner-only model show
+a very different proﬁle. In the liner-only model, no turbulent ﬂuctu-
+ations were superimposed on the velocity proﬁles prescribed at the
+primary and dilution ports. This may have resulted in overpenetra-
+tion of the jets from these ports, thus, signiﬁcantly affecting the exit
+a)
+b)
+Fig. 18
+Developmental gas turbine combustor: a) instantaneous
+velocity magnitude and b) temperature.
+Fig. 19
+Mean exit mixture fraction (averaged in circumferential direc-
+tion) along combustor span: ——, LES of liner plus annuli; - - - -, LES
+of liner only; —·—, RANS of liner only; and , rig measurements.
+temperature proﬁle. Note that all of the three calculations predict
+peak mixture fraction to be at a higher span than that seen in the
+data. (Subsequent RANS calculations with improved boundary con-
+ditions showed excellent agreement with data. It is expected that,
+with these boundary conditions, the LES calculations will also show
+improvement.)
+The LES solver is also applied to a production combustor shown
+in Fig. 20. The eddy breakup model and the localized dynamic
+model are used in the simulation of the ﬂow in this combustor.
+Figure 21 shows contours of the instantaneous velocity magnitude
+and temperature in the ﬂowﬁeld. These results again demonstrate
+that LES of complex gas turbine combustors is feasible.
+Future Developments
+As LES is applied to increasingly complex problems, there is a
+needtofurtherenhancethetheoreticalbasisoftheLESmethodology
+to improve accuracy. One area that is gaining attention is the explicit
+ﬁltering approach for LES. An advantage of explicit ﬁltering is
+that grid-independent LES solutions can be obtained by allowing
+ﬁlters to be chosen independent of the computational mesh. Another
+advantageisthatnumericalerrorsinthehigh-frequencyrangecanbe
+reduced or eliminated. In the explicit ﬁltering method, an alternative
+
+
+--- Page 11 ---
+
+684
+JAMES, ZHU, AND ANAND
+Fig. 20
+Model of production combustor for LES; 1-million-element
+grid.
+a)
+b)
+Fig. 21
+Production combustor: a) instantaneous velocity magnitude
+and b) temperature ﬁelds.
+form of the LES equations is solved.72 The momentum equations
+are written as
+∂u j
+∂t + ∂¯ui ¯u j
+∂xi
+= −∂p
+∂x j
++ ∂τi j
+∂xi
+−∂Ti j
+∂xi
+(20)
+and the SGS stress is written as Ti j = ¯ui ¯u j −uiu j. Note that there
+is an extra ﬁltering step in the convective terms. The advantage of
+this is that frequencies higher than the cutoff are not generated by
+the nonlinear terms. Filters are chosen such that they commute with
+differentiation. In support of this requirement, a new class of com-
+mutative ﬁlters has been developed for structured and unstructured
+grids.72,73 Further research is required to assess the suitability of
+explicit ﬁltering methods for large complex problems.
+The SGS stress and turbulent-chemistry interactions are the two
+most important terms to be modeled in LES. New methods such
+as one-dimensional turbulence,74 velocity FDF,64 and SGS esti-
+mation methods33 appear promising for modeling SGS stress. For
+turbulence–chemistry interactions, the linear-eddy model75 and the
+G-equation model67 are promising avenues that are being explored.
+The scalar FDF transport method is just beginning to be applied for
+practical problems. FDF with detailed chemical kinetics could be
+used to address emissions, extinction, reignition, and lean blowout,
+issues of importance to the gas turbine community. Further work is
+needed to exploit the capabilities of the FDF method. In addition to
+the scalar FDF method, the joint velocity–scalar FDF method has
+been developed recently.43 The feasibility of using this method for
+complex ﬂows needs to be explored. For combustion instabilities, a
+low-dissipative compressible version of the pressure-based method
+has to be developed. Some advances are being made to this effect.76
+The unsteady nature of LES makes it more suited (than RANS)
+for tackling transient problems such as lean blowout, relight, and
+combustion instabilities. In recent years, applications of RANS to
+a variety of steady-state high fuel–air ratio gas turbine combustor
+ﬂows have highlighted deﬁciencies with conventional RANS mod-
+els.ThereisanincreasingdesiretouseLESforsuchﬂows.However,
+the overall turnaround time of LES is an important issue. Presently,
+the wall clock time for a typical gas turbine combustor simulation
+such as those shown in Figs. 17–21 is about four days on an eight-
+processor LINUX machine. To improve accuracy, grids involving
+several million cells will have to be used. Correspondingly, CPU
+requirements are expected to increase signiﬁcantly. With the de-
+velopment of more efﬁcient solvers and large computing resources
+becoming more affordable, it is foreseeable that LES may soon be-
+come the preferred tool for gas turbine applications.
+Conclusions
+Although LES is computationally expensive compared to RANS,
+increasing computing power in conjunction with more accurate re-
+sults obtained with LES for a variety of benchmark ﬂows is making
+LES attractive for gas turbine combustor applications. In this paper,
+an overview of recent activities related to LES being pursued by the
+authors at Rolls–Royce is presented. The state of the art of LES for
+gas turbine combustion systems is reviewed. Numerical and model-
+ing issues are presented, and some promising models are discussed.
+A hierarchy of validation cases performed on several nonreacting
+and reacting benchmark ﬂows are presented. These cases ranging
+from simple lid-driven cavity ﬂow to complex gas turbine combustor
+ﬂow highlight the predictive capabilities of LES. As LES is applied
+to more complex problems, more validation and veriﬁcation efforts
+are needed to assess the limitations and accuracy of the submod-
+els. Further improvement to the underlying theoretical foundation
+of LES is mandated to improve accuracy. A key issue for LES to be
+accepted as a practical design tool in industry is the turnaround time.
+Efﬁcient solvers with parallel processing capabilities in conjunction
+with large computational resources will help overcome this barrier.
+Acknowledgments
+ThisworkwasfundedinpartbyagrantfromtheIndianaState21st
+Century Research and Technology Fund. The authors acknowledge
+the contributions of Nagendra Dittakavi of Purdue University to
+the simulations of the lid-driven cavity and plane turbulent Couette
+cases presented in Figs. 1–4.
+References
+1Mahesh, K., Constantinescu, G., and Moin, P., “LES of Gas Turbine
+Combustors,” Annual Research Briefs, Center for Turbulence Research,
+Stanford Univ. and NASA Ames Research Center, 2000, pp. 219–228.
+2Kim, W. W-., Menon, S., and Mongia, H. C., “Large-Eddy Simulation
+of a Gas Turbine Combustor Flow,” Combustion Science and Technology,
+Vol. 143, No. 1–6, 1999, pp. 25–62.
+3Selle, L., Lartigue, G., Poinsot, T., Kaufmann, P., Krebs, W., and
+Veynante, D., “Large-Eddy Simulation of Turbulent Combustion for Gas
+Turbines with Reduced Chemistry,” Proceedings of the Summer Program,
+Center for Turbulence Research, Stanford Univ. and NASA Ames Research
+Center, 2002, pp. 333–344.
+4Cannon, S. M., Smith, C. E., and Anand, M. S., “LES Predictions of
+Combustor Emissions in an Aero Gas Turbine Engine,” AIAA Paper 2003-
+4521, July 2003.
+5Leonard, A., “Energy Cascade in Large Eddy Simulations of Turbulent
+Fluid Flows,” Advances in Geophysics A, Vol. 18, 1974, p. 237.
+6Aldama, A. A., “Filtering Techniques for Turbulent Flow Simulation,”
+Lecture Notes in Engineering, Vol. 49, Springer-Verlag, New York, 1990.
+7Ghosal, S., and Moin, P., “The Basic Equations for the Large Eddy Simu-
+lation of Turbulent Flows in Complex Geometry,” Journal of Computational
+Physics, Vol. 118, No. 1, 1995, pp. 24–37.
+8Anand, M. S., Zhu, J., Connor, C., and Razdan, M. K., “Combustor Flow
+Analysis Using an Advanced Finite-Volume Design System,” American So-
+ciety of Mechanical Engineers, ASME Paper 99-GT-273, June 1999.
+
+
+--- Page 12 ---
+
+JAMES, ZHU, AND ANAND
+685
+9Mittal, R., and Moin, P., “Suitability of Upwind-Biased Finite Difference
+Schemes for Large-Eddy Simulation of Turbulent Flows,” AIAA Journal,
+Vol. 35, No. 8, 1997, pp. 1415–1417.
+10Morinishi, Y., Lund, T. S., Vasilyev, O. V., and Moin, P., “Fully Conser-
+vative Higher Order Finite Difference Schemes for Incompressible Flows,”
+Journal of Computational Physics, Vol. 143, June 1998, pp. 90–124.
+11Vasilyev, O. V., “High Order Finite Difference Schemes on Non-
+Uniform Meshes with Good Conservation Properties,” Journal of Compu-
+tational Physics, Vol. 157, Jan. 2000, pp. 746–761.
+12Mahesh, K., Constantinescu, G., and Moin, P., “A Numerical Method for
+Large-Eddy Simulation in Complex Geometries,” Journal of Computational
+Physics, Vol. 197, June 2004, pp. 215–240.
+13Benhamadouche, S., Mahesh, K., and Constantinescu, G., “Collo-
+cated Finite-Volume Schemes for Large-Eddy Simulation on Unstruc-
+tured Meshes,” Proceedings of the Summer Program, Center for Turbu-
+lence Research, Stanford Univ. and NASA Ames Research Center, 2002,
+pp. 143–154.
+14Pierce, C. D., and Moin, P., “Progress-Variable Approach for Large
+Eddy Simulation of Turbulent Reacting Flows,” Dept. of Mechanical Engi-
+neering, Rept. TF-80, Stanford Univ., Stanford, CA, June 2001.
+15Rhie, C. M., and Chow, W. L., “A Numerical Study of the Turbulent
+Flow past an Isolated Airfoil with Trailing Edge Separation,” AIAA Journal,
+Vol. 21, 1983, pp. 1525–1532.
+16Pope, S. B., “Ten Questions Concerning the Large-Eddy Simulation of
+Turbulent Flows,” New Journal of Physics, Vol. 6, March 2004, p. 35.
+17Zhu, J., “On the Higher-Order Bounded Discretization Schemes for
+Finite-Volume Computations of Incompressible Flows,” Computer Methods
+in Applied Mechanics and Engineering, Vol. 98, No. 3, 1992, pp. 345–360.
+18Patankar, S. V., Numerical Heat Transfer and Fluid Flow, McGraw–
+Hill, New York, 1980.
+19Smagorinsky, J., “General Circulation Experiments with the Primitive
+Equations, Part I: The Basic Experiment,” Monthly Weather Review, Vol. 91,
+No. 3, 1963, pp. 99–164.
+20Germano, M., Piomelli, U., Moin, P., and Cabot, W. H., “A Dynamic
+Subgrid-Scale Eddy Viscosity Model,” Physics of Fluids A, Vol. 3, No. 7,
+1991, pp. 1760–1765.
+21Piomelli, U., and Liu, J., “Large-Eddy Simulation of Rotating Channel
+Flows Using a Localized Dynamic Model,” Physics of Fluids, Vol. 7, No. 4,
+1995, pp. 839–848.
+22Ghosal, S., Lund, T. S., Moin, P., and Akselvoll, K., “A Dynamic Lo-
+calization Model for Large-Eddy Simulation of Turbulent Flows,” Journal
+of Fluid Mechanics, Vol. 286, 1995, pp. 229–255.
+23Meneveau, C., Lund, T., and Cabot, W., “A Lagrangian Dynamic
+Subgrid-Scale Model of Turbulence,” Journal of Fluid Mechanics, Vol. 319,
+1996, pp. 353–385.
+24Porte-Agel, F., Meneveau, C., and Parlange, M. B., “A Scale-Dependent
+Dynamic Model for Large-Eddy Simulation: Application to a Neutral At-
+mospheric Boundary Layer,” Journal of Fluid Mechanics, Vol. 415, 2000,
+pp. 261–284.
+25Kim, W. W., and Menon, S., “An Unsteady Incompressible Navier–
+Stokes Solver for Large Eddy Simulation of Turbulent Flows,” Interna-
+tional Journal for Numerical Methods in Fluids, Vol. 31, No. 6, 1999,
+pp. 983–1017.
+26Prasad, A. K., and Koseff, J. R., “Reynolds Number and End-Wall
+Effects on a Lid-Driven Cavity Flow,” Physics of Fluids A, Vol. 1, Feb.
+1989, pp. 208–218.
+27Bech, K. H., Tillmark, N., Alfredsson, P. J., and Andersson, H. I., “An
+Investigation of Turbulent Plane Couette Flow at Low Reynolds Numbers,”
+Journal of Fluid Mechanics, Vol. 286, 1995, pp. 291–325.
+28Aydin, E. M., and Leutheusser, H. J., “Experimental Investigation of
+Turbulent Plane Couette Flow,” ASME Forum on Turbulent Flows, FED
+Vol. 51, American Society of Mechanical Engineers, Cincinnati, OH, 1987,
+p. 51.
+29Sommerfeld, M., and Qiu, H. H., “Experimental Studies of Spray Evap-
+oration in Turbulent Flow,” International Journal of Heat and Fluid Flow,
+Vol. 19, 1998, pp. 10–22.
+30Bardina, J., “Improved Turbulent Models Based on Large Eddy Sim-
+ulation of Homogeneous, Incompressible, Turbulent Flows,” Ph.D. Disser-
+tation, Mechanical Engineering Rept. TF-19, Stanford Univ., Stanford, CA,
+1983.
+31Liu, S. W., Meneveau, C., and Katz, J., “On the Properties of Similarity
+Subgrid Scale Models as Deduced from Measurements in Turbulent Jets,”
+Journal of Fluid Mechanics, Vol. 275, 1994, p. 83.
+32Adams, N. A., and Stolz, S., “Deconvolution Methods for Subgrid-Scale
+Approximation in Large-Eddy Simulation,” Modern Simulation Strategies
+for Turbulent Flow, edited by B. Geurts, Edwards, Ann Arbor, MI, 2001,
+pp. 21–41.
+33Domaradski, J. A., and Adams, N. A., “Direct Modeling of Subgrid
+Scales of Turbulence in Large Eddy Simulation,” Journal of Turbulence,
+Vol. 3, No. 24, 2002, pp. 1–19.
+34Sagaut, P., Large Eddy Simulations for Incompressible Flows, Springer-
+Verlag, Berlin, 2001.
+35Meneveau, C., and Katz, J., “Scale-Invariance and Turbulence Models
+for Large Eddy Simulation,” Annual Review of Fluid Mechanics, Vol. 32,
+2000, pp. 1–32.
+36Cook, A. W., and Riley, J. J., “A Subgrid Model for Equilibrium
+Chemistry in Turbulent Flows,” Physics of Fluids A, Vol. 6, No. 8, 1994,
+pp. 2868–2870.
+37Forkel, H., and Janicka, J., “Large Eddy Simulation of a Turbulent
+Hydrogen Diffusion Flame,” Flow, Turb. and Comb, Vol. 65, No. 2, 2000,
+pp. 163–175.
+38Steiner, H., and Pitsch, H., “Large-Eddy Simulation of a Turbulent
+Piloted Methane/Air Diffusion Flame (Sandia Flame D),” Physics of Fluids,
+Vol. 12, No. 10, 2000, pp. 2541–2554.
+39Pierce, C. D., and Moin, P., “Large Eddy Simulation of a Conﬁned
+Coaxial Jet with Swirl and Heat Release,” AIAA Paper 98-2892, June
+1998.
+40Jones, W. P., and Branley, N., “Large Eddy Simulation of a Turbulent
+Non-Premixed Flame,” Proceedings of the 11th Symposium on Turbulent
+Shear Flows, Grenoble, France, 1997.
+41James, S., and Jaberi, F. A., “Large Scale Simulations of Two-
+Dimensional Non-Premixed Methane Jet Flames,” Combustion and Flame,
+Vol. 123, No. 4, 2000, pp. 465–487.
+42Moin, P., Squires, K., Cabot, W., and Lee, S., “A Dynamic Subgrid-
+Scale Model for Compressible Turbulence and Scalar Transport,” Physics of
+Fluids A, Vol. 3, Nov. 1991, pp. 2746–2757.
+43Sheikhi, R. M. H., Drozda, T. G., Givi, P., and Pope, S. B., “Velocity-
+Scalar Filtered Density Function for Large Eddy Simulation of Turbulent
+Flows,” Physics of Fluids, Vol. 15, No. 8, 2003, pp. 2321–2337.
+44Gosman, A. D., and Ioannides, E., “Aspects of Computer Simulation of
+Liquid Fueled Combustors,” AIAA Paper 81-0323, Jan. 1981.
+45Crowe, C., Sommerfeld, M., and Tsuji, Y., Multiphase Flows with
+Droplets and Particles, CRC Press, Boca Raton, FL, 1997.
+46Pannala, S., and Menon, S., “Large Eddy Simulations of Two-Phase
+Turbulent Flows,” AIAA Paper 98-0163, Jan. 1999.
+47Miller, R. S., and Bellan, J., “Direct Numerical Simulation and Subgrid
+Analysis of a Transitional Droplet Laden Mixing Layer,” Physics of Fluids,
+Vol. 12, No. 3, 2000, pp. 650–671.
+48Apte, S. V., Mahesh, K., Moin, P., and Oefelein, J. C., “Large-Eddy
+Simulation of Swirling Particle-Laden Flows in a Coaxial-Jet Combustor,”
+International Journal of Multiphase Flow, Vol. 29, 2003, pp. 1311–1331.
+49Chin, J. S., and Lefebvre, A. H., “The Role of the Heat-Up Period in
+Fuel Drop Evaporation,” International Journal of Turbo Jet Engines, Vol. 2,
+1985, pp. 315–325.
+50Custer, J. R., and Rizk, N. K., “Effect of Fuel Nozzle Concept on Spray
+Quality and Droplet Size Distribution,” AIAA Paper 85-1186, July 1985.
+51Cha, C., Zhu, J., and Anand, M. S., “A Comprehensive Liquid Fuel
+Spray Injection Model for CFD Simulations of Gas Turbine Combustors,”
+AIAA Paper 2005-0349, Jan. 2005.
+52Ham,
+F.,
+Apte,
+S.,
+Iaccarino,
+G.,
+Wu,
+X.,
+Herrmann,
+M.,
+Constantinescu, G., Mahesh, K., and Moin, P., “Unstructured LES of Re-
+acting Multiphase Flows in Realistic Gas Turbine Combustors,” Annual Re-
+search Briefs, Center for Turbulence Research, Stanford Univ. and NASA
+Ames Research Center, 2003, pp. 139–160.
+53James, S., Anand, M. S., and Pope, S. B., “The Lagrangian PDF Method
+for Gas Turbine Combustor Flows,” AIAA Paper 2002-4017, July 2002.
+54Fureby, C., and Lofstrom, C., “Large-Eddy Simulations of Bluff-Body
+StabilizedFlames,”Twenty-FifthSymposium(International)onCombustion,
+Combustion Inst., Pittsburgh, PA, 1994, pp. 1257–1264.
+55Branley, N., and Jones, W. P., “Large Eddy Simulation of a Turbulent
+Non-Premixed Flame,” Combustion and Flame, Vol. 127, No. 1–2, 2001,
+pp. 1914–1934.
+56Pierce, C. D., and Moin, P., “Progress-Variable Approach for Large-
+Eddy Simulation of Nonpremixed Turbulent Combustion,” Journal of Fluid
+Mechanics, Vol. 504, 2004, pp. 73–97.
+57Pierce, C. D., and Moin, P., “A Dynamic Model for Subgrid-Scale Vari-
+ance and Dissipation Rate of a Conserved Scalar,” Physics of Fluids, Vol. 10,
+No. 12, 1998, pp. 3041–3044.
+58Ihme, M., Cha, C., and Pitsch, H., “Prediction of Local Extinction
+and Reignition Effects in Non-Premixed Turbulent Combustion Using a
+Flamelet/Progress Variable Approach,” Thirtieth Symposium (International)
+on Combustion, Combustion Inst., Pittsburgh, PA, 2004, pp. 793–800.
+59Bushe, W. K., and Steiner, H., “Conditional Moment Closure for Large
+Eddy Simulation of Nonpremixed Turbulent Reacting Flows,” Physics of
+Fluids, Vol. 11, No. 7, 1999, pp. 1896–1906.
+60James, S., and Jaberi, F. A., “A Dynamic Similarity Model for Large
+Eddy Simulation of Turbulent Combustion,” Physics of Fluids, Vol. 10,
+No. 7, 1998, pp. 1775–1777.
+
+
+--- Page 13 ---
+
+686
+JAMES, ZHU, AND ANAND
+61DesJardin, P. E., and Frankel, S. H., “Large Eddy Simulation of a
+Turbulent Non-Premixed Reacting Jet: Application and Assessment of
+Subgrid-Scale Combustion Models,” Physics of Fluids, Vol. 10, No. 9, 1998,
+pp. 2298–2314.
+62Colucci, P. J., Jaberi, F. A., Givi, P., and Pope, S. B., “Filtered Density
+Function for Large Eddy Simulation of Turbulent Reacting Flows,” Physics
+of Fluids, Vol. 10, No. 2, 1998, pp. 499–515.
+63Jaberi, F. A., Colucci, P. J., James, S., Givi, P., and Pope, S. B., “Filtered
+Mass Density Function for Large Eddy Simulation of Turbulent Reacting
+Flows,” Journal of Fluid Mechanics, Vol. 401, 1999, pp. 85–121.
+64Gicquel, L. Y. M., Givi, P., Jaberi, F. A., and Pope, S. B., “Velocity
+Filtered Density Function for Large Eddy Simulation of Turbulent Flows,”
+Physics of Fluids, Vol. 14, No. 3, 2002, pp. 1196–1213.
+65Givi, P., “Subgrid Scale Modeling in Turbulent Combustion: A Review,”
+AIAA Paper 2003-5081, July 2003.
+66Muradoglu,M.,Jenny,P.,Pope,S.B.,andCaughey,D.A.,“AConsistent
+Hybrid Finite-Volume/Particle Method for the PDF Equations of Turbulent
+Reactive Flows,” Journal of Computational Physics, Vol. 154, No. 2, 1999,
+pp. 342–371.
+67Pitsch, H., Trouillet, P., Pierce, C. D., Tribbett, E., Sipperley, C. M.,
+Edwards, C. F., and Bowman, C. T., “A Joint Experimental/Large-Eddy Sim-
+ulation Study of a Model Gas Turbine Combustor,” Western States Section
+of the Combustion Inst., Paper WSS-02S31, March 2002.
+68Dittakavi, N., Khosla, S., Eriksen, M., Chandy, A., Gore, J. P., and
+Frankel, S. H., “Numerical Modeling of Nonreacting and Reacting Swirl
+Combustors: Key Issues and Validation Studies,” Proceedings of the Third
+Joint Meeting of the U.S. Sections of the Combustion Institute, Combustion
+Inst., Pittsburgh, PA, 2003.
+69Sung, C. J., Law, C. K., and Chen, J. Y., “An Augmented Reduced
+Mechanism for Methane Oxidation with Comprehensive Global Paramet-
+ric Validation,” Twenty-Seventh Symposium (International) on Combustion,
+Combustion Inst., Pittsburgh, PA, 1998, pp. 295–304.
+70Pope, S. B., “Computationally Efﬁcient Implementation of Combustion
+Chemistry Using an In Situ Adaptive Tabulation,” Combustion Theory and
+Modelling, Vol. 1, Jan. 1997, pp. 41–63.
+71Subramanium, S., and Pope, S. B., “A Mixing Model for Turbulent
+Reactive Flows Based on Euclidean Minimum Spanning Tree,” Combustion
+and Flame, Vol. 115, No. 4, 1998, pp. 487–514.
+72Vasilyev, O., Lund, T., and Moin, P., “A General Class of Commutative
+Filters for LES in Complex Geometries,” Journal of Computational Physics,
+Vol. 146, No. 1, 1998, pp. 105–123.
+73Marsden, A., Vasilyev, O., and Moin, P., “Construction of Commutative
+Filters for LES on Unstructured Meshes,” Annual Research Briefs, Center
+for Turbulence Research, Stanford Univ. and NASA Ames Research Center,
+2000, pp. 179–192.
+74Kerstein, A. R., “One-Dimensional Turbulence: Model Formula-
+tion and Application to Homogeneous Turbulence, Shear Flows, and
+Buoyant Stratiﬁed Flows,” Journal of Fluid Mechanics, Vol. 392, 1999,
+p. 277.
+75Menon, S., McMurtry, P. A., and Kerstein, A. R., “A Linear-Eddy Sub-
+grid Model for Turbulent Combustion,” Large Eddy Simulation of Complex
+Engineering and Geophysical Flows, edited by B. Galperin and S. A. Orszag,
+Cambridge Univ. Press, 1993, Chap. 14, pp. 287–314.
+76Wall, C., Pierce, C. D., and Moin, P., “A Semi-Implicit Method for
+Resolution of Acoustic Waves in Low Mach Number Flows,” Journal of
+Computational Physics, Vol. 181, No. 2, 2002, pp. 545–563.
+J. C. Oefelein
+Guest Editor

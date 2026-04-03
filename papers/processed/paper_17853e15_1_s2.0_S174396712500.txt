@@ -1,0 +1,1178 @@
+
+--- Page 1 ---
+
+Effects of fuel staging on control of reactive flow and NO emission in a gas 
+turbine combustor for hydrogen Co-firing
+Vo Quang Sang a,c
+, Yuangang Wang a, Jihwan Seong a, Jinwoo Son a
+, Minkuk Kim b,  
+Jeongjae Hwang b, Chae Hoon Sohn a,c,*
+a Department of Mechanical Engineering, Sejong University, Seoul, 05006, Republic of Korea
+b Department of Carbon-Free Power Generation, Korea Institute of Machinery and Materials, Daejeon, 34103, Republic of Korea
+c Department of Aerospace System Engineering, Sejong University, Seoul, 05006, Republic of Korea
+A R T I C L E  I N F O
+Keywords:
+Gas turbine combustor
+Fuel-staging technique
+Multi-nozzle
+NOx emission
+Pilot fuel split ratio
+A B S T R A C T
+The fuel-staging technique, commonly employed in modern gas turbine combustors, enables emission control 
+and combustion stability by redistributing fuel between pilot and main stages. This study numerically investi­
+gated the influence of the pilot fuel split ratios (PSRs) on nitric oxide (NO) formation in a 5-around-1 multi- 
+nozzle combustor for several PSR conditions (11 %, 13 %, 15 %, and 17 %). A distinct non-monotonic trend 
+in NO levels at the combustor outlet was observed, with a minimum of 10.59 ppm at PSR13 %. This non- 
+monotonic behavior was induced by the competing effects of residence time and fuel–air unmixedness. At 
+higher PSRs, elevated temperature and extended residence time enhanced thermal NO formation. In contrast, at 
+PSR11 %, increased unmixedness led to an intensification of NO production despite a lower temperature field. 
+The numerical results showed good agreement with experimental data, capturing both the trend and the con­
+dition for the minimum emission. These findings highlight the importance of managing thermal and mixing 
+characteristics in staged combustion and provide practical insights into optimizing fuel-staging strategies for low- 
+NOx operation in hydrogen-enriched gas turbines.
+1. Introduction
+For several decades, gas turbine combustors have been developed to 
+increase efficiency, reduce fuel consumption, and minimize pollutant 
+emissions. Among combustion byproducts, nitrogen oxides (NOx) and 
+carbon oxides (COx) are of particular concern because of their impact on 
+air quality, human health, and climate, leading to stringent regulations 
+[1]. While carbon control has received significant attention, limiting 
+NOx formation under high-temperature operating conditions remains a 
+central challenge for low-emission gas turbine combustion.
+Environmental concerns also require modern gas turbines to 
+increasingly employ lean-premixed combustion to lower flame temper­
+ature and thereby suppress thermal-NOx formation [2].
+However, operating near the lean limit (e.g., ER ≈0.4) narrows 
+stability margins, increasing the lean blowoff (LBO) and combustion 
+instability. Near the LBO limit, pressure oscillations become more pro­
+nounced, disturbing the flame shape, especially in swirled flows. As the 
+equivalence ratio (ER) and swirl number decrease beyond a certain 
+threshold, vortex breakdown becomes more likely, leading to decreased 
+vortex stability and an increased probability of flame blowout [3]. In 
+addition, flames with lower ER entrain more reactant pockets into the 
+reaction zone due to the presence of the central recirculation zone 
+(CRZ), compared to stable flames at stoichiometric conditions. This 
+enhanced entrainment results in incomplete combustion, further 
+amplifying blowout risk as the flame becomes unstable and may detach 
+from the nozzle or be extinguished due to insufficient energy to sustain 
+combustion [4].
+Hydrogen–methane co-firing has been investigated as a strategy to 
+reduce emissions, benefiting from hydrogen’s high flame speed and 
+carbon-free characteristics. The high flame speed, primarily governed by 
+the hydrogen fraction in CH4/H2/air mixtures, strengthens flame 
+anchoring due to increased reactivity and temperature. However, this 
+higher temperature also promotes thermal-NO formation.
+In contrast, CH4-rich in CH4/H2/air mixtures tend to produce more 
+CO because of their higher carbon concentration, as the lower hydrogen 
+fraction reduces the temperature and inhibits complete oxidation [5]. 
+This behavior offsets the benefit of COx reduction achieved by replacing 
+methane with hydrogen compared to pure methane combustion. Thus, 
+flame speed indirectly affects emissions through the hydrogen blending 
+* Corresponding author. Department of Mechanical Engineering, Sejong University, Seoul, 05006, Republic of Korea.
+E-mail address: chsohn@sejong.ac.kr (C.H. Sohn). 
+Contents lists available at ScienceDirect
+Journal of the Energy Institute
+journal homepage: www.elsevier.com/locate/joei
+https://doi.org/10.1016/j.joei.2025.102356
+Received 17 September 2025; Received in revised form 21 October 2025; Accepted 21 October 2025  
+Journal of the Energy Institute 124 (2026) 102356 
+Available online 22 October 2025 
+1743-9671/© 2025 The Energy Institute. Published by Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar 
+technologies. 
+
+
+--- Page 2 ---
+
+ratio, illustrating the trade-off between COx and NOx emissions [5]. 
+Moreover, under lean operation with swirling flames, even though a 
+hydrogen-methane blend (at ER = 0.4) has a similar laminar flame speed 
+to a pure methane flame (at ER = 0.8), the presence of hydrogen in­
+creases the propensity for flashback. Small-scale bulges and larger flame 
+tongues contribute to unstable flame dynamics and more frequent 
+flashback events, which are detrimental to stable combustion [6].
+Numerous studies have also reported that the NOx emission trend 
+with increasing hydrogen content is not always monotonic, as it depends 
+strongly on local flame temperature, mixing quality, and residence time 
+[7–17]. These competing effects emphasize the use of the hydrogen–­
+methane co-firing. But the interactions among flame temperature, 
+fuel–air mixing, and residence time make its behavior highly nonlinear. 
+Therefore, achieving consistent low-NOx performance requires precise 
+optimization of the hydrogen blending ratio and operating conditions.
+These constrains motivate the use of staged combustion, which has 
+been widely applied in gas turbines as an effective method to co- 
+optimize flame temperature and mixing. Depending on the staging 
+configuration, combustor hardware and operating strategies are adap­
+ted—for example, by injecting additional air downstream or redis­
+tributing fuel–air upstream to improve uniformity and suppress hot 
+spots. In air-staged combustors, secondary air addition downstream 
+cools the flame on the lean side before chemical effects dominate, con­
+firming the temperature-lowering effect of downstream air injection 
+[18]. In radially staged systems, redistributing fuel among circuits im­
+proves upstream uniformity and reduces exit hot streaks, thereby 
+lowering thermal NOx [19].
+Building on these observations, several studies have investigated 
+hydrogen enrichment under staged combustion configurations. In a 
+centrally staged swirling combustor, Xu et al. [20] showed that 
+increasing the pilot-staging ratio (PSR, 10–50 %) raised NOx because the 
+pilot stream concentrated heat release and peak temperature near the 
+core. Similarly, Benaissa et al. [21] found that in a can-type combustor 
+fueled with biogas–hydrogen blends, hydrogen enrichment intensified 
+the flame and increased NOx when mixing quality was limited, whereas 
+improved staging and air distribution reduced peak temperature and 
+emissions. Collectively, these results highlight advanced fuel staging as a 
+practical lever to control peak temperature and unmixedness in 
+hydrogen-enriched flames, enabling low- NOx operation.
+Although such methods have achieved significant NOx reduction, the 
+fundamental origins of NO formation in gas turbine combustors are 
+consistently linked to flame temperature and fuel–air mixing [12–17]. 
+Consequently, practical ultra-lean operation with H2-containing fuels is 
+constrained by a trade-off among NOx reduction, blowoff risk, insta­
+bility, and flashback, motivating control strategies—such as pilot fuel 
+split ratio (PSR) optimization—that jointly manage mixing uniformity 
+and residence-time/temperature effects.
+Therefore, in this study, we performed both numerical simulations 
+and experiments with a multi-nozzle combustor, employed with a 5- 
+around-1 staged configuration and hydrogen-methane blended fuel. 
+To address the complex trade-off among flame temperature, residence 
+time, and fuel–air mixing, the pilot fuel split ratio (PSR) was varied and 
+evaluated as a key control parameter for NOx optimization. By adjusting 
+PSR, we aimed to regulate the local heat release distribution between 
+the pilot and main zones, thereby controlling the competing effects of 
+residence-time-induced NO formation and mixing-related temperature 
+Nomenclature
+Latin symbols
+DT,i
+Thermal diffusion coefficient of i-th species
+Di,m
+Molecular (mixture-averaged) mass-diffusivity of i-th 
+species
+E
+Energy
+F
+⇀
+Body force
+f
+Fuel mixture fraction
+g
+⇀
+Gravitational body force
+k
+Turbulent kinetic energy
+hi
+Enthalpy of i-th species
+Ji
+⇀
+diffusive mass-flux vector of i-th species
+L
+Length
+Sh
+Heat release rate from chemical reactions
+Sct
+Schmidt number
+˙m
+Mass flow rate
+Mw
+Molecular weight
+p
+Pressure
+R
+Universal gas constant
+Ri
+Net mass production rate of i-th species pre unit volume
+t
+Time
+T
+Temperature
+Yi
+Mass fraction of i-th species
+t
+Time
+v
+⇀
+Velocity vector
+Greek symbols
+ρ
+Density
+ε
+Dissipation rate of kinetic energy
+τeff
+Effective shear stress
+τR
+Residence time
+Subscripts
+avg
+Averaged value
+eff
+Effective (i.e. molecular + turbulent)
+meas
+Measured value
+ref
+Reference
+fuel_total Total fuel (Mass flow rate)
+Abbreviations
+CFD
+Computational Fluid Dynamics
+CN
+Center Nozzle
+COx
+Carbon Oxides
+DO
+Discrete Ordinates Radiation Model
+EDC
+Eddy Dissipation Concept
+ER
+Equivalence Ratio
+FC
+Fuel Circuit
+FC1
+Fuel Circuit 1 (Main passage of center nozzle)
+FC2
+Fuel Circuit 2 (Main passages of outer nozzles 2 and 4)
+FC3
+Fuel Circuit 3 (Main passages of outer nozzles 1, 3 and 5)
+FCP
+Fuel Circuit Pilot (Pilot passages of outer nozzles)
+GRI 3.0
+GRI-Mech 3.0
+IRZ
+Inner Recirculation Zone
+IZ
+Interaction Zone
+LPG
+Liquefied Petroleum Gases
+MN
+Multi-nozzle
+NG
+Natural Gases
+NOx
+Nitrogen Oxides
+ON/ONs Outer Nozzle(s)
+PaSR
+Partially Stirred Reactor
+PSR
+Pilot Fuel Split Ratio
+RANS
+Reynolds-Averaged Navier–Stokes
+SN
+Single-Nozzle
+SST
+Shear Stress Transport
+ST
+Species Transport
+Um
+Unmixedness
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+2 
+
+
+--- Page 3 ---
+
+non-uniformity.
+An exponential fitting model was developed to separate the contri­
+butions of these factors, enabling quantification of how PSR influenced 
+NO and explaining the observed non-monotonic emission trend. The 
+results showed that the competing effects of residence time and 
+unmixedness governed NOx behavior with varying PSR. Numerical 
+findings were validated by experimental data, confirming the accuracy 
+and reliability of the present numerical approach.
+2. Experimental and numerical methods
+2.1. Experimental apparatus
+The cross-sectional schematic of the can-type combustor used in the 
+experiments is shown in Fig. 1. The test rig consisted of the nozzles, the 
+combustor chamber, and a T-shaped exhaust duct. Air was supplied into 
+the combustor casing and routed toward the nozzles. While flowing 
+through the casing, the air was preheated by heat exchange with the 
+combustor wall and entered the nozzles at the specified temperature. 
+Within the combustor liner, the mixture was ignited and formed a sta­
+bilized flame, and the combustion products exited through the exhaust 
+duct. Four temperature sensors, TC1–TC4, are shown in Fig. 1 and were 
+used to measure the gas temperature within the combustor chamber. 
+The sensors were B-type thermocouples. NO concentration was 
+measured using a high-precision ABB AO2000 Series gas analyzer 
+equipped with an NDUV (Non-Dispersive Ultraviolet) module. Mea­
+surement accuracy was ensured through calibration before each exper­
+iment using a certified 51.6 ppm NO standard gas (N2 balance). We 
+evaluated the instrumental uncertainty for each measurement device. 
+The experimental uncertainty range (PSR: ±0.64 %, temperature: ±0.5 
+%) for the exit temperature and (PSR: ±0.64 %, NO emission: ±1.11 %) 
+for the NO emissions, respectively. The detailed experimental setup and 
+method can be found in the previous literature [22].
+2.2. Geometry and mesh
+The computational domain used for the numerical simulations is 
+based on an actual engine configuration currently under development, 
+which is highlighted in red in Fig. 1 and detailed in Fig. 2. The experi­
+mental data were obtained from tests using the same configuration, 
+ensuring consistency between numerical and experimental setups. The 
+model was divided into two sections, the nozzle assembly and the 
+combustor chamber, as shown in Fig. 2a. The nozzle assembly employed 
+a 5-around-1 configuration that defined the relative positions of the 
+nozzles, as shown in Fig. 2b. One center nozzle, CN, was located at the 
+center, and five outer nozzles, ON1–ON5, were placed evenly around the 
+CN at a radius of 125.65 mm from the centerline. The combustor 
+chamber was cylindrical, with a larger radius near the inlet and a smaller 
+radius near the outlet. These sections were joined by a converging sec­
+tion that provided a smooth flow transition.
+Each outer nozzle consisted of three passages, i.e., main, pilot, and 
+blank ones, whereas the center nozzle consisted of two passages, i.e., 
+main and blank ones. Swirlers in the main passages provided counter- 
+clockwise swirl about each nozzle axis, while the pilot passages were 
+straight through. Oxidizer was supplied through inlets at the main, pilot, 
+and blank passages and through the cooling plate. Fuel was injected via 
+ports on the main-passage swirlers and within the pilot passages. Fig. 2c 
+shows the inlet locations of ON3, where blue color denotes the main, 
+pilot, and blank air inlets, and red color denotes the main and pilot fuel 
+inlets.
+The unstructured polyhedral meshes for numerical simulations are 
+demonstrated in Fig. 3, with isometric views in Fig. 3a and cross-sections 
+through the reaction zone in Fig. 3b. A finer mesh was applied in regions 
+of complex geometry, including the mixing zone, reaction zone, and gas 
+inlets. To reduce the computational cost, a grid-independence check was 
+first conducted using a single-nozzle (SN) combustor, consisting of one 
+outer nozzle and its corresponding chamber. Four different maximum 
+cell sizes in the fine-mesh region were tested, ranging from 1.3 mm to 
+2.5 mm. With the cell size of 1. 5 mm, the differences in temperature, 
+axial velocity, and NO emission were found to be less than 7.26 % 
+compared to the finest cell size of 1.3 mm, as illustrated in supple­
+mentary material, SM. Therefore, unstructured polyhedral cells with a 
+maximum cell size of 1.5 mm were adopted for the present simulations, 
+resulting in approximately 13.6 million cells generated in the full 
+domain.
+Fig. 1. Cross-sectional schematic of the can-type combustor (left) and locations of temperature sensors (right).
+Fig. 2. Computational domain of the model gas-turbine combustor: (a) iso­
+metric view of nozzle assembly and combustor chamber, (b) front view of the 5- 
+around-1 configuration, and (c) cross-section A-A showing the locations of fuel 
+and oxidizer inlets.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+3 
+
+
+--- Page 4 ---
+
+2.3. Fuel-staging strategy
+Fuel and oxidizer were supplied separately through the inlets and 
+mixed with each other within the flow passages (including main, pilot, 
+and blank passages). The operating conditions of gases inside the 
+combustor were specified based on experimental conditions. Table 1
+summarizes the operating conditions. The fuel is a mixture of methane 
+(CH4) and hydrogen (H2) with a mole fraction of 50 % each. The oxidizer 
+was treated as ideal-gas air, consisting of 21 % oxygen (O2) and 79 % 
+nitrogen (N2) by volume. The temperatures of fuel and oxidizer inlets 
+were 473.15 K and 718.15 K, respectively. An operating pressure of 1.5 
+bar was adopted in the simulations. Total air mass flow rate was 
+maintained at 4800 kg/h, while total fuel mass flow rate was modified to 
+achieve a thermal power (input) of 2092 kW and an overall equivalence 
+ratio of 0.539.
+Due to the geometric and operational complexity of the staged 
+combustor, a fuel-staging strategy was employed to control the distri­
+bution of fuel among the individual inlets. In this configuration, fuel was 
+supplied through four designated circuits: FC1 (indicated in yellow) 
+delivered fuel to center nozzle, FCP (indicated in red) supplied fuel to 
+pilot passages of five outer nozzles, and FC2 and FC3 (indicated in blue 
+and green, respectively) fed fuel to main passages of five outer nozzles. 
+The schematic diagram of the fuel circuit (FC) configuration is presented 
+in Fig. 4 [22].
+The fuel mass flow rates supplied to each fuel–inlet location are 
+denoted by ˙mFC1, ˙mFCP, ˙mFC2 and, ˙mFC3, respectively, corresponding to 
+their respective locations. The ratios of these to the total fuel flow, 
+˙mfuel total, are expressed as FC1 %, FCP%, FC2 %, and FC3 %, respec­
+tively. The pilot fuel split ratio (PSR) in Eq. (1) indicates the fraction of 
+˙mFCP relative to the total fuel excluding ˙mFC1. To ensure equal fuel supply 
+to each outer nozzle’s main passage, FC2 % and FC3 % are adjusted as 
+defined in Eq. (2). 
+PSR =
+˙mFCP
+˙mfuel total −
+˙mFC1
+*100%,
+(1) 
+FC2%
+2
+= FC3%
+3
+= FC2% + FC3%
+5
+= 1 −(FC1% + FCP%)
+5
+(2) 
+In this work, FC1 % was fixed at 12 %, which means that 12 % of 
+˙mfuel total was supplied to the center nozzle. PSR was changed from 11 % 
+to 17 % in increment of 2 % point, resulting in four cases: PSR11 %, 
+PSR13 %, PSR15 % and PSR17 %, as shown in Table 2. From Case 1 to 
+Case 4, both PSR and ˙mFCP increased, with FCP% rising from 9.68 % in 
+Case 1–14.96 % in Case 4.
+2.4. Governing equations and numerical models
+The three-dimensional governing equations are summarized in 
+generalized vector forms as follows:
+continuity equation, 
+Fig. 3. Computational meshes: (a) isometric view and (b) cross-section through the reaction zone.
+Table 1 
+Operating conditions and composition of fuel and oxidizer.
+Parameter
+[unit]
+Value
+Fuel
+Oxidizer
+Operating pressure
+[bar]
+1.5
+Inlet temperature
+[K]
+473.15
+718.15
+Total mass flow rate
+[kg/h]
+–
+4800
+Inlet thermal power
+[kW]
+2092
+–
+Equivalence ratio
+–
+0.539
+Mole fraction
+–
+CH4
+0.5
+O2
+0.21
+–
+H2
+0.5
+N2
+0.79
+Fig. 4. Schematic diagram of the fuel-staging configuration in the multi-nozzle 
+gas turbine combustor, showing the fuel inlet distribution among the center and 
+outer nozzles [22].
+Table 2 
+Mass flow rates through fuel circuits in each split ratio case in the fuel-staging 
+configuration.
+Case
+Pilot Fuel 
+Split ratio [%]
+Fuel circuit percentages [%]
+FC1 %
+FCP%
+FC2 %
+FC3 %
+1
+11
+12.00
+09.68
+31.33
+46.99
+2
+13
+11.44
+30.62
+45.94
+3
+15
+13.20
+29.92
+44.88
+4
+17
+14.96
+29.22
+43.82
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+4 
+
+
+--- Page 5 ---
+
+∂ρ
+∂t + ∇⋅(ρv
+⇀) = 0,
+(3) 
+momentum equation, 
+∂
+∂t (ρv
+⇀) + ∇⋅(ρv
+⇀v
+⇀) = −∇p + ∇⋅(τ) + ρg
+⇀+ F
+⇀,
+(4) 
+energy equation, 
+∂
+∂t (ρE) + ∇⋅(v
+⇀(ρE + p)) = ∇⋅
+(
+keff∇T −
+∑
+ihi j
+⇀
+i +
+( τeff ⋅v
+⇀)
+)
++ Sh,
+(5) 
+species equation, 
+∂
+∂t (ρYi) + ∇⋅(ρv
+⇀Yi) = −∇⋅j
+⇀
+i + Ri,
+(6) 
+where 
+j
+⇀
+i = −
+(
+ρDi,m + μt
+Sct
+)
+∇Yi −DT,i
+∇T
+T ,
+(7) 
+and finally, the equation of state, 
+ρ =
+p
+(R/Mw)T .
+(8) 
+To simulate turbulent flow, Eqs. (3)–(6) were transformed into the 
+Reynolds-averaged Navier–Stokes (RANS) equations [23]. All simula­
+tions were performed using a general-purpose CFD solver, ANSYS Fluent 
+[24]. The shear stress transport (SST) k–ω model [25] was employed to 
+close the Reynolds stresses, blending k–ω near walls with k–ε in outer 
+regions to provide robust predictions for separated and swirling flows. 
+The discrete ordinates radiation model and convective wall boundary 
+conditions were applied to account for heat transfer at the combustor 
+walls. These were adopted to ensure accurate modeling of flow–wall 
+interactions.
+2.5. Species transport model and combustion model
+Since the primary purpose of this study is to evaluate the influence of 
+fuel staging on NOx formation, especially NO, it is crucial to accurately 
+predict the interaction processes of species within the combustor. To 
+achieve this, the GRI 3.0 kinetic model [26] was employed, which in­
+corporates all NO formation pathways as well as the key reactions 
+governing methane-hydrogen dual fuel’s combustion. The selection of 
+GRI 3.0 was based on a comparative evaluation of 18 detailed, reduced, 
+and global mechanisms conducted in our previous work [27]. That study 
+compared ignition delay time, laminar flame speed, NOx emissions, and 
+computational efficiency for CH4/H2/air mixtures over wide ranges of 
+equivalence ratio, hydrogen fraction, and pressure. Among the tested 
+mechanisms, GRI 3.0 provided the best balance between accuracy and 
+computational cost for hydrogen blending ratios below 60 % and pres­
+sures below 10 bar, confirming its suitability for the present work.
+For the turbulent–chemistry interaction, the Eddy Dissipation 
+Concept (EDC) model with the Partially Stirred Reactor (PaSR) approach 
+was adopted [28,29]. The PaSR model, a built-in model of the adopted 
+solver [24], extends the standard EDC formulation by accounting for 
+slow chemical kinetics and turbulent mixing interactions, enabling more 
+accurate predictions in combustion regimes involving nitrogen chem­
+istry. This modeling approach ensures an accurate representation of 
+species transport and reaction kinetics in turbulent flows, providing 
+reliable numerical results despite the inherent assumptions in the 
+simulation setup.
+Soret effect was neglected in this work, based on the preliminary 
+tests, where it was included and then, excluded for a comparative study. 
+The results showed that its inclusion altered the temperature, velocity, 
+and NO emission only by 2.62 %. Details on the tests of Soret effect can 
+be found in supplementary material, SM.
+3. Results and discussion
+3.1. Validation of numerical approach
+The validation of the simulation results was carried out in a previous 
+study [22], which employed the same numerical method and the grid 
+size as in the present work. In that study, three primary parameters such 
+as wall temperature, OH concentration, and NOx emissions were 
+examined, where all the errors were less than 5 % compared to experi­
+mental results.
+In this study, gas temperatures in the combustion chamber were 
+compared with numerical results. In the experiments, four thermocou­
+ples were installed at TC1, TC2, TC3, and TC4, all located on the same 
+axial plane at 1510 mm downstream of the nozzle inlets as illustrated in 
+Fig. 1. The calculated and experimental results are shown in Fig. 5. The 
+numerical results followed the experimental trend closely, with higher 
+temperatures at TC1–TC3 and a noticeable drop at TC4. The sharp 
+temperature decrease near the wall (TC4) is attributed to wall cooling 
+effects.
+The maximum deviation between the simulation and experiment was 
+observed at TC4, with a deviation of 90.71K (9.56 %). According to our 
+previous work [22], the measurement repeatability ranged from ±30 K 
+to ±84 K (from TC1 to TC4). Considering this repeatability range (±84 K 
+at TC4), the deviation observed in this study could potentially narrow 
+further, suggesting good consistency between the experimental and 
+numerical results. Therefore, the comparison confirms that the present 
+numerical approach provides reasonable and reliable predictions of the 
+temperature field inside the combustor.
+3.2. Distribution of flow velocity
+Fig. 6 illustrates the middle surface at z = 0, where the x-direction 
+aligns with the flow direction. This figure provides a clear visualization 
+of combustor components and shows 6 monitoring positions for flow- 
+field analyses. The specific location at x = 32 mm indicates the 
+connection between nozzles and combustor parts, also known as a 
+nozzle exit. The nozzle inlet or entrance is positioned at x = −373 mm, 
+while the combustor exit is located at x = 1679 mm.
+As aforementioned for the boundary conditions, both the total and 
+local mass flow rates of air were significantly higher than those of fuel. 
+Consequently, minor variations in the PSR had a negligible effect on 
+flow velocity within the nozzle passages and the combustor chamber. 
+Therefore, only the case with PSR11 % was analyzed for velocity.
+Fig. 7 demonstrates the axial velocity along streamlines in the PSR11 
+% case at three locations: (a) on the mid-plane of the combustor 
+Fig. 5. Comparison of experimental and numerical gas temperatures for PSR15 
+% at four sensor locations.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+5 
+
+
+--- Page 6 ---
+
+chamber, (b) on the circular cross-sectional plane at 232 mm, and (c) on 
+the plane at 432 mm. Overall, the flow exhibited counter-clockwise 
+rotation along the axial direction, driven by the nozzle-induced swirl 
+and the unique geometry of the blank passage in both the center nozzle 
+(CN) and outer nozzles (ONs). Fig. 7a shows the distinct columnar 
+vortices around the axis of each nozzle. The vortices vary in scale and 
+ones originating from the CN being noticeably smaller in a cross-section 
+than generated by the ONs.
+As the flow develops, the gases mixed, expanded, and formed two 
+distinct zones: Inner Recirculation Zones (IRZs) and Interaction Zones 
+(IZs). In Fig. 7b, the locations of these regions could be identified. The 
+IRZs exhibited reverse flow rotating around the nozzle axis, resulting in 
+negative axial velocity. Six IRZs were observed, each corresponding to 
+one of the six nozzles, i.e., one center nozzle (CN) and five outer nozzles 
+(ONs). In contrast, the IZs emerged from interactions between the CN 
+and each ON, as well as between adjacent ONs, creating high-velocity 
+regions. Five IZs were shown in Fig. 7b, where flow interactions inten­
+sify the local axial velocity up to higher than 50 m/s.
+However, the IZs gradually disappeared due to flow expansion and 
+merging, and no reverse flow was observed within the IRZs, as shown in 
+Fig. 7c. Then, the flow became more blended and uniformly distributed, 
+approaching complete mixing. This enhanced uniformity stabilized the 
+flame structure and promoted more homogeneous combustion, which 
+helped to mitigate localized high-temperature regions responsible for 
+NO formation.
+3.3. Temperature distribution
+Due to the geometric differences between the ON and the CN, 
+particularly the presence or absence of pilot passages, flames exhibited 
+distinct shapes and structures, which closely aligned with the flow 
+patterns depicted by velocity distributions. Specifically, the flame 
+formed by the CN exhibited a cylindrical shape, whereas the ON flames 
+displayed a tailed structure. This tailed structure consisted of two con­
+nected zones, i.e., an inner zone, formed by the pilot flow and the inner 
+recirculation zones (IRZs), and an outer zone, resulting from interactions 
+between the pilot and main flows.
+Fig. 8 shows the distributions of equivalence ratio (ER) and flame 
+temperature on the mid-plane of the combustor chamber, spanning from 
+x = −100 mm to the combustor exit. The ER varied from approximately 
+0.3 to 0.7, consistent with the lean-premixed combustion regime defined 
+by the inlet boundary conditions. While the overall patterns of ER and 
+temperature remained qualitatively similar for all the PSR conditions, 
+spatial differences were evident due to variations in fuel distribution of 
+each nozzle. Both evaluation of ER and temperature fields enabled a 
+more comprehensive understanding of local combustion characteristics 
+and NO formation zones, as each field played a distinct role in NOx 
+chemistry.
+In all cases, the mass flow rate of fuel supplied to the CN remained 
+constant, resulting in similar flame structures and peak temperatures of 
+around 2300 K near the CN core. In contrast, the ONs exhibited lower 
+peak temperatures, typically ranging from about 1400 K in the inner 
+zone to 2000 K in the outer zone. High-temperature regions exceeding 
+1800 K, particularly around the CN and the upstream of the ON flames, 
+indicated zones where thermal NO was likely to be formed significantly.
+To see radial temperature profile evolving from the upstream to 
+downstream depending on PSR, temperature profiles are shown in Fig. 9
+along the normalized radial coordinate at various axial locations; x =
+132 mm, 232 mm, 332 mm, 532 mm, 732 mm, and 932 mm. The 
+normalized radial coordinate is defined as y/Rmax, where y denotes the 
+vertical or radial coordinate (in the y direction) and Rmax the maximum 
+chamber radius.
+The most significant differences among PSR cases were found in the 
+early stages of combustion, specifically between x = 132 mm–332 mm 
+(Fig. 9a–c). In this region, PSR11 % consistently exhibited the lowest 
+temperatures, whereas PSR17 % showed the highest.
+As PSR increased from 11 % to 17 %, inner-zone temperature 
+changed from 1600 K to 1900 K, while outer-zone temperature 
+Fig. 6. Middle surface and six axial monitoring positions in the combustor.
+Fig. 7. Axial-velocity distributions along the streamlines (a) in the combustion 
+chamber and on the circular cross-sectional planes (b) at x = 232 mm and (c) at 
+x = 432 mm in the case of PSR11 %.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+6 
+
+
+--- Page 7 ---
+
+increased from 1950 K to 2060 K. These trends reflected the redistri­
+bution of fuel in the outer nozzles. That is, higher PSR allocated more 
+fuel to the pilot passages and less to the main passages and thereby, 
+enriching the near-center region of the outer flames.
+Consequently, the inner-zone flame temperatures increased by 
+approximately 100 K, while the outer zone experienced a modest but 
+Fig. 8. Spatial distribution of equivalence ratio (left) and temperature (right) inside the combustor.
+Fig. 9. Temperature profiles along the radial coordinate at various axial locations: (a) x = 132 mm, (b) x = 232 mm, (c) x = 332 mm, (d) x = 532 mm, (e) x = 732 
+mm, and (f) x = 932 mm.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+7 
+
+
+--- Page 8 ---
+
+consistent rise of about 40 K. Meanwhile, the center nozzle, to which a 
+constant flow rate of fuel is supplied in all cases, remained largely un­
+affected by PSR variation.
+This analysis indicated that how subtle changes in fuel staging could 
+impact the local reactive-flow field significantly, which emphasizes the 
+importance of fine control of fuel distribution in reducing NOx emission.
+Further downstream, from x = 532 mm–932 mm, as shown in 
+Fig. 9d–f, the temperature profiles began to converge for all the PSR 
+conditions. This behavior reflected increased flow uniformity and 
+enhanced flow mixing, which led to more homogeneous combustion in 
+the post-flame zone. Although minor spatial variation remained, tem­
+peratures exceeded 1800 K throughout the combustor, irrespective of 
+PSR. This presence of such a high-temperature region supported the 
+findings that thermal NO was the dominant NO-formation mechanism in 
+the staged hydrogen–methane combustion studied here.
+3.4. Residence time in the combustor
+To better understand the effects of PSR on flame temperature and NO 
+formation, a parameter, the residence time of reactants in the 
+combustor, τR, is introduced. This parameter is defined as the average 
+time required for a fluid particle to travel from the combustor entrance 
+to the exit while remaining within regions where the temperature ex­
+ceeds a specified threshold value.
+Fig. 10 shows the streamlines used for this analysis, with starting 
+points located at the combustor entrance and endpoints at the liner exit. 
+The entrance region is divided into distinct zones associated with the 
+respective connections between each nozzle, i.e., either the center 
+nozzle or the outer nozzle, and the liner.
+As particles move through the chamber, they alternate between high- 
+and low-temperature regions. These regions are separated by a reference 
+temperature, Tref, designated here as 1800 K, from the previous study 
+[30], where this threshold was identified as the onset temperature of 
+significant thermal NO formation. In Fig. 10, the red segments of the 
+streamlines present regions where the local temperature exceeds Tref, 
+while blue segments indicate regions below this threshold.
+The residence time is calculated as the average time a particle stays 
+in higher-temperature regions than Tref along each streamline. Because 
+the flow paths depend on the origin of a nozzle, PSR, and recirculation 
+flow, the residence time also varies as well. Fig. 11 shows both the 
+residence time and the average temperature along streamlines origi­
+nating from the CN and the ONs. In general, streamlines from the CN 
+exhibited higher average temperature, ranging from 1802 K to 1808 K, 
+compared with those from the ON, which ranged from 1627 K to 1665 K. 
+This temperature difference was consistent with the ER and flame 
+temperature fields discussed in the preceding section, where the CN 
+exhibited richer mixtures and more intense combustion, while the ONs 
+showed relatively lower temperature and ER.
+The results in Fig. 11 further show that the main source of NO 
+variation for variable PSR was flame characteristics associated with 
+ONs. Both the average temperature and residence time along ON 
+streamlines increased gradually with PSR, which results from the effect 
+of fuel redistribution into the pilot passages. As PSR increased from 11 % 
+to 17 %, the ON residence time rose from 27.8 ms to 35.6 ms and also, 
+the average temperature increased from 1626.95 K to 1664.97 K. It 
+implies that increasing formation of thermal NO in the outer flame zones 
+at higher PSRs. In contrast, path lines originating from the CN showed 
+slight variation as a function of PSR. The average temperature remained 
+between 1801.94 K and 1807.78 K, and the residence time varied only 
+from 32.71 ms to 33.03 ms.
+This trend was also reflected in the swirl number. The calculated 
+swirl number corresponding to the ONs (not shown here) exhibited a 
+slight increase—from 0.8007 at PSR 11 % to 0.8032 at PSR 17 %. 
+Meanwhile, the CN swirl number remained nearly constant, varying 
+little from 0.7082 to 0.7084 over the same PSR range.
+This behavior is attributed to the constant fuel flow rate into the CN 
+and its isolation from velocity-induced inner recirculation zones (IRZs). 
+Although the CN contributed to a high baseline level of thermal NO 
+emission due to relatively higher temperature, it could not account for 
+the observed variation in NO emission as a function of PSR. It will be 
+discussed later. Moreover, at PSR11 % and PSR13 %, the residence time 
+of ON streamlines was much lower than that of the CN, leading to the 
+difference in combustion dynamics between the two reaction zones. 
+These findings imply the critical role of PSR-dependent flame behavior 
+near the outer nozzles in controlling the overall NO formation in staged 
+methane-hydrogen combustion.
+3.5. Mixing of fuel and oxidizer
+To evaluate the degree of mixing between fuel and oxidizer in the 
+combustor, a mixing index known as unmixedness, Um, is employed 
+here. It is calculated by Eq. (9), which is a variant of the original form 
+suggested by F. Biagioli et al. [16]. The equation utilizes both 
+time-averaged and instantaneous values of the mixture fraction, f, which 
+serves as a conserved scalar presenting the local mass fraction of fuel in 
+the flow. Specifically, f = 1 corresponds to pure fuel, f = 0 to pure 
+oxidizer, and intermediate values describe the degree of mixing between 
+the two reactants. The unmixedness index, Um, quantifies the fluctuation 
+of f over space (denoted by subscript “avg.”) and ranges from 0 to 1, 
+where a lower value indicates more uniform mixing. The value of Um =
+0 indicates perfectly uniform mixing, while the unity unmixedness, Um 
+= 1, denotes separation of fuel and air. 
+Um =
+(
+f −favg.
+)2
+avg.
+favg.
+(
+1 −favg.
+) .
+(9) 
+Fig. 12 demonstrates the axial distributions of the unmixedness 
+within the nozzle passages of the CN and ON3, ranging from x = −250 
+mm, where fuel was fully injected into the air stream, to x = 30 mm, just 
+before the fuel–air mixture exits the nozzles. It also shows its distribu­
+tion in the overall chamber, ranging from x = −100 mm, before the 
+onset of burning, to x = 500 mm, where the gas mixture became nearly 
+uniform in Fig. 12c. In both CN and ON3, unmixedness initially 
+increased just after fuel injection and then, decreased gradually down­
+stream as mixing progresses. Additional air was injected into the blank- 
+air and cooling-air inlets at x = −20 mm and x = 32 mm, respectively, 
+resulting in sharp increases in unmixedness between the two locations. 
+Beyond these locations, as no further gases was supplied, unmixedness 
+decreased steadily and reached a small value in the order of 10−4 within 
+the chamber.
+The unmixedness profiles in the CN remained nearly identical irre­
+spective of PSR because the fuel fraction supplied to this nozzle was 
+constant. However, depending on PSR, the unmixedness behavior in 
+ON3 varied significantly due to differences in fuel distribution. As the 
+flow develops, the cases were classified into two distinct patterns before 
+Fig. 10. Particle path lines originating from the center nozzle and the outer 
+nozzle 3 in the case of PSR11 %.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+8 
+
+
+--- Page 9 ---
+
+Fig. 11. Average temperature (left axis, black solid line) and residence time (right axis, red dashed line) as a function of PSR along streamlines originating from (a) 
+the center nozzle and (b) the outer nozzles. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)
+Fig. 12. Cross-sectional area-averaged values of unmixedness along the axial coordinate in (a) center nozzle and (b) outer nozzle 3 passage, and (c) combus­
+tion chamber.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+9 
+
+
+--- Page 10 ---
+
+burning. The cases of PSR13 % and PSR15 % showed similarly low 
+unmixedness values, while both PSR11 % and PSR17 % exhibited 
+noticeably higher ones. The peak unmixedness values for PSR11 %, 13 
+%, 15 %, and 17 % were approximately 0.0019, 0.0015, 0.0014, and 
+0.0016, respectively. Notably, PSR11 % showed the highest peak, which 
+was greater by 26 % than that of PSR13 %. It might partially account for 
+the elevated NO levels observed for this condition.
+Fig. 12c presented the unmixedness distributions within the com­
+bustion chamber. After undergoing initial mixing within the nozzle 
+passages, the fuel–air mixture interacted further with additional air 
+injected through the cooling air inlets at x = 32 mm. As burning pro­
+ceeds, unmixedness decreased sharply to values in the order of 10−4, 
+particularly in a downstream region. Similar to the trend observed in the 
+nozzle passages, the higher unmixedness in the case of PSR11 % and 
+PSR17 % may contribute to increase in NO formation in the post-flame 
+region.
+3.6. NO emission
+Based on flame temperature, residence time, and unmixedness 
+analyzed in the preceding sections of 3.3–3.5, their combined influence 
+on NO formation is investigated in this section. The amount of NO 
+calculated from numerical results is corrected to a standard oxygen basis 
+for a comparative study. The mole fractions of NO and O2 at the 
+combustor exit are extracted and corrected by Eq. (10), following the 
+method developed by Baukal et al. [31]. In this equation, the subscript 
+"meas." denotes values directly obtained from the simulations or exper­
+iments, and the reference oxygen basis, O2basis, is set to be 15 %. 
+NO15%O2 = NOmeas. × (20.95% −O2basis)
+(20.95% −O2meas.)
+(10) 
+The average NO emission at the combustor exit was calculated and 
+compared with experimental data obtained from our previous studies. 
+These results are shown in Fig. 13. In the experiments, PSR ranged from 
+11 % to 21 %, while the numerical results covered the range from PSR11 
+% to PSR17 %. Both data of NO emission exhibited a non-monotonic 
+behavior with a local minimum at a particular value of PSR. This 
+behavior resulted from the competing influences of two dominant fac­
+tors: (1) thermal NO formation driven by high temperature and resi­
+dence time and (2) enhanced NO formation induced by poor fuel–air 
+mixing, characterized by high unmixedness.
+In the numerical results, NO emission increased from PSR13 % to 
+PSR17 %, which is consistent with the earlier observations in both flame 
+temperature and residence time. This increasing behavior was attributed 
+to enhanced pilot flow and intensified heat release in the outer nozzles. 
+Since thermal NO formation was highly sensitive to both temperature 
+and residence time for lean-premixed conditions, the increasing trend in 
+the two parameters explained the increase in NO emission. However, at 
+PSR11 %, a higher NO level than at PSR 13 % was observed, which is 
+distinct from the conventional trend. This result is concerned with the 
+unmixedness effects discussed in the preceding section, where PSR11 % 
+exhibits high unmixedness, leading to locally fuel-rich zones that pro­
+mote elevated NO production despite a relatively low temperature field. 
+As shown in Fig. 13, PSR11 % provides the highest unmixedness among 
+all the PSR cases, correlating with the increasing NO emission.
+To further examine the underlying mechanisms for NO formation, 
+the relative influence of unmixedness and residence time was evaluated 
+by using a regression-model approach. For relative comparison, all the 
+variables of Um, τR, and PSR were normalized into the range of 1–2 by 
+Eq. (11). The normalized NO emission can be correlated by the two 
+competing variables, i.e., unmixedness, Um, and residence time, τR, at 
+each PSR. First of all, both variables were expressed as a function of 
+normalized PSR in the forms of Eqs. (12) and (13), respectively. And 
+then, the normalized NO emission was expressed by Eq. (14) from best 
+fitting or correlation with normalized unmixedness and residence time. 
+x = x −xmin
+xmax −xmin
++ 1
+(11) 
+Um(PSR) = 2.52 × PSR
+2 −8.23 × PSR + 7.71
+(12) 
+τR(PSR) = 1.04 × PSR −0.07
+(13) 
+NO = C × Um(PSR)
+a × τR(PSR)
+b
+(14) 
+where the coefficient, C, and the exponents, a and b, are determined by 
+best fitting for calculated NO emission and they are 0.57, 0.99, and 1.43, 
+respectively. The NO emissions predicted by Eq. (14) agreed well with 
+those from numerical results and successfully captured the non- 
+monotonic behavior as a function of PSR as shown in Fig. 14 with a 
+high value of determination coefficient, R2, of 0.99.
+Fig. 13. NO emissions from experimental (blue dashed line) and numerical 
+(blue solid line) results and the maximum unmixedness from numerical simu­
+lations (red solid line) as a function of Pilot Split Ratio (PSR). (For interpreta­
+tion of the references to color in this figure legend, the reader is referred to the 
+Web version of this article.)
+Fig. 14. Relative contribution of normalized unmixedness (red dashed line) 
+and residence time (blue dashed line) to NO emission and normalized NO 
+emission (black solid line); upward and downward arrows indicate the ratios of 
+increment and decrement in NO emission, respectively, when PSR varies. (For 
+interpretation of the references to color in this figure legend, the reader is 
+referred to the Web version of this article.)
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+10 
+
+
+--- Page 11 ---
+
+In Fig. 14, the normalized contributions of unmixedness and resi­
+dence time to NO emission are illustrated, respectively, as PSR varies. 
+Residence time contributed consistently to increase in NO emission with 
+PSR and the ratios of increment were 1.55 between PSR11 % and PSR13 
+%, 1.40 between PSR13 % and PSR15 %, and 1.31 between PSR15 % 
+and PSR17 %, respectively. That is, the ratio or gradient decreased 
+gradually with PSR. On the other hand, unmixedness exhibits a non- 
+monotonic contribution to NO emission. It contributed to reduction in 
+NO emission from PSR11 % to PSR15 %. The ratios of decrement were 
+1.58 between PSR11 % and PSR13 % and 1.21 between PSR13 % and 
+PSR15 %, respectively. And then, it increased NO emission from PSR15 
+% and the ratio was 1.31 from PSR15 % to PSR17 %.
+This competing or combined effects of unmixedness and residence 
+time on NO emission implies the non-monotonic behavior of NO emis­
+sion as indicated by NO/C in Fig. 14 and a local minimum of NO 
+emission is found at a particular value of PSR. In the present numerical 
+simulations, the PSR was found to be 13 %. That is, when PSR increased 
+from 11 % to 13 %, the NO-reduction effect of unmixedness was 
+dominant over the enhanced effect of residence time on NO formation, 
+resulting in a slight decrease in NO emission at PSR13 % compared with 
+at PSR11 %. But, when PSR increased further beyond PSR13 %, the 
+latter effect was dominant while the former became weak, leading to a 
+moderate rise in NO emission at PSR15 %. Beyond PSR15 %, both 
+unmixedness and residence time contributed to enhanced NO formation, 
+resulting in abrupt increase in NO emission at PSR17 %.
+This dependence of NO emission on unmixedness at PSR11 % can be 
+explained as follows. For this condition, fluid dynamics characterized by 
+weak recirculation zones, shorter mixing paths, and incomplete shear- 
+layer development, may lead to fuel–air separation. Thus, fluid flow 
+may allow unmixed fuel pockets to stay locally for longer durations 
+within the reaction zone even if the overall residence time is short. And 
+then, it enhances local flame intensities and thereby, NO emission is 
+increased. This behavior is consistent with previous studies on NO for­
+mation in partially premixed jets for low-shear and low-swirl conditions 
+[16,32,33]. Accordingly, the present results confirm that unmixedness 
+and residence time are competing factors affecting NO emission signif­
+icantly in staged hydrogen-methane combustion with their relative in­
+fluence varying depending on PSR.
+As shown in Fig. 13, there is a little discrepancy in PSR, at which NO 
+emission reaches minimum, between numerical and experimental re­
+sults. That is, the simulated NO minimum occurs at PSR = 13 % (10.59 
+ppm), while it is observed experimentally at PSR = 15 % (7.26 ppm). 
+Nevertheless, this non-monotonic behavior of NO emission implies that 
+optimization of PSR is useful for NO reduction.
+4. Conclusions
+The effects of pilot fuel split ratio (PSR) on fuel–air mixing, flame 
+pattern, and NO emission have been investigated numerically in a staged 
+hydrogen-methane gas turbine combustor. Simulations were performed 
+for four PSRs between 11 % and 17 % with the H2 blending ratio of 50 % 
+and the results were validated by experimental data.
+The numerical results revealed that NO formation is governed by two 
+competing factors. One is thermal NO production driven by flame 
+temperature and residence time and the other is NO reduction induced 
+by fuel–air mixing. The latter is quantified by the parameter of fuel–air 
+unmixedness. As PSR increased, enhanced pilot flow led to higher flame 
+temperatures and longer residence times, resulting in more NO emis­
+sion. However, at the lowest PSR, NO emission didn’t decrease despite 
+lower temperatures and short residence time, because the abrupt in­
+crease in fuel–air unmixedness created locally rich zones, which inten­
+sified NO production.
+Flow-field analysis confirmed this behavior and it indicated weak 
+recirculation and incomplete fuel-air mixing for the condition. Tem­
+perature fields showed that temperature variation of flames formed by 
+the outer nozzles was more sensitive to PSR variation than that by the 
+center nozzle.
+Residence-time analysis clarified the dominant role of outer nozzle 
+flow paths in enhancing NO formation at higher PSRs. Residence time 
+increased linearly with PSR while unmixedness exhibited non- 
+monotonic dependence on PSR. The proposed equation for prediction 
+of NO emission, which was made by a regression models combining 
+unmixedness and residence time as two variables, successfully captured 
+the non-monotonic behavior of NO emission as a function of PSR. It 
+implies that NO emission could shift from mixing-controlled to 
+temperature-controlled regime depending on PSR. As a result, the lowest 
+NO emissions of 10.59 ppm and 7.26 ppm were observed at PSR of 13 % 
+in simulations and at PSR of 15 % in experiment, respectively.
+In conclusion, the present results confirm that flame temperature, 
+unmixedness, and residence time are critical factors affecting NO 
+emission in methane-hydrogen co-firing combustor. Pilot fuel staging 
+proves to be an effective strategy for mitigation of NO emission, and an 
+optimal combustor design should aim to balance between fuel–air 
+mixing quality and reactive-flow field characterized by flame tempera­
+ture and residence time. For this purpose, the PSR can be controlled in 
+designing a combustor of a hydrogen–enriched gas turbine, leading to 
+low NO emission. Further works for more realistic condition, e.g., high 
+pressure will be considered in future works.
+CRediT authorship contribution statement
+Vo Quang Sang: Data curation, Investigation, Methodology, Vali­
+dation, Writing – original draft. Yuangang Wang: Formal analysis, 
+Investigation, Methodology, Software, Validation. Jihwan Seong: Data 
+curation, Investigation. Jinwoo Son: Investigation, Validation. Minkuk 
+Kim: Conceptualization, Funding acquisition, Investigation, Methodol­
+ogy, Project administration, Resources, Validation. Jeongjae Hwang: 
+Conceptualization, Investigation, Project administration, Resources, 
+Validation. Chae Hoon Sohn: Conceptualization, Funding acquisition, 
+Project administration, Resources, Software, Supervision, Writing – re­
+view & editing.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgments
+This work was supported by Korea Institute of Energy Technology 
+Evaluation and Planning (KETEP) grant funded by the Korea govern­
+ment (MOTIE) (20206710100030, Development of Eco-friendly GT 
+Combustor for 300MWe-class High-efficiency Power Generation with 
+50 % Hydrogen Co-firing).
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi. 
+org/10.1016/j.joei.2025.102356.
+References
+[1] United Nations Framework Convention on Climate Change (UNFCCC), “The Paris 
+Agreement.”.
+[2] Stephen Turns, An Introduction to Combustion: Concepts and Applications, third 
+ed., McGraw-Hill, 2012.
+[3] C. Stone, S. Menon, Swirl control of combustion instabilities in a gas turbine 
+combustor, Proc. Combust. Inst. 29 (1) (Jan. 2002) 155–160, https://doi.org/ 
+10.1016/S1540-7489(02)80024-4.
+[4] R.M. Kumar, et al., Near blowout dynamics of a premixed, swirl stabilized flame, 
+Proc. Combust. Inst. 38 (4) (2021) 6067–6075, https://doi.org/10.1016/j. 
+proci.2020.06.147.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+11 
+
+
+--- Page 12 ---
+
+[5] L. Wu, N. Kobayashi, Z. Li, H. Huang, J. Li, Emission and heat transfer 
+characteristics of methane–hydrogen hybrid fuel laminar diffusion flame, Int. J. 
+Hydrogen Energy 40 (30) (Aug. 2015) 9579–9589, https://doi.org/10.1016/j. 
+ijhydene.2015.05.096.
+[6] D. Ebi, N.T. Clemens, Experimental investigation of upstream flame propagation 
+during boundary layer flashback of swirl flames, Combust. Flame 168 (Jun. 2016) 
+39–52, https://doi.org/10.1016/j.combustflame.2016.03.027.
+[7] A. Züttel, A. Remhof, A. Borgschulte, O. Friedrichs, Hydrogen: the future energy 
+carrier, Philos. Trans. R. Soc. A Math. Phys. Eng. Sci. 368 (1923) (Jul. 2010) 
+3329–3342, https://doi.org/10.1098/rsta.2010.0113.
+[8] M. Ditaranto, T. Heggset, D. Berstad, Concept of hydrogen fired gas turbine cycle 
+with exhaust gas recirculation: assessment of process performance, Energy 192 
+(Feb. 2020) 116646, https://doi.org/10.1016/j.energy.2019.116646.
+[9] Nurettin Tekin, Mitsugu Ashikaga, Atsushi Horikawa, Harald Funke, Enhancement 
+of Fuel Flexibility of Industrial Gas Turbines by Development of Innovative 
+Hydrogen Combustion Systems, 2018.
+[10] S. Serbin, K. Burunsuz, D. Chen, J. Kowalski, Investigation of the characteristics of 
+a low-emission gas turbine combustion chamber operating on a mixture of natural 
+gas and hydrogen, Pol. Marit. Res. 29 (2) (Jun. 2022) 64–76, https://doi.org/ 
+10.2478/pomr-2022-0018.
+[11] H.-Y. Shih, C.-R. Liu, A computational study on the combustion of hydrogen/ 
+methane blended fuels for a micro gas turbines, Int. J. Hydrogen Energy 39 (27) 
+(Sep. 2014) 15103–15115, https://doi.org/10.1016/j.ijhydene.2014.07.046.
+[12] T. Mikus, J.B. Heywood, R.E. Hicks, Nitric oxide formation in gas turbine engines: 
+a theoretical and experimental study, Washington, DC, https://ntrs.nasa.gov/citati 
+ons/19780013173, Apr. 1978. (Accessed 17 September 2025).
+[13] A.H. Lefebvre, D.R. Ballal, Gas Turbine Combustion Alternative Fuels and 
+Emissions, third ed., CRC Press, Boca Raton, 2010.
+[14] P. Glarborg, J.A. Miller, B. Ruscic, S.J. Klippenstein, Modeling nitrogen chemistry 
+in combustion, Prog. Energy Combust. Sci. 67 (Jul. 2018) 31–68, https://doi.org/ 
+10.1016/j.pecs.2018.01.002.
+[15] Y. Wang, C.H. Sohn, Effects of swirl premixed flame interaction on NOx emission in 
+a gas turbine combustor with multi-burners, J. Energy Inst. 109 (Aug. 2023) 
+101274, https://doi.org/10.1016/j.joei.2023.101274.
+[16] F. Biagioli, F. Güthe, Effect of pressure and fuel–air unmixedness on NOx emissions 
+from industrial gas turbine burners, Combust. Flame 151 (1–2) (Oct. 2007) 
+274–288, https://doi.org/10.1016/j.combustflame.2007.04.007.
+[17] D. Yang, et al., Investigation of the mixing characteristics of hydrogen and natural 
+gas in different static mixers, Int. J. Hydrogen Energy 72 (Jun. 2024) 166–178, 
+https://doi.org/10.1016/j.ijhydene.2024.05.330.
+[18] S. Wang, A.M. Elbaz, Z. Wang, W.L. Roberts, Effects of air-staging and heat losses 
+on NO emissions of NH3/CH4/air swirling flames, Proc. Combust. Inst. 40 (1–4) 
+(2024) 105724, https://doi.org/10.1016/j.proci.2024.105724.
+[19] C. Heath, Parametric modeling investigation of a radially-staged low-emission 
+aviation combustor, in: 54th AIAA Aerospace Sciences Meeting, American Institute 
+of Aeronautics and Astronautics, Reston, Virginia, Jan. 2016, https://doi.org/ 
+10.2514/6.2016-1394.
+[20] H. Xu, L. Pang, N. Zhao, H. Zheng, Z. Li, Impact of pilot fuel-staging ratio on 
+combustion and emission characteristics in a centrally-staged swirling combustor, 
+Therm. Sci. Eng. Prog. 61 (May 2025) 103547, https://doi.org/10.1016/j. 
+tsep.2025.103547.
+[21] S. Benaissa, B. Adouane, S.M. Ali, S.S. Rashwan, Z. Aouachria, Investigation on 
+combustion characteristics and emissions of biogas/hydrogen blends in gas turbine 
+combustors, Therm. Sci. Eng. Prog. 27 (Jan. 2022) 101178, https://doi.org/ 
+10.1016/j.tsep.2021.101178.
+[22] J. Jung, et al., Suppression of combustion oscillations in hydrogen-enriched can- 
+type combustors through fuel staging, J. Eng. Gas Turbines Power 147 (1) (Jan. 
+2025), https://doi.org/10.1115/1.4066239.
+[23] H.K. Versteeg, W. Malalasekera, Introduction to Computational Fluid Dynamics: 
+the Finite Volume Method, second ed., Pearson Education Limited, Harlow, 2007.
+[24] Inc. ANSYS, “ANSYS Fluent Theory Guide: Release 2023 R2,”, 2023.
+[25] F.R. Menter, Two-equation eddy-viscosity turbulence models for engineering 
+applications, AIAA J. 32 (8) (Aug. 1994) 1598–1605, https://doi.org/10.2514/ 
+3.12149.
+[26] P. Smith Gregory, et al., GRI-Mech 3.0, 1999.
+[27] Y. Wang, H.S. Han, C.H. Sohn, A comparative study of chemical-kinetic 
+mechanisms for combustion of methane/hydrogen/air mixtures, Int. J. Aero. Space 
+Sci. 25 (2) (Apr. 2024) 519–539, https://doi.org/10.1007/s42405-023-00671-8.
+[28] B. Magnussen, On the structure of turbulence and a generalized eddy dissipation 
+concept for chemical reaction in turbulent flow, in: 19th Aerospace Sciences 
+Meeting, American Institute of Aeronautics and Astronautics, Reston, Virigina, Jan. 
+1981, https://doi.org/10.2514/6.1981-42.
+[29] B. Magnussen, I. Gran, A numerical study of a bluff-Body stabilized diffusion flame. 
+Part 1. Influence of turbulence modeling and boundary conditions, Combust. Sci. 
+Technol. 119 (1–6) (Oct. 1996) 171–190, https://doi.org/10.1080/ 
+00102209608951998.
+[30] Arthur Henry Lefebvre, Gas Turbine Combustion, Second, CRC Press, 1998.
+[31] C.E. Baukal, P.B. Eleazer, Quantifying NOx for industrial combustion processes, 
+J. Air Waste Manage. Assoc. 48 (1) (Jan. 1998) 52–58, https://doi.org/10.1080/ 
+10473289.1998.10463664.
+[32] F. Guethe, et al., Flame imaging on the ALSTOM EV-burner: Thermo acoustic 
+pulsations and CFD-validation, in: 44th AIAA Aerospace Sciences Meeting and 
+Exhibit, American Institute of Aeronautics and Astronautics, Reston, Virigina, Jan. 
+2006, https://doi.org/10.2514/6.2006-437.
+[33] S. Park, Y. Kim, Numerical modeling for structure and NO x formation 
+characteristics of oxygen-enriched syngas turbulent non-premixed jet flames, Int. J. 
+Hydrogen Energy 42 (32) (Aug. 2017) 20809–20823, https://doi.org/10.1016/j. 
+ijhydene.2017.06.207.
+V.Q. Sang et al.                                                                                                                                                                                                                                 
+Journal of the Energy Institute 124 (2026) 102356 
+12 

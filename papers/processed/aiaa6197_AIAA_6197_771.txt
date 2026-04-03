@@ -1,0 +1,835 @@
+
+--- Page 1 ---
+
+JOURNAL OF PROPULSION AND POWER
+Vol. 19, No. 5, September–October 2003
+Challenges and Progress in Controlling Dynamics
+in Gas Turbine Combustors
+H. C. Mongia,¤ T. J. Held,† G. C. Hsiao,‡ and R. P. Pandalai§
+General Electric Aircraft Engines, Cincinnati, Ohio 45215
+Combustion dynamics impact the design of both conventional diffusion  ame gas turbine combustors and
+lean premixed combustion systems. The occurrence of dynamics in diffusion  ame combustors can generally be
+eliminated through changes to the fueling system or operating characteristics driven primarily through empirical
+design know-how. Lean premixed combustors, such as industrial aeroderivative dry low-emissions combustors,
+have more persistent dynamics problems that are only partially ameliorated with application of empirical tools
+and controls. With continuing emphasis on reducing emissions and cost and increasing performance of turbo-
+propulsion engine combustors, the design direction of  ight engines is approaching the lean premixed limit; thus,
+there is a need for improved tools and control strategies for combustion dynamics in these applications as well.
+The components of a combined analytical, experimental, and computational approach to understanding and
+controlling combustion dynamics are being developed. With successful implementation of such an analytical and
+control mechanism, further improvements in the emissions, stability, and durability characteristics of both  ight
+and industrial combustors will become possible.
+Introduction
+T
+HE appearance of combustion dynamics problems in aircraft
+propulsion and aeroderivative industrial engine combustors
+presents a great challenge for combustor designers. Dynamics are
+objectionablefor severalreasons.Under some conditions,the activ-
+ity within the combustor can generate an externally audible tone at
+intolerable levels during engine operation. The pressure oscillation
+can also drive resonant vibratory behavior in mechanical compo-
+nents, leading to signi cant hardware damage.
+A fundamental issue in designing gas turbine combustors is the
+late stage of the developmentprocess at which combustiondynam-
+ics phenomena become apparent. Many, if not most of the critical
+performance parameters of a combustor can be determinedanalyti-
+cally or through a combination of analysis and component testing.
+Although some indications of the susceptibility of a combustion
+system to high levels of dynamics can sometimes be inferred from
+componenttests, the behaviorof the full systemcannotbe predicted
+on the basis of either analysis or component testing. The severity
+and character of the problem is not determined until an engine test
+is conducted, at which point signi cant changes to component de-
+sign are very expensive and are likely to have major schedule and
+developmentcost impacts. Various acoustic control strategies,both
+passive and active, are then applied to deal with the unacceptable
+dynamics levels. However, the application of these strategies is a
+very empirical process with little assuranceof success.
+The conventional approach to this problem is based largely on
+empiricalcorrelationsand designexperience.Attempts are made to
+predict frequencies and amplitudes of combustion acoustic waves,
+suchthatnoneofthe subsystems(fuelnozzle,heatshield,combustor
+liners, etc.) of the total combustionsystem have naturalfrequencies
+that can couple with the combustion acoustic frequency. Although
+successhasbeenobtainedin predictedacousticmodeshapesandfre-
+quencies,the amplitude of the oscillation(s)is not easily predicted.
+Received 2 December 2001;revision received 28 May 2002;accepted for
+publication30 June2002.Copyright c° 2003bytheauthors.Publishedby the
+American Institute of Aeronautics and Astronautics, Inc., with permission.
+Copies of this paper may be made for personal or internal use, on condition
+that the copier pay the $10.00 per-copy fee to the Copyright Clearance
+Center, Inc., 222 Rosewood Drive, Danvers, MA 01923; include the code
+0748-4658/03 $10.00 in correspondence with the CCC.
+¤Manager, Advanced Combustion Engineering. Senior Member AIAA.
+†Manager, Industrial Aeroderivatives Combustor Design.
+‡Lead Engineer, Advanced Combustion Engineering.
+§Staff Engineer, Advanced Combustion Engineering.
+To reduce the level of risk posed by uncontrollable combustion
+acoustic behavior, detection and abatement of combustion acoustic
+susceptibilityis required in the early stages of a design. A compre-
+hensive strategy to predict, avoid, and/or improve the combustion
+acoustic performance of a combustion system includes both ana-
+lytical and experimental determination of system and component
+properties and interactions. The basic framework of such a strat-
+egy is shown in Fig. 1. Brie y, a semi-analytical model is used
+to link the acoustic characteristicsof the subcomponentparts of the
+combustionsystemandboundaries.The characteristicsofthesesub-
+components can be derived either from analytical models or from
+well-characterized empirical testing. A more detailed description
+will be given in a later section.
+The present work is intended to provide an overview of the com-
+bustion dynamics problems observed in aeroderivative industrial
+gas turbine engines and  ight propulsionengines.The fundamental
+issues driving combustion dynamics in practical gas turbine com-
+bustorsarereviewedas a meanstointerprettheobservedcombustion
+behavior.Several methods used in the laboratory and in production
+engines for controlling combustion dynamics are described, along
+with two examples of combustion dynamics control in production
+gas turbine engines. Finally, a framework for analysis and design
+of gas turbine combustors to mitigate the occurrence and impact of
+combustion dynamics is presented.
+Fundamental Causes of Combustion Dynamics
+The occurrenceof combustiondynamics is generallyunderstood
+as being dependent on a coupling between pressure oscillations
+and energy release rate, often referred to as the Rayleigh criterion.
+A pressure disturbance affects the local instantaneous heat release
+rate, which in turn creates a pressure disturbance with some time
+(or phase) lag to the initial disturbance.An acoustic cavity permits
+re ection of the pressure disturbance, thus, closing the feedback
+loop that causes excessive (and destructive) pressure oscillations.
+Two criticalparametersin determiningwhetherthe overallfeedback
+loop will be stable or unstableare the relativephase lag between the
+pressure and heat release oscillations and the amount of damping
+present.
+The  rst category of couplingmechanisms is the pressure distur-
+bance interaction with the instantaneous  ame position and shape.
+As the  ame surface responds to the pressure disturbance, its re-
+sponse can generate an acoustic wave of its own. These coupling
+mechanisms should be relatively insensitive to details in the fuel-
+ing system and are often identied with high-frequency (>1 kHz)
+822
+
+
+--- Page 2 ---
+
+MONGIA ET AL.
+823
+Fig. 1
+Framework for combustion dynamics modeling.
+acoustic activity. Lieuwen1 gives an excellent review on the mod-
+eling processes of premixed combustionacoustic wave interaction.
+Based on analytical and experimental observations, it appears that
+the combustion process is increasingly sensitive to perturbation in
+equivalenceratio Á, under lean operating conditions.
+The second category of coupling mechanisms is often termed
+fuel/air wave coupling. Within this category are several submech-
+anisms, which share a common interaction between a pressure os-
+cillation and the local fuel/air ratio of the combustor. The physical
+interaction can take place through effects upon local air ow rate,
+fuel  ow rate, or fuel spray characteristics.This type of interaction
+is often identi ed with midrange frequencies(100–1000 Hz).
+The thirdcategoryis incipientblowoutcoupling.Thismechanism
+is unusual in that it is an engine system-levelcoupling mechanism.
+An example is when a segment of a combustor locally reaches a
+low enough fuel/air ratio to extinguish. The energy reaching the
+turbine immediately reduces, causing the rotor speed to decrease.
+The air ow through the engine is reduced,causing the fuel/air ratio
+to increase and the blown-out segment to reignite. This is often
+detectedas a verylow-frequencymode (<30 Hz)and is not typically
+classi ed as a combustion acoustic phenomenon.
+Control Strategies
+Methodsforcontrollingcombustiondynamicsinpracticalgastur-
+binecombustorsfall intothreebasiccategories.Fundamentaldesign
+changes to the fuel/air mixing device have been shown to demon-
+strate signi cant impacts on combustion dynamics behavior.2;3
+These changes can in uence either or both the fuel  ow and air ow
+paths4 and are generallyderivedempiricallythoughcomponentand
+engine test.
+Control of combustion dynamics can often be achieved through
+manipulationof the operatingcharacteristicsof the combustor.This
+can take the form of adjustments in radial staging of fuel  ow
+(and thus  ame temperature) distribution,5 in axial fuel staging
+adjustments,6 or in asymmetric fuel distribution.7 Such fuel dis-
+tributionstrategiesgenerallydeterioratethe NOX emissions perfor-
+mance of the combustor because they shift the  ame temperatures
+away from the ideal uniform distribution.
+Finally, combustion dynamics can be affected by the use of both
+passive and active control devices. The passive controls are typ-
+ically Helmholtz resonators8 or quarter-wave tubes5 and serve to
+act as damping devices in the oscillating system. These devices
+have demonstrated successful suppression of acoustics in gas tur-
+bine combustors. A disadvantageof these devices is that they only
+operate over a limited frequency range, thus, requiring empirical
+selection of the number and con guration of the devices.
+Active controls also take multiple forms, the most common be-
+ing modulationof the fuel  ow with a frequencyand phase relation-
+shipdesignedto interactdestructivelywith the combustiondynamic
+oscillation. This modulation can take the form of the main fuel
+ ow,9;10 or a smaller secondary fuel injection site,11 possibly in-
+tended to act more directly on regions in which the Rayleigh index
+is largest (see Ref. 12). Whereas signi cant suppression of com-
+bustion dynamics has been demonstrated in several subscale labo-
+ratory combustors, several barriers to implementation in full-scale
+gas turbine combustors still exist. First, the geometry of an annular
+combustorisfarmore complexthanthatof a simplecan-typelabora-
+tory combustor.The control algorithms for controllingthe complex
+acoustic mode structures in an annular combustor still need to be
+developedand proven.Also, the reliabilityand durabilityof the sen-
+sors, actuators,and control systems need to be comparable to those
+of the gas turbine itself to avoid causing unscheduled maintenance
+events.
+Rich-Dome Combustion Dynamics Example
+Combustion instabilities encountered in rich-dome combustors
+are generally observed at frequencies between 150 and 700 Hz.
+Typical amplitudes of combustion dynamics range from 1 to 3 psi
+(7 to 20 kPa) peak-to-peakduringtransitionfrom startto idle and/or
+during transitionfrom idle to a higher power setting. Design guide-
+lines have been developed for designing new diffusion  ame com-
+bustor concepts to eliminate potential instability problems before
+they appear during development phase. These guidelines have not
+been completely successful in eliminating the problem entirely.
+Once encountered,instability problems generally can be mitigated
+by relatively simple modi cations as summarized in Table 1.
+The basic concept in these  xes is to change the interaction be-
+tween the fuel injectionsystem and the combustorto eliminatecou-
+pling between the two systems.
+Examples of two recent postcerti cation combustion instability
+problem encountered were on double annular combustors (DAC).
+In one case, the instability problem consisted of a low-frequency
+“growl” near ground idle conditionand higherfrequencyinstability
+atapproximately600–630Hz at higheroperatingconditions.Subse-
+quent analysisof test data from the enginesshowed two distinctfre-
+quencies associated with each of these instabilities.The  rst growl
+instabilityappearedat 200 Hz, followed by a second tone at 300 Hz
+near ground idle. Only the 200-Hz mode was audible outside the
+engine. A detailed evaluation of the growl instability and the
+potentialroot causes of the problem identi ed combustor–fuel sys-
+tem couplingas the most probablesource.Alteringthe fuelingstrat-
+egy during the engine start transient eliminated the objectionable
+tone.
+Two distinct frequency peaks (signals) were also observed from
+pressuretransducersmountedon the combustornear the  ame zone
+for the higherfrequencydynamics.The two primaryfrequenciesob-
+servedwere instabilityat580Hz and a secondtoneat approximately
+700 Hz. These acoustic modes were collectively called organ tone
+
+
+--- Page 3 ---
+
+824
+MONGIA ET AL.
+Table 1
+Control of combustion dynamics in conventional gas
+turbine combustors
+due to their close proximity in frequencies to the classical organ-
+tonefrequency.Thisinstabilityoccurredduringoperationinthehigh
+fuel  ow pilot only mode. Because analyticaldesign tools were not
+available in the mid-1990s when this problem was encountered,an
+iterative empirical approach was used to  x the instability prob-
+lem. Several candidateapproacheswere identi ed and screened for
+easy implementation to  x the instability, including alternate fuel-
+ing modes,Helmholtzresonators,fuelnozzletertiarycavity ll/seal,
+andsprayanglechanges.The fuelingmodeimpacton instabilitywas
+selected as the prime approach.This approach involved controlling
+certainmain burnerfuel nozzlesin variouscircumferentialpatterns.
+The rationale for this approach was to reduce the local pilot sto-
+ichiometry and to introduce circumferential nonuniformity in the
+main stage to reduce dynamics.
+Two separateenginetestswereconductedin1997todocumentthe
+enginecombustordynamicscharacteristics.The  rst groundengine
+testwasusedtoestablishorgannoisethresholdlimitsasa functionof
+combustorseverityparameterand for a range of core enginespeeds.
+Analysisof these data clearly showed the in uence of an increasing
+pilotfuel/air ratioparameteron organ-toneamplitude.Data fromthe
+ground engine tests replicated earlier engine testing results, where
+two pure tones, one at 600 Hz and a second tone at 680 Hz were
+againobservedwhen operatingin the pilotonly (20/0) fuelingmode
+above 2000-rpm engine fan speed. A second engine test on a  ight
+Fig. 2
+LM6000 DLE combustor.
+testbed was subsequently conducted to get additional data from an
+altitude engine environment. Data from the  ight testbed engine
+were also used to map organ noise envelope in 20/0 fueling mode.
+Extensivetestingof the fuelingmode changesidenti ed 20/22 as the
+optimalcon gurationfor the instabilityproblem.This fuelingmode
+incorporatestwo main stage fuel nozzles operatingadjacentto each
+other at two circumferentiallocations in a 20 pilot and 4 main fuel
+nozzles combination in the operating range where the instability
+was observed. Subsequent engine tests validated the fueling mode
+change as the most practical and effective way to eliminate the
+dynamics problem in DAC combustors.
+Dry Low-Emissions Combustion Dynamics Example
+The need to reduce emissions from land-based industrialgas tur-
+bines, for example, LM1600, LM2500, and LM6000, drove the de-
+velopment of the dry low-emissions(DLE) lean premixed combus-
+tion system.5;13;14 The combustion technology was systematically
+developed using empirical and analytical design processes and ex-
+tensive component testing, including single- and two-cup and full-
+scale annularcombustors.The rig tests were followedby  nal com-
+bustion system re nements on an enginetest in 1994. The LM2500
+and the LM1600 combustorswere developedin quick successionto
+the LM6000 utilizing the technology developed in the process.15
+A cross section of the LM6000 combustor is shown in Fig. 2.
+The combustor has three domes arranged radially to permit parallel
+staging of the three domes. The middle and the outer domes each
+consist of 30 premixers, whereas the inner dome has 15. This ar-
+rangement permits the use of standard premixer sizes in the three
+domes. The inner dome is at about half of the radius of the outer
+dome, and thus, circumferentialspacing can accommodate only 15
+standardpremixers.To increasethe air availablefor combustion,the
+combustor liners are convectively cooled using turbine cooling air.
+The 75 premixers are arranged on 15 two-cup and 15 three-cup
+assemblies.The two-cup assemblies do not have the innermostpre-
+mixer.Eachcupconsistsofa doubleannularcounter-rotatingswirler
+premixer, which has two axial counter-rotating coaxial swirlers
+mounted with a hub separating them followed by a mixing duct.5
+The middle and inner dome premixers are identical, whereas the
+outer premixers are somewhat larger, such that the dome reference
+velocities are each nearly identical.
+The fuel delivery system consists of individual fuel controls for
+each dome of the combustion system as described by Joshi et al.5
+(Fig. 3). Independent control of the fuel  ow to each of the three
+domes is used to operate within the combined constraints of emis-
+sions,combustionacoustics,anddemandedtotalfuel ow rate(shaft
+power). In addition,compressor air is bled from the engine at part-
+power operation to extend the range over which the  ame temper-
+atures can be maintained. As power is further reduced, radial and
+circumferentialstaging modes are also used to bring  ame temper-
+atures within their operating limits (Fig. 4).
+Combustion dynamics can create substantial limitation to the
+operationof a leanpremixedcombustor.Three designfeaturesof the
+
+
+--- Page 4 ---
+
+MONGIA ET AL.
+825
+Fig. 3
+Schematic of the fuel delivery system of the LM2500/6000 DLE
+combustion system.
+Fig. 4
+Schematicofthe fuelstagingstrategyforthe LM2500/6000DLE
+combustion system.
+Fig. 5
+LM6000 DLE premixer showing enhanced lean blow out
+(ELBO) fuel injection for controlling dynamics.
+systemare usedto expandthe rangeoverwhich dynamicsare within
+acceptable limits. First, a small fraction of the fuel is injected into
+the combustor from holes in the walls of the mixing duct (Fig. 5).
+This method of fuel injectionhas been shown in severalinstancesto
+provide improved combustion dynamics performance in premixed
+combustion devices.
+Second, a set of quarter-wavetubes is providedon the premixers,
+outside the engine to absorb combustion generated noise. These
+damper tubes, of three different lengths, are installed on the fuel
+nozzles on the engine as shown in Fig. 2. Each damper tube length
+is designed for critical operating band dynamic frequencies. The
+damper tubes open into the diffuser cavity and communicate with
+the combustor through the premixers.
+Finally, the combustor dome  ame temperatures are empirically
+scheduled to achieve low emissions and stable operation of the gas
+turbine engine over its entire operating range. The stable values
+of dome  ame temperaturesare affected by fuel property variation,
+ambientconditions,and loadchanges;thusunstableoperationof the
+combustorcan developfrom changesin these parameters.Combus-
+tion dynamic pressures are measured continuously and monitored
+by the acoustics and blowout avoidance logic (ABAL) within the
+control system. If the monitored dynamic pressures exceed factory
+set limits for more than a set period, the control system takes ac-
+tion to alter  ame temperatures based on algorithms developed in
+factorytestingof the enginesto reducedynamicpressuresto accept-
+able levels. If the control system is unable to effect a reduction in
+dynamic pressures,then it commands the gas turbine to step to idle
+as a precautionarymeasure.The ABAL logic within the controlsys-
+tem can also detect incipientlean blowouts by comparingmeasured
+and calculated fuel  ows for the operating conditions based on a
+cycle model calibrated for each engine. The ABAL control system
+increases the  ame temperature in the appropriate dome when an
+incipientlean blowout is detected.
+In summary, premixed low-emissions combustors have been de-
+signedand operatedin the  eld for nearlya decadewith combustion
+dynamicsasa controlledbutpersistentissue.Furtherdevelopmentof
+DLE combustion systems is limited by the risk of introducingnew
+combustion dynamic behavior as a result of any design changes.
+As emissions regulations become more stringent, the evolution of
+ ight engine combustorswill likely follow the path set by the DLE
+combustor toward increasing levels of premixing and lower  ame
+temperatures.16 Thus, there is a strong need to drive the design pro-
+cess toward a more predictive capability of identi cation and miti-
+gation of combustion dynamics phenomena in such combustors.
+Combustion Acoustic Modeling
+A framework for eventually developing this predictive capabil-
+ity is shown in Fig. 1. The basic philosophy behind this approach
+is the combination of analytical modeling with experimentally de-
+termined boundary and submodel behavior. The fundamentals of
+acoustic wave propagation are well known; thus, determination of
+availableacousticmodesis straightforwardonce a temperature eld
+is established through the use of either empirical means or by com-
+putational  uid dynamics (CFD). The remainder of the modeling
+problem consists of determining boundary conditions and de ning
+the submodel behavior. In particular, the accurate modeling of the
+interactionof the combustionprocesswith pressurewaves is critical
+to the success of the overall approach.
+Time-Lag Combustion Acoustic Model
+The modeling of combustion acoustics in practical combustion
+devices is quite complex and, in general, simplifying approxima-
+tionsare necessaryto yieldcomputationallytractablesolutions.One
+commonly employed approximation is the use of a single convec-
+tive delay time to characterize the time-of- ight of individual fuel
+parcels from the point of injection to the  ame front. The primary
+underlying assumptionhere is that the turbulent ame brush can be
+modeled as a steadycontiguousthin reactionzone anchoredat  xed
+locations within the combustion chamber. In reality, the location
+of the reaction sheet varies in an unsteady manner due in part to
+instabilitiesin fuel  ow and air ow rates.
+Even when such  uctuations are ignored, the single convective
+delay time approximationassumes that the  ame sheet is positioned
+insucha mannerthatthetime-of- ightforeachfuelparcelisequiva-
+lent.The local ow velocityand turbulent ame speeddeterminethe
+location of the  ame sheet. Given the complexities of the  ow eld
+aft of swirler-stabilized premixers, there can be little expectation
+that convective times of individual fuel parcels originating within
+the same premixer will be con ned to a narrow range. In addition,
+variation between premixers, whether by design or chance, can re-
+sult in further disparity in convective times.
+Asteady-stateCFD simulation17 ofa 24deg sectorofthe LM6000
+DLE combustor provides an illustrative example of the variationin
+convectivetimescales.Plots of axial  ow velocity,temperature,and
+reaction progress variable are shown in Fig. 6 for a typical high-
+power operating point. In each annulus, corner recirculation zones
+anchor the  ame front. The extent of vortex breakdown and sub-
+sequent recirculation zone aft of the premixer strongly depends on
+the premixer swirl number and expansion ratio. The lower swirl
+number in the outer premixersresultsin a  ame surfacethat is elon-
+gated relativeto those found in the middle and inner premixers.The
+swirl numbers of the latter two premixers are equivalent; however,
+
+
+--- Page 5 ---
+
+826
+MONGIA ET AL.
+a)
+b)
+c)
+Fig. 6
+Steady CFD simulation of LM6000 DLE combustor, on the
+plane that intersects the three-cup premixer: a) axial velocity, b) tem-
+perature, and c) reaction progress variable.
+the inner premixer expansion ratio is much larger due to increased
+premixer spacing.
+To determine computationally the location of the  ame front, a
+thresholdvalue of unity is chosen for the reaction progress variable
+G.x; t/. This choice de nes the  ame surface as the locus of points
+where the local mixture is in the burned state 50% of the time. The
+resultingdistributionofcalculatedconvectivetimescalesisprovided
+in Fig. 7. Fuel/air mixing is not modeled; instead, experimentally
+derived pro les of velocity and mixture fraction are used as inlet
+boundaryconditions.As such, the convectivedelay times represent
+only the time-of- ight from the premixer exit planes to the  ame
+sheet. The time-of- ight from the injection points to the premixer
+exits can be determined using through-the-vaneCFD simulations,
+but, for the purposes of this example, convective times within the
+combustor are suf cient to illustrate the complicationsof choosing
+a single timescale.
+As seen in Fig. 7, convectivetimes between the premixerexit and
+the  ame front range from 0.1 to over 0.7 ms. The median, mass-
+weighted mean, and standard deviationare 0.40, 0.46, and 0.18 ms,
+Fig. 7
+Distribution of convective times from the premixer exit plane
+to the  ame front and log-normal distribution.
+respectively. For comparison proposes, the average residence time
+of the fuel/air mixture in the premixer is approximately 0.45 ms.
+Statistical differences between individual premixers are signi cant
+asmediantimesfor individualpremixersrangefrom0.25to0.47ms.
+The overall distribution is not well  t using either normal or log-
+normal distributions; log-normal distribution is shown in Fig. 7.
+These time lags can also be expressedas phase lagsin the frequency
+domain. At a frequency of 500 Hz, the convectivetime delay range
+of 0.1–0.7 ms is equivalent to 18–126 deg phase lag, which covers
+both positive and negative Rayleigh index values. To account for
+the multiple convective timescales associated with the mixer, the
+single time-lag modeling approach is oversimplistic and may need
+to be expanded on to reproduce observed behavior. An approach
+for deriving complex premixer transfer functions from steady-state
+CFD simulations has recently been proposed.18
+Semi-empirical Combustion Acoustic Model
+Rather than utilize a fully analytical description of the
+combustion/acoustic interaction process, judicious use of subcom-
+ponent data may provide a means for overcoming the modeling
+issues. By themselves, component tests, (for instance, single-cup
+tests of an individual fuel injector/swirler combination),cannot re-
+produce full engine behavior for at least three reasons. First, a full-
+scale annularcombustorhas severaldifferentnaturalacousticmode
+shapes (and, thus, resonant frequencies) that can have signi cant
+radial and circumferential components. A single-cup test can only
+support a  rst- or second-order mode, providing only one or two
+resonant frequencies with which the fuel nozzle/swirler combina-
+tion can interact. Second, the fuel system can potentially also play
+a role in affecting the phase relationshipbetween a pressure distur-
+bance and the resultingequivalenceratio  uctuationthat reinforces
+the pressure wave. Third, the acoustic in ow and out ow boundary
+conditions are generally not well represented by a single-cup test.
+The choked out ow boundary of a turbine nozzle can be simulated
+with a restrictedtest combustor exit, but the in ow boundaryof the
+ nal compressor stages is more dif cult to simulate.
+Many of these objections can be overcome by application of a
+computationalmodel that encompasses the entire combustion sys-
+tem, including appropriate modeling of in ow and out ow bound-
+aries, fuel system dynamics, aerodynamic pressure/equivalencera-
+tio interactions,  ame dynamics, and acoustic wave propagation.
+Unfortunately,notonlyisa fullmodelofthedynamicsystembeyond
+currentcomputationalcapabilities,manyofthe physicalphenomena
+are insuf ciently understood to permit  rst-principlesmodeling. In
+particular,the interactionof acousticwaveswith the amefront,fuel
+ ow rate,and air ow rate is complexand not wellunderstood.Thus,
+the combustion/acoustic phenomena are represented by a transfer
+function, whose parameters are unknown, but are expected to be a
+function of the design details of the fuel and air injection and mix-
+ing devices.To circumventthe modelingdif culty, an experimental
+means of determining these interactions has been developed in a
+
+
+--- Page 6 ---
+
+MONGIA ET AL.
+827
+Fig. 8
+TCA rig conceptual view.
+relatively small-scale component test. The data obtained from this
+test can then be used to determine the input parameters for the full
+combustorsimulation.The test facilityis calledthe tunablecombus-
+tor acoustic (TCA) test rig (Fig. 8) and has been applied to several
+GeneralElectricAircraftEnginesindustrialaeroderivativecombus-
+tor components. The philosophybehind the experimental design is
+toprovidea singlefuelnozzle/swirlerassemblyan acousticchamber
+that has well-characterized boundary conditions and a continuous
+rangeofnaturalfrequenciesthatcoversthe resonantmodestypically
+found in full annular gas turbine combustors.
+The TCA consists of an upstream chamber, a single-cup fuel
+nozzle/swirler assembly, and a downstream combustion chamber.
+Both chambers are continuously tunable using a perforated piston
+and actuators.Air is preheatedto typicalcompressordischargetem-
+peratures and passes through the upstream piston, the swirler, and
+downstreampiston.Cooling water is introducedonly nearthe back-
+pressure valve, beyond where it should have an effect on the com-
+bustion acoustics process. The acoustic response of the system is
+characterizedby severaldynamicpressuretransducerslocateddown
+the length of the chambers on both sides of the pistons, as well as
+within the fuel system feed tubes. Dynamic pressure data are col-
+lected while the combustor length is varied continuously to give a
+ rst axial acoustic mode that covers a natural frequencyrange con-
+sistent with engine experience. The piston is moved in both direc-
+tions,thus,givingan indicationof hysteresisof the systemresponse.
+For relatively small acoustic levels, no hysteresis is detectable. At
+higher levels of response,some amount of mode locking is evident.
+However, these levels are beyond those sustainable in an engine
+without damage and are, thus, of little practical interest.
+Althoughsimpleinconcept,severalissuesmaketheinterpretation
+of test results less simple than one might wish. Because of overall
+pressuredroplimitationsas wellas mechanicaldurabilityissues,the
+ ow through the pistons is not choked. However, by measuring dy-
+namic pressureson bothsidesofthe pistons,the compleximpedance
+of the pistons can be determined analytically.The geometry of the
+combustionchamber is quite simple, only supportingaxial acoustic
+modes of well-de ned frequencies.Although this is desirable from
+an analyticalperspective,the measured and calculatedmode shapes
+in an annular combustor often contain a signi cant circumferential
+component.Providedthattheprimaryacousticcouplingmechanism
+is through pressure-wave-induced uctuations in equivalenceratio,
+lackof circumferentialmodesdevelopedin the test rig will be unim-
+portant. The typical length scale of a pressure wave is on the order
+of 1 m, whereas the length scale of the swirler is typically 0.1 m.
+From the perspective of the pressure  uctuation, the mode shape
+will not signi cantly alter the response of the fuel nozzle/swirler.
+However,  ame dynamic response will also depend on the velocity
+ uctuation,which is sensitive to orientationand, thus, mode shape.
+This limitation cannot be easily overcome through this type of test
+and would require a very different approach.
+A typicalresult from TCA test rig is shown in Fig. 9. The vertical
+axis is clock time, during which the downstream piston is moved
+from its maximum- to minimum-lengthpositionand then back to its
+original position.The piston velocity is constant, and thus, the axis
+can alsobe interpretedas effectivecombustorlength.The horizontal
+axis is acoustic frequency,and the shadedscale indicatesamplitude
+at the corresponding frequency. An envelope of the maximum re-
+sponse is shown in Fig. 9b. As is evident, the system response is
+strongly dependent on the combined natural resonant frequency of
+the combustionchamber and the responseof the fuel nozzle/swirler.
+Because of the relative simplicity of the physical experiment,com-
+putational modeling of the test vehicle can be accomplished with
+con dence. The combustor/acoustic interaction is still treated as a
+transferfunction;inthiscase,theexperimentaldataareusedtodeter-
+mine the parameters of the transfer function.Under the assumption
+a)
+b)
+Fig. 9
+Typical results from tunable combustion acoustics rig.
+of mode-shape/combustorresponseindependencedescribedearlier,
+this transferfunctionis expectedto be applicableto the full-annular
+model of the combustor as well.
+A signi cant advantage of this approach is that it permits eval-
+uation of the impact of swirler and fuel nozzle design variables
+on combustion acoustics,without the expense and delay associated
+with construction of a full engine set of hardware and test. It also
+avoids the circumstance under which a design change only moves
+the maximum-response frequency of the fuel nozzle to a nonreso-
+nantmode of a  xed-geometrysingle-cuptest rig. As statedearlier,a
+large-scaleannular combustor has numerous mode shapes covering
+a wide rangeoffrequenciesavailableto it,whereasa  xed-geometry
+single-cup rig generally has only one or two natural acoustic fre-
+quencies. The design strategy described is still being validated and
+has not yet been demonstrated to completion. Given the risk to
+combustor and engine developmentschedulesrepresentedby com-
+bustion acoustics,the value of such a strategy is clear.
+Large-eddy Simulation Modeling
+Detailed CFD modeling of the combustion process also holds
+promise in the determinationof combustion/pressure wave interac-
+tions.Signi cantprogresshas been made in time-dependentmodel-
+ing of the combustionprocess through large eddy simulation (LES)
+for modeling combustion-generated  ow instability.19;20 As a re-
+searchtool, much can be made of the fundamentalinsightsobtained
+through these calculations. Signi cant challenges still exist in the
+use of these calculationsas design tools.
+First, most of the calculations performed are initiated at the dis-
+charge of the swirler vanes. Thus, interactionsof the pressure wave
+with the incoming air ow have to be modeled separately. Second,
+the interaction of the pressure wave with the fuel  ow rate (partic-
+ularly for a gas-fueled device where the pressure drop is relatively
+low) also have to be modeled. Finally, the computationalcomplex-
+ity of the model currently limits its application to relatively simple
+geometries, such as a single cup. Despite these dif culties, early
+results with these models are encouragingand will likely see appli-
+cation as submodelswithin a system-levelacoustic model as shown
+in Fig. 1.
+Acoustic Modeling Results
+Preliminary results of combustion acoustic modeling of the
+LM6000 DLE combustor provide some level of con dence in
+the strategy described. In high-power operation, two discrete
+
+
+--- Page 7 ---
+
+828
+MONGIA ET AL.
+Fig. 10
+Comparison of measured and predicted combustion acoustic
+response from LM6000 DLE.
+frequenciesat450and600–650Hz aretypicallyobserved.Figure 10
+showsthe comparisonbetween measuredand predicteddynamicre-
+sponse, using the single time-lag approach.21 Two lines are shown
+for the measured spectra, where the thin line indicates the direct
+analyzer output and the bold line is frequency averaged to further
+smooth the plot. The predicted response is obtained by taking the
+maximum values of the individual response from each dome and
+normalizingwith a referencevalue (peak value) from the measured
+spectrumplot. Characteristicconvectivetimes associatedwith each
+combustor dome are estimated based on the  ame location pro-
+vided by the CFD analysis. Within the frequency range of interest,
+the model predicts two dominant frequencies, one at 500 Hz and
+the other at 600 Hz. These frequenciesare reasonablyclose to those
+observed from engine tests at the speci ed operating condition. It
+is also seen from Fig. 10 that the 500-Hz mode is more active com-
+pared to the 600-Hz dynamics. The predictedresonantfrequencyof
+the 500-Hz mode is approximately50 Hz higher than that observed
+from engine test. This deviation may be attributed to two possi-
+ble sources of error that are inherently present in the computation.
+First, the accuracy of the predicted  ame temperature is a critical
+factorbecauseof its in uenceon speedof soundand,therefore,con-
+tributes to errors in frequency prediction. Second, the uncertainty
+in estimating the location of the  ame front (which is a critical in-
+put to estimate the characteristic convection time distribution) by
+examining the steady-state heat release contours could be a factor
+contributing to the discrepancy in frequency calculation. The un-
+certainty in calculating transport time distribution associated with
+the unsteady heat release will induce different phase lag into the
+model and, thus, predicts a differentresonancefrequency.Based on
+the current analysis, the dynamic pressures responsein the vicinity
+of 500 Hz is mainly contributed by the plane waves from the mid-
+dle and inner domes. On the other hand, the source of the 600-Hz
+acoustic mode appears to be the  rst-order circumferential mode
+arising in the outer ring.
+The acoustic analyses of the baseline and uniform temperature
+distribution case were conducted to investigate the effect of radial
+temperaturenonuniformityon combustioninstability.Themeasured
+and predicted responses are shown in Figs. 11a and 11b, respec-
+tively,for baselineoperation,and in Figs. 11c and 11d, respectively,
+for an operating condition with uniform temperature in all three
+domes. The measured spectra shown in Figs. 11 were based on dy-
+namic pressure measurements from pressure sensors installed just
+downstreamof the  ame front in the DLE combustor.The predicted
+responseisobtainedby takingthe maximumvaluesof the individual
+responsesfromeachof the threerings.Two distinctfrequencypeaks
+near 400 and 600 Hz were found from the analysis,similar to those
+observedfromenginetests.It is also seen from Figs. 11 thatthe 400-
+Hz mode is more active compared to the 600-Hz dynamics for both
+operating conditions. In addition, the measured amplitudes of the
+two acoustic modes at the baseline condition showed relativelylow
+levels. The predicted stability indices for these two peaks were less
+than 1 and are both categorizedas acousticallyinactive. In contrast,
+an acousticallyactivemode near 400Hz with a stabilityindexof 3 is
+found for the operating condition with uniform  ame temperatures
+in all three rings. This predictedtrend agreeswell with test data and
+further demonstrates the capability of the current model to distin-
+guishbetweenacousticallyactiveand inactiveregimesof operation.
+a) Measurement for baseline
+b) Prediction for baseline
+c) Measurement for uniform temperature distribution
+d) Prediction for uniform temperature distribution
+Fig. 11
+Effect of radial temperature nonuniformity on combustion
+dynamics.
+Fig. 12
+Schematic of acoustic damper tube in combustor.
+The methodology required to incorporate passive damping de-
+vices was a prime requirement in this modeling activity.22;23 As
+mentionedin Sec. III, a set of 22 dampertubes is providedupstream
+ofthe premixers,outsidethe engineto absorbcombustion-generated
+noise. Because the mean  ow Mach number in the air column of
+these devices is very small (typically less than 0.05) and the di-
+ameter of these quarter-wave tubes is much smaller than the wave
+length of the resonant frequency of oscillation, the dynamic pres-
+sure and mass  ow within the damper tubes can be represented by
+a one-dimensionalanalysis.
+These devices are quarter-wave resonators installed in the cold
+section of the combustorjust upstreamof the premixers.The instal-
+lation schematic of the damper tubes used in the formulationof this
+analysis is shown in Fig. 12. These devices act to detune the com-
+bustor by providing nite number of discontinuitiesat the locations
+
+
+--- Page 8 ---
+
+MONGIA ET AL.
+829
+Fig. 13
+Predicted impact of damper tubes on combustor acoustic
+response.
+where they are installed.The incident and re ected acoustic waves
+in the diffuser cavity are signi cantly altered to the extent that cer-
+tain discrete oscillationsare attenuated and, therefore, become less
+destructive to the combustor. The inclusion of acoustic damping
+devices into the current analysis is accomplished by treating each
+quarter-wavetubeasamonopoleacousticsourcecharacterizedbyan
+acoustic impedance.The effect of damper tubes (tuned for 510 Hz)
+on combustion dynamics in the pilot (middle) ring is qualitatively
+showninFig.13.Asevenfolddecreaseinstabilityindexatthetuning
+frequency of the damper tubes is predicted based on this analysis.
+Althoughanalyticaltechniqueshaveimprovedmarkedlyover the
+pastfewyears,thedif cultyinrepresentingthecombustion/pressure
+wave interaction will likely remain a barrier to full predictive capa-
+bility. Thus, it is likely that a combined approach, including both
+experimental and high- delity unsteady CFD modeling, will be
+required to develop models of the full annular combustor response
+that will have utility in de ning design direction.
+Summary
+Combustion instability in conventional diffusion  ame gas tur-
+bine combustors, if encountered, can be generally eliminated with
+simple modi cationsto the designor operatingparameters.The de-
+sign guidelines based on empirical know-how are generally good
+enough to avoid unforeseen occurrence of dynamics during the en-
+gine certi cation phase. If encountered, simple analysis coupled
+with empirical guidelines and systematic testing and development
+process are used to  nd engineering solutions without adversely
+impacting the key combustion system design requirements.
+On the other hand, controlling combustion dynamics in indus-
+trial DLE combustion systems has been a challenging tradeoff for
+designers. The combustion process is pushed close to the limits of
+lean ame stabilityand/or heat releaserates,which leadsto strongly
+coupled nonlinear interactionbetween the  ame exothermicityand
+the acoustic behavior of the system and components.The approach
+for controllingdynamics in the LM engines (bleed air, fuel staging,
+dome ame temperaturesdifferences,ELBO, acousticdampertubes
+and ABAL controllogic) has worked very well. However, to further
+improve on the design of lean premixed combustors, we need to
+make signi cant advances in this area.
+More recent directionsin propulsionengine technologyare driv-
+ing designs that have more in common with the lean premixed DLE
+combustors than with the rich-dome combustors of the past. As
+these designs progress toward maturity, there is a likelihood that
+combustiondynamics will be a limiting factor in the attainableper-
+formanceofthesecombustors.Thus,improvedpredictivecapability,
+fundamental understanding, and control technologies for combus-
+tion dynamics need to be developed. The current state of the art
+is represented by a combined systems approach in which empir-
+ically derived submodels are linked with a physics-based system
+model. In the future, we anticipate an increased role in developing
+LES capabilities as a tool to develop these submodels, rather than
+relying upon component test or engine data. In the longer term,
+more direct linkage of the physical coupling mechanisms between
+the components of the combustion system (fuel system, fuel injec-
+tor, combustor cavity, and combustion/pressure wave interactions)
+will make it possible to describe,predict, and controlaccuratelythe
+physical phenomena associated with combustion dynamics.
+References
+1Lieuwen, T., “Modeling Premixed Combustion–Acoustic Wave Interac-
+tions: A Review,” Journal of Propulsion and Power, Vol. 19, No. 5, 2003,
+pp. 765–781.
+2Steele, R. C., Cowell, L. H., Cannon, S. M., and Smith, C. E., “Passive
+ControlofCombustionInstabilityin Lean Premixed Combustors,”American
+Society of Mechanical Engineers, ASME Paper 99-GT-52, June 1999.
+3Straub, D. L., and Richards, G. A., “Effect of Axial Swirl Vane Location
+on Combustion Dynamics,” American Society of Mechanical Engineers,
+ASME Paper 99-GT-109, June 1999.
+4Paschereit, C. O., and Gutmark, E., “Passive Combustion Control for
+Enhanced Stability and Reduced Emissions in a Swirl-Stabilized Burner,”
+AIAA Paper 2003-1011,Jan. 2003.
+5Joshi, N., Epstein, M., Durlak, S., Marakovits, S., and Sabla, P., “De-
+velopment of a Fuel Air Premixer for Aero-Derivative Dry Low Emissions
+Combustors,” American Society of Mechanical Engineers, ASME Paper
+94-GT-253, June 1994.
+6Scarinci, T., and Halpin, J. L., “Industrial Trent Combustor—
+Combustion Noise Characteristics,” American Society of Mechanical
+Engineers, ASME Paper 99-GT-9, June 1999.
+7James, D., “A Solution for Noise Associated with a Series Staged DLE
+Combustion System,” 4th International Pipeline Conf., Paper IPC2002-
+27342, Sept.–Oct. 2002.
+8Schlein, B. C., Anderson, D. A., Beukenberg, M., Mohr, K. D., Leiner,
+H. L., and Tr¨aptau, W., “Development History and Field Experiences of the
+First FT8 Gas Turbine with Dry Low NOX Combustion System,” American
+Society of Mechanical Engineers, ASME Paper 99-GT-241, June 1999.
+9Johnson, C. E., Neumeier, Y., Lubarsky, E., Lee, J. Y., Neumaier, M.,
+and Zinn, B. T., “Suppression of Combustion Instabilities in a Liquid Fuel
+Combustor Using a Fast Adaptive Control Algorithm,” AIAA Paper 2000-
+0476, Jan. 2000.
+10Paschereit, C. O., Gutmark, E., and Weisenstein, W., “Structure and
+Control of Thermoacoustic Instabilities in a Gas-Turbine Combustor,”
+Combustion Science and Technology, Vol. 138, 1998, pp. 213–232.
+11Magill, J., Bachmann, M., and McManus, K., “Combustion Dynamics
+and Control in Liquid-FueledDirect Injection Systems,” AIAA Paper 2000-
+1022, Jan. 2000.
+12Jones, C. M., Lee, J. G., and Santavicca, D. A., “Closed-Loop Active
+Control of Combustion Instabilities Using Subharmonic Secondary Fuel
+Injection,” Journal of Propulsion and Power, Vol. 15, No. 2, 1999, pp. 1–7.
+13Leonard, G., and Stegmaier, J., “Development of an Aero-Derivative
+Gas Turbine Dry Low Emissions Combustion System,” American Society
+of Mechanical Engineers, ASME Paper 93-GT-288, May 1993.
+14Joshi, N. D., Mongia,H. C., Leonard, G., Stegmaier, J. W., and Vickers,
+E. C., “Dry Low Emissions Combustor Development,” American Society of
+Mechanical Engineers, ASME Paper 98-GT-310, June 1998.
+15Patt, R., “Development and Operating Experience of DLE Combus-
+tion Systems,” 12th Symposiumon Industrial Applications of Gas Turbines,
+Paper 97-IAGT-501, Oct. 1997.
+16Mongia, H. C., “TAPS—A 4th Generation Low Emissions Propulsion
+Engine Combustion System,” AIAA Paper 2003-2657,July 2003.
+17Held, T. J., Mueller, M. A., Li, S.-C., and Mongia, H. C., “A Data-
+Driven Model for NOX, CO and UHC Emissions for a Dry Low Emissions
+Gas Turbine Combustor,” AIAA Paper 2001-3425,July 2001.
+18Flohr, P., Paschereit, C. O., and Belluci, V., “Steady CFD Analysis for
+Gas TurbineBurner Transfer Functions,” AIAA Paper2003-1346,Jan. 2003.
+19Huang,Y.,Hsieh,S.-Y.,andYang,V.,“Numerical ModelingofCombus-
+tion Dynamics of a Lean-Premixed Swirl-Stabilized Injector,” AIAA Paper
+2002-1009,Jan. 2002.
+20Stone, C., and Menon, S., “Adaptive Swirl Control of Combustion Dy-
+namics in Gas Turbine Combustors,” Proceedings of the Twenty-Ninth Sym-
+posium (International) on Combustion, Combustion Inst., Pittsburgh, PA,
+2002, pp. 155–160.
+21Hsiao, G. C., Pandalai, R. P., Hura, H. S., and Mongia,H. C., “Combus-
+tion Dynamic Modeling for Gas Turbine Engines,” AIAA Paper 98-3380,
+July 1998.
+22Hsiao, G. C., Pandalai, R. P., Hura, H. S., and Mongia,H. C., “Investiga-
+tion of Combustion Dynamics in Dry Low Emission Gas Turbine Engines,”
+AIAA Paper 98-3381,July 1998.
+23Pandalai, R. P., and Mongia, H. C., “Combustion Instability Character-
+istics of Industrial Engine Dry Low Emission Combustion System,” AIAA
+Paper 98-3379, July 1998.

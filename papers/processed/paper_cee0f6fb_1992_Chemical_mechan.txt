@@ -1,0 +1,1162 @@
+
+--- Page 1 ---
+
+Twenty-Fourth Symposium (International) on Combustion/The Combustion Institute, 1992/pp. 879-887 
+CHEMICAL 
+MECHANISMS 
+OF NOx FORMATION 
+FOR GAS TURBINE CONDITIONS 
+MELISSA G. MICHAUD AND PHILLIP R. WESTMORELAND 
+Department of Chemical Engineering, University of Massachusetts, Amherst MA 01003 USA 
+AND 
+ALAN S. FEITELBERG 
+General Electric Company, Corporate Research and Development, Schenectady NY 12301 USA 
+Crucial reactions for NOt and CO were identified, expressions for their kinetics were im- 
+proved using theoretical predictions, and the improved mechanism was exploited by probing 
+a data set from high-pressure turbulent combustion with a two-reactor model. Reaction-path 
+analysis and linear sensitivity analysis were combined to identify the reactions that were most 
+important in determining NOx and CO concentrations in lean (q~ = 0.6), premixed, laminar 
+methane/air flames ranging in pressure from 1 to 40 atm. These reactions were then analyzed 
+using Quantum-RRK techniques and literature data. Revised rate constants and additional 
+reactions were proposed. Analysis revealed that thermal or Zeldovich formation of NO from 
+N2 + O apparently proceeds via the electronically excited O(~D) state, not by direct reaction 
+with ground-state O(3P). 
+The chemical mechanism was used to model NOx measurements taken from the burned- 
+gas zone of lean, premixed, turbulent, 5 to 10 atm methane and ethane flames stabilized on 
+a perforated plate. The flow field of the turbulent flames was modeled as a perfectly stirred 
+reactor (PSR) and a plug flow reactor (PFR) in series so that the complex chemistry could 
+be included. Agreement between the model and the data was good, indicating that the PSR/ 
+PFR approximation is valid for predicting NOr from lean, premixed flames. The nitrous oxide 
+(N20) pathway was shown to be the dominant route to NOx formation at lower temperatures 
+(more fuel-lean), with thermal NOx becoming more important at higher temperatures (closer 
+to stoichiometric). The contribution of prompt NOx to the total NOx formed was found to be 
+relatively small under fuel-lean conditions, although it becomes the dominant route to NOx 
+under fuel-rich conditions. 
+Introduction 
+The gas-turbine industry is developing lean, pre- 
+mixed combustors that can burn liquid fuels and 
+natural gas while achieving emissions of less than 
+25 ppmv NOx (= NO + NO2) and CO (dry, 15% 
+02 basis). Gas-fired turbines typically operate with 
+preheated air at temperatures up to 620 K (650 ~ F), 
+pressures up to 10 atm, and combustor exit tem- 
+peratures in excess of 1640 K (2500 ~ F). Aircraft en- 
+gines operate at even higher pressures and inlet 
+temperatures. 
+For these reasons, chemical mechanisms of NOx 
+and CO formation and destruction are of great in- 
+terest. Mechanisms have been studied extensively, 
+both theoretically and experimentally, 1 but little of 
+this effort has focused on well-defined systems at 
+temperatures and high pressures representative of 
+gas-turbine conditions. An important uncertainty is 
+that pressure dependence of reaction kinetics can 
+be different than in low-pressure flames. 
+Glarborg et al. 2 and Miller and Bowman 3 devel- 
+oped a detailed mechanism of CHa and NOr chem- 
+istry, comparing their detailed mechanism to pre- 
+mixed low-pressure flames and atmospheric-pressure 
+well-stirred reactors. Drake, Blint, and co-workers 4'5 
+analyzed pressure dependence of selected reactions 
+and computed species profiles in stoichiometric, 
+premixed, laminar flames at pressures up to 20 atm. 
+Along with Malte and Pratt, 6 Miller and Bowman, 3 
+and Correa, 7 they found an important role for NzO 
+chemistry in making NO. 
+This paper focuses on the chemical mechanisms 
+of NOx and CO formation and destruction in lean, 
+premixed, high-pressure flames, conditions similar 
+to the those found in gas turbines. Using laminar, 
+premixed flames and the Miller and Bowman 
+mechanism, 3 reactions critical to predictions of NOx 
+and CO were identified. These reactions were re- 
+analyzed using recent literature data and Quantum- 
+RRK analyses, and rate constants, reactions, and 
+879 
+
+
+--- Page 2 ---
+
+880 
+NO~ 
+species were added where necessary. The modified 
+mechanism was then used to model data from pre- 
+mixed, turbulent, high-pressure flames. To include 
+the complete chemical mechanism in the model, 
+the turbulent flow field was approximated as a per- 
+fectly stirred reactor (PSR) and a plug flow reactor 
+(PFR) in series. 
+Reaction Analysis 
+Temperature and concentration profiles were 
+predicted for premixed, adiabatic, laminar flames of 
+methane/air, similarly to the analysis of Drake and 
+Blint. 5 The major differences were that fuel-lean 
+conditions were examined here and that more ex- 
+tensive analyses were made of kinetics for chemi- 
+cally activated reactions. Combustion of a fuel-lean 
+mixture (fuel equivalence ratio q5 = 0.6) was stud- 
+ied in freely propagating flames and burner-stabi- 
+lized flames at 1, 10, and 40 atm. 
+Flame structures were computed on a DECsta- 
+tion 5000 using the Sandia Chemkin II package s in- 
+cluding the PREMIX code for premixed, laminar 
+flames. Sandia thermodynamics and transport-prop- 
+erties databases and the chemical mechanism of 
+Miller and Bowman 3 were used initially. Reaction- 
+path analysis 9 and linear sensitivity analysis s were 
+used to identify the most important reactions in the 
+mechanism. 
+Predictions of NOx and CO concentrations were 
+affected most by the reactions in Table I. Signifi- 
+cantly, this list is dominated by association and dis- 
+sociation reactions, which have kinetics that may 
+depend on the pressure through the concentration 
+of third-body gas ([M] = P/RT for ideal gases); ki- 
+netics for abstractions are pressure-independent. 
+Thermal decompositions or addition/stabilizations 
+like HO2 ~ H + O2 have [M]-dependent kinetics 
+at low pressures and high temperatures and [M]- 
+independent kinetics at high pressures and low 
+temperatures. However, kinetics of addition/de- 
+composition reactions like H + O2 ~ O + OH are 
+[M]-independent at low [M] or P and inversely pro- 
+portional to [M] at high [M] or P. The absence of 
+a detectable adduct and of pressure-dependent ki- 
+netics at low pressures disguises many of the as- 
+sociation reactions in Table I. 
+Calculations of kinetics were made with Bimo- 
+lecular Quantum-RRK n and compared to available 
+literature data such as the NIST kinetics data- 
+base. 12 The primary input parameters for the 
+Quantum-RRK method are Arrhenius association and 
+dissociation rate constants at the high-pressure limit. 
+Kinetics was left unchanged for some reactions, but 
+in other cases, new reactions, thermodynamics, and 
+species were added to the mechanism (Table II). 
+Details of the calculations are presented else- 
+where, lz but selected changes are summarized be- 
+low. 
+N2 + 0 ~ N + NO or N20 (+M): 
+Both these reactions proceed via N20*, but anal- 
+ysis reveals that the first reaction must proceed via 
+the electronically excited O(1D) state, not by direct 
+reaction with the ground state O(3P). 
+Attack on N-z by O is treated as forming NO di- 
+rectly (the thermal or Zeldovich mechanism of NO 
+formation) or forming N20, which forms NO when 
+it reacts with O-atoms (the nitrous oxide mecha- 
+nism). O,atom has been presumed to be in the 
+triplet, ground state, but the reaction O(3P)+ 
+N2(l~) ~ NzO(1E +) is spin-disallowed, making it 
+slow. The potential energy surface for the addition 
+is well understood, 17 and the O-addition kinetics 
+are described adequately with Lindemann-Hinshel- 
+wood falloff. 5'17 
+O(1D) addition must be the source of N + NO 
+(Tables II and III). O(3p) addition is too slow, but 
+O(1D) addition with k~ = 2 • 1014 cm3mol-ls -1 
+matches literature data 13 extremelv well if O(3p) 
+O(1D) is assumed to have been equilibrated in the 
+.experiments. The dominant product channel of O(1D) 
++ N2 is O(3P) + N2, chemical deactivation occur- 
+ring in parallel with physical, collisional deactiva- 
+tion of the electronically excited state to the ground 
+state. 
+TABLE I 
+Reactions important in Miller and Bowman mechanism for NO, and CO predictions. 
+Association and dissociation 
+H + Oz~-O + OH 
+H + Oz + M ~ HOz + M 
+H + HO~ ~--- 2OH 
+CH30 + M ~ CH20 + H + M 
+HCO + M ~ H + CO + M 
+HCO + O~ ~- HOz + CO 
+CO + OH ~ CO2 + H 
+N~O + M ~-~ N2 + O + M 
+N + NO ~- Nz + O 
+reactions: 
+N+O~-NO+O 
+NO2 + M ~- NO + O + M 
+N20 + O ~ 2NO 
+NO2 + -~- NO + O~ 
+NO2 + OH ~ HO2 + NO 
+NOz + H ~- NO + OH 
+NH + NO ~ N20 + H 
+HNO + M ~- H + NO + M 
+N + OH,-~-~ NO + H 
+Abstraction reactions: 
+Hz + OH ~- H.zO + H 
+HCO + OH ~ HzO + CO 
+HNO + OH ~ H20 + NO 
+
+
+--- Page 3 ---
+
+MECHANISMS OF NO~ AT HIGH PRESSURE 
+881 
+TABLE II 
+Mechanism modifications for M = N2. Rate constants fitted to AT%xp(-E/RT) in cm ~, tool, s, cal, K 
+units over 300 to 2000 K and 1 to 40 atm. 
+A 
+b 
+E 
+Comments: 
+O + OH + M ~ 
+HO2 + M 
+2.1E18 
+-1.26 
+H + HO2 ~ 
+2OH 
+1.66E14 
+0.00 
+CH30 ~ 
+CH20 + H, k~ 
+CH30 + M ~ 
+CHzO + H + 
+M,k,, 
+CO + OH(+M) ~- CO2 + H(+M) 
+HOCO ~ 
+CO2 + H, CO + 
+OH 
+N + NO ~ 
+N2 + O(~D) 
+N + NO ~ 
+N2 + O; i.e, O(3P) 
+N + NO + M ~- N20 + M 
+N20 ~ 
+O + N2, k~ 
+N20 + M ~ 
+O + N2 + M, ko 
+O + N2 ~ 
+Nz + O(~D) 
+O(~D) + N2 + M ~ 
+N20 + M 
+O(ID) + M ~ 
+O + M 
+NO2(+M) ~ 
+NO + O(+M) 
+N + Oz,-~-~NO + O 
+N + O2~----NO + O 
+N + 02 + M ~ 
+NOO + M 
+NO + O(~D) + M ~ 
+NOO + M 
+NO + O + M ~- NOO + M 
+NO + O ~- NO + O(1D) 
+NO + O ~- NO + O(~D) 
+N + 02 ~ 
+NO + O(~D) 
+N~O + O ~- N~ + 02 
+N20 + 0 ~ 
+2NO 
+HOz + NO ~ NOz + OH' 
+HO~ + NO + M ~ 
+HOONO + 
+M 
+OH + NO~ ~ 
+HOONO 
+NO~ + H ~ 
+NO + OH 
+NO2 + H + M ~ 
+HONO + M 
+NH + NO ~ 
+NaO + H 
+NH + NO + M ~ 
+HNNO + M 
+N20 -( H ~ 
+HNNO 
+NH + NO ~- N2 + OH 
+N20 + H ~ 
+Na + OH 
+790 
+Added reaction. 
+880 
+Slight revision; reaction via 
+H202". 
+2.E25 
+-2.7 
+26700 
+Added ks retained ko, and 
+1.00El4 
+0.0 
+25000 
+applied Lindemann falloff. 
+4.6E13 
+-0.006 
+1.4El0 
+-0.34 
+2.3E16 
+-1.2 
+1.3Ell 
+0.0 
+6.9E23 
+-2.5 
+7.5E16 
+-1.85 
+1.1E24 
+-2.73 
+6.6E12 
+0.00 
+2.2Ei5 
+-0.8 
+6.E17 
+-1.9 
+2.E20 
+-1.9 
+2.0E17 
+-2.5 
+3. E18 
+-1.6 
+5.5E14 
+-0.82 
+9.E14 
+-0.74 
+1.3E15 
+-0.8 
+6.6E13 
+0.00 
+1.02E14 
+0.00 
+1.1El4 
+-0.71 
+1.5E24 
+-3.5 
+5.8E28 
+-6.1 
+9.1E29 
+-6.1 
+2.2E30 
+-6.1 
+7.2E13 
+0.00 
+1.4E18 
+-1.5 
+2.2E18 
+-1.6 
+1.6E23 
+-2.6 
+8.3E26 
+-4.7 
+1.1E27 
+-4.4 
+1.4E25 
+-3.7 
+1.2E17 
+-1.5 
+5.E15 
+-0.6 
+Parameters and forms of Larson, 
+Stewart, and Golden (Ref. 13). 
+3420 
+1 atm; added reaction. 
+3780 
+10 atm. 
+4220 
+40 atm. 
+10 
+Revised. 
+900 
+Added reaction. 
+1370 
+N20 + H from HNNO*; based 
+on Ref. 16. 
+1820 
+Added reaction. 
+10540 
+1 atm; added reaction. 
+11110 
+10 atm. 
+10950 
+40 atm. 
+1300 
+Added reaction. 
+20000 
+Revised; from N20 + H 
+NNOH*. 
+290 
+Added reaction. 
+510 
+Revised. 
+890 
+Added reaction. 
+59600 
+Hanson and Salimian (Ref. 14) 
+65000 
+parameters with Lindemann 
+falloff. 
+46800 
+Added reaction. 
+1800 
+Added reaction. 
+0 
+For physical deactivation. 
+-- 
+Tsang and Herron (Ref. 15) with 
+falloff. 
+7900 
+Revised; via NOO* 
+decomposition. 
+12400 
+Via NOO* ---) ONO* 
+decomposition. 
+1400 
+Added reaction. 
+45900 
+Added reaction. 
+36700 
+Added reaction. 
+47900 
+Added reaction; via ONO* 
+(NzO*). 
+47200 
+Added reaction; via NOO*. 
+15200 
+Added reaction. 
+26600 
+Tsang and Herron (Ref. 15); via 
+ONNO*. 
+28000 
+Tsang and Herron (Ref. 15); via 
+ONNO*. 
+500 
+Revised. 
+2200 
+Added reaction. 
+
+
+--- Page 4 ---
+
+882 
+NOx 
+TABLE II (continued) 
+A 
+b 
+E 
+Comments: 
+NzO + H ~ Na + OH 
+9.5E14 
+-0.33 
+19700 
+N + OH ~- NO + H 
+2.E14 
+-0.39 
+360 
+N + OH ~--- NO + H 
+4.6E13 
+-0.29 
+260 
+N + OH + M ~ HNO + M 
+1.3E16 
+-1.01 
+560 
+Revised; from N20 
++ 
+H 
+HNNO*. 
+Revised; NOH* ~ 
+HNO* ~ NO 
++ H. 
+Revised; from NOH* ~ NO + H. 
+Added reaction. 
+TABLE III 
+Parameters for N + NO kinetics by Bimolecular Quantum-RRK. 
+Reaction 
+Af,,.a 
+E~.i,~a 
+Ar~t. 
+E ...... 
+N + NO ~ N20 
+3.1 • 10 ~a 
+0.2 
+1.6 • 10 t6 
+114.6 
+N2 + O(3P) ~ NzO 
+3.8 • 109 
+23.2 
+1.3 • 10 a~ 
+59.6 
+N2 + O(ID) ~-- N20 
+2 • 
+1014 
+0 
+1.5 • 1016 
+84.4 
+A-factors are in cm 3, tool, s units; E,c,'s are in kcal/mol. 
+Other input parameters were the Lennard-Jones parameters for the adduct (e/K=232.4 K, 0-=3.828 A.) 
+and the mean frequency (u) = 996 cm -l 
+O(1D) then is predicted to be the crucial reactant 
+in Zeldovich kinetics. If formed from O(3P), its con- 
+centration may scale with equilibrium or supere- 
+quilibrium levels of O(3p), and chemical routes that 
+make O(1D) directly will exacerbate NO formation. 
+Like singlet CH2, singlet O must be fully included 
+in detailed mechanisms. 
+N + 05 ~- NO + 0 orNO2(+M): 
+"NOz" usually refers to ONO, but other NO2 
+structures also occur. We suggest that N can com- 
+bine with 02 to make NOO*, which may either de- 
+compose to NO + O(3p) directly or isomerize to 
+cyclic NOO* and then to NOs*, which also may 
+decompose to NO + O(3P). Agreement with the 
+data is good. 
+H02 + NO ~- NO2 + OH: 
+Chemically activated HOONO* is formed. The 
+Quantum-RRK prediction is in excellent agreement 
+with data for both directions. 
+NO5 + H ~ NO + OH: 
+These reactions form HONO*, which may de- 
+compose or be stabilized to HONO. From the NO2 
++ H direction, OH + NO are the dominant prod- 
+ucts, while HONO formation is near its low-pres- 
+sure limit. In contrast, NO + OH predominantly 
+forms HONO, also in the low-pressure limit. Again, 
+agreement is very good. 
+N + OH ~- NO + H: 
+These reactants were assumed to form NOH*, 
+which may decompose to NO + H or isomerize to 
+HNO*, which may be stabilized or decompose to 
+NO + H. Thermal decomposition of HNO is also 
+described by this reaction set. Predictions were 
+within a factor of three of the data. 
+NO5 + 0 ~ NO + 05: 
+O(3P) may add to the N atom of NOs, making 
+NO3*, or it may combine at the O atom to make 
+ONOO*. In the latter case, exothermic decompo- 
+sition will form NO + O5 approximately at k= for 
+the radical combination reaction. 
+Validation: 
+In a test against data of Taylor is for a 1-atm, fuel- 
+rich, near-adiabatic C2Ha/Oz fiat flame (~b = 1.73), 
+prediction of NO was shown to he dramatically im- 
+proved. NO predicted by the modified mechanism 
+agreed well with the data, while the unmodified 
+mechanism was high by a factor of two. For every 
+other species, the modified mechanism was slightly 
+better but approximately the same. Both mecha- 
+nisms did well in predicting H2, H20, CO, CzH6, 
+and C02. In contrast, predictions of CH4, C2H2, 
+
+
+--- Page 5 ---
+
+MECHANISMS OF NO~ AT HIGH PRESSURE 
+883 
+50 
+40 
+"0 
+> 
+E 
+= 30 
+.o 
+~ 20 
+c 
+0 o 
+E 
+z 
+10 
+0 
+i 
+i 
+I 
+i 
+I 
+, 
+, 
+l 
+i 
+i 
+1 
+1 
+l 
+I 
+0.50 
+0.60 
+0.70 
+0.80 
+' 
+' 
+' 
+I 
+' 
+' 
+0 
+Equivalence Ratio 
+FIG. 1. Comparison of measured and predicted 
+NOx emissions from premixed methane/air turbu- 
+lent flames. Solid lines are predictions of the PSR/ 
+PFR model. []: P = 10 atm, T,,le, = 615 K, resi- 
+dence time = 30 ms, total mass flow = 19.3 g/s; 
+9 P = 5.1 atm, T,,~et = 520 K, residence time = 
+32 ms, total mass flow = 3.9 g/s; A: p = 5.0 atm, 
+T,.l~, = 300 K, residence time = 28 ms, total mass 
+flow = 10.3 g/s. 
+and C2H4 (the fuel) were quite low due to exces- 
+sive rates of destruction. 
+Methane fiat-flame structures (~b = 0.6) were cal- 
+culated with both mechanisms. Differences from the 
+original mechanism were most significant at higher 
+pressures. At 40 atm, predicted CO was lower by 
+a factor of four while NO was higher by 50% with 
+the modified mechanism, 
+Experimental 
+The experimental apparatus and sampling system 
+have been described in detail. 19 Briefly, high-pres- 
+sure, turbulent, lean premixed flames were stabi- 
+lized on a 51-ram-diameter perforated quartz disk 
+and confined within a 52-mm-diameter quartz tube 
+extending 150 mm above the quartz disk. This 
+burner was contained in a pressure vessel with 
+quartz windows for visual access. Fuel and air were 
+supplied by cylinders and an inter-cooled, oil-free 
+compressor, respectively. Inlet temperatures as high 
+as 650 K were obtained using a combination of 
+electric heat tapes and a gas-fired preheater. Gases 
+were sampled with a water-cooled stainless-steel 
+probe, dried, and analyzed for NOr, CO, CO2, and 
+O2. 
+An addition to the system is flame temperature 
+15 
+A 
+> 
+E 
+Ct. 
+= 
+10 
+.o 
+8 
+8 
+s 
+C 
+Z 
+0 
+d 
+0.40 
+' 
+' 
+' 
+' 
+I 
+' 
+' 
+' 
+' 
+I 
+' 
+' 
+' 
+' 
+I 
+O 
+O 
+A 
+9 
+zx z~ 
+& 
+D 
+e 
+~ 
+[] 
+9 
+"7, 
+, 
+, 
+, 
+I 
+, 
+, 
+, 
+, 
+I 
+, 
+, 
+, 
+, 
+I 
+0.50 
+0.60 
+0.70 
+Equivalence Ratio 
+FIG. 2. Comparison of measured and predicted 
+NOx emissions from premixed ethane/air turbulent 
+flames. Solid lines are predictions of the PSR/PFR 
+model. El: P = 10 atm, Ti,,l~t = 610 K, residence 
+time = 27 ms, total mass flow = 10.4 g/s; 9 P = 
+4.9 atm, T,,k., = 520 K, residence time = 37 ms, 
+total mass flow = 5.6 g/s; A: P = 5.0 atm, T~,let = 
+300 K, residence time = 30 ms, total naass flow = 
+10.4 g/s. 
+measurement. A Pt-30%Rh/Pt-6%Rh thermocouple 
+(750 I~m bead diameter) was inserted down the 
+length of the sample probe, extending 6 mm be- 
+yond the probe tip. Measurements were corrected 
+for radiative losses from the thermocouple, typically 
+-100 K. To avoid catalytic reactions, gas was sam- 
+pled without the thermocouple in place. The mea- 
+sured rate of temperature drop in the burned gas 
+was 1 to 4 K/ms, depending upon flame condi- 
+tions. Peak temperatures were up to 100 K less than 
+the adiabatic flame temperature, indicating heat loss 
+to the burner. 
+Length of the luminous blue-flame zone above 
+the quartz disk was about 25 mm, exceeding 80 mm 
+near blowout. Lean blowout was defined by the ~b 
+at which measured CO increased dramatically. 
+The flame was modeled as a perfectly stirred re- 
+actor (PSR) and a plug flow reactor (PFR) in se- 
+ries. 19 Physically, the PSR corresponds to the tur- 
+bulent flame zone, while the PFR corresponds to 
+the post-flame zone; calculationally, the former acts 
+as an ignition source for the latter. A term in the 
+PSR energy equation accounted for heat loss to the 
+burner, and measured temperatures were used in 
+the PFR. PSR size was then chosen to match the 
+experimentally observed lean blowout limit for a 
+given combination of total mass flow, pressure, and 
+inlet temperature. Results were computed on a VAX 
+6520 using the Chemkin II package of subroutines 
+
+
+--- Page 6 ---
+
+884 
+NO, 
+and associated programs 5 with the Miller and Bow- 
+60 
+man mechanism, 3 modified as described above. 
+Model predictions of NOx in methane/air flames 
+are compared in Fig. 1 with measurements at inlet 
+~ 
+60 
+temperatures of 300, 520, and 615 K and pressures 
+~. 
+of 5 and 10 atm. The PSR/PFR model fits the shape 
+,.q 
+and magnitude of the data fairly well. Agreement 
+= 
+between the simple PSR/PFR model and ethane/ 
+o 
+~= 40 
+air flame data at the same conditions (Fig. 2) is also 
+.o" 
+good. 
+Discussion 
+There must be a recirculation zone to stabilize 
+these turbulent flames, but it will not be perfectly 
+mixed. Given the state-of-the-art in turbulence/ 
+chemistry modeling, the choice is either (1) includ- 
+ing the details of the flow field and simplifying the 
+chemistry or (2) simplifying the flow-field model and 
+including all of the detailed chemistry. The latter 
+was chosen here. We believe that the volume of 
+the model PSR is related to the volume of the ac- 
+tual turbulent flame zone, which in turn depends 
+on inlet temperature and pressure. Volume of this 
+flame zone decreases as the pressure and temper- 
+ature increase, both experimentally and in the 
+model. 
+The model predicts that three major pathways 
+contribute to NOx formation: thermal (Zeldovich) 
+NOx, nitrous oxide NOx, and prompt NOx 2~ (initi- 
+ated by attacks on N-2 by CH or CH-2). Predictions 
+for the 10-atm methane/air flame with 615 K inlet 
+temperature (Fig. 1) are shown in Fig. 3. At low 
+equivalence ratio (low temperature), the nitrous ox- 
+ide mechanism is found to be the dominant path- 
+way of NO~ formation. As ~b and temperature in- 
+crease, the relative importance of the thermal NOx 
+pathway increases. 
+Prompt NOx is a small contributor to total NO~ 
+under these fuel-lean conditions. However, addi- 
+tional calculations in PSR/PFR geometries show that 
+prompt NOx becomes the dominant route to NOx 
+under fuel-rich conditions. Prompt NO~ would be 
+more important in lean combustion of fuels like CzH4 
+and C2Hz that yield higher concentrations of CH 
+and CH.e. 
+The PSR/PFR model predicts that almost all of 
+the NO~ formation occurs in the PSR for the fuel- 
+lean cases. The reason for the decrease in NOx for- 
+mation in the PFR zone is that CH, CH2, and O- 
+atom concentrations drop rapidly once the flow 
+leaves the PSR. At higher temperatures, NOx for- 
+mation can continue throughout the PFR, predom- 
+inantly through the thermal NO~ mechanism. Mea- 
+surements of the NO~ concentration as function of 
+distance in the perforated-plate combustor support 
+this conclusion. At low equivalence ratio, there was 
+E 
+O 
+O 
+E 
+t~ 
+20 
+i
+,
+i
+1
+ 
+J 
+I '  
+,
+l
+|
+,
+,
+ 
+J 
+J 
+J 
+J 
+J 
+J 
+I 
+! 
+0 
+| 
+I 
+I 
+| 
+I 
+i 
+, 
+I 
+g 
+, 
+s 
+s 
+0.55 
+0,60 
+0.65 
+0.70 
+Equivalence Ratio 
+Fxc. 3. PSR/PFR model prediction of the rela- 
+tive contribution of the thermal (----), nitrous ox- 
+ide (--) and prompt (---) NO, pathways to the total 
+amount of NO~ for the 10 atm, 615 K inlet tem- 
+perature methane/air flame shown in Fig. 1. The 
+sum of the three pathways is slightly less than 100% 
+because other NOx formation pathways contribute. 
+no measurable increase in NOx with residence time 
+in the burned gas zone. NO~ increased with resi- 
+dence time only at the highest r and temperatures. 
+Conclusions 
+Chemical mechanisms of NOx and CO formation 
+and destruction have been analyzed under lean, 
+premixed conditions representative of conditions in 
+a gas turbine. New rate constants, reactions, and 
+species were identified. 
+The Zeldovich mechanism a~parently proceeds 
+via the electronically excited O(D) state, not by di- 
+rect reaction with ground-state O(3p). Given the 
+abundance of N2 during combustion with air, re- 
+actions which produce O(1D) will almost certainly 
+lead to NO formation. Inclusion of O(ID) chemistry 
+in addition to O(3P) reactions may be necessary for 
+accurate NOx predictions. 
+Premixed gas turbine combustors attempting to 
+achieve low NO~. emissions will operate under fuel- 
+lean conditions near the blowout limit. Under these 
+conditions, the nitrous oxide pathway will be the 
+dominant route to NOx formation, and almost all of 
+the NOx will form in the flame zone. Thermal NO~ 
+becomes increasingly important at higher temper- 
+atures. Prompt NOx is relatively unimportant for 
+methane and ethane under lean conditions, but it 
+becomes the dominant route to NO~ under fuel-rich 
+
+
+--- Page 7 ---
+
+MECHANISMS OF NOt AT 
+conditions. Kinetics of the nitrous oxide pathway 
+will ultimately be the limiting factor that deter- 
+mines the lowest achievable NO~ emissions from 
+premixed combustors. 
+Acknowledgments 
+MGM and PRW gratefully acknowledge financial 
+support by GE, National Science Foundation Grant 
+CTS-9057406, and Digital Equipment Corporation, 
+who provided the DECstation 5000 and peripherals 
+under PYI Grant 1079. The government has certain 
+rights in this material. ASF gratefully acknowledges 
+J. A. Lovett, who provided temperature measure- 
+ments, and R. H. Jones, who assisted with the op- 
+eration of the perforated-plate combustor. 
+REFERENCES 
+1. GARDINER, W. C., Jr., ed.: Combustion Chem- 
+istry; Springer-Verlag, 1984. 
+2. GLARBORG, P., MILLER, J. A. AND KEE, R. J.: 
+Combust. Flame 65, 177 (1986). 
+3. MILLER, J. A. AND BOWMAN, C. T.: Prog. En- 
+ergy Combust. Sci. 15, 287 (1989). 
+4. DRAKE, M. C., RATCLIFFE, J. w., BUNT, R. J., 
+CARTER, C. 
+D. 
+AND LAURENDEAU, N. 
+M.: 
+Twenty-Third Symposium (International) on 
+Combustion, p. 387, The Combustion Insti- 
+tute, 1991. 
+5. DRAKE, M. C. AND BLINT, R. J.: Combust. Sci. 
+Tech. 75, 261 (1991). 
+6. MALTE, P. C. AND PRATt, D. T.: Combust. Sci. 
+Tech. 9, 221 (1974). 
+7. CORREA, S. M.: Combust. Sci. Tech. (in press). 
+8. KEE, R. J., RUPLEY, F. M. AND MILLER, J. A.: 
+Chemkin-II: 
+A 
+Fortran 
+Chemical 
+Kinetics 
+Package for the Analysis of Chemical Kinetics, 
+Sandia National Laboratories Report SAND89- 
+HIGH PRESSURE 
+885 
+8009 (-1989); PREMIX, TRANFIT, SENKIN, 
+PSR codes; thermodynamics and transport- 
+properties databases. 
+9. WESTMORELAND, P. R., HOWARD, J. B. AND 
+LONGWELL, J. P.: Twenty-First Symposium (In- 
+ternational) on Combustion, p. 773, The Com- 
+bustion Institute, 1986. 
+10. DEAN, A. M.: J. Phys. Chem. 89, 4600 (1985); 
+WESTMORELAND, P. R., HOWARD, J. B., LONG- 
+WELL, J. P. AND DEAN, A. M.: AIChE J. 32, 
+1971 (1986). 
+11. WESTLEY, F. et al.: NIST Chemical Kinetics 
+Database, Version 3.0, NIST Std. Ref. Data- 
+base 17 (1991). 
+12. MICHAUD, M. G.: Microprobe Sampling of Low- 
+Pressure Flames and Modeling of High-Pres- 
+sure Methane/Air Flames, M.S. thesis, Uni- 
+versity of Massachusetts at Amherst (1992); 
+publication in preparation. 
+13. LARSON, C. W., STEWART, P. H. AND GOLDEN, 
+D. M.: Int. J. Chem. Kinet. 20, 27 (1988). 
+14. HANSON, R. K. AND SMJMIAN, S.: Survey of Rate 
+Constants in the N/H/O System in ref. 1, p. 
+361. 
+15. TSANG, W. AND HERRON, J. T.: J. Phys. Chem. 
+Ref. Data 20, 609 (1991). 
+16. MELIUS, C. F. AND BINKLEY, J. S.: Twentieth 
+Symposimn (International) on Combustion, p. 
+575, The Combustion Institute (1985). 
+17. GILBERT, R. G. AND ROSS, I. G.: Aust. J. Chem. 
+24, 1541 (1971). 
+18. TAYLOR, B. R.: Reactions of Fixed Nitrogen 
+Species in Fuel-Rich Flames, Sc.D. disserta- 
+tion, Chemical Engineering Dept., 
+M.I.T., 
+1984. 
+19. LEONARD, G. L. AND CORREA, S. M.: ASME/ 
+PD 30, 69 (1990). 
+20. FENIMORE, C. P.: Thirteenth Symposium (In- 
+ternational) on Combustion, p. 373, The Com- 
+bustion Institute, 1971. 
+COMMENTS 
+Dr. Keith Schofield, University of California, Santa 
+Barbara, USA. Your suggestion is quite intriguing 
+of an alternative endothermic chemical quenching 
+channel for O(~D) + Nz leading to NO that turns 
+on at higher temperatures. Although there is no in- 
+formation in the literature for this, there is a sig- 
+nificant amount for the reverse reaction. This N + 
+NO reaction has been extensively studied and is a 
+classical kinetic tool either for titrating N atoms, or 
+for producing known amounts of O(3P). As far as 
+my memory prevails, no complications due to the 
+presence of O(ID) have ever been suggested in the 
+literature concerning this reaction and such consid- 
+erations have been made. Consequently due to mi- 
+croscopic reversibility I feel your suggestion must 
+remain highly speculative until supported by ad- 
+ditional data. Kinetic models can have considerable 
+flexiblility and alternative schemes could be consid- 
+ered to reproduce your data. 
+Joseph W Bozzelli, New Jersey Institute of Tech- 
+nology, USA. Is there evidence for the rapid con- 
+version of INzO adduct formed from O~D + NO to 
+the 3N20, without collision. This type of reaction, 
+
+
+--- Page 8 ---
+
+886 
+NOx 
+singlet to triplet conversion, is usually several or- 
+ders of magnitude slower ~ than the 1013 /sec rate 
+which may be needed, if this reaction analysis is to 
+be applied to experimental studies at low pres- 
+sures. 
+REFERENCE 
+1. TORRO, N.: Molecular Photochemistry, W. A. 
+Benjamin, 2nd Ed (1975). 
+Author's Reply. O('D) + Ne ~ N(4S) + NO(2II) 
+is proposed in this work based on theoretical esti- 
+mates which assume fast intersystem crossing. 
+Chemically activated N20(~E) * will be formed with- 
+out crossing, but fast crossing from it to an N20(31-I) * 
+state would be required to form 4N + 2NO. If the 
+crossing is slow, the channel would be less impor- 
+tant or unimportant. If the crossing is fast, at low 
+temperatures the (a) NO channel would be minor 
+relative to (b) stabilization and to (c) reactive 
+quenching, forming O(3P) + N2. For example, at 
+1000K ko = 3" 107 , kb = 3.5" 101~ , kc = 1.9-10n, 
+although at 2000K, k~ = kc = 7.101~ 
+N + NO studies to date do not support high O(~D) 
+production. 
+Felder and Young I experimentally 
+compared the two-step mechanism N + NO 
+O(~D) + Nz ~ O(3P) + N2 to the direct O(~D) + 
+N2 ~ O(3P) + N2 reaction by attempting to remove 
+O(ID) chemically. They found an upper limit of 10% 
+contribution by the O(~D) mechanism, contrasting 
+with our estimate of O(1D) domination by four or- 
+ders of magnitude. Walch and Jaffe z did not ex- 
+amine curve-crossing to IN20, but their theoretical 
+study of the triplet potential energy surfaces showed 
+only a small barrier for 4N + zNO to a 3N20 surface 
+that would correlate to O(3P) + N2. 
+Singlet-triplet intercrossing is necessary for 30 + 
+N2 (+M) ~ lN20 (+M), although the involvement 
+of a third body may not only be for energy transfer 
+(the basis of classical fallofl) but also for collisionally 
+medicated curve-crossing. 
+Agreement of a prediction with accurate data is 
+a necessary but not sufficient condition for the 
+model's correctness. We look forward to further 
+theoretical and experimental work that will estab- 
+lish whether NO can be formed from O(ID). 
+REFERENCES 
+1. FELDER, W. AND YOUNG, R. A.: J. Chem. Phys. 
+57, 572 (1972). 
+2. WALCtt, S. P. AND JAFFE, R. E.: J. Chem. Phys, 
+86, 6946 (1987). 
+J. M. Bedr, Massachussetts Institute of Technol- 
+ogy, USA. You showed good agreement of calcu- 
+alated and experimental data. Previous studies us- 
+ing PSR-PFR model sequencing have shown the 
+results to be sensitively dependant on the split of 
+the residence time between the two reactor types. 
+How did you decide on the respective fractions of 
+the residence time in the stirred and plug flow re- 
+actor? 
+Author's Reply. The model-predicted NOx is very 
+sensitive to the fraction of the total residence time 
+spent in the PSR. NOx emissions tend to increase 
+as the PSR residence time (or volume) increases. 
+We chose the PSR volume to match the experi- 
+mentally observed lean blowout limit for a given 
+combination of total mass flow, pressure, and inlet 
+temperature. This choice yields very small PSR vol- 
+umes and residence times the PSR volume was less 
+than 1% of the total volume in all cases. 
+A. Fontijn, Rensselaer Polytechnic Institue, USA. 
+Your suggestion of a role of O(1D) in NO formation 
+is intriguing. If correct would the O(ID) then not 
+play a role in other flame chemistry processes as 
+well, and is that compatible with further observa- 
+tions? 
+Author's Reply. Any O(ID) will react rapidly in 
+flames, either consuming its co-reactant or trans- 
+ferring energy to it by inelastic (reactive) or elastic 
+(physical) quen~".hing to O(3p). By comparing kfB, 
+IO should be tfi~30 approximately as ICH2 is to 3CH2. 
+To generalize, the singlet would be expected to have 
+barrierless insertions into Ir and cr bonds, giving 
+equally fast kinetics with molecules or radicals. The 
+triplet biradical reacts with molecules by somewhat 
+slower H-atom abstractions and additions to ~r bonds, 
+but it may also react with other radicals by faster 
+combinations. 
+However, thermal ratios of [10]/[30] are much 
+lower than those of [1CH2]/[3CH2] because of the 
+larger singlet-triplet energy difference, 45.3 vs. 9.1 
+kcal/mol. ~CH2 reactions can be more important than 
+3CH2 reactions at flame temperatures because of 
+faster singlet kinetics and adequate singlet concen- 
+trations, only on order of magnitude less than [3CH2]. 
+For O-atom, thermal amounts of IO are still five 
+orders of magnitude lower than [30] at 2000K. 
+Philip C Malte, University of Washington, USA. 
+Have pressures other than 5 and 10 atm been stud- 
+ied with the mechanism? NOx formation via nitrous 
+oxide is sensitive to pressure. Thus, for aeroderi- 
+vative gas turbine engines with lean-premixed com- 
+
+
+--- Page 9 ---
+
+MECHANISMS OF NO, AT ttlGH PRESSURE 
+887 
+bustors, of pressures greater than 10 atm to about 
+30 atm, the formation of NO, via nitrous oxide should 
+be even more significant than shown for the 5 to 
+10 atm range. Has the NO, sensitivity to pressure 
+been examined? On the other band, for 1 atm lean- 
+premixed cx)mbustion, the nitrous oxide pathway may 
+not be so significant. For every lean combustion at 
+1 atm, with temperatures in the 1,500 to 1600K 
+range, the prompt NO~ may be predominant. This 
+appears to be the case the jet-stirred reactors. J2 
+40 atm), we again find that NO, formation is dom- 
+inated by the N20 pathway, However, as pressure 
+increases ]'rom 1 to 40 atm, the relative contribu- 
+tiun of the O-atom reaction: 
+N, + o (+M) = N,O (+M) 
+to N20 fi)rmation decreases, while the relative con- 
+tributiou of the HO2 reaction: 
+N~+ HOz= NzO+ OH 
+REFERENCES 
+1. CoaR, R. A., MALTE, P. C. AND MARINOV, N.: 
+Journal of Engr. for Power and Gas Turbines, 
+April, 1992. 
+2. NICOL, D., MAx:rr:, P. C., LAI, J., M^aINov, N., 
+PaA'rr, D. T. aND CORR, R. A.: ASME paper 
+presented at the International Gas Turbine and 
+Aeroengine Congress, Cologne, Germany, June, 
+1992. 
+increases. Under appropriate conditions Reaction 
+(2) is predicted to account for ~40% of N20 for- 
+mation at 40 atm, versus ~2% at 1 arm. The in- 
+creasing importance of Reaction (2) is due, in part, 
+to an approximately order-of-magnitude increase in 
+HOz concentration coupled with more t]mn an or- 
+der-of-maguitude decrease in O-atum concentra- 
+tion. 
+Author's Reply. We have used our proposed 
+mechanism to calculate premixed laminar flames 
+structures at pressures from 1 to 40 atm. PSR com- 
+positions have also been calculated over this pres- 
+sure range. 
+We also find that given the appropriate condi- 
+tions (P = 1 atm, very fi~el-lean & low-tempera- 
+ture, short residence time), the prompt NO, path- 
+way ean be the primary route to NO, in a PSR. 
+Under these eouditions, both the original Miller and 
+Bowman mechanism and the modified mechanism 
+proposed here predict that the prompt NO~ path- 
+way can contribute 20-80% of the total NO,. This 
+ohservation highlights the difference between lean 
+premixed atmospheric-pressure comhustion and gas 
+turbine combustion, where the NzO pathway pre- 
+dominates. 
+In stirred reactors at a very high pressure (P = 
+Douglas A Greenhalgh, Cranfield Institute of 
+Technology U.K. Generally the agreement for NO 
+prediction against experiment by your model is very 
+good except for one case, 300K inlet with CHffair. 
+Why is tiffs? 
+Author's Reply. The h)wer-pressure, non-pre- 
+heated flames generally have the lowest mass flow 
+rates and greatest relative heat loss, and they are 
+furthest from adiabatic. We find that the PSR/PFR 
+approximation works best when the system is clos- 
+est to adiabatic, as is tbe case fi)r the higher-pres- 
+sure, higher mass flow, preheated flames. The rea- 
+son fi)r the poorer agreement in the flames with the 
+greatest heat loss in not completely clear, but it may 
+reflect experimental uncertainty in the determina- 
+tion of the heat loss (i.e., the temperature mea- 
+surements and the energy balance). 

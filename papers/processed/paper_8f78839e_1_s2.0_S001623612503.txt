@@ -1,0 +1,1699 @@
+
+--- Page 1 ---
+
+Contents lists available at ScienceDirect
+Fuel
+journal homepage: www.elsevier.com/locate/jfue
+Full length article
+The impact of fuel composition on the power output and emissions of a gas 
+turbine for gas-to-wire applications
+Ederson Sandrin, Thaís D. Luz, Edson Bazzo iD, Alexandre K. da Silva *
+Department of Mechanical Engineering, Federal University of Santa Catarina, Florianópolis, 88040-900, SC, Brazil
+H I G H L I G H T S
+• Use of contaminated associated gas as fuel in power plants.
+• Thermodynamic, exergy, and off-design modeling of gas turbines in gas-to-wire systems.
+• Parametric analysis of the influence of the CO 2 content mixed with natural gas.
+• Relationship between fuel composition and gas turbine performance.
+A R T I C L E 
+I N F O
+Keywords:
+Fuel composition 
+Gas-to-wire 
+Gas turbine 
+Fuel mixture
+A B S T R A C T
+A model of a gas cycle turbine operating under design and off-design conditions with variable fuel compositions 
+for Gas-to-wire (GtW) applications is presented. The model considers the presence of different fractions of com-
+bustible (i.e., CH 4 , C 2 H 6 , and C 3 H 8 ) and incombustible (i.e., CO 2 ) components, while accounting for the system’s 
+power and emissions outputs. The content of CO 2 varied from 2 % to 42 %, while the contents of C 2 H 6 and 
+C3
+ H 8 were kept constant at 4 
+ 
+ 
+%, all on a molar basis, for all compositions evaluated. To evaluate the behavior
+of the turbine, its load was varied from 40 % to 100 % of the nominal power. The results obtained indicate that 
+the mass flow rate of both the fuel mixture and the exhaust gases increases with the CO 2 fraction and with the 
+turbine load. The destruction of exergy in the components was presented as a function of the Wobbe index. As the 
+index increases, which is associated with smaller CO 2 fractions, the turbine and compressor exergy show a small 
+reduction, while the destruction in the combustor increases drastically. The addition of CO 2 also significantly 
+influences NO X and CO emissions. NO X emissions decrease and CO emissions increase with the reduction of CO 2 
+present in the mixture. Overall, the results suggest that while more fuel is used to produce the same power with 
+mixtures rich in CO 2 , more energy is required to separate CO 2 from combustible fuel, making GtW an alternative 
+to oil wells that produce large amounts of CO 2 .
+1. Introduction
+The development of non-polluting energy sources has become a 
+global driving force for research. In this context, natural gas has gained 
+focus in recent years because renewable sources still face problems with 
+respect to intermittency, requiring the use of fossil fuels as base energy 
+vectors. Thus, natural gas is considered a strategic source, as it is a tran-
+sition fuel between fossil and renewable energy sources, belonging to 
+the class of cleaner fuels, because its combustion emits about 50 % less 
+carbon dioxide (CO 2 ) compared to other fuels [1,2]. When extracted on 
+offshore oil platforms, natural gas is often associated with oil and water
+or other impurities, such as H 2 S and CO 2 , making its use unviable due to 
+the high cost of purity required to meet the requirements for transport 
+through pipelines. For instance, according to [3], the excess gas often 
+present in oil wells is locally burned through a process called flaring, 
+which is common during oil and gas processing despite its undesirable 
+emissions.
+Studies show that there are approximately 74 trillion cubic meters 
+of associated gas – natural gas produced through oil wells – around the 
+world [4] (apud [5]), although some gas reserves have not been ex-
+plored yet because they do not provide an adequate financial return. In 
+addition, according to [6], around 2.9 Gm 3 of natural gas are burned
+* Corresponding author.
+Email address: a.kupka@ufsc.br (A.K. da Silva).
+https://doi.org/10.1016/j.fuel.2025.137541 
+Received 19 August 2025; Received in revised form 27 October 2025; Accepted 13 November 2025
+Fuel 409 (2026) 137541 
+Available online 3 December 2025 
+0016-2361/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+Nomenclature
+a, b, c
+chemical reaction coefficients [-]
+ci
+constant [-]
+CO
+CO emission [g/kgfuel]
+cp
+specific heat capacity at constant pressure [kJ/kg
+K]
+.
+exair
+air excess [-]
+fm
+mass fraction [-]
+G
+Gibbs free energy [kJ/kmol]
+V.
+ratio of reduced mass flow rate to its design value [-]
+h
+enthalpy [kJ/kg]
+hc
+enthalpy of combustion [kJ/kmol]
+HHV
+high heat value [kJ/kg]
+HT
+heat rate [kJ/kWh]
+LHV
+low heat value [kJ/kg]
+m.
+mass flow rate [kg/s]
+M
+molar mass [kg/kmol]
+n 
+rotating speed [rpm]
+nm
+ 
+ 
+number of moles [-]
+NO X 
+NO X emission [g/kg 
+ 
+fuel ]
+P 
+pressure [Pa]
+R 
+universal gas constant [kJ/kmol.K]
+T 
+temperature [K]
+W. 
+ 
+power output [kW]
+W o 
+Wobbe index [kJ/kg]
+y 
+molar fraction [-]
+X. 
+ 
+exergy destruction rate [kW]
+x 
+specific exergy [kJ/kg]
+Greek symbols
+𝜂
+efficiency [-]
+μ.
+mass flow rate ratio [-]
+Ø.
+pressure recovery coefficient [-]
+π
+pressure ratio [K]
+ρ
+density [kg/m³]
+τ
+residence time [s]
+𝜃
+fugacity coefficient [-]
+Superscripts
+--
+normalized by design value
+.
+per unit of time
+..
+fraction of the design value
+f
+physical
+q
+chemical
+Subscripts
+1,2,…,k
+streams 
+af
+adiabatic flame 
+c
+compressor 
+comb
+combustor 
+des
+design value 
+f
+fuel 
+gen
+electric generator 
+gtc
+gas turbine cycle 
+pz
+primary zone 
+t
+turbine
+annually, suggesting that this less polluting fossil-based energy source 
+might be relied on for several years to come. In order to make use of this 
+energy source, Gas-to-wire (GtW) platforms are an alternative. This type 
+of system uses gas to produce electricity at the extraction site, and ex-
+cess electricity is then transmitted through submarine cables in offshore 
+plants [7]. Gas-to-wire systems are generally more efficient and less 
+costly than standard systems since there is no need to treat and separate 
+the contaminants present in the gas to the levels required for commer-
+cialization. Obviously, the turbine specifications must be in accordance 
+with the fuel mixture used.
+Not surprisingly, the use of GtW systems has been considered in the 
+specialized literature, including the pre-salt fields present in Brazil. For 
+instance, Relva et al. [5] presented a case study focused on the pre-salt 
+layer, suggesting that the installation of GtW thermoelectric plants is 
+feasible, but some changes must be made to make this possible (e.g., 
+prioritized dispatch contracts). Ref. [8] reviewed eight GtW projects in 
+Asia, Africa, and South America. According to the study, natural gas is 
+attractive as it reduces dependence on oil and pollutes less. Thus, GtW 
+systems might be more interesting in remote regions, as they are an 
+efficient way to generate energy on-site.
+Despite the fact that flaring is avoided, controlling CO 2 emissions in 
+GtW systems is still necessary. For example, exhaust gases rich in CO 2 
+might be captured by a CO 2 capture system and later reinjected into 
+the well, executing the so-called Enhanced Oil Recovery (EOR) tech-
+nique, which significantly increases well production [5]. However, it 
+should be noted that even with recent research, many points need to 
+be addressed in GtW systems. This is because most available studies ex-
+clusively analyze the technical and economic implications of installing 
+GtW systems for power generation, e.g., [6,9,10], while disregarding the 
+presence of contaminants and their effects. Nevertheless, for contextu-
+alization purposes, some of the key studies considering associated gas 
+and/or contaminated fuel are reviewed next.
+Ref. [11] focused on the use of GtW systems to take advantage of 
+the associated gas, rather than the natural gas, burned in the process.
+They found that neither the thermal efficiency nor the output power is 
+significantly affected by the use of associated gas. However, more associ-
+ated gas is consumed to produce the same amount of power. Following 
+this line of research, Somehsaraei et al. [12] analyzed the flexibiliza-
+tion of the fuel used in microturbines (MGTs). The results indicated that 
+the use of biogas instead of natural gas causes an increase in fuel mass 
+flow. At the same time, electrical efficiency decreases with increasing 
+methane content. It should be mentioned that pollutant emissions are 
+also influenced by the fuel composition.
+Ref. [13] performed a parametric analysis evaluating the impact of 
+constituents such as ethane (C 2 H 6 ), propane (C 3 H 8 ), isobutane (C 4 H 10 ), 
+CO 2, and nitrogen (N 2 ) on the combustion of methane (CH 4 ). The results 
+showed that by individually varying the content of constituents such as 
+ethane and propane from 0 to 30 %, the adiabatic flame temperature 
+increases, leading to an increase in the emission of NO X and CO. At the 
+same time, a decrease in the contents of CO 2 and N 2 , decreases the adi-
+abatic flame temperature and, consequently, the emissions of NO X and 
+CO. Ref. [14] performed a partial load analysis, in addition to verifying 
+the influence of the presence of N 2 in natural gas on the main parame-
+ters of the cycle. The study concluded that by increasing the fraction of 
+N 2 , the fuel flow rate drops significantly, causing a minimal increase in 
+the first and second law efficiencies. Ref. [15] studied the behavior of 
+a gas turbine powered by a mixture of CH 4 and H 2 . It was found that 
+for the same turbine inlet temperature, the efficiencies of the combined 
+cycles considered increased slightly when pure methane was used as 
+fuel. On the other hand, NO and NO 2 emissions increased up to three 
+times compared to pure methane. Although not detailed for brevity, 
+other studies have also considered different fuel blends, which included 
+combustible and non-combustible components, such as hydrogen [16], 
+ammonia [17] and CO 2 [18], in the combustion process.
+Ref. [19] studied not only the efficiency aspects of gas turbines, 
+but also how the use of associated gas instead of natural gas affects 
+their lifespan. The results indicated that for an ambient temperature of 
+288.15 K, natural gas has higher efficiency compared to associated gas.
+Fuel 409 (2026) 137541 
+2 
+
+
+--- Page 3 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+In addition, more associated gas is required to produce the same output 
+power in comparison to natural gas. Finally, the lifetime of the blades 
+is approximately 33 thousand hours for associated gas and 49 thousand 
+hours for natural gas. The difference is related to the higher turbine inlet 
+temperatures for turbines operating with associated gas.
+Based on the above and knowing that the variation in the content of 
+CO 2 can range from 22 % to 68 % (on a molar basis) in some pre-salt 
+fields according to [20], this work aims, for the first time, to understand 
+how the composition of natural gas/CH 4 , which is heavily contaminated 
+with CO 2 , along with C 2 H 6 and C 3 H 8 , affects the performance of a gas 
+turbine aimed at GtW systems. The study proposes a thermodynamic 
+model considering the design and the off-design conditions of a gas tur-
+bine operated with a variable fuel composition. In addition, a parametric 
+study is performed to evaluate how the content of CO 2 can affect key 
+parameters such as fuel mass flow, exhaust gas mass flow, NO X and CO 
+emissions, exergy destruction in the components, and energy spent for 
+CO 2 separation. 
+2. Methodology
+The global model, which is a combination of several existing sub-
+models available in the literature, was developed in Python TM [21] and 
+is a sequential calculation routine used to calculate the performance of 
+the GtW cycle, which is detailed in Section 2.1. First, based on the bound-
+ary conditions shown in Table 1 and on the volumetric or molar fractions 
+of Table 2, the model calculates the stoichiometric coefficients for the 
+combustion of CH 4 , C 2 H 6 , C 3 H 8 and CO 2 , which are used to calculate 
+the properties of the fuel, such as density, mass, and calorific value. The 
+energy available from fuel combustion makes it possible to determine 
+all thermodynamic states, mass flow rates, excess air, and partial pow-
+ers throughout the GtW cycle, which is detailed in Section 2.2. Next, 
+the model addresses the calculation of exergy fluxes, exergy destruc-
+tion – Section 2.3 –, emission of pollutants, and the maximum energy 
+required for the separation of CO 2 , as shown in Sections 2.4 and 2.5, 
+respectively. In Section 2.6, an iterative analysis is performed under par-
+tial load conditions, considering all mixtures and variables calculated 
+previously.
+2.1. Physical configuration
+The representative schematic of a typical GtW Brayton cycle is shown 
+in Fig. 1, which is composed of a compressor, combustion chamber, tur-
+bine, generator, and, in the present case, a mixer; the latter ensures that 
+the fuel enters the combustion chamber completely mixed. The opera-
+tional conditions are as follows: air enters the compressor under ambient 
+conditions (state 1), passes through the compressor, and enters the com-
+bustion chamber (state 2); the fuel used in combustion reaches T f and
+P f (state 3), the combustion gases enter the turbine (state 4) and are
+expanded in the turbine generating electricity (state 5). The main as-
+sumptions and boundary conditions used to build the numerical model 
+are shown in Table 1.
+As shown in Table 1, air enters the compressor at 298.15 K (T 1 ) and 
+1 atm (P 1 ), while the compression ratio is equal to 16.9, according to 
+the SGT-400 [22]. The electrical power generated is fixed and equal to 
+12.9 MW for all fuel compositions tested, and the design exhaust tem-
+perature is 828.15 K. After preliminary simulations with the boundary 
+conditions, it was determined that the turbine inlet temperature is 1487 
+K. This temperature was fixed in the part-load model to prevent the max-
+imum blade temperature from being exceeded. Also, the efficiency of the 
+electric generator was set at 0.972, and the combustor is responsible for 
+a pressure drop of 5 % as reported in [14]. The isentropic efficiency 
+values of the compressor and turbine were chosen as 0.831 and 0.901 
+[23]. 
+The turbine is fed by a mixture containing CH 4 , C 2 H 6 , C 3 H 8 , and CO 2 
+with the composition indicated in Table 2. The variation in gas content 
+was considered in relation to the analysis presented by Ref. [20], which 
+evaluated 63 pre-salt natural gas samples. The results indicated that the
+Table 1 
+Referred parameters and boundary conditions used in the thermodynamic 
+model.
+Parameter
+Description
+Value
+Unit
+Reference
+𝜂 gen
+Electric generator efficiency
+0.972
+–
+[14]
+𝜂 t
+Turbine isentropic efficiency
+0.901
+–
+[24]
+𝜂 c
+Compressor isentropic efficiency
+0.831
+–
+[24]
+𝜂 gtc
+Net electrical efficiency
+0.349
+–
+[22]
+W. g
+ tc
+Gas turbine power output
+12.9
+MW
+[22]
+T 1
+Ambient temperature
+295.15
+K
+–
+P1
+ 
+Ambient pressure
+0.101
+MPa
+–
+T 5
+Turbine outlet temperature
+828.15
+K
+[22]
+T 3
+Fuel temperature
+295.15
+K
+[14]
+P3
+ 
+Fuel pressure
+0.101
+MPa
+[14]
+Table 2 
+Fuel composition used in the turbine.
+Mixture
+F-1
+F-2
+F-3
+F-4
+F-5
+CH4
+ 
+90 %
+80 %
+70 %
+60 %
+50 %
+C2
+ 
+ H6
+ 
+C3
+ 
+ H8
+ 
+4 %
+4 %
+4 %
+4 %
+4 %
+4 %
+4 %
+4 %
+4 %
+4 %
+CO2
+ 
+2 %
+12 %
+22 %
+32 %
+42 %
+3
+Wo [MJ/Nm
+ 
+ ]
+59.02
+53.26
+48.70
+37.36
+28.90
+Fig. 1. Representation of the GtW cycle using a gas mixture as fuel.
+content of CO 2 reached 68 % (molar basis), while ethane varied between 
+2 % and 9 %, and propane varied from 1 % to 6 %. Therefore, it was 
+decided to keep the ethane and propane content constant at 4 %, while 
+the CO 2 content varied from 2 % to 42 %. The CO 2 values were chosen 
+because only 4 of the 63 samples had a CO 2 content exceeding 45 %.
+2.2. Thermodynamic formulation
+The Python TM [21]-based numerical model relied on its own libraries 
+(e.g., Numpy and Sympy), third party programs such as Coolprop [25] 
+and Cantera [26], as well as a series of specific models available in the 
+literature to calculate the thermodynamic states and properties for all 
+points listed in Fig. 1. The cycle efficiency and the output power are 
+input data for the model, so it is possible to determine the mass flow 
+rate of the gas required to generate the established electrical power. 
+The values of the isentropic efficiencies were taken from the work of 
+[24]. 
+The thermodynamic model, which is based on the work of [14], starts 
+by determining the equilibrium equations for the combustion of CH 4 , 
+C2
+ H 6 , and C 3 H 8 , which according to [27], can be written as
+CH 4 + a 0 (O 2 + 3.76N 2) →a1 CO 2 + a2 H2O + a3 N2, 
+(1)
+C2H6 + b 0 (O 2 + 3.76N 2) → b 1 CO 2 + b 2 H 2O + b3 N2, 
+(2)
+C3H8 + c 0 (O 2 + 3.76N 2) →c1 CO 2 + c 2 H 2O + c3 N2, 
+(3)
+where parameters a, b and c are the stoichiometric coefficients. Next, 
+the combustion enthalpies (h c in J/kg) of each component can be
+Fuel 409 (2026) 137541 
+3 
+
+
+--- Page 4 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+determined by [27]
+h c|CH 4 = 
+(a 1 . M CO 2 . h f|CO 2 + a 2 . MH2O . h f|H2O)
+MCH4
+- 
+(h f|CH 4 . MCH4 + a 0 . M O2 . h f|O2 )
+M CH4
+,
+(4)
+h c|C 2 H 6 = 
+(b 1 . M CO 2 . h f|CO2 + b2 . MH2O . h f|H2O )
+MCH4
+- 
+(h f|C 2 H 6 . MCH4 + b 0 . M O2 . h f|O2 )
+MC2 H 6
+,
+(5)
+h c|C 3 H 8 =
+(c 1 . M CO 2 . h f|CO 2 + c 2 . MH2O . h f|H2O )
+MC3 H 8
+- 
+(h f|C 3 H 8 . MCH4 + c 0 . M O2 . h f|O2 )
+MC3 H 8
+,
+(6)
+where M refers to the molar mass in g/mol and h f is the enthalpy of 
+formation in J/mol for each component. Next, the high (HHV) ([27]) 
+and low (LHV) ([28]) heating values of the mixture, both in J/kg, can 
+be determined as shown below
+HHV = fm|CH4 . h c|CH 4 + f m|C2 H 6 . h c|C 2 H 6 + fm|C3 H 8 . h c|C 3 H 8,
+(7)
+LHV = HHV - 2, 440 . m H 2 O ,
+(8)
+where f m is the molar fraction, 2440 refers to the latent heat of vapor-
+ization of water in MJ/kg, and m H2O is the mass of water resulting from
+combustion in kg. In order to generalize the results, the energy capacity 
+of the fuel mixture is calculated through the Wobbe index (Wo), which, 
+according to [29], measures the energy density of the gas and is used to 
+determine the compatibility limits of the combustion system, and reads 
+as [29]
+W o = HHV 
+( ρ mix
+ρ air
+) -1/2
+, 
+(9)
+where ρ mix and ρ air refer to the specific mass of the mixture and air, 
+respectively, both in kg/m 3. 
+Having determined the energy content of the fuel mixture, one can 
+focus on calculating how the actual cycle would perform, efficiency-
+wise, for that mixture. Therefore, based on the turbine datasheet selected 
+for the present study [22], i.e., SGT-400, the cycle efficiency reads as 
+follows
+𝜂 gtc = 3600/HT , 
+(10)
+where HT is the heat rate, which is measured in kJ/kWh and is tabulated 
+in [22].
+Recall that, as shown in Table 1, the actual power output of the tur-
+bine ( .W gtc) is fixed at 12.9 MW. Therefore, one must determine the 
+required mass flow rates of the air and the mixture such that the tur-
+bine delivers the required power output. The mass flow rate of the fuel 
+mixture is [30]
+.m
+ f =
+.W gtc
+LHV . 𝜂 gtc
+. 
+(11)
+Next, Eqs. (12) and (13) are used to calculate the mass flow rates 
+through the compressor (m. c ) and turbine (m. t ), respectively, measured 
+in kg/s [14],
+.W gtc = 𝜂 gen . {[ .m
+ t . (h 4 - h 5) ] - [ .m
+ c . (h 2 - h 1 ) ]}
+(12)
+.m
+ c = .m
+ t - .m
+ f ,
+(13)
+where h are the enthalpies at the inlet and outlet of these components 
+evaluated in J/kg. Based on the calculations above, the air/fuel ratio
+(R 
+ ) and the excess air for fuel combustion (ex 
+which 
+ ), 
+will be
+air
+air
+ 
+ used 
+later to calculate the adiabatic flame temperature, can be determined as 
+follows
+R air = .m
+ c
+.m
+ f
+, 
+(14)
+ex air = R air
+m air|st
+. 
+(15)
+Finally, from a thermodynamic standpoint, one can determine the 
+actual power output contribution of each combustible component of the 
+fuel mixture
+.W gtc|CH4 = LHV CH 4 . 𝜂 gtc . .m
+ f ,
+(16)
+.W gtc|C2 H 6 = LHV C 2 H 6 . 𝜂 gtc . .m
+ f ,
+(17)
+.W gtc|C3 H 8 = LHV C 3 H 8 . 𝜂 gtc . .m
+ f .
+(18)
+2.3. Exergetic formulation
+Next, and through an exergetic analysis [31], it is possible to deter-
+mine the components and the locations where the exergy destruction 
+is more pronounced in the cycle. Thus, with this analysis, it is possible 
+to determine whether the CO 2 content in the fuel directly affects the 
+exergy destruction rate in the main components of the cycle, i.e., com
+pressor ( X. 
+ ), turbine (X.
+c
+ 
+ )
+t
+ and combustor (X. 
+ fuel
+ 
+ 
+ 
+ 
+ ), which can be written,
+according to [14], as
+-
+. X c = .m
+ c . (x 1 - x2) + . W c, 
+(19)
+. X t = .m
+ c . (x 4 - x 5) - . W t, 
+(20)
+.X comb = .m
+ f . x f + .m
+ f . x 3 + .m
+ c . x 2 - .m
+ t . (x 4,f + x 4,q ), 
+(21)
+where X. 
+ is the physical exergy in W, x
+is the specific physical exergy
+i,f
+ 
+ 
+ 
+ 
+ 
+ 
+in J/kg, x 
+ 
+spent in the compressor and W. 
+ is the power produced in the turbine,
+t
+ 
+is the specific chemical exergy in J/kg, W.
+i,q
+ 
+ 
+ is
+c
+ the power
+both measured in W. In Eq. (21), the exergy destruction rate is given by 
+the exergy balance in the combustor and is a function of physical and 
+chemical exergies, which, according to [31], can be determined as
+x i 
+q =
+∑
+yi . -x i + -R . T0 .
+∑
+yi . ln(y i ) . y i , 
+(22)
+x i 
+f = c p(T i, P i) . (T i - T 0) - T0 . c p (T i , P i ) . ln(T i /T 0 ) + T 0 . R . ln(P i /P 0 ),
+(23)
+where y i is the mole fraction of the exhaust gases, -x i is the standard 
+exergy of the components present in the gases in J/mol [31], T 0 is the 
+dead-state temperature in K, T i is the temperature of the state i in K, P 0 
+is the dead-state pressure in Pa, P i is the pressure of the state i in Pa and 
+c p is the specific heat at constant pressure in J/kg . K.
+Finally, exergetic efficiency is given by the ratio between net work 
+and the total amount of energy supplied by fuel [14]
+𝜂 ex =
+.W gtc
+.X 
+ 
+. 
+(24)
+f
+2.4. Emissions formulation
+The model chosen to calculate the NO X and CO emissions follows the 
+formulation proposed by [32], which modifies Lefebvre’s correlations 
+to account for the exponential dependence of the reaction rate on the
+Fuel 409 (2026) 137541 
+4 
+
+
+--- Page 5 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+temperature, as described by [33]. The NO X and CO emissions, both in 
+g/kg f uel , are, respectively, given as
+NOx =
+0.15 . 10 16 . (τ - 0.5 . τ ev) 0.5 . exp(-71, 000/T af )
+P 0.05 . (ΔP /P ) 0.5
+, 
+(25)
+CO =
+0.18 . 10 9 . exp(7800/T pz)
+P 2 . (τ - 0.4 . τ ev) . (ΔP /P ) 0.5 , 
+(26)
+where τ, which is measured in s, is referred to as residence time, τ ev is 
+the fuel evaporation time in s, T af is the adiabatic flame temperature 
+in K, P is the inlet pressure of the combustor chamber in Pa, ΔP is the 
+actual pressure drop occurring in the combustion chamber in Pa, T pz is 
+the temperature of the primary zone in K.
+It is worth mentioning that the model depends on parameters such as 
+the adiabatic flame temperature and the primary zone temperature. The 
+former temperature was calculated using Cantera [26], while consider-
+ing the adiabatic flame condition at constant pressure, composition, and 
+excess air. For the latter, it was estimated using a balance between the
+energy flows at the turbine inlet, m. c . c p . T 2 + m. f . (c p,f . Tf
+ 
+ 
+ 
+ 
+ 
++ LHV ), 
+and at the primary zone outlet, m. t . cp
+ 
+ . T
+.
+pz
+ 
+ Furthermore, additional re
+quired information data, such as the time spent in the chamber and the 
+-
+normalized time spent, were assumed to be 0.1 and 0, which are values 
+suitable for this type of problem, as described by [33]. However, the 
+calculated values obtained may be seen as qualitative. This is because 
+the main objective is to understand how the gas composition and tur-
+bine load influence the emission of NO X and CO, and not to find the 
+exact values of the load emissions. Yet, precise values of NO X and CO 
+would require either a detailed numerical model and/or a controlled ex-
+perimental analysis, both of which are beyond the scope of this study. 
+Nevertheless, the emission trends obtained are still useful as they reveal 
+the impact of the use of contaminated CH 4 .
+2.5. Separation energetic cost
+In a typical offshore well, the gas removed from the well is treated 
+and the existing contaminants, mainly CO 2 , are reduced to acceptable 
+levels for commercialization and transport. The excess CO 2 is then rein-
+jected into the well to maintain pressure and reduce the emission of
+CO 2 into the environment. In GtW platforms, gas with a high impurity 
+content is used as fuel for the on-site energy generation cycle, thus re-
+ducing separation costs. Therefore, the model in the current section aims 
+to determine the energy required to separate CO 2 from CH 4 . Next, this 
+energy expenditure is compared with the energy made available by the 
+contaminated fuel, and a new efficiency is calculated through Eq. (31).
+The model used is based on the work of [34], where the minimum 
+energy required to separate CO 2 is equal to the variation in the Gibbs 
+'
+ 
+Free Energy between states 1
+ 
+ and 2 ' ; state 1 ' is given by the Gibbs free 
+energy before separation of the mixture formed by CH 4 , C 2 H 6, C 3
+ 
+ 
+H 
+ 
+8 and
+CO 2, Eq. (27), as described in [34], while state 2 ' is the sum of the Gibbs 
+free energy of CO 2 after separation, Eq. (28), and the Gibbs free energy 
+of the gas without CO 2 , Eq. (29). Therefore, the Gibbs free energy of 
+states 1 ' , 2 ' and that of the gas without CO 2 , indicated with a subscript 
+clean, can be written as [34]
+.G gas|1' =
+N
+∑
+i=0
+.m f
+-M
+. yi . Gi(T 1' , P 1' ) + 
+.m f
+-M
+. R . T1'
+N
+∑ 
+i=0
+y i . ln(y i)
++ 
+.m f
+-M
+. R . T1'
+N
+∑ 
+i=0
+y i . ln(Ø i(T 1' ,P 1' ) ),
+(27)
+.G CO2|2' =
+N
+∑
+i=0
+.m f
+-M
+. y CO 2 . G CO2(T2', P 2' ), 
+(28)
+.G clean | 2' =
+N-1
+∑
+i=0
+.m f
+-M
+. y
+'
+i . G i(T 2' , P 2' ) + 
+.m f
+-M
+. R . T2'
+N-1
+∑
+i=0
+y
+'
+i . ln(y
+'
+i)
++ 
+.m f
+-M
+. R . T2'
+N-1
+∑
+i=0
+y
+'
+iln(Øi(T2 ' ,P 2' ) ),
+(29)
+i is the number of components, G i is the Gibbs free energy of each 
+component in J, calculated by G 
+S
+i = H i -T . i
+ 
+ 
+ 
+ 
+, R is the universal gas con-
+'
+stant equal to 8.314 J/mol.K, y is
+i
+ the mole fraction of each component i
+ 
+for gas without CO 2 and finally, Ø is the fugacity coefficient, which was 
+assumed to be zero according to [34]. Therefore, the Gibbs free energy 
+at state ‘2’ reads
+Δ .G 2' = ( .G CO2 + .G gaswithoutCO2)2' - ( .G gas) 1' . 
+(30)
+Finally, the exergy efficiency that accounts for the removal of CO 2 
+is given by
+𝜂 CO2 =
+.W gtc - Δ .G2'
+.X f
+. 
+(31)
+This approach is used as a comparison to standard generation sys-
+tems, where gas is treated, separated, and transported through pipelines, 
+and high-efficiency GtW systems, where electricity is generated at the 
+extraction site without the need for gas separation.
+2.6. Partial-load formulation
+According to [14,35], power generation plants do not operate at full 
+load at all times, so this type of installation must be able to operate 
+at loads lower than the nominal. Therefore, this section describes the 
+part-load formulation used, which was presented in [14,35]. The model 
+consists of a set of analytical equations based on the performance of the 
+cycle components, and is applied to a single shaft equipment with con-
+stant rotational speed [35]. The equations relate the design parameters 
+to the off-design parameters based on the turbine operating load. The 
+design parameters were obtained using the thermodynamic equation 
+model presented in the previous sub-sections. The main equations will 
+be presented below, while the complete model can be found in detail in 
+[35].
+The dimensionless turbine efficiency ratio 𝜂--
+ 
+ gtc , which represents the
+turbine power output ratio between its off-design and design value [14], 
+is given by a fourth-order polynomial that has the turbine operating load 
+ratio ( --W
+ 
+ 
+ ) as a dependent variable
+--𝜂 gtc = (3.18 . --W ) - (4.69 . - - W 2 ) + (3.69 . - - W 3 ) - (1.18 . - - W 4 ). 
+(32)
+Also, the dimensionless fuel flow rate, which is defined as m--
+ 
+ f =
+m. f /m. f,des , where the subscript des indicates the properties evaluated 
+at the design value, is written as a function of -W- ,
+- -m
+ f = 0.288 + 0.624 . --W + 0.088 . - - W 2 . 
+(33)
+The dimensionless airflow rate entering the compressor, m.. c , which 
+represents the relationship between the mass flow rate in the turbine 
+compressor and the design value, is given by
+..m
+ c = 
+.m
+ c
+.m
+ c,des
+. 
+P 1,des
+P 1 
+. 
+( T 1
+T 1,des
+) 1/2
+, 
+(34)
+where T 1 and P 1 are the inlet conditions, which are constant for any 
+load, and equal to 25 ◦ C and 0.101 MPa.
+Fuel 409 (2026) 137541 
+5 
+
+
+--- Page 6 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+The compressor pressure ratio (π.. c ) and isentropic efficiency ratio (𝜂.. c )
+can be calculated using Eqs. (35) and (36), respectively,
+..π c = c 1 . ..m2
+c + c2 . ..m
+ c + c 3 , 
+(35)
+..𝜂 c = [1 - c 4 . (1 - ..n) 2] . 
+(
+..n
+..m
+ c
+)
+.
+(
+2 -
+..n
+..m
+ c
+) 
+, 
+(36)
+where n.. is the rotation rate, while the constants c1
+ 
+ , c 2 and c3
+ 
+ are given 
+by
+c 1 =
+..n
+p . [ 1 - (m/ ..n) ] + [ ..n . ( ..n - m)] 2 ,
+(37)
+c 2 =
+p - 2 . m . ..n 2
+p . [ 1 - (m/ ..n) ] + [ ..n . ( ..n - m) 2] 
+,
+(38)
+c 3 =
+p . m . ..n - m 2 . ..n 3
+p . [ 1 - (m/ ..n)] + [ ..n . ( ..n - m) 2] 
+,
+(39)
+where the constants c 4 , m and p are, respectively, 0.3, 1.06 and 0.36 
+according to Ref. [35]. It is worth mentioning that the compressor and 
+the turbine are coupled to the same shaft, so n = n c = n t and n des = 
+n c,des = n t,des . According to Ref. [35], the turbine in constant operation 
+must maintain the following equilibrium conditions
+.m
+ t
+.m
+ t,des
+= ..μ . 
+.m
+ c
+.m
+ c,des
+, 
+(40)
+..π t = .. Ø . ..π c, 
+(41)
+where Ø.. 
+ is equal to 1 and μ.. is given by a polynomial function that
+depends on the air and fuel flow rates. For the turbine, the following ex
+pressions are applied for the isentropic efficiency ratio and the exhaust 
+gas mass flow rate
+-
+..𝜂 t = [(1 - t . (1 - ..n t ) 2] . 
+(
+..n
+..m
+ t
+)
+.
+(
+2 - ..n
+..m
+ t
+) 
+, 
+(42)
+.m
+ t
+.m
+ t,des
+= 𝛼.
+( T 3
+T 3,des
+. 
+) 1/2
+. 
+(
+π t2 - 1
+π t,des2 - 1 
+) 1/2
+, 
+(43)
+where t is equal to 0.3 and 𝛼 is given by
+𝛼 = 
+[ 
+1.4 - 0.4 . 
+( n t
+n t,des
+)] 1/2
+. 
+(44)
+2.7. Validation
+The validation and certification of the model were done in three 
+stages. First, the results of the model were compared with the litera-
+ture for a turbine operating exclusively with CH 4 assuming full load. In 
+this case, a comparison was made with the 11, 13, and 15 MW versions 
+of the SGT-400 turbine. For this purpose, the exhaust mass flow val-
+ues obtained were compared with the data in the turbine catalog [22]. 
+The results, which are shown in Table 3, report a maximum error of 
+1.93 % for the 15 MW version, indicating that the full load calculations 
+are correct.
+In a second validation and certification process, the partial load for-
+mulation was tested. In this case, the work of [14] and partial load data 
+provided by [22] were used. The results shown in Fig. 2 present the cat-
+alog data and the curves obtained by the proposed model for the fuel 
+(Fig. 2a) and the total mass flow rates (Fig. 2b) under partial condi-
+tions. It can be seen that the fuel, i.e., pure CH 4 , in this case, and the 
+total exhaust flow rate are in good agreement compared to the turbine 
+catalog data, therefore, also validating the partial load formulation and 
+implementation.
+Table 3 
+Comparison of the exhaust mass flow (m. t ) between the present re
+sults and the catalog data reported in [
+-
+22] for three different power 
+outputs.
+Power output
+[MW]
+Ref. [22]
+m. t [kg/s]
+Present work
+m. t [kg/s]
+Error
+[%]
+10.50
+34.20
+33.89
+0.90
+12.90
+40.00
+40.13
+−0.34
+14.30
+44.50
+43.64
+1.93
+Fig. 2. Validation of the numerical model comparing the present results for 
+mass flow rate of exhaust gases (a) and fuel (b) against [22] for a partial load 
+operation.
+The third and final validation process refers to the formulation as-
+sociated with the cycle’s performance while considering a mixed fuel 
+composition. Unfortunately, no data were found that allow one to vali-
+date the turbine’s behavior. Therefore, in order to ensure the correctness 
+of the mixed fuel calculations, an exergy balance was performed. In this 
+case, Table 4 presents the values obtained by the model for the exergy 
+destruction rate in the compressor ( X. 
+ ),
+X
+ 
+ in the turbine ( .
+ ) and in the
+c
+t
+combustor (X.
+ 
+); for the inlet exergy flows in the compressor (
+comb
+ 
+ W. 
+ ),
+c
+ 
+in the combustion chamber ( X. f
+ 
+)
+,q
+ and (X.
+ 
+);
+f,f
+ and for the outlet exergy
+flows (X. 
+ 5 and W. 
+ ).
+t
+The results show that increasing the content of CO 2 in the fuel mix-
+ture increases the exergy destruction in the compressor and turbine, 
+mainly due to the increase in the air and fuel mass flow rates; this will 
+be discussed later in Fig. 3 in detail. In the compressor, since states 1 
+and 2 remain unchanged, i.e., pressure and temperature are the same 
+for any mixture, the increase in exergy is due to the increase in the 
+work required to compress the air which is caused by the increase in 
+the air mass flow rate, according to Eq. (19). In the turbine, even with 
+an increase in T 5 (Fig. 9) and W. t
+ , the increase in exergy destruction
+rate is due to the increase in the mass flow rate of the exhaust gases. 
+However, exergy destruction rate that occurs in the combustion chamber 
+decreases significantly (i.e., approximately by one order of magnitude) 
+as the CO 2 increases from 2 % (F-1) to 42 % (F-2), which can be asso-
+ciated with the fact that exergy in state four increases with an increase 
+in the gas flow rate. Furthermore, the results indicate that the exhaust 
+gases possess high exergy, which increases with increasing the CO 2 con-
+tent resulting from the higher outlet temperature. Finally, and arguably 
+more importantly, are the data presented in the last column of Table 2. 
+The values show that the exergy balance is equal to zero for all mixtures 
+tested. This balance is given by the difference between the exergy that 
+enters the system and the sum of the exergy that leaves and is destroyed
+Fuel 409 (2026) 137541 
+6 
+
+
+--- Page 7 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+Table 4 
+Exergy balance for the five flue compositions shown in Table 2.
+Mix.
+Loss [MW]
+Outlet [MW]
+Inlet [MW]
+Exergy balance
+X. c
+ 
+X.
+ t
+X. c
+ omb
+X. 5
+ 
+W. t
+ 
+X. f
+ ,q
+W.
+ c
+F-1
+2.2
+1.6
+11.8
+10.7
+30.9
+37.7
+19.5
+0.0
+F-2
+2.4
+2.4
+9.1
+12.8
+32.6
+37.7
+21.4
+0.0
+F-3
+2.6
+3.1
+6.5
+14.8
+34.2
+37.8
+23.4
+0.0
+F-4
+2.8
+3.7
+3.9
+16.8
+35.8
+37.8
+25.1
+0.0
+F-5
+3.0
+4.3
+1.6
+18.6
+37.1
+37.9
+26.7
+0.0
+(X.
+ 
+- (X.
+ 
++ X.
+ 
+) = 0). The balance for a cycle must be equal to zero,
+in
+loss
+out
+that is, it shows that the exergy provided by the fuel is used to generate
+power, part of it is destroyed in the components, and another part is car
+ried by the exhaust gases that leave the turbine, in addition to showing
+that the model is mathematically and physically correct.
+-
+3. Results
+The results obtained with the present model of the GtW cycle will 
+be presented in two distinct sub-sections: according to the Wobbe index 
+(Section 3.1) and the partial load (Section 3.2).
+3.1. Wobbe index
+The main parameters of the cycle can be shown as functions of the 
+Wobbe index. In fact, turbine manufacturers commercially use this in-
+dex to disclose the variation range of the fuel used, so this is indeed 
+a parameter of interest in turbine applications where there might be a 
+variation in the fuel composition; in the present study the Wobbe index 
+of the mixtures varied according to Table 2. However, more importantly, 
+a high Wobbe index indicates a low CO 2 content, and vice versa. Also, 
+high CO 2 content is related to combustion instability, decreasing flame 
+temperature and speed, therefore, compromising stability. As the CO 2 
+content decreases (Wobbe index increases), the flame becomes more 
+stable, preventing flame extinction.
+Fig. 3(a) shows the mass flow rates of the exhaust gas (m. t ) and fuel 
+(m. 
+ 
+ ) as a function of the
+f
+ 
+ Wobbe index (Wo); note that the mass flow rate 
+of the exhaust gases is the sum of the mass flow rates of air and fuel. As 
+can be seen, the five values for the Wobbe index are considered, each 
+indicating one of the compositions shown in Table 2, and are indicated 
+at the upper end of Fig. 3; the lowest Wobbe values represent mixtures 
+with a higher content of CO 2 . As expected, both variables decrease as 
+the Wo increases because, for fuels with higher energy density, a lower 
+flow rate is required to achieve the required power output and, conse-
+quently, a lower air flow rate will be required for combustion. Since CO 2 
+is an inert gas, it reduces the energy released during combustion and, 
+therefore, more fuel is required to reach the temperature of 1487 K at 
+the turbine inlet. The results presented in Fig. 3(b), which show the vari-
+ation of excess air, ex air , confirm the behavior mentioned above, with 
+an increase in the Wobbe index due to a decrease in the excess air used 
+in fuel combustion.
+Fig. 4(a) and (b) show the individual contribution of each com-
+bustible gas present in the fuel mixture to the total power produced 
+and the exergy destruction rate in the compressor, turbine and combus-
+tion chamber, respectively. In Fig. 4(a), it can be seen that the power 
+generated by ethane and propane decreases with increasing the Wobbe 
+index, while the power generated by methane increases with increasing 
+Wo. In other words, since the cycle is set to produce 12.9 MW, regard-
+less of the composition of the fuel mixture, as shown in Table 2, the 
+actual power output share for methane is greater for composition F-1, 
+which has 2 % of CO 2 and 90 % of CH 4 , than in composition F-5, which 
+has 50 % of CH 4 and 42 % of CO 2 . This is due to fuel consumption, as 
+the overall calorific value of the mixture decreases when the mixture 
+is converted from composition F-1 to F-5. As for exergy, there is an in-
+crease in exergy destruction in the compressor and turbine due to the 
+increase in the mass flow rate of air and exhaust gases, which, according
+Fig. 3. (a) Variation of mass flow rates of exhaust gases ( .m
+ t ) and fuel ( .m
+ f ), and 
+(b) the excess air (ex air ) as a function of the wobbe index.
+Fig. 4. Partial output power for different fuels (frame a) and the exergy 
+destruction rate (frame b) as a function of the wobbe index.
+to Eqs. (19) and (20), show that the higher the content of CO 2 in the fuel 
+(i.e., lower Wo), the greater the exergy destruction due to the increased 
+fuel flow, which, in turn, increases air and exhaust flows. For the com-
+bustion chamber, there is a significant increase in exergy destruction rate 
+with an increasing Wobbe index (i.e., lower content of CO 2 ). This occurs 
+because the combustion chamber outlet temperature is kept constant for 
+all compositions (i.e., 1487 K), and there is an increase in the mass flow 
+rate of the exhaust gases when the Wobbe index decreases. Therefore, 
+exergy in state 4 (i.e., outlet of the combustion chamber) increases, re-
+ducing the exergy destruction rate in the combustor, according to the 
+Eq. (23). It can also be noted that the exergy destruction rate is directly 
+related to the composition of the fuel. As CO 2 is an inert gas, a greater 
+amount of gas is burned when comparing the F-5 and F-1 compositions, 
+therefore the exergy destroyed decreases.
+The NO X and CO produced from combustion are shown in Fig. 5(a). 
+It can be seen that, with an increase in the content of CO 2 and, con-
+sequently, a decrease in the Wobbe index, the percentage of NO X per 
+kilogram of fuel decreases drastically. At the same time, there is an in-
+crease in CO emissions. This occurs mainly due to the decrease in the 
+adiabatic temperature of the flame, as will be shown later in Fig. 9; this 
+behavior was verified by [13]. It should be mentioned that the influence
+Fuel 409 (2026) 137541 
+7 
+
+
+--- Page 8 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+Fig. 5. Mass (a) and molar (b) fractions of exhaust gases as a function of the 
+wobbe index.
+Fig. 6. Effect of the wobbe index on the exergy efficiency after separation (𝜂 CO2
+ )
+and on the energy required (G.
+ 
+|
+ 
+CO )
+2
+ 
+ 
+ to separate CO
+min
+ 2 from CH 4 .
+of fuel composition on NO X and CO emissions is qualitative, as described 
+earlier in Section 2.4. The other combustion products, i.e., O 2 , N 2 , and 
+H 2 
+Wobbe index (i.e., a decrease in the content of CO 2 ). This happens be
+cause the increase in the Wobbe index indicates an increase in CH 4 in 
+the fuel and a decrease in CO 2 . Consequently, the content of O 2 , N 2 and 
+H 2 O increases. In contrast, the emission of CO 2 exhibits the opposite be
+havior since the decrease in the Wobbe index is caused by the increase 
+in the content of CO 2 .
+O, which are shown in Fig. 5(b), increase with the increase in the 
+-
+-
+As mentioned previously, conventional generation plants separate 
+CO 2 present in the mixture due to transportation restrictions, but this 
+separation generates an energy cost. Thus, Fig. 6 shows the minimum 
+energy required to separate CO 2 from fuel ( G.
+ 
+|CO
+min
+2
+ ), in addition to 
+ 
+ 
+the exergy efficiency (𝜂CO ) of the cycle considering
+2
+ 
+ the energy cost 
+(G.
+ 
+|CO
+min
+2
+ 
+ 
+ ) of the separation process. It is worth mentioning that the 
+thermodynamic state before separation was considered at 423.15 K and 
+1 bar. As
+ 
+ expected, the separation energy G.
+ min |CO2
+ increases as the Wo
+decreases. The decrease in Wo indicates that more CO 2 is present in 
+ 
+the fuel, increasing the energy required for separation. The decrease in 
+the calculated efficiency 𝜂CO
+ 
+occurs due
+the
+2
+ to the increase in 
+ energy 
+used to separate CO 2 ( G.
+ 
+|CO )
+min
+2
+ 
+ as it is 
+ 
+ 
+ 
+considered that part of the cycle
+output energy is used in the separation process.
+Moreover, Fig. 6 raises an interesting question of whether to use fuel 
+with a high CO 2 content or to add a process to separate it from CH 4 . 
+According to Fig. 6, there is an increase of approximately 5 MW in the 
+energy spent for separation when comparing gases with CO 2 contents 
+of 2 % and 42 %, that is, the separation process has a high energy cost.
+Fig. 7. Output power (W.
+ 
+)
+gtc
+ and cycle efficiency (𝜂g
+ tc
+ 
+ 
+ 
+ 
+ 
+ ) as a function of load
+required to the turbine.
+Thus, a second turbine operating at 40 % load and using 0.43 kg/s of nat-
+ural gas (F-1 mixture) would be necessary to generate a total of 12.9 MW 
+with the separation process included. However, the use of contaminated 
+fuel results in an increase in CO 2 emissions (Fig. 5b), but there is a de-
+crease in NO X emissions (Fig. 5a), hence, indicating the existence of a 
+possible trade-off.
+3.2. Partial-load model
+Fig. 7 shows the power and efficiency values as a function of the 
+partial load. As expected, both values decrease as the turbine load 
+decreases. For 40 %, the power is 5.16 MW, and the efficiency is 
+0.254, while for 100 %, the power is 12.9 MW, and the efficiency 
+is 0.349, respectively. As shown in Section 2.6, the cycle efficiency, 
+which is calculated using Eq. (32), and the output power depend on 
+the turbine workload. Thus, both values do not depend on the mix-
+ture used, since the output power and the turbine efficiency are input 
+data to the system and feed the model to calculate the other off-design 
+parameters.
+In Fig. 8, the values of m. 
+(frame
+t
+ a) and m. 
+(frame
+f
+ b) 
+ 
+ 
+ 
+are plotted as 
+a function of the load. As expected and since the power output is fixed 
+at 12.9 MW, both mass flow rates increase as the CO 2 fraction increases 
+in the fuel mixture. Also, both values increase with the turbine load, 
+regardless of the fuel used. For the mixture with the highest content of 
+CO2
+ 
+(F-5), the exhaust 
+ 
+gas flow rate and the fuel flow rate vary from 
+34.5 to 57.4 kg/s and from 1.11 to 2.01 kg/s, respectively, for loads of 
+40 % and 100 %. This increase is due to the increase in output power 
+and cycle efficiency, as shown in Fig. 7. In both frames (a and b), the 
+curves move away from each other as the turbine load increases. This is 
+a numerical effect of the part-load model. However, this effect correctly 
+reflects the worsening of the cycle efficiency since, for smaller loads, the 
+system requires more air, and consequently the excess air is greater, as 
+described by [14]. This behavior is confirmed later in Fig. 10.
+Fig. 9(a) shows that the turbine outlet temperature decreases with 
+increasing load; this behavior is related to the isentropic efficiency 
+of the turbine, which is discussed in Fig. 11. The temperature differ-
+ence between the turbine inlet and the outlet demonstrates how much 
+mechanical energy is generated through gas expansion. Because the 
+isentropic efficiency is directly linked to the outlet temperature, for 
+high efficiencies, there is better utilization of thermal energy, and con-
+sequently the outlet temperature is lower. Therefore, the temperature 
+behavior is easily explained by the decrease in the turbine’s isentropic 
+efficiency with decreasing workload. Analyzing Fig. 9(b), it is observed 
+that the adiabatic flame temperature increases with the turbine load, 
+since the adiabatic flame temperature depends on the inverse of the 
+excess air 1/ex air . Another behavior noted in frame b is that the adi-
+abatic flame temperature decreases with increasing the CO 2 content in 
+the mixture, which was also verified in [13].
+The excess air, shown in Fig. 10, exhibits an interesting behavior 
+with fuel composition. It can be observed that excess air increases with 
+an increase in CO 2 content, as seen in Fig. 3(b). This indicates that the 
+reduction in the calorific value of the gas necessitates the use of more 
+fuel, and, consequently, more air is required, increasing the excess air 
+and the air/fuel ratio. Regarding the load, it is noted that the air/fuel
+Fuel 409 (2026) 137541 
+8 
+
+
+--- Page 9 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+Fig. 8. Mass flow rate of exhaust gases (a) and fuel (b) as a function of partial 
+load for different fuel compositions.
+Fig. 9. Effect of the partial load on the turbine outlet (a) and adiabatic flame (b) 
+temperatures.
+Fig. 10. Excess air as a function of partial load for the five fuel compositions 
+considered.
+ratio does not remain constant; that is, the excess air decreases with the 
+increase in the load for all mixtures. This is due to the variation in the 
+value μ. present in Eq. (40), which relates the air and fuel flow values for 
+the nominal and off-design conditions. Unlike in [14], where the value 
+of μ. was assumed to be equal to 1, in the present work this value was 
+calculated from the data provided by [22].
+Fig. 11 shows that the efficiencies of the isentropic turbine and com-
+pressor increase with the turbine load and with the increasing CH 4 
+content in the fuel. At 90 % load, the efficiencies already reach the 
+nominal values of 0.901 and 0.831 for either mixture. As explained pre-
+viously, the isentropic efficiency of the turbine, Fig. 11(a), is directly 
+associated with the turbine inlet and outlet temperatures. The isentropic 
+efficiency of the compressor, Fig. 11(b), depends on its compression 
+ratio. As the compression ratio decreases, the inlet pressure of the com-
+bustion chamber (P 2 ) decreases, and consequently the temperature (T 2 ), 
+reducing the isentropic efficiency of the compressor.
+NO X emissions, which are shown in Fig. 12(a), increase with tur-
+bine load, reaching a maximum of 7 g/kg f uel for 12.9 MW power, 
+and decrease with increasing CO 2 content, going from a maximum of 
+7 g/kg f uel to approximately 0.40 g/kg f uel . Fig. 12(b) shows that CO 
+has the opposite behavior to NO X , increasing with increasing CO 2 and 
+decreasing with increasing turbine load. The behavior is explained in 
+Fig. 9(b), which shows that CO and NO X emissions depend on the adia-
+batic temperature of the flame. NO X emissions increase due to thermal 
+NOx (Zeldovich) mechanism [36]. As T af increases, the N 2 present in 
+the air dissociates and reacts with oxygen, and this reaction increases
+Fig. 11. Isentropic efficiency of the turbine (a) and compressor (b) as a for 
+different partial loads and the compositions reported in Table 2.
+Fig. 12. Variation of the mass fraction of exhaust gases (i.e., CO and NO X ) with 
+the partial load.
+Fuel 409 (2026) 137541 
+9 
+
+
+--- Page 10 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+exponentially with temperature [
+]. As for CO, an increase in T 
+re
+af
+sults in a decrease in emissions, since the oxidation of CO to CO 2 requires
+high temperatures.
+37
+-
+4. Conclusions
+With the growing search for energy efficiency and new energy
+sources, GtW (Gas-to-wire) systems are a plausible compromise solu-
+tion. In this article, the influence of fuel composition on a Brayton cycle 
+was studied theoretically aiming at oil well applications. The numeri-
+cal model comprises several analyses, such as the thermodynamics and 
+exergy of the cycle, pollutant emissions, the energy used to separate
+CO 2, and, finally, the cycle operating at partial load. The study considers
+the influence of fuel on several cycle parameters, such as the mass flow 
+of exhaust gases, the mass flow of fuel, excess air, the exergy destruc-
+tion rate in the compressor, turbine, and combustion chamber, pollutant 
+emissions, and isentropic efficiencies.
+In short, the results show that both gas and fuel flow rates increase 
+with increasing CO 2 content in the mixture and with increasing turbine 
+workload, a behavior confirmed by data provided by the manufacturer 
+of the SGT-400 turbine [22]. Excess air exhibits a slightly different be-
+havior, as it increases with the CO 2 content (decrease in the Wobbe 
+index) and decreases with turbine load. Regarding pollutants, NO X and 
+CO emissions decrease and increase with increasing CO 2 content, respec-
+tively. However, increasing the turbine load increases NO X emissions 
+and decreases CO emissions.
+It is worth mentioning that the objective of implementing GtW sys-
+tems is to use as fuel the associated gas with a high contaminant content 
+that, in standard systems, is burned to avoid CH 4 emissions into the at-
+mosphere. One of the main economic advantages of this system is that 
+there is no need to separate CO 2 from the extracted gas. Therefore, one 
+of the results presented concerns the energy required for the separation 
+process. The results presented show that, for fuels with a higher CO 2 
+content, the use of up to approximately 6.5 MW can be avoided for a 
+fuel flow rate equal to 2.02 kg/s. In other words, despite the reduced 
+cycle efficiency due to the presence of CO 2 mixed with CH 4 , increasing 
+the fuel mass flow results in a positive net energy balance, considering 
+that the gas did not go through the separation process, avoiding power 
+expenditures.
+In summary, this study shows the implications of running GtW sys-
+tems with a high level of associated gas. Future studies can further 
+expand this analysis in at least two directions. First, one should improve 
+the model presented by numerically simulating the combustion chamber 
+and all kinetic and geometric details associated with it; this would also 
+improve the accuracy of the associated emissions, which, in the present 
+model, are qualitative. Second, a carbon capture system should be mod-
+eled aiming to quantify technically, economically, and environmentally 
+the impact of running a GtW with a clean fuel (i.e., fully separating CO 2 ) 
+or associated gas (i.e., contaminated with CO 2 ).
+CRediT authorship contribution statement
+Ederson 
+Sandrin: 
+Writing 
+– 
+original 
+draft, 
+Visualization, 
+Validation, 
+Software, 
+Investigation, 
+Formal 
+analysis, 
+Data 
+cura-
+tion, Conceptualization. Thaís D. Luz: Writing – review & editing, 
+Supervision, Conceptualization. Edson Bazzo: Writing – review & edit-
+ing, Supervision, Funding acquisition, Conceptualization. Alexandre K. 
+da Silva: Writing – review & editing, Supervision, Funding acquisition, 
+Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgments
+The authors appreciate the financial support from Financiadora de 
+Estudos e Projetos (FINEP), Brazil, through grant #2450/22. AKDS also 
+appreciates the support from Conselho Nacional de Desenvolvimento 
+Científico e Tecnológico (CNPq), Brazil.
+Data availability
+Data will be made available on request. 
+References
+[1] Korakianitis T, Namasivayam A, Crookes RJ. Natural-gas fueled spark-ignition (SI) 
+and compression-ignition (CI) engine performance and emissions. Prog Energy 
+Combust Sci 2011;37:89–112.
+[2] Department of Energy U. S Environment baseline, volume 1: greenhouse gas emis-
+-
+-
+-
+-
+-
+-
+sions from the U.S. Power sector, Technical Report, Office of Energy Policy and 
+Systems Analysis. 2016.
+[3] Kearns J, Armstrong K, Shirvill L, Garland E, Simon C, Monopolis J. Flaring and vent
+ing in the oil and gas exploration and production industry: an overview of purpose, 
+quantities, issues, practice and trends, Technical Report, International Association 
+of Oil and Gas Producers. 2000.
+[4] Attanasi ED, Freeman PA. Role of stranded gas in increasing global gas supplies, 
+Technical Report, US Geological Survey. 2013.
+[5] Relva SG, da Silva VO, Peyerl D, Gimenes ALV, Udaeta MEM. Regulating the electro-
+energetic use of natural gas by gas-to-wire offshore technology: case study from 
+Brazil. Util. Policy 2020;66:101085.
+[6] Ojijiagwo E, Oduoza CF, Emekwuru N. Economics of gas to wire technology applied 
+in gas flare management. Eng Sci Technol Int J 2016;19:2109–18.
+[7] Watanabe T, Inoue H, Horitsugi M, Oya S. Gas to wire (gtw) system for developing 
+“small gas field” and “exploiting associated gas”, In: SPE international oil and gas 
+conference and exhibition in China. SPE; 2006. p. SPE–103746.
+[8] Brito TLF, Galvão C, Fonseca A, Costa HKDM, dos Santos EM. A review of gas-
+to-wire (gtw) projects worldwide: state-of-art and developments. Energy Policy 
+2022;163:112859.
+[9] Andrei M, Sammarco G. Gas to wire with carbon capture & storage: a sustainable way 
+for on-site power generation by produced gas, In: Abu dhabi international petroleum 
+exhibition and conference. SPE; 2017, p. D021S039R004.
+[10] Trinh KV, Moghanloo RGG. Economic feasibility study of several utilization alterna
+tives for a stranded offshore gas reservoir, In: Offshore technology conference. OTC; 
+2020, p. D022S002R006.
+[11] Anosike N, El-Suleiman A, Pilidis P. Associated gas utilization using gas tur
+bine engine, performance implicationâ€”nigerian case study. Energy Power Eng 
+2016;8:137–45.
+[12] Somehsaraei HN, Majoumerd MM, Breuhaus P, Assadi M. Performance analysis of 
+a biogas-fueled micro gas turbine using a validated thermodynamic model. Appl 
+Therm Eng 2014;66:181–90.
+[13] Kayadelen HK. Effect of natural gas components on its flame temperature, equi
+librium combustion products and thermodynamic properties. J Nat Gas Sci Eng 
+2017;45:456–73.
+[14] Arsalis A. Thermodynamic modeling and parametric study of a small-scale natu
+ral gas/hydrogen-fueled gas turbine system for decentralized applications. Sustain 
+Energy Technol Assess 2019;36:100560.
+[15] Mustafa L, Ślefarski R, Jankowski R. Thermodynamic analysis of gas turbine systems 
+fueled by a CH 4 /H2 mixture. Sustainability 2024;16:531.
+[16] Pashchenko D. Hydrogen-rich gas as a fuel for the gas turbines: a pathway to lower 
+co2 emission. Renew Sustain Energy Rev 2023;173:113117.
+[17] Pashchenko D. Ammonia fired gas turbines: recent advances and future perspectives. 
+Energy 2024;290:130275.
+[18] Mohammadpour M, Houshfar E, Ashjaee M. Combustion behavior study and flame 
+zone analysis of biogas-fueled gas turbine combustor under O2/CO2 and O2/H2O 
+oxidizing modes. Fuel 2023;345:128173.
+[19] Agbadede R, Kainga B, Allison I. Effect of associated gas utilization on the 
+creep life of gas turbines employed for power generation application. Results Eng 
+2023;17:100865.
+[20] Souza IV, Ellis GS, Ferreira AA, Guzzo JV, Díaz RA, Albuquerque ALS, Amrani A. 
+Geochemical characterization of natural gases in the pre-salt section of the Santos 
+basin (Brazil) focused on hydrocarbons and volatile organic sulfur compounds. 
+March Pet Geol 2022;144:105763.
+[21] Python Software Foundation. Python language reference, version 3.x, 2025. https: 
+//www.python.org [Accessed: 17 June 2025].
+[22] Siemens. Sgt-400 industrial gas turbine, 2025. https://www.siemens-energy.com/ 
+global/product/sgt-400.html/.
+[23] Arsalis A, Alexandrou AN, Georghiou GE. Thermoeconomic modeling of a small-scale 
+gas turbine-photovoltaic-electrolyzer combined-cooling-heating-and-power system 
+for distributed energy applications. J Clean Prod 2018;188:443–55.
+[24] Arsalis A, Alexandrou A. Thermoeconomic modeling and exergy analysis of a decen
+tralized liquefied natural gas-fueled combined-cooling–heating-and-power plant. J 
+Nat Gas Sci Eng 2014;21:209–20.
+[25] Bell IH, Wronski J, Quoilin S, Lemort V. Pure and pseudo-pure fluid thermophysical 
+property evaluation and the open-source thermophysical property library Coolprop. 
+Ind Eng Chem Res 2014;53:2498–508. https://doi.org/10.1021/ie4033999. http:// 
+pubs.acs.org/doi/abs/10.1021/ie4033999.
+Fuel 409 (2026) 137541 
+10 
+
+
+--- Page 11 ---
+
+E. Sandrin, T.D. Luz, E. Bazzo et al.
+[26] Goodwin DG, Moffat HK, Speth RL. CANTERA: an object-oriented software toolkit 
+for chemical kinetics, thermodynamics, and transport processes. Zenodo 2020. https: 
+//doi.org/10.5281/zenodo.1060986
+[27] Turns SR ed An introduction to combustion: concepts and applications. third ed. 
+New York: McGraw-Hill Education; 2012.
+[28] Bazzo E. Geração de vapor. Editora da Universidade Federal de Santa Catarina; 
+1995.
+[29] Li B, Gross MJ, Schmitt TP. Gas turbine gas fuel composition performance correction 
+using wobbe index, In: Power conference, vol. 49354. 2010. p. 847–53.
+[30] Saravanamuttoo HIH, Rogers GFC, Cohen H. Gas turbine theory. Pearson Education; 
+2001.
+[31] Bejan A, Tsatsaronis G, Moran MJ. Thermal design and optimization. John Wiley & 
+Sons; 1995.
+[32] Rizk N, Mongia H. Semianalytical correlations for NOX, CO, and UHC emissions. 
+1993.
+[33] Casella F, Maffezzoni C. Modelling of NOX and CO emissions of a small gas tur-
+-
+-
+bine unit based on operational data and neural networks. IFAC Proc Vol 2003;36: 
+115–20.
+[34] Zhang Y, Ji X, Lu X. Energy consumption analysis for CO 2 separation from gas 
+mixtures. Appl Energy 2014;130:237–43.
+[35] Zhang N, Cai R. Analytical solutions and typical characteristics of part-load per
+formances of single shaft gas turbine and its cogeneration. Energy Convers Manag 
+2002;43:1323–37.
+[36] Li W, Liu Z, Wang Z, Xu Y. Experimental investigation of the thermal and diluent ef
+fects of egr components on combustion and NOX emissions of a turbocharged natural 
+gas SI engine. Energy Convers Manag 2014;88:1041–50.
+[37] Bowman CT. Control of combustion-generated nitrogen oxide emissions: technology 
+driven by regulation, In: Symposium (international) on combustion, vol. 24. Elsevier; 
+1992. p. 859–78.
+Fuel 409 (2026) 137541 
+11 

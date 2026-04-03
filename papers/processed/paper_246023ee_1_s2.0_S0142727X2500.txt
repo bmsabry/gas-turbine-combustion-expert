@@ -1,0 +1,2183 @@
+
+--- Page 1 ---
+
+Review of particle deposition on aeroengine turbine blades and 
+its mitigation
+Guangfu Bin a, Pingping Yang a,*, Jian Li b, Chao Li a, Weihao Zhang c, Haiyan Miao d,  
+Fengshou Gu a,d
+a Hunan Provincial Key Laboratory of Health Maintenance for Mechanical Equipment, Hunan University of Science and Technology, Xiangtan 411201, China
+b AECC HAPRI Key Laboratory of Aero-engine Vibration Technology, Zhuzhou 412000, China
+c School of Energy and Power Engineering, National Key Laboratory of Science and Technology on Aero-Engine Aero-thermodynamics, Beihang University, Beijing 
+100191, China
+d Centre for Efficiency and Performance Engineering, University of Huddersfield, Huddersfield HD13DH, UK
+A R T I C L E  I N F O
+Keywords:
+Aeroengine
+Turbine performance
+Deposition patterns
+Protection method
+A B S T R A C T
+When aeroengines operate in harsh environments — such as deserts, dust storms, and marine regions— solid 
+particles from the external environment are carried by the airflow into the turbine, where they are heated and 
+deposit on the turbine blades. Additionally, solid particles produced during fuel combustion are also ingested 
+into the turbine and accumulate on the blade surfaces. As these deposits build up over time on the blade surfaces, 
+the turbine’s performance progressively deteriorates, consequently compromising the engine’s operational 
+safety. In this review paper, we first examine the advantages and disadvantages of several typical deposition 
+analysis models, including the critical velocity deposition model, critical viscosity deposition model, viscoelastic- 
+plastic deposition model, and composite deposition model. Next, the effects of particle properties, inlet airflow 
+conditions, blade characteristics, and cooling operation conditions on deposition patterns are summarized. 
+Subsequently, the advantages and limitations of low-temperature, high-temperature, and actual deposition ex­
+periments are discussed, followed by analyzing the effects of particle deposition on turbine aerodynamic per­
+formance and cooling efficiency. Finally, the latest advancements in protective technologies, such as coatings and 
+blade optimization, are explored. Based on the comprehensive review of the latest research progress, knowledge 
+gaps are identified and potential future research directions are proposed. These findings provide practical ref­
+erences for the development of protection technologies and condition monitoring of turbine blades in 
+aeroengines.
+1. Introduction
+Aeroengines, characterized by their compact design, high efficiency, 
+and low emissions, are extensively utilized in various aircraft types, 
+including commercial airliners, helicopters, and transport aircraft 
+(Yeranee et al., 2024; Zhang and Liu, 2023). The turbine, as a critical 
+component of the aeroengine, must operate for extended periods of time 
+under extreme conditions, high temperatures, high rotational speeds, 
+elevated pressure, and heavy loads. The energy efficiency of the turbine 
+is essential for the overall performance and reliability of the aeroengine 
+(Yang et al., 2025). However, when operating in harsh environments 
+such as deserts (sand particles), volcanic areas (volcanic ash), 
+sandstorms (dust), and marine areas (salt particles), aeroengines inevi­
+tably ingest solid particles. These particles are commonly referred to as 
+calcium-magnesium-alumino-silicate (CMAS), which enters the turbine 
+through the compressor and combustion chamber. Internally, carbon 
+particles are generated during the fuel combustion process, which also 
+infiltrate the turbine with the airflow (Yang et al., 2022, 2023a,b). 
+CMAS primarily consists of CaO, MgO, Al2O3, and SiO2, exhibiting high 
+corrosivity and permeability —especially after being heated in the 
+compressor and combustor. Once deposited onto the surface of the 
+blade, CMAS transforms into a rigid, dense, glassy solid with excep­
+tionally strong adhesion, making it extremely difficult to remove. CMAS 
+deposition can be categorized into two types: the first occurs inside the 
+* Corresponding author at: Hunan Provincial Key Laboratory of Health Maintenance for Mechanical Equipment, Hunan University of Science and Technology, 
+Xiangtan 411201, China.
+E-mail address: yangpingping1003@163.com (P. Yang). 
+Contents lists available at ScienceDirect
+International Journal of Heat and Fluid Flow
+journal homepage: www.elsevier.com/locate/ijhff
+https://doi.org/10.1016/j.ijheatfluidflow.2025.110023
+Received 5 May 2025; Received in revised form 31 July 2025; Accepted 18 August 2025  
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+Available online 22 August 2025 
+0142-727X/© 2025 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+Fig. 1. CMAS deposition on (a) Stator blade; (b) Blade surface; (c) Cooling channel (Giehl et al., 2017).
+Fig. 2. The phenomenon produced by the impact of particles on the blades: erosion, deposition, corrosion, and detachment.
+Fig. 3. Flow chart of this review.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+2 
+
+
+--- Page 3 ---
+
+complex cooling channels of turbine blades, leading to blockages that 
+reduce cooling efficiency; the second occurs on the external surfaces of 
+turbine blades, altering their geometric shapes and consequently 
+decreasing turbine efficiency and shortening component lifespan (Xie 
+et al., 2024; Giehl et al., 2017), as illustrated in Fig. 1. As the deposition 
+accumulates, the turbine blades may experience corrosion or fracture, 
+ultimately leading to aeroengine shutdown (Suman et al., 2019). As a 
+result, CMAS deposition has a significant impact on turbine efficiency 
+and poses a serious threat to aircraft operational safety.
+Statistical evidence indicates that since 1973, volcanic ash has been 
+responsible for over 100 aeroengine failures, including nine critical 
+flameout incidents (Liu et al., 2022). Notably, British Airways Flight 
+BA009 and Royal Dutch Airlines Flight KLM867 each experienced total 
+power loss in all four engines due to encountering with volcanic ash in 
+June 1982 and December 1989, respectively. In April 2010, the eruption 
+of the Eyjafjallaj¨okull volcano in Iceland released substantial amounts of 
+ash, leading to widespread flight cancellations across Europe. This 
+disruption had severe economic repercussions: within six days of the 
+eruption, 108,000 flights were canceled, 10 million passengers were 
+stranded, and airlines reported an estimated revenue loss of $1.7 billion 
+(Liu et al., 2022; Brooker, 2010). The United States Federal Aviation 
+Administration mandates that the concentration of particulate matter 
+for safe flight must remain below 2 mg/m3. However, even at this “safe” 
+concentration, a fully loaded aeroengine can still ingest up to 3.6 kg of 
+particulates per hour due to the prevalence of submicroscopic particles 
+in the atmosphere (Taltavull et al., 2016). With ongoing technological 
+advancements, aeroengine turbine inlet temperatures are steadily rising, 
+and projections suggest that these temperatures will exceed 1,900 K, 
+further increasing the likelihood of particle deposition on turbine blades 
+(Hu et al., 2025).
+The interaction between particles and turbine blades is highly 
+complex, involving four primary phenomena: erosion, deposition, 
+corrosion, and detachment, as shown in Fig. 2. The occurrence of these 
+phenomena is closely influenced by factors such as particle size, veloc­
+ity, impact angle, and temperature. When the temperature, velocity, and 
+other conditions satisfy the deposition criteria, particles adhere to the 
+blade surface. As deposition accumulates, the deposited material can 
+corrode the blade surface, reducing the blade’s lifespan. However, due 
+to the flow field and subsequent particle impacts, some deposited par­
+ticles may detach and be removed from the blade surface. If deposition 
+conditions are not met, particles tend to rebound off the blade, resulting 
+in erosion (Wang et al., 2018; Erraghroughi et al., 2024). In the field of 
+particle deposition, a variety of deposition models have been proposed, 
+highlighting the effects of temperature, particle size, and blowing ratio 
+on turbine blade performance (Han et al., 2024; Kasper et al., 2019). 
+Most current studies on particle erosion concentrate on the impact of 
+particles on compressor blades, with relatively fewer investigations 
+addressing erosion in turbine blades (Yang et al., 2024; Yang et al., 
+2024). Existing research on particle corrosion mainly focuses on the 
+damage caused by deposited particles to blade surface materials and the 
+development of anti-corrosion materials (Singh et al., 2014; Zhang et al., 
+2024). Notably, deposition, erosion, corrosion, and detachment signifi­
+cantly affect the aerodynamic performance, cooling efficiency, and 
+service life of the turbine, posing a direct threat to the safe operation of 
+the aeroengine (Fazeli et al., 2024; Liu et al., 2024).
+Currently, there is a lack of comprehensive review articles that sys­
+tematically summaries research progress in key areas such as particle 
+deposition patterns, deposition experiments, the impact of particles on 
+turbine performance, and related protection technologies. This paper 
+provides a comprehensive review of particle deposition patterns on 
+turbine blades, deposition experiments, the impact of deposition on 
+turbine performance, and protective technologies. Fig. 3 illustrates the 
+flowchart for this review. First, widely used deposition models are 
+analyzed, and their applicability is discussed. The influence of particle 
+properties, inlet airflow conditions, blade characteristics, and cooling 
+operation conditions on deposition patterns is summarized. Addition­
+ally, three commonly used experimental setups are compared, with a 
+detailed overview of their respective advantages and disadvantages. 
+Next, the effects of particle deposition on turbine aerodynamics and 
+cooling performance are examined. Furthermore, advancements in 
+research on anti-corrosion technologies for turbine blades are reviewed. 
+Finally, based on an analysis of existing studies, potential directions for 
+future research are proposed.
+2. Deposition patterns of turbine blades
+To address the issue of particle deposition, a series of deposition 
+models have been developed. Developing deposition models is essential 
+for accurately predicting and understanding how particles interact with 
+turbine components under various operating conditions. These models 
+can simulate particle behavior and predict the extent and patterns of 
+particle buildup, helping to design effective mitigation strategies or 
+optimize cooling systems for example. Furthermore, deposition models 
+provide valuable insights that guide the development of advanced 
+coatings and protective technologies. As turbine operating environ­
+ments become increasingly harsh with higher temperatures and pres­
+sures, the need for precise and comprehensive deposition models 
+becomes even more critical to ensure the reliable performance of aero­
+engines. This section will focus on discussing existing deposition models, 
+followed by deposition patterns.
+2.1. Deposition model
+After entering the turbine, particles may or may not deposit on the 
+blade surface. Extensive experiments have been conducted to under­
+stand the particle deposition phenomenon (see Section 3). Based on 
+these experiments, researchers have suggested several models to explain 
+how particles stick to surfaces, such as the critical viscosity deposition 
+model, the critical velocity deposition model, and the composite depo­
+sition model (Suman et al., 2019; N’Dala et al., 1984; El-Batsh and 
+Haselbacher, 2002; Li et al., 2024; Zhang, 2021; Fu et al., 2004; Adams 
+et al., 2004).
+(1) Critical viscosity deposition model.
+Critical viscosity refers to the phenomenon in which particle vis­
+cosity decreases rapidly when the temperature surpasses a specific 
+critical threshold. When the particle temperature exceeds its softening 
+Fig. 4. Geometrical evolution of particles on temperature.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+3 
+
+
+--- Page 4 ---
+
+temperature, the likelihood of adhesion to the surface approaches 1. 
+Conversely, particles with temperatures significantly lower than the 
+critical sticking temperature will exhibit a sticking probability of 0, as 
+illustrated in Fig. 4. For particles with temperatures that fall within the 
+intermediate range, the probability function can be determined using 
+(Zhang, 2021): 
+Ps(Tp) =
+⎧
+⎪
+⎨
+⎪
+⎩
+μcr
+μTp
+μcr < μTp
+1
+μcr⩾μTp
+(1) 
+where Tp is the particle temperature, µcr the critical viscosity and µTp, 
+the viscosity of the particle at the current temperature. N’Dala et al. 
+(N’Dala et al., 1984) have demonstrated that the temperature depen­
+dence of the viscosity of silicate and aluminosilicate melts can be 
+described by: 
+ln(μTp
+Tp
+) = A + B103
+Tp
+(2) 
+where A and B are constants which depend on the chemical 
+composition.
+The model is applicable to particles at extremely low or high tem­
+peratures. However, the model has limitations because it doesn’t take 
+into account other important factors like how fast the particles hit, their 
+mass, and the angle of impact, which can greatly affect the results in 
+certain situations.
+(2) Critical velocity deposition model.
+Critical velocity refers to the threshold at which particles rebound 
+upon colliding with a surface, provided their impact velocity exceeds a 
+specific critical value. This means, when a particle’s impact velocity is 
+greater than the critical velocity, it will not deposit. Conversely, if the 
+impact velocity is less than the critical velocity, the particle will adhere 
+to the surface, as illustrated in Fig. 5. The probability of particles vis­
+cosity to the wall surface is (El-Batsh and Haselbacher, 2002; Zhang, 
+2021): 
+Ps(Vn) =
+{ 0
+Vn > Vcr
+1
+Vn⩽Vcr
+(3) 
+where Vcr is the critical velocity, which is related to the particle diameter 
+Dp and the elastic modulus E: 
+Vcr =
+(2E
+Dp
+)10/7
+(4) 
+E = 0.51
+(
+5π2(K1 + K2)
+4ρ3/2
+p
+)2/5
+(5) 
+K1 = 1 −v2
+s
+πEs
+(6) 
+K2 =
+1 −v2
+p
+πEp
+(7) 
+where Es is the wall elastic modulus, Ep the particulate elastic modulus, 
+vs the wall Poisson’s ratios, and vp the particulate Poisson’s ratios.
+This model is primarily applicable to the study of particle deposition 
+behaviors at low velocities. However, it does not account for the viscous 
+effects on deposition. When the impact velocity of a particle falls below 
+the critical threshold, its temperature may also be below the softening 
+temperature. In such cases, the particles may be unable to form a deposit 
+Fig. 5. Geometrical evolution of particles on velocity.
+Fig. 6. Green: Integration elastoviscoplasticity, Blue: Energy elastoviscoplasticity, Red: Critical velocity, Dashed line: Increased temperature (Lawrence et al., 1112). 
+(For interpretation of the references to colour in this figure legend, the reader is referred to the web version of this article.)
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+4 
+
+
+--- Page 5 ---
+
+on the target wall.
+(3) Elastoviscoplasticity model.
+To account for elastic, viscous, and plastic effects during particle 
+impact and rebound processes, various viscoelastic-plastic models have 
+been proposed. Fu et al. (Fu et al., 2004) created a model that examines 
+how elastic energy, plastic energy, and adhesive work are connected 
+when particles hit a surface. When the recovery coefficient e ≥0: 
+e =
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+We −Wa
+Wp
+√
+(8) 
+where Wp is the energy associated with the load, Wa the associated work, 
+and We the elastic strain energy. 
+Wp = σfεp −0.5
+(
+σ2
+f
+E + σ2
+0
+E
+)
+(9) 
+Wa = GcA
+(10) 
+We = mE
+[εp(V)
+]2
+2ρ
+(11) 
+where σf is the dynamic flow stress, εp the maximum strain, σ0 the yield 
+stress, E the Young’s modulus, A the contact area, Gc the interfacial 
+fracture energy, m the mass, V the impact velocity, and ρ the particle 
+density.
+At relatively large strains (εp≫εf) and small values of the adhesion 
+this expression reduces to: 
+e =
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+σ2
+0
+Eσf(V)εp(V)
+√
+(12) 
+Adams et al. (Adams et al., 2004) suggested a combined elasto­
+viscoplasticity model that relates kinetic energy to the total pressure 
+across the distance moved. The final expression for the coefficient of 
+restitution is presented as follows: 
+e =
+̅̅̅̅̅̅̅̅̅̅̅̅̅̅
+18πσ2
+Y
+5Êσf
+√
+̅̅̅̅̅̅̅̅̅̅
+9̂σf
+8ρV2
+8
+√
+(13) 
+where ̂σf is the flow stress, σY the uniaxial yield stress, E Young’s 
+modulus, V the impact velocity, and ρ the particle density.
+Michael et al. (Lawrence et al., 1112) compared the performance of 
+the critical velocity model, the energy elastoviscoplasticity model, and 
+the integrated elastoviscoplasticity model. They found that both the 
+energy elastoviscoplasticity model and the integrated elastoviscoplas­
+ticity model exhibit similar trends: particles rebound at low velocities 
+and adhere at high velocities, with significant differences in transition 
+velocity and the slope of the restitution coefficient between the two 
+models. The trends predicted by the elastoviscoplasticity models 
+contrast with those of the critical velocity model, which is based on the 
+assumption that particles always yield in the elastoviscoplasticity 
+models, while the critical velocity model assumes that particles never 
+yield. Since the predictions of the critical velocity model do not depend 
+on the particle impact velocity, it was excluded from the comparison, as 
+illustrated in Fig. 6.
+(4) Composite deposition model.
+When the impact velocity of particles exceeds the critical velocity, 
+the particles are generally considered to rebound. However, if the par­
+ticle viscosity is lower than the critical viscosity, rebound may not 
+necessarily occur, even if the incident velocity condition is satisfied. 
+Therefore, the influence of viscosity must be taken into account when 
+predicting particle rebound behaviour. The adhesion probability is (Li 
+et al., 2024): 
+Ps = μcrVcr
+μTpVn
+(13) 
+where Vn is the particle impact velocity, Vcr is the critical velocity, µcr is 
+the critical viscosity, µTp is the viscosity of the particle at the current 
+temperature. The probability of adhesion of particles after collision with 
+the wall is shown in Table 1 (Li et al., 2024).
+The shear force may detach particles deposited on the wall surface. 
+The balance between the adhesion and detachment forces determines 
+the final deposition amount. According to the critical momentum the­
+ory, a comparison of the shear velocity and critical shear velocity at the 
+wall can be used to determine whether article detachment occurs, as 
+illustrated in Fig. 7. The critical shear velocity and shear velocity are 
+expressed as (Li et al., 2024): 
+u2
+τc = CuWA
+ρD p
+(3πWA
+2DpKc
+)1/3
+(14) 
+uτ =
+̅̅̅̅̅
+τw
+ρ
+√
+(15) 
+where WA is the adhesion constant. The composite Young’s modulus Kc 
+is expressed as: 
+Kc = 4
+3
+(
+1 −V2
+s
+Es
++
+1 −V2
+p
+Ep
+)−1
+(16) 
+where Es is the wall elastic modulus, Ep the particulate elastic modulus, 
+vs the wall Poisson’s ratios, and vp the particulate Poisson’s ratios.
+The composite deposition model takes into account not only tem­
+perature but also impact velocity. Fig. 8 presents the prediction results 
+from both the composite deposition model and the critical velocity 
+model. The findings indicate that the composite deposition model has a 
+better match with the experimental data compared to the critical ve­
+locity model (Li et al., 2024).
+To minimize errors associated with the deposition model, efforts 
+have been made to improve these models’ accuracy. For instance, Singh 
+et al. (Singh and Tafti, 2015) revised the critical viscosity deposition 
+model to account for energy loss and temperature variations during 
+particle impact. Batsh et al. (El-Batsh, 2001) modified the critical 
+Table 1 
+Categories of adhesion probability (Li et al., 2024).
+No.
+Tp
+Vn
+Ps
+1
+Tp ≥Tcr
+Vn < Vcr
+1
+2
+Tp ≥Tcr
+Vn ≥Vcr
+Vcr/Vn
+3
+Tp < Tcr
+Vn < Vcr
+µcr/µTp
+4
+Tp < Tcr
+Vn ≥Vcr
+µcrVcr/µTpVn
+Fig. 7. The movement behavior of particles at critical viscosity.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+5 
+
+
+--- Page 6 ---
+
+velocity deposition model, suggesting that the Poisson’s ratio between 
+the particles and the wall remains constant despite temperature fluctu­
+ations. The EI-Batsh deposition model categorises the particle deposition 
+process into two stages: the first involves particle adhesion to the wall, 
+while the second involves particle detachment. The adhesion of particles 
+is determined by the critical velocity model, whereas detachment is 
+assessed using the critical shear velocity model (Sun et al., 2024). To 
+date, most studies continue to rely on the critical viscosity model, the 
+critical velocity model, and the composite deposition model. However, 
+as turbine operating conditions become increasingly complex, these 
+existing models fall short in accurately simulating particle deposition 
+patterns, as shown in Table 2. Therefore, further experimental studies on 
+particle deposition are necessary to refine the existing models and to 
+develop new models that can better reflect the complexities of real- 
+world conditions.
+2.2. Deposition patterns
+Recently, researchers have conducted extensive studies on particle 
+deposition patterns on turbine blade surfaces and within their cooling 
+channels (Wu et al., 2023; OuYang et al., 2024). The deposition process 
+is primarily governed by a range of factors, including particle properties, 
+airflow velocity, airflow temperature, blade temperature, blade shape, 
+and cooling holes. Accordingly, this section will provide a detailed 
+discussion of the following aspects: particle properties, inlet airflow 
+conditions, blade characteristics, and cooling operation conditions.
+(1) Particle properties.
+Under varying operating conditions, particles entering the turbine 
+typically exhibit different sizes and types, resulting in significant dif­
+ferences in their deposition patterns on the blades (Stokes and Presby, 
+2024; Xin et al., 2025). Casari et al. (Casari et al., 2018) studied particle 
+motion behaviour and discovered that particles can adhere to the blade 
+surface and rebound, leading to erosion. Wang et al. (Wang et al., 2024) 
+observed that due to inertial effects, smaller particles primarily deposit 
+on the suction surface, while larger particles tend to accumulate on the 
+pressure surface. This finding is corroborated by Liu et al. (Liu et al., 
+2023). Wang et al. (Wang et al., 2024) further noted that as particle size 
+increases, the deposition rate also rises, consistent with the results of 
+Fig. 8. Critical velocity model and composite deposition model (Li et al., 2024).
+Table 2 
+Comparison of deposition models.
+Model
+Advantages and disadvantages
+Scope of 
+application
+Critical viscosity
+The model is suitable for studying the 
+mechanism of particle deposition at 
+high temperatures. However, it does 
+not adequately address the behaviour 
+of particles under low-temperature or 
+high-velocity impacts.
+High temperature
+Critical velocity
+The model is suitable for analysing 
+the behaviour of particles during 
+low-velocity impacts. However, it has 
+limited ability to explain the 
+behaviour of particles under high- 
+velocity conditions.
+Low-velocity
+Elastoviscoplasticity
+The model simultaneously accounts 
+for the elastic, viscous, and plastic 
+deformation characteristics of 
+particles. However, it entails high 
+computational complexity and is 
+therefore more suitable for complex 
+scenarios that require detailed 
+analysis.
+High temperature 
+and high velocity
+Composite
+This model is applicable for analysing 
+particle behaviour under varying 
+temperatures and velocities. 
+However, it involves complex 
+computations and requires extensive 
+input parameters.
+Various working 
+conditions
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+6 
+
+
+--- Page 7 ---
+
+Pearson et al. (Pearson and Brooker, 2020) and Bonilla et al. (Bonilla 
+et al., 2012). However, Wang et al. (Wang et al., 2024) and Bojdo et al. 
+(Bojdo and Filippone, 2019) presented an alternative perspective, sug­
+gesting the existence of a critical particle size: when the particle size is 
+smaller than this critical value, the deposition rate increases with par­
+ticle size, whereas when the particle size exceeds the critical value, the 
+deposition rate decreases. Tian et al. (Tian et al., 2021) further pointed 
+out that smaller particles primarily affect the blade through deposition, 
+while larger particles influence it mainly through impact. Specifically, 
+when the particle size exceeds 20 μm, fewer particles deposit on the 
+blade surface. Based on this observation, Sun et al. (Sun et al., 2024) 
+proposed a critical particle size of 15 μm. However, due to variations in 
+boundary conditions across studies, the specific value of the critical 
+particle size differs, and no definitive critical particle size has yet been 
+established.
+In fact, the rate and location of particle deposition are closely related 
+to their capture and impact efficiencies. Wang et al. (Wang et al., 2024) 
+demonstrated that as particle size increases, capture efficiency initially 
+rises before declining, mirroring the trend observed in particle deposi­
+tion rates. Additionally, they found that impact efficiency increases with 
+particle size, as larger particles possess greater inertia, making them 
+more likely to collide with the blade surface. Tian et al. (Tian et al., 
+2021) also noted that smaller particles rarely impact the blade surface. 
+However, as particle size increases, impact efficiency rises rapidly. For 
+particles with a size of 50 µm, the total impact efficiency exceeds 400 %, 
+indicating that particles may rebound multiple times on the blade sur­
+face. Consequently, changes in particle size can lead to corresponding 
+changes in particle movement mechanisms and blade deposition pro­
+cesses. Liu et al. (OuYang et al., 2024) found that with increased particle 
+size, the deposition area on the guide blade gradually extends across the 
+entire pressure surface, and the deposition area on the rotor blade shifts 
+from the pressure surface toward the blade tip. In addition, particle 
+density is another important factor influencing deposition patterns. Sun 
+et al. (Sun et al., 2024) suggested that particle density has a minimal 
+effect on deposition, particularly when the density reaches 1,700 kg/m3, 
+at which point its influence on the deposition rate becomes almost 
+negligible. However, Wang et al. (Wang et al., 2024) argued that as 
+particle density increases, impact efficiency rises, subsequently affecting 
+the deposition rate. Liu et al. (Liu et al., 2023) found that SiO2 particles 
+cause the most deposition, followed by CMAS and Al2O3 particles, as 
+illustrated in Fig. 9. These findings clearly demonstrate that variations in 
+particle properties have a substantial impact on deposition rates.
+In summary, particles predominantly deposit on the leading edge 
+and pressure surface of turbine blades, with significantly less deposition 
+occurring on the suction surface. A significant temperature gradient 
+exists within the disk region, which hinders particle deposition. 
+Furthermore, centrifugal forces tend to drive particles toward the blade 
+tip region, further complicating particle deposition within the disk re­
+gion. Currently, the underlying mechanisms responsible for this phe­
+nomenon remain insufficiently analyzed. Future studies should 
+investigate in greater detail the factors contributing to the limited par­
+ticle deposition in the disk region. As the deposition time increases, the 
+blade surfaces gradually develop discontinuous peaks and valleys. The 
+differences in capture and impact efficiency among particles of varying 
+sizes directly influence their deposition rates. A critical particle size 
+exists in the deposition process. When the particle size is smaller than 
+this critical value, the deposition rate increases with size. Conversely, 
+when the particle size exceeds this critical value, the deposition rate 
+decreases as size increases. Additionally, variations in particle types also 
+result in differences in deposition mass.
+(2) Inlet airflow conditions-velocity & temperature.
+During aeroengine operation, the parameters of the inlet airflow 
+entering the turbine, such as temperature and pressure, are not constant 
+but vary over time (Wang et al., 2024; Sun et al., 2024). Wang et al. 
+(Wang et al., 2021) investigated the effects on turbine blades when the 
+angle of the airflow inlet changed from 123◦to 143◦. They discovered 
+that the impact area on the blade pressure surface increased. Zhang et al. 
+(Zhang et al., 2020) demonstrated that capture efficiency rises with the 
+angle of attack, although the rate of increase gradually diminishes. On 
+the pressure surface of the blade, particle deposition is primarily 
+distributed downstream of the film cooling holes near the trailing edge 
+at small angles of attack. In contrast, at larger angles of attack, 
+Fig. 9. Distribution of deposition of different types of particles on the blade (a) SiO2 particles; (b) Al2O3 particles and (c) CMAS particles (modified version (Liu 
+et al., 2023).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+7 
+
+
+--- Page 8 ---
+
+deposition is concentrated around the film cooling holes near the lead­
+ing edge, leading to partial blockage of these holes. These findings 
+indicate that particle deposition patterns change with variations in the 
+inlet airflow angle. Additionally, Sacco et al. (Sacco et al., 2018) sug­
+gested that the pressure of the airflow entering the turbine is typically 
+unstable. In their deposition experiments on blade cooling channels 
+under varying pressures, they observed that deposition decreased non- 
+linearly with increasing pressure. They also noted that temperature is 
+another critical factor that influences particle deposition. As the airflow 
+temperature rises, the total amount of deposition increases. Laycock 
+et al. (Laycock and Fletcher, 2016) conducted experimental studies on 
+particle deposition patterns at 1,673.15 K, finding that the temperature 
+of the airflow and particles determines particle softening and viscosity. 
+When the material surface temperature remains constant, the particle 
+deposition rate gradually increases as the inlet temperature rises. Singh 
+et al. (Singh and Tafti, 2015) and Hao et al. (Hao et al., 2021) also 
+concluded that particle deposition increases with higher inlet 
+temperatures.
+However, Zhang et al. (Zhang et al., 2020) suggested the existence of 
+an airflow temperature threshold, beyond which capture efficiency in­
+creases significantly. Fig. 10 illustrates the deposition patterns on the 
+pressure surface of the blade under different airflow temperatures. 
+Fig. 10. Pressure surface deposition patterns at different airflow temperatures (modified version (Zhang et al., 2020).
+Fig. 11. The concentration of particles on the cut planes within the passage (Hao et al., 2022).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+8 
+
+
+--- Page 9 ---
+
+Smith et al. (Smith et al., 2010) reported that deposition increases 
+sharply with temperature, identifying a critical range between 1,173.15 
+K and 1,273.15 K, while Jensen et al. (Jensen et al., 2005) proposed that 
+the temperature threshold for accelerated deposition lies between 
+1,173.15 K and 1,373.15 K. In contrast, Crosby et al. (Crosby et al., 
+2008) identified a different temperature threshold in their research. 
+They observed that when the gas temperature is below 1150 K, particle 
+deposition efficiency is nearly zero. However, when the gas temperature 
+exceeds 1,150 K, deposition efficiency increases rapidly. When the gas 
+temperature reaches approximately 1,460 K, the deposition efficiency 
+attains a value of 1.78, which is about 14 times greater than that at 
+1,240 K. Variations in particle types and particle sizes may be the cause 
+of these discrepancies in deposition temperature thresholds.
+In summary, particle deposition’s behaviour is influenced by varia­
+tions in the airflow inlet angle. There is a threshold temperature for the 
+airflow, beyond which the deposition rates increase significantly. 
+Furthermore, as the blowing ratio increases, particle deposition on the 
+blade surface generally decreases.
+(3) Blade characteristics.
+When the aeroengine runs under different working conditions, the 
+temperature of the turbine blades varies. Yang et al. (Yang et al., 2021) 
+and Casaday et al. (Casaday et al., 2014) indicate that high wall tem­
+peratures lead to an increase of deposition mass. However, some re­
+searchers believe that a minimum adhesion temperature exists. Laycock 
+et al. (Laycock and Fletcher, 2016) discovered that as the initial surface 
+temperature of the material increased from 1;167  K to 1,211 K and 
+1,407 K, the particle deposition rate rose from 0.8 % to 10.8 % and 7.5 
+%, respectively. Wylie et al. (Wylie et al., 2017) observed significant 
+volcanic ash deposition at a metal temperature of 1;193  K and suggested 
+that the minimum adhesion temperature is 1,190 K. Currently, there is a 
+lack of consensus regarding the precise value of the critical wall tem­
+perature, which may stem from variations in experimental conditions, 
+such as the types of metallic materials used and differences in particle 
+properties.
+Additionally, blade tip clearance significantly influences the depo­
+sition pattern. Wang et al. (Wang et al., 2023) found that tip separation 
+vortices and leakage vortices significantly influence tip deposition. Hao 
+et al. (Hao et al., 2022) showed that a larger tip clearance allows more 
+leakage flow, which means more particles can get into the tip gap and 
+increase deposition at the tip. However, as tip depositions rise, deposits 
+on the blade surface decrease. Xu et al. (Xu et al., 2019) discovered that 
+while the particle deposition region at the tip does not change signifi­
+cantly with increasing roughness, particle deposition, particularly in the 
+mid-tip area, increases with higher roughness. Particle deposition at the 
+tip can lead to an uneven distribution of the clearance between the tip 
+and the casing, which may deteriorate aerodynamic performance and 
+potentially induce rotor vibrations. Furthermore, studies have found 
+that rotational speed also influences the deposition mechanism. As the 
+rotational speed increases, particle deposition on the blade surface also 
+increases, becoming more concentrated on the rotating blades. From 
+Fig. 11, it can be seen that the particles are concentrated on the mid- 
+chord of the pressure surface of the blade tip and little particles enter 
+the cavity at a low rotating speed. With the rise of the rotating speed, a 
+larger intensity of the vortex near the pressure surface rim, induced by a 
+greater pressure difference, sends more particles into the tip clearance, 
+and a larger intensity of the suction surface vortex, resulting from a 
+higher rotating speed, enhance the flow disturbance, making more 
+particles impact on the squealer tip (Hao et al., 2022).
+To ensure the safe and efficient operation of aeroengines, turbine 
+blades are typically designed with film cooling holes to mitigate tem­
+perature increases (Liu et al., 2024; Du et al., 2025). Consequently, re­
+searchers have conducted extensive studies on various types of cooling 
+holes. Liu et al. (Liu et al., 2023) investigated the impact of the pin fins 
+aspect ratio on deposition rates and found that increasing the aspect 
+ratio contributed to a reduction in deposition rates. Zhang et al. (Zhang 
+et al., 2023) used numerical simulations to find that film cooling 
+decreased deposition in some areas but increased deposition near film 
+coverage zones because of vortex entrainment. However, 777-shaped 
+holes reduced deposition by 10–15 % compared to cylindrical holes. 
+This finding indicates that non-cylindrical holes can modify particle 
+trajectories, thereby effectively decreasing particle deposition. Wang 
+et al. (Wang et al., 2016) studied how particles settled in both cylindrical 
+and non-cylindrical film cooling holes and found that non-cylindrical 
+holes were less effective at capturing particles. Davidson et al. (Todd 
+Davidson et al., 2014) compared four different film cooling structures: 
+cylindrical, craters, a trench, and a modified trench. They found that 
+craters and trenches located downstream of the film cooling structures 
+were the best at accumulating deposits from building up. Wang et al. 
+(Wang et al., 2021) further analyzed the results of combined and cy­
+lindrical holes, revealing that the particle capture efficiency of com­
+bined holes was 3.9 % lower than that of cylindrical holes. These 
+findings reinforce the notion that modifying the shape of the holes can 
+lead to a reduction in particle deposition.
+In film cooling environments, variations in hole orientation lead to 
+changes in the blowing angle, which subsequently influence the depo­
+sition patterns. Zeng et al. (Zeng et al., 2023) reported that the minimum 
+deposition occurs when the single cooling film holes are orientated with 
+the radial inclination directed towards the leading edge. The amount of 
+deposition gradually increases as the inclination angle shifts towards the 
+pressure and suction surfaces. And the deposition thickness is inversely 
+proportional to the blowing angle (Zhang et al., 2024). In addition to 
+hole orientation, hole spacing and arrangement significantly influence 
+deposition characteristics. Ai et al. (Ai et al., 2011) experiments 
+demonstrated that smaller hole spacing results in a more uniform 
+Fig. 12. Deposition thickness on the leading edge surface: (a) and (b) for 
+different spray angles; (c) and (d) for different spacing; (e) and (f) for different 
+arrangements. (modified version (Yang et al., 2021).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+9 
+
+
+--- Page 10 ---
+
+deposition distribution with reduced overall deposition. Zeng et al. 
+(Zeng et al., 2023) found that the main areas where particles deposited 
+were almost the same for different hole designs. However, as the 
+opening angle varies from the suction surface to the leading edge, par­
+ticle deposition on the blade surface gradually decreases. Yang et al. 
+(Yang et al., 2021) performed experiments on particle deposition with 
+different hole arrangements and observed that dense, staggered hole 
+configurations and steep bi-directional injection effectively minimize 
+deposition, as illustrated in Fig. 12. Peng et al. (Peng et al., 2022) 
+simulated the deposition patterns of film cooling holes arranged in three 
+rows and revealed that cooling air from the first row creates airflow 
+disturbances that facilitate particle deposition in the trailing area while 
+the cooling air from the second row elevates the airflow, effectively 
+preventing deposition in the tail area.
+In summary, a critical wall temperature may exist beyond which the 
+particle deposition patterns change significantly. Non-cylindrical holes 
+are indeed more effective at reducing particle deposition compared to 
+cylindrical holes. Furthermore, variables such as hole orientation, hole 
+arrangements, rotational speed, and tip clearance significantly impact 
+the deposition patterns.
+(4) Cooling operation conditions.
+During engine operation, airflow with different blowing ratios is 
+introduced into the cooling holes of the turbine blades (Li et al., 2024; 
+Cheng et al., 2024). In this process, the blowing ratio significantly in­
+fluences the particle deposition pattern. Wang et al. (Wang et al., 2020) 
+discovered that when the blow ratio is low, larger particles are more 
+likely to enter the cooling hole. Conversely, Wang et al. (Wang et al., 
+2024) suggested that as the blowing ratio increases, the deposition rate 
+of smaller particles rises, while the deposition rate of larger particles 
+declines. Zeng et al. (Zeng et al., 2023), Sun et al. (Sun et al., 2024), and 
+Ai et al. (Ai et al., 2011) found that as the blowing ratio increases, the 
+deposition rate initially decreases before increasing again, as illustrated 
+in Fig. 13. Wang et al. (Wang et al., 2016) argued that a higher blowing 
+ratio enhances particle–wall impact efficiency for smaller particles while 
+decreasing it for larger particles. Nonetheless, an increase in the blowing 
+ratio generally suppresses overall particle deposition. Mensch et al. 
+(Mensch and Thole, 2015) further demonstrated that increasing the 
+blowing ratio can reduce deposition near the exits of the film cooling 
+holes. These findings suggest that while a higher blowing ratio can 
+mitigate particle deposition, the specific trends in deposition rates vary 
+based on factors such as hole geometry and location, and there remains 
+no consensus within the academic community on this issue.
+It is evident that the particle deposition patterns on the blade surface 
+exhibit significant differences under varying conditions. As technology 
+advances, turbine blade structure becomes increasingly complex, with 
+elevated operating temperatures rising. Developing more accurate 
+deposition models and uncovering particle deposition patterns under the 
+combined effects of multiple factors remain challenging tasks.
+3. Deposition experiments
+Experiments are a vital method for investigating the particle depo­
+sition process on turbine blades, as they can effectively replicate this 
+complex phenomenon (Xu et al., 2019; Cai et al., 2023). Currently, there 
+are three commonly employed deposition experimental methods: high- 
+temperature deposition experiments, low-temperature deposition ex­
+periments, and real-world deposition experiments. Low-temperature 
+deposition experiments typically use gas temperatures below the 
+Fig. 13. Particle deposition patterns at different blowing ratios (modified version (Ai et al., 2011).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+10 
+
+
+--- Page 11 ---
+
+turbine inlet temperature. In contrast, high-temperature deposition ex­
+periments use gas temperatures that are closer to those at which the 
+turbine operates (Liu et al., 2022; Wang et al., 2018).
+3.1. High-temperature deposition experiment
+The Ohio State University in the United States has developed a high- 
+temperature deposition experimental setup (TuRER II) (Smith et al., 
+2010; Webb et al., 2013; Lundgreen et al., 2016), as illustrated in 
+Fig. 14. This device generates high-temperature airflow within a com­
+bustion chamber, transporting particles into the cascade channel for 
+deposition experiments. The burner is designed to achieve temperatures 
+as high as 2,033.15 K and an absolute pressure of 345 kPa. The system 
+can conduct cascade deposition experiments under various particle 
+sizes, types, and temperature conditions. Additionally, Brigham Young 
+University has constructed a high-temperature deposition experimental 
+Fig. 14. (a) TuRFR II; (b) Measurement and viewing area; (c) Pre-test image on the left, post-test image on the right (modified version (Lundgreen et al., 2016).
+Fig. 15. (a) Illustration of wind tunnel facility and experiment result (modified version (Lawson et al., 2013; Albert and Bogard, 2012); (b) Experimental setup and 
+experimental results of low-temperature deposition based on wax particles (modified version (Liu et al., 2024).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+11 
+
+
+--- Page 12 ---
+
+setup (Jensen et al., 2005). Even though high-temperature deposition 
+experiments can accurately mimic how particles settle, they are not used 
+very often because the equipment needed is very specific and 
+demanding (Liu et al., 2022; Wang et al., 2018).
+3.2. Low-temperature deposition experiment
+Pennsylvania State University has developed a closed-loop, low- 
+temperature wind tunnel deposition experimental setup (Lawson et al., 
+2012; Lawson et al., 2013), as illustrated in Fig. 15(a). A blower gen­
+erates the airflow, which then enters the experimental section via a 
+heater and flow regulation system. The particle mass flow rate is 
+controlled via a particle injection system. Additionally, the University of 
+Texas at Austin has created a similar closed-loop, low-temperature wind 
+tunnel deposition setup (Albert and Bogard, 2012). Fig. 15(b) illustrates 
+the experimental setup that uses wax as deposition particles. In this 
+system, airflow is generated by an industrial compressor, heated by a 
+heater, and then passes through a regulation device to ensure stable 
+output airflow before entering the test section via a nozzle (Yang et al., 
+2025; Liu et al., 2024). It is important to note that there is a significant 
+difference between low-temperature experiments and actual high- 
+temperature conditions.
+In low-temperature deposition experiments, wax is frequently used 
+as a substitute for CMAS, primarily due to its lower melting point, which 
+effectively simulates the melting and deposition processes of CMAS. This 
+approach provides a practical method for conducting deposition ex­
+periments under low-temperature conditions. Within the experimental 
+framework, dimensionless parameters are introduced to facilitate the 
+equivalent transformation of high-temperature experimental conditions 
+into low-temperature scenarios. Specifically, to match the characteris­
+tics of CMAS, the Stokes number and thermal ratio are often selected as 
+similarity parameters, while the Reynolds number and temperature are 
+employed as similarity parameters for airflow characteristics.
+3.3. Real-world deposition experiment
+Real-world experiments can effectively simulate the impact of par­
+ticle deposition on turbine blades. However, such experiments typically 
+require substantial resources in terms of manpower, time, and finances. 
+Consequently, they are often conducted with the support of government 
+agencies or aeroengine companies and are rarely reported publicly. Kim 
+et al. (Kim et al., 1993) and Dunn (Dunn, 2012) investigated the effects 
+of volcanic ash on aeroengines. They discovered that the ash predomi­
+nantly accumulated on the pressure surface and leading edge of the 
+turbine blades, as illustrated in Fig. 16. It is evident that volcanic ash, the 
+primary component of CMAS, is highly corrosive and permeable. These 
+characteristics allow volcanic ash to inflict significant damage after it 
+adheres to the surface of turbine blades. The results from real-world 
+experiments align with those from both low-temperature and high- 
+temperature deposition experiments, as well as simulation models. 
+This consistency demonstrates that both experimental and simulation 
+methods can accurately replicate the particle deposition process.
+In conclusion, while real-world experiments can accurately simulate 
+the effects of particle deposition on turbine blades, they often necessitate 
+significant investments in manpower, time, and financial resources. 
+Researchers prefer low-temperature deposition experiments due to their 
+simplicity and cost-effectiveness. However, the airflow temperature and 
+particle properties employed in these experiments differ markedly from 
+actual operating conditions. High-temperature deposition experiments, 
+on the other hand, overcome the limitations of low-temperature 
+methods and provide a more accurate simulation of the particle depo­
+sition mechanisms on turbine blades. Consequently, high-temperature 
+deposition experiments represent a crucial avenue for future research.
+4. Effect of particle deposition on turbine performance
+Particle deposition on turbine blade surfaces can alter their shape 
+and surface roughness, thereby affecting aerodynamic performance. 
+Additionally, when particles enter the cooling channels, they may cause 
+Fig. 16. Front view of deposition on high-pressure turbine blade of YF101 S/N 
+GEE470058 (Dunn, 2012).
+Fig. 17. Flow field distribution of blade surface under different roughness (Nardini et al., 2024).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+12 
+
+
+--- Page 13 ---
+
+blockages, which reduce cooling performance (Zhang and Liu, 2023; 
+Guo et al., 2025). Therefore, this section will provide a detailed dis­
+cussion of the effects on both aerodynamic performance and cooling 
+performance.
+4.1. Aerodynamic performance
+For the purpose of this analysis, existing research often equates 
+surface deposition on blades with surface roughness. Different levels of 
+roughness indicate the severity of deposition: higher roughness corre­
+lates with more severe deposition, while lower roughness suggests 
+lighter deposition. Moshizi et al. (Moshizi et al., 2014) observed that as 
+surface roughness increases, the onset of turbulent transition shifts 
+closer to the leading edge. Jelly et al. (Jelly et al., 2023) discovered that 
+the roughness of a blade’s surface greatly affects the change from 
+smooth (laminar) flow to chaotic (turbulent) flow on the suction side. 
+The resulting changes in wall shear stress, wall heat flux, boundary layer 
+thickness, turbulent kinetic energy, and total pressure loss. In contrast, 
+the boundary layer on the pressure surface is less influenced by surface 
+roughness, even at maximum roughness levels. Delvaux et al. (Delvaux 
+et al., 2023) reached a similar conclusion, attributing this phenomenon 
+to the favorable pressure gradient on the pressure surface. They also 
+noted that on the suction surface, both the width and depth of the wake 
+increase. Lorenz et al. (Lorenz et al., 2012; Lorenz et al., 2012) deter­
+mined that losses in the boundary layer predominantly occur on the 
+suction surface. As the roughness height increases, the laminar- 
+turbulent transition on the suction surface shifts upstream toward the 
+leading edge, resulting in a boundary layer thickness increase of up to 
+190 %. However, under low Reynolds number and free-stream turbu­
+lence conditions, surface roughness can sometimes suppress boundary 
+layer separation, reducing the boundary layer thickness at the trailing 
+edge by up to 30 %. Therefore, as blade surface roughness increases, the 
+boundary layer separation point shifts, significantly impacting turbine 
+aerodynamic performance.
+To learn more about the impact of surface roughness on turbine 
+performance, the researchers examined the airflow dynamics within the 
+turbine. Nardini et al. (Nardini et al., 2024; Nardini et al., 2024) 
+demonstrated that the boundary layer on smooth and low-roughness 
+blades predominantly remains in a laminar state. As surface roughness 
+increases, the boundary layer transitions to turbulence, with the tran­
+sition point gradually shifting towards the leading edge. Specifically, 
+blades with higher roughness result in larger wake losses and signifi­
+cantly higher turbulent kinetic energy. In contrast, smooth blades 
+exhibit minimal wake losses and relatively lower turbulent kinetic en­
+ergy, as illustrated in Fig. 17. Kellersmann et al. (Kellersmann et al., 
+2018) analyzed the effects of varying roughness on turbine efficiency, 
+revealing that higher roughness values lead to a more pronounced 
+decline in efficiency. When the equivalent sand roughness reaches 16.3 
+µm, efficiency can decrease by as much as 0.68 %. Aligoodarz et al. 
+(Aligoodarz and Derakhshan, 2013) found that as roughness height in­
+creases, efficiency goes down. When transition roughness treatment was 
+applied to both stator and rotor blades, the total isentropic efficiency 
+decreased by 2.93 %. With full roughness treatment, it dropped by 5.83 
+%. Gilge et al. (Gilge et al., 2017) examined how localized surface 
+roughness affects the aerodynamic loss characteristics of turbine blades, 
+concluding that localized surface roughness significantly impacts profile 
+losses.
+During turbine operation, changes in the blade’s angle of attack can 
+significantly affect turbine aerodynamic performance. For example, 
+several studies have investigated the impact of the angle of attack on 
+turbine performance under fixed roughness conditions. Cai et al. (Chen 
+et al., 2023) conducted experimental studies to examine the effect of 
+various inflow angles on turbine performance. During the incidence 
+changing from negative to positive, the high load region moves towards 
+the leading edge and the pressure gradient increases leading to a sig­
+nificant enhancement of the passage vortex. Habib et al. (Habib et al., 
+2025) observed that the pressure coefficient at the trailing edge of the 
+blade varies with the angle of attack. Specifically, the pressure coeffi­
+cient has minimum values at the trailing edge and its decrease remains a 
+function of the blade orientation, the lower the blade orientation angle, 
+the more the decrease in the pressure coefficient gradually approaches 
+the leading edge on the upper part of the blade (extrados) and 
+conversely, the greater the blade orientation, the more the decrease in 
+the pressure coefficient is concentrated only at the trailing edge in the 
+lower part of the blade (intrados). As noted in (Li et al., 2025), extreme 
+angles of attack significantly increase both total and profile losses. 
+Extreme positive angles induce pressure surface separation vortices with 
+spanwise propagation; this increases the aerodynamic losses through 
+channel blockage. Conversely, reduced angles primarily cause suction 
+surface separation near the leading edges, where the resulting separa­
+tion losses exceed those caused by mid-chord flow detachment. Mamaev 
+et al. (Mamaev and Ermolaev, 2023) observed through extensive ex­
+periments that a negative incidence angle in terms of its effect on loss is a 
+more complex phenomenon than a positive one. It is evident that 
+changes in the angle of attack can significantly alter the pressure dis­
+tribution and the formation of passage vortices. Therefore, it is impor­
+tant to consider the interaction between angle of attack and surface 
+roughness when studying particle deposition on aerodynamic 
+performance.
+Existing studies often model surface roughness as uniformly 
+distributed, overlooking the localized and uneven characteristics 
+resulting fromactual particle deposition. To address this limitation, re­
+searchers have introduced dynamic mesh techniques to more accurately 
+simulate the effects of particle deposition processes on turbine 
+Fig. 18. Total pressure loss coefficients at the blade outlet (Hao et al., 2023).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+13 
+
+
+--- Page 14 ---
+
+performance. Shi et al. (Shi et al., 2025) analyzed turbine aerodynamic 
+performance under hot spot conditions and found that blade surface 
+geometry and roughness significantly affect aerodynamic performance. 
+Under hot spot conditions, total pressure loss is higher than in no hot 
+spot conditions, with pressure loss increasing from 3.7 % to 4.3 %. 
+Further research showed that vortices greatly affect how particles settle 
+unevenly and the turbine’s aerodynamic performance, changing the 
+shape of the blades and making their surfaces rougher. Under both 
+clockwise and anticlockwise vortex conditions, pressure loss increased 
+by 77.6 % and 129.2 %, respectively (Shi et al., 2025). As deposition 
+time increased, turbine performance further degraded. Hao et al. (Hao 
+et al., 2023) initially studied the early-stage effects of deposition and 
+found that they had a minimal impact on turbine aerodynamic perfor­
+mance. However, their subsequent analysis over an extended opera­
+tional period (0 to 1,000 h) revealed that deposition progressively 
+narrowed the blade channel, leading to increased pressure drops and 
+energy losses. After 1000 h of deposition, the total pressure coefficient 
+maintained the same distribution, while the magnitude of the area- 
+weighted average total pressure loss increased by 13 %, as shown in 
+Fig. 18. Thus, dynamic mesh technology can adjust the computational 
+grid in real-time to accommodate geometric changes caused by particle 
+deposition, significantly improving the accuracy of turbine performance 
+predictions.
+In conclusion, particle deposition leads to a decline in turbine 
+aerodynamic performance. Advances in dynamic mesh technology have 
+made it possible to precisely simulate the impact of deposition on tur­
+bine performance. Therefore, future research should concentrate on 
+developing models for analyzing turbine performance that utilize dy­
+namic grid technology to gain a deeper understanding of the mecha­
+nisms underlying performance evolution under complex operating 
+conditions.
+4.2. Cooling performance
+Particles deposited within the cooling channels weaken heat transfer, 
+directly impacting turbine cooling performance. Yang et al. (Wang et al., 
+2016) pointed out that even though the flow in subsonic blade passages 
+is not greatly affected by early particle buildup, the cooling performance 
+still changes a lot. Lawson et al. (Lawson and Thole, 2012; Lawson and 
+Thole, 2012) found that particle deposition reduced cooling efficiency 
+by 15 %, and excessive deposition could further degrade cooling per­
+formance, potentially leading to turbine failure. Yang et al. (Yang et al., 
+2021) demonstrated a marked difference in cooling performance be­
+tween deposited and non-deposited conditions. Deposits may tempo­
+rarily improve cooling performance, particularly in the early stages of 
+deposition. However, as deposition continues, cooling performance 
+gradually deteriorates, with a maximum reduction of up to 76 %. These 
+findings indicate that particle deposition significantly undermines the 
+cooling performance of turbine blades, but the specific mechanism un­
+derlying this effect remains unclear. Mensch et al. (Mensch and Thole, 
+2015) observed that deposits formed an insulating layer on the end wall, 
+raising its temperature and thereby reducing the performance of the 
+cooling system. Similarly, Sun et al. (Sun et al., 2024) found that 
+deposition led to increased surface temperatures on the blades. More­
+over, deposition increased surface roughness, hindering the formation of 
+a cooling air film and weakening the cooling effect. It is obvious that the 
+increased surface roughness brought on by particle deposition reduces 
+the blade’s capacity to cool. Wang et al. (Wang et al., 2025) investigated 
+the cooling efficiency of turbine blades under three different surface 
+roughness conditions. Their results indicated that surface roughness 
+primarily impairs cooling performance by reducing the area of high- 
+efficiency cooling regions and diminishing the cooling effectiveness 
+near the film-cooling hole exits. Prapamonthon et al. (Prapamonthon 
+et al., 2020) found that as the roughness increased, the local heat 
+transfer coefficient on the suction and pressure surfaces of the back half 
+of the blades improved a lot, which caused the cooling effectiveness to 
+drop even more. For every 120 µm increase in roughness height, the 
+average and maximum blade temperatures rose by 24 K and 20 K, 
+respectively. These studies confirm that particle deposition forms an 
+insulating layer on the blade surface, raising surface temperatures and 
+significantly reducing heat transfer capacity.
+During the deposition process, particles are not uniformly deposited 
+in the cooling channel; instead, they accumulate unevenly, forming 
+peak-to-valley deposition patterns. Gong et al. (Gong et al., 2024) 
+indicated that deposition can lead to cooling hole blockage, significantly 
+reducing the cooling efficiency downstream of the exit boundary. 
+Furthermore, this effect exhibits a nonlinear increase. This peak-to- 
+valley deposition results in blockages within the cooling channels, dis­
+rupting airflow and subsequently diminishing cooling efficiency. Xu 
+et al. (Xu et al., 2025) investigated the effectiveness of blade film cooling 
+under different blockage levels (B) and injection angles (β) and found 
+that the worst cooling performance happened at B = 0.4 and β = 30◦. Dai 
+et al. (Dai et al., 2024) examined the effects of three different types of 
+blockages—full annular blockage, leading-edge blockage, and trailing- 
+edge blockage—on the flow and heat transfer in blades, using 
+blockage ratios of 0.2, 0.35, and 0.5. Their results showed that full 
+annular blockage reduced the effective cooling channels, resulting in a 
+maximum cooling efficiency reduction of 7 %. Leading-edge blockage 
+significantly diminished cooling efficiency at blockage ratios of 0.35 and 
+0.5. In contrast, trailing-edge blockage caused a slight increase in outlet 
+temperature, resulting in a decrease in cooling efficiency near the 
+cooling hole exit. Chen et al. (Chen et al., 2021; Chen et al., 2021) 
+observed that after 675 to 3; 106 h of operation, studies have shown that 
+blockages can become as severe as 0.75D. Severe blockages reduce the 
+average lateral film cooling efficiency of fan-shaped holes by 97 % and 
+27 %, respectively (see Fig. 19). However, slight blockages can enhance 
+the cooling performance of fan-shaped holes by approximately 13 %. 
+Further research indicates that enhanced entrainment of hot gases, 
+coolant mixing, and flow separation are the primary causes of cooling 
+performance deterioration. Clearly, a blockage alters the airflow 
+mechanism and ultimately reduce the cooling efficiency of the turbine.
+In addition to the previously mentioned factors, the blowing ratio, 
+particle size, and other parameters significantly influence cooling per­
+formance. Lawson et al. (Albert and Bogard, 2012) proposed that at 
+higher blowing ratios, the reduction in cooling efficiency becomes more 
+pronounced. Their results also indicated a positive correlation between 
+the decrease in cooling efficiency and the increase in particle tempera­
+ture. Zhang et al. (Zhang et al., 2024) explored the effect of particle size 
+on cooling performance. The study revealed that 10 μm particles had the 
+most significant effect on cooling at the leading edge of the pressure 
+surface, while 20 μm particles had the most pronounced effect at the 
+Fig. 19. Distribution of time-averaged adiabatic film cooling effect in the plane 
+under different blockages (Chen et al., 2021).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+14 
+
+
+--- Page 15 ---
+
+leading edge of the suction surface, resulting in up to 30 % less cooling 
+overall. It is also noteworthy that geometry of the cooling hole plays a 
+crucial role in cooling performance. Yang et al. (Yang et al., 2024) 
+discovered that regardless of the coolant injection conditions, particle 
+deposition leads to a reduction in cooling efficiency. The cooling effi­
+ciency of compound angled holes decreased by as much as 20 %, while 
+the efficiency of simple angled holes declined by 8.5 %. Ai et al. (Ai and 
+Fletcher, 2011) revealed that the spacing of cooling holes has a sub­
+stantial impact on cooling efficiency, with wider hole spacing yielding 
+superior cooling performance compared to narrower configurations. Liu 
+et al. (Liu et al., 2025) investigated the effect of different transverse 
+trench configurations on particle deposition and its impact on film 
+cooling plates. The results demonstrated that transverse trenches 
+significantly improved the uniformity of particle deposition and cooling 
+performance, with rectangular transverse trenches showing the best 
+results. Kim et al. (Kim et al., 2021) analysed the effect of hole ar­
+rangements and density on the heat transfer coefficients of fan-shaped 
+film cooling holes. It was found that the spacing and arrangement of 
+holes did not significantly affect the heat transfer coefficient, likely due 
+to the relatively large hole spacing employed in the experiments.
+To more accurately reflect the interaction between particles and 
+turbine blades on cooling performance, researchers have begun to 
+employ methods for conjugating heat transfer in their analyses. Yang 
+et al. (Yang et al., 2024) developed a conjugate mesh morphing simu­
+lation framework that has proven capable of predicting the insulation 
+effects of the deposit layer during a dynamic deposition process. Shi 
+et al. (Li et al., 2025) used conjugate heat transfer methods to study how 
+CMAS deposits and infiltration affect the cooling efficiency of turbine 
+blades. Their findings indicate that while CMAS deposition enhances 
+cooling efficiency, this effect diminishes with CMAS infiltration. After 
+1,500 h of deposition, the cooling efficiency increased by 1.06 %; 
+however, due to CMAS infiltration, the net increase was only 1.06 %. 
+Tan et al. (Tan et al., 2025) demonstrated through simulations that 
+deposition reduces heat transfer to the blade and lowers the internal 
+temperature. As deposition time increased, overall cooling efficiency 
+improved, particularly at the leading and trailing edges. After 9,000 h of 
+deposition, the average increase in overall cooling efficiency rose from 
+9.4 % to 13 %, as illustrated in Fig. 20. Yang et al. (Yang et al., 2025) 
+using a high-precision particle deposition prediction method combined 
+with a temperature deposition model and conjugate mesh deformation 
+technology, qualitatively and quantitatively analyzed the evolution of 
+particle deposition characteristics and cooling efficiency on film cooling 
+plates. The results indicated that the average overall cooling efficiency 
+initially increased by 11.3 % to 20.2 % as deposition levels rose but 
+subsequently decreased by 15.9 % to 25.5 % from its peak and stabi­
+lized. Cooling performance initially improved due to the insulating ef­
+fects of deposition but deteriorated in the later stages due to blockage of 
+the cooling holes.
+Although conjugate heat transfer methods can elucidate the dynamic 
+effects of deposition on turbine cooling performance, research in this 
+area remains limited. Future studies should combine advanced com­
+puter methods with experiments to perform detailed analyses at 
+different scales and involving various physical processes, which will 
+improve the accuracy and reliability of cooling performance predictions 
+during particle deposition.
+5. Deposition protection technology of turbine blades
+After particle deposition on the turbine blade surface, the accumu­
+lated particles gradually corrode the blade material, leading to a 
+reduction in blade lifespan. Therefore, it is essential to research and 
+develop protective technologies for turbine blades (Khushbash et al., 
+2025). Coating technologies, known for their excellent thermal insu­
+lation and corrosion resistance, have been widely applied to turbine 
+blades (Liu et al., 2021). Furthermore; optimizing blade structure can 
+effectively reduce the adverse effects of particle deposition (Yuan et al., 
+2023). This section will focus on these two protective technologies: 
+coatings and blade structure optimization.
+5.1. Anti-corrosion coatings
+This section describes the corrosion-resistant coatings for turbine 
+Fig. 20. Distribution of time-averaged adiabatic film cooling effect in the plane under different blockages (Tan et al., 2025).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+15 
+
+
+--- Page 16 ---
+
+blades in terms of both coating types and preparation techniques.
+(1) Coating type.
+Thermal barrier coatings (TBCS) and environmental barrier coatings 
+(EBCS) are widely used to mitigate damage caused by high-temperature 
+gases and CMAS to critical aeroengine components such as turbines and 
+combustion chambers, thereby enhancing aeroengine power and ther­
+mal efficiency (Cai et al., 2024; Xiong et al., 2025). The most commonly 
+employed material is 6 %-8% yttria (Y2O3) partially stabilized zirconia 
+(ZrO2), known as YSZ. However, when turbine operating temperatures 
+exceed 1,473.15 K, YSZ undergoes phase transformation and sintering, 
+which diminishes its resistance to CMAS corrosion (Pakseresht et al., 
+2022). To enhance the high-temperature stability and CMAS resistance 
+of YSZ, researchers have explored various structural optimizations. 
+Munuhe et al. (Munuhe et al., 2022) found that alternating fine- 
+columnar and coarse-columnar multilayer coatings can effectively 
+slow CMAS infiltration. Park et al. (Park et al., 2021) looked into how 
+well dense microstructures, porous microstructures, structures without a 
+monoclinic phase, and low thermal conductivity (8YSZ) worked at 
+blocking CMAS. The results indicated that monoclinic-phase-free YSZ 
+maintained excellent integrity after thermal corrosion and CMAS tests, 
+exhibiting no failure. Although improving the structure of YSZ has 
+increased its resistance to CMAS, this approach remains limited because 
+the chemical composition of YSZ has not been altered.
+It is possible to significantly enhance the CMAS resistance of YSZ by 
+incorporating MgO, CeO2, Al2O3, Y2O3, and CaO into zirconia (ZrO2). 
+Islam et al. (Islam et al., 2022) investigated the effects of adding CeO2 to 
+YSZ and compared it to traditional YSZ. The results demonstrated that 
+CeO2-doped YSZ exhibited excellent resistance to CMAS infiltration. 
+Zhang et al. (Zhang et al., 2024) found that the addition of Al2O3 
+facilitated the reaction between the glass melt and YSZ, thereby pre­
+venting the formation of CMAS. Zu et al. (Zu et al., 2025) studied how 
+deep the corrosion went in ScYSZ coatings with different amounts of Gd 
+after being exposed to molten CMAS for 1 h. Their results indicated a 
+significant improvement in CMAS resistance with increasing Gd doping 
+concentration. Specifically, the corrosion depth was approximately 190 
+μm for the 5GdScYSZ coating, reduced to approximately 135 μm for the 
+10GdScYSZ coating, and further decreased to approximately 108 μm for 
+the 20GdScYSZ coating, as shown in Fig. 21. Wei et al. (Wei et al., 2023) 
+said that TiO2-doped YSZ had better CMAS resistance because it had a 
+more stable cubic phase. However, ¨OZÇEL˙IK et al. (¨OZÇEL˙IK et al., 
+2024) indicated that the addition of Al2O3 or TiO2 alone was insufficient 
+to significantly improve CMAS resistance. Adding both Al2O3 and TiO2 
+together, on the other hand, made the tetragonal to monoclinic phase 
+change in YSZ less noticeable. This made the CMAS resistance much 
+better. These variations may be attributed to differing experimental 
+conditions, such as temperature and coating thickness.
+In addition to YSZ, rare earth zirconates (RE2Zr2O7, RE = La, Nd, Sm, 
+Eu, Gd, and Dy) have garnered significant attention as potential candi­
+dates for next-generation TBC materials in aeroengines. This interest is 
+due to their high melting points, excellent phase stability, and low 
+thermal conductivity (Xiong et al., 2025). Drexler et al. (Drexler et al., 
+2012) demonstrated that Gd2Zr2O7 coatings effectively inhibited CMAS 
+infiltration. After being heated at 1,473.15 K for 24 h, regular 7YSZ 
+coatings were fully soaked through by CMAS glass, while Gd2Zr2O7 only 
+showed some surface damage, with CMAS going in about 20 μm deep 
+and affecting around 10 % of the area. Wang et al. (Wang et al., 2021) 
+observed that while CMAS initially infiltrated Sm2Zr2O7, a dense barrier 
+layer developed as the reaction progressed, protecting it from further 
+corrosion. These studies primarily focus on the CMAS resistance of in­
+dividual rare earth elements. However, as research advances, re­
+searchers have begun to explore the performance of combinations of 
+multiple rare earth elements against CMAS. Yan et al. (Yan et al., 2023; 
+Yan et al., 2024) found that (Gd0.2Y0.2Er0.2Tm0.2Yb0.2)2Zr2O7 exhibited 
+significantly greater corrosion resistance than Gd2Zr2O7, with the 
+corrosion depth being only one-sixth that of Gd2Zr2O7 after the same 
+exposure duration. Tu et al. (Tu et al., 2022) compared (La0.2Nd0.2­
+Sm0.2Eu0.2Gd0.2)2Zr2O7 with La2Zr2O7, revealing that (La0.2Nd0.2­
+Sm0.2Eu0.2Gd0.2)2Zr2O7 
+underwent only CMAS dissolution and 
+reprecipitation, while La2Zr2O7 exhibited grain boundary corrosion. 
+Yang et al. (Yang et al., 2025) synthesized (Ho0.2Er0.2Tm0.2Y­
+b0.2Lu0.2)2Zr2O7 coatings and evaluated their corrosion resistance. The 
+results indicated that the coating exhibited good corrosion resistance. 
+The corrosion rate of the coating under CMAS exposure was approxi­
+mately 2.5 μm/h. These findings indicate that materials composed of 
+combinations of rare earth elements demonstrate significant resistance 
+to CMAS. Furthermore, rare earth hafnates and rare earth silicates have 
+also attracted considerable research interest. Wu et al. (Wu et al., 2024) 
+found that the reaction between Gd2Zr2O7 and CMAS resulted in the 
+formation of a thick protective reaction layer, which prevented further 
+CMAS infiltration. In comparison, Gd2Zr2O7 coatings demonstrated su­
+perior resistance to CMAS corrosion. After exposure at 1,573.15 K for 25 
+h, the corrosion layer thickness of the Gd2Zr2O7 coating reached 136 μm, 
+whereas the corresponding thickness for the Gd2Zr2O7 coating was only 
+45 μm, indicating the enhanced corrosion resistance of the latter. Stol­
+zenburg et al. (Stolzenburg et al., 2015) reported that no significant 
+reaction occurred between CMAS and Yb2Si2O7 after 96 h of exposure.
+The aforementioned studies have thoroughly analyzed the CMAS 
+resistance of single-layer coatings through element doping. However, 
+the CMAS resistance of multi-layer coatings has yet to be fully explored. 
+Wang et al. (Wang et al., 2019) did high-temperature CMAS corrosion 
+Fig. 21. Cross-sectional morphologies of four types of xGdScYSZ after CMAS 
+corrosion at 1400 ℃ for 1 h: (a) ScYSZ, (b) 5GdScYSZ, (c) 10GdScYSZ and (d) 
+20GdScYSZ (modified version (Zu et al., 2025).
+Fig. 22. Surface morphologies of TBCs system after different numbers of 
+thermal shock- CMAS corrosion cycles: (a)-(d) YSZ, (e)-(h) LZC/YSZ, (i)-(l) 
+GZO/YSZ (Yan et al., 2025).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+16 
+
+
+--- Page 17 ---
+
+tests and found that the YSZ ceramic coating in the single layer shrunk 
+because of phase transformation. This caused surface cracks to form, 
+which could cause the coating to fail. Dual-layer La2Zr2O7/YSZ ceramic 
+coatings, on the other hand, formed dense apatite and fluorite phases 
+during the CMAS reaction, which effectively stopped the infiltration of 
+CMAS. Li et al. (Li et al., 2022) looked into how well single-layer 8YSZ 
+and dual-layer Y3Al5O12/8YSZ coatings worked when CMAS was 
+corroding. The phase structure of the single-layer 8YSZ coating transi­
+tioned from tetragonal to monoclinic after one hour of corrosion. 
+Conversely, the dual-layer Y3Al5O12/8YSZ surface formed a high 
+melting-point apatite phase, which inhibited further CMAS infiltration. 
+Zhou et al. (Zhou et al., 2020) prepared dual and triple layer YSZ/ 
+Gd2Zr2O7 coatings, finding that the triple-layer coating exhibited a 
+longer lifespan under CMAS corrosion compared to the dual-layer 
+coating. Under thermal cycling tests involving CMAS attack, the dual 
+and triple layer coating demonstrated lifetimes of 115 cycles and 308 
+cycles, respectively. These studies provide significant theoretical guid­
+ance for the selection and design of coatings with superior CMAS 
+resistance. Yan et al. (Yan et al., 2025) fabricated three TBC systems: a 
+YSZ single-layer coating, a La2(Zr0.7Ce0.3)2O7/YSZ (LZC/YSZ) bilayer 
+coating, and a Gd2Zr2O7/YSZ (GZO/YSZ) bilayer coating. The results 
+showed that the GZO/YSZ coating exhibited the best corrosion resis­
+tance, followed by the LZC/YSZ coating, while the YSZ single-layer 
+coating exhibited the poorest corrosion resistance, as shown in Fig. 22.
+In recent years, artificial intelligence (AI) technologies have 
+demonstrated significant advances in the design and optimisation of 
+coating materials for turbine blades in aeroengines. Researchers have 
+used machine learning (ML) and deep learning (DL) techniques to un­
+derstand and forecast the important properties of coating materials, like 
+how their strength, and how well they resist corrosion (Ashofteh and 
+Rajabzadeh, 2024; Krishna et al., 2022). Ye et al. (Ye et al., 2024) 
+developed a predictive model for resistance to molten CMAS corrosion. 
+The results indicated that the ML model achieved a coefficient of 
+determination (R2) greater than 0.96, demonstrating high predictive 
+accuracy. Xu et al. (Xu et al., 2022) used Gaussian mixture models and 
+support vector regression to create a predictive model for how strong the 
+bond is between YSZ coatings and the conditions used in atmospheric 
+plasma spraying. They tested it experimentally to prove it was very 
+accurate and reliable. Samuel et al. (Afolabi et al., 2025) employed an AI 
+algorithm to refine parameter selection and accelerate convergence 
+analysis. The approach demonstrated a 30 % improvement in thermal 
+insulation efficiency, a 40 % increase in scratch resistance, and a 50 % 
+enhancement in corrosion resistance compared to conventional models.
+Overall, CMAS infiltrates and induces phase transformations, accel­
+erating material corrosion and failure. To address this challenge, re­
+searchers have implemented a series of enhancements to commonly 
+used coating materials, such as YSZ and RE2Zr2O7. Although these 
+improved coatings demonstrate excellent resistance to CMAS and high- 
+temperature stability, their mechanical properties warrant further 
+investigation. AI technologies have significantly accelerated the 
+development of new anti-corrosion coatings. However, the application 
+of AI methods in this field remains in its early stages, with considerable 
+potential for growth. Consequently, future efforts should be directed 
+toward intensifying the implementation of AI technologies in the 
+development of anti-corrosion coatings to further enhance material 
+performance and facilitate practical engineering applications.
+It is worth mentioning that despite intensive studies have been car­
+ried out to evaluate anti-corrosion coatings, it is difficult to conduct 
+quantitative comparison (e.g. durability, CMAS penetration rate, me­
+chanical strength) based on published data without bias. Hamed et al. 
+(Hamed et al., 2006) list several erosion tests, including the blade/ 
+coating materials and particles used in the tests, the test conditions, and 
+references to which the results were reported. Ther are notable differ­
+ences in the preparation techniques, experimental conditions (e.g. 
+temperature, duration), and analytical methods employed across the 
+published results. In some cases, the preparation processes and sub­
+strates used were not reported, making it difficult to fairly compare the 
+results with those of other studies. Therefore, it is important to stan­
+dardize testing procedures so to enable a fair and quantitative com­
+parison among results from different research groups or industry 
+laboratories.
+(2) Coating application techniques.
+Common techniques for the preparation of coatings to combat CMAS 
+corrosion include air plasma spraying (APS), electron beam physical 
+vapour deposition (EB-PVD), plasma spraying-physical vapour deposi­
+tion (PS-PVD), suspension plasma spraying (SPS), and solution precursor 
+plasma spraying (SPPS) (Chen and Dambra, 2024; Mehta et al., 2022).
+APS is a technique that employs plasma to heat powder to a molten 
+or semi-molten state, which is then sprayed at high velocity onto a 
+substrate to create a lamellar coating. The advantages of APS include 
+low cost, high spraying efficiency, the capability to coat complex-shaped 
+thick layers (typically exceeding several hundred micrometres), and 
+excellent material compatibility. These features make it widely used in 
+components, such as combustion chambers and casings. However, APS 
+coatings also have several drawbacks, including poor adhesion and 
+durability, a rough surface, a relatively short thermal cycling life, and 
+the propensity for larger particles to clog cooling holes during the 
+spraying process. Also, the coatings made by APS have more tiny holes, 
+making them susceptible to being penetrated by molten CMAS, which 
+can cause them to become denser and create areas of thermal stress, as 
+shown in Fig. 23(a) (Chen and Dambra, 2024; Mehta et al., 2022; Kumar 
+et al., 2021).
+EB-PVD is a technique that utilises a high-energy electron beam to 
+evaporate a target material in a high-vacuum environment, allowing the 
+material to deposit onto a substrate. The coatings produced by this 
+method typically exhibit a feather-like or columnar structure that is 
+characterised by significant longitudinal microporosity, as shown in 
+Fig. 23(c). EB-PVD coatings are known for their high durability, excel­
+lent thermal shock resistance, and low thermal conductivity, making 
+them particularly suitable for high-temperature components such as 
+Fig. 23. A schematic showing the features of a typical columnar microstructure produced by (a) SPS, (b) PS-PVD and (c) EB-PVD (Kumar et al., 2021).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+17 
+
+
+--- Page 18 ---
+
+turbine blades and disks. However, the equipment required for EB-PVD 
+is costly, and the preparation process can be time-consuming. Addi­
+tionally, this technique is limited to linear spraying, which imposes strict 
+geometric constraints on the substrates. The columnar structure of EB- 
+PVD coatings creates pathways for molten CMAS, rendering the 
+coating more vulnerable to CMAS corrosion in high-temperature envi­
+ronments. Nevertheless, this columnar structure also aids in alleviating 
+thermal stresses during thermal cycling, significantly extending the 
+thermal cycling life, often surpassing that of conventional APS coatings 
+(Chen and Dambra, 2024; Mehta et al., 2022; Northam et al., 2023).
+PS-PVD is a hybrid process that introduces powder or suspension into 
+plasma for partial evaporation, followed by the formation of a vapor 
+flow that deposits the coating in a low-pressure environment. This 
+process combines the advantages of PS and PVD, enabling the produc­
+tion of coatings with columnar or feather-like structures, as shown in 
+Fig. 23(b). PS-PVD offers excellent non-line-of-sight coating capabilities, 
+allowing for uniform deposition on complex-shaped substrates. Its pri­
+mary advantages include outstanding thermal cycling performance, 
+extremely low thermal conductivity, reduced coating density, and 
+controllable porosity. However, the PS-PVD process is relatively com­
+plex, requiring a vacuum system, and the adhesion of the coatings may 
+be lower than that of APS coatings. Compared to APS, PS-PVD coatings 
+are thinner, necessitating multilayer stacking when greater thickness is 
+required. In comparison to EB-PVD, the major advantage of PS-PVD lies 
+in its non-line-of-sight spraying capability and higher spraying rate, 
+which enable more uniform coating of complex-shaped components. 
+The feather-like columnar structure of PS-PVD coatings provides mul­
+tiple infiltration channels for molten CMAS, making them susceptible to 
+CMAS infiltration, which can lead to premature coating failure due to 
+solidification between the columns (Chen and Dambra, 2024; Mehta 
+et al., 2022; Wang et al., 2024).
+SPS employs a liquid suspension containing nano/submicron sized 
+powders as the feedstock, which is injected into the plasma jet. The fine 
+particles are ejected with the spray flow and rapidly solidify on the 
+substrate surface, forming various microstructures. Depending on the 
+spraying parameters, either dense vertical crack structures or columnar 
+structures can be achieved. The benefits of SPS include making 
+columnar or column-cracked thermal barrier coatings (TBCs) that are 
+hard to create with traditional air plasma spraying (APS), offering better 
+strain tolerance and longer life cycles. Additionally, the fine powders 
+can minimise the blocking of cooling holes. However, the SPS process is 
+more complex, with lower deposition rates and efficiency, and it is 
+sensitive to the spray gun standoff distance, which typically requires 
+short-distance spraying. For coatings on curved and complex-shaped 
+engine components, short standoff distances are impractical, as the 
+plasma spray gun may collide with the component during the spraying 
+process (Chen and Dambra, 2024; Mehta et al., 2022; Hervy et al., 
+2025).
+SPPS replaces traditional powders with solution precursors, such as 
+metal nitrate solutions, which are atomized and injected into a plasma 
+jet. Following droplet evaporation, nano- or submicron-sized particles 
+are formed and subsequently condense on the substrate surface. This 
+technique addresses the limitations associated with conventional pow­
+der sizes and can directly produce coatings composed of numerous 
+nanoparticles, garnering significant attention in recent years. The cost 
+and efficiency of SPPS fall between APS and PS-PVD, and it can produce 
+unique nanostructures. However, it is essential for the precursor to be 
+completely decomposed after spraying, as the bonding strength of the 
+coating may be lower than that of coatings produced using powder- 
+spraying methods. Furthermore, the porosity and uniformity of the 
+coating are influenced by the precursor formulation and process pa­
+rameters. SPPS-prepared nanostructured coatings can modify the 
+adhesion and wettability of CMAS, thereby enhancing the coating’s 
+resistance to CMAS corrosion. As an emerging coating deposition 
+method, SPPS offers the advantages of eliminating the need for powders 
+and flammable solvents; however, the formation and control of its 
+columnar structures still require further investigation (Mehta et al., 
+2022; Mehta and Vasudev, 2025).
+As shown in Table 3, various coating application techniques each 
+possess distinct advantages and disadvantages. With the ongoing 
+advancement of coating application technologies, the density and 
+adhesion of coatings have significantly improved. Future research 
+should concentrate on optimizing process parameters and further 
+developing composite coating technologies, such as the combination of 
+APS and EB-PVD, with the goal of enhancing coating performance even 
+further.
+5.2. Blade structure optimization
+Blade structure optimization mitigates the impact of particles on 
+blades by modifying their geometric shape and construction parameters. 
+Table 3 
+Comparison of coating application technologies (Chen and Dambra, 2024; 
+Mehta et al., 2022; Kumar et al., 2021; Northam et al., 2023; Wang et al., 2024; 
+Hervy et al., 2025; Mehta and Vasudev, 2025).
+Application 
+technologies
+Advantages
+Disadvantages
+APS
+Low cost, high spraying 
+efficiency, and good material 
+compatibility.
+Lower thermal cycle life and 
+poor thermal shock resistance. 
+Higher residual stress, which 
+can easily lead to cracking and 
+peeling.
+EB-PVD
+Excellent durability, thermal 
+shock resistance, and low 
+thermal conductivity.
+High equipment cost, slow 
+deposition rates, constrained 
+coating thickness.
+PS-PVD
+Excellent thermal cycling 
+properties, very low thermal 
+conductivity, low coating 
+density and controlled 
+porosity.
+The equipment is costly, the 
+process is complex, and the 
+requirements for process 
+parameters are high.
+SPS
+Nano-scale fine crystal 
+structure can be prepared, the 
+coating density and toughness 
+increased, and excellent 
+thermal insulation properties.
+High equipment cost, complex 
+technology control, and 
+exhibiting low deposition 
+efficiency.
+SPPS
+Controls the microstructure of 
+the coating. Lower cost than 
+EB-PVD and slightly higher 
+than APS.
+High equipment cost, and 
+complex technology control.
+Fig. 24. Changes of blade profile with erosion time for (a) the original blade 
+and (b) the optimized blade (Zhang et al., 2024).
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+18 
+
+
+--- Page 19 ---
+
+This approach addresses the issue from the design phase, minimizing the 
+adverse effects of particles and thereby enhancing the performance and 
+reliability of the blades. Currently, this method has been shown to 
+reduce the erosion caused by particles on the blade surfaces. Zhang et al. 
+(Zhang and Liu, 2023) identified that the primary design parameters 
+influencing erosion are the airflow angles near the midspan and the 
+trailing edge at the blade tip. Following optimization, erosion on the 
+pressure surface mid-span and near the mid-chord of the suction surface 
+was significantly reduced. Furthermore, the optimized blade markedly 
+decreased losses near the blade tip and suction surface. Zhang et al. 
+(Zhang et al., 2024) compared simulation results before and after blade 
+optimization, revealing that the optimized blade exhibited higher effi­
+ciency and lower erosion rates compared to the original blade, as shown 
+in Fig. 24. Cai et al. (Cai et al., 2024) proposed a method for optimizing 
+turbine blade that considers multiple objectives. This method is based on 
+design experiments, genetic algorithms, and computational fluid dy­
+namics simulations of multiphase flow. The optimization results indi­
+cated that the optimized blade reduced both the velocity and the 
+probability of particle impacts on the rotor leading edge, resulting in a 
+70 % reduction in erosion. The load distribution and inlet angle of attack 
+of the rotor were also changed to lower the flow separation losses and 
+secondary flow intensity in the rotor blade row. Consequently, turbine 
+efficiency increased by 2.28 %. These findings demonstrate that blade 
+optimization not only significantly reduces particle impact but also en­
+hances overall turbine efficiency. Zhang et al. (Zhang et al., 2025) also 
+proposed a multi-objective optimization method to address particle 
+deposition on blade surfaces. After optimization, the deposition rate on 
+the blades decreased by 40.5 % compared to before.
+Although blade optimization methods can effectively mitigate the 
+adverse effects of particle deposition during the design phase, their 
+application in the field of CMAS resistance remains relatively limited. 
+However, these methods have been widely applied in turbines across 
+industries such as chemical engineering, hydropower, and power gen­
+eration (Sobhani et al., 2025; Li et al., 2023; Akhyar and Sofyan, 2025). 
+To enhance the utilization of these methods in CMAS mitigation, further 
+research efforts are necessary. Additionally, the challenge of reducing 
+particle deposition while improving turbine efficiency remains a critical 
+issue that requires in-depth investigation.
+6. Conclusions and future work
+With the increasing complexity of the aeroengine operating envi­
+ronment, the adverse effects of particle deposition on turbine blades are 
+becoming more pronounced, posing a significant challenge to overall 
+aeroengine performance. This paper presents a systematic review of 
+recent research advancements in four key areas: patterns of particle 
+deposition on turbines, experimental studies on deposition, the impact 
+of deposition on turbine performance, and protective technologies. The 
+research findings and future outlook are summarized as follows:
+(1) Based on deposition models, researchers have identified the 
+various influences of particle properties, airflow conditions, and blade 
+characteristics on turbine deposition. However, traditional models often 
+fail to accurately represent the deposition process under complex con­
+ditions. Future research should focus on developing multi-factor 
+coupling models to achieve a precise understanding of the microscopic 
+mechanisms of particle deposition. Additionally, advanced condition 
+monitoring techniques should be employed to enable real-time tracking 
+of turbine operational status and remaining service life.
+Fig. 25. Flowchart for future research.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+19 
+
+
+--- Page 20 ---
+
+(2) Currently, high-temperature and low-temperature deposition 
+experiments are the two most commonly employed methods in research. 
+High-temperature deposition experiments are less frequently utilized 
+due to their complex equipment and high costs. In contrast, low- 
+temperature experiments, while simpler and more cost-effective, 
+demonstrate significant discrepancies in airflow temperature and par­
+ticle properties when compared to real-world conditions. Future 
+research should focus on optimizing high-temperature deposition tech­
+nology by simplifying equipment and lowering costs.
+(3) Particle deposition increases the surface roughness of turbine 
+blades, promoting boundary layer separation and disrupting airflow, 
+which ultimately reduces turbine efficiency. Additionally, particles can 
+create blockages in the cooling channels, altering airflow dynamics and 
+significantly diminishing cooling efficiency. With the technological ad­
+vancements in aeroengines, where turbine blades are exposed to higher 
+temperatures and intricate structural designs, there is an urgent need to 
+develop accurate performance prediction models.
+(4) Anti-corrosion coating technology has shown promising results in 
+experimental studies. However, significant challenges persist regarding 
+its practical engineering applications. With the rapid advancements in 
+big data and artificial intelligence, future efforts should concentrate on 
+creating a comprehensive database for anti-corrosion coatings and 
+employing intelligent algorithms for efficient screening. This approach 
+will expedite the development and application of more reliable coating 
+materials, as shown in Fig. 25. Furthermore, combining blade structure 
+optimization with advanced material technologies will propel turbine 
+protection technology toward intelligent and precise development.
+(5) It is important to standardize testing procedures so to enable a 
+fair and quantitative comparison among results from different research 
+groups or industry laboratories. Due to the differences in the preparation 
+techniques, experimental conditions (e.g. temperature, duration), and 
+analytical methods employed across the published results, as well as the 
+preparation processes and substrates used, it is difficult to fairly 
+compare one’s results with other’s studies, which makes knowledge 
+sharing less efficient.
+CRediT authorship contribution statement
+Guangfu Bin: Writing – review & editing, Funding acquisition. 
+Pingping Yang: Writing – original draft, Investigation, Formal analysis. 
+Jian Li: Methodology, Conceptualization. Chao Li: Writing – review & 
+editing, Methodology. Weihao Zhang: Formal analysis, Conceptuali­
+zation. Haiyan Miao: Writing – review & editing, Supervision. Feng­
+shou Gu: Writing – review & editing, Supervision.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgement
+This work is supported by the National Natural Science Foundation 
+of China [Grant No. 52175091 and 52405103]; The National Natural 
+Science Foundation of Hunan Province [Grant No. 2023JJ30247, 
+2023JJ30247, 2024JJ5156 and 2024JJ6216].
+Data availability
+No data was used for the research described in the article.
+References
+Yeranee, K., Rao, Y., Zuo, Q., Xie, J.J., 2024. Thermal performance enhancement for gas 
+turbine blade trailing edge cooling with topology-optimized printable diamond 
+TPMS lattice. Int. J. Heat Fluid Fl. 110, 109649.
+Zhang, J.K., Liu, H.H., 2023. Multi-objective optimization of aerodynamic and erosion 
+resistance performances of a high-pressure turbine. Energy 277, 127731.
+Yang, X., Wu, H., Hao, Z., Feng, Z.P., 2025. Assessment of a virtual boundary concept for 
+efficient modeling of turbine film cooling. Numer. Heat Tr. A-Appl 86, 3088–3110.
+Yang, P.P., Li, C., Yue, W.H., Bin, G.F., Chen, A.H., 2023. Study on erosion wear 
+characteristics of aero-compressor blades considering distortion degree. Tribol. Int. 
+189, 108895.
+Yang, P.P., Yue, W.H., Bin, G.F., Chen, A.H., 2023. Influence of SiO2 and Al2O3 particles 
+on erosion wear of aero-compressor blades. Wear 530, 204992.
+Yang, P.P., Yue, W.H., Li, J., Bin, G.F., Li, C., 2022. Review of damage mechanism and 
+protection of aero-engine blades based on impact properties. Eng. Fail. Anal. 140, 
+106570.
+Xie, J., Gui, Y., Shao, H., Yang, T., Li, R., 2024. Research progress on particle deposition 
+characteristics of cooling channel in gas turbine. Therm. Sci. Eng. Prog. 49, 102435.
+Giehl, C., Brooker, R.A., Marxer, H., Nowak, M., 2017. An experimental simulation of 
+volcanic ash deposition in gas turbines and implications for jet engine safety. Chem. 
+Geol. 461, 160–170.
+Suman, A., Casari, N., Fabbri, E., di Mare, L., Montomoli, F., Pinelli, M., 2019. 
+Generalization of particle impact behavior in gas turbine via non-dimensional 
+grouping. Prog. Energ. Combust 74, 103–151.
+Liu, Z.G., Zhang, P., Zhu, P.F., Liu, Z.X., Li, W., 2022. Study of microparticle deposition 
+on turbine blade surfaces. China Science Press.
+Brooker, P., 2010. Fear in a handful of dust: aviation and the icelandic volcano. 
+Significance 7, 112–115.
+Taltavull, C., Dean, J., Clyne, T.W., 2016. Adhesion of volcanic ash particles under 
+controlled conditions and implications for their deposition in gas turbines. Adv. Eng. 
+Mater. 18, 803–813.
+Hu, C., Yang, X., Huang, Y.C., Feng, Z.P., 2025. Contaminant dust effects on mist cooling 
+in ribbed U-shaped channels of gas turbine blades. Appl. Therm. Eng. 258, 124618.
+Wang, J., Vujanovic, M., Sunden, B., 2018. A review of multiphase flow and deposition 
+effects in film-cooled gas turbines. Therm. Sci. 22, 1905–1921.
+Erraghroughi, F.Z., Bah, A., Maakoul, A.E., Abdellah, A.B., 2024. Numerical assessment 
+of particle deposition reduction in turbulent bend pipe flow with a rib insertion. Int. 
+J. Heat Fluid Fl. 106, 109290.
+Han, J.Q., Liu, M.J., Mostaghimi, J., Yang, G.J., 2024. Solid dust induced roughening and 
+overheating of TBC-coated superalloy. J. Mater. Sci. Technol. 180, 69–79.
+Kasper, R., Turnow, J., Kornev, N., 2019. Multiphase Eulerian–Lagrangian LES of 
+particulate fouling on structured heat transfer surfaces. Int. J. Heat Fluid Fl. 79, 
+108462.
+Yang, P.P., Li, C., Bin, G.F., Miao, H.Y., Gu, F.S., 2024. Erosion wear patterns of 
+turboshaft engine compressor under different radial inlet distortion conditions. 
+Tribol. Int. 198, 109907.
+Yang, P.P., Li, C., Bin, G.F., Gu, F.S., Miao, H.Y., 2024. Effect of particle impact on spatial 
+and temporal erosion characteristics of turboshaft engine compressor. Wear 558, 
+205578.
+Singh, S., Tafti, D., Reagle, C., Delimont, J., Wing, N., 2014. Sand transport in a two pass 
+internal cooling duct with rib turbulators. Int. J. Heat Fluid Fl. 46, 158–167.
+Zhang, Y.A., Gao, W., Dou, M.F., Han, J.S., Wu, D.T., Zou, Y., 2024. Highly-durable 
+plasma-sprayed Al2O3-YSZ/YSZ double ceramic layer TBCs against CMAS corrosion. 
+J. Eur. Ceram. Soc. 44, 7328–7338.
+Fazeli, M., Emdad, H., Alishahi, M.M., Rezaeiravesh, S., 2024. Wall-modeled large eddy 
+simulation of 90◦bent pipe flows with/without particles: a comparative study. Int. J. 
+Heat Fluid Fl. 105, 109268.
+Liu, W., Yan, G., Sun, Y., Liu, Z.Y., Yang, L., Zhou, Y.C., 2024. Numerical assessment of 
+thermal insulation and stress responses in film-cooled turbine vane thermal barrier 
+coatings under CMAS deposition conditions. Surf. Coat. Tech. 489, 131158.
+N’Dala, I., Cambier, F., Anseau, M.R., Urbain, G., 1984. Viscosity of liquid feldspars. Part 
+I: Viscosity measurements. Br. Ceram. Trans. J. 83, 108–112.
+El-Batsh, H., Haselbacher, H., 2002. Numerical investigation of the effect of ash particle 
+deposition on the flow field through turbine cascades. Vienna University of 
+Technology, Vienna, Austria. 
+Li, G., Zhang, G., He, H., Zhao, C., Zhao, Z., Zhang, W., 2024. Coupling effect of particle 
+deposition inside and outside holes on film cooling performance on the leading edge 
+of the blade. J. Appl. Fluid Mech. 17, 2192–2202.
+Zhang, Z.S., 2021. Simulation of particle deposition in turbine internal cooling passage 
+and optimization. Civil Aviation University of China Dissertations & Theses.
+Fu, J., Adams, M.J., Reynolds, G.K., Salmana, A.D., Hounslow, M.J., 2004. Impact 
+deformation and rebound of wet granules. Powder Technol. 140, 248–257.
+Adams, M.J., Lawrence, C.J., Urso, M.E.D., Rance, J., 2004. Modelling collisions of soft 
+agglomerates at the continuum length scale. Powder Technol. 140, 268–279.
+J.M. Lawrence, M.S. Whitaker, B.P. Casaday, D. Lageman, J.P. Bons, Computational 
+modeling of high temperature deposition in gas turbine engines with experimental 
+validation, 51st AIAA Aerospace Sciences Meeting including the New Horizons 
+Forum and Aerospace Exposition 1112 (2013) 1-16.
+Singh, S., Tafti, D., 2015. Particle deposition model for particulate flows at high 
+temperatures in gas turbine components. Int. J. Heat. Fluid Fl. 52, 72–83.
+El-Batsh, H., 2001. Modeling particle deposition on compressorand turbine blade 
+surfaces, Vienna. Vienna University of Technology, Austria. 
+Sun, W.J., Zheng, Y.Q., Zhang, J.Z., Jieru, C., Yu, J.H., 2024. Numerical study on particle 
+deposition characteristics of turbine blade with cooling film. Powder Technol. 439, 
+119679.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+20 
+
+
+--- Page 21 ---
+
+Wu, H., Yang, X., Wu, Y.Q., Feng, Z.P., 2023. Experimental decoupled-analysis of overall 
+cooling effectiveness for a turbine endwall with internal and external cooling 
+configurations. Appl. Therm. Eng. 228, 120435.
+OuYang, M.C., Lang, Z.M., Xu, X.M., Kang, Y.J., Wu, G.Q., Wang, R.F., Wang, Y.X., 
+Ma, Q., Wu, Y.L., 2024. Experimental and numerical simulation of the effect of free 
+particles dispersed within microchannels on pool boiling heat transfer. Int. J. Heat 
+Fluid Fl. 110, 109595.
+Stokes, J.L., Presby, M.J., 2024. A dynamic testing approach for particulate 
+erosion–corrosion for gas turbine coatings. J. Eng. Gas. Turb. Power 146, 111006.
+Xin, S.H., Peng, C.Q., Qi, J.C., Sun, B.W., Xiao, Y., 2025. Effect of deposits on micron 
+particle collision and deposition in cooling duct of turbine blades. Crystals 15, 510.
+Casari, N., Pinelli, M., Suman, A., di Mare, L., Montomoli, F., 2018. EBFOG: Deposition, 
+erosion, and detachment on high-pressure turbine vanes. J. Turbomach. 140, 
+061001.
+Wang, H., He, P.L., Li, J.L., Lu, H.W., 2024. A method proposed to predict particle 
+deposition based on critical viscosity model and roughness height prediction in a 
+turbine cascade. J. Turbomach. 146, 011010.
+Liu, X.H., Zhu, W., Guo, J.W., Song, X.Z., Xiao, Y.Q., 2023. Numerical investigation of 
+the effect of CMAS deposition on the temperature and stress distribution of thermal 
+barrier coatings coated on a turbine blade. Aerosp. Sci. Technol. 140, 108456.
+Pearson, D., Brooker, R., 2020. The accumulation of molten volcanic ash in jet engines 
+simulating the role of magma composition, ash particle size and thermal barrier 
+coatings. J. Volcanol. Geoth. Res. 389, 106707.
+Bonilla, C., Webb, J., Clum, C., Casaday, B., Brewer, E., Bons, J.P., 2012. The effect of 
+particle size and film cooling on nozzle guide vane deposition. J. Eng. Gas. Turb. 
+Power 134, 1–8.
+Wang, X.Z., Sun, Q., Yang, X.Y., Zhu, Y.H., Jiang, P.X., Peng, W., 2024. Study of the 
+behavior of dust particles in helium turbines considering the effects of particle 
+deposition and resuspension. Powder Technol. 444, 120030.
+Bojdo, N., Filippone, A., 2019. A simple model to assess the role of dust composition and 
+size on deposition in rotorcraft engines. Aerospace 6, 44.
+Tian, K., Tang, Z., Wang, J., Vujanovi´c, M., Zeng, M., Wang, Q., 2021. Numerical 
+investigations of film cooling and particle impact on the blade leading edge. Energies 
+14, 1102.
+Wang, L., Xiao, W.L., Shi, B.B., Li, X.R., Liao, Q.X., Liao, Y.T., 2024. Numerical and 
+experimental study on the performance of a stabilising turbine inside a seed 
+distribution device. Biosyst. Eng. 246, 219–232.
+Sun, E.H., Wang, X.R., Zhang, Q.K., Chen, F., Xu, J.L., Liu, Y.F., 2024. Thermodynamic 
+analysis of a gas turbine cycle with direct recuperation based on a multistage 
+compressed mass storage process. Int. J. Heat Fluid Fl. 109, 109555.
+Wang, J., Zhao, Z., Xie, G., Mikulˇci´c, H., Vujanovi´c, M., Sund´en, B., 2021. Effects of 
+particle size and mainstream inlet angle on deposition in a turbine cascade. J. Energ. 
+Resour. Technol. 143, 122103.
+Zhang, F., Liu, Z.X., Liu, Z.G., Diao, W.N., 2020. Experimental study of sand particle 
+deposition on a film-cooled turbine blade at different gas temperatures and angles of 
+attack. Energies 13, 811.
+Sacco, C., Bowen, C., Lundgreen, R., Bons, J.P., Ruggiero, E., Allen, J., Bailey, J., 2018. 
+Dynamic similarity in turbine deposition testing and the role of pressure. J. Eng. Gas. 
+Turb. Power 140, 102605.
+Laycock, R., Fletcher, T.H., 2016. Independent effects of surface and gas temperature on 
+coal fly ash deposition in gas turbines at temperatures up to 1400 ◦C. J. Eng. Gas. 
+Turb. Power 138, 021402.
+Hao, Z., Yang, X., Feng, Z., 2021. Unsteady simulations of migration and deposition of 
+fly-ash particles in the first-stage turbine of an aero-engine tip gap. Aeronaut. J. 125, 
+1566–1586.
+Smith, C., Barker, B., Clum, C., Bons, J., 2010. Deposition in a turbine cascade with 
+combusting flow. Turbo Expo: Power for Land, Sea, and Air 43994, 743–751.
+Jensen, J.W., Squire, S.W., Bons, J.P., Fletcher, T.H., 2005. Simulated land-based turbine 
+deposits generated in an accelerated deposition facility. J. Turbomach. 127, 
+462–470.
+Crosby, J.M., Lewis, S., Bons, J.P., Ai, W., Fletcher, T.H., 2008. Effects of temperature 
+and particle size on deposition in land based turbines. J. Eng. Gas. Turb. Power 130, 
+0515031–0515039.
+Yang, X., Hao, Z.H., Feng, Z.P., 2021. Variations of cooling performance on turbine vanes 
+due to incipient particle deposition. P. I. Mech. Eng. A-J Pow. 235, 1832–1846.
+Casaday, B., Prenter, R., Bonilla, C., Lawrence, M., Clum, C., Ameri, A.A., Jeffrey, P.B., 
+2014. Deposition with hot streaks in an uncooled turbine vane passage. 
+J. Turbomach. 136, 1–9.
+Wylie, S., Bucknell, A., Forsyth, P., McGilvray, M., Gillespie, D.R.H., 2017. Reduction in 
+flow parameter resulting from volcanic ash deposition in engine representative 
+cooling passages. J. Turbomach. 139, 031008.
+Wang, H., Li, J., Guo, H., 2023. A method for roughness height prediction by particle 
+deposition and its effect on flow and heat transfer in a turbine cascade. Numer. Heat 
+Transf. A-Appl. 83, 1080–1094.
+Hao, Z., Yang, X., Wang, X., Feng, Z., 2022. Unsteady simulations of deposition in a rotor 
+passage of the first-stage turbine for an aero-engine. J. Glob. Power Propuls. Soc. 6, 
+74–87.
+Xu, W.W., Zhu, K.H., Wang, J.J., Lin, Y.J., Li, Q., 2019. Modeling and numerical analysis 
+of the effect of blade roughness on particle deposition in a flue gas turbine. Powder 
+Technol. 347, 59–65.
+Liu, Z.W., Ji, S.T., Zhou, Y.T., Chen, S.Y., Li, P., 2024. Heat transfer enhancement of gas 
+turbine trailing-edge cooling channel with twisted blade-like fins arranged on 
+endwalls. Int. J. Heat Fluid Fl. 110, 109615.
+Du, K., Li, J.X., Liang, T.R., Liu, C.L., Sunden, B., 2025. Effects of water vapor 
+concentration on the film cooling effectiveness of hydrogen gas turbine vane. Int. J. 
+Heat Fluid Fl. 112, 109760.
+Liu, J.W., Yu, K.H., Peng, C.Q., Yao, S.L., Xin, S.H., 2023. Micron-sized particle transport 
+and deposition in internal cooling duct with elliptical pin fins. J. Eng. Gas. Turb. 
+Power 145, 081001.
+Zhang, T.L., Huang, W.C., Zhou, W.W., Tian, W., Liu, Y.Z., 2023. Unveiling particle 
+deposition characteristics on flat plate with a shaped film cooling hole. Int. J. Heat. 
+Mass. Tran. 216, 124584.
+Wang, C.H., Zhang, J.Z., Zhou, J.H., 2016. Investigation of particle deposition 
+characteristics in vicinity of laidback fan-shaped film cooling holes. Flow Turbul. 
+Combust. 97, 591–607.
+Todd Davidson, F., Kistenmacher, D.A., Bogard, D.G., 2014. A study of deposition on a 
+turbine vane with a thermal barrier coating and various film cooling geometries. 
+J. Turbomach. 136, 1–11.
+Zeng, J.W., Wang, F.L., Wang, Y.Q., Wang, Y.B., Shi, J., 2023. Particle deposition 
+characteristics on turbine blade surface based on critical velocity model. J. Phys. 
+Conf. Ser. 2610, 12041.
+Zhang, F.X., Pang, Y., Wang, B.H., Wang, J., ˇCuˇcek, L., Varbanov, P.S., 2024. Dynamic 
+simulation of particle deposition on the blade leading edge with film cooling in gas 
+turbines. Therm. Sci. Eng. Prog. 51, 102608.
+Ai, W., Murray, N., Fletcher, T.H., 2011. Effect of hole spacing on deposition of fine coal 
+flyash near film cooling holes. J. Turbomach. 134, 11.
+Zeng, J.W., Wang, F.L., Wang, Y.Q., Wang, Y.B., Shi, J., 2023. Particle deposition 
+characteristics on turbine blade surface based on critical velocity model, Journal of 
+Physics: Conference Series. IOP Publishing 2610, 012041.
+Yang, X., Hao, Z.H., Feng, Z.P., 2021. An experimental study on turbine vane leading- 
+edge film cooling with deposition. Appl. Therm. Eng. 198, 117447.
+Peng, Y.B., Xu, G.Q., Luo, X., He, J., Liu, D.D., 2022. Particle deposition in the vicinity of 
+multiple film cooling holes. Micromachines 13, 523.
+Li, Y., Rao, Y., Liu, Y.Y., Terzis, A., 2024. Film cooling enhancement over oblong-dimpled 
+cutback surfaces for the trailing edge of turbine blades. Int. J. Heat Fluid Fl. 108, 
+109450.
+Y. Cheng, Y. Li, Y. Rao, Enhanced turbine endwall cooling using crescent-dimpled film 
+cooling holes and a hybrid configuration: numerical study, Int. J. Heat Fluid Fl. 109 
+(2024) 109: 109546.
+Wang, J., Tian, K., Zhu, H., Zeng, M., Sund´en, B., 2020. Numerical investigation of 
+particle deposition in film-cooled blade leading edge. Numer. Heat Tr. A-Appl 77, 
+579–598.
+Sun, W.J., Zheng, Y.Q., Gao, Q.H., Zhang, J.Z., 2024. Numerical simulations on film 
+cooling performance of turbine blade before and after particles deposition. Therm. 
+Sci. Eng. Prog. 49, 102504.
+Ai, W., Laycock, R.G., Rappleye, D.S., Fletcher, T.H., Bons, J.P., 2011. Effect of particle 
+size and trench configuration on deposition from fine coal flyash near film cooling 
+holes. Energy Fuels 25, 1066–1076.
+Mensch, A., Thole, K., 2015. Simulations of multiphase particle deposition on a gas 
+turbine endwall with impingement and film cooling. J. Turbomach. 137, 111002.
+Cai, L.X., Yao, J.W., Hou, Y.F., Wang, S.S., Li, Y., Feng, Z.P., 2023. Numerical analysis of 
+catalyst particle deposition characteristics in a flue gas turbine with an improved 
+particle motion and deposition model. P. I. Mech. Eng. A-J Pow. 237, 1790–1807.
+Webb, J., Casaday, B., Barker, B., Bons, J.P., Gledhill, A.D., Padture, N.P., 2013. Coal ash 
+deposition on nozzle guide vanes-part I: experimental characteristics of four coal ash 
+types. J. Turbomach. 135, 1–9.
+Lundgreen, R., Sacco, C., Prenter, R., Bons, J.P., 2016. Temperature effects on nozzle 
+guide vane deposition in a new turbine cascade rig, Turbo Expo: Power for Land. 
+Sea, and Air. American Society of Mechanical Engineers 49781, V05AT13A021.
+Lawson, S.A., Thole, K.A., Okita, Y., Nakamata, C., 2012. Simulations of multiphase 
+particle deposition on a showerhead with staggered film-cooling holes. 
+J. Turbomach. 134, 1–12.
+Lawson, S.A., Lynch, S.P., Thole, K.A., 2013. Simulations of multiphase particle 
+deposition on a nonaxisymmetric contoured endwall with film-cooling. 
+J. Turbomach. 135, 1–11.
+Albert, J.E., Bogard, D.G., 2012. Experimental simulation of contaminant deposition on a 
+film cooled turbine airfoil leading edge. J. Turbomach. 134, 1–10.
+Yang, X., Hao, Z., Feng, Z., 2025. Influences of particulate deposition on vane trailing- 
+edge film cooling: adiabatic and overall cooling effectiveness. J. Turbomach. 147, 
+091012.
+Liu, Z., Ruan, R., Zhang, Y., Lyu, Y., Liu, Z., 2024. Particles deposition on plates with 
+different film cooling hole shapes for different blowing ratios and angles of attack. 
+Phys. Fluids 36, 083343.
+Kim, J., Dunn, M.G., Baran, A.J., Wade, D.P., Tremba, E.L., 1993. Deposition of volcanic 
+materials in the hot sections of two gas turbine engines. J. Eng. Gas. Turb. Power 
+115, 641–651.
+Dunn, M.G., 2012. Operation of gas turbine engines in an environment contaminated 
+with volcanic ash. J. Turbomach. 134, 1–18.
+Zhang, J.K., Liu, H.H., 2023. Effect of solid particles on performance and erosion 
+characteristics of a high-pressure turbine. Energy 272, 127185.
+Guo, W.J., Ye, Z.T., Liu, Y., Fu, J., Yan, Y., Sun, W., Cui, J.H., 2025. Equivalent boundary 
+model for turbine film cooling prediction. Appl. Therm. Eng. 273, 126381.
+Moshizi, S.A., Nakhaei, M.H., Kermani, M.J., Madadi, A., 2014. Development of a 
+numerical based correlation for performance losses due to surface roughness in axial 
+turbines. J. Mech. 30, 631–642.
+Jelly, T.O., Nardini, M., Rosenzweig, M., Leggett, J., Marusic, I., Sandberg, R.D., 2023. 
+High-fidelity computational study of roughness effects on high pressure turbine 
+performance and heat transfer. Int. J. Heat. Fluid Fl. 101, 109134.
+Delvaux, G., Toracchio, R., Boufidi, E., Croner, E., Fontaneto, F., 2023. The modeling of 
+roughness effect on the performance of a controlled diffusion airfoil. J. Turbomach. 
+145, 021008.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+21 
+
+
+--- Page 22 ---
+
+Lorenz, M., Schulz, A., Bauer, H.J., 2012. Experimental study of surface roughness effects 
+on a turbine airfoil in a linear cascade-part I: external heat transfer. J. Turbomach. 
+134, 041006.
+Lorenz, M., Schulz, A., Bauer, H.J., 2012. Experimental study of surface roughness effects 
+on a turbine airfoil in a linear cascade-Part II: aerodynamic losses. J. Turbomach. 
+134, 041007.
+Nardini, M., Kozul, M., Jelly, T.O., Sandberg, R.D., 2024. Direct numerical simulation of 
+transitional and turbulent flows over multi-scale surface roughness-part I: 
+methodology and challenges. J. Turbomach. 146, 041007.
+Nardini, M., Jelly, T.O., Kozul, M., Sandberg, R.D., Vitt, P., Sluyter, G., 2024. Direct 
+numerical simulation of transitional and turbulent flows over multi-scale surface 
+roughness-part II: The effect of roughness on the performance of a high-pressure 
+turbine blade. J. Turbomach. 146, 031009.
+Kellersmann, A., Weiler, S., Bode, C., Friedrichs, J., St¨ading, J., Ramm, G., 2018. Surface 
+roughness impact on low-pressure turbine performance due to operational 
+deterioration. J. Eng. Gas. Turb. Power 140, 062601.
+Aligoodarz, M.R., Derakhshan, F.E., 2013. Numerical study of blade deterioration effects 
+on an industrial gas turbine stage performance and flow field. P. I. Mech. Eng. A-J 
+Pow. 227, 515–527.
+Gilge, P., Hohenstein, S., Seume, J.R., 2017. Experimental investigation of the 
+aerodynamic effect of local surface roughness on a turbine blade. International 
+Journal of Gas Turbine, Propulsion and Power Systems 9, 12–21.
+Chen, Y., Cai, L., Jiang, D., Li, Y., Du, Z., Wang, S., 2023. Experimental and numerical 
+investigations for turbine aerodynamic performance with different pressure side 
+squealers and incidence angles. Aerosp. Sci. Technol. 136, 108234.
+Habib, M., Ismail, D., Rachid, S., 2025. Incidence angle effect on the behaviour of a flow 
+around the turbine blades. WSEAS Trans. Fluid Mech. 20, 32–39.
+Li, M., Liu, J., Zhang, X., Yuan, H., Ju, W., Lu, X., 2025. Numerical study on the internal 
+flow mechanisms of variable geometry high-load low-pressure turbine cascade under 
+wide operating conditions. Aerosp. Sci. Technol. 162, 110246.
+Mamaev, B.I., Ermolaev, G.V., 2023. Study of turbine cascades at negative incidence 
+angles. Therm. Eng. 70, 215–222.
+Shi, L., Tan, X., Deng, R., Su, L., Peng, J., Song, J., Chen, J., 2025. An unsteady deposition 
+model for evaluating CMAS nonuniform deposition behavior and aerodynamic 
+performance degradation under hot streak clocking effect. J. Turbomach. 147, 
+101012.
+Shi, L., Wang, C.C., Tan, X., Deng, R.L., Song, J.S., Su, L., Chen, J.J., Peng, J.F., 2025. 
+Conjugate heat transfer investigating the impact of the hot streak and swirling flow 
+on the non-uniformly deposition behavior of CMAS on a coated vane. Inte. Commun. 
+Heat Mass 162, 108578.
+Hao, Z., Yang, X., Feng, Z., 2023. Unsteady modeling of particle deposition effects on 
+aerodynamics and heat transfer in turbine stator passages with mesh morphing. Int. 
+J. Therm. Sci. 190, 108326.
+Lawson, S.A., Thole, K.A., 2012. Simulations of multiphase particle deposition on 
+endwall film-cooling. J. Turbomach. 134, 151–162.
+Lawson, S.A., Thole, K.A., 2012. Simulations of multiphase particle deposition on 
+endwall film-cooling holes in transverse trenches. J. Turbomach. 134, 1–10.
+Wang, X.Y., Ye, L., Li, W., Zheng, T.Y., Liang, X.Y., Liu, C.L., 2025. Film cooling 
+effectiveness in the presence of internal hole random roughness: a comprehensive 
+analysis. Int. Commun. Heat Mass 165, 108990.
+Prapamonthon, P., Yin, B., Yang, G.W., Zhang, M.H., 2020. Separate and combined 
+effects of surface roughness and thermal barrier coating on vane cooling 
+performance. J. Therm. Sci. Eng. Appl. 12, 051017.
+Gong, M., Huang, W., Shen, Y., Ma, C., 2024. Influence mechanism of local air film holes 
+blockage on cooling efficiency of turbine blades. Therm. Sci. 28, 641–657.
+Xu, K.W., He, K., Yan, X., 2025. Effects of cooling hole blockage on heat transfer and film 
+cooling effectiveness of gas turbine squealer tip. Int. J. Heat Fluid Fl. 112, 109678.
+Dai, H.W., Liu, W.X., Zhang, X.L., Zhang, P., Zhng, X.L., Zhang, J.H., Lin, J.W., 2024. 
+Flow and heat transfer on the pressure side of C3X vane with various cooling hole 
+blockages. Int. J. Therm. Sci. 201, 109007.
+Chen, X.H., Wang, Y.Z., Long, Y., Weng, S.L., 2021. Effect of partial blockage on flow and 
+heat transfer of film cooling with cylindrical and fan-shaped holes. Int. J. Therm. Sci. 
+164, 106866.
+Chen, X.H., Long, Y., Wang, Y.Z., Weng, S.L., Luan, Y.G., 2021. Large eddy simulation of 
+film cooling from cylindrical holes partially blocked by CaO-MgO-Al2O3-SiO2. Int. 
+Commun Heat Mass 129, 105754.
+Zhang, H.S., Jiang, Y.T., Chen, C.L., He, Y.X., 2024. Simulation of particle deposition on 
+high temperature turbine film cooling blade surface with dynamic mesh morphing. 
+Int. Commun Heat Mass 151, 107244.
+Yang, X., Hao, Z.H., Feng, Z.P., 2024. Experimental assessment of film cooling from 
+cylindrical holes subject to particulate deposition. Exp. Therm Fluid Sci. 154, 
+111155.
+Ai, W., Fletcher, T.H., 2011. Computational analysis of conjugate heat transfer and 
+particulate deposition on a high pressure turbine vane. J. Turbomach. 134, 573–585.
+Liu, Z., Cheng, L., Yuan, Z., Liu, Z., Zhang, L., 2025. Particles deposition on film cooling 
+plates with different types of trenches. Appl. Therm. Eng. 263, 125335.
+Kim, Y.S., Jeong, J.Y., Kwak, J.S., Chung, H., 2021. The effects of hole arrangement and 
+density ratio on the heat transfer coefficient augmentation of fan-shaped film cooling 
+holes. Energies 14, 186.
+Yang, X.H., Hao, Z.H., Feng, Z.P., Ligrani, P., PhillipWeigand, B., 2024. Conjugate heat 
+transfer evaluation of turbine blade leading-edge swirl and jet impingement cooling 
+with particulate deposition. J. Turbomach. 146, 011003.
+Li, S., Wang, C., Tan, X., Liao, S., Deng, Z., Deng, R., Song, J., 2025. Impact of non- 
+uniform CMAS deposition and penetration on the performance degradation of a film- 
+cooled vane with TBCs under a hot streak condition. Surf. Coat. Technol. 506, 
+132118.
+Tan, X., Shi, L., Deng, R.L., Sun, L., Peng, J.F., Song, J.S., Chen, J.J., 2025. Conjugate 
+heat transfer simulation the impact of CMAS non-uniform deposition on the cooling 
+effectiveness of a coated C3X vane. Int. J. Heat Fluid Fl. 112, 109755.
+Yang, C., Wang, Y.Z., Cheng, K., Zhang, K.Y., Wei, H.Q., 2025. Dynamic evolution of 
+melting particle deposition and overall cooling effectiveness on a film-cooled flat 
+plate. Energy 330, 136917.
+S. Khushbash, A. Hameed, A. Mumtaz, H.A. Khan, A Shahzad, Investigation of 
+temperature assisted corrosion failure of an aircraft turbine blade, Eng. Fail. Anal. 
+167 (2025) 167: 108909.
+Liu, J.H., Liu, Y.B., Liu, L., Yu, Y.H., He, X., 2021. Submodeling method to study the 
+residual stress of TBCs near the interfacial asperity on a vane. Eng. Fail. Anal. 122, 
+105220.
+Yuan, Z.H., Chen, Z.C., Li, Z.Q., Bian, L.G., Wu, X.L., Zhang, B., Li, J.W., Qiao, Y.Y., 2023. 
+Influence of blade angle in the outer secondary air for swirl burner on the flow, 
+combustion, and slagging characteristics in the pre-combustion chamber under the 
+air-staged condition. Energy 275, 127418.
+Cai, F.X., Zhou, H., Yao, M., Ren, Z.Y., 2024. An accelerated time-scale decomposition 
+algorithm for transient thermal fluid-solid coupled simulations in multi-medium 
+systems. Int. J. Heat Fluid Fl. 107, 109364.
+Xiong, K., Wang, J., Hou, C., Zhou, Z., Jin, X., Fan, X., 2025. Damage quantification and 
+failure mechanism of EB-PVD thermal barrier coatings under CMAS corrosion. Surf. 
+Coat. Technol. 495, 131554.
+Pakseresht, A., Sharifianjazi, F., Esmaeilkhanian, A., Bazli, L., Reisi Nafchi, M., Bazli, M., 
+Kirubaharan, K., 2022. Failure mechanisms and structure tailoring of YSZ and new 
+candidates for thermal barrier coatings: a systematic review. Mater. Design 222, 
+111044.
+Munuhe, T.W., Chen, R.H., Zhu, L., Ma, R., 2022. Modeling molten droplet spreading and 
+infiltration into non-isothermal thermal barrier coatings. Int. J. Heat Mass Tran. 182, 
+121942.
+Park, K.Y., Jang, K.I., Myoung, S.W., Jung, Y.G., Yang, B., Kim, J.S., 2021. Degradation 
+characteristics of thermal barrier coatings for hot corrosion and CaO-MgO-Al2O3- 
+SiO2. Surf. Coat. Tech. 412, 127045.
+Islam, A., Sharma, A., Singh, P., Pandit, N., Keshri, A.K., 2022. Plasma-sprayed CeO2 
+overlay on YSZ thermal barrier coating: Solution for resisting molten CMAS 
+infiltration. Ceram. Int. 48, 14587–14595.
+Zhang, Y.A., Dou, M.F., Gao, W., Han, J.S., Wu, D.T., Zou, Y., 2024. Wetting kinetics and 
+corrosion of CMAS and CMAS-NaCl to plasma-sprayed YSZ and Al2O3-YSZ thermal 
+barrier coatings. Corros. Sci. 232, 112048.
+Zu, J.H., Feng, Z., Liu, D., Gao, Y., Luo, W.F., Fan, W., Lin, M.T., Wang, Y., Bai, Y., 2025. 
+Investigation on CMAS corrosion resistance of Sc2O3-Y2O3 co-stabilized ZrO2 
+thermal barrier coating material by tunable design with Gd-doping. Corros. Sci. 244, 
+112653.
+Wei, X.D., Zhao, Z.C., An, Y.L., Zhou, H.D., Chen, J.M., 2023. Effect of modulating the 
+phase structure of YSZ ceramics by TiO2 doping on the CMAS corrosion resistance at 
+1250◦C. Ceram. Int. 49, 14624–14634.
+¨OZÇEL˙IK, A., EKER, A.A., KARABAS¸, M., Karabas¸Al, M., Avci, A., Kucukyildirim, B.O., 
+2024. Enhanced CMAS and hot corrosion degradation of YSZ thermal barrier coating 
+with nano powders. Surf. Coat. Tech. 481, 130624.
+Drexler, J.M., Chen, C.H., Gledhill, A.D., Shinoda, K., Sampath, S., Padture, N.P., 2012. 
+Plasma sprayed gadolinium zirconate thermal barrier coatings that are resistant to 
+damage by molten Ca-Mg-Al-silicate glass. Surf. Coat. Tech. 20, 3911–3916.
+Wang, Y.H., Ma, Z., Liu, L., Liu, Y.B., 2021. Influence of the grain size on CMAS attack of 
+Sm2Zr2O7 ceramic. Ceram. Int. 47, 24453–24457.
+Yan, R.X., Liang, W.P., Miao, Q., Zhao, H., Liu, R.X., Li, J.L., Zang, K., Dong, M.J., He, X. 
+P., Gao, X.G., Song, Y.D., 2023. Mechanical, thermal and CMAS resistance properties 
+of high-entropy (Gd0.2 Y0.2 Er0.2 Tm0.2 Yb0.2)2Zr2O7 ceramics. Ceram. Int. 49, 
+20729–20741.
+Yan, R.X., Liang, W.P., Miao, Q., Zhao, H., Liu, R.X., Dong, M.J., Zang, K., Jia, F.L., 
+Chang, X.L., He, X.P., Gao, X.G., Song, Y.D., Tao, X.M., 2024. Corrosion mechanisms 
+of high-entropy rare earth zirconate (Gd0.2 Y0.2 Er0.2 Tm0.2 Yb0.2)2Zr2O7 exposed to 
+CMAS and multi-medium (NaVO3+CMAS). J. Eur. Ceram. Soc. 44, 3277–3295.
+Tu, T.Z., Liu, J.X., Zhou, L., Liang, Y., Zhang, G.J., 2022. Graceful behavior during CMAS 
+corrosion of a high-entropy rare-earth zirconate for thermal barrier coating material. 
+J. Eur. Ceram. Soc. 42, 649–657.
+Yang, L.X., Xie, F.K., Geng, H.J., Wu, L.K., Liu, H.J., Zeng, C.L., 2025. A novel 
+(Ho0.2Er0.2Tm0.2Yb0.2Lu0.2)2Zr2O7 high-entropy ceramic with excellent CMAS 
+corrosion resistance for thermal barrier coatings. Corros. Sci. 250, 112904.
+Wu, Y.M., Zhong, X., Hong, D., Hu, C., Liang, R.H., Fan, D., Wang, L.J., Niu, Y.R., 
+Zheng, X.B., 2024. Hot corrosion of Gd2M2O7 (M=Zr, Hf) thermal/environmental 
+barrier coatings subjected to calcium-magnesium-alumina-silicate melts at 1300 and 
+1500◦C. J. Eur. Ceram. Soc. 44, 6082–6096.
+Stolzenburg, F., Johnson, M.T., Lee, K.N., Jacobson, N.S., Faber, K.T., 2015. The 
+interaction of calcium-magnesium-aluminosilicate with ytterbium silicate 
+environmental barrier materials. Surf. Coat. Tech. 284, 44–50.
+Wang, R., Dong, T.S., Wang, H.D., Di, Y.L., Li, G.L., Feng, Y., 2019. CMAS corrosion 
+resistance in high temperature and rainwater environment of double-layer thermal 
+barrier coatings odified by rare earth. Ceram. Int. 45, 17409–17419.
+Li, C., Cheng, B., Zhang, Y., An, G., Sun, Y., Wang, Y., Li, W.S., 2022. Corrosion behavior 
+of atmospheric plasma-sprayed YAG/8YSZ double ceramic-layered thermal barrier 
+coatings in a calcium-magnesium-alumino-silicate melt. J. Mater. Eng. Perform. 31, 
+10205–10212.
+Zhou, D., Mack, D.E., Bakan, E., Mauer, G., Sebold, D., Guillon, O., Vaßen, R., 2020. 
+Thermal cycling performances of multilayered yttria-stabilized zirconia/gadolinium 
+zirconate thermal barrier coatings. J. Am. Ceram. Soc. 103, 2048–2061.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+22 
+
+
+--- Page 23 ---
+
+Yan, G., Liu, W., Sun, Y., Li, C., Yang, L., Zhou, Y., 2025. Failure behavior of RE2M2O7/ 
+YSZ TBCs prepared by EB-PVD in gas thermal shock-CMAS corrosion environment. 
+J. Eur. Ceram. Soc. 45, 117027.
+Ashofteh, A., Rajabzadeh, M., 2024. Advances in thermal barrier coatings modeling, 
+simulation, and analysis: a review. J. Eur. Ceram. Soc. 116693.
+Krishna, K.P.S., Puthiyaveettil, N., Srinivasa, C.V., et al., 2022. Simulation-assisted AI for 
+the evaluation of thermal barrier coatings using pulsed infrared thermography. 
+J. Appl. Phys. 132, 064902.
+Ye, D., Wu, F., Xu, Z., Wu, Y., Yin, C., Fang, H., Liu, H., 2024. Research on modified 
+thermal barrier coatings against CMAS corrosion driven by mechanism–data hybrid 
+model. Coatings 14, 1513.
+Xu, P., Chen, C., Chen, S., Lu, W., Qian, Q., Zeng, Y., 2022. Machine learning-assisted 
+design of yttria-stabilized zirconia thermal barrier coatings with high bonding 
+strength. ACS Omega 7, 21052–21061.
+Afolabi, S.O., Malachi, I.O., Olawumi, A.O., 2025. Multiscale modeling and AI-enhanced 
+optimization of thermal barrier coatings for extreme interface conditions in high- 
+temperature. Colloids Surf A Physicochem Eng Asp 137658.
+Hamed, A., Tabakoff, W.C., Wenglarz, R.V., 2006. Erosion and deposition in 
+turbomachinery. J. Propul. Power 22, 350–360.
+Chen, D., Dambra, C., 2024. Thick columnar-structured thermal barrier coatings using 
+the suspension plasma spray process. Coatings 14, 996.
+Mehta, A., Vasudev, H., Singh, S., Prakash, C., Saxena, K.K., Linul, E., Buddhi, D., Xu, J., 
+2022. Processing and advancements in the development of thermal barrier coatings: 
+a review. Coatings 12, 1318.
+Kumar, N., Gupta, M., Mack, D.E., Georg Mauer, M., Vaßen, R., 2021. Columnar thermal 
+barrier coatings produced by different thermal spray processes. J. Therm. Spray 
+Technol. 30, 1437–1452.
+Northam, M., Fouliard, Q., Rossmann, L., Park, J.-S., Kenesei, P., Almer, J., 
+Viswanathan, V., Harder, B., Raghavan, S., 2023. Thermally grown oxide stress in 
+PS-PVD and EB-PVD thermal barrier coatings observed at various lifetimes via 
+synchrotron X-ray diffraction. J. Eng. Mater. Technol. 145, 011004.
+Wang, Z., Fan, J., Kang, K., Wu, J., Liu, M., Zhou, K., Zhang, Q., Zhang, Z., Li, X., 
+Zhang, X., 2024. Foreign object damage behavior and failure mechanism of Al2O3- 
+modified TBCs prepared by PS-PVD. Trans. Nonferrous Met. Soc. China 34, 
+2289–2303.
+Hervy, T., Alroy, R.J., Bj¨orklund, S., Yao, Y., Genois, R., Joshi, S., 2025. Evaluation of 
+high-throughput columnar YSZ thermal barrier coatings deposited via axial plasma 
+spraying of aqueous solution precursors. Surf. Coat. Technol. 509, 132214.
+Mehta, A., Vasudev, H., 2025. A review on the thermal barrier coatings in hot corrosion 
+protection: innovations and future directions for high-temperature alloys. J. Fail. 
+Anal. Prev. 04, 1–37.
+Zhang, J.K., Li, H.J., Liu, H.H., 2024. Modeling of particle erosion of high-pressure 
+turbine based on dynamic mesh method. Aerosp. Sci. Technol. 150, 109236.
+Cai, L., He, Y., Yao, J., Hou, Y.F., Wang, S.S., Feng, Z.P., 2024. Multiobjective 
+optimization study on the aerodynamic performance and anti-erosion characteristics 
+of a single-stage dusty flue gas turbine. J. Eng. Gas. Turb. Power 146, 041022.
+Zhang, J., Li, H., Li, R., Liu, H., 2025. Optimization of impeller to reduce deposition of 
+soot and oil particles within a multi-blade centrifugal fan. J. Fluids Eng. 147, 1–35.
+Sobhani, P., Hasanzadeh, N., Rostamani, M.J., Najafi, A.F., 2025. In-pipe drag-based 
+turbine blade optimization for energy harvesting in urban water networks: a novel 
+theoretical approach. Renew. Energy 123208.
+Li, L., Zhang, W., Li, Y., Jiang, C., Wang, Y., 2023. Multi-objective optimization of 
+turbine blade profiles based on multi-agent reinforcement learning. Energy Convers. 
+Manag. 297, 117637.
+Akhyar, A., Sofyan, S.E., 2025. A review of vortex water turbine design for sustainable 
+energy generation (principles, optimization, and validation). Energy Convers. 
+Manag. 26, 100895.
+G. Bin et al.                                                                                                                                                                                                                                      
+International Journal of Heat and Fluid Flow 117 (2026) 110023 
+23 

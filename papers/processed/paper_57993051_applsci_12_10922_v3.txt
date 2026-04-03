@@ -1,0 +1,1783 @@
+
+--- Page 1 ---
+
+
+
+Citation: Faqih, M.; Omar, M.B.;
+Rosdiazli, I.; Omar, B.A.A. Dry-Low
+Emission Gas Turbine Technology:
+Recent Trends and Challenges. Appl.
+Sci. 2022, 12, 10922. https://doi.org/
+10.3390/app122110922
+Academic Editor: Satoru Okamoto
+Received: 20 September 2022
+Accepted: 15 October 2022
+Published: 27 October 2022
+Publisher’s Note: MDPI stays neutral
+with regard to jurisdictional claims in
+published maps and institutional afﬁl-
+iations.
+Copyright:
+© 2022 by the authors.
+Licensee MDPI, Basel, Switzerland.
+This article is an open access article
+distributed
+under
+the
+terms
+and
+conditions of the Creative Commons
+Attribution (CC BY) license (https://
+creativecommons.org/licenses/by/
+4.0/).
+applied  
+sciences
+Article
+Dry-Low Emission Gas Turbine Technology: Recent Trends
+and Challenges
+Mochammad Faqih 1,*
+, Madiah Binti Omar 1
+, Rosdiazli Ibrahim 2
+and Bahaswan A. A. Omar 2
+1
+Department of Chemical Engineering, Universiti Teknologi PETRONAS, Seri Iskandar 32610, Malaysia
+2
+Department of Electrical and Electronics Engineering, Universiti Teknologi PETRONAS,
+Seri Iskandar 32610, Malaysia
+*
+Correspondence: mochammad_22000035@utp.edu.my
+Abstract: Dry-low emission (DLE) is one of the cleanest combustion types used in a gas turbine. DLE
+gas turbines have become popular due to their ability to reduce emissions by operating in lean-burn
+operation. However, this technology leads to challenges that sometimes interrupt regular operations.
+Therefore, this paper extensively reviews the development of the DLE gas turbine and its challenges.
+Numerous online publications from various databases, including IEEE Xplore, Scopus, and Web of
+Science, are compiled to describe the evolution of gas turbine technology based on emissions, fuel
+ﬂexibility, and drawbacks. Various gas turbine models, including physical and black box models, are
+further discussed in detail. Working principles, fuel staging mechanisms, and advantages of DLE gas
+turbines followed by common faults that lead to gas turbine tripping are speciﬁcally discussed. A
+detailed evaluation of lean blow-out (LBO) as the major fault is subsequently highlighted, followed
+by the current methods in LBO prediction. The literature conﬁrms that the DLE gas turbine has
+the most proﬁtable features against other clean combustion methods. Simulation using Rowen’s
+model signiﬁcantly imitates the actual behavior of the DLE gas turbine that can be used to develop
+a control strategy to maintain combustion stability. Lastly, the data-driven LBO prediction method
+helps minimize the ﬂame’s probability of a blow-out.
+Keywords: DLE gas turbine; modern gas turbine models; lean blow-out; prediction technique
+1. Introduction
+A gas turbine is commonly used as a prime-mover in energy production, utilizing
+natural gas as primary energy for greener combustion and emission. There are six primary
+energies used worldwide, reported by British Petroleum in “BP Statistical Review of World
+Energy 2020”, as depicted in Figure 1. According to the report, oil and coal are the most
+consumed energies. The percentages, among others, are 31% and 27%, respectively. How-
+ever, oil and coal are not suitable for long-term use due to the metal, sulfur, nitrogen oxide,
+and airborne particle emissions that pollute the environment and threaten human health.
+Researchers are therefore investing in renewable energies for a greener future, but the
+resources are unstable and isolated, which increases the transmission and distribution cost
+in power generation. Hence, this study focuses on natural gas and gas turbines as the
+prime-mover in energy production.
+In power generation, 80% of the energy production is produced by the combustion
+process, which releases emissions due to an incomplete reaction [1]. Hence, many countries
+are promoting the clean energy goal as a priority in nations’ development [2]. For this
+reason, natural gas is selected as a potential solution to meet energy needs and environ-
+mental health. According to [3], natural gas consumption is projected to increase almost
+everywhere and reach 203 cubic feet in 2040. In Europe, natural gas consumption has
+rapidly grown in the last decades. As reported by International Energy Agency in 2021,
+the European Union imported 155 billion m3 from the Russian Federation, indicating this
+Appl. Sci. 2022, 12, 10922. https://doi.org/10.3390/app122110922
+https://www.mdpi.com/journal/applsci
+
+
+--- Page 2 ---
+
+Appl. Sci. 2022, 12, 10922
+2 of 30
+country as the largest gas producer and exporter [4]. Similarly, the growth of natural gas
+consumption in Asia-Paciﬁc countries has inﬂated since 1990 and is thrice higher than the
+global gas consumption [5]. For example, China has the highest gas consumption among
+all Asia-Paciﬁc countries with a rapid growth rate of 6–7% from 2016–2020, as documented
+in [6]. Therefore, the opportunity to diversify natural gas is enormous and sustainable,
+especially for industrial and power generation. Further, natural gas consumption increases
+as more systems are integrated with gas turbines in various applications. The technology
+is widely applied as the third-largest energy contribution with various advantages. Some
+advantages include high accessibility, high reliability and the ability to produce fewer
+emissions in dry-low emission (DLE) mode [7].
+ Coal 
+27%
+ Nuclear 
+4%
+ Hydroelectricity 
+7%
+ Natural Gas 
+25%
+ Oil 
+31%
+Renewable Energy
+6%
+Figure 1. Global primary energy consumption in 2020.
+The gas turbine is frequently used as the leading equipment in power plants, aero-
+engines, marine propulsion, and mechanical drive systems [8]. The gas turbine is intensively
+worn in power generation due to its high overall efﬁciencies of approximately 58% in com-
+bined cycle arrangement [9]. For the time being, improving gas turbines becomes necessary
+to achieve better performance and environmental impacts. Therefore, various studies in
+the gas turbine area have been conducted. In this comprehensive review, a bibliometric
+analysis is performed to gather publications related to the gas turbine area from 2011 to
+2021. The documents contain journals, conferences, and book chapters gathered from
+several reputable databases such as Scopus, Web of Science (WOS), and IEEE Xplore [10].
+The documents were collected using “gas turbine” as the keyword to harvest publications
+in a broad range. Based on the gathered data, the total published work has increased con-
+sistently, showing that the study of a gas turbine is relevant to the current research trend,
+as illustrated in Figure 2. The studies were primarily conducted to improve a gas turbine’s
+efﬁciency, operation, and low-emission combustion. Various attempts were proposed to en-
+hance the performance of gas turbines through modeling and prediction techniques. Thus,
+the search domain is subsequently narrowed down to retrieve publications containing
+the phrases “gas turbine” or “combustion”; “Fault Detection, Identiﬁcation, and Isolation
+(FDII) and prediction”; “dynamic model”; and “condition monitoring” in the title.
+Figure 3 shows the total number of studies in percentages for each area of interest.
+The combustion area dominates the studies, covering almost half of the graph for all
+databases. Based on the retrieved documents, the discussion mainly lies in developing
+the technique to reduce the emissions, particularly NOx and CO, which are considered
+the most dangerous pollutants emitted from the gas turbine combustion process [11].
+As the emissions issue from gas turbine combustion is concerned, various combustor
+technologies have been developed to perform cleaner combustion. DLE is one of the
+
+
+--- Page 3 ---
+
+Appl. Sci. 2022, 12, 10922
+3 of 30
+most used combustors due to its high emission reduction ability and stability. However,
+since the DLE combustor reduces emissions by lowering the operating temperature, some
+challenges and problems are faced. The major problem found in DLE gas turbines is the
+lean blow-out (LBO). LBO is a phenomenon of ﬂame-out in a gas turbine that leads to a
+tripping problem. Accordingly, the preceding studies investigated the LBO phenomenon
+to observe the proper preventive actions to solve LBO in DLE gas turbines. Hence, FDII
+and prediction techniques are extensively developed to minimize the probability of a LBO
+error. Furthermore, the dynamic models, including physical-based and data-driven, are
+established to learn and characterize the LBO phenomenon in the gas turbine.
+Figure 2. Research produced in gas turbine area from IEEE, Scopus, and WOS Database.
+IEEE
+Scopus
+WOS
+60 
+40 
+20 
+0 
+%number of work
+Combustion
+FDII & 
+Prediction
+Dynamic
+Model
+Condition
+Monitoring
+Figure 3. Various ﬁelds of work published in Scopus, WOS, and IEEE Database.
+This paper aims to provide an overview of the DLE gas turbine as one of the top
+clean gas turbine technology. The ﬂow of paper organization is represented by Figure 4.
+
+
+--- Page 4 ---
+
+Appl. Sci. 2022, 12, 10922
+4 of 30
+Firstly, the progress of modern gas turbines is described, beginning with single ﬂame
+combustion as the conventional burner until the latest low NOx burners, which are DLE
+and NanoSTAR. The gas turbine models, including the physical and black box models, are
+discussed in detail. The working principle of the DLE burner according to the combustion
+range and fuel staging followed by common faults are subsequently discussed. The LBO
+phenomenon is further addressed by evaluating its causes, effects, and behavior. Lastly,
+various prediction techniques are identiﬁed, covering the semi-empirical, numerical, hybrid
+model, and data-driven methods to predict LBO. This review is expected to be helpful for
+the gas turbine industry or community and the engineers currently dealing with DLE gas
+turbine challenges. Furthermore, it can be applied by theorists interested in the gas turbine
+model and lean-burn combustion. Additionally, some contributions to the gas turbine
+ﬁelds that can be found in this paper are listed as follows:
+1.
+Advantages and drawbacks of various combustors based on the emissions, combus-
+tion method, efﬁciency, fuel, and stability.
+2.
+Comparison of numerous models that can be used to study the dynamics of a gas
+turbine based on the equation, parameter assumption, and their application.
+3.
+DLE gas turbine working principle covering the allowable operating range and the
+difference of fuel system conﬁguration with the conventional one.
+4.
+Various combustion challenges in DLE and conventional gas turbine including the
+causes and the prevention actions.
+5.
+Characteristics of LBO according to emission and ﬁring temperature, and some pre-
+cursor events.
+6.
+Possible techniques to predict LBO, which can be used to avoid the event and its
+future implementation.
+Paper Outline
+1. Introduction
+2. Gas Turbine
+3. DLE Gas Turbine
+4. Lean Blow-out
+5. Conclusion
+Global Energy
+Consumption
+Key Terms for Gas
+Turbine Survey
+Objectives and
+Contributions of
+Paper
+Combustion
+Technology
+Gas Turbine 
+       Models for 
+       stability study
+DLE Combustor
+and Its Technical
+Aspects
+DLE Challenges 
+Case Study
+       and Preventive    
+      Actions
+Causes and Effects
+of LBO
+Prediction
+Techniques
+Precursor Events
+       of LBO 
+Conclusion
+Future Trends
+Figure 4. Outline of article.
+The paper’s remaining sections are organized as follows: the evolution of burner
+technology and various models to study the dynamics of the gas turbine are described
+in Section 2. Section 3 delivers the working principle and potential faults in the DLE gas
+turbine. Subsequently, the discussion of the LBO phenomenon and various LBO prediction
+techniques are presented in Section 4. Finally, a summary of the discussion is given in
+Section 5.
+2. Gas Turbine
+A brief introduction of various combustion technologies used in a gas turbine is con-
+tained in this section. The characteristics of each combustor, starting from the conventional
+
+
+--- Page 5 ---
+
+Appl. Sci. 2022, 12, 10922
+5 of 30
+to the latest clean combustor, are extensively explained. Furthermore, numerous models of
+gas turbine dynamics will be discussed.
+2.1. Evolution of Combustion Technology in Modern Gas Turbine
+The evolution of the combustion technology in a modern gas turbine is illustrated in
+Figure 5.
+SINGLE FLAME COMBUSTION
+TRAPPED VORTEX
+COMBUSTION (TVC)
+MILD COMBUSTION
+(MILD)
+RICH-QUENCH-LEAN
+COMBUSTION (RQL)
+CONTINUOUS STAGED 
+AIR (COSTAIR)
+DRY-LOW EMISSION 
+(DLE)
+NanoSTAR
+CONVENTIONAL
+LOW NOx BURNER
+First Generation
+Second Generation
+Third Generation
+Fourth Generation
+Figure 5. Evolution of gas turbine combustion technology.
+
+
+--- Page 6 ---
+
+Appl. Sci. 2022, 12, 10922
+6 of 30
+2.1.1. Single Flame Combustion
+In the ﬁrst generation, a single ﬂame combustor is utilized for the air and fuel diffusion
+in the chamber. This diffusional type of combustion is very stable and ﬂexible to any kind of
+fuel for energy production. However, the high temperature in the primary zone produces a
+high emission, which is more signiﬁcant than 70 ppm and becomes a major drawback of
+the operation. Hence, the trade-off between NOx - CO production and power efﬁciency
+has become challenging. Thus, low NOx burner technology to overcome the trade-off limit
+with an absolute goal to reduce emissions without compromising the power efﬁciency of
+the turbine is introduced.
+2.1.2. Trapped Vortex and Mild Combustion
+The ﬁrst strategy to overcome the trade-off is optimizing the fuel turbulence to pro-
+duce stable combustion in the second generation. The system includes trapped vortex
+combustion (TVC) and mild combustion (MILD) or ﬂameless combustion. TVC’s working
+principle is based on cavity stabilization. The cavity inside the TVC combustor provides a
+recirculation zone to trap the vortex pilot ﬂame and produces a constant source of ignition
+at a high rate [12,13]. The continuous ignition or pilot ﬂame offers better mixing inside the
+cavity that helps to increase the efﬁciency of the combustion process and reduce greenhouse
+gas emissions [14]. As reported by Mishra in [15], the technology can achieve from 10 to
+40% of NOx emission reduction due to the high inlet velocity for the vortex, which reduces
+the combustion temperature and improves ﬂame stabilization [16]. The trapped turbulent
+vortex also provides some signiﬁcant pressure drop reduction, as reported by Zhang in [17].
+The TVC combustor with the most ﬂexibility in fuel operation and application using biofuel
+is investigated in [18]. Despite the promising performances, the major drawback of the
+technology is the dependency on the geometric design, especially the cavity area, to attain
+efﬁciency. Only proper design and adjustment produce a stable vortex and combustion.
+Moreover, the continuous ﬁring in the area leads to severe cavitation, further complicating
+the material selection process [19].
+Therefore, the cavitation problem is addressed in the MILD burner. The cavitation
+area is converted into a constant hot stream of gas to preheat the air before entering the
+combustor. Then, the hot product gases and the oxygen-rich mixture are formed from
+the process [20,21]. Therefore, the controlled oxygen-rich mixture oxidizes the fuel in the
+combustor, producing ﬂameless uniform burning. The biggest advantages of this system are
+the high combustion ﬂame stability [22,23] and about 90% of NOx emission reduction [24].
+Additionally, the system offers high fuel ﬂexibility and low acoustic oscillation for better
+operation [25]. This technology, however, portrays challenges such as high-pressure loss
+from the injection nozzle [26], the economic disadvantage of preheating and a relatively
+high concentration of COx gas from the mild combustion ﬂame. Then, the combustion
+technology is progressed into the third generation to address previous constraints.
+2.1.3. Rich-burn, Quench-Mix, Lean-burn and Continuous Staged Air
+The continuous gas stream is upgraded with a quick mix air in rich-burn, quench-mix,
+lean-burn (RQL), and continuous staged air in COntinuous STaged Air (COSTAIR) in
+the third generation. In RQL, the higher energetic hydrogen concentration minimizes the
+production of nitrogen oxides to 72% due to low temperature and low oxygen concentration
+as reported in [27]. The mixture then travelled to the quick-quench stage to rapidly
+complete the transition from rich-burn to lean-burn, introducing a large amount of air.
+The secondary zone, as in the diagram, prevents the NOx production from going through
+the high route near the stoichiometric ratio. Meanwhile, the mixture is operated according
+to the equivalence ratio for temperature rise, and all parameters are selected to control
+other emission gases, such as COx in the lean zone. The excellent advantage of the RQL
+combustor lies in the fuel ﬂexibility [28], and other criteria for pressure drop and ﬂame
+stability are still average compared to other technologies [29]. Apart from the noticeably
+considerable reduction in NOx emission, the RQL system faces hardware complexity due
+
+
+--- Page 7 ---
+
+Appl. Sci. 2022, 12, 10922
+7 of 30
+to the various control strategies to maintain the three zones, especially quick-quench [30].
+Without the proper arrangement, the emission of COx may be higher than the conventional
+gas turbine due to the unburned products from the primary zone.
+Therefore, the COSTAIR combustion type is introduced later to overcome the chal-
+lenges. The combustion chamber consists of a staged air distributor, which ﬂows through
+the air inlet through numerous openings at three and is continually distributed throughout
+the chamber in a staged manner. The uniform heat release across the chamber provides cav-
+itation stabilization without the design. Thus, the NOx and COx emission can be achieved
+up to 2–4 ppm compared to the conventional combustor, which is 70 ppm. Moreover,
+the combustor’s pressure drop is relatively lower than RQL due to the uniform mixing.
+However, the challenge of maintaining a uniform temperature from the mixing creates
+ﬂame instability and leads to lean blow-out [31].
+2.1.4. Dry-Low Emission and NanoSTAR
+In the fourth generation, the DLE gas turbine and NanoSTAR are introduced. The
+DLE gas turbine combines all the good aspects in the previous combustion system to
+reduce NOx without increasing the bottleneck COx and unburned hydrocarbon. A DLE gas
+turbine combustion technology operates a clean operation based on lean pre-mixed (LPM),
+which adapts the RQL “rich-burn” method and MILD to reduce NOx [32]. As reported
+in [33], the emission can be reduced up to 97% using this technique. The pilot fuel valve
+introduction is based on the TVC system as a cavity stabilizer for the ﬂame. The DLE
+turbine temperature lies in the desired range that is not too low, as this will increase the
+COx formation, and not too high, as this will increase NOx production [34,35]. The turbine
+is also ﬂexible in fuel selection, either gas or liquid. The last advanced technology is
+NanoSTAR. Since all reviewed combustion technologies are based on turbulent ﬂow and
+non-premixed/premixed, combustion instabilities are inevitable. Thus, the technology
+utilized the high thermal intensity laminar surface stabilizer from a porous-metal ﬁber
+for the injection. The full-scale test of NanoSTAR exhibited high emission reduction,
+robust ignition and signiﬁcantly less pressure drop (2–4%) from the system pressure.
+However, the system is still in the proof-of-concept stage, which is limited to the natural
+gas application and holds complexity in manufacturing.
+The comparison between features of the combustion systems is summarized in Table 1.
+The factors considered here are the performance of these technologies for emission re-
+duction and power efﬁciency. The table shows that the three combustion technologies,
+COSTAIR, NanoSTAR and DLE, share an essential feature of very low COx and NOx
+emission. However, only NanoSTAR and DLE gas turbines exhibit high power efﬁciency
+(signiﬁcantly less pressure drop), but NanoSTAR is still in the proof-of-concept stages.
+Thus, the DLE combustion technology selection for this study is justiﬁed after considering
+all the turbine features.
+Even though the DLE gas turbine meets emission and pressure drop requirements, it is
+still susceptible to frequent trips, especially LBO faults, during disturbances. The plant trips
+release unplanned exhaust gas during faults and further increase the pollutants emission.
+Table 1. Summary of combustor technologies in modern gas turbines.
+TVC
+RQL
+COSTAIR
+MILD/Flameless
+NanoSTAR
+DLE
+NOx Emission
+Medium (60%
+reduction)
+Low (72%
+reduction)
+Very Low
+Low (90%
+reduction)
+Very Low
+Very Low (97%
+reduction)
+CO Emission
+Medium [15]
+Medium [27]
+Very Low [31]
+Medium [24]
+Very Low [33]
+Very Low [36]
+
+
+--- Page 8 ---
+
+Appl. Sci. 2022, 12, 10922
+8 of 30
+Table 1. Cont.
+TVC
+RQL
+COSTAIR
+MILD/Flameless
+NanoSTAR
+DLE
+Technology
+Recirculation
+zone
+introduction to
+trap turbulence
+Three section of
+front rich
+burnmiddle
+quick
+quenchlast lean
+burn
+Continuously
+staged air
+Oxygen
+dilution at very
+high
+temperature
+Introduction of
+porous
+metal-ﬁber mat
+to stabilize
+thermal
+intensity
+Introduction of
+pilot valve and
+LPM area for
+rich-burn
+Pressure Drop
+Low [17]
+Moderate [29]
+Low
+Medium
+Very Low (2 4%
+reduction)
+Very Low
+Fuel
+Liquid/Gas [18]
+Liquid/Gas [28]
+Liquid/Gas
+Liquid/Gas [25]
+Natural Gas
+Liquid/Gas
+Stability
+High [16]
+Moderate
+Low [31]
+High [22,23]
+Very High
+High
+Drawbacks
+Too dependant
+on geometric
+design [19]
+Increase
+hardware and
+complexity [30]
+Flame
+instability to
+maintain
+uniform
+temperature
+Economic dis-
+advantage [26]
+Design
+manufacturing
+and economic
+value [32]
+Prone to distur-
+bances [20,37]
+2.2. Gas Turbine Model
+Numerous works have highlighted and overcome those challenges in DLE gas turbines
+over the past years. Various studies focus on ﬂame static stability as in [32,38], combustion
+performance [39,40], fuel injection ﬂexibility [41,42], turbine burner [43], fuel ﬂow aerody-
+namic [44], fuel combustion [45] and fuel mixing [46]. Upon analysis, most of the works are
+focused on either combustor design, combustion fuels or the combustion process. Limited
+studies combine the system as a whole, including the control strategy. Furthermore, most
+of the works are performed on a laboratory scale only. Therefore, a model that reﬂects
+the actual behavior of the DLE gas turbine is needed to represent the dynamic stability of
+the system.
+Thus, this section reviews the existing gas turbine models in power generation for the
+stability study . This section is divided into two subsections. The ﬁrst subsection presents
+the physical model covering gas turbine component design and mathematical model. Then,
+the review of the black-box model is presented.
+2.2.1. Physical Model
+The physical model has been applied for the speciﬁc mechanical study in gas turbine
+components (compressor [47], turbines [48], combustors [49]) and thermodynamic behavior
+as in [50,51]. It implies the application of Brayton cycle thermodynamic laws as in Figure 6.
+Entropy in the ﬁgure is the unavailability of a system’s thermal energy for mechanical
+work conversion. In an irreversible cycle, the air is drawn at point 1 and compressed by
+the compressor to point 2 at constant entropy (isentropic). Then, the combustor raises
+the air temperature to point 3 and the heat of combustion, Qin, from the burned fuel is
+obtained. The compressed air and combustor fuel mixture are expanded to point 4 in
+the isentropic process. Lastly, the released heat, Qout, from 4 to 1 is utilized to generate
+power. The process at 2-3 and 4-1 is assumed as isobaric or equal in barometric pressure.
+These optimal conditions are implemented into differential equations of total mass balance
+conservation in Equation (1) and conservation energy in Equation (2).
+dm
+dt = ˙min −˙mout
+(1)
+dE
+dt = ˙mini∗
+in −˙mouti∗
+out + Q + W
+(2)
+where ˙m refers to the mass ﬂow and E represents the total energy, i represents the speciﬁc
+enthalpy, Q refers to the heat input into the system, and W is the work produced. The phys-
+
+
+--- Page 9 ---
+
+Appl. Sci. 2022, 12, 10922
+9 of 30
+ical model uses thermodynamic equations, which calculate any process inputs into an
+output. This method aims for the model to be robust to different sets of data without any
+modiﬁcations. The problem with this method is that the derivation is very extensive and
+challenging, especially for a larger system. Moreover, mechanical engineering backgrounds
+are needed in deriving the parameter [52,53]. Thus, the physical model is not heuristic
+enough to aid the personnel in the decision-making process for the gas turbine operation.
+Figure 6. Brayton cycle temperature-entropy diagram.
+Rowen’s model is the ﬁrst developed physical model for gas turbine dynamics, as il-
+lustrated in Figure 7. The model established by Rowen in [54] is based on the simpliﬁed
+mathematical model to overcome the physical model complexity. A few assumptions were
+made for the model, which are; (i) the model is for simple cycle, single-shaft, and generator
+drive only, (ii) the speed of the turbine must be constant and maintained at 97–100%,
+(iii) the ambient temperature and pressure are at 15 ◦C and 1 atm, respectively, and (iv)
+no heat recovery is considered in the model. The input and output signals are generated
+per unit (p.u), where the operation signal is divided by the rotor speed nominal signal, N,
+for standardization. However, the temperature signal unit remains.
+The model consists of three main control components. The ﬁrst component is the
+speed governor. It governs the speed of a system and maneuvers the frequency, exhaust
+temperature and compressor output as necessary as demanded from the load. The second
+component is fuel temperature control. It regulates the output temperature, TM, to be lower
+than the constant maximum or increased for more energy when the demand increases.
+The third component is the Inlet Guide Vane (IGV) temperature control, which plays a
+major role in balancing the temperature by opening or closing the air intake. These three
+control functions are the inputs for the low-value selection, determining the least fuel
+control actions for the gas turbine operation. The inputs of the model are the load change
+and ambient temperature. The outputs are represented by the three function blocks, f1, f2
+and f3.
+Function block f1 as in Equation (3) represents the exhaust temperature of the turbine
+by incorporating the fuel ﬂow, Wf , rated exhaust temperature, TR, IGV and rotor speed,
+N. The parameter D and E in the equation is the unknown values, which can be obtained
+from the operating curves.
+f1 = TR + DWf + E(1 −N) + 3.5(MaxIGV −IGV)
+(3)
+
+
+--- Page 10 ---
+
+Appl. Sci. 2022, 12, 10922
+10 of 30
+The turbine torque output of the gas turbine with the signals from the fuel ﬂow and
+the rotor speed is obtained from f2 as in Equation (4).
+f2 =
+1.15(Wf −0.133)
+N
+(4)
+The additional block of f3 as expressed in Equation (5) represents the exhaust gas ﬂow,
+which is commonly necessary for the heat recovery stages in the combined cycle.
+f3 = N × Ligv
+0.257h
+288
+Ta + 273
+i
+(5)
+where Ta refers to the ambient temperature, Ligv represents the IGV output and N is the
+rotor speed signal in the model.
+Figure 7. Rowen’s gas turbine dynamic model.
+The Rowen’s model application is further modiﬁed by the IEEE task force by splitting
+the model into the controls of the gas turbine (the airﬂow control loop, the temperature
+control loop and the fuel ﬂow control loop) and the thermodynamics equation properties.
+The main comparison of IEEE to Rowen’s model is the torque and speed calculation as
+in Figure 8 and the control scheme remained the same. A ﬁxed compression ratio in gas
+turbine operation is assumed in the derivation.
+In the structure, A control block is added as a nonlinear function of the thermodynamic
+properties, which schedules the airﬂow. The main equation for the model as depicted in
+the diagrams is expressed in Equation (6). The parameter needs to be solved by the
+Newton–Raphson method due to the non-linear nature of Equations (7) and (8).
+TR = Tf
+h
+1 −
+
+1 −1
+x
+
+ηT
+i
+(6)
+where TR is the reference exhaust temperature, x is the cycle pressure ratio and ηT represents
+the turbine’s efﬁciency.
+x = [PR0W]
+γ−1
+γ
+(7)
+where PR0 refers to the design cycle pressure ratio, γ is the ratio of speciﬁc heat capacities,
+w represents the air ﬂow and ηC is the compressor’s efﬁciency.
+W =
+PGK0
+Tf (1 −1
+x)ηT −Ti
+(x−1)
+ηC
+(8)
+
+
+--- Page 11 ---
+
+Appl. Sci. 2022, 12, 10922
+11 of 30
+PG refers to the rated power output, Ti is the inlet temperature of the compressor,
+and K0 is the ratio of net power output and inlet heat capacity. The parameter of Tf equals
+the ﬁring temperature and is expressed in Equation (9).
+Tf = TD +
+Wf
+W K2 = Ta
+
+1 + x −1
+ηc
+
++
+Wf
+W K2
+(9)
+where TD is for compressor discharge temperature, K2 is the design combustor temperature
+rise, and Wf is the fuel ﬂow.
+Figure 8. IEEE Gas turbine model for stability studies [55].
+The equations and connection of the diagram are based on the isentropic efﬁciency
+equations together with the power balance in the physical model [56]. This model is
+applied to represent both the dynamic and physical models as in [37] for the overall
+airﬂow study to cool down the turbine blades. The IEEE model and Rowen’s model are
+commonly compared in power system stability since both models are derived from the
+nominal conditions provided by the manufacturers. However, the IEEE model equations are
+relatively complicated and require high computational time, especially for a large system.
+A later extension of Rowen’s model, aero-derivative, is introduced for the smaller
+machine ratings in the network connection. The model is derived from the jet engines for
+two-shaft gas turbines and utilized for better efﬁciency in part-load operation. As shown in
+Figure 9, the format of the block diagram is similar to Rowen’s model. However, the model
+is split into two sections; control functions and turbine dynamics. Apart from that, one
+additional speed signal is introduced, making it two signals instead of one signaling into the
+low-value selector. First is the speed of the engine (High Power Turbine), which determines
+the speed of the compressor, and the second signal is the speed of the low power turbine of
+the generator. From the ﬁgure, the turbine characteristics f1 −f4 follow Rowen’s model
+equation, which is also easily extracted from the operating curves. The extracted parameters
+include exhaust temperature versus fuel ﬂow, the electrical power versus fuel ﬂow and
+various other parameters. However, the ultimate model parameters are still obtained
+through a trial and error approach until the simulated responses are perfectly matched to
+the actual gas turbine responses.
+
+
+--- Page 12 ---
+
+Appl. Sci. 2022, 12, 10922
+12 of 30
+Figure 9. Aero-derivative model [57].
+As the utilization of the gas turbine is increased, and higher efﬁciency in the operation
+is desirable, the combined cycle power plant is introduced in later studies. However,
+numerous trips from the combined-cycle generating plants are observed by CIGRE Task-
+force, which leads to further investigation into the error. From the analysis, the improper
+modeling of governor response and exclusion of thermal unit inﬂuence in the network are
+the principal reasons for the trips. Thus, the CIGRE model is introduced as illustrated in
+Figure 10 for gas and steam turbines in combined-cycle power plants [58]. As with the pro-
+posed Rowen’s model, three control loops are fed into the low-value selector: speed/load
+governor, temperature, and acceleration control loop. However, the main differences are
+the governor transfer function substitution to the additional control loop for MW and
+the torque calculation represented by the second-order transfer function. The exhaust
+temperature is not explicitly calculated, but provided via the F(x) function, as shown in
+the ﬁgure. Thus, no derivations are involved in this model. However, the operating curves
+must determine the constant parameters, and the trial and error approach is still employed.
+Hence, the model is still prone to error and is time-consuming.
+Most of the mentioned models in the previous section are insufﬁcient for evaluating the
+gas turbine’s frequency dependency. Hence, a frequency-dependent model is introduced to
+clarify the effects of shaft speed and ambient temperature on the power output. Changes in
+frequency are equivalent to the change in shaft speed, and the airﬂow ﬂuctuation directly
+affects the maximum power output. Thus, the phenomenon is studied from the model
+as shown in Figure 11 for the overall block diagram. The control scheme for the model
+follows Rowen’s model with additional thermodynamic equations to represent the dynamic
+behavior of the gas turbine. Unlike Rowen’s model, where the main calculations are the
+output power and exhaust temperature, this model includes the compressor pressure
+ratio in addition to the available outputs. The frequency-dependent model is based on
+similar equations in the IEEE models. However, as in the IEEE model, the frequency-
+dependent model assumed a generic form of the pressure ratio dependence on frequency
+
+
+--- Page 13 ---
+
+Appl. Sci. 2022, 12, 10922
+13 of 30
+deviations instead of a ﬁxed compressor ratio with small deviation assumptions. There are
+nine equations for the models with more than 10 unknowns that need to be extracted from
+the actual data.
+Figure 10. CIGRE model for combine-cycle gas turbine operation [58].
+Figure 11. Frequency-dependent model for gas turbine operation [59].
+2.2.2. Black-Box Model
+Few works are reported utilizing the black-box model in gas turbine modeling. Nev-
+ertheless, two studies are reported by Asgari in [60] using Artiﬁcial Neural Network and
+
+
+--- Page 14 ---
+
+Appl. Sci. 2022, 12, 10922
+14 of 30
+Non-linear Autoregressive Exogenous (NARX). The NARX structure, as in Figure 12, is
+applied to model the gas turbine operation. The output signals are compared with the
+mathematical signals, and the black box and the mathematical model performance are
+almost identical. However, this area is not favorable since the gas turbine is a complex
+system, and the black-box method cannot represent the operational dynamics.
+Figure 12. A schematic of NARX structure for gas turbine model [60].
+Rowen’s model is widely adopted due to the capability to imitate an actual gas turbine
+operation from the functional derivation of the operating curves [55,61]. It has various
+applications in the dynamic study and is extensively used in present works. It offers a stable
+model for gas turbine modiﬁcation in temperature control and stability, load frequency
+control [59,62] and PID control [57]. In [63], an integration of Bayesian and Dempster–
+Shafer theory into Rowen’s model serves as a performance monitoring tool for gas turbines.
+The well-known model also extended into a fault characterization study during frequency
+excursion. Thus, Rowen’s model is widely applied in dynamic studies. Hence, Rowen’s
+model is suitable to be used to represent DLE gas turbine operation. Moreover, Rowen’s
+model only consists of two unknown parameters, which are easily derived compared to
+other methods as summarized in Table 2. Furthermore, the detail of dynamic models for
+gas turbine stability study is depicted in Figure 13.
+Air Blades
+Compressor
+Combustor
+Rowen
+AeroD
+Frequency
+Gas Turbine Dynamic Models for System Stability
+Physical
+Black Box
+Gas Turbine
+Component Design
+Dynamic Model
+Ducting
+IEEE
+CIGRE
+Artifical
+Neural 
+Networks
+MODELS
+COMPONENTS
+APPLICATIONS
+Figure 13. Gas turbine dynamic models for system stability.
+
+
+--- Page 15 ---
+
+Appl. Sci. 2022, 12, 10922
+15 of 30
+Table 2. Summary of gas turbine models.
+Gas Turbine
+Component Design
+Rowen’s Model
+IEEE Model
+Aeroderivative Model
+CIGRE Model
+Frequency Dependant
+Derivation
+Base
+Dynamic and physical
+thermodynamic
+properties and laws
+(Brayton)
+Simpliﬁed mathematical
+representation
+Rowen’s model and
+thermodynamic equations
+Derived from jet engines
+and Rowen’s model
+Additional outer loop for
+MW control.
+Frequency dependency on
+gas turbine
+Parameter
+Assumption
+1. Pressure loss is
+negligible.
+2. Compressor and turbine
+are irreversible.
+3. Process 2-3 and 4-1 is
+isobaric.
+4. Process 1-2 and 3-4 is
+isentropic.
+5. Turbine efﬁciency is
+linear.
+6. Combustor efﬁciency
+is assumed to be 1.
+1. For simple cycle,
+single-shaft,
+generator drive only
+2. Constant speed is
+maintained at 95%-107%
+3. Operates at ambient
+15oC and 101.325kPa
+4. No heat recovery
+Fixed compression ratio
+Ultimate parameters are
+based on the trial and error
+approach until the outputs
+match the actual turbine
+responses
+Second order transfer
+function for torque
+calculation
+Generic form of the
+pressure ratio dependence
+on frequency deviations
+Main
+Equation
+2 main equations with
+8 unknowns parameters.
+3 main equations with
+2 unknowns parameters.
+4 main equations with
+more than 10 unknowns
+parameters
+6 main equations with
+more than 10 unknowns
+parameters
+All transfer functions.
+more than 10 unknown
+parameters
+9 main equations with
+more than 10
+unknowns parameters
+Application
+Components modelling
+(ducting, compressors,
+combustors and air blades)
+Open cycle, close cycle,
+combined cycle
+gas turbine operation
+Overall airﬂow to cool
+down the
+turbine blades
+Aeroderivative engines,
+two-shaft engines
+Combined cycle power
+plant, heat recovery
+unit
+Incidents with abnormal
+frequency behaviour
+References
+[47–50]
+[37,54,56,61,62]
+[55]
+[57]
+[58]
+[59]
+
+
+--- Page 16 ---
+
+Appl. Sci. 2022, 12, 10922
+16 of 30
+3. Dry-Low Emission Gas Turbine
+In this section, the working principle of the DLE gas turbine is presented along with
+the details of combustor design. Subsequently, DLE gas turbine problems are evaluated to
+discover the drawbacks and challenges.
+3.1. Dry-Low Emission Gas Turbine Working Principle
+The DLE gas turbine has been popular since the 1970s, as the regulation of NOx
+reduction was tightened. Its working principle follows the Brayton cycle as deﬁned in
+Section 2.2.1. The combustor performs the heating process in an isobaric condition from
+point 2, delivering heat to increase the temperature of high-pressure gas until the turbine
+inlet temperature is at point 3. In the combustion process, emission production is the func-
+tion of temperature. Therefore, the DLE gas turbine operates at a lower temperature than
+the conventional one to produce lower emissions. Commonly, a conventional combustion
+occurs at operating temperature range from 3400 °F (1871 °C) to 3599 °F (1927 °C) [64].
+Meanwhile, the DLE gas turbine operates under 2800 °F (1538 °C) to trim the emissions to
+a single digit of NOx [65]. The combustion can be controlled by adjusting the air and fuel
+composition, as illustrated in Figure 14.
+Figure 14. Air/fuel ratio effect to ﬂame temperature and NOx emission.
+Refer to Figure 14, DLE gas turbine operates in fuel-lean conditions by implementing
+the lean-premixed (LPM) technique, mixing the fuel and air at the baseload to produce
+a lean mixture before entering the combustion chamber. The premixing prevents local
+“hot spots” that can accelerate a signiﬁcant formation of the NOx [66,67]. Commonly,
+the stoichiometric mixture of gas turbine varies between 1.4 and 3.0 [64]. The reason is
+that when the mixture of air and fuel is below a factor of 1.4, it will produce an intensely
+hot ﬂame that will rapidly increase NOx formation. In contrast, the combustion becomes
+unstable when the mixture exceeds 3.0. For this reason, the air supplied is twice higher as
+the actual air needed to produce a lean condition that can lower the combustion temperature.
+Hence, the production of thermal NOx can be limited. Even though the DLE gas turbine
+signiﬁcantly reduces the NOx, it is difﬁcult to maintain the CO production that increases
+with the decreasing ﬁring temperature. Therefore, controlling the air and fuel ratio is crucial
+in DLE application.
+The DLE combustor has a different air and fuel system conﬁguration compared to
+the conventional type, as shown in Figure 15. The main fuel valve injects approximately
+97% of the total fuel in the premixing chamber. A pilot fuel valve is added to inject fuel
+directly into the combustion chamber to maintain stability in rich burn conditions [68].
+Therefore, the combustor’s size is more prominent because of the additional pilot valve
+
+
+--- Page 17 ---
+
+Appl. Sci. 2022, 12, 10922
+17 of 30
+and the premixing chamber that contains a large quantity of air supplied of approximately
+50–60% of the combustion airﬂow.
+Figure 15. DLE and conventional combustor.
+Since the lean-burn operation is adopted in DLE gas turbines, the tendency to ﬂame
+out is sometimes unavoidable. Therefore, the DLE gas turbine has a speciﬁc operating
+region to maintain healthy operating conditions. The combustion that is too lean will
+affect the chemical reaction to spend longer than the residence time. Hence, the burner
+fails to maintain the ﬂame, which leads to LBO occurrence. Avoiding ﬂame extinction can
+be achieved through the air or fuel staging [69]. Performing air staging can be done by
+reducing the airﬂow and decreasing the mixture strength in the combustion chamber to
+stabilize the combustion. On the other hand, the fuel staging approach can be carried out by
+axial or radial methods. For the axial approach, the fuel is injected into two zones, utilizing
+the products from the ﬁrst combustion zone to be mixed with the air and fuel to the next
+combustion zone to maintain the lean operation. The use of pilot light or fuel reduction
+can be implemented for the radial approach. The number of fuel staging depends on the
+operating range; the common number of the stages used is two or three, as illustrated in
+Figure 16.
+Figure 16. DLE combustor fuel staging.
+For example, the implementation of fuel staging was used in a typical DLE combustor
+by General Electric named Dry Low NOx-1 (DLN-1). This type of turbine implements
+a two-stage premixed combustor with four modes of operations, as shown in Figure 17.
+The four operating modes are primary (fuel is injected fully into the primary nozzle; hence
+
+
+--- Page 18 ---
+
+Appl. Sci. 2022, 12, 10922
+18 of 30
+the ﬂame is in the primary zone only), lean-lean (fuel is injected into the primary and
+secondary nozzle), secondary (fuel is injected into the secondary nozzle only), and pre-
+load (fuel is injected to both primary and secondary nozzles, however, the ﬂame is in the
+secondary zone only, optimizing the emissions produced). In the pre-load or premix mode,
+the emission produced is very low by using natural gas at the base load. The concentration
+for NOx and CO that can be achieved is lower than 25 ppmv and 9 ppmv, respectively [31].
+It can be concluded that the determination of air and fuel staging is essential to improve
+the operation of the DLE gas turbine.
+Figure 17. DLN-1 staging.
+3.2. Faults in DLE Gas Turbine
+The conversion of the combustion system from the non-premixed type in a conven-
+tional gas turbine to the lean premixed in DLE type results in different major faults of
+each combustion mode, creating challenges for the manufacturers. Various severe faults
+that possibly induce the gas turbine tripping problems for both conventional and DLE gas
+turbines are summarized in Table 3. Subsequently, the causes and prevention activities of
+the faults will be analyzed in detail.
+One of the gas turbine failures that cause the plant to shut down is the turbine blade
+fault. According to [70], there are various causes of blade fault, such as creep, oxidation,
+and fatigue due to high mechanical and thermal stresses. Statistics indicate that fatigue
+failure contributes to almost 50% of all component damages in gas turbines [71]. Similarly,
+the fatigue failure also causes problems in the compressor blade, as reported in [72]. The
+damage experienced in blades and nozzles (stationary blades) will be hard to cure since
+they have complicated conﬁgurations. Further, the root cause of this fault is distinctive de-
+pending on the material used, operation conditions, and the component’s reliability, which
+leads to incorrect sensor readings. A faulty sensor creates an uncontrolled combustion
+system, leading to improper operating temperature and pressure. Hence, the system pro-
+duces undesired emissions that turn the trip alarm on and contribute to the trip event [73].
+Therefore, it is crucial to identify the malfunctioning part in instrumentation to ensure
+the precision of operational parameter readings. Another problem with the gas turbine
+is vibration. According to [74], this fault happens because of various sources, including
+misalignment, shaft unbalance, and bearing problems. In the worst case, extremely high
+vibrations cause catastrophic failure that is dangerous to the environment and humans.
+
+
+--- Page 19 ---
+
+Appl. Sci. 2022, 12, 10922
+19 of 30
+Aside from it, Liu in [75] mentioned an error that usually occurs during start-up called
+compressor surge. This fault occurs when the inside pressure is lower than the incoming
+air pressure. Thus, the airﬂow to the compressor is blocked. At the same time, there is a
+possibility of ﬂow rate oscillation that might result in powerful vibrations, causing damage
+to the system [76]. The effective way to prevent the surge is through active surge control,
+expanding the operating range of the compressor using a feedback controller. The fault
+in the igniter also contributes to the gas turbine tripping problem, as reported in [77].
+Eroded tips at the igniter produce a weak ignition during starting that interrupts the early
+combustion stage. It is usually caused by substance removal due to excessive discharge.
+This error requires expensive downtime to diagnose, resulting in component replacement.
+The following fault is a shaft locked in the compressor rotor [78]. This fault is caused by
+rotor blades rubbing against the compressor case, resulting in a coast-down below the limit.
+Since rubs are common due to physical contact between materials, the effective technique
+to eliminate this problem is by conducting shaft alignment.
+In DLE operation, the tight operating region is the challenge that sometimes disturbs
+the combustion stability and creates problems due to a lean burning operation. The com-
+bustion that signiﬁcantly leans further eventually causes the ﬂame to blow out. This
+phenomenon is widely known as the LBO fault, which will be thoroughly discussed in
+the next section. In many cases, as reported in [79–84], LBO fault is considered the most
+common problem in DLE systems, which leads the gas turbine to trip. Other problems are
+observed before the blowout, such as auto-ignition, ﬂashback, and combustion instability.
+Auto-ignition is an event in which gas ignites spontaneously without any external ignition
+sources. As reported by Sims in [85], a DLE gas turbine experiences auto-ignition at a partic-
+ular temperature and pressure that may result in a rapid loss of power as a consequence of
+a malfunction being detected by the engine control system, which then causes the machine
+to be shut down. A self-ignition occurs after a speciﬁc delay time called auto-ignition delay
+time (ADT) is reached. This fault can affect the repair or replacement of components in the
+premix module. In order to prevent auto-ignition, the fuel residence time in the premix tube
+should be less than the ADT. Therefore, the fuel residence time must be correctly calculated,
+and the fuel composition should be carefully analyzed to estimate the correct ADT.
+Similarly, the ﬂashback is an issue that presents itself much like the auto-ignition.
+Flashback is a phenomenon of ﬂame feeding back from the combustor into the premixing
+tube. It occurs when the speed of the local ﬂame is faster than the velocity of the air and
+fuel mixture leaving the duct. As reported in [86], ﬂashbacks are generally caused by high
+burning velocity instead of the short ADT. It usually happens during the transient time,
+such as compressor surge. Some cooling techniques can be implemented in response to
+performing protection towards ﬂashback events. Further, a well-designed ﬂame detection
+and fuel controller system can be provided to minimize the effect of a ﬂashback. Another
+problem in the lean premixed system is the instability of combustion. Commonly, the LPM
+technique implements swirling to stabilize the combustion. However, the premixing of the
+fuel and air increases the temperature’s homogeneity, which makes the combustor more
+responsive to the swirl-induced oscillation at any given equivalence ratio [69]. According
+to [87], the oscillations might happen under lean conditions because the creation of positive
+feedback of temperature combined with negative feedback of fuel concentration on the
+reaction rate had occurred. This undesirable oscillatory burning can reduce the combus-
+tor’s reliability and durability. Moreover, it can decrease the lifetime and damage of the
+combustor due to high acoustic noise levels at its natural frequency when the resonance
+occurs. The modes of oscillation may be axial, radial, circumferential, or all three concur-
+rently. In order to guarantee the combustor stability, a dynamic pressure transducer can be
+applied, ensuring the combustor burns uniformly. Hence, it helps control the ﬂow to create
+a proper mix of fuel and air, producing uniform combustion. However, a deeper analysis,
+i.e., Computational Fluid Dynamic modeling, is sometimes required to establish the mixing
+process by investigating the interaction of ﬂows.
+
+
+--- Page 20 ---
+
+Appl. Sci. 2022, 12, 10922
+20 of 30
+Table 3. Gas Turbine Faults.
+Trip Faults
+Causes
+Prevention
+Ref.
+DLE gas turbine
+Lean Blowout
+Too lean zone
+that exceed the
+blowout limit
+Controlling the air and
+fuel ratio to keep the
+gas turbine in its
+operating region
+[79–84]
+Auto-ignition
+Combustion reaches
+the auto-ignition
+temperature
+Well designed premix
+ducts to accomplish enough
+mixing at periods less
+than the typical ADT
+[85]
+Flashback
+High burning
+velocity
+Advanced cooling techniques
+[86,87]
+Instability
+Pressure oscillations
+at low equivalence ratio
+of combustion
+Utilization of dynamic pressure
+transducer to control the ﬂow
+of air and fuel
+[69]
+Conventional gas turbine
+Blades Fault
+Fatigue failure
+Application of coatings
+resistant to oxidation
+and corrosion at high
+temperatures
+[70,72]
+Sensor Fault
+Mechanical failure
+or improper calibration
+Routine calibration and
+instrumentation checking
+to ensure the reading ability
+[73]
+High Vibration
+Dynamic forces
+Continuous monitoring and
+spectrum analysis
+to detect the vibration sources
+[74]
+Compressor Surge
+Inside pressure is
+lower than incoming
+air pressure
+Implementing surge active
+control
+[75]
+Igniter Fault
+Eroded tips
+Component replacement
+[77]
+Shaft Locked
+Physical contact
+between rotor blades
+and compressor casing
+Shaft alignment
+[78]
+3.3. Case Study in DLE Gas Turbine
+A case study reported the tripping problem of 6 years that was faced by a 4.4 MW
+single-shaft DLE gas turbine at the Gas District Cooling plant. As per the documentation,
+the trip is frequent during the ﬁrst or second year of the installation and reduced in the
+following year. As the gas turbine was installed in 2010, the highest recorded trips were
+in the second year, 2011. As the year progressed, fewer trips were recorded, with the
+minimum in 2014.
+Of the total trips, 77% are critical trips where the equipment is shut down abruptly
+without any allowable period for personnel to bring the operation back into a normal
+state. The trip report was analyzed and summarized in the pie chart as illustrated in
+Figure 18. It is found that 25% of the trips are rooted from LBO error during DLE mode
+that is implemented to reduce NOx and COx emission. This severe fault might lead to high
+maintenance costs due to unplanned downtime. Therefore, LBO is considered the superior
+problem faced in DLE gas turbines, which will be discussed in detail in the next section.
+
+
+--- Page 21 ---
+
+Appl. Sci. 2022, 12, 10922
+21 of 30
+Figure 18. Gas turbine trips cause in GDC plant.
+4. Lean Blowout
+This section is divided into two parts, which cover a comprehensive description of the
+LBO phenomenon and preceding techniques of LBO prediction. Firstly, the details of its
+behavior are deﬁned. Various techniques to predict the LBO are subsequently discussed.
+4.1. Lean Blowout Behaviour
+Lean blowout (LBO) is a phenomenon of ﬂame extinguishment when the combustion
+occurs in very lean conditions and exceeds the LBO limit. The LBO limit is considered
+the lowest equivalence ratio that can carry on the ﬂame [88]. The ﬂame-out will occur
+accordingly once the combustion reaches that limit. The characteristic of LBO can be
+clearly explained by NOx and CO trend over the combustion temperature corresponding
+to the equivalence ratio as depicted in Figure 19. The red zone in the graph shows the
+LBO limit, which falls into a particular range. The blue zone represents the operating
+range of lean-burn combustion, which is applied in the DLE gas turbine to maintain a
+healthy operation.
+Figure 19. NOx and CO emission to characterize LBO behavior.
+
+
+--- Page 22 ---
+
+Appl. Sci. 2022, 12, 10922
+22 of 30
+The equivalence ratio, where the LBO limit is located, is not a ﬁxed number, and
+keeps changing due to various factors related to the operating conditions, such as the
+velocity ﬁeld that inﬂuences the turbulence levels, ambient air, and the temperature and
+pressure of the combustion chamber as reported in [89]. The ﬂame becomes unstable when
+the air velocity is high as the turbulence level corresponding to the Reynolds number
+also increases, as represented in Figure 20. This graph shows the stability loop of the gas
+turbine combustion for a given inlet pressure and temperature. The limit between the
+operability region and blow-out varies due to the amount of air mass ﬂow and fuel–air ratio.
+The equivalence ratio at LBO will increase along with the air mass ﬂow as reported in [90].
+Similarly, increasing the fuel ﬂow rate will shorten the residence time of the droplets inside
+the ﬂame preheat zone, which increases the blow-out limit [91]. The fuel composition also
+signiﬁcantly affects the LBO limit. According to [92], fuel with high hydrogen content
+produces a lower equivalence ratio. Hence, it will extend the lean stability limit and
+lower the possibility of ﬂame to blow-out. A study by [90] evaluated the effect of the
+composition ratio in blended fuel of methane and ethane to LBO limit. The result showed
+that the LBO occurs at a higher equivalence ratio when the ratio of propane in the fuel
+increases. Further, methane dilution with carbon dioxide and nitrogen increases the LBO
+equivalence ratio. The percentage of pilot fuel also signiﬁcantly impacts the LBO limit
+changes. According to [90], the increase in pilot fuel percentage decreases the equivalence
+ratio of LBO. Furthermore, the swirl strength and physical mixing of fuel and air will also
+inﬂuence the LBO limit [82,88,93]. The LBO limit increases with the rise of swirl intensity,
+as reported in [94]. Similarly, the swirl cup’s geometry also signiﬁcantly affects the limits,
+and the limits will decrease with the airﬂow of swirlers for dual-axial swirl cups. In contrast,
+the opposite happens for dual-radial swirl cups.
+Figure 20. Combustion operability for gas turbine based on air fuel ratio over the air mass ﬂow.
+The risk of the ﬂame blowing out is also affected by the ﬂuctuation of power de-
+mand [95]. During deceleration, power reduction is achieved by decreasing the fuel ﬂow,
+affecting the turbine’s lower gas temperature and velocity. The shaft rotational speed
+subsequently turns slower, which results in the compressor not rotating at a similar speed
+to the turbine. Hence, the mass ﬂow rate of incoming air drops gradually, decreasing the
+equivalence ratio that gains the LBO occurrence. Further, the decrease in the equivalence
+ratio reduces the resistance of ﬂame turbulence, raising the level of turbulence [96]. Hence,
+the ﬂame is quenching, and a local blowout might happen. The high turbulence ﬂame is
+
+
+--- Page 23 ---
+
+Appl. Sci. 2022, 12, 10922
+23 of 30
+generally found near the fuel nozzle and the shear layers at the Inner Recirculation Zone
+(IRZ). Following that, the ﬂame is driven towards the low-turbulence locations, which
+increases the residence time. Thus, the ﬂame might reignite the exhausted non-burnt gases
+along the shear layers. The periodic existence of such events can lead to complete blow-out.
+Therefore, those are called precursor events of LBO [90].
+The detection of the LBO precursor has been developed non-intrusively by monitoring
+the ﬂame OH* chemiluminescence emissions as done by Muruganandam [97]. Stable
+combustion is characterized by evenly distributed ﬂame and clear IRZ. As the equiva-
+lence ratio is reduced, the ﬂame turns to local extinction, followed by reignition events.
+The reignition occurs when the ﬂame moves from the exit upstream towards the inlet as the
+operation gets closer to LBO. When the equivalence ratio is further reduced, the ﬂame that
+comes downwards becomes very weak. Thus, the ﬂame cannot restore regular combustion,
+and the ﬂame experiences a blowout.
+In DLE gas turbine application, lower emission is the principal drive to implement
+lean-burn combustion while maintaining operational stability. Therefore, predicting the
+LBO event before it happens is necessary to avoid unwanted downtime that can gradually
+reduce the lifetime of the DLE gas turbine.
+4.2. Prediction Techniques of Lean Blowout
+Lean blowout has various harmful effects that can lead to unplanned trips that increase
+costs because of unscheduled maintenance. Further, some following effects that occur
+before LBO, such as large pressure oscillations, can reduce the reliability and availability,
+decreasing the durability of the DLE gas turbine [83,98]. Hence, the prevention of LBO is
+required to keep the operation of the DLE gas turbine safe. Various prediction techniques
+have been developed to prevent LBO events. The early detection of LBO is generally
+predicted using three methods, which are semi-empirical models, numerical simulation,
+and hybrid models [99].
+In the early stage, semi-empirical techniques were adopted to study the LBO phe-
+nomenon using two different models, namely Characteristic Time (CT) and Perfect Stirred
+Reactor (PSR). The CT model considered the LBO would occur when the residence time is
+lesser than the total evaporating time and chemical reaction time as implemented by Plee
+and Mellor in [100]. Meanwhile, the PSR model considered the LBO would occur when
+the heat release rate is less than the heat loss rate [99]. One of the most used PSR models
+is developed by Lefebvre [101,102], improving Longwell’s PSR model for swirl-stabilized
+combustors. A semi-empirical model is also proposed by [103] according to ﬂame volume;
+however, the study is limited to analysis only. The basis of the CT and PSR models lies in
+energy balance and time balance, respectively. Hu later challenged the previous method
+in [104] by proposing the hybrid empirical method for prediction instead of just analysis. Yi
+also proposed the other method for LBO prediction. Furthermore, Gutmark [105] suggested
+utilizing the ﬂame statistical characteristic. However, two major challenges in the study are
+the operating conditions of an engine that may gradually change and the chemiluminescent
+interferences from neighboring nozzles that may complicate LBO detection. Mukhopad-
+hyay in [106] uses symbolic time series analysis that is converted to a symbol string and
+computed based on the number of occurrences of each symbol over a given period, while
+Sarkar in [98] proposed the prediction via Generalized D-Markov machine construction
+and using fuel iterative approximation in [107].
+In numerical prediction methods, Unsteady Reynolds-averaged Navier–Stokes and
+Large Eddy Simulation are mainly implemented to visualize the ﬂame behaviors and
+predict the LBO. Smith in [108] implemented LES to experimentally predict the LBO of
+premixed ﬂow past the V-gutter ﬂame holder. While Wang in [109] uses the technology of
+a Damkohler number extracted from RANS CFD results. The result shows a distinctive
+transition between stable and unstable ﬂames by decreasing the fuel–air ratio or increasing
+the inlet velocity at atmospheric pressure and inlet temperature. Nevertheless, the listed
+approach is conducted on a laboratory scale using an ideal combustor with only the air
+
+
+--- Page 24 ---
+
+Appl. Sci. 2022, 12, 10922
+24 of 30
+and fuel ﬂow. Thus, it exhibits limitations in associating the LBO error with the gas
+turbine operation. Moreover, the physical sensors and cameras in the study are also not
+suitable for the gas turbine’s extreme temperature application in the ﬁeld. Therefore,
+further improvements are needed to predict the LBO that will be able to capture the actual
+plant conditions.
+Nowadays, data-driven predictive analysis is more prevalent, where we can directly
+develop a predictive model through either simulated or actual plant data. Thus, this type
+of predictive approach has an excellent potential to predict the LBO that can represent the
+actual condition in the ﬁeld. However, limited studies are available in the literature. A study
+by [110] implemented machine learning using a Support Vector Machine to early detect
+the LBO. The model successfully predicted the LBO approximately 20 ms before the event.
+Gangopadhyay in [111] further proposed a deep learning-based framework to predict LBO.
+The developed Long Short Term Memory based deep learning achieved high accuracy that
+outperforms Hidden Markov Model and Translational Error. Further, the computation time
+is also faster than both other methods. The following study implemented data-driven was
+performed by Iannitelli as documented in [82]. Iannitelli used a classiﬁcation approach
+to detect LBO from the exhaust gas temperature proﬁle. The model was developed into
+three classiﬁers: principal component analysis (PCA) with linear regression, PCA with a
+decision tree, and Linear Discriminant Analysis with a given threshold. The result shows a
+promising result by achieving an accuracy of approximately 97%. Based on the literature,
+all the data-driven techniques agreed with the actual data, proving that high accuracy is
+achieved. It has shown signiﬁcant promise for using the data-driven technique in LBO
+prognostics. Therefore, future work can use the data-driven method to predict the LBO
+early and eliminate the potency of tripping in DLE gas turbines.
+5. Conclusions
+Gas turbines must operate efﬁciently to achieve the target output as a prime-mover in
+energy production. Since the primary process should go through combustion, the emission
+becomes a new challenge that should be controlled. However, controlling the emission
+sometimes inﬂuences the combustion stability. Hence, the combustor technology is essential
+to improve combustion quality in the gas turbine.
+Improvement of clean combustion technology has been enhanced to minimize the
+emission produced by the gas turbine. Trapped vortex combustion (TVC) and ﬂameless
+or mild combustion (MILD) were introduced to improve conventional combustion. Rich-
+burn, quench-mix, lean-burn (RQL) and continuous staged air (COSTAR) were applied for
+higher emissions reduction in the next generation. Lastly, the DLE and NanoSTAR were
+subsequently proposed to perform combustion with very low emissions. The comparison
+of the combustor technologies based on emission reduction and stability shows that the
+DLE gas turbine has the most proﬁtable features against the others.
+In order to support the advancement of technology, various gas turbine models have
+been developed, which can be classiﬁed by the physical and black-box models. The physical
+model uses Rowen’s, IEEE, Aero-derivative, CIGRE, and frequency-dependent models.
+In contrast, the black-box model is developed by using an Artiﬁcial Neural Network.
+In dynamic gas turbine modeling, Rowen’s model has excellent suitability to represent the
+actual DLE gas turbine due to the functional derivation of the operating curves.
+Even though the DLE gas turbine has an excellent capability to reduce the emission, it
+is prone to frequent tripping due to some faults in a lean operation. According to a 4.4 MW
+DLE gas turbine case study, LBO reached the highest percentage of total trip causes, leading
+to high maintenance costs. Thus, this fault should be prevented to keep the DLE mode
+operating normally. On the other hand, other problems disturbing the DLE operation are
+auto-ignition, ﬂashback, and instability.
+In order to prevent LBO, several aspects can be learned through various methods.
+The conventional one uses physical sensors and cameras, which are usually used on
+laboratory scales. In contrast, the predictive approach is usually performed statistically.
+
+
+--- Page 25 ---
+
+Appl. Sci. 2022, 12, 10922
+25 of 30
+The standard methods are semi-empirical models, numerical simulations, and hybrid
+models. Currently, the data-driven model caught the interest for early prediction of LBO.
+The advantage of the data-driven model, which predicts the event by learning from the
+real plant data, can capture the actual condition of such a case. Hence, the LBO can be
+accurately predicted based on related parameters from its actual data. However, a deeper
+analysis of the data’s important features is also required to develop a good model with
+high accuracy.
+Author Contributions: Conceptualization, M.B.O. and M.F.; methodology, M.B.O.; software, M.F.;
+validation, R.I. and B.A.A.O.; formal analysis, M.B.O.; investigation, M.F.; resources, R.I.; data
+curation, M.F.; writing—original draft preparation, M.F. and M.B.O.; writing—review and editing,
+M.F.; visualization, M.F.; supervision, M.B.O.; project administration, R.I.; funding acquisition, R.I.
+and M.B.O. All authors have read and agreed to the published version of the manuscript.
+Funding: This research was funded by Universiti Teknologi PETRONAS and Ministry of Higher Educa-
+tion Malaysia (MOHE) through grant YUTP (015LC0-382) and PRGS (PRGS/1/2020/TK09/UTP/02/2).
+Institutional Review Board Statement: Not applicable.
+Informed Consent Statement: Not applicable.
+Data Availability Statement: Not applicable.
+Acknowledgments: The authors are thankful to Universiti Teknologi PETRONAS and Ministry of
+Higher Education Malaysia (MOHE) for the support in carrying this research.
+Conﬂicts of Interest: The authors declare no conﬂict of interest.
+Abbreviations
+E
+Total Energy
+Ligv
+IGV output
+i
+Speciﬁc Enthalphy
+K0
+ratio of net power output and inlet heat capacity
+˙m
+Mass Flow
+N
+Rotor Speed
+PR
+Design Pressure Ration
+Q
+Heat Input into System
+Qin
+Heat of Combustion
+Qout
+Released Heat
+Ta
+Ambient Temperature
+TD
+Compressor Discharge Temperature
+Tf
+Firing Temperature
+TM
+Output Temperature
+TR
+Rated Exhaust Temperature
+W
+Work Produced from System
+w
+Air Flow
+Wf
+Fuel FLow
+x
+Cycle Pressure Ratio
+γ
+Ratio of Speciﬁc Heat Capacities
+ηC
+Compressor’s Efﬁiency
+ηT
+Turbine’s Efﬁciency
+ADT
+Auto-ignition Delay Time
+CO
+Carbon Monoxide
+COSTAIR
+COntinuous STaged Air
+CT
+Characteristic Time
+DLE
+Dry-Low Emission
+IGV
+Inlet Guide Vane
+
+
+--- Page 26 ---
+
+Appl. Sci. 2022, 12, 10922
+26 of 30
+IRZ
+Inner Recirculation Zone
+LBO
+Lean Blow-out
+LPM
+Lean Pre-mixed
+MILD
+MILD Combustion
+NARX
+Non-linear Autoregressive Exogenous
+NOx
+Nitrogen Oxides
+PSR
+Perfect Stirred Reactor
+PCA
+Principal Component Analysis
+RQL
+Rich-burn, Quench-mix, Lean-burn
+TVC
+Trapped Vortex Combustion
+References
+1.
+Stefanizzi, M.; Capurso, T.; Filomeno, G.; Torresi, M.; Pascazio, G. Recent Combustion Strategies in Gas Turbines for Propulsion
+and Power Generation toward a Zero-Emissions Future: Fuels, Burners, and Combustion Techniques. Energies 2021, 14, 6694.
+[CrossRef]
+2.
+Leather, D.T.; Bahadori, A.; Nwaoha, C.; Wood, D.A. A review of Australia’s natural gas resources and their exploitation. J. Nat.
+Gas Sci. Eng. 2013, 10, 68–88. [CrossRef]
+3.
+Šebalj, D.; Mesari´c, J.; Dujak, D. Analysis of methods and techniques for prediction of natural gas consumption: A literature
+review. J. Inf. Organ. Sci. 2019, 43, 99–117. [CrossRef]
+4.
+Arman, N. M.; GÜrsoy, B. Challenges in the regional energy complex of Russia, Ukraine, Turkey, and the European Union. Int. J.
+Humanit. Soc. Dev. Res. 2022, 6, 7–21.
+5.
+Engerer, H.; Horn, M. Natural gas vehicles: An option for Europe. Energy Policy 2010, 38, 1017–1029. [CrossRef]
+6.
+Liang, T.; Chai, J.; Zhang, Y.J.; Zhang, Z.G. Reﬁned analysis and prediction of natural gas consumption in China. J. Manag. Sci.
+Eng. 2019, 4, 91–104. [CrossRef]
+7.
+Strantzali, E.; Aravossis, K.; Livanos, G.A. Evaluation of future sustainable electricity generation alternatives: The case of a Greek
+island. Renew. Sustain. Energy Rev. 2017, 76, 775–787. [CrossRef]
+8.
+Soares, C. Gas Turbines: A Handbook of Air, Land and Sea Applications; Elsevier: Amsterdam, The Netherlands, 2011.
+9.
+Pareek, U.; Kar, I.N. Estimating compressor discharge pressure of gas turbine power plant using type-2 fuzzy logic systems. In
+Proceedings of the 2006 IEEE International Conference on Fuzzy Systems, Vancouver, BC, Canada, 16–21 July 2006; pp. 649–654.
+10.
+Szum, K. IoT-based smart cities: A bibliometric analysis and literature review. Eng. Manag. Prod. Serv. 2021, 13, 115–136.
+[CrossRef]
+11.
+Nozari, M.; Tabejamaat, S.; Sadeghizade, H.; Aghayari, M. Experimental investigation of the effect of gaseous fuel injector
+geometry on the pollutant formation and thermal characteristics of a micro gas turbine combustor. Energy 2021, 235, 121372.
+[CrossRef]
+12.
+Khosravy el_Hossaini, M. Review of the New Combustion Technologies in Modern Gas Turbines; InTech Open: London, UK, 2013.
+13.
+Jiang, P.; He, X. Experimental investigation of ﬂow ﬁeld characteristics in a mixed-ﬂow trapped vortex combustor. Aerosp. Sci.
+Technol. 2020, 96, 105533. [CrossRef]
+14.
+Jiang, P.; He, X. Ignition characteristics of a novel mixed-ﬂow trapped vortex combustor for turboshaft engine. Fuel 2020,
+261, 116430. [CrossRef]
+15.
+Mishra, D. Fundamentals of Combustion; PHI Learning Pvt. Ltd.: New Delhi, India 2007.
+16.
+Zhao, D.; Gutmark, E.; de Goey, P. A review of cavity-based trapped vortex, ultra-compact, high-g, inter-turbine combustors.
+Prog. Energy Combust. Sci. 2018, 66, 42–82. [CrossRef]
+17.
+Zhang, R.; Bai, N.; Fan, W.; Huang, X.; Fan, X. Inﬂuence of ﬂame stabilization and fuel injection modes on the ﬂow and
+combustion characteristics of gas turbine combustor with cavity. Energy 2019, 189, 116216. [CrossRef]
+18.
+Ghenai, C. Combustion of sustainable and renewable biohythane fuel in trapped vortex combustor. Case Stud. Therm. Eng. 2019,
+14, 100498. [CrossRef]
+19.
+Zhu, Y.; Jin, Y.; He, X. Effects of location and angle of primary injection on the cavity ﬂow structure of a trapped vortex combustor
+model. Optik 2019, 180, 699–712. [CrossRef]
+20.
+Bagheri, G.; Ranzi, E.; Pelucchi, M.; Parente, A.; Frassoldati, A.; Faravelli, T. Comprehensive kinetic study of combustion
+technologies for low environmental impact: MILD and OXY-fuel combustion of methane. Combust. Flame 2020, 212, 142–155.
+[CrossRef]
+21.
+Cha, C.L.; Lee, H.Y.; Hwang, S.S. The effect of diluted hot oxidant and fuel on NO formation in oxy-fuel ﬂameless combustion
+using opposite jet. J. Mech. Sci. Technol. 2019, 33, 3709–3716. [CrossRef]
+22.
+Khalil, H.M.; Eldrainy, Y.A.; Abdelghaffar, W.A.; Abdel-Rahman, A.A. Increased heat transfer to sustain ﬂameless combustion
+under elevated pressure conditions–a numerical study. Eng. Appl. Comput. Fluid Mech. 2019, 13, 782–803. [CrossRef]
+23.
+Doan, N.A.K.; Swaminathan, N. Autoignition and ﬂame propagation in non-premixed MILD combustion. Combust. Flame 2019,
+201, 234–243. [CrossRef]
+24.
+Sharma, S.; Chowdhury, A.; Kumar, S. A novel air injection scheme to achieve MILD combustion in a can-type gas turbine
+combustor. Energy 2020, 194, 116819. [CrossRef]
+
+
+--- Page 27 ---
+
+Appl. Sci. 2022, 12, 10922
+27 of 30
+25.
+Khanlari, A.; Salavati-Zadeh, A.; Mohammadi, M.; Najaﬁ, S.B.N.; Esfahanian, V. Effect of Hydrogen Enrichment on Pollutant and
+Greenhouse Gases Formation and Exergy Efﬁciency of Methane MILD Combustion. In Environmentally-Benign Energy Solutions;
+Springer: Berlin/Heidelberg, Germany, 2020; pp. 403–429.
+26.
+Jozaalizadeh, T.; Toghraie, D. Numerical investigation behavior of reacting ﬂow for ﬂameless oxidation technology of MILD
+combustion: Effect of ﬂuctuating temperature of inlet co-ﬂow. Energy 2019, 178, 530–537. [CrossRef]
+27.
+Chen, J.; Li, J.; Yuan, L.; Hu, G. Flow and ﬂame characteristics of a RP-3 fuelled high temperature rise combustor based on RQL.
+Fuel 2019, 235, 1159–1171. [CrossRef]
+28.
+Wey, C.T. Fuel Sensitivity of Lean Blowout in a RQL Gas Turbine Combustor. In Proceedings of the AIAA Propulsion and Energy
+2019 Forum, Indianapolis, India, 19–22 August 2019; p. 4035.
+29.
+Liu, Y.; Sun, X.; Sethi, V.; Nalianda, D.; Li, Y.G.; Wang, L. Review of modern low emissions combustion technologies for aero gas
+turbine engines. Prog. Aerosp. Sci. 2017, 94, 12–45. [CrossRef]
+30.
+Milcarek, R.J.; Ahn, J. Rich-burn, ﬂame-assisted fuel cell, quick-mix, lean-burn (RFQL) combustor and power generation. J. Power
+Sources 2018, 381, 18–25. [CrossRef]
+31.
+Lefebvre, A.H.; Ballal, D.R. Gas Turbine Combustion: Alternative Fuels and Emissions; CRC Press: Boca Raton, FL, USA, 2010.
+32.
+Abdelhafez, A.; Rashwan, S.S.; Nemitallah, M.A.; Habib, M.A. Stability map and shape of premixed CH4/O2/CO2 ﬂames in a
+model gas-turbine combustor. Appl. Energy 2018, 215, 63–74.
+33.
+Nemitallah, M.A.; Rashwan, S.S.; Mansir, I.B.; Abdelhafez, A.A.; Habib, M.A. Review of novel combustion techniques for clean
+power production in gas turbines. Energy Fuels 2018, 32, 979–1004. [CrossRef]
+34.
+Hazel, T.; Peck, G.; Mattsson, H. Industrial Power Systems Using Dry Low Emission Turbines. IEEE Trans. Ind. Appl. 2014,
+50, 4369–4378. [CrossRef]
+35.
+Ayed, A.H.; Kusterer, K.; Funke, H.W.; Keinz, J.; Bohn, D. CFD based exploration of the dry-low-NOx hydrogen micromix
+combustion technology at increased energy densities. Propuls. Power Res. 2017, 6, 15–24. [CrossRef]
+36.
+Serbin, S.I.; Kozlovskyi, A.V.; Burunsuz, K.S. Investigations of Nonstationary Processes in Low Emissive Gas Turbine Combustor
+With Plasma Assistance. IEEE Trans. Plasma Sci. 2016, 44, 2960–2964. [CrossRef]
+37.
+Suzaki, S.; Kawata, K.; Sekoguchi, M.; Goto, M. Mathematical model for a combined cycle plant and its implementation in an
+analogue power system simulator. In Proceedings of the 2000 IEEE Power Engineering Society Winter Meeting. Conference
+Proceedings (Cat. No. 00CH37077), Singapore, Singapore, 23–27 January 2000; Volume 1, pp. 416–421.
+38.
+Ali, A.; Nemitallah, M.A.; Abdelhafez, A.; Alsakhawy, I.G.; Kamal, M.M.; Habib, M.A. Static Stability and Combustion
+Characteristics of Oxy-Propane Flames in a Premixed Fuel-Flexible Swirl Combustor.
+Energy Fuels 2019, 33, 11996–12007.
+[CrossRef]
+39.
+Ge, B.; Ji, Y.; Zhang, Z.; Zang, S.; Tian, Y.; Yu, H.; Chen, M.; Jiao, G.; Zhang, D. Experiment study on the combustion performance
+of hydrogen-enriched natural gas in a DLE burner. Int. J. Hydrogen Energy 2019, 44, 14023–14031. [CrossRef]
+40.
+Lörstad, D.; Ljung, A.; Abou-Taouk, A. Investigation of Siemens SGT-800 industrial gas turbine combustor using different
+combustion and turbulence models. In Proceedings of the ASME Turbo Expo 2016: Turbomachinery Technical Conference and
+Exposition, Seoul, Korea, 13–17 June 2016.
+41.
+Asgari, B.; Amani, E. A multi-objective CFD optimization of liquid fuel spray injection in dry-low-emission gas-turbine
+combustors. Appl. Energy 2017, 203, 696–710. [CrossRef]
+42.
+Liu, K.; Hubbard, P.; Sadasivuni, S.; Bulat, G. Extension of Fuel Flexibility by Combining Intelligent Control Methods for Siemens
+SGT-400 Dry Low Emission Combustion System. J. Eng. Gas Turbines Power 2019, 141, 011003. [CrossRef]
+43.
+Subash, A.A.; Collin, R.; Aldén, M.; Kundu, A.; Klingmann, J. Laser-Based Investigation on a Dry Low Emission Industrial
+Prototype Burner at Atmospheric Pressure Conditions. In Proceedings of the ASME Turbo Expo 2016: Turbomachinery Technical
+Conference and Exposition, Seoul, South Korea, 13–17 June 2016.
+44.
+Agbonzikilo, F.E.; Owen, I.; Sadasivuni, S.K.; Bickerton, R.A. Investigation of ﬂow aerodynamics for optimal fuel placement
+and mixing in the radial swirler slot of a dry low emission gas turbine combustion chamber. J. Eng. Gas Turbines Power 2016,
+138, 051505. [CrossRef]
+45.
+Bulysova, L.; Vasil’ev, V.; Berne, A. Low-Emission combustion of fuel in aeroderivative gas turbines. Therm. Eng. 2017, 64, 891–897.
+[CrossRef]
+46.
+Agbonzikilo, F.E.; Owen, I.; Stewart, J.; Sadasivuni, S.K.; Riley, M.; Sanderson, V. Experimental and Numerical Investigation
+of Fuel–Air Mixing in a Radial Swirler Slot of a Dry Low Emission Gas Turbine Combustor. J. Eng. Gas Turbines Power 2016,
+138, 061502. [CrossRef]
+47.
+Liu, Z.; Karimi, I.A. Simulating combined cycle gas turbine power plants in Aspen HYSYS. Energy Convers. Manag. 2018,
+171, 1213–1225. [CrossRef]
+48.
+Kim, T.S. Model-based performance diagnostics of heavy-duty gas turbines using compressor map adaptation. Appl. Energy
+2018, 212, 1345–1359.
+49.
+Pires, T.S.; Cruz, M.E.; Colaço, M.J.; Alves, M.A. Application of nonlinear multivariable model predictive control to transient
+operation of a gas turbine and NOX emissions reduction. Energy 2018, 149, 341–353. [CrossRef]
+50.
+Montazeri-Gh, M.; Fashandi, S.A.M.; Abyaneh, S. Real-time simulation test-bed for an industrial gas turbine engine’s controller.
+Mech. Ind. 2018, 19, 311. [CrossRef]
+
+
+--- Page 28 ---
+
+Appl. Sci. 2022, 12, 10922
+28 of 30
+51.
+Rahman, M.; Zaccaria, V.; Zhao, X.; Kyprianidis, K. Diagnostics-Oriented Modelling of Micro Gas Turbines for Fleet Monitoring
+and Maintenance Optimization. Processes 2018, 6, 216. [CrossRef]
+52.
+Cáceres, I.E.; Montañés, R.M.; Nord, L.O. Flexible operation of combined cycle gas turbine power plants with supplementary
+ﬁring. J. Power Technol. 2018, 98, 188–197.
+53.
+Chaibakhsh, A.; Amirkhani, S. A simulation model for transient behaviour of heavy-duty gas turbines. Appl. Therm. Eng. 2018,
+132, 115–127. [CrossRef]
+54.
+Rowen, W.I. Simpliﬁed mathematical representations of heavy-duty gas turbines. J. Eng. Power 1983, 105, 865–869. [CrossRef]
+55.
+Yee, S.K.; Milanovic, J.V.; Hughes, F.M. Overview and comparative analysis of gas turbine models for system stability studies.
+IEEE Trans. Power Syst. 2008, 23, 108–118. [CrossRef]
+56.
+Gómez, F.J.; Chaves, M.A.; Vanfretti, L.; Olsen, S.H. Multi-Domain Semantic Information and Physical Behavior Modeling of
+Power Systems and Gas Turbines Expanding the Common Information Model. IEEE Access 2018, 6, 72663–72674. [CrossRef]
+57.
+Eslami, M.; Shayesteh, M.R.; Pourahmadi, M. Optimal design of PID-based low-pass ﬁlter for gas turbine using intelligent
+method. IEEE Access 2018, 6, 15335–15345. [CrossRef]
+58.
+Kim, D.J.; Moon, Y.H.; Choi, B.S.; Ryu, H.S.; Nam, H.K. Impact of a Heavy-Duty Gas Turbine Operating Under Temperature
+Control on System Stability. IEEE Trans. Power Syst. 2018, 33, 4543–4552. [CrossRef]
+59.
+Kumar, S.S.; Xavier, R.J.; Balamurugan, S. Small signal modelling of gas turbine plant for load frequency control. In Proceedings
+of the 2016 Biennial International Conference on Power and Energy Systems: Towards Sustainable Energy (PESTSE), Bengaluru,
+India, 21–23 January 2016; pp. 1–5.
+60.
+Asgari, H.; Venturini, M.; Chen, X.; Sainudiin, R. Modeling and simulation of the transient behavior of an industrial power plant
+gas turbine. J. Eng. Gas Turbines Power 2014, 136, 061601. [CrossRef]
+61.
+Pondini, M.; Signorini, A.; Colla, V.; Barsali, S. Analysis of a simpliﬁed Steam Turbine governor model for power system stability
+studies. Energy Procedia 2019, 158, 2928–2933. [CrossRef]
+62.
+Balamurugan, S.; Janarthanan, N.; Chandrakala, K.V. Small and large signal modeling of heavy duty gas turbine plant for load
+frequency control. Int. J. Electr. Power Energy Syst. 2016, 79, 84–88. [CrossRef]
+63.
+Khamseh, S.A.; Fatehi, A. Performance monitoring of heavy duty gas turbines based on Bayesian and Dempster-Shafer
+theory. In Proceedings of the 2017 International Conference on Electrical and Information Technologies (ICEIT), Rabat, Morocco,
+15–18 November 2017; pp. 1–7.
+64.
+Boyce, M.P. Gas Turbine Engineering Handbook; Elsevier: Amsterdam, The Netherlands, 2011.
+65.
+Moore, M. NOx emission control in gas turbines for combined cycle gas turbine plant. Proc. Inst. Mech. Eng. Part A J. Power
+Energy 1997, 211, 43–52. [CrossRef]
+66.
+Funke, H.W.; Beckmann, N.; Abanteriba, S. An overview on dry low NOx micromix combustor development for hydrogen-rich
+gas turbine applications. Int. J. Hydrogen Energy 2019, 44, 6978–6990. [CrossRef]
+67.
+Tarik, M.; Omar, M.; Abdullah, M.; Ibrahim, R. Modelling of dry low emission gas turbine using black-box approach.
+In
+Proceedings of the TENCON 2017-2017 IEEE Region 10 Conference, Penang, Malaysia, 5–8 November 2017; pp. 1902–1906.
+68.
+Omar, M.B.; Ibrahim, R.; Abdullah, M.F.; Tarik, M.H.M. Modelling of Dry-Low Emission Gas Turbine Fuel System using First
+Principle Data-Driven Method. J. Power Technol. 2020, 100, 1.
+69.
+Nemitallah, M.A.; Abdelhafez, A.A.; Ali, A.; Mansir, I.; Habib, M.A. Frontiers in combustion techniques and burner designs for
+emissions control and CO2 capture: A review. Int. J. Energy Res. 2019, 43, 7790–7822.
+70.
+Mishra, R.; Thomas, J.; Srinivasan, K.; Nandi, V.; Bhat, R. Failure analysis of nozzle guide vane of a low pressure turbine in an
+aero gas turbine engine. J. Fail. Anal. Prev. 2014, 14, 578–587. [CrossRef]
+71.
+Mishra, R.; Thomas, J.; Srinivasan, K.; Nandi, V.; Bhatt, R.R. Failure analysis of an un-cooled turbine blade in an aero gas turbine
+engine. Eng. Fail. Anal. 2017, 79, 836–844. [CrossRef]
+72.
+Biswas, S.; Ganeshachar, M.; Kumar, J.; Kumar, V.S. Failure analysis of a compressor blade of gas turbine engine. Procedia Eng.
+2014, 86, 933–939. [CrossRef]
+73.
+Parrella, I.; Bardi, F.; Salerno, G.; Gronchi, D.; Cannavò, M.; Sparacino, E. Using Analytics to Assess Health Status of DLE
+Combustion Gas Turbines. In Proceedings of the Abu Dhabi International Petroleum Exhibition & Conference, Abu Dhabi, UAE,
+11–14 November 2019.
+74.
+Rahmoune, M.B.; Hafaifa, A.; Guemana, M. Neural network monitoring system used for the frequency vibration prediction in
+gas turbine. In Proceedings of the 2015 3rd International Conference on Control, Engineering & Information Technology (CEIT),
+Tlemcen, Algeria, 25–27 May 2015; pp. 1–5.
+75.
+Liu, X.; Zhao, L. Modeling of gas turbine engine compressor surge based on equilibrium manifold. In Proceedings of the
+2012 International Conference on Control Engineering and Communication Technology, Shenyang, China, 7–9 December 2012;
+pp. 300–306.
+76.
+Sheng, H.; Chen, Q.; Li, J.; Li, Z.; Wang, Z.; Zhang, T. Robust adaptive backstepping active control of compressor surge based on
+wavelet neural network. Aerosp. Sci. Technol. 2020, 106, 106139. [CrossRef]
+77.
+Hamed Ghasemian, Q.Z. Failure Mode and Effect Analysis (FMEA) of Aeronautical Gas Turbine using the Fuzzy Risk Priority
+Ranking (FRPR) Approach. Int. J. Soft Comput. Eng. 2017, 7, 81–92.
+78.
+Righi, M.; Ferrer-Vidal, L.E.; Pachidis, V. Body-force and mean-line models for the generation of axial compressor sub-idle
+characteristics. Aeronaut. J. 2020, 124, 1683–1701. [CrossRef]
+
+
+--- Page 29 ---
+
+Appl. Sci. 2022, 12, 10922
+29 of 30
+79.
+Bulat, G.; Liu, K.; Brickwood, G.; Sanderson, V.; Igoe, B. Intelligent operation of Siemens (SGT-300) DLE gas turbine combustion
+system over an extended fuel range with low emissions. Turbo Expo: Power Land Sea Air 2011, 54624, 917–925.
+80.
+Nassini, P.C.; Pampaloni, D.; Meloni, R.; Andreini, A. Lean blow-out prediction in an industrial gas turbine combustor through a
+LES-based CFD analysis. Combust. Flame 2021, 229, 111391. [CrossRef]
+81.
+Cerutti, M.; Giannini, N.; Ceccherini, G.; Meloni, R.; Matoni, E.; Romano, C.; Riccio, G. Dry low NOx emissions operability
+enhancement of a heavy-duty gas turbine by means of fuel burner design development and testing. Turbo Expo: Power for Land,
+Sea, and Air. Am. Soc. Mech. Eng. 2018, 51067, V04BT04A029.
+82.
+Iannitelli, M.; Allegorico, C.; Garau, F.; Capanni, M. A hybrid model for on-line detection of gas turbine lean blowout events.
+Phm Soc. Eur. Conf. 2018, 4. [CrossRef]
+83.
+Kaluri, A.; Malte, P.; Novosselov, I. Real-time prediction of lean blowout using chemical reactor network. Fuel 2018, 234, 797–808.
+[CrossRef]
+84.
+Lei, S.; Huang, Y.; Xiwei, W.; Zheng, Z.; Ruixiang, W.; Xiang, F. Hybrid method based on ﬂame volume concept for lean blowout
+limits prediction of aero engine combustors. Chin. J. Aeronaut. 2021, 34, 425–437.
+85.
+Sims, G.; Mistry, S.; Wood, J.; Bowen, P.; Crayford, A. A study into the auto-ignition characteristics of hydrocarbon fuels with
+application to gas turbines. Turbo Expo Power Land Sea Air 2008, 43130, 625–634.
+86.
+Andersson, M.; Larsson, A.; Carrera, A.M. Pentane rich fuels for standard Siemens DLE gas turbines. Turbo Expo: Power Land Sea
+Air 2011, 54624, 905–916.
+87.
+Di Benedetto, A.; Marra, F.; Russo, G. Spontaneous oscillations inlean premixed combustion. Combust. Sci. Technol. 2002,
+174, 1–18. [CrossRef]
+88.
+Sigfrid, I.R.; Whiddon, R.; Collin, R.; Klingmann, J. Inﬂuence of reactive species on the lean blowout limit of an industrial DLE
+gas turbine burner. Combust. Flame 2014, 161, 1365–1373. [CrossRef]
+89.
+Muruganandam, T.; Nair, S.; Scarborough, D.; Neumeier, Y.; Jagoda, J.; Lieuwen, T.; Seitzman, J.; Zinn, B. Active control of lean
+blowout for turbine engine combustors. J. Propuls. Power 2005, 21, 807–814. [CrossRef]
+90.
+Gadiraju, S. Study of Lean Blowout Limits and Effects of Near Blowout Oscillations on Flow Field and Heat Transfer on Gas
+Turbine Combustor. Ph.D. Thesis, Virginia Tech, Riva San Vitale, Switzerland, 2018.
+91.
+Alsulami, R.A.; Windell, B.; Bartholet, D.; Windom, B. Exploring the role of physical and chemical properties on the ignition
+and ﬂame stability of liquid fuels with a spray burner and fuel ignition tester (FIT). In Proceedings of the 2018 AIAA Aerospace
+Sciences Meeting, Kissimmee, FL, USA, 8–12 January 2018; p. 0673.
+92.
+Delattin, F.; Di Lorenzo, G.; Rizzo, S.; Bram, S.; De Ruyck, J. Combustion of syngas in a pressurized microturbine-like combustor:
+Experimental results. Appl. Energy 2010, 87, 1441–1452. [CrossRef]
+93.
+Griebel, P.; Boschek, E.; Jansohn, P. Lean blowout limits and NO x emissions of turbulent, lean premixed, hydrogen-enriched
+methane/air ﬂames at high pressure. Asme Turbo Expo 2006 Power Land Sea Air 2007. [CrossRef]
+94.
+Xiao, W.; Huang, Y. Lean blowout limits of a gas turbine combustor operated with aviation fuel and methane. Heat Mass Transf.
+2016, 52, 1015–1024. [CrossRef]
+95.
+Bompelly, R.K. Lean Blowout and Its Robust Sensing in Swirl Combustors. Ph.D. Thesis, Georgia Institute of Technology, Atlanta,
+GA, USA, 2013.
+96.
+Zhu, S. Experimental Study of Lean Blowout with Hydrogen Addition in a Swirl-stabilized Premixed Combustor. Doctoral
+Dissertations, Louisiana State University, Baton Rouge, LA, USA, 2012.
+97.
+Muruganandam, T.; Seitzman, J. Fluid mechanics of lean blowout precursors in gas turbine combustors. Int. J. Spray Combust.
+Dyn. 2012, 4, 29–60. [CrossRef]
+98.
+Sarkar, S.; Ray, A.; Mukhopadhyay, A.; Chaudhari, R.R.; Sen, S. Early detection of lean blow out (lbo) via generalized d-
+markov machine construction. In Proceedings of the American Control Conference (ACC), Portland, OR, USA, 4–6 June 2014;
+pp. 3041–3046.
+99.
+Lei, S.; Yong, H. An overview of methodologies to predict lean blowout limits for gas turbine combustors.
+In Proceed-
+ings of the 2019 16th International Bhurban Conference on Applied Sciences and Technology (IBCAST), Islamabad, Pakistan,
+8–12 January 2019; pp. 709–718.
+100. Plee, S.; Mellor, A. Characteristic time correlation for lean blowoff of bluff-body-stabilized ﬂames. Combust. Flame 1979, 35, 61–80.
+[CrossRef]
+101. Ballal, D.R.; Lefebvre, A.H. Weak extinction limits of turbulent ﬂowing mixtures. J. Eng. Power 1979, 101, 343–348 [CrossRef]
+102. Ballal, D.; Lefebvre, A. Weak extinction limits of turbulent heterogeneous fuel/air mixtures J. Eng. Power 1980, 102, 416–421.
+[CrossRef]
+103. Xie, F.; Huang, Y.; Hu, B.; Wang, F. Investigation of the relation between ﬂame volume and LBO limits for a swirl-stabilized
+combustor. In Proceedings of the Materials for Renewable Energy & Environment (ICMREE), 2011 International Conference,
+Shanghai, China 20–22 May 2011; Volume 2, pp. 2049–2053.
+104. Hu, B.; Huang, Y.; Xu, J. A hybrid semi-empirical model for lean blow-out limit predictions of aero-engine combustors. J. Eng.
+Gas Turbines Power 2015, 137, 031502. [CrossRef]
+105. Yi, T.; Gutmark, E.J. Real-time prediction of incipient lean blowout in gas turbine combustors. AIAA J. 2007, 45, 1734–1739.
+[CrossRef]
+
+
+--- Page 30 ---
+
+Appl. Sci. 2022, 12, 10922
+30 of 30
+106. Mukhopadhyay, A.; Chaudhari, R.R.; Paul, T.; Sen, S.; Ray, A. Lean blow-out prediction in gas turbine combustors using symbolic
+time series analysis. J. Propuls. Power 2013, 29, 950–960. [CrossRef]
+107. Hu, B.; Huang, Y.; Wang, F.; Xie, F. CFD predictions of LBO limits for aero-engine combustors using fuel iterative approximation.
+Chin. J. Aeronaut. 2013, 26, 74–84. [CrossRef]
+108. Smith, C.; Nickolaus, D.; Leach, T.; Kiel, B.; Garwick, K. LES blowout analysis of premixed ﬂow past V-gutter ﬂameholder. In
+Proceedings of the 45th AIAA Aerospace Sciences Meeting and Exhibit, Reno, Nevada, 8–11 January 2007; p. 170.
+109. Wang, H.r.; Jin, J. Lean blowout predictions of a non-premixed V-Gutter stabilized ﬂame using a Damkohler number methodology.
+ASME 2011 Turbo Expo: Turbine Technical Conference and Exposition. Am. Soc. Mech. Eng. 2011, 847–858. [CrossRef]
+110. Hasti, V.R.; Navarkar, A.; Gore, J.P. A data-driven approach using machine learning for early detection of the lean blowout.
+Energy AI 2021, 5, 100099. [CrossRef]
+111. Gangopadhyay, T.; De, S.; Liu, Q.; Mukhopadhyay, A.; Sen, S.; Sarkar, S. A Deep Learning Approach to Detect Lean Blowout in
+Combustion Systems. arXiv 2022, arXiv:2208.01871.

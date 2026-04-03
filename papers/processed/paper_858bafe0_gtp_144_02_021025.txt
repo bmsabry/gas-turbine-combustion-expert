@@ -1,0 +1,803 @@
+
+--- Page 1 ---
+
+S. Dybe1
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+e-mail: dybe@tu-berlin.de
+R. Bluemner
+Chair of Pressure Gain Combustion,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+K. Zhang
+Linne Flow Center,
+Department of Mechanics,
+Royal Institute of Technology (KTH),
+Stockholm 100 44, Sweden
+S. Schimek
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+C. Duwig
+Linne Flow Center,
+Department of Mechanics,
+Royal Institute of Technology (KTH),
+Stockholm 100 44, Sweden
+P. Stathopoulos
+Chair of Unsteady Thermodynamics in Gas
+Turbine Processes,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+C. O. Paschereit
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+Berlin 10623, Germany
+M. Bartlett
+Phoenix BioPower,
+Drottning Kristinas v€ag 18,
+Stockholm 114 28, Sweden
+Design and Experimental
+Characterization of a Swirl-
+Stabilized Combustor for Low
+Calorific Value Gaseous Fuels
+Low caloriﬁc value (LCV) gaseous fuels are generated as by-products in many commer-
+cial sectors, e.g., as mine gas or biogas. Their efﬁcient exploitation can be a considerable
+source of primary energy. Typically, product gases from biomass are characterized by
+low lower heating values (LHVs) due to their high concentration of inert gases and
+steam. At the same time, their composition varies strongly based on the initial feedstock
+and may contain unwanted components in the form of tars and ammonia. These proper-
+ties make the design of appropriate combustion systems very challenging and issues such
+as ignition, ﬂame stability, emission control, and combustion efﬁciency must be
+accounted for. By employing a proprietary gas turbine burner at the TU Berlin, the com-
+bustion of an artiﬁcial LCV gas mixture at stoichiometric conditions has been success-
+fully demonstrated for a broad range of steam content in the fuel. This work presents the
+stability maps and emissions measured with the swirl-stabilized burner at premixed con-
+ditions. It was shown that the ﬂame location and shape primarily depend on the steam
+content of the LCV gas. The steam content in the fuel was increased until ﬂame blow-out
+occurred at LHVs well below the target condition of 2.87 MJ/kg (2.7 MJ/m3
+N). The exhaust
+gas is analyzed in terms of the pollutants NOx and CO for different fuel compositions,
+moisture contents, and thermal powers. Finally, OH* measurements have been carried
+out in the ﬂame. A simple reactor network simulation was used to conﬁrm the feasibility
+of the experimental results. [DOI: 10.1115/1.4049642]
+Introduction
+Climate change is a driving force behind a restructuring of the
+energy sector toward a reduction of fossil fuel exploitation. The
+share of renewable energy has been increasing globally over the
+past years [1]. Many commercial processes also lead to the forma-
+tion or accumulation of low caloriﬁc value (LCV) gaseous fuels,
+in the form of mine gas or product gas from steel manufacture.
+Moreover, waste products (e.g., biowaste, waste materials from
+forestry industry) can be processed to LCV gas. According to esti-
+mates, biogas can potentially provide up to 15% of Germany’s
+primary energy demand [2]. In 2017, 8.5% of Germany’s gross
+electricity consumption was covered from biogas including land-
+ﬁll gas and sewage gas [3].
+In Germany, most of the biogas is exploited in combined heat
+and power plants employing reciprocating engines [4]. Typically,
+the latter offer efﬁciencies of around 40%, whereas the combined
+heat and power generation process achieves total efﬁciencies of
+around 90%. However, reciprocating engines require a minimum
+methane content of around 40%, so that LCV gases with a lower
+energy content cannot be utilized in many currently installed sys-
+tems. The combination of gasiﬁcation and combustion of biogas
+in (micro) gas turbines offers long-term potential for LCV gas
+exploitation [2].
+Low caloriﬁc value gas that cannot be exploited in power or
+heat applications is often ﬂared, thus contributing as a greenhouse
+gas and also providing no economic value [2]. The main difﬁculty
+in combusting low-lower heating value (LHV) gases (with LHVs
+of 3 to 20 times lower compared to methane [5]) in gas turbines is
+establishing a stable ﬂame [2]. The gas turbine burner must offer
+an adequate design for that particular application. Using ﬂameless
+combustion concept, the DLR FLOX combustor was successfully
+tested in a Turbec T100 microgas turbine with LCV gas with a
+1Corresponding author.
+Manuscript received September 1, 2020; ﬁnal manuscript received September 21,
+2020; published online December 9, 2021. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2022, Vol. 144 / 021025-1
+Copyright V
+C 2022 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+minimum LHV of 3.5 MJ/kg [6]. Similar LHV gas mixtures were
+also successfully burned in a modiﬁed Volvo VT4400 combustor,
+with combustion efﬁciencies above 99% and reasonable CO
+(< 20 ppm) and NOx (< 9 ppm) emissions [7]. When ammonia
+was added to the product gas however, NOx emissions were above
+250 ppm. Based on their experimental results using a diffusion
+type ﬂame and a product gas with a LHV of 4.46 MJ/m3
+N, the Als-
+tom group concludes that even lower LCV gases are likely com-
+bustible using jet shear layer combustion [8]. When the same
+combustor was used at TU Delft, stable combustion with LHVs
+between 2.5 and 3.5 MJ/m3
+N with combustion efﬁciencies >99%
+was reported [9]. NOx formation has been analyzed using a Sie-
+mens V94.3A and LCV gases with LHVs down to 6.3 MJ/kg,
+achieving NOx emissions of 67 ppm [2].
+The high diluent content of noncombustible substances in LCV
+gas leads to a decrease of the chemical kinetic rates, which affects
+the ﬂame physics in various ways [10]. The diluent content
+increases the speciﬁc heat of the fuel–air mixture, which decreases
+the adiabatic ﬂame temperature [10], and as a result, the thermal
+efﬁciency of the combustion system. However, the low ﬂame tem-
+peratures were found to decrease the NOx emission levels, as the
+thermal NOx path (typically the largest contributor to NOx in
+modern gas turbines) is suppressed [8,9]. At the same time, the
+low hydrocarbon content was found to reduce the prompt NOx
+formation [8]. This suggests that the combustion of LCV product
+gas may result in an overall low NOx formation. Product gas from
+thermal gasiﬁcation of biomass comprises more lighter compo-
+nents such as CO and H2 compared to the content of CH4. Further,
+it has been reported that the ratio of the combustible components
+has a signiﬁcant effect on the NOx emissions [2].
+Nevertheless, due to a varying content of fuel-bound nitrogen in
+the LCV product gas, especially ammonia (NH3), multiple groups
+report signiﬁcant NOx emissions, as a substantial fraction of NH3
+is converted to fuel NOx. Many studies suggest that the presence
+of ammonia (NH3) in the LCV product gas leads to increased NOx
+emissions, with NO as the major pollutant species [9]. A full load
+simulation of the Alstom LVB combustor resulted in NOx emis-
+sions <50 ppm for ammonia concentrations <400 ppm and con-
+version rates of 40–80% [8]. In an experimental study, conversion
+rates of approximately 30% were reported for ammonia concentra-
+tions between 2500 and 3800 ppm, with the remainder of the
+ammonia reacting to molecular nitrogen [9]. The same study con-
+cluded that the fuel NO mechanism due to NH3 in the product gas
+is the dominant NO formation mechanism. The contributions of
+the thermal and prompt NO mechanisms were reported to be neg-
+ligible, due to low adiabatic ﬂame temperatures and the small con-
+centration of hydrocarbon radicals. The study suggests further that
+the NH3 to NO conversion rates decrease at elevated pressures,
+due to decreased concentrations of O and OH radicals at elevated
+pressures, however this was not conﬁrmed experimentally yet.
+Similar results were obtained in an experimental study in an Als-
+tom combustor, where NO was also observed as the major pollu-
+tant [11]. Conversion rates were expected to drop at elevated
+pressures. In a more recent experimental study in the so-called
+WINNOX TUD combustor, the same group reported much lower
+conversion rates between 40 and 5%, depending on the NH3 con-
+centration and the CH4 content in the fuel gas [12]. They observed
+higher conversion rates for lower NH3 concentrations and
+increased CH4 content. They also reported a minimum conversion
+rate with a primary burner air number around 0.7, which translates
+to an equivalence ratio of 1.43. An increased conversion rate from
+NH3 to NOx for increased CH4 content was also reported earlier
+by another group [13]. Additionally, the presence of CO2 was
+found to increase CO formation in the exhaust gas [10].
+The laminar burning velocity of the gas mixture depends on the
+methane and hydrogen content in the product gas [14]. The lami-
+nar burning velocity of the LCV product gas is expected to
+increase substantially if hydrogen is added to the fuel, since the
+laminar burning velocity of pure hydrogen–air mixtures is approx-
+imately 170 cm/s [15]. An experimental study of laminar burning
+velocities for two different generic biogas mixtures with normal
+air yielded 28 cm/s for a 66% CH4/34% CO2 mixture and 46 cm/s
+for a 33% CH4/17% CO2/40% C3H8/10% H2 mixture (in percent
+volume) [16]. A dilution with CO2 led to a decrease of the laminar
+ﬂame speed as reported in Refs. [17] and [18]. The laminar ﬂame
+speed was observed to decrease as well when the fuel was diluted
+with nitrogen, which also led to a shift of the peak ﬂame tempera-
+ture and velocity closer to stoichiometry [19].
+The high diluent content was observed to lead to a narrower
+ﬂammability limit compared to natural gas. Adding CO2 was
+observed to increase the ﬂammability limits due to an increased
+radiation absorption, while adding steam had a negative effect on
+the ﬂammability [17].
+The above-mentioned detrimental effects on the ﬂame physics
+lead to technical challenges for the combustion of LCV gas in a
+gas turbine environment, related to ﬂame holding, lean ﬂame
+blow out, and thermoacoustic instabilities [10]. Regarding the lat-
+ter, an experimental study suggests that an increased CO2 content
+in the product gas can have a stabilizing effect [18]. Multiple stud-
+ies suggest that already a small content of hydrogen in the order
+of 5% in volume may signiﬁcantly improve ﬂame stability
+[20,21].
+This work is part of a project with the purpose of establishing
+commercially feasible power and heat production from LCV gas
+combustion in gas turbines. Toward this goal, a generic gas tur-
+bine burner is operated on a low LHV biosyngas with variable
+fuel composition, moisture content, and thermal power. The
+exhaust gas is analyzed in terms of emissions of CO and NOx.
+The chemiluminescence of excited OH* radicals is imaged to
+assess the ﬂame position and shape. Additionally, temperatures
+are measured at the combustor wall and at several positions inside
+the exhaust pipe.
+Experimental Setup
+Measurement Methods. The emissions in the exhaust ﬂow
+were continuously measured. At the end of the exhaust tube, a
+sample was extracted from the exhaust gas and fed through a
+heated hosepipe into a cooled steam trap to remove humidity,
+before measuring the concentrations of unburned hydrocarbons,
+NOx, CO, O2, and CO2 on a dry basis. Optical methods based on
+the pollutant’s absorption behavior were used for the CO, CO2,
+and NOx measurements. The analyzer further distinguished
+between NO and NO2. The measurement of O2 utilized the mole-
+cule’s paramagnetic characteristic.
+To image the OH* chemiluminescence of the ﬂame, an image-
+intensiﬁed CCD camera was equipped with a UV-transmissive
+lens (f/3.8, f ¼ 78 mm). Further, an interference ﬁlter, which was
+transmissive between 295 and 340 nm, was employed. A total of
+480 frames at a frequency of 5 frames per second were taken for
+each operating point and the averaged OH* distribution was
+calculated.
+Temperatures were measured at various locations in the test rig
+using K-type thermocouples. This included the temperatures of
+the air and steam supply after heating, the burner inlet tempera-
+ture, and the temperatures at the beginning and end of the exhaust
+tube. No correction for the heat radiation of the thermocouple was
+applied in the presented temperature measurements.
+Atmospheric Combustion Test Rig. A sketch of the test rig is
+presented in Fig. 1. The burner used in this work has previously
+been developed at TU Berlin for the purpose of ﬂashback-safe
+operation with high-reactivity fuels such as hydrogen under dry
+and wet conditions [22–30].
+The LCV fuel gas is injected into the air and steam ﬂow far
+upstream of the burner to ensure good mixing. The gas mixture is
+then fed to a radial swirler. The swirl number of the burner was
+adjusted by controlling the mass ﬂux through the radial swirler
+vanes. For the results presented here, a constant geometrical swirl
+021025-2 / Vol. 144, FEBRUARY 2022
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+number of S ¼ 0.9 was used (deﬁned according to Ref. [31]). This
+swirl number ensured a strong recirculation zone and low veloc-
+ities in the ﬂame zone, which was favorable in terms of ﬂame sta-
+bility. Downstream of the radial swirl generator, a tube guided the
+premixed gases into a cylindrical quartz glass combustion cham-
+ber of 200 mm diameter and a length of 300 mm.
+The ﬂow ﬁeld generated by the burner was thoroughly investi-
+gated in previous studies. A sudden area expansion at the combus-
+tion chamber inlet was used to induce a vortex breakdown and
+stabilize the ﬂame in the shear layer between the central and cor-
+ner recirculation zones [22]. Successful combustion of premixed
+hydrogen-air and natural gas–air with high contents of steam was
+also conﬁrmed and led to extremely low emissions [23]. The
+burner concept has been also tested at high pressure and the posi-
+tive effect of steam injection on low NOx emissions was con-
+ﬁrmed, especially at higher pressure levels, without negative
+effects on CO [29]. The combustor ﬂow ﬁeld was also explicitly
+investigated in water-tunnel studies by means of particle image
+velocimetry. A recent numerical simulation of the reacting ﬂow
+with lean-premixed hydrogen conﬁrmed the experimental results
+[30]. The thermoacoustic instability characteristics were also
+investigated and burner and ﬂame transfer functions are available
+[32].
+For the experiments in this work, methane was substituted with
+natural gas from the public gas grid. The LCV gas composition is
+varied by changing the methane (natural gas), steam, nitrogen,
+and CO/CO2/H2 concentrations. The relative hydrogen, carbon
+monoxide, and carbon dioxide content was ﬁxed, since a bottled
+mixture of CO/CO2/H2 is used. The bottled mixture is supplied at
+a measured concentration of 35.6/18.9/45.5 vol % of CO/H2/CO2
+(measurement uncertainty of 62% relative). An overview of the
+gas supply hardware is shown in Fig. 2. Air, N2, and steam are
+preheated and mixed upstream of the fuel injector port. The fuel is
+premixed from CO/CO2/H2 and natural gas and injected at room
+temperature. A second natural gas supply is used for ignition, but
+switched off for the remainder of the experiments.
+Operating Conditions. The steam ratio X is deﬁned as the
+ratio of steam to air mass ﬂow
+X ¼ _msteam
+_mair
+(1)
+The equivalence ratio / is deﬁned as the fuel to air mass ﬂow
+ratio normalized by the respective stoichiometric condition
+/ ¼
+_mfuel= _mair
+_mfuel= _mair
+ð
+Þjst
+(2)
+The design point (reference case for a parameter study) is deﬁned
+in Table 1. The product gas from a gasiﬁer is experimentally
+modeled (further referred to as biosyngas) and consists of the
+components steam, N2, CH4, and CO/H2/CO2. Table 1 presents
+the mass fraction w, volume fraction x at ambient condition, as
+well as the respective LHV. At the design point, the burner is
+operated at stoichiometric conditions, / ¼ 1.
+Starting with the design case, a sensitivity analysis was con-
+ducted by varying the ﬂame thermal power Pth, steam ratio X, and
+fuel composition. Table 2 lists the range of values for the different
+parameters.
+Results
+The Results section has four parts. After discussing the ﬂame
+shape and the blowout limits in the ﬁrst two parts, the following
+two parts focus on the NOx and CO emissions.
+Flame Shape. The impact of steam admixture on the ﬂame is
+visualized in Fig. 3, where a natural gas ﬂame (top row) is com-
+pared to two biosyngas compositions for varying contents of
+steam. The biosyngas ﬂame presented in the middle row has a
+higher methane content (15 vol % dry) compared to the design
+case (as speciﬁed in Table 1). The latter is displayed in the bottom
+row. In all cases the burner operated at stoichiometric conditions
+(/ ¼ 1) and at a constant thermal power of 60 kW. As a result,
+decreasing the methane content of the biosyngas is accompanied
+with a rising hydrogen content to keep the ﬂame power constant.
+The ﬁgure shows the time-averaged OH* chemiluminescence
+inside the combustion chamber normalized by the maximum value
+for each case.
+The ﬂame shape is of V-type and similar for all studied fuels at
+the lowest steam content of X ¼ 0:3 (left column in Fig. 3). The
+ﬂame is compact and located close to the burner inlet. This is typi-
+cal for a swirl-stabilized ﬂame that anchors in the shear layer
+between the central and outer recirculation zones, where the local
+ﬂow velocity and the turbulent burning velocity are equal [26].
+The results show that even for the biosyngas composition at
+design conditions, the burning velocity is sufﬁciently high to
+Fig. 1
+Test rig sketch
+Fig. 2
+Gas supply conﬁguration
+Table 1
+Fuel composition at the design point
+Component
+w (%)
+x (%)
+LHV (MJ/kg)
+Steam
+46.2
+57.0
+—
+N2
+24.8
+19.7
+—
+Natural gas
+3.3
+4.5
+49.85
+CO/H2/CO2
+25.7
+18.8
+4.85
+–CO
+8.5
+6.7
+10.16
+–H2
+0.3
+3.6
+120.09
+–CO2
+16.9
+8.5
+—
+Total
+100
+100
+2.87
+Gray components: premixed CO/H2/CO2 broken down into individual
+species.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2022, Vol. 144 / 021025-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+allow the ﬂame to stabilize in the shear layers. It is also worth not-
+ing however that for all three fuels the ﬂame is asymmetric, with
+the ﬂame being shifted slightly downstream on the right-hand
+side.
+When the steam content is increased, the ﬂame anchors slightly
+further downstream and appears less compact. This is expected,
+since an increase in steam admixture leads to a decrease of the
+reaction rate and ﬂame speed [33]. This effect is stronger with
+increased natural gas content, as the simultaneously reduced
+hydrogen content further reduces the reactivity of the fuel. As a
+consequence, the reaction zone is lengthening axially, as well as
+radially. At a steam content of X ¼ 0:5, the pure natural gas ﬂame
+reaches an unstable condition, where the ﬂame pulsates between
+two quasi-stable points. This leads to two axial ﬂame positions in
+time-averaged OH* chemiluminescence, with one being close to
+the burner inlet and one being approximately half way down the
+length of the combustion chamber. With decreasing natural gas
+content, and increasing hydrogen content, respectively, this
+behavior is less pronounced and the ﬂame appears more stable
+and anchors closer to the burner inlet. At design point conditions,
+the ﬂame shape is only slightly broader than for the X ¼ 0:4 case.
+This indicates an increased ﬂame speed of the biosyngas mixture
+containing hydrogen compared to the pure natural gas ﬂame. Pre-
+vious studies revealed that even if only a small amount of hydro-
+gen is added to the fuel, ﬂame speed and stability are increased
+[15,20,21].
+Blowout Limit. The blowout limit has been assessed for differ-
+ent biosyngas compositions. Besides steam, the biosyngas compo-
+sition is high in N2 and CO2, both increasing the overall dilution
+and contributing to ﬂame cooling effects. The blowout limit of the
+biosyngas ﬂame has been assessed by increasing the steam content
+at stoichiometric conditions up to the point of ﬂame extinction,
+for several thermal power values and compositions. As shown in
+Fig. 3, the natural gas ﬂame reaches an unstable point at X ¼ 0:5
+and Pth ¼ 60 kW. This condition was observed to precede ﬂame
+extinction.
+The tests revealed no signiﬁcant inﬂuence of the thermal power
+on the blowout limit. Flame blowout occurred for the design fuel
+case at X ¼ 0:65 for a thermal power of Pth ¼ 45 kW, at X ¼
+0:68 for Pth ¼ 60 kW, and at X ¼ 0:675 for Pth ¼ 70 kW, respec-
+tively. The slight decrease of the blowout limit in terms of X with
+decreasing thermal power is likely due to the increased relative
+inﬂuence of cooling by the combustion chamber walls.
+Keeping the thermal power constant at Pth ¼ 60 kW and
+decreasing the natural gas content while increasing the content of
+H2/CO/CO2 pushed the blowout limit to higher values of X
+(increased steam content). For the largest hydrogen content (9.3
+vol % dry) ﬂame blowout only occurred for X > 0:75. This trend
+supports the assumption of increased ﬂame speeds and reaction
+rates at elevated hydrogen content.
+NOx Emissions. The impact of the steam content on the dry
+NOx-emission normalized to 15 vol % O2 in the exhaust gas are
+shown in Fig. 4. The NOx emissions of the biosyngas ﬂame are
+compared to the emissions of a natural gas ﬂame, for several ther-
+mal power values and fuel compositions of the former. All pre-
+sented
+cases
+show
+very
+low,
+single-digit
+NOx
+emissions.
+Furthermore, as expected, NOx emissions decrease with increas-
+ing steam content.
+NOx emissions are sensible to the ﬂame temperature [23]. For
+greater X and a constant air mass ﬂow, the steam mass ﬂow
+increases, which is expected to increase ﬂame cooling. It can fur-
+ther be assumed that the additional dilution by CO2 and N2 in the
+biosyngas further ampliﬁes this effect. In addition to the ﬂame
+cooling effect, the presence of steam has an impact on the chemi-
+cal reaction and plays a role in NOx reduction as reported by
+G€ockeler [34]. As a result, the NOx emissions of all biosyngas
+ﬂames are roughly independent of the ﬂame power and the fuel
+composition, with slightly larger emissions for the biosyngas with
+increased natural gas content. As expected, the NOx emissions for
+the natural gas ﬂame are signiﬁcantly higher compared to the bio-
+syngas ﬂames.
+Figure 5 depicts the NOx emissions for different biosyngas
+compositions and varying equivalence ratio. At each equivalence
+ratio, the ﬂame temperature was held constant by adjusting the
+steam content to remove the temperature inﬂuence on the emis-
+sions. Again, the composition at the design point (in the following
+Table 2
+Parameters used in the experiments
+Parameter
+Value
+Pressure
+Atmospheric
+Burner inlet temperature (C)
+470
+Thermal power, Pth (kW)
+45–85.7
+Steam ratio, X
+0.2–0.75
+Methane content in biosyngas (vol % dry)
+5–15
+Hydrogen content in biosyngas (vol % dry)
+7.5–9.3
+Fig. 3
+Normalized time-averaged OH*-chemiluminescence for
+three different fuels at stoichiometric conditions and a constant
+thermal power Pth 5 60 kW. Top to bottom: natural gas, bio-
+syngas with low hydrogen content (7.5% hydrogen in dry bio-
+syngas), and design point composition (8.4% dry). Each frame
+shows the entire combustion chamber with the burner inlet at
+the bottom.
+021025-4 / Vol. 144, FEBRUARY 2022
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+medium
+methane
+content)
+is
+compared
+to
+a
+composition
+containing a higher and lower methane content, and lower and
+higher hydrogen content, respectively. The ﬂame power was
+Pth ¼ 60 kW for all cases.
+The NOx emissions are roughly constant for all conditions
+measured here. A change in composition does not have a noticea-
+ble impact on the NOx emission. Overall, a change in NOx emis-
+sion seems to be mainly inﬂuenced by a variation in ﬂame
+temperature.
+CO Emissions. Figure 6 presents the CO emissions for differ-
+ent contents of steam X and the same fuel compositions shown in
+Fig. 4. For most compositions, the normalized CO emissions are
+close to zero over a wide range of X.
+For the biosyngas ﬂames, CO emissions increase toward higher
+values of X. This is most pronounced for the 45 kW ﬂame, where
+the ﬂame became highly unstable. This is likely due to reduced
+ﬂame speeds as a result of the increased steam content, which neg-
+atively affected ﬂame stability. At these points, the CO emissions
+were increased and oscillated periodically. This effect was ampli-
+ﬁed with increasing steam content.
+As for the NOx emission, the CO emissions are compared for
+different compositions at equal ﬂame temperatures in Fig. 7. The
+emissions for different fuel compositions follow a similar trend.
+At low values of / lower CO emissions were detected, which
+increase when approaching the stoichiometric condition. It was
+observed that the ﬂame became slightly unstable at high values of
+/ due to high values of X. Since for a constant ﬂame power / is
+adjusted via the air mass ﬂow, a low equivalence ratio is synony-
+mous with high air mass ﬂows and hence low steam mass ﬂows,
+and vice versa. The decreasing amount of oxygen surplus with ris-
+ing / and X might be an additional driving factor for elevated CO
+emissions.
+Numerical Validation. Toward the goal of conﬁrming the fea-
+sibility of the measured data, the equilibrium emissions of the bio-
+syngas are simply computed by a reactor system comprising a
+zero-dimensional plug ﬂow reactor (PFR) and a one-dimensional-
+ﬂame reactor using the GRI-MECH 3.0 mechanism in Cantera [35].
+The one-dimensional-ﬂame reactor contains the ﬂame front
+information such as the composition of the product gas and the
+adiabatic ﬂame temperature and simulates the main ﬂame reaction
+zone. This information is fed to the PFR, which mimics the heat
+loss during a long ﬂame residence time in the main ﬂame region.
+The PFR is composed of 2000 partially stirred reactors (PSRs)
+and models the postﬂame zone and the exhaust tube. The hot ﬂue
+gas is brought to a new chemical equilibrium at temperatures pres-
+ent at the outlet of the exhaust tube. Here, temperatures of around
+1000 K are measured in the experiment. The heat loss in the PFR
+is expressed as Q ¼ htotAðT  TenvÞ, where htot is the total heat
+transfer coefﬁcient of the quartz glass combustion chamber and
+the exhaust tube and A is the surface area of each reactor. A list of
+the simulation parameters is presented in Table 3. Mass ﬂow rates
+are taken from the experimental data.
+As shown in Figs. 5 and 7, the simulation results show a reason-
+ably well agreement with the experimental data except for a
+severe CO over-prediction at an equivalence ratio of / ¼ 1. The
+simulation results imply an almost complete CO burnout until the
+end of the exhaust tube as shown by the measured low CO
+Fig. 4
+NOx emission over steam ratio X for several ﬂames at
+/ 5 1
+Fig. 5
+NOx emission and simulation data over equivalence
+ratio / and corresponding steam ratio X at constant adiabatic
+ﬂame temperature and ﬂame power
+Fig. 6
+CO emission over steam ratio X for several ﬂames at
+/ 5 1
+Fig. 7
+CO emission and simulation data over equivalence ratio
+/ and corresponding steam ratio X at constant adiabatic ﬂame
+temperature and ﬂame power
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2022, Vol. 144 / 021025-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+emission. For cases with an equivalence ratio close to / ¼ 1, the
+associated high steam content greatly changes the reacting ﬂow
+behavior and ﬂame shape as it is shown in Fig. 3 and lead to the
+severe CO over-prediction. This can also explain the slight over-
+prediction of CO at other equivalence ratios. For lean combustion
+the over-prediction is less signiﬁcant, since sharp V-ﬂames feature
+lower residence time. At equivalence ratios close to unity, CO
+emissions from simulations are known to show a sensitive behav-
+ior to changes in /. Reducing / from 1 to 0.99 can lead to a
+reduction in CO emission by 50%.
+Conclusions
+This work presents the successful realization of stable combus-
+tion of artiﬁcially mixed low caloriﬁc value fuel gases employing
+a proprietary swirl-stabilized gas turbine burner.
+A stable biosyngas ﬂame was sustained over a wide range of
+steam contents X. Increasing the hydrogen content of the mixture
+improved ﬂame stability, despite increasing the fraction of N2 and
+CO2 in the fuel at the same time. This is likely due to an increased
+ﬂame velocity with increasing hydrogen content. However, its
+impact on the ﬂame stabilization as reported in the literature still
+lacks the conﬁrmation by simulations for this particular biosyngas
+composition.
+The biosyngas mixture exhibited a LHV of 2.87 MJ/kg (2.7 MJ/
+m3
+N) at its target point. However, even lower LHV mixtures were
+shown to be combustible despite further increasing the steam
+content.
+NOx and CO emissions were analyzed for several thermal
+powers and fuel compositions. The biosyngas ﬂames were emit-
+ting less NOx compared to the methane ﬂame at equal steam ratio
+X. This is likely due to the presence of N2 and CO2 and hence
+increased ﬂame cooling. For all conﬁgurations emission values
+were in the single-digit NOx range. A change in thermal power
+and fuel composition did not lead to a noticeable effect on the
+NOx emissions, whereas the ﬂame temperature was identiﬁed to
+exert a large leverage.
+CO emissions are close to zero over a wide range of X for most
+operating points. Destabilization of the ﬂame through increased
+steam or air dilution led to increased CO concentration in the
+exhaust.
+Flame blowout occurred at higher X with increasing hydrogen
+content in the fuel. The ﬂame power had only a slight impact on
+the blowout limit, potentially due to wall cooling effects at lower
+ﬂame powers.
+As a next step, pollutants commonly present in biogas as
+ammonia and tars will be added to the biosyngas to assess their
+impact on emission formation and combustion behavior.
+Further, the development of a simulation tool toward predicting
+unstable points and hence operational points exerting increased
+CO emission is one of the key works in the next step.
+Acknowledgment
+This work was carried out as part of the project “BTC Pilot
+Plant, Phase 1” (No. 45487-1). The ﬁnancial support of Phoenix
+Bio-Power AB and the Swedish Energy Agency is gratefully
+acknowledged.
+References
+[1] REN21 Secretariat, 2019, “Renewables 2019 Global Status Report,” REN21
+Secretariat, Paris, France.
+[2] Al-Halbouni, A., Rahms, H., Giese, A., Schmitz, I., Scherer, V., Robeck, M.,
+Widmann, R., Schaefer, S., Lange, C., Ertl, K.-H., Betsch, M., Dielmann, K.-P.,
+and Schulzke, T., 2008, “Entwicklung Flexibler Feuerungssysteme Zur Ver-
+brennung
+Von
+Schwachgasen
+in
+Mikrogasturbinen-Brennkammern,”
+Gasw€arme-Institut e.V. Essen, VDI-Verlag, D€usseldorf, Germany.
+[3] Bundesministerium f€ur Wirtschaft und Energie (BMWi), 2018, “Erneuerbare
+Energien in Zahlen—Nationale Und Internationale Entwicklung im Jahr 2017,”
+Bundesministerium f€ur Wirtschaft und Energie (BMWi), Berlin, Germany.
+[4] Postel, J., Jung, U., Fischer, E., and Scholwin, F., 2009, “Stand Der Technik
+Beim
+Bau
+Und
+Betrieb
+Von
+Biogasanlagen—Bestandsaufnahme
+2008,”
+Deutsches BiomasseForschungsZentrum, Leipzig, Germany, Report No. 38/2009.
+[5] Joos, F., 2006, Technische Verbrennung, Springer, Berlin.
+[6] Zornek, T., Monz, T., and Aigner, M., 2015, “Performance Analysis of the
+Micro Gas Turbine Turbec T100 With a New FLOX-Combustion System for
+Low Caloriﬁc Fuels,” Appl. Energy, 159, pp. 276–284.
+[7] Eriksson, P., Walsh, S., Gabrielsson, R., Waldheim, L., and Hermann, F., 2002,
+“Design and Evaluation of an LCV Combustor for the Volvo vt4400 Industrial
+Gas Turbine,” ASME Paper No. GT2002-30088.
+[8] Al-Shaikhly, A., Mina, T., and Neergaard, M., 1994, “Development of a Dual
+Fuel LBTU Gas/Diesel Burning Combustion System for a 4.2 MW Gas
+Turbine,” ASME Paper No. 94-GT-438.
+[9] Hoppesteyn, P. D. J., 1999, Application of Low Caloriﬁc Value Gaseous Fuels
+in Gas Turbine Combustors, Delft University Press, Delft, The Netherlands.
+[10] Mordaunt, C. J., and Pierce, W. C., 2014, “Design and Preliminary Results of
+an Atmospheric-Pressure Model Gas Turbine Combustor Utilizing Varying
+CO2 Doping Concentration in ch4 to Emulate Biogas Combustion,” Fuel, 124,
+pp. 258–268.
+[11] Adouane, B., Hoppesteyn, P., de Jong, W., van der Wel, M., Hein, K. R., and
+Spliethoff, H., 2002, “Gas Turbine Combustor for Biomass Derived LCV Gas,
+a First Approach Towards Fuel-NOx Modelling and Experimental Validation,”
+Appl. Therm. Eng., 22(8), pp. 959–970.
+[12] Adouane, B., de Jong, W., van Buijtenen, J., and Witteveen, G., 2010, “Fuel-
+NOx Emissions Reduction During the Combustion of LCV Gas in an Air Staged
+Winnox-TUD Combustor,” Appl. Therm. Eng., 30(8–9), pp. 1034–1038.
+[13] Kelsall, G., Smith, M., and Cannon, M., 1994, “Low Emissions Combustor
+Development for an Industrial Gas Turbine to Utilize LCV Fuel Gas,” ASME J.
+Eng. Gas Turbines Power, 116(3), pp. 559–566.
+[14] Fossum, M., Beyer, R. V., and Bioenergy, I., 1998, “Co-Combustion: Biomass
+Fuel Gas and Natural Gas,” SINTEF Energy Research, Trondheim, Norway.
+[15] Zhen, H., Leung, C., Cheung, C., and Huang, Z., 2014, “Characterization of
+Biogas-Hydrogen Premixed Flames Using Bunsen Burner,” Int. J. Hydrogen
+Energy, 39(25), pp. 13292–13299.
+[16] Cardona, C. A., and Amell, A. A., 2013, “Laminar Burning Velocity and Inter-
+changeability Analysis of Biogas/C3H8/H2 With Normal and Oxygen-Enriched
+Air,” Int. J. Hydrogen Energy, 38(19), pp. 7994–8001.
+[17] Pizzuti, L., Martins, C., and Lacava, P., 2016, “Laminar Burning Velocity and
+Flammability Limits in Biogas: A Literature Review,” Renewable Sustainable
+Energy Rev., 62, pp. 856–865.
+[18] Lafay, Y., Taupin, B., Martins, G., Cabot, G., Renou, B., and Boukhalfa, A.,
+2007, “Experimental Study of Biogas Combustion Using a Gas Turbine Conﬁg-
+uration,” Exp. Fluids, 43(2–3), pp. 395–410.
+[19] Wilson, D. A., and Lyons, K. M., 2009, “On Diluted-Fuel Combustion Issues in
+Burning Biogas Surrogates,” ASME J. Energy Resour. Technol., 131(4),
+p. 041802.
+[20] Zhen, H., Leung, C., and Cheung, C., 2013, “Effects of Hydrogen Addition on
+the Characteristics of a Biogas Diffusion Flame,” Int. J. Hydrogen Energy,
+38(16), pp. 6874–6881.
+[21] Leung, T., and Wierzba, I., 2008, “The Effect of Hydrogen Addition on Biogas
+Non-Premixed Jet Flame Stability in a Co-Flowing Air Stream,” Int. J. Hydro-
+gen Energy, 33(14), pp. 3856–3862.
+[22] Reichel, T. G., Terhaar, S., and Paschereit, O., 2015, “Increasing Flash-
+back Resistance in Lean Premixed Swirl-Stabilized Hydrogen Combustion
+by Axial Air Injection,” ASME J. Eng. Gas Turbines Power, 137(7),
+p. 071503.
+[23] Kuhn, P., Terhaar, S., Reichel, T., and Paschereit, C. O., 2015, “Design and
+Assessment of a Fuel-Flexible Low Emission Combustor for Dry and Steam-
+Diluted Conditions,” ASME Paper No. GT2015-43375.
+[24] Tanneberger, T., Reichel, T. G., Kr€uger, O., Terhaar, S., and Paschereit, C. O.,
+2015, “Numerical Investigation of the Flow Field and Mixing in a Swirl-
+Stabilized Burner With a Non-Swirling Axial Jet,” ASME Paper No. GT2015-
+43382.
+[25] Reichel, T. G., Goeckeler, K., and Paschereit, O., 2015, “Investigation of Lean
+Premixed Swirl-Stabilized Hydrogen Burner With Axial Air Injection Using OH-
+PLIF Imaging,” ASME J. Eng. Gas Turbines Power, 137(11), p. 111513.
+[26] Reichel,
+T.,
+2017,
+“Flashback
+Prevention
+in
+Lean-Premixed
+Hydrogen
+Combustion,” Ph.D. thesis, Technische Universit€at Berlin, Berlin, Germany.
+[27] Reichel, T. G., and Paschereit, C. O., 2017, “Interaction Mechanisms of Fuel
+Momentum With Flashback Limits in Lean-Premixed Combustion of Hydro-
+gen,” Int. J. Hydrogen Energy, 42(7), pp. 4518–4529.
+Table 3
+Parameters used in the simulation
+Parameter
+Value
+Length of postﬂame zone
+0.2475
+Length of exhaust tube (m)
+0.865
+Length of PFR (m)
+1.1125
+Surface area of single PSR (m2)
+1.9223  104
+Volume of single PSR (m3)
+5.046  106
+Flame residence time in PFR (ms)
+61–67
+Total heat transfer coefﬁcient (W/m2)
+100
+021025-6 / Vol. 144, FEBRUARY 2022
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+[28] Reichel, T. G., Terhaar, S., and Paschereit, C. O., 2018, “Flashback Resistance
+and Fuel–Air Mixing in Lean Premixed Hydrogen Combustion,” J. Propul.
+Power, 34(3), pp. 690–701.
+[29] Stathopoulos, P., Kuhn, P., Wendler, J., Tanneberger, T., Terhaar, S., Pascher-
+eit, C. O., Schmalhofer, C., Griebel, P., and Aigner, M., 2016, “Emissions of a
+Wet Premixed Flame of Natural Gas and a Mixture With Hydrogen at High
+Pressure,” ASME J. Eng. Gas Turbines Power, 139(4), p. 041507.
+[30] Mira, D., Lehmkuhl, O., Stathopoulos, P., Tanneberger, T., Reichel, T. G.,
+Paschereit, C. O., and Vazquez, M., 2018, “Numerical Investigation of a Lean
+Premixed Swirl-Stabilized Hydrogen Combustor and Operational Conditions
+Close to Flashback,” ASME Paper No. GT2018-76229.
+[31] Beer, J., and Chigier, N., 1972, Combustion Aerodynamics (Fuel and Energy
+Science Series), Applied Science Publishers Limited, London, UK.
+[32] Bl€umner, R., Paschereit, C., Oberleithner, O. K., and C´ osic´, B., 2016,
+“Experimental Analysis of High-Amplitude Temporal Equivalence Ratio Oscil-
+lations in the Mixing Section of a Swirl-Stabilized Burner,” ASME Paper No.
+GT2016-56585.
+[33] Goeke, S., 2012, “Ultra Wet Combustion—An Experimental and Numerical
+Study,” Ph.D. thesis, TU Berlin, Berlin, Germany.
+[34] G€ockeler,
+K.,
+2015,
+“Inﬂuence
+of
+Steam
+Dilution
+and
+Hydrogen
+Enrichment on Laminar Premixed Methane Flames,” Ph.D. thesis, TU
+Berlin, Berlin, Germany.
+[35] SmithGolden, G., Frenklach, D., Moriarty, M., Eiteneer, N., Goldenberg, B.,
+Bowman, M., Hanson, C., Song, R., Gardiner, S. W., Jr., Lissianski,.V., and
+Qin, Z., 2019, “GRI-Mech 3.0,” accessed Jan. 29, 2019, http://combustion.
+berkeley.edu/gri-mech/
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2022, Vol. 144 / 021025-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/144/2/021025/6809947/gtp_144_02_021025.pdf by University of Cincinnati user on 31 December 2025

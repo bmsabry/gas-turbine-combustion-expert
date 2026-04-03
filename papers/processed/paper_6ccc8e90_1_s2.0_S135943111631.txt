@@ -1,0 +1,1039 @@
+
+--- Page 1 ---
+
+Stabilization effects of perforated plates on the combustion instability in
+a lean premixed combustor
+Seungtaek Oh, Youngjun Shin, Yongmo Kim ⇑
+Department of Mechanical Engineering, Hanyang University, Sungdong-Ku, Seoul 133-791, Republic of Korea
+a r t i c l e
+i n f o
+Article history:
+Received 9 April 2016
+Revised 21 June 2016
+Accepted 21 June 2016
+Available online 24 June 2016
+Keywords:
+Thermoacoustic instability
+Flame describing function
+Helmholtz solver
+Attenuation characteristics
+Perforated plate
+Luong model
+a b s t r a c t
+In the present study, an FDF (Flame Describing Function)-based approach is applied to numerically
+investigate the attenuation characteristics of a perforated plate. In order to effectively suppress the com-
+bustion instability, this study adopts an alternative approach to optimally design a passive damper using
+a perforated plate. We conﬁrm that the proposed attenuation conditions of a perforated plate ensure
+quite stable conditions over the entire range of velocity perturbation ratios. Moreover, the present
+method using Luong model can be applied to all Strouhal number regimes in contrast to a conventional
+method using the Howe model. Numerical results were also compared with experimental data in terms
+of the resonant frequency and limit-cycle velocity perturbation ratio. Although slight discrepancies exist,
+the present FDF-based approach yields an overall agreement with the experimental results. In addition,
+the numerical results show that perforated plates with smaller holes or thinner plate thicknesses are
+more effective at stabilizing the oscillation induced by combustion.
+ 2016 Elsevier Ltd. All rights reserved.
+1. Introduction
+In order to comply with strict regulatory requirements, the gas
+turbine industry has typically adopted lean premixed combustors
+as the most promising solution [1]. However, lean premixed com-
+bustors are quite susceptible to combustion instability, which
+leads to serious failure of the system [2]. Therefore, the combustion
+instability must be technically resolved prior to system operation.
+Numerical studies have been carried out in attempts to understand
+the driving mechanism of the combustion instability as well as to
+optimally suppress the thermoacoustic oscillations. These numeri-
+cal models are largely classiﬁed by the self-excited mode strategy
+and the forced mode strategy [1].
+In the self-excited mode strategy, CFD calculations need to be
+carried out until small ﬂuctuations are developed with a certain
+resonant frequency. Thus, external forcing is not required because
+the ﬂow ﬁeld has its own instability modes. In the past, unsteady
+RANS (URANS) based turbulent combustion models [1,3–7] have
+been employed to numerically analyze the combustion instability;
+however, these approaches are limited in their ability to realisti-
+cally capture the physical processes involved in the combustion
+instability. To resolve these shortcomings, the large eddy simula-
+tion (LES) based turbulent combustion model has frequently been
+applied to predict unstable combustion dynamics [1,8–13]. It is
+widely recognized that the LES-based turbulent combustion model
+is the ultimate design tool for identifying the optimal stable condi-
+tions of real combustors. However, the prediction capability of the
+LES-based approach is quite sensitive to the acoustic boundary
+conditions and heat transfer, which are often uncertain. Moreover,
+this approach requires excessive CPU time [11].
+In the forced mode strategy, coupling between the velocity per-
+turbation and the heat release rate perturbation can be expressed
+by the ﬂame transfer function (FTF) or the ﬂame describing func-
+tion (FDF) [14–25]. Recently, perturbations of equivalence ratio
+are also accounted for obtaining FTF or FDF [11,25]. In this strategy,
+by imposing external forcing at the inlet in experiments or simula-
+tions, the gain index and time delay are measured or calculated
+between the reference point and the ﬂame zone. To avoid unneces-
+sary reﬂected waves, a non-reﬂecting boundary condition must be
+speciﬁed [1]. Compared to the self-excited mode strategy, this
+method requires much less computational cost if FTF or FDF data
+are available. Due to this advantage, this forced mode strategy
+has gained popularity for the analysis of thermoacoustic instability
+over a wide range of the operating conditions and various geomet-
+ric conditions [19,21–24]. However, in highly turbulent swirling
+ﬂames, it is difﬁcult to obtain accurate FTF or FDF data. Depending
+upon FTF or FDF models, reference points, and perturbation ratios,
+the values of FTF or FDF could be quite different, even at the same
+frequency. Even if the difference in the values of FTF or FDF is
+http://dx.doi.org/10.1016/j.applthermaleng.2016.06.143
+1359-4311/ 2016 Elsevier Ltd. All rights reserved.
+⇑Corresponding author.
+E-mail address: ymkim@hanyang.ac.kr (Y. Kim).
+Applied Thermal Engineering 107 (2016) 508–515
+Contents lists available at ScienceDirect
+Applied Thermal Engineering
+journal homepage: www.elsevier.com/locate/apthermeng
+
+
+--- Page 2 ---
+
+small, it potentially results in somewhat different resonant fre-
+quencies or growth rates. Thus, special care is required to obtain
+the values of FTF or FDF. However, the FTF-based approach is only
+applicable for analyzing linear combustion instability. Alterna-
+tively, the FDF-based approach can overcome the shortcomings
+of the FTF-based approach. In the FDF-based approach, the eigen-
+frequencies are varied by increasing the velocity perturbation
+ratios [14,20,22]. This unique feature enables the FDF-based
+approach to accurately predict the resonant frequencies and non-
+linear combustion dynamics such as the hysteresis, frequency
+shifting, mode change, or limit-cycle instability [14,18–21].
+To stabilize the oscillation arising from the combustion instabil-
+ity, these three kinds of damping devices are mostly used: quarter-
+wave resonators, Helmholtz resonators, and perforated plates [26].
+Quarter-wave resonators are often used to suppress transverse
+high-frequency unstable modes while Helmholtz resonators are
+typically
+used
+to
+attenuate
+low-frequency
+unstable
+modes.
+However, Helmholtz resonators and quarter-wave resonators have
+a limited ability to stabilize unstable modes only in a narrow band-
+width of frequency. Thus, if combustion instability exist in a sev-
+eral unstable modes in a system, above two kinds of dampers
+should be installed with tuning to each resonant frequency. On
+the other hand, perforated plates overcome this drawback of these
+two kinds of dampers, so it can be a promising alternative to other
+stabilization devices, especially in gas turbine combustors [26–31].
+Up to now, there are not many researches in effectively designing
+and using perforated plates to damp the thermoacoustic instabil-
+ity. A state-of-the-art method is using the Howe model when
+designing perforated plates [26,28–30], which has the shortcoming
+of being unable to account for the plate thickness. In addition, dur-
+ing the obtaining design parameters, several simpliﬁcation pro-
+cesses are required.
+In order to solve these weaknesses, the modiﬁed Howe model is
+even utilized [26,30]. Nevertheless, same weaknesses still exist in
+this approach because of the simpliﬁcation processes. To design
+dampers with the original or modiﬁed Howe model, it is assumed
+that dampers are operated only at very large or very small Strouhal
+numbers [26,30]. If dampers need to be operated at some moderate
+Strouhal numbers due to technical constraints, it is quite difﬁcult
+to ﬁnd the optimal attenuation conditions of the dampers. Thus,
+in order to overcome these drawbacks of the Howe model, the pre-
+sent study has proposed the new approach which adopts the Luong
+model [31] based on a modiﬁed form of Cummings’ empirical
+equation. Compared to the conventional approaches [26,30], the
+present method utilizing the Luong model has the basic advan-
+tages which allows one to design perforated plates over the whole
+range of Strouhal numbers. Moreover, in contrast to the previous
+method using the Howe model, this approach can fully take
+account for the effects of plate thickness and all design parameters
+of the dampers can be obtained without any simpliﬁcation
+processes.
+In the present study, the FDF-based approach has been applied
+to analyze the thermoacoustic instability in a lab-scale lean pre-
+mixed combustor [22,23]. Computations are carried out for a wide
+range of combustor and plenum lengths. Based on the numerical
+results, instability maps of the combustor are generated. The
+numerical results are compared with the experimental data in
+terms of the eigenfrequency and limit-cycle velocity perturbation
+ratios. Finally, the present study also attempted to ﬁnd the effec-
+tive stabilization conditions for the perforated plate and numeri-
+cally evaluated the damping effects of the perforated plate.
+2. Theory of numerical models
+2.1. Helmholtz equation
+By assuming linear acoustics and isentropic variation, the wave
+equation can be derived from the Navier-Stokes equation. It is also
+Nomenclature
+Roman symbols
+a
+hole radius
+c
+speed of sound
+d
+distance b/w holes
+f
+frequency
+f tar
+target frequency
+h
+plate thickness
+k
+wave number
+leff
+effective length (=pa/2 + h)
+n
+gain index
+p
+pressure
+Q
+heat release rate
+t
+time
+U
+velocity
+x
+angular frequency
+A
+area of the hole (=pa2/2)
+I1
+modiﬁed Bessel functions of the ﬁrst kind
+K0
+=pa2=leff
+K1
+modiﬁed Bessel functions of the second kind
+KR
+Rayleigh conductivity
+Lc
+back cavity length
+P
+porosity
+Q
+volume ﬂow rate
+Rp
+reﬂection coefﬁcient of the plate
+Uhole
+velocity in the hole of the plate
+He
+Helmholtz number of the back cavity (=kLc)
+St
+Strouhal number (=wa/Uhole)
+Stl
+Strouhal number of an effective length (=wleff =Uhole)
+FDF
+ﬂame describing function
+FTF
+ﬂame transfer function
+Re[ ]
+real component
+Im[ ]
+imaginary component
+Greek symbols
+a
+internal damping rate
+a0
+effective damping rate
+c
+heat capacity ratio
+q
+density
+r
+contraction ratio (=0.75)
+s
+time delay
+f
+impedance
+Subscripts
+
+mean part
+0
+ﬂuctuation part
+^
+complex value in a frequency domain
+i
+imaginary part
+r
+real part
+ref
+reference point
+þ
+positive direction
+
+negative direction
+1
+back cavity
+2
+plenum
+3
+chamber
+p
+perforated plate
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+509
+
+
+--- Page 3 ---
+
+assumed that ﬂuctuations in the pressure, density, and velocity are
+much
+smaller
+compared
+to
+the
+mean
+values:
+p0  p; q0  q; u0  c. In linear acoustics, the instantaneous ﬂow
+variables are decomposed as the mean value and perturbation. In
+this derivation, viscous forces and the mean ﬂow speed are
+neglected, and the speed of sound is used as the reference speed.
+With these assumptions, the well-known wave equation can be
+derived from the conservation equations of mass, momentum,
+and energy in the presence of a heat source term.
+1
+c2
+@2p0
+@t2  r2p0 ¼ c  1
+c2
+@q0
+@t
+ð1Þ
+Here, c, t, and q are the speciﬁc heat ratio, time, and heat
+release, respectively. The ﬂuctuating term of the heat release rate
+represents the combustion effects on the acoustics. In the frame-
+work of linear acoustics, ﬂuctuations can be formulated in the form
+of a harmonic wave. Thus, temporal and spatial variations are
+decomposed as:
+p0ðx
+!; tÞ ¼ Re½^pðx
+!Þeixt ¼ exitRe½^pðx
+!Þeixrt
+ð2Þ
+Here, Re½U denotes the real part of the complex variable U, and
+xr and xi are the real and imaginary components of the angular
+frequency x, respectively. Using the harmonic variation for the
+ﬂuctuating variables, the wave equation in the time domain
+becomes the following Helmholtz equation in the frequency
+domain:
+k
+2^p þ r2^p ¼ ix^qðc  1Þ
+c2
+ð3Þ
+where k is the wave number and ^q can be modeled by FTF or FDF.
+2.2. Flame transfer function
+It is crucial to model a heat release rate perturbation term in the
+Helmholtz equation. Crocco devised the ﬂame response function of
+compact ﬂames [32] to relate the heat release rate perturbation
+term with the velocity perturbation term. A slightly modiﬁed
+Crocco’s model has been widely utilized for analyzing thermoa-
+coustic instability [1,2]. In the frequency domain, FTF is expressed
+as:
+FTFðwÞ ¼
+^q=q
+^uref =uref
+¼ nðwÞeixsðwÞ
+ð4Þ
+Here, uref is the velocity measured at the reference point. For
+thin ﬂames, FTF is a function of only frequency and is determined
+by the gain index n and the time delay s. In a real situation, how-
+ever, FTF depends on ﬂame shapes as well as operating conditions.
+Thus, each position in the ﬂames has a different gain index or time
+delay [8,24]. Since calculating FTF in the computational nodes of
+the whole ﬂame zone is time-consuming, the ﬂame regions are
+often divided into several sections [24]. It is also necessary to note
+that the accuracy of FTF is considerably inﬂuenced by the choice of
+the reference point where the velocity ﬂuctuations are obtained
+[33]. Thus, the reference location should be chosen such that it is
+sufﬁciently close to the ﬂame zone [33]. In addition, FTF should
+cover the whole frequency range where instability can occur. For
+this reason, prior to the FTF-based instability analysis, the
+Helmholtz equation with the spatial variation of the temperature
+(without FTF) is typically solved to roughly estimate the resonant
+frequencies [2].
+2.3. Flame describing function
+In actual combustor chambers, thermoacoustic ﬂuctuations fre-
+quently occur in a nonlinear zone. However, FTF is calculated when
+velocity ﬂuctuations are small enough to be in a linear zone. Since
+the FTF-based approach is unable to analyze nonlinear behaviors,
+such
+as
+frequency
+shifting,
+mode
+change,
+or
+hysteresis
+[14,18–21], Noiray et al. [20,21] proposed the ﬂame describing
+function to analyze these nonlinear phenomena.
+FDFð^u=u; wÞ ¼
+^q=q
+^uref =uref
+¼ nð^u=u; wÞeixsð^u=u;wÞ
+ð5Þ
+As expressed in the above relation, FDF is simply a group of FTF
+according to certain ranges of the velocity perturbation ratios.
+Since the gain index and time delay are dependent on the ampli-
+tude of the velocity perturbations, the FDF-based approach essen-
+tially has the ability to model the nonlinearities of combustion
+instability. By increasing the velocity perturbation ratio, the gain
+index decreases and the phase evolution becomes substantially
+modiﬁed; however, unlike the gain index, this is not straightfor-
+ward [14,22]. Since FDF accounts for variations of the velocity per-
+turbation ratios, it is clearly able to describe the development of
+the nonlinear behavior of combustion instability [14,18–21].
+Therefore, the FDF-based approach is capable of analyzing the non-
+linear combustion instability and the evolution of eigenfrequen-
+cies, which cannot be described by the FTF-based approach. Due
+to the addition of one more variable, the computational cost is
+squared, but much more information can be obtained for analyzing
+the thermoacoustic instability.
+2.4. Acoustic response of perforated plates
+Howe [34,35] theoretically modeled the acoustic response
+behavior of perforated plates with bias ﬂow. For the acoustic con-
+dition, as displayed in Fig. 1, it is possible to ﬁnd an expression for
+the reﬂection coefﬁcient of a perforated plate backed by a resonant
+cavity that is traversed by a mean bias ﬂow and submitted to nor-
+mal incident sound waves.
+For the low-frequency conditions of acoustic perturbations, the
+corresponding wavelength is much larger than the hole radius, and
+the acoustic oscillations of pressure and velocity can be expressed
+as follows:
+In the region of Lc 6 z 6 0:
+^p1ðzÞ ¼ pþ
+1 expðikðz þ LcÞÞ þ p
+1 expðikðz þ LcÞÞ
+qc^u1ðzÞ ¼ pþ
+1 expðikðz þ LcÞÞ  p
+1 expðikðz þ LcÞÞ
+ð6Þ
+In the region of z P 0:
+^p2ðzÞ ¼ pþ
+2 expðikzÞ þ p
+2 expðikzÞ
+qc^u2ðzÞ ¼ pþ
+2 expðikzÞ  p
+2 expðikzÞ
+ð7Þ
+Here, q is the mean density, c is the speed of sound, and k is the
+wave number. By continuity, the volume ﬂow rate Q has the fol-
+lowing relation:
+Fig. 1. Schematic of the perforated plate with a back cavity.
+510
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+
+
+--- Page 4 ---
+
+Q ¼ ^u1d
+2 ¼ ^u2d
+2
+ð8Þ
+Here, d is the distance between holes. Howe [34,35] deﬁned the
+Rayleigh conductivity KR to characterize the acoustic properties of
+the bias ﬂow jet.
+KR ¼
+iwq0Q
+p2ð0Þ  p1ð0Þ
+ð9Þ
+The speciﬁc impedance f of the perforated plate at z = 0þ is
+expressed as fðz ¼ 0þÞ ¼ ^p2=ðqc^u2Þ. Combining Eqs. (6), (8), and
+(9) with the assumption of a full reﬂecting boundary condition at
+z = Lc, one can obtain:
+fp ¼ i kd
+2
+KR
+
+1
+tanðHeÞ
+"
+#
+ð10Þ
+Here, He ¼ kLc is the Helmholtz number of the back cavity and
+Lc is the back cavity length. The reﬂection coefﬁcient of a perfo-
+rated plate can be written as:
+Rp ¼ fp þ 1
+fp  1
+ð11Þ
+To characterize the speciﬁc impedance or reﬂection coefﬁcient,
+it is required to model the Rayleigh conductivity. Howe [34,35]
+developed a model for perforated plates with the assumptions of
+an inﬁnitely thin thickness, a high Reynolds number in the hole,
+and low porosity. When the cylindrical vortex sheet is shed with
+constant velocity Uhole at the hole, and also its size is equal to the
+hole radius a, the Rayleigh conductivity for a perforated plate can
+be expressed as:
+KR ¼ 2aðc  idÞ
+ð12Þ
+Here, c and d are determined by the following formulation:
+c  id ¼
+ðp=2ÞI1ðStÞ expðStÞ  iK1ðStÞ sinhðStÞ
+St½ðp=2ÞI1ðStÞ expðStÞ þ iK1ðStÞ coshðStÞ
+ð13Þ
+where St ¼ wa=Uhole is the Strouhal number. I1 and K1 denote the
+modiﬁed Bessel functions of the ﬁrst and second kinds, respectively.
+To account for the ﬁnite thickness of the perforated plates, a mod-
+iﬁed version of the Howe model was suggested by Jing and Sun
+[36]:
+KR ¼ 2a
+1
+c  id þ 2h
+pa
+
+1
+ð14Þ
+According to the previous studies [34–36], the attenuation
+characteristics of the perforated plates can be analyzed with the
+Howe model or the modiﬁed Howe model. However, it is not pos-
+sible to obtain the accurate values of design parameters of perfo-
+rated plates by using these two models. To circumvent these
+difﬁculties, all of the previous works analyzed for operating condi-
+tions with a very low Strouhal number ðSt  1Þ or a very high
+Strouhal number ðSt  1Þ. From these limited conditions, the sim-
+pliﬁed explicit expressions for Eq. (13) can be obtained:
+c  id ¼ St2
+3  ipSt
+4
+when St  1
+ð15Þ
+c  id ¼ 1  i
+St when St  1
+ð16Þ
+It is widely recognized that a low-Strouhal number condition
+yields a much wider absorption bandwidth [26,30] and much bet-
+ter attenuation characteristics at the perforated plate, as compared
+to the high-Strouhal number condition. However, if dampers are
+operated at moderate Strouhal numbers (due to technological con-
+straints or high-frequency unstable modes), it is not possible to
+design dampers accurately. Instead of using the Howe model or
+modiﬁed Howe model, the present study has adopted Luong
+model, which is based on a modiﬁed form of Cummings’ empirical
+equation [31]. In addition, in contrast to Howe model, this
+approach yields a good approximation for both the nonlinear
+regime as well as the linear regime. It has been reported that the
+nonlinear effects associated with the mean velocity can lead to a
+small reduction in the steady bias ﬂow velocity [31]. When using
+Luong model, it is possible to design perforated plates that can
+operate in the whole range of Strouhal numbers. Moreover, com-
+pared to the conventional methods [34–36], it is much easier to
+account for the thickness effects of the plates. All of the optimized
+design parameters can be easily obtained without further simpliﬁ-
+cation. The formulation of Luong model is expressed below:
+KR ¼
+2aSt
+St þ 2i=pa2
+: for infinitely thin plates:
+ð17Þ
+KR ¼
+K0Stl
+Stl þ i=r2
+: for finite thick plates:
+ð18Þ
+Here, Stl ¼ wleff=Uhole is the Strouhal number for an effective
+length,
+a
+contraction
+ratio
+r ¼ 0:75
+is
+suggested,
+and
+K0 ¼ pa2=leff and leff ¼ pa=2 þ h are deﬁned. By combining Eqs.
+(10) and (18), the expression of the speciﬁc impedance of perfo-
+rated plates can be written as:
+fp ¼ 
+U1
+cr2P2 þ i kd
+2leff
+A
+
+1
+tanðHeÞ
+ 
+!
+ð19Þ
+Here, P and U1 are the porosity and the bulk velocity in the back
+cavity, respectively.
+2.5. Optimal attenuation conditions of perforated plates
+The ideal situation occurs when a non-reﬂective boundary con-
+dition is imposed at a perforated plate in a combustor. To meet this
+requirement, the speciﬁc impedance should be equal to 1 [26,30]:
+Re½f ¼ 
+U1
+cr2P2 ¼ 1
+ð20Þ
+Im½f ¼ i kd
+2leff
+A
+
+1
+tanðHeÞ
+ 
+!
+¼ 0
+ð21Þ
+Here, Re½f and Im½f indicate the real and imaginary compo-
+nents of the speciﬁc impedance, respectively. The porosity P is
+determined from Eq. (20) and the back cavity length Lc is obtained
+from Eq. (21):
+P ¼
+ﬃﬃﬃﬃﬃﬃﬃﬃ
+U1
+cr2
+r
+ð22Þ
+Lc ¼ 1
+k tan1
+P
+kleff
+
+
+ð23Þ
+Thus, the corresponding hole radius can be obtained as
+a ¼ StUhole
+Pw . Evidently, by decreasing the Strouhal number St, the per-
+formance of the perforated plates is improved [26,30]. Finally, from
+the deﬁnition of the porosity, the distance between holes is given
+as d ¼ a
+ﬃﬃp
+P
+p . When the target frequency is chosen, the wave number
+k is also determined; these four design parameters (P; Lc; a; and d)
+can be ﬁxed to identify the effective attenuation conditions of the
+perforated plates.
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+511
+
+
+--- Page 5 ---
+
+3. Combustor geometry and operating conditions
+The precise geometry of the combustor and its ﬂame images are
+available in the previous studies [22,23]. Fig. 2 shows the axisym-
+metric combustor geometry, the modeled thin ﬂame, and the
+acoustic boundary condition at inlet and outlet. The position of
+the reference point is estimated from the literature [22,23]. The
+velocity perturbations evaluated at the reference point are used
+to evaluate the source term of the Helmholtz equation. In compu-
+tations, idealized acoustic boundary conditions are imposed at the
+boundaries ðinlet : ^u ¼ 0 and outlet : ^p ¼ 0Þ. The premixed ﬂame
+condition in this lean-premixed combustor is based on the
+methane-air mixture with the ﬁxed equivalence ratio, 0.7 and
+the thermal load, 1.94 kW. The velocity at the reference point is
+2.67 m/s. The Helmholtz equation is solved by the ﬁnite element
+method mainly due to its unique strength and robustness to treat
+the acoustic boundary conditions.
+Computations are made for twelve cases, covering a wide range
+of plenum and chamber lengths, as given in Table 1. Thermody-
+namic properties for the unburned and burnt gases are also listed
+in Table 2. To account for the realizable acoustic boundary condi-
+tion, an end correction is utilized at the outlet (l ¼ l þ 0:61R3)
+[37,38]. Here, l and R3 are the length and radius of the combustion
+chamber, respectively. Due to the assumption of compact ﬂames,
+the combustion instability analysis in conjunction with the present
+FDF approach is based on the global gain index and time delay. In
+measurements [22], the FDF data were obtained for six different
+velocity perturbation ratios in the given ﬂame conditions.
+The FDF data of Flame A are well documented in the previous
+work of Silva et al. [22]; those FDF data are available for the fre-
+quency range from 0 to 400 Hz. By increasing the velocity pertur-
+bation ratio, the gain index is decreased because the energy loss
+in the system linearly increases over the whole regime. However,
+the energy gain does not increase linearly in the nonlinear zone.
+This nonlinear behavior is apparent especially for the high fre-
+quency regime [14,22]. However, in terms of the phase, the
+increase of the velocity perturbation ratio does not result in dis-
+tinctly different trends. Experimental data indicate that, in the very
+low frequency region, there exists a small bump in the phase of the
+measured FDF data [22].
+4. Attenuation effects of perforated plates on the combustion
+instability
+First, the present FDF-based approach utilizing these measured
+FDF data has been applied to analyze thermoacoustic instability for
+12 different cases of Flame A in the lab-scale premixed combustor.
+Fig. 3 shows the computed eigenfrequency trajectories for these 12
+cases. Numerical results indicate that the ﬁrst longitudinal modes
+for the 12 cases are unstable. The vertical dotted line represents
+the internal damping rate of the system, which is estimated from
+the following relation [23]:
+a ¼ a0 þ wi
+ð24Þ
+Here, a denotes the internal damping rate, and a0 and wi are the
+measured effective damping rate [23] and the growth rate coming
+from the numerical calculations, respectively. Similar to the previ-
+ous study [22], the present approach uses the measured effective
+damping ratio a0 for case 5. Alternatively, in terms of the growth
+rate, this approach uses the numerically calculated value for case
+5 whereas the previous work [22] utilized the calculated growth
+rate evaluated by averaging the growth rate for all stable cases
+(including case 5). Due to this different treatment, the computed
+internal damping rate could be slightly different from those deter-
+mined in previous works [22,23]. In addition, certain discrepancies
+in our measurements could be partly attributed to the simpliﬁed
+geometry of the combustor as well as to the slightly different posi-
+tion of the reference point associated with the velocity ﬂuctua-
+tions. Circles of each trajectory line represent the starting points
+of the trajectories ð^u=u ¼ 0:07Þ. If the growth rate exceeds the
+internal damping rate of the system, the system becomes unstable.
+By increasing the velocity perturbations, cases 1–3 are kept stable
+and case 4 is always unstable. However, this does not imply that
+the wave oscillations in case 4 will grow continuously. Thus, it is
+expected that the growth rate for case 4 will be decreased, espe-
+cially at signiﬁcantly higher velocity perturbation ratios. For case
+Fig. 2. Modeled combustor conﬁguration and acoustic boundary conditions.
+Table 2
+Thermodynamic properties for the unburned and burnt gases.
+Temperature
+[K]
+Pressure
+[atm]
+Density
+½kg=m3
+Heat capacity
+ratio
+Unburnt gas
+300
+1
+1.177
+1.4
+Burnt gas
+1600
+1
+0.221
+1.4
+Table 1
+Dimensions of the combustor for 12 cases.
+Case
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+Plenum length [mm]
+96
+96
+96
+96
+160
+160
+160
+160
+224
+224
+224
+224
+Chamber length [mm]
+100
+150
+200
+400
+100
+150
+200
+400
+100
+150
+200
+400
+Fig. 3. Eigenfrequency trajectories of the 12 cases.
+512
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+
+
+--- Page 6 ---
+
+4, the computational results agree reasonably well with the exper-
+imental data [22]. It can be seen that case 5 and case 6 are always
+stable, while case 8 is always unstable. The numerical results for
+cases 5, 6, and 8 agree well with the experimental results. How-
+ever, for case 7, some slight deviations exist. As displayed in
+Fig. 4, case 7 is unstable until the velocity perturbation ratio
+reaches about 0.2, at which point it becomes stable for velocity
+perturbation ratios higher than 0.2. However, in the experiment,
+the oscillation grows until the velocity perturbation ratio reaches
+approximately 0.3. Thus, case 7 is associated with a transitional
+stability regime. In the computational results, cases 9–11 are stable
+and case 12 is always unstable. The numerical results are quite
+similar to the experimental results, but slight deviations exist for
+case 11. For the unstable cases listed in Table 3, a quantitative com-
+parison is made between the numerical results and experimental
+data in terms of the resonant frequency and the limit-cycle velocity
+perturbation ratio. Even if slight discrepancies exist, the present
+FDF-based approach shows an overall agreement with the experi-
+mental results. In cases 4, 8, and 12, since the FDF data are only
+available for velocity perturbation ratios up to 0.7, the analysis
+cannot be made for higher perturbation ratios. With simple linear
+extrapolation, however, the limit-cycle velocity perturbation ratios
+for cases 8 and 12 are estimated to be 0.9, which closely agrees
+with the experimental results.
+Next, in conjunction with the FDF-based approach, the present
+study attempted to ﬁnd the effective stabilization conditions of
+the perforated plate in Flame A conditions. Considering the resonant
+frequencies of all cases, we set the target frequency as 120 Hz. We
+also numerically tested the damping effects of the perforated plate.
+As discussed above, an alternative approach has been proposed to
+determine the porosity P by using Eq. (22). This equation determines
+a porosity value of P  0:0396 by calculating the bulk velocity in the
+back cavity (i.e., U1 ¼ uref Aref =A1 ¼ 2:67  222=652  0:306 ½m=s).
+Then, to obtain the back cavity length Lc, the effective length
+leff ¼ h þ pa=2 must be computed. However, there is no equation
+to determine the plate thickness h. Thus, parametric studies have
+been conducted to identify the effects of the plate thickness h on
+the attenuation characteristics. In accordance with the Strouhal
+number, the hole radius a is evaluated. By conducting parametric
+studies for a wide range of Strouhal numbers, the optimized value
+of the hole radius can be determined. Then, with a ﬁxed Strouhal
+number, the effects of varying the target frequency and the hole
+radius are numerically investigated. After optimal design parame-
+ters are determined, we impose the corresponding acoustic impe-
+dance at inlet, which is well described in Fig. 5.
+Fig. 6 presents the magnitude of calculated reﬂection coefﬁcient
+of the perforated plate for three Strouhal numbers at a ﬁxed plate
+thickness (h ¼ 2 mm) and the target frequency (f tar ¼ 120 Hz). This
+analysis was made to evaluate the performance of the perforated
+plate as an effective damper. In the present procedure, if the reﬂec-
+tion coefﬁcient is equal to zero at the certain frequency, this
+implies that there is no reﬂected wave at the perforated plate; this
+condition corresponds to the most effective stabilization condition.
+Here, if the target frequency is speciﬁed, the Strouhal number is
+linearly proportional to the hole radius. As indicated in Fig. 6, by
+decreasing the hole radius, the bandwidth becomes much wider
+and can be universally applied. These results suggest that the smal-
+ler hole radius (corresponding to the smaller Strouhal number) is
+more efﬁcient for stabilizing the oscillation induced by combus-
+tion. It can be also seen that, besides the target frequency, the con-
+ditions with a reﬂection coefﬁcient of zero appear periodically. This
+feature could be an additional beneﬁt. However, it is still inconve-
+nient for actual applications because the bandwidth at much
+higher frequencies becomes progressively narrower. Additionally,
+conditions that lead to a zero-reﬂection coefﬁcient rarely appear,
+especially at higher Strouhal numbers.
+Fig. 7 illustrates the effects of plate thickness on the reﬂection
+coefﬁcient with a ﬁxed hole radius (a ¼ 5 mm) and a speciﬁed tar-
+get frequency (f tar ¼ 120 Hz). Numerical results indicate that, by
+decreasing the plate thickness, the bandwidth becomes much
+wider. Similar to the inﬂuence of a smaller hole radius, much
+Fig. 4. Growth rates of the 12 cases.
+Table 3
+Comparison of the numerical results with the experimental data at the limit cycle.
+Case
+Flame A
+Resonant frequency
+[Hz]
+Limit cycle velocity
+perturbation ratio
+Exp.
+Num.
+Exp.
+Num.
+4
+137
+150 "
+0.8
+0.7 "
+7
+120
+125
+0.3
+0.2
+8
+116
+124
+0.9
+; 0.9
+11
+115
+110
+0.4
+0.2
+12
+102
+110
+0.9
+; 0.9
+Fig. 5. Computational geometry to consider the effects of a perforated plate in a Helmholtz solver.
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+513
+
+
+--- Page 7 ---
+
+thinner plate thicknesses result in more efﬁcient damping. Thus, a
+thinner plate is a much better choice for stabilizing oscillations.
+Here, the periodical appearance of the jRj ¼ 0 point and a thinner
+bandwidth also appeared at higher frequencies.
+Fig. 8 shows the calculated reﬂection coefﬁcients of the perfo-
+rated plate for three different target frequencies f tar and hole radii
+a with a ﬁxed Strouhal number (St ¼ 0:488). These numerical
+results reveal that, even with the same Strouhal number, the band-
+width becomes much broader as the hole radius decreases. This
+trend suggests that, if unstable modes appear sporadically in the
+higher frequency regime, a perforated plate with a smaller hole
+radius tuned to a higher target frequency can be very effective at
+damping all of the unstable modes. It is also observed that the pro-
+ﬁles of the reﬂection coefﬁcient become progressively biased as the
+frequency increases.
+The present parametric studies conﬁrm that a thinner perfo-
+rated plate with a smaller hole size yields more efﬁcient damping
+characteristics. Based on the numerical results obtained in this
+work, effective attenuation conditions for the perforated plate
+can
+be
+estimated
+as
+P  0:0396; h ¼ 2 mm; a ¼ 5 mm;
+f tar ¼ 120 Hz; and Lc ’ 0:4947 m. With these optimized design
+parameters, the corresponding speciﬁc impedance can be imposed
+at the inlet, as opposed to the acoustic boundary condition ^u ¼ 0.
+Under actual conditions, the resonant frequencies can vary from
+115 to 160 Hz. This implies that setting the target frequency to
+Fig. 6. Magnitude of reﬂection coefﬁcient of the perforated plate for three Strouhal
+numbers at a ﬁxed plate thickness (h ¼ 2 mm) and target frequency (f tar ¼ 120 Hz).
+Fig. 7. Reﬂection coefﬁcients of the perforated plate for three plate thicknesses
+with a ﬁxed hole radius (a ¼ 5 mm) and target frequency (f tar ¼ 120 Hz).
+Fig. 8. Reﬂection coefﬁcients of the perforated plate for three different target
+frequencies f tar and hole radii a with a ﬁxed Strouhal number (St ¼ 0:488).
+Fig. 9. Eigenfrequency trajectories for the 12 cases attenuated by the perforated
+plate (P  0:0396; h ¼ 2 mm; a ¼ 5 mm; f tar ¼ 120 Hz; and Lc ’ 0:4947 m).
+514
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+
+
+--- Page 8 ---
+
+120 Hz is sufﬁcient. In this analysis, the imaginary part of the fre-
+quency is not considered while evaluating the target frequency.
+Fig. 9 shows the calculated eigenfrequency trajectories for the 12
+cases attenuated by the perforated plate.
+The numerical results clearly indicate that the perforated plate
+designed in this study has the ability to drastically damp oscilla-
+tions for all 12 cases. The proposed optimal attenuation condi-
+tions for the perforated plate ensure stable conditions for the
+whole range of velocity perturbation ratios. It can be also seen
+that these calculated eigenfrequency trajectories show distinctly
+different damping characteristics, as compared to the undamped
+results illustrated in Fig. 3. In these numerical results, the reso-
+nant frequencies are increased from about 115–160 Hz to 200–
+280 Hz, while the growth rates are decreased from about 2–16
+[1/s] to 40 – 180 [1/s]. For all 12 cases, the ﬁrst mode of each
+case was unstable before applying the damper; however, after
+damping, all of the cases became very stable. Therefore, it has
+been veriﬁed that our proposed passive damper, using a perfo-
+rated plate, is quite effective for attenuating the combustion
+instability.
+5. Conclusions
+The present study focused on analyzing the combustion insta-
+bility in a lab-scale lean-premixed burner using an FDF-based
+approach. We also performed the design analysis for the attenua-
+tion characteristics of a perforated plate which has the excellent
+potential for stabilizing the combustion instability encountered
+in industrial gas turbine combustors. Based on the numerical
+results, the following summaries can be drawn:
+(1) In order to overcome the drawbacks of the conventional
+approaches utilizing the Howe model, the present study
+has proposed the new approach employing the Luong model.
+The model formulation indicates that the present approach
+has the basic advantages such as the applicability to the
+whole range of Strouhal numbers and capability to account
+for the effects of ﬁnite plate thickness.
+(2) In terms of the resonant frequency and the limit-cycle veloc-
+ity perturbation ratio, the present FDF-based approach
+shows an overall agreement with the experimental results
+even if slight discrepancies exist.
+(3) Numerical results indicate that by decreasing the hole radius
+or the plate thickness, the bandwidth becomes much wider
+and the applicability could be progressively widened. Even
+with the same Strouhal number, the bandwidth can become
+much broader by decreasing the hole radius. It is also found
+that, if unstable modes appear sporadically in the higher fre-
+quency regime, a perforated plate with a smaller hole radius
+tuned to a much higher target frequency can be very effec-
+tive at damping all of the unstable modes.
+(4) Moreover, the present study also attempted to ﬁnd the effec-
+tive stabilization conditions for the perforated plate and
+numerically evaluated the damping effects of the perforated
+plate. The perforated plates designed in this numerical study
+have demonstrated the ability to drastically dampen the
+oscillations for all test cases. It has been veriﬁed that the
+proposed attenuation conditions of the perforated plate
+ensure stable conditions over the whole range of velocity
+perturbation ratios.
+Acknowledgements
+This work was supported by the Development of 300 MW class
+Korean IGCC demonstration plant technology of the Korea institute
+of Energy Technology Evaluation and Planning (KETEP) grant
+funded by the Korea government Ministry of Knowledge Economy.
+References
+[1] T. Poinsot, D. Veynante, Theoritical and Numerical Combustion, third ed., R.T.
+Edwards, Bordeaux, France, 2011.
+[2] P. Salas, Aspects numeriques et physiques des instabilites thermoacoustiques
+dans les chambres de combustion anulaires, PhD thesis, Uniersite Bordeaux 1.
+[3] C.A. Armitage, R. Balachandran, E. Mastorakos, R.S. Cant, Combust. Flame 146
+(2006) 419–436.
+[4] M. Shahi, J.B.W. Kok, A.K. Pozarlik, J.C.R. Casado, T. Sponfeldner, In ASME Turbo
+Expo 2013: Turbine Technical Conference and Exposition, Paper GT 2013-
+94328.
+[5] G. Boudier, L.Y.M. Gicquel, T. Poinsot, D. Bissieres, C. Berat, Proc. Combust. Inst.
+31 (2007) 3075–3082.
+[6] M. Shahi, J.B.W. Kok, J.C.R. Casado, A.K. Pozarlik, Appl. Therm. Eng. 71 (2014)
+276–290.
+[7] M. Shahi, J.B.W. Kok, J.C.R. Casado, A.K. Pozarlik, Appl. Therm. Eng. 81 (2015)
+128–139.
+[8] S. Hermeth, Mechnisms Affecting the Dynamic Response of Swirled Flames in
+Gas Turbines, PhD thesis, Universite den Toulouse.
+[9] Benedetta Franzelli, Eleonore Riber, Laurent Y.M. Gicquel, Thierry poinsot,
+Combust. Flame 159 (2012) 621–637.
+[10] S. Roux, G. Lartique, T. Poinsot, U. Meier, C. Berat, Combust. Flame 141 (2005)
+40–54.
+[11] Pierre Wolf, Gabriel Staffelbach, Laurent Y.M. Gicquel, Jens-Dominik Muller,
+Thierry poinsot, Combust. Flame 159 (2012) 3398–3413.
+[12] F. Proch, A.M. Kempf, Proc. Combust. Inst. 35 (2015) 3337–3345.
+[13] G. Lartigue, U. Meier, C. Berat, Appl. Therm. Eng. 24 (2004) 1583–1592.
+[14] F. Boudy, Nonlinear dynamics and control analysis of combustion instabilities
+based on the ‘‘Flame Describing Function” (FDF), Other. Ecole Centrale Paris,
+2012. English. <NNT: 2012ECAP0056>. <tel-00870770>.
+[15] G. Campa, Prediction of the Thermoacoustic Combustion Instability in Gas
+Turbines, PhD thesis, Politecnico di Bari.
+[16] D. Laera, A. Gentile, S.M. Camporeale, E. Bertolotto, L. Roﬁ, F. Bonzani, In ASME
+Turbo Expo 2015: Turbine Technical Conference and Exposition, Paper
+GT2015-42322.
+[17] G. Campa, E. Cosatto, S.M. Camporeale, Proceedings of the 2012 COMSOL
+Conference.
+[18] F. Boudy, D. Durox, T. Schuller, G. Jomaas, S. Candel, ASME J. Eng. Gas Turbines
+Power 133 (2011) P061502.
+[19] F. Boudy, D. Durox, T. Schuller, S. Candel, C. R. Mec. 341 (2013) 181–190.
+[20] N. Noiray, D. Durox, T. Schuller, S. Candel, Int. J. Aeroacoust. 8 (1) (2009) 157–
+176.
+[21] N. Noiray, D. Durox, T. Schuller, S. Candel, J. Fluid Mech. 615 (2008) 139–167.
+[22] C.F. Silva, F. Nicoud, T. Schuller, D. Durox, S. Candel, Combust. Flame 160
+(2013) 1743–1754.
+[23] P. Palies, D. Durox, T. Schuller, S. Candel, Combust. Flame 158 (2011) 1980–
+1991.
+[24] K.T. Kim, J.G. Lee, B.D. Quay, D.A. Santavicca, Combust. Flame 157 (2010)
+1718–1730.
+[25] A. Huber, Impact of Fuel Supply Impedance and Fuel Staging on Gas Turbine
+Combustion Stability, PhD thesis, Technische Universitat Munchen.
+[26] A. Scarpato, Linear and nonlinear analysis of the acoustic response of
+perforated plates traversed by a bias ﬂow, Engineering Sciences [physics].
+Ecole Centrale Paris, 2014. English. <NNT: 2014ECAP0038>. <tel-01126834>.
+[27] S.H. Lee, J.G. Ih, K.S. Peat, J. Sound Vib. 303 (2007) 741–752.
+[28] S. Mendez, J.D. Eldredge, J. Comput. Phys. 228 (13) (2009) 4757–4772.
+[29] E. Gullaud, S. Mendez, C. Sensiau, F. Nicoud, T. Poinsot, C.R. Academie, Sci.
+Mécanique 337 (2009) 406–414.
+[30] A. Scarpato, S. Ducruix, T. Schuller, J. Sound Vib. 332 (2013) 4856–4875.
+[31] T. Luong, M.S. Howe, R.S. McGowan, J. Fluids Struct. 21 (8) (2005) 769–778.
+[32] L. Crocco, J. Am. Rocket Soc. 21 (1951) 163–178.
+[33] A. Kaufmann, F. Nicoud, T. Poinsot, Combust. Flame 131 (2002) 371–385.
+[34] M.S. Howe, Proc. Roy. Soc. A366 (1979) 205–223.
+[35] M.S. Howe, Acoustics of Fluid-Structure Interactions, Cambridge University
+Press, Cambridge, UK, 1998.
+[36] X. Jing, X. Sun, J. Acoust. Soc. Am. 106 (5) (1999) 2436–2441.
+[37] H. Levine, J. Schwinger, J. Propul. Power 19 (5) (1948) 383–406.
+[38] S. Rienstra, A. Hirschberg, An Introduction to Acoustics, Eindhoven University
+of Technology.
+S. Oh et al. / Applied Thermal Engineering 107 (2016) 508–515
+515

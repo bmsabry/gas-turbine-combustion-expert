@@ -1,0 +1,1598 @@
+
+--- Page 1 ---
+
+Nadezhda A. Slavinskaya
+Anton Zizin
+Manfred Aigner
+German Aerospace Center (DLR),
+Institute of Combustion Technology,
+Pfaffenwaldring 38-40,
+70569 Stuttgart, Germany
+On Model Design of a Surrogate
+Fuel Formulation
+Calculations of evaporation characteristics (distillation curve, two-phase diagram, and
+critical points) of surrogates are described in detail. The efﬁciency of some surrogate
+blends, represented in literature, in reﬂecting the evaporation characteristics was ana-
+lyzed. Based on the analysis, the chemical capabilities of surrogate models are not linked
+to their abilities to reﬂect the phase-equilibrium properties of real fuel. It is shown that
+model design of practical fuels must include the phase-equilibrium and distillation curve
+calculations. A surrogate mixture was selected, which closely matches the boiling-point
+curve and two-phase diagram for jet-A. Next, physical properties of reference fuel were
+taken into consideration: combustion enthalpy, formation enthalpy, molar weight, ap-
+proximate formula (carbon per hydrogen ratio), sooting tendency index, critical point,
+two-phase diagram, and distillation curve. DOI: 10.1115/1.4000593
+1
+Introduction
+Practical fuels, such as gasoline, kerosene, diesel, and so on, are
+complex mixtures of several hundred individual species, the ma-
+jority of which are distilled from crude oil. Therefore, only sim-
+pliﬁed chemical kinetic models of practical fuels surrogate blends
+or reference fuels can be used in the design of engine combustion
+chambers. Standard rules for the construction of an input content
+formula of a surrogate mixture are not yet developed, but the
+general principles of such a construction are evident and require
+the reference fuel to have the essential physical and chemical
+properties of the real fuel. Here, under the physical properties we
+understand density, fuel energy content, evaporation characteris-
+tics boiling range, ﬂash point, and vapor pressure, thermal con-
+ductivity, surface tension, viscosity, and so on. The chemical prop-
+erties relate to the chemical composition, carbon per hydrogen
+C/H ratio, ﬂow reactor concentration histories, ﬂame speeds,
+ignition delays, sooting tendency, and so on. The components of
+the surrogate fuel and their amounts or percentages input formula
+of a surrogate fuel model are to be speciﬁed based on the list of
+chemical and physical properties that need to be predicted. The
+number of components in the input formula of the surrogate has to
+be kept reasonably small usually three to ten. Generally, at this
+stage of the model development we must do the ﬁrst step in the
+model reduction and include in the surrogate mixture whenever
+possible only the species that are essential for the representation
+of physical and chemical properties of the modeled fuels.
+Since one of the main aims of the combustion modeling is the
+simulation of fuel heat release ﬂame speed and ignition delay
+times and pollution formation, it is easy to determine the “chemi-
+cal properties” required for the construction of the input surrogate
+formula. The “physical properties,” most closely connected to the
+chemical properties, are density and fuel enthalpy. These two
+quantities are additive and do not inﬂuence remarkably the num-
+ber of hydrocarbons in the reference fuel, as the density and en-
+thalpy values of individual hydrocarbons involved in the practical
+fuel combustion are quite similar 1.
+Other physical characteristics, such as the evaporation and vis-
+cosity, have a greater impact on the number of components in the
+surrogate blend and are at the same time difﬁcult to predict. They
+are very important for the precombustion processes in the cham-
+bers with short residence times of the propellants and high efﬁ-
+ciency requirements such as liquid propellant rocket engines or jet
+engines. Due to the inﬂuence of surface tension and density gra-
+dients on the fuel atomization and mixing, all other physical prop-
+erties are more or less closely linked to these two. A large number
+of surrogate fuel mixtures have been proposed recently, evaluated
+in engines, in fundamental experiments, and studied numerically.
+Most of those were developed for various jet fuels 1–12. These
+models simulate the fuel oxidation chemistry and generally, suc-
+cessfully reﬂect the combustion kinetic. Unfortunately, the capa-
+bilities of the surrogate models to reﬂect the physical properties,
+especially the evaporation characteristic, are considerably less
+studied. The present work is aimed to elaborate criteria for the
+determination of the input formula of the reference fuel model. It
+is our ﬁrst step to establish the principles of model design of
+surrogate blends.
+This work is concentrated on the evaluation of evaporation
+characteristics of reference fuel models. In the ﬁrst part of this
+paper, we brieﬂy describe the boiling characteristics of hydrocar-
+bons used in the surrogate blends. The second part is devoted to
+the methods employed for the calculation of phase diagrams, criti-
+cal points, and distillation curves of multicomponent mixtures.
+The third part contains the thermodynamic analysis of some sur-
+rogate blends presented in literature and the evaluated composi-
+tion of a sample surrogate blend, which reﬂects the evaporation
+properties of the aviation fuel.
+2
+Reference Fuel Evaporation Characteristics
+The hydrocarbons of practical fuels are primarily parafﬁns,
+naphthenes cycloparafﬁns, and aromatics. In Table 1 we summa-
+rize the hydrocarbons used in different chemical models for gaso-
+line, kerosene, and diesel 1–12. These species successfully rep-
+resent hundreds of hydrocarbons in surrogate mixtures by
+simulations of fuel oxidation. How do these species represent the
+evaporation characteristics? What kind of criteria do we have to
+evaluate these characteristics?
+First, the requirements for the fuel volatility are traditionally
+preset by the distillation curve temperature boiling-point TBP
+curve—boiling temperature versus the volume of evaporated frac-
+tion during distillation, which represents the distribution of spe-
+cies by boiling temperatures. Quite often, fuel is characterized by
+the maximum evaporated percent volume only for some boiling
+temperatures instead of the distillation curve. The most important
+distillation characteristics are the temperatures at the top end of
+the range, as these provide a measure of the proportion of heavier
+components, which correlate closely with aromatic contents in
+particular. Heavier components in the fuel have more potential for
+incomplete vaporization and combustion, which results in the in-
+creased production of smoke or soot. Presetting lower end values
+Contributed by the International Gas Turbine Institute IGTI of ASME for pub-
+lication in the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript
+received April 22, 2009; ﬁnal manuscript received June 3, 2009; published online
+August 5, 2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-1
+Copyright © 2010 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+of the distillation curve, which correspond to higher temperatures,
+reduces the proportion of the heavy components and produces a
+cleaner burning. It can also reduce the density and the viscosity of
+the fuel as these properties are closely connected. If we want to
+describe the distillation curve for a mixture, we have to select a
+set of hydrocarbons with the boiling temperatures lying between
+the lowest and highest temperatures of the distillation curve. The
+boiling temperatures of individual hydrocarbons used in surrogate
+fuel models are provided in Table 2. Evidently, one can generate a
+variety of different sets, which will describe the given boiling
+range.
+The distillation curve for an individual fuel is usually obtained
+from experiments 14–17 and these data can be used for the
+validation of the surrogate blend content 10,17.
+Examples of TBP curves are presented in Figs. 1–3 revealing
+that different fuel grades have different distillation curves. We
+would like to note that there are no sufﬁcient data for distillation
+curves and that it is difﬁcult to evaluate experimental errors in
+available measurements or to ﬁnd data related to the selected fuel.
+Second, the phase behavior e.g., vapor-liquid equilibrium and
+accordingly surface tension and viscosity over the full ranges of
+temperature and pressure is characterized by two-phase diagrams,
+Fig. 4. Unfortunately, the situation with experimental two-phase
+diagrams is even worse than that with distillation curves—we did
+not ﬁnd other measurements of liquid-gas equilibrium for real fuel
+besides data reported in Ref. 8, and for gasoline we did not ﬁnd
+those at all. The phase equilibrium deﬁnes more the chemical
+Table 1
+Hydrocarbons used in surrogate fuel models
+Gasoline 4,8
+Primary reference fuel components:
+Other candidates:
+Toluene
+Ethanol
+n-heptane
+Iso-butane
+Iso-octane
+n-pentane
+Iso-pentane
+Cyclopentane
+Cyclohexane
+m-xylene
+Methyl-cyclohexane
+Jet 2,6–12
+Benzene
+Tetralin
+Toluene
+Butylbenzene
+Methylcyclohexane MCH
+Tetramethylbenzene
+n-heptane
+Decalin
+Ethyl benzene
+n-decane
+m-xylene
+Methyl-naphthalene
+Iso-octane
+n-undecane
+Cyclooctane
+n-dodecane
+Propylbenzene
+n-octyl-cyclopentane
+1,2,4-trimethylbenzene
+n-tetradecane
+n-propylcyclohexane
+n-pentadecane
+n-nonane
+n-hexadecane
+Naphthalene
+Diesel 3
+Primary reference fuel components:
+Other candidates:
+Heptamethylnonane HMN
+Ethyl-/
+n-hexadecane
+Propyl-/
+Butylcyclohexane
+Ethyl-/
+Propyl-/
+Butyl benzene
+Toluene
+Methyl-cyclohexane
+n-heptane
+Iso-octane
+Decalin
+Tetralin
+Methyl-naphthalene
+n-decane
+n-dodecane
+Tetradecane
+n-decylbenzene
+Iso-cetane
+Table 2
+Thermodynamical properties of hydrocarbons used in
+surrogate fuel models †13‡
+Formula
+Name
+Tboil
+Tcrit
+Pcrit
+n- and iso-parafﬁns
+CHCH33
+Iso-butane
+261.34
+407.85
+36.4
+C5H12
+n-pentane
+309.22
+469.7
+33.7
+C5H12
+Iso-pentane
+300.99
+460.39
+33.81
+C6H14
+Hexane
+341.88
+507.6
+30.25
+C7H16
+Heptane
+371.57
+540.2
+27.4
+C7H16
+2-methylhexane
+363.18
+530.1
+27.3
+C8H18
+3et2metpentane
+388.81
+567
+27
+C8H18
+Iso-octane
+372.39
+543.9
+25.7
+C9H20
+Nonane
+423.97
+594.6
+22.9
+C10H22
+n-decane
+447.3
+617.7
+21.1
+C11H24
+Undecane
+469.08
+639
+19.8
+C12H26
+Dodecane
+489.48
+658
+18.2
+C13H28
+Tridecane
+508.63
+675
+16.8
+C14H30
+Tetradecane
+526.76
+693
+15.7
+C15H32
+Pentadecane
+543.83
+708
+14.8
+C16H34
+Hexadecane
+559.98
+723
+14
+C16H34
+HMN
+520.25
+693
+15.7
+Cycloparafﬁns
+C6H12
+Cyclohexane
+353.93
+553.5
+40.73
+C7H14
+Methylcyclohexane
+374.09
+572.19
+34.71
+C8H10
+M-xylene
+412.34
+617
+35.41
+C8H16
+Cyclooctane
+424.31
+647.2
+35.7
+C8H16
+Ethylcyclohexane
+405
+609
+C9H18
+Propylcyclohexane
+429.9
+639
+27.7
+C10H18
+Trans-decalin
+460.42
+687
+46
+Aromatics
+C6H6
+Benzene
+353.24
+562.05
+48.95
+C7H8
+Toluene
+383.79
+591.75
+41.08
+C8H10
+Ethylbenzene
+409.36
+617.15
+36.09
+C9H12
+Propylbenzene
+432.35
+638.35
+32
+C9H12
+1,2,4-trimethylbenzene
+442.5
+649.1
+32.32
+C10H12
+Tetralin
+480.75
+720
+36.5
+C11H10
+1-methyl-naphthalene
+517.84
+772
+36
+Fig. 1
+Distillation curves for gasoline samples: pure gasoline,
+gasoline with 21% added ethanol from Ref. †15‡ and distillation
+curves of the 91 AI †16‡
+111501-2 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+composition of a surrogate mixture: blends and real fuel must
+have identical boiling range/phase behavior and critical tempera-
+ture and pressure.
+These parameters are not additive and are not easy to ﬁt. They
+are calculated from the equation of state EOS, i.e., are linked
+directly to the thermodynamic state functions. Ideally, for well-
+controlled modeling, we have to approximate the thermodynamic
+functions of a multicomponent real fuel to those of the simpliﬁed
+surrogate blend. In what follows, we made an attempt to identify
+tools to calculate thermodynamic equilibrium, i.e., two-phase dia-
+grams and critical points, for multicomponent mixtures. Using
+these tools we calculated the two-phase diagrams for some surro-
+gates from literature and optimized the chemical contents of a
+blend, which satisﬁes the thermodynamic properties of practical
+fuels.
+Calculating vapor-liquid equilibrium for mixtures, one faces
+two main problems. The ﬁrst one is choosing an equation of state,
+which can provide reliable results and at the same time can be,
+possibly, simple and would not require additional calculations to
+determine the equation parameters. The second problem is choos-
+ing a mixing rule to evaluate EOS parameters for multicomponent
+mixtures. For nonideal cases a big difference in molecular size,
+high polarity, and so on simple mixing rules are not applicable.
+3
+Choosing of an Equation of State
+At present there are dozens of different equations of state,
+which can be divided into four groups beginning from simple ones
+Peng–Robinson and Redlich–Kwong to more complex Patel,
+Zabaloy, and Vera perturbation models. A detailed review and
+comparison of equations of state and mixing rules can be seen in
+Refs. 13,18–22, Table 3.
+3.1
+Virial Equation of State. The virial equation of state has
+a theoretical basis, its coefﬁcients relate to intermolecular forces
+Z = 1 + B
+v + C
+v2 + D
+v3 ¯
+1
+where B,C,D... are the second, third, fourth… virial coefﬁcients.
+3.2
+Cubic Equation of State. The general form is
+P = RT
+v −b −
+a
+v2 + v + 
+2
+where a,b,, are the parameters.
+Various modiﬁcations of cubic equations van der Waals,
+Soave–Redlich–Kwong SRK, and Peng–Robinson are widely
+applied because all equation parameters can be easily evaluated
+from critical temperatures and pressures of studied substances.
+Martin 20 and Trebble and Bishnoi 21 carried out a detailed
+comparison of the different cubic equations of state.
+3.3
+Benedict–Webb–Rubin and Modiﬁed Benedict–Webb–
+Rubin Equations of State. The general form is
+Fig. 2
+Distillation curves for kerosene samples: experimental
+distillation curve for S-8 at 83 kPa, adjusted for volume shift
+from Ref. †17‡ and boiling-point curves for jet-A and JP-8 fuels
+from Ref. †10‡
+Fig. 3
+Distillation curves for diesel samples: experimental dis-
+tillation curves from Refs. †23,24‡
+Fig. 4
+Phase diagram for jet-A and diesel fuels from Ref. †8‡;  symbols
+used for critical points,  symbols used for bubble points, and  symbols
+used for dew points
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+Z = 1 + f1T/V + f2T/V2 + f3T/Vn + f4T
+1 + 2/V2/Vmexp−2/V2
+3
+where functions fi can contain up to 30 parameters and 1,2 are
+additional parameters. It provides a high level of equation ﬂex-
+ibility and accuracy. This resulted in the development of many
+modiﬁcations, which are widely used for engineering purposes.
+The Span–Wagner modiﬁcation 25
+p
+RT =
+i=1
+Ipol
+nitidi + 
+i=Ipol+1
+Ipol+Iexp
+nitidi exp−2
+4
+where values of Ipol, Iexp, ti, and di are deﬁned in the “trial and
+error” procedure.
+3.4
+Perturbation Models. Compressibility factor Z is found
+using the thermodynamic partial derivation of residual Helmholtz
+energy 13
+Z = 1 −v
+Ar/RT
+v 
+
+5
+Molecules are considered as a collection of functional groups.
+Residual Helmholtz energy is written as
+Ar/RT = AR
+r T,v/RT + Aatt
+r T,v/RTi
+6
+where perturbation terms Aatt
+r T,v/RT can be obtained from a
+rigorous or precise theory. For example, in the statistical
+associated-ﬂuid theory, residual Helmholtz energy consists of
+Helmholtz energies of the ideal gas Aideal, the molecule chains
+Achain, the molecule segments Asegm, and the associations Aassoc
+18,26
+Ar = Aideal + Asegm + Achain + Aassoc
+7
+4
+Choosing Mixing Rules
+There is a multitude of mixing rules for the EOS parameters
+proposed: beginning from simple van der Waals rules to compli-
+cated relations containing Gibbs energy.
+van der Waals mixing rule for an arbitrary parameter 
+m =
+i=1
+n
+
+j=1
+n
+yiyjij
+8
+where cross parameter ij is deﬁned by combining rules
+ij = ii + jj
+2
+1 −lij
+9
+if =b from Eq. 2 and
+ij = iijj1 −kij
+10
+if =a from Eq. 2. lij and kij are found by ﬁtting into the
+experimental data, if they are not available they are usually con-
+sidered zero. This mixing rule also has many composition-
+dependent modiﬁcations 27–32.
+For a more precise result or in case of a strong nonideality of
+substances, excess Gibbs energy GE mixing rules should be ap-
+plied 19. A detailed review and comparison of equations of state
+and mixing rules can be found in Refs. 13,18,19,26.
+The difference in size of hydrocarbons used in reference blends
+rarely exceeds factor 2; also, hydrocarbons are nonpolar mol-
+ecules with well established available thermodynamical param-
+eters. For those reasons, we can apply the simple cubic equation
+of state Soave modiﬁcation of the Redlich–Kwong EOS and van
+der Waals mixing rules to two-phase diagram calculations with
+acceptable accuracy.
+5
+Calculations of Reference Fuel Evaporation Charac-
+teristics
+5.1
+Phase Diagram. The developed method of phase diagram
+calculation is based on the works of Michelsen 22,33 and Asse-
+lineau et al. 34.
+The used SRK equation of state is
+P = RT
+v −b −
+a
+vv + b
+11
+The fugacity coefﬁcient for SRK EOS can be calculated as
+Table 3
+Comparison of the main types of equations of state †13,18–22‡ „modiﬁed Benedict–
+Webb–Rubin „MBWR……
+EOS
+Advantage
+Disadvantage
+Virial equation of state
+• Relatively simple
+• Not precise at high pressure
+• Coefﬁcients are very difﬁcult to determine
+• Usually can be applied only for a
+single-phase gas system
+Cubic
+• Simple
+• Analytic expressions for
+density or fugacity are not
+too demanding
+• Adequate, but does not provide perfect
+accuracy
+• For polar and associating substances,
+four and more parameters should be used
+• Inapplicable for mixtures of ﬂuids with
+big differences in molecular size
+BWR and MBWR
+• Good precision
+• Many parameters should be calculated
+• Results depend strongly on errors in
+experimental data used for the parameter
+evaluation
+• Generalized modiﬁcations with a small
+amount of parameters are not accurate
+Based on the perturbation
+theory perturbed hard chain,
+statistical associated ﬂuid,
+and perturbed hard chain
+of spheres
+• Good precision
+• Very complicated
+• Applicable for mixtures
+of substances with big
+differences in molecular size
+• For mixtures of unlike molecules, three or
+four pure-component parameters are needed
+• Applicable for high pressures
+111501-4 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+lni = −lnz1 −bmix
+	 		 + bi
+bmix
+z −1 +
+amix
+bmixRT
+ bi
+bmix
+−
+2
+j=1
+N
+aiajxj
+amix ln1 + bmix
+	 	
+12
+van der Waals mixing rules give for the EOS parameter calcula-
+tions
+amix
+L
+=
+i=1
+N
+
+j=1
+N
+xixjaij,
+bmix
+L
+=
+i=1
+N
+xibi
+13
+amix
+V
+=
+i=1
+N
+
+j=1
+N
+yiyjaij,
+bmix
+V
+=
+i=1
+N
+yibi
+where
+
+i = 0.48508 + 1.5571i −0.15613i
+2,
+i =1 +1 −
+i T
+Tcrit,i	
+2
+ai = 0.42747i
+R2Tcrit,i
+2
+Pcrit,i
+2
+,
+bi = 0.08664RTcrit,i
+Pcrit,i
+14
+aij = aiaj1 −kij
+Parameter kij is found by minimizing the discrepancy of experi-
+mental and calculated thermodynamic data. The strategy for the
+two-phase equilibrium determination can be explained as follows:
+from a given composition of liquid phase xi and system pressure P
+bubble point T problem we have to calculate the composition of
+gas phase yi and corresponding equilibrium temperature T. We
+have N+3 N is the number of substances unknowns: yi,i=1. . .N, T,
+and the compressibilities of liquid and gas phases—zL, zV; and
+N+3 equations: two equations of state, for liquid and gas phases,
+and N equilibrium conditions
+fi
+V = yii
+VP = yii
+LP = fi
+L,i = 1 ... N
+15
+and one equation for yi
+
+i=1
+N
+yi = 1
+16
+Now we can form a system of equations to be solved
+F1 = P −
+RT
+v −bmix
+L
++
+amix
+L
+vv + bmix
+L 
+F2 = P −
+RT
+v −bmix
+V
++
+amix
+V
+vv + bmix
+L 
+F3 = 1
+Lx1 −1
+Vy1
+17
+...
+Fn + 1 = n−1
+L xn−1 −n−1
+V yn−1
+Fn + 2 = n
+Lxn −n
+V1 −
+j=1
+n−1
+yj	
+for vector of variables VT=T,zL,zV,y1,y2, ... ,yN−1.
+The algorithm of the two-phase diagram construction is realized
+with the multidimensional Newton–Raphson method. Since this
+method is very sensitive to the initial solution, we must have a
+procedure
+for
+calculating
+the
+initial
+point:
+T0,z0
+L,z0
+V,y1
+0,
+y2
+0, ... ,yN−1
+0
+. As suggested by Mollerup cited in Ref. 33, K
+factors ratio yi to xi at low pressures are well approximated by
+Ki = yi
+xi
+=
+Pcriti
+P exp5.421 −
+Tcriti
+T 	,
+18
+Adding to these equations i=1
+N yi=1, we get an equation system of
+N+1 equations with N+1 unknowns yi,i=1...N;T and then
+using equations of state we can calculate zL, zV as the smallest
+and the biggest roots of the corresponding EOS.
+Figure 5a shows a schematic diagram for the proposed algo-
+rithm. For the dew curve the same algorithm is used, except that
+we have yi and calculate xi. Using this algorithm we were able to
+plot phase diagrams from low pressures to critical points for a
+large number of mixtures composed of up to 20 substances. Com-
+putation usually takes several seconds.
+5.2
+Critical Points. The calculation of critical points is based
+on the works of Heidemann and co-workers 35,36. The critical
+point is placed on the stability limit of the stable phase. To ﬁnd
+this stability limit, Helmholtz energy is expanded in a Taylor se-
+ries around the test point
+A −A0 −
+i
+N
+A/nini
+= 1
+2
+j
+N
+
+i
+N 
+2A
+ni  nj	ninj
++ 1
+6
+k
+N
+
+j
+N
+
+i
+N 
+3A
+ni  nj  nk	ninjnk + On4 19
+The stability limit of the stable phase critical point is mainly
+deﬁned by the quadratic term in Eq. 19. If the quadratic term
+equals zero, the stability is deﬁned by cubic, quaternary, and fol-
+lowing terms, and with high accuracy, only the cubic term can be
+taken into consideration. Therefore, the critical point is achieved if
+both the quadratic and cubic terms equal zero. Helmholtz energy
+can be expressed through fugacity
+2A
+ni  nj
+= RT ln fi
+nj
+20
+and
+3A
+ni  nj  nk
+= RT 2 ln fi
+nj  nk
+21
+Therefore, the system lies on the limit of stability when
+detQ = 0
+22
+where matrix Q is formed by elements
+Qij =
+2A
+ni  nj
+T,v
+= RT
+ ln fi
+nj 
+T,v
+23
+or what is the same system of equations
+Q · n = 0
+24
+should have a solution n=n1,n2, ... ,nNT.
+The deﬁnition of the critical point requires that with n found
+from Eq. 24 and inserted into Eq. 19, the ﬁrst nonvanishing
+term should be of even order; therefore, the cubic term should be
+equal to zero
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+C =
+k
+N
+
+j
+N
+
+i
+N 
+3A
+ni  nj  nk	ninjnk = 0
+25
+Constants of pure components and mixing rules are similar to
+those used for a phase diagram construction. For the case of SRK
+EOS elements of matrix Q became
+QijnT = RT
+ij
+xi
+2 + i + jF1 + ijF1
+2	
++ amix
+bmixijF3 −aij
+amix
+F5 + ij −ij −jiF6	
+26
+where
+i =
+1
+amix  xjaij,
+i = bi
+bmix
+27
+and cubic term 25 can be calculated using the following expres-
+sion:
+CnT
+2 = RT
+i=1
+N ni
+3
+xi
+2 + 3N¯ ¯F12 + 2¯F13	 + amix
+bmix
+3¯ 22¯ −¯
+F3 + F6 −2¯ 3F4 −3¯a¯F6
+28
+where
+N¯ =
+i
+ni,
+¯ =
+i
+nii
+29
+¯ =
+i
+nii,
+a¯ =
+1
+amix
+i 
+j
+ninjaij
+and
+F1 =
+1
+K −1,
+F2 =
+2
+K + 1
+F3 = 2
+1
+K + 1	
+2
+,
+F4 = 2
+1
+K + 1	
+3
+30
+F5 = 2 ln
+K + 1
+K 	,
+F5 = F2 −F5,
+K =
+v
+bmix
+Figure 5b shows a schematic ﬂowchart for the critical point
+calculation procedure. Such an algorithm allows for the calcula-
+tion of all critical points in the area of interest.
+For small mixtures up to ﬁve substances calculation time is
+several seconds, whereas for complicated mixtures more than 20
+substances it can reach a minute.
+5.3
+Distillation Curve. Distillation curves can be easily pre-
+dicted using the phase diagram algorithm. The equation for mate-
+rial balance for species i in liquid phase
+dMxi
+dt
+= −Vyi
+31
+where M is the total number of moles in the liquid phase and V is
+the molar ﬂow rate of evaporation. The ﬁrst boiling point is found
+for the initial mixture xi
+0 and then the composition xi
+k is recal-
+culated for the new mixture using the equilibrium vapor phase
+composition yi
+k−1 from the previous step.
+6
+Results
+6.1
+Validation. The described algorithms were veriﬁed on a
+variety of mixtures and experimental data 37–42. In general,
+SRK EOS shows good correlations for hydrocarbons. Signiﬁcant
+discrepancies can be observed for highly polar substances
+Fig. 5
+Schematic diagram of proposed algorithms for „a… phase diagram calculation and „b… critical
+point calculation
+111501-6 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+methanol-water mixture and hydrocarbons with a big size differ-
+ence methane-decane and methane-propyl-benzene. Neverthe-
+less, the calculation of the ethane-methylcyclohexane mixture pro-
+vides satisfactory results.
+Table 4 shows the correlation of calculations with experimental
+data 37 for propane-cyclohexane. The calculations performed
+also for propane-toluene, propane-m-xylene mixtures 37 demon-
+strate the same conformity with the experimental data. For the
+calculations, pressure and liquid phase compositions were preset,
+equilibrium temperature and vapor phase compositions were
+predicted.
+Mixing rules’ parameters kij are listed in Table 4 along with the
+results obtained using the REFPROP® code 43 provided by the
+National Institute of Standards and Technology NIST. This code
+uses the Span–Wagner modiﬁcation 25 of the Benedict–Webb–
+Rubin BWR EOS 4.
+REFPROP® 43 has an extensive but nonexhaustive list of spe-
+cies and can have problems with convergence near critical points,
+which cannot be evaluated with this tool. Model validation for the
+nine-species
+mixture
+40
+H2SuCO2uN2uCH4uC2H6u
+C3H8-n-C4H10-iso-C4H10uC5H12 is presented in Fig. 6. The cal-
+culation was made both by using the developed code and
+REFPROP® 43. A comparison of the calculated evaporation line
+with
+the
+experimental
+data
+for
+three
+component
+mixtures
+H2SuC6H14uC15H32 at constant temperature 424.5 K 39 is
+shown in Fig. 7.
+The results of the model validation on experimental data for
+critical point can be seen in Tables 5 and 6 and Fig. 8.
+Figure 9 shows the comparison of calculated and experimental
+distillation curves. Due to the time delay in the determination of
+the experimental data, there is a horizontal offset on the volume
+fraction axis, so the experimental points, except for the point cor-
+responding to the initial boiling temperature, are subject to a sev-
+Table 4
+Propane „1…-cyclohexane „2…; experimental †37‡ and calculated equilibrium data; k12
+=0.016
+P
+atm
+Texp
+K
+Tcalc
+K
+TNIST
+K
+x1 exp
+y1 exp
+y1 calc
+y1 NIST
+2.52
+313
+312.4
+281
+0.152
+0.906
+0.8286
+0.96
+5.47
+313
+311.2
+296
+0.378
+0.962
+0.9427
+0.97
+8.44
+313
+311.9
+306
+0.615
+0.9813
+0.9776
+0.98
+11.45
+313
+312.8
+310.5
+0.847
+0.9922
+0.9934
+0.99
+13.01
+313
+312.1
+313
+0.97
+0.9983
+0.9989
+0.999
+9.18
+393
+389.5
+354
+0.138
+0.68
+0.7016
+0.805
+12.44
+393
+389.1
+357
+0.208
+0.757
+0.7928
+0.84
+16.09
+393
+388.8
+360.5
+0.287
+0.812
+0.8538
+0.886
+21.42
+393
+0.395
+0.855
+26.05
+393
+390.2
+373
+0.491
+0.881
+0.932
+0.88
+38.29
+393
+391.6
+382
+0.731
+0.908
+0.975
+0.91
+17.76
+473
+470.2
+450
+0.054
+0.232
+0.349
+0.3
+28.62
+473
+470.4
+433
+0.175
+0.49
+0.671
+0.58
+46.98
+473
+473.6
+438
+0.372
+0.619
+0.852
+—
+58.23
+473
+475.7
+442
+0.515
+0.608
+0.913
+—
+Fig. 6
+Calculated and experimental †40‡ phase diagram for the
+H2SACO2AN2ACH4AC2H6AC3H8-n-C4H10-iso-C4H10AC5H12
+mixture
+Fig. 7
+Equilibrium pressure versus H2S mole fraction in
+H2SAC6H14AC15H32 mixture †39‡; k12=0.07, k13=k23=0
+Table 5
+Compositions of seven hydrocarbon mixtures, as well
+as the experimental †41‡ and calculated critical temperatures
+and pressures
+iso-C5
+0.1989
+n-C5
+0.1963
+n-C6
+0.1483
+n-C7
+0.1344
+n-C8
+0.1213
+n-C9
+0.1137
+n-C10
+0.1142
+Tcrit exp., K
+543.37
+Tcrit calc., K
+543.3
+Pcrit exp., atm
+35.04
+Pcrit calc., atm
+32.68
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+eral percent adjustment, depending on experimental apparatus and
+operating conditions. The calculations for C10H22uC14H30 mix-
+tures as well as those suggested in Ref. 17, S-8 fuel surrogate
+show a very good correlation with the experiments.
+The presented results of the model validation allow us to con-
+clude that the selected and well tested algorithms describe the
+thermodynamic phase equilibrium of multicomponent mixtures
+reasonably well and can be successfully applied to the evaluation
+of evaporation characteristics of surrogate blends.
+6.2
+Two-Phase Equilibrium Calculation. The tools devel-
+oped for two-phase equilibrium, critical points, and distillation
+curve calculations have been applied ﬁrst to examine the predic-
+tive capabilities of the surrogate models, presented in literature,
+Table 7, to reﬂect the phase equilibrium. Only in Refs. 10,45 did
+authors use the distillation curve among the other properties for
+the determination of the chemical composition of the surrogate
+model. Other proposed fuel models were tested only for chemical
+property modeling. All suggested surrogates show good results
+in
+concentration
+proﬁles
+and
+ignition
+delay
+reproductions
+2,7,10,44,45, but they do not describe the two-phase diagram. In
+Fig. 10 the comparison of phase diagrams calculated for mixtures
+from Refs. 2,7,10,44,45 and experimental data cited in Ref. 8
+are shown. While the critical pressure is described rather satisfac-
+torily, the discrepancies in critical temperatures are remarkably
+violent. We can say that it is possible to reproduce well the heat
+release of a fuel with a model, which does not reﬂect the evapo-
+ration properties of the fuel at all. For example, in Figs. 11 and 12
+we show the distillation curve and two-phase diagram for gasoline
+RD 387 46 and its reference model proposed in Ref. 46 as a
+blend of 63% n-C7H16+17% iso-C8H18+20% C7H8. Obviously,
+the proposed mixture does not describe the evaporation character-
+istic of the fuel, but the ignition delay times modeled with these
+surrogates show good conformity with the experimental data 47.
+The explanation for that lies in the different nature of modeled
+processes and in the difference between the methods applied in
+the chemical and physical modeling.
+The chemical models of hydrocarbon combustion have hierar-
+chical structure. Molecules and radicals have the similar func-
+Table 6
+Compositions of ﬁve hydrocarbon mixtures, as well
+as the experimental †41‡ and calculated critical temperatures
+and pressures
+n-C5
+0.2465
+n-C6
+0.2176
+n-C7
+0.1925
+n-C8
+0.1779
+n-C9
+0.1656
+Tcrit exp., K
+541.26
+Tcrit calc., K
+541.14
+Pcrit exp., atm
+30.6
+Pcrit calc., atm
+30.49
+Fig. 8
+Calculated and experimental †42‡ dependencies of criti-
+cal pressure and temperature for the n-butane-carbon dioxide
+system. Mixing rules’ parameter kij=0.06.
+Fig. 9
+Experimental and calculated distillation curves for
+75/25 and 50/50 mixtures of C10H22/C14H30 at P=83 kPa. Experi-
+mental data and surrogate mixture are from Ref. †17‡.
+Table 7
+Compositions of tested mixtures
+Lindstedt and Maurice 7
+n-decane 89% and toluene 11%
+Mawid et al. 12
+MCH 5%, toluene 20%, n-decane 25%,
+iso-octane 5%, n-dodecane 25%, and
+n-tetradecane 20%
+Dagaut and Cathonnet 2
+n-decane 74%, n-propylbenzene 15%, and
+n-propylcyclohexane 11%
+Violi et al., mix No. 2 10
+Xylenes 8.5%, tetralin 8%, n-octane 3.5%,
+decalin 35%, n-dodecane 40%, and
+n-hexadecane 5%
+Schulz 45
+Iso-octane 5.7%, MCH 5.1%, m-xylene
+4.5%, cyclooctane 4.7%, decane 16.2%,
+butyl benzene 4.6%, 1,2,4,5-tetramethyl
+benzene 4.4%, tetralin 4.1%, dodecane
+21%, and 1-methyl naphthalene 3.95%
+Fig. 10
+Calculated phase diagram for suggested in Refs.
+†2,7,10,44,45‡ fuel surrogates compared with experimental data
+cited in Ref. †8‡ for jet-A. CP means critical point and PD means
+phase diagram.
+111501-8 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 9 ---
+
+tional groups and consequently similar reaction rates for smaller
+and higher hydrocarbons, which determine the rate of combustion.
+While the behavior of functional groups is the key for chemical
+time scales, physical properties depend more upon intermolecular
+forces and molecular weight and therefore hydrocarbons with
+similar functional groups—may differ strongly in physical prop-
+erties. Also, the temperature of the processes, for which the blends
+are being analyzed, differs.
+Chemical combustion modeling deals mostly with T800 K,
+while the temperature of the two-phase diagram is less than 700
+K. It means the reference fuel model applied for the computa-
+tional ﬂuid dynamics CFD modeling of the practical combustion
+chamber must accumulate different capabilities of fuel, which
+poorly correlate with each other. We can conclude that by the
+reference model construction, the evaporation facilities of the ref-
+erence fuel must be tested in the ﬁrst place. Using the developed
+tools we optimized the reference mixture with 12 components
+proposed in Ref. 45, Table 7, to reproduce the phase-equilibrium
+phenomena. The surrogate blend 45 was selected for optimiza-
+tion because its phase diagram is at its closest to the experimental
+data, Fig. 10. During the optimization we reduced the number of
+components in the initial formula of a surrogate 45 to ﬁve com-
+ponents, which represent parafﬁns, naphthenes, and aromatics in
+the mixture, Table 8. This mixture represents the evaporation
+properties of kerosene: Figs. 13 and 14 show a good correlation
+with the experimental data and calculated distillation curve and
+phase diagram. Other essential physical properties presented in
+Table 8 are in accordance with those of real kerosene. The chemi-
+cal capabilities of this mixture will be developed later.
+7
+Conclusion
+This paper establishes the principles of the model design of
+surrogate blends. Next, physical properties of the reference fuel
+were taken into consideration: combustion enthalpy, formation en-
+Fig. 11
+Experimental distillation curves for gasoline †15,16‡
+and calculated boiling-point curve for RD 387 and its reference
+fuel †46‡
+Fig. 12
+Calculated two-phase diagram for RD 387 and its ref-
+erence fuel †46‡
+Table 8
+Composition of a proposed blend for kerosene com-
+bustion and its basic properties
+10% C9H18
+Combustion enthalpy
+45 MJ/kg
+propylcyclohexane
+cHf
+13% iso-C8H18
+Formation enthalpy
+160 kJ/mol
+iso-octane
+Hf
+20% C12H26
+Molar weight
+145 g/mol
+dodecane
+25% C11H10
+Approximate formula
+C11H19
+1-methylnaphtalene
+32% C16H34
+Sooting tendency index
+27.8
+hexadecane
+Fig. 13
+Experimental distillation curves for kerosene samples
+from Refs. †10,17‡ and calculated fuel boiling-point curve for a
+proposed fuel surrogate
+Fig. 14
+Calculated phase diagram for a proposed fuel surro-
+gate, Table 6, compared with experimental data cited in Ref. †8‡
+for jet-A
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-9
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 10 ---
+
+thalpy, molar weight, approximate formula C/H ratio, sooting
+tendency index, critical point, two-phase diagram, and distillation
+curve. Formulation strategy, experimental data, and numerical
+tools for blending pure hydrocarbons to reproduce a fuel surrogate
+distillation curve and phase-equilibrium diagram were described
+in detail. The efﬁciency of some surrogate blends, represented in
+literature, in reﬂecting the evaporation characteristics was ana-
+lyzed. Based on the analysis, the chemical capabilities of surro-
+gate models are not linked to their abilities to reﬂect the phase-
+equilibrium properties of the fuel and as a consequence good
+kinetic models cannot represent the thermodynamical behavior of
+the real system. In general, blending of pure hydrocarbons must
+begin with the phase-equilibrium and distillation curve calcula-
+tions.
+The selected surrogate mixture closely matches the boiling-
+point curve and two-phase diagram for jet-A. In the future, vis-
+cosity coefﬁcients and the kinetic characteristics of the proposed
+blend will be investigated.
+Acknowledgment
+The authors wish to thank Mag. Phil. Inga Eremeeva for her
+helpful editorial assistance.
+Nomenclature
+A  Helmholtz energy
+a  cubic EOS parameter
+b  cubic EOS parameter
+C  cubic form
+f  fugacity
+F  functions
+H  speciﬁc enthalpy
+i, j  indices
+k  mixing rules’ parameter
+K  equilibrium constant
+M  total number of moles in the liquid phase
+n  variation in concentration
+N  total number of substances
+P  pressure, atm
+Q  matrix
+Qij  element of matrix Q
+R  universal gas constant
+t  time
+T  temperature
+V  vector of variables
+V  molar ﬂow rate of evaporation
+x  molar fraction in liquid
+y  molar fraction in vapor
+Z,z  compressibility
+Greek Symbols
+,  temporary variables
+  Kronecker symbol
+  cubic EOS parameter
+  fugacity coefﬁcient
+  cubic EOS parameter
+
+  temporary variable
+  density
+  inverse reduced temperature Tc/T
+	  molar volume
+  acentric factor
+  reduced density /c
+References
+1 Bacha, J., Barnes, F., Franklin, M., Gibbs, L., Hemighaus, G., Hogue, N.,
+Lesnini, D., Lind, J., Maybury, J., and Morris, J., 2000, Aviation Fuels Tech-
+nical Review (FTR-3), Chevron Products Company, San Ramon, CA.
+2 Dagaut, P., and Cathonnet, M., 2006, “The Ignition, Oxidation, and Combus-
+tion of Kerosene: A Review of Experimental and Kinetic Modeling,” Prog.
+Energy Combust. Sci., 32, pp. 48–92.
+3 Farrell, J. T., Cernansky, N. P., and Dryer, F. L., 2007, “Development of an
+Experimental Database and Kinetic Models for Surrogate Diesel Fuels,” SAE
+International Paper No. 2007-01-0201.
+4 Pitz, W. J., Cernansky, N. P., Dryer, F. L., Egolfopoulos, F. N., Farrell, J. T.,
+Friend, D., and Pitsch, H., 2007, “Development of an Experimental Database
+and Chemical Kinetic Models for Surrogate Gasoline Fuels,” SAE Interna-
+tional Paper No. 2007-01-0175.
+5 Colket, M., Edwards, T., Williams, S., Cernansky, N. P., Miller, D. L., Egol-
+fopoulos, F., Lindstedt, P., Seshadri, K., Dryer, F. L., Law, C. K., Friend, D.,
+Lenhert, D. B., Pitsch, H., Saroﬁm, A., Smooke, M., and Tsang, W., 2007,
+“Development of an Experimental Database and Kinetic Models for Surrogate
+Jet Fuels,” 45th AIAA, Aerospace Sciences Meeting and Exhibit, Reno, NV,
+Jan. 8–11, 2007, Paper No. AIAA 2007-770.
+6 Colket, M., Edwards, T., Williams, S., Cernansky, N. P., Miller, D. L., Egol-
+fopoulos, F., Dryer, F. L., Bellan, J., Lindstedt, P., Seshadri, K., Pitsch, H.,
+Saroﬁm, A., Smooke, M., and Tsang, W., 2008, “Identiﬁcation of Target Vali-
+dation Data for Development of Surrogate Jet Fuels,” 46th AIAA, Aerospace
+Sciences Meeting and Exhibit, Reno, NV, Paper No. AIAA 2008-972.
+7 Lindstedt, P., and Maurice, L. Q., 2000, “Detailed Chemical–Kinetic Model for
+Aviation Fuels,” J. Propul. Power, 16, pp. 187–95.
+8 Edwards, T., and Maurice, L. Q., 2001, “Surrogate Mixtures to Represent
+Complex Aviation and Rocket Fuels,” J. Propul. Power, 172, pp. 461–466.
+9 Montgomery, C. J., Cannon, S. M., Mawid, M. A., and Sekar, B., 2002, “Re-
+duced Chemical Kinetic Mechanisms for JP-8 Combustion,” 40th AIAA,
+Aerospace Sciences Meeting and Exhibit, Paper No. AIAA 2002-0336, pp.
+1–10.
+10 Violi, A., Yan, S., Eddings, E. G., Saroﬁm, A. F., Granata, S., Favarelli, T., and
+Ranzi, E., 2002, “Experimental Formulation and Kinetic Model for JP-8 Sur-
+rogate Mixture,” Combust. Sci. Technol., 17411-12, pp. 399–417.
+11 Agosta, A., Cernansky, N. P., Miller, D. L., Favarelli, T., and Ranzi, E., 2004,
+“Reference Components of Jet Fuels: Kinetic Modeling and Experimental Re-
+sults,” Exp. Therm. Fluid Sci., 287, pp. 701–708.
+12 Mawid, M. A., Park, T. W., Sekar, B., and Arana, C., 2004, “Importance of
+Surrogate JP-8/Jet-A Fuel Composition in Detailed Chemical Kinetics Devel-
+opment,” 40th Joint Propulsion Conference and Exhibit, Fort Lauderdale, FL,
+Jul. 11–14, 2004, Paper No. AIAA 2004-4207.
+13 Polling, B. E., Prausnitz, J. M., and O’Connell, J. P., 2001, The Properties of
+Gases and Liquids, McGraw-Hill, New York.
+14 Kravchenko, A. P., Tsodikov, Yu. M., and Chinakal, V. O., 1974, “Construc-
+tion of Models With Variable Coefﬁcients for Atmospheric and Atmospheric-
+Vacuum Pipestill Units With Allowance for Quality Indices,” Khimiya i Tekh-
+nologiya Topliv i Masel, 3, pp. 5–7.
+15 de Oliveira, F. S., Teixeira, L. S. G., Araujo, M. C. U., and Korn, M., 2004,
+“Screening Analysis to Detect Adulterations in Brazilian Gasoline Samples
+Using Distillation Curves,” Fuel, 83, pp. 917–923.
+16 Smith, B. L., and Bruno, T. J., 2007, “Improvements in the Measurement of
+Distillation Curves. 3. Application to Gasoline and Gasoline+Methanol Mix-
+tures,” Ind. Eng. Chem. Res., 46, pp. 297–309.
+17 Huber, M. L., Smith, B. L., Ott, L. S., and Bruno, T. J., 2008, “Surrogate
+Mixture Model for the Thermophysical Properties of Synthetic Aviation Fuel
+S-8: Explicit Application of the Advanced Distillation Curve,” Energy Fuels,
+22, pp. 1104–1114.
+18 Sandler, S. I., 1994, Models for Thermodynamic and Phase Equilibria Calcu-
+lations, Marcel Dekker, New York.
+19 Wei, Y. S., and Sadus, R. J., 2000, “Equations of State for the Calculation of
+Fluid-Phase Equilibria,” AIChE J., 461, pp. 169–196.
+20 Martin, J. J., 1979, “Cubic Equations of State-Which?,” Ind. Eng. Chem. Fun-
+dam., 182, pp. 81–97.
+21 Trebble, M. A., and Bishnoi, P. R., 1986, “Accuracy and Consistency Com-
+parisons of Ten Cubic Equations of State for Polar and Non-polar Com-
+pounds,” Fluid Phase Equilib., 29, pp. 465–474.
+22 Michelsen, M., 1980, “Calculation of Phase Envelopes and Critical Points for
+Multicomponent Mixtures,” Fluid Phase Equilib., 4, pp. 1–10.
+23 Ott, L. S., Smith, B. L., and Bruno, T. J., 2008, “Composition-Explicit Distil-
+lation Curves of Mixtures of Diesel Fuel With Biomass-Derived Glycol Ester
+Oxygenates: A Fuel Design Tool for Decreased Particulate Emissions,” Energy
+Fuels, 22, pp. 2518–2526.
+24 Bugorkova, L. N., Burova, M. O., Kvasova, V. A., Leont’eva, S. A.,
+Yanovskii, S. M., and Demidenko, K. A., 1988, “Distillation of Petroleum
+Crudes and Products by “Chromadistillation” Method,” Khimiya i Tekh-
+nologiya Topliv i Masel, 7, pp. 36–37.
+25 Span, R., and Wagner, W., 2003, “Equations of State for Technical Applica-
+tions. I. Simultaneously Optimized Functional Forms for Nonpolar and Polar
+Fluids,” Int. J. Thermophys., 241, pp. 1–39.
+26 Prausnitz, J. M., Lichtenhaler, R. N., and Azevedo, E. G., 1999, “Molecular
+Thermodynamic of Fluid-Phase Equilibria,” 3rd ed., Prentice-Hall, Upper
+Saddle River, NJ.
+27 Adachi, Y., and Sugie, H., 1986, “A New Mixing Rule-Modiﬁed Conventional
+Mixing Rule,” Fluid Phase Equilib., 28, pp. 103–118.
+28 Panagiotopoulos, A. Z., and Reid, R. C., 1982, “New Mixing Rule for Cubic
+Equation of State for Highly Polar, Asymmetric Systems,” Equation of State-
+Theories and Applications, ACS Symposium Series, Vol. 300, K. C. Chao and
+R. L. Robinson, eds., pp. 571–582; see http://pubs.acs.org/doi/abs/10.1021/bk-
+1986-0300.ch028.
+29 Stryjek, R., and Vera, J. H., 1986, “PRSV: An Improved Peng-Robinson Equa-
+tion of State for Pure Compounds and Mixtures,” Can. J. Chem. Eng., 64, pp.
+323–333.
+111501-10 / Vol. 132, NOVEMBER 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 11 ---
+
+30 Stryjek, R., and Vera, J. H., 1986, “PRSV: An Improved Peng-Robinson Equa-
+tion of State With New Mixing Rules for Strongly Non Ideal Mixtures,” Can.
+J. Chem. Eng., 64, pp. 334–340.
+31 Schwartzentruber, J., Galivel-Solastiouk, F., and Renon, H., 1987, “Represen-
+tation of the Vapor-Liquid Equilibrium of the Ternary System Carbon Dioxide-
+Propane-Methanol and Its Binaries With a Cubic Equation of State: A New
+Mixing Rule,” Fluid Phase Equilib., 38, pp. 217–226.
+32 Sandoval, R., Wilczek-Vera, G., and Vera, J. H., 1989, “Prediction of Ternary
+Vapour-Liquid Equilibria With the PRSV Equation of State,” Fluid Phase
+Equilib., 52, pp. 119–126.
+33 Michelsen, M., 1982, “The Isothermal Flash Problem. Part II. Phase Split
+Calculation,” Fluid Phase Equilib., 9, pp. 21–40.
+34 Asselineau, L., Bogdanic, G., and Vidal, J. A., 1979, “Versatile Algorithm for
+Calculating Vapour-Liquid Equilibria,” Fluid Phase Equilib., 3, pp. 273–290.
+35 Heidemann, R. A., and Khalil, A. M., 1980, “The Calculation of Critical
+Points,” AIChE J., 265, pp. 769–779.
+36 Michelsen, M. L., and Heidemann, R. A., 1981, “Calculation of Critical Points
+From Cubic Two-Constant Equations of State,” AIChE J., 273, pp. 521–523.
+37 Richon, D., Laugler, S., and Renon, H., 1991, “High-Pressure Vapor-Liquid
+Equilibria for Binary Mixtures Containing a Light Parafﬁn and an Aromatic
+Compound or a Naphthene in the Range 313–473 K,” J. Chem. Eng. Data, 36,
+pp. 104–111.
+38 Jangkamolkulchai, A., and Luks, K. D., 1989, “Partial Miscibility Behavior of
+the
+Methane+Ethane+n-Docosane
+and
+the
+Methane+Ethane+n-Tetradecylbenzene Ternary Mixtures,” J. Chem. Eng.
+Data, 34, pp. 92–99.
+39 Laugier, S., and Richon, D., 1995, “Vapor-Liquid Equilibria for Hydrogen
+Sulfide+Hexane, +Cyclohexane, +Benzene, +Pentadecane, and +Hexane
++Pentadecane ,” J. Chem. Eng. Data, 40, pp. 153–159.
+40 Boukouvalas, C. J., Magoulas, K. G., Stamataki, S. K., and Tassios, D. P.,
+1997, “Prediction of Vapor-Liquid Equilibria With the LCVM Model: Systems
+Containing Light Gases With Medium and High Molecular Weight Com-
+pounds,” Ind. Eng. Chem. Res., 36, pp. 5454–5460.
+41 Hissong, D. W., 1968, “A Thermodynamic Analysis of the Critical Properties
+of Hydrocarbon Mixtures,” Ph.D. thesis, Ohio State University, OH.
+42 Olds, R. H., Reamer, H. H., Sage, B. H., and Lacey, W. N., 1949, “Phase
+Equilibria in Hydrocarbon Systems: The n-Butane-Carbon Dioxide System,”
+Ind. Eng. Chem., 413, pp. 475–482.
+43 Lemmon, E. W., Huber, M. L., and McLinden, M. O., 2007, “NIST Standard
+Reference Database 23: Reference Fluid Thermodynamic and Transport
+Properties-refprop, Version 8.0,” National Institute of Standards and Technol-
+ogy, Standard Reference Data Program, Gaithersburg.
+44 Mawid, M. A., and Sekar, B., 2006, “Development of a Detailed JP-8/Jet-A
+Chemical Kinetic Mechanism for High Pressure Conditions in Gas Turbine
+Combustors,” ASME Paper No. GT2006-90478.
+45 Schulz, W. D., 1993, “Static Tests of Jet Fuel Thermal and Oxidative Stabil-
+ity,” J. Propul. Power, 91, pp. 5–9.
+46 Gauthier, B. M., Davidson, D. F., and Hanson, R. K., 2004, “Shock Tube
+Determination of Ignition Delay Times in Full-Blend and Surrogate Fuel Mix-
+tures,” Combust. Flame, 139, pp. 300–311.
+47 Slavinskaya, N. A., Haidn, O. J., Donato, F., and Aigner, M., 2006, “Modeling
+of Reference Fuel Combustion With PAH Formation,” 44th Aerospace Science
+Meeting and Exhibit, Reno, NV, Paper No. AIAA-2006-1511.
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2010, Vol. 132 / 111501-11
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

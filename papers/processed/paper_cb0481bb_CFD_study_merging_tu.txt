@@ -1,0 +1,515 @@
+
+--- Page 1 ---
+
+Technical Note
+CFD Study of Merging Turbulent Plane Jets
+A. Karimpour, S.M.ASCE1; N. B. Kaye, A.M.ASCE2; and A. A. Khan, M.ASCE3
+Abstract: A series of two-dimensional computational fluid dynamics (CFD) simulations of merging turbulent plane jets were conducted to
+establish the point at which the jets can be regarded as having merged to form a single jet. Simulations were conducted to quantify the
+influence of the nozzle width, jet axis separation, Reynolds number, and the relative jet strength on the distance from the source to
+the merger point. The simulation results were then compared with experimental results published in literature. As the jet fluid exited
+the two nozzles, the shear layer between the jet and the ambient fluid drove the ambient fluid entrainment into the jets. However, a finite
+volume of fluid trapped was between the two jets, and a recirculation zone with two counterrotating vortices was established. This vortex pair
+reduced the pressure between the jets, drawing them together more rapidly than theoretical models predicted. The simulation results indicated
+that equal-strength jets merged at a distance downstream of 1.4 times the initial nozzle centerline separation provided that the nozzle-
+separation-to-nozzle-width ratio was greater than 18. As the source momentum flux of one jet decreased relative to the other, the relative
+distance to merger also decreased. However, for source momentum flux ratios between 0.2 and 0.9, the merger distance was only a very weak
+function of the momentum flux ratio. The CFD-measured merging distance was significantly closer to the jet nozzles than current models
+predict. Therefore, the mixing of pollutants by using parallel plane jets is less efficient than currently thought. DOI: 10.1061/(ASCE)HY
+.1943-7900.0000308. © 2011 American Society of Civil Engineers.
+CE Database subject headings: Computational fluid dynamics technique; Jets, fluid; Simulation.
+Author keywords: Turbulent jet; Plane jet; Merging jets; Computational fluid dynamics.
+Introduction
+Turbulent jets play a significant role in both industrial and environ-
+mental flows in a broad range of applications from the outlet of
+air-conditioning vents (Sandberg et al. 1992) to volcanic eruptions
+(Woods 1988). Turbulent jets are also regarded as a canonical tur-
+bulent shear flow and have been the subject of much research (List
+1982). Jet interaction is also a common occurrence, particularly in
+industrial contexts in which multiple jets form in close proximity
+such as lines of diffusers at wastewater treatment plants (Davidson
+et al. 1994) and at lines of fuel nozzles in gas-fired furnaces (Szegö
+et al. 2009).
+Despite these practical applications, there has been minimal
+research on how turbulent jets interact with one another. The inter-
+action of two round turbulent jets has been studied experimentally
+(Yin et al. 2007; Rathakrishnan et al. 1989). Yin et al. (2007) found
+that the jets merged closer to the jet nozzle as the nozzles were
+brought closer together, though few quantitative results were pre-
+sented. Rathakrishnan et al. (1989) also examined round twin jets
+and concluded that the merging distance is independent of the
+nozzle separation; however, the low resolution and narrow param-
+eter range and the extremely low spatial resolution of their mea-
+surements calls in to question their conclusions.
+Merging plane jets were examined experimentally by Miller and
+Comings (1960) and others (Anderson and Spall 2001; Murai et al.
+1976; Lin and Sheu 1990; Nasr and Lai 1997; Fujisawa et al. 2004).
+These studies measured the velocity and pressure in the flow field
+downstream of two long thin nozzles focusing exclusively on
+equally turbulent plane jets and typically covering only a small
+number of slot widths and nozzle separation distances. For exam-
+ple, Miller and Comings (1960) conducted a single experiment at a
+Reynolds number of 17,800 by using two 1.3 cm wide nozzles with
+a centerline-to-centerline separation of 7.6 cm. These experimental
+studies have been complemented by computational fluid dynamics
+(CFD) studies (Anderson and Spall 2001; Lai and Nasr 1998) that
+again focused only on equal jets and for only a small number of
+nozzle-width-to-centerline separation ratios.
+Of all the papers listed previously, no comprehensive study of
+the merging of equal and unequal turbulent jets exists that fully
+examines the role of the nozzle width, nozzle-centerline separation,
+or the ratio of the two jets source momentum fluxes. It is the goal of
+this study to use CFD simulations to fully explore these parameters.
+This paper builds on the previously published studies (Miller and
+Comings 1960; Anderson and Spall 2001; Murai et al. 1976; Lin
+and Sheu 1990; Nasr and Lai 1997) and compares their results with
+the simulations performed for this study. This study was conducted
+by using the ANSYS FLUENT software package (http://www.ansys
+.com/products/fluid-dynamics/fluent/).
+Problem Definition
+This study considers the flow field formed by two parallel plane jets
+issuing from slot nozzles of infinite length set into a vertical wall.
+The jets enter into a stationary ambient of the same fluid. The
+density of all fluids is identical so that no gravitational effects
+are present. The two jets have slot widths D1 and D2 and source
+velocities u1 and u2, respectively. The jet inlet velocity is assumed
+1Dept. of Civil Engineering, Clemson Univ., Clemson, SC 29634
+(corresponding author). E-mail: akarimp@g.clemson.edu
+2Assistant Professor, Dept. of Civil Engineering, Clemson Univ.,
+Clemson, SC 29634.
+3Associate Professor, Dept. of Civil Engineering, Clemson University,
+Clemson, SC 29634.
+Note. This manuscript was submitted on August 11, 2009; approved on
+July 29, 2010; published online on February 15, 2011. Discussion period
+open until August 1, 2011; separate discussions must be submitted for in-
+dividual papers. This technical note is part of the Journal of Hydraulic
+Engineering, Vol. 137, No. 3, March 1, 2011. ©ASCE, ISSN 0733-
+9429/2011/3-381–385/$25.00.
+JOURNAL OF HYDRAULIC ENGINEERING © ASCE / MARCH 2011 / 381
+Downloaded 06 Jun 2011 to 129.137.88.251. Redistribution subject to ASCE license or copyright. Visithttp://www.ascelibrary.org
+
+
+--- Page 2 ---
+
+to be uniform across the width of the nozzle. The jet axes are
+separated by a distance Z. The jets are assumed to be fully turbulent
+so that viscous forces can be ignored. Fig. 1 represents the problem
+considered.
+As the jet fluid moves away from the nozzles, a shear layer
+forms and ambient fluid is entrained into the jets; the centerline
+velocity decreases and a bell-shaped velocity profile develops.
+The finite volume of fluid trapped between the two jets causes a
+recirculation zone, and the jets are drawn toward each other. Further
+downstream, the jet-velocity profiles merge such that only a single
+peak in the velocity profile exists. At this stage, the jets can be
+considered merged and the flow behaves as a single jet. The goal
+of this study is to establish the distance (Xm) from jet nozzles to the
+merging point.
+The distance (Xm) from the nozzle to the point where the
+velocity profiles merge (i.e., where only a single velocity peak is)
+is a function of each jet’s source conditions and the distance between
+the jets’ axes. That is
+Xm ¼ f ðD1; M1;D2; M2; μ; ρ; ZÞ
+ð1Þ
+where Mi ¼ u2
+i Di denotes the specific momentum flux per unit
+width at the source. Dimensional analysis allows Eq. (1) to be
+reduced to
+χm ¼ Xm
+Z ¼ f ðζ; ψ; R1; R2Þ
+ð2Þ
+where R = Reynolds number; ψ ¼ M2=M1 is the ratio of the source
+momentum fluxes; and ζ ¼ z=
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D1=D2
+p
+is the scaled nozzle separa-
+tion. Without a loss of generality, we assume that Jet 1 has the higher
+momentum flux so that ψ < 1.
+As stated earlier, we assume that the Reynolds number of each
+jet is sufficiently high such that viscous forces can be ignored and
+the flow is Reynolds number independent. Further, provided that
+the separation between the nozzles is considerably larger than
+the nozzle widths, the jets can be assumed to be issuing from point
+sources and the merging distance is independent of ζ. Therefore,
+for large nozzle separations, the merging distance is given by
+χm ¼ f ðψÞ
+ð3Þ
+The only theoretical model for such jet merger is that attributable to
+Reichardt (Maxwell 1970; Wang and Davidson 2003). This model
+demonstrates that the addition of the local specific momentum flux
+profiles of the individual jets gives the specific momentum flux
+profile of the combined jet flow. However, the model assumes that
+the jets interact through the superposition of their specific momen-
+tum flux profiles but that no dynamic interaction is between the jets
+attributable to their entrainment velocities. Clearly, for the case of
+two-dimensional (2D) plane jets, the assumption that there is no
+dynamic jet interaction will not hold because of the trapped fluid
+between the jets and the low pressure circulation zone near the noz-
+zles. The Reichardt prediction is presented because it provides a
+useful introduction to the definition of the merging distance and
+further allows a comparison between the 2D and the three-
+dimensional (3D) cases in which the Reichardt model is more
+appropriate.
+Approximating the jet velocity profile as a Gaussian curve, the
+velocity at any point, for two jets with negligible nozzle width, is
+given by
+uðx; zÞ2 ¼ u2
+c1fe½2ðzZ=2Þ2=bðxÞ2 þ ψe½2ðzþZ=2Þ2=bðxÞ2g
+ð4Þ
+where bðxÞ = local jet width, z = transverse coordinate and uc1 =
+local centerline velocity jet one would have in the absence of Jet 2.
+For a fully developed turbulent plane jet, the local jet width is a
+linear function of the distance from the source and is given by
+(Lee and Chu 2003)
+bðxÞ ¼ 0:12x
+ð5Þ
+The merging distance is defined as the distance in the x-direction in
+which the velocity profile has only a single peak. This is the point at
+which the trough between the two peaks on the velocity profile dis-
+appears. Therefore, their axial velocity gradient in the transverse
+direction is zero (i.e., local maxima or minima) and the curvature
+is zero (i.e., transition from minima to maxima). That is
+∂u
+∂z ¼ ∂zu
+∂z2 ¼ 0
+ð6Þ
+This is the same definition suggested in a study of round turbulent
+plume merger (Kaye and Linden 2004), though in that case, the
+buoyancy profile, rather than the specific momentum profile,
+was used. In Kaye and Linden (2004), the buoyancy profile, as
+opposed to the velocity profile, was chosen because the plume flow
+is driven by its buoyancy. By using the same reasoning, the specific
+momentum profile is the appropriate profile to measure for jets
+because they are driven by momentum, though we note that other
+writers (Anderson and Spall 2001) define the merging point as
+coincident with the stagnation point.
+For equal jets, that is ψ ¼ 1, it is possible to establish an analytic
+solution to Eq. (6) given Eq. (5). However, for unequal jets, this is
+not possible because the symmetry of the problem is broken.
+Instead, analytic expressions were established for du=dz and
+d2u=dz2 and these were evaluated by using a grid with 500 points
+between the jet centerlines and twice this resolution in the stream-
+wise direction. A numerical search was then conducted by using the
+grid until the points that satisfy Eq. (6) were found for 1,001 differ-
+ent values of ψ. The results of this search are shown in Fig. 5 along
+with the CFD simulation results.
+CFD Simulations
+To model the merging of two turbulent plane jets as described pre-
+viously, the CFD software package ANSYS FLUENT version 6.3.26
+was used. The flow was modeled as a two-phase flow, i.e., water and
+Fig. 1. Problem definition showing two unequal slot jets; dashed lines
+are approximate velocity profiles and the distance to merger where the
+velocity profile has a single peak is shown as Xm
+382 / JOURNAL OF HYDRAULIC ENGINEERING © ASCE / MARCH 2011
+Downloaded 06 Jun 2011 to 129.137.88.251. Redistribution subject to ASCE license or copyright. Visithttp://www.ascelibrary.org
+
+
+--- Page 3 ---
+
+air on top of the water. For the initial condition, the virtual tank was
+filled with water to 1.5 m above the tank’s bed and the remainder of
+thedomainwasfilledwithair.Hydrostaticpressurewasappliedtothe
+entire domain as the initial pressure condition and the volume of
+fluid method was used to model the free surface between air and
+water. The standard k  ε model was used for modeling the
+turbulence in the domain. This is consistent with previous studies
+of merging turbulent plane jets that found k  ε models to produce
+realistic simulation results (Lai and Nasr 1998). The SIMPLE
+algorithm was used to model the pressure and the velocity field.
+GAMBIT
+version
+2.4.6
+(http://www.fluent.com/software/
+gambit/index) was used to define the geometry and the mesh.
+Unstructured 2D triangular mesh elements were used to generate
+the mesh. A total of 107,386 cells were used for discretizing the
+equations. To test for grid independence, the ζ ¼ 6 case was
+repeated by using a finer mesh with 386,126 cells. The finer mesh
+gave the same results as the coarser mesh so the remaining simu-
+lations were computed with 107,386 cells.
+The virtual two-dimensional domain was 2 × 2 m. The vertical
+distance between the jet axes was considerably smaller than the
+distance from the jets to any horizontal surface. The two jets
+were located on the left vertical wall of the tank, 1  Z=2 m above
+the base of the tank where Z = distance between the centerlines of the
+two jets. Unlike round turbulent jets, the entrainment field does not
+decay with distance from the jet center line. Therefore, ensuring that
+the entrainment flow is normal to the jet axis can be problematic. The
+introduction of the jets into any size virtual domain will result in a
+large-scale circulation. Provided the domain is large enough, the
+large-scale circulation will have a much larger scale than the jet axis
+separation. Our simulations indicated that this produces the desired
+entrainment flow normal to the jet axis. [See Fig. 2(a).]
+To validate the CFD model, our results were compared to the
+previously published experimental and computational results
+(Miller and Comings 1960; Anderson and Spall 2001; Murai et al.
+1976; Lin and Sheu 1990; Nasr and Lai 1997). For all simulations,
+the jet entrance Reynolds number was R ¼ 17;400 as used by
+Miller and Comings (1960) except for two simulations performed
+to examine the potential role of the Reynolds number on the
+merging distance.
+Equal Jet Results
+A total of 27 dual jet simulations were performed for different
+nozzle-separation-to-nozzle-width ratio (ζ), Reynolds number
+(R), and momentum flux ratios (ψ). First, simulations for equal
+dual-plane jets were performed with different values of ζ to estab-
+lish the separation distance required such that the nozzle width no
+longer influenced the merging distance. Second, two simulations
+were performed with different Reynolds numbers to verify that
+the merging distance was independent of R. Third, a series of sim-
+ulations were performed at large ζ for a range of ψ to understand
+how the relative strength of the jets (i.e., their momentum flux ratio)
+influenced the merging distance.
+Sample data for two equal plane jets is shown in Fig. 2(a).
+Shown in this figure are the recirculation zone that is established
+between the two jets and the drawing together of the two jets
+around this zone. A stagnation point exists at the right-hand end
+of the recirculation zone. From the velocity field calculated by
+the simulations, a series of horizontal velocity profiles, at different
+distances from the nozzles, were extracted to measure the distance
+to the point at which the jets can be considered merged, as defined
+in Eq. (6). A sample velocity profile is shown in Fig. 2(b). The
+typical bell-shaped velocity profile near the source is shown in
+this figure. At greater downstream distances, the velocity profiles
+merge into each other until only a single peak is in the velocity
+profile.
+A series of simulations were performed in which the Reynolds
+number was constant and the nozzle-centerline separation and the
+nozzle width were varied. The goal of this series of simulations was
+to establish the relationship between the relative merging distance
+xm and the relative nozzle separation ζ. As the relative separation
+increased (i.e., ζ increases), the influence of the nozzle width
+decreased until a limit was reached in which the merging distance
+was independent of ζ.
+Two locations were used to identify the distance at which the jets
+could be regarded as having merged into a single plane jet; the dis-
+tance to the stagnation point called the merge point in Anderson and
+Spall (2001), and the distance at which only a single peak is in the
+velocity profile called the combined point in Anderson and Spall
+(2001). These two points represent the upper and lower bounds
+on the “merging” region as defined in Fig. 1 of Anderson and
+Spall (2001). Both measures indicated that the nozzle width did
+not significantly influence the jet merger distance, provided ζ ¼ z=
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D1=D2
+p
+> 18. This is more clearly shown in Figs. 3 and 4, which
+show the merging distances scaled on the nozzle separation as a
+function of ζ. Also shown are previously published experimental
+results (Miller and Comings 1960; Anderson and Spall 2001; Murai
+et al. 1976; Lin and Sheu 1990; Nasr and Lai 1997). Clearly, good
+agreement exists between the CFD simulations and the previously
+published experimental data. Further, as expected, the relative merg-
+ing distance χm approached a constant for a large nozzle separation ζ
+For relatively small separations, the relative merging distance
+increased with increasing nozzle separation and peaked at a relative
+separation of ζ ≈5. For larger ζ the merger distance decreased
+with decreasing nozzle width and approached a constant value of
+χm ¼ 1:4 for ζ > 18.
+A slightly different behavior is shown in the location of the
+stagnation point; see Fig. 4. The distance to the stagnation point
+increased monotonically and tended toward a scaled distance χs ¼
+Xs=Z ¼ 0:75 for ζ > 18. The stagnation point results showed
+Fig. 2. (a) Streamlines for the flow attributable to two equal slot jets
+showing the recirculation zone between the two jets; (b) velocity pro-
+files for two equal turbulent slot jets at a different distance downstream
+of the nozzles
+JOURNAL OF HYDRAULIC ENGINEERING © ASCE / MARCH 2011 / 383
+Downloaded 06 Jun 2011 to 129.137.88.251. Redistribution subject to ASCE license or copyright. Visithttp://www.ascelibrary.org
+
+
+--- Page 4 ---
+
+poorer agreement with the experimental results of Miller and Com-
+ings (1960), Anderson and Spall (2001), Lin and Sheu (1990), and
+Nasr and Lai (1997) for smaller values of ζ though the agreement
+was better for larger relative nozzle separations. The poorer
+agreement is possibly attributable to the difficulty in accurately
+measuring the location of a stagnation point by using intrusive
+measurement probes (Khan 1989). Further, it should also be noted
+that far fewer experimental measurements of the stagnation point
+location have been reported, again likely attributable to the diffi-
+culty in measuring it.
+To verify that the flow was Reynolds number independent, a
+series of tests were performed for a range of Reynolds numbers
+(i.e., R ¼ 12;500, 17,400, and 25,000) and a separation-to-nozzle-
+width ratio of ζ ¼ 6. The measured variation in the merging dis-
+tance was less than 2% indicating that the merging distance is
+Reynolds number independent.
+The equal dual jet study established that:
+a. The simulations agree well with published experimental results,
+b. The flow is Reynolds number independent for the range of Rey-
+nolds numbers used, and
+c. The merging distance is independent of the nozzle width
+provided ζ > 18.
+Unequal Jet Results
+The goal of this portion of the study was to understand the role of
+the jet momentum flux ratio ψ on the merging distance when the
+nozzle width was small enough that it did not influence the flow,
+that is, for ζ > 18. To that end, a series of simulations were per-
+formed in which the momentum flux ratio was varied by varying
+the nozzle width and the source velocity of one jet while keeping
+the second jet constant. Both the jet width and the source velocity
+were varied to adjust the momentum flux while keeping the Reyn-
+olds number of the jets constant. For all simulations, the nozzle-
+separation-to-nozzle-width ratio was large (ζ ¼ z=
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D1=D2
+p
+> 18).
+The distance to the merger point as a function of the momentum
+flux ratio, that is χm ¼ f ðψÞ, for large ζ, is shown in Fig. 5 along
+with the model prediction of Reichardt (Maxwell 1970; Wang and
+Davidson 2003). As expected, there was a significant disagreement
+between the simulation results and the Reichardt model prediction
+because the model assumed that the two jets did not interact and
+were free to grow independently of each other. This was not the
+case for dual plane jets for two reasons. First, each jet entrained
+ambient fluid from its surroundings creating an entrainment veloc-
+ity field that tended to draw the jets together (Kaye and Linden
+2004). Second, and more importantly, there was a finite volume
+of fluid trapped between the jets. The shear generated by the jets
+drove a recirculation flow between the jets [see Fig. 2(a)].
+As the momentum flux ratio ψ was reduced from one, the
+merger distance dropped slightly from approximately 1.4 at
+ψ ¼ 1 to 1.1 at ψ ¼ 0:9. It then remained relatively constant as
+ψ was reduced further until dipping again for ψ < 0:2. This trend
+was qualitatively similar to that observed in an experimental study
+of merging round turbulent plumes in which the merging distance
+was found to be relatively constant for a broad range of buoyancy
+flux ratios (Kaye and Linden 2004).
+For both equal and unequal plane jets, the merger point was
+very close to the jet source. Therefore, only a small region existed
+in which the ambient fluid was entrained into two jets rather than
+one jet. The flow rate in a single jet scaled on the square root of the
+momentum flux, Q ∼M1=2. Therefore, two jets with half the mo-
+mentum flux had a larger volume flux as Q ∼2ðM=2Þ1=2 > M1=2.
+As the concentration of any pollutant in the jet was inversely pro-
+portional to the volume flux, two jets would result in more mixing
+and lower concentrations. However, as the two jets merged close to
+Fig. 4. Scaled distance to the stagnation point χs as a function of the
+relative nozzle separation ζ; squares represent the CFD simulations
+from this study, and other shapes, as described subsequently, represent
+the previously published experimental results extracted from Fig. 7(a)
+of Anderson and Spall (2001); triangles (Miller and Commings 1959),
+diamonds (Anderson and Spall 2001), circles (Lin and Sheu 1990),
+stars (Nasr and Lai 1997)
+Fig. 5. Scaled merging distance χm as a function of the momentum
+flux ratio ψ; the line represents the Reichardt prediction assuming
+no jet interaction and the symbols represent the CFD simulation results
+Fig. 3. Scaled merging distance χm as a function of the relative nozzle
+separation ζ; squares represent the CFD simulations from this study,
+and other shapes, as described subsequently, represent the previously
+published experimental results extracted from Fig. 7(a) of Anderson
+and Spall (2001); triangles (Miller and Commings 1959), diamonds
+(Anderson and Spall 2001), pluses (Murai et al. 1976), circles
+(Lin and Sheu 1990), stars (Nasr and Lai 1997)
+384 / JOURNAL OF HYDRAULIC ENGINEERING © ASCE / MARCH 2011
+Downloaded 06 Jun 2011 to 129.137.88.251. Redistribution subject to ASCE license or copyright. Visithttp://www.ascelibrary.org
+
+
+--- Page 5 ---
+
+their source, the benefit of having two plane jets was minimized,
+and a single-jet model may provide a better guide to downstream
+pollutant concentrations.
+Conclusions
+A series of CFD simulations were performed to investigate the
+downstream distance at which two parallel turbulent plane jets
+could be regarded as merged. The results of the simulations showed
+good agreement with previously published experimental measure-
+ments of the distance to the merging point. The agreement between
+simulation and experiment for the location of the stagnation point
+was poorer for smaller ratios of the centerline separation-to-
+nozzle width. Both measurement criteria showed that the mer-
+ging distance was independent of the nozzle width provided that
+the centerline separation-to-nozzle-width ratio was large (i.e.,
+ζ ¼ z=
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+D1=D2
+p
+> 18).
+A series of unequal jet simulations was performed to examine
+the effect of varying the ratio of the source momentum fluxes of the
+two jets. The results of the simulated merging distance were com-
+pared to the theoretical prediction of Reichardt. The agreement with
+theory was very poor because the jets did not grow independently
+of each other as assumed by Reichardt, but rather were drawn
+together because of the low-pressure recirculation zone that
+formed between the jets. Further, the merging distance was found
+to be relatively independent of the momentum flux ratio in the
+range 0:2 < ψ < 0:9.
+Notation
+The following symbols are used in this paper:
+bðxÞ = local jet width;
+D1;2 = slot width;
+M1;2 = specific momentum flux-per-unit-width at the
+source;
+R1;2 = nozzle Reynolds number;
+u1;2 = source velocities;
+uc1 = local centerline velocity Jet 1 in the absence of
+Jet 2;
+Xm = distance from jet nozzles to the merging point;
+x = distance from jet;
+xm = dimensionless distance from jet nozzles to the merging
+point;
+xs = dimensionless distance from jet to stagnation point;
+Z = distance between jet axes;
+z = transverse coordinate;
+ζ = scaled nozzle separation;
+μ = dynamic viscosity;
+ρ = density; and
+ψ = fluxes ratio.
+References
+Anderson, E. A., and Spall, R. A. (2001). “Experimental and numerical
+investigation of two-dimensional parallel jets.” J. Fluids Eng., 123(2),
+401–406.
+Davidson, M. J., Papps, D. A., and Wood, I. R. (1994). “The behaviour of
+merging buoyant jets.” Recent research advances in the fluid mechanics
+of jets and plumes, P. A. Davies and M. J. Valente Neves, eds.,
+Springer-Verlag, New York, 465–478.
+Fujisawa, N., Nakamura, K., and Srinivas, K. (2004). “Interaction of two
+parallel plane jets of different velocities.” J. Visualization, 7(2), 135–142.
+Kaye, N. B., and Linden, P. F. (2004). “Coalescing axisymmetric turbulent
+plumes.” J. Fluid Mech., 502, 41–63.
+Khan, A. A. (1989). “A study of intersecting circular turbulent jets.” M.S.
+thesis, University of Alberta, Edmonton, Alberta.
+Lai, J. C. S., and Nasr, A. (1998). “Two parallel plane jets: Comparison of
+the performance of three turbulence models.” Proc. Inst. Mech. Eng.,
+Part G, 212(6), 379–391.
+Lee, J. H. W., and Chu, V. H. (2003). Turbulent jets and plumes—
+A Lagrangian approach. Kluwer Academic, Norwell, MA.
+Lin, Y. F., and Sheu, M. J. (1990). “Investigation of two plane parallel
+unventilated jets.” Exp. Fluids, 10(1), 17–22.
+List, E. J. (1982). “Turbulent jets and plumes.” Annu. Rev. Fluid Mech., 14,
+189–212.
+Maxwell, W. H. C. (1970). “Flux development region in submerged jets.”
+J. Engrg. Mech. Div, 96(6), 1061–1079.
+Miller, D. R., and Comings, E. W. (1960). “Force-momentum fields in a
+dual-jet flow.” J. Fluid Mech., 7(02), 237–256.
+Murai, K., Taga, M., and Akagawa, K. (1976). “An experimental study on
+confluence of two-dimensional jets.” Bull. JSME, 19(134), 958–964.
+Nasr, A., and Lai, J. C. S. (1997). “Comparison of flow characteristics in the
+near field of two parallel plane jets and an offset plane jet.” Phys. Fluids,
+9(10), 2919–2931.
+Rathakrishnan, E., Vijayabhaskar-Reedy, P., and Pabmanaban, K. (1989).
+“Some studies of twin jet propagation.” Mech. Res. Commun., 16(5),
+279–287.
+Sandberg, M., Wiren, B., and Claesson, L. (1992). “Attachment of a cold
+plane jet to the ceiling; length of recirculation and separation distance.”
+Proc., ROOMVENT ’92, 3rd International Conf. on Air Distribution in
+Rooms, Scandinavian Federation of Heating, Ventilating and Sanitary
+Engineering Associations (SCANVAC), Aalborg, Denmark, 487–499.
+Szegö, G. G., Dally, B. B., and Nathan, G. J. (2009). “Operational char-
+acteristics of a parallel jet MILD combustion burner system.” Combust.
+Flame, 156(2), 429–438.
+Wang, H. J., and Davidson, M. J. (2003). “Jet interaction in a still ambient
+fluid.” J. Hydraul. Eng., 129(5), 349–357.
+Woods, A. W. (1988). “The fluid dynamics and thermodynamics of
+eruption columns.” Bull. Volcanol., 50(3), 169–193.
+Yin, Z., Zhang, H., and Lin, J. (2007). “Experimental study on the flow
+field characteristics in the mixing region of twin jets.” J. Hydrodyn.,
+19(3), 309–313.
+JOURNAL OF HYDRAULIC ENGINEERING © ASCE / MARCH 2011 / 385
+Downloaded 06 Jun 2011 to 129.137.88.251. Redistribution subject to ASCE license or copyright. Visithttp://www.ascelibrary.org

@@ -1,0 +1,976 @@
+
+--- Page 1 ---
+
+Robin Vivoli1
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: VivoliRC@cardiff.ac.uk
+Daniel Pugh
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: PughDG@cardiff.ac.uk
+Burak Goktepe
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: goktepeb@cardiff.ac.uk
+Sally Hewlett
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: HewlettS2@cardiff.ac.uk
+Anthony Giles
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: GilesAP1@cardiff.ac.uk
+Richard Marsh
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: MarshR@cardiff.ac.uk
+Steven Morris
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: MorrisSM@cardiff.ac.uk
+Surface Roughness Effects on the 
+Operability and Performance of a 
+Hydrogen Jet Burner
+Over the past decade, additive manufacturing (AM) has gained considerable traction in the 
+gas turbine industry. Manufacturers now look to AM for the production of critical 
+components central to the combustor architecture. However, AM struggles to achieve 
+satisfactory surface finishes, with its increased surface roughness shown to impact axial 
+velocities, heat release, NOx emissions, and stability limits. Correlations between increased 
+roughness and boundary layer flashback (BLF) resistance are of significant interest for lean 
+premixed combustion of high hydrogen content (HHC) fuels. With the development of 
+innovative burner configurations designed to address static stability issues in HHC fuels, 
+and the growing use of AM in their fabrication, studying roughness effects on these designs is 
+essential. This study aims to quantify the impact of surface roughness on an industry-relevant 
+jet burner configuration, building on previous research by the authors using premixed swirl 
+geometries. A premixed jet burner was developed with an interchangeable section to 
+accommodate varying surface textures. The burner was characterized under atmospheric 
+hydrogen-fired conditions at thermal powers ranging from 10 to 25 kW. Both smooth and 
+rough inserts representing traditional machining and selective laser melting manufacturing 
+techniques were utilized. The findings highlight how surface roughness influences flame 
+topology, static stability, and emissions, providing an experimental basis for future 
+numerical studies on roughness sensitivity in advanced burner designs.  
+[DOI: 10.1115/1.4069474] 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received June 27, 2025; final manuscript received July 25, 2025; 
+published online October 8, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011014-1 
+Copyright V
+C 2026 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 2 ---
+
+Philip Bowen
+College of Physical Sciences and Engineering,  
+Cardiff University,  
+Queen’s Buildings, 14-17 The Parade,  
+Cardiff CF24 3AA, UK  
+e-mail: BowenPJ@cardiff.ac.uk
+1 Introduction
+Additive manufacturing (AM) has seen increased utilization over 
+the past decade thanks to its well-documented benefits [1–3]. 
+Consequently, in the gas turbine industry, AM is being employed to 
+produce and extend the life of critical components [4–6]. However, 
+poor surface finish remains a major limitation [7] with extra 
+postprocessing steps often required to reach an acceptable surface 
+finish [8].
+In gas turbine applications, experimental studies have demon­
+strated the influence of increased roughness of “raw” AM 
+components on axial velocities, heat release, NOx emissions, and 
+operability limits in swirl-stabilized burners using both hydrocarbon 
+and high hydrogen content (HHC) fuels [9,10]. Increased surface 
+roughness has also been shown to enhance boundary layer flashback 
+(BLF) resistance [11,12]. BLF occurs when the flame propagates 
+upstream along the boundary layer of the flow, disrupting the 
+premixing process and potentially causing damage or instability in 
+the combustion system [13,14]. This phenomenon is especially 
+critical for lean premixed combustion of HHC fuels, where the high 
+diffusivity and reactivity of hydrogen significantly amplify the 
+propensity for flashback [15–17]. Demonstrating that the inherent 
+surface roughness of raw unprocessed AM components can improve 
+BLF resistance would therefore indicate significant potential for 
+commercial benefit. While computational fluid dynamics can offer 
+deeper insights into these roughness effects by enabling detailed 
+data analysis in areas that are difficult to access experimentally, 
+accurately capturing these effects numerically has proven challeng­
+ing [18–20]. Smooth and rough experimental benchmark data are 
+essential for determining the appropriate parameter settings needed 
+to accurately model roughness effects in state-of-the-art burner 
+configurations.
+Numerous innovative burner configurations are being developed 
+to address the challenges posed by HHC fuels, with efforts focused 
+on achieving safe and reliable hydrogen firing capabilities of up to 
+100 vol % [21–23]. One such burner architecture involves utilizing 
+burners with a jet in crossflow configuration [22,23]. Such burners 
+ensure rapid mixing and high bulk flow velocities which help reduce 
+NOx formation by minimizing residence time. The absence of 
+flammable fuel/air mixtures prior to fuel injection prevents flash­
+back from propagating further upstream, thereby reducing the risk of 
+significant damage.
+As AM becomes increasingly integral to the production of novel 
+burners and, given that surface roughness has known measurable 
+effects on the performance of traditional burners, it is crucial to 
+quantify the impact of roughness on this new generation of advanced 
+combustion systems.
+1.1 Research Scope. In the current study, the influence of 
+surface roughness on an industry relevant jet burner configuration is 
+quantified under hydrogen fired conditions at atmospheric pressure. 
+Emissions and flame composition investigations are undertaken for 
+thermal powers of 15, 20, and 25 kW over a range of equivalence 
+ratios (u) (17,976–71,386 Reynolds number), with a more detailed 
+look at flashback limits performed at lower thermal powers 
+(10, 12.5, and 15 kW) over a range of bulk exit velocities 
+(14.2–18.75 m/s). A premixed jet burner has been designed with 
+an interchangeable section near the end of the premixing 
+chamber allowing studies of different surface textures. Initial 
+characterization of the burner with a traditionally machined insert is 
+performed prior to analyzing a rough insert. The latter represents a high 
+surface roughness, serving as the worst-case surface finish achievable 
+from a raw unprocessed AM component produced using selective laser 
+melting [24]. This study aims to evaluate the effect of two surface 
+roughness on flame shape, burner stability limits, and emissions via 
+high-speed, time-resolved velocimetry and OH* chemiluminescence.
+The results of this study will also provide a detailed experimental 
+basis for surface roughness analysis when dealing with state-of-the- 
+art jet burner configurations. This includes providing a reference 
+dataset for future numerical work where roughness sensitivity is to 
+be performed.
+2 Experimental and Diagnostic Setup
+2.1 Premixed Jet Burner. All experimental work was con­
+ducted on a newly designed premixed jet burner inspired by 
+industrial combustor architectures, as described by Krebs et al. [23]. 
+In the reference burner, the high-velocity crossflow injection of fuel 
+via a central fuel lance into the airstream promotes effective 
+premixing. The potential for fuel/air unmixedness is removed by 
+using a premixed charge, simplifying the rig both physically and 
+numerically and ensuring that any changes observed when altering 
+the surface finish can be attributed solely to the surface modification. 
+Though fuel would no longer be injected radially into the air stream 
+via a central fuel lance, a bluff body with the same outer dimensions 
+is used to generate comparable velocity flow-fields downstream. 
+Critical dimensions such as the premixing length and nozzle 
+diameter were selected for industry relevance. The resulting 
+assembly for this premixed jet burner (PJB) is shown in Fig. 1.
+The same underlying fuel and air delivery systems developed at 
+Cardiff University’s Gas Turbine Research Center for repeatable 
+and fine control were employed as described in previous studies 
+[20,25,26]. Dedicated flow control valves and Coriolis mass 
+flowmeters were utilized on critical delivery lines. A variable speed 
+drive air compressor paired with an air dryer ensured optimal air 
+delivery. The 100% H2 fuel flow, delivered from multicylinder 
+packs (N5 CP grade 99.999%) stored in a remote onsite location, is 
+injected upstream of the bluff body assembly in a counterflow 
+configuration to allow for a high level of premixing. A square cross 
+section quartz tube was used to confine the combustion chamber 
+enabling optical access. The last part of the premixing section, 
+highlighted in Fig. 1, was designed to be easily interchangeable and 
+will serve as the area to analyze the effects of inserts with different 
+finishes.
+Holes were drilled into the top plate to allow for the insertion of 
+the ignitor and instrumentation probes at the base of the combustion 
+chamber as illustrated in Fig. 2. The ignitor was bent at a 90 deg 
+angle from its insertion point to ensure it sparked against the tip of 
+the burner outlet nozzle, minimizing its impact on the flow field. 
+Thermocouples were positioned at the base of the combustion 
+chamber and along the outer edge of the burner nozzle, mainly for 
+monitoring conditions approaching flashback, lean flame blow-off 
+(LBO) and to establish boundary conditions for future computa­
+tional fluid dynamics simulations.
+2.2 Interchangeable Insert Design and Manufacture. For 
+this work, a comparison between surface textures produced by 
+conventional manufacturing techniques and AM was undertaken. 
+011014-2 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 3 ---
+
+As previously mentioned, two interchangeable inserts were created: 
+one was conventionally manufactured (“M1” in Fig. 3) with AM 
+initially considered to produce the rough insert. However, due to the 
+well-documented issues with warping [27,28], high costs, and 
+difficulty in precisely controlling the surface finish [24], a more 
+reliable method was chosen to replicate surface textures comparable 
+to those achievable via AM.
+Methods such as grit blasting and coating application were 
+considered impractical for adding roughness to the inner walls of a 
+long hollow cylinder. Drawing on the findings of Ablyaz et al. [29] 
+and Karmiris-Obratanski et al. [30], which demonstrated the 
+suitability of electron discharge machining (EDM) for creating a 
+variety of surface textures on delicate and hard-to-reach parts, EDM 
+was selected for texturing the rough insert (“R2” in Fig. 3). Both 
+inserts were machined from round bar, the inner diameter of R2 
+being initially undersized to account for material loss during the 
+EDM process, ensuring consistent final diameters. The two resulting 
+inserts, along with example surface profiles that visually demon­
+strate changes in finish, are presented in Fig. 3.
+Previous studies have shown that as-printed parts can be seen to 
+present a wide range of surface finishes [24,31]. Psomoglou et al. 
+[10] investigated roughness effects on AM swirlers with a maximum 
+arithmetic average roughness (Ra) value of 9 lm. Since the 
+roughness-induced changes observed were minimal, investigations 
+at higher surface roughness were advised. For this work, an R2 insert 
+with a surface finish of Ra  20 lm was therefore selected to 
+represent AM downskin surfaces with an angled build orientation. 
+This choice reflects the well-documented observations that a 
+worsening surface finish is primarily influenced by the laser 
+incidence angle deviating further from horizontal and the challenges 
+associated with downward-facing surfaces during the printing 
+process [32,33]. By adopting such an approach, the usefulness of 
+not only surface polishing but also the addition of artificially 
+increased roughness would be assessed.
+2.3 Surface Roughness Measurements. The form and surface 
+roughness of all interchangeable inserts were measured using a 
+Taylor Hobson Form TalySurf Series 2 profilometer (Leicester, 
+UK), used extensively for tribology and selective laser melting 
+surface roughness studies [9,34,35]. A standard inductive pick-up 
+stylus arm equipped with a 90 deg conisphere diamond stylus, 
+featuring a 2 lm nominal radius and a vertical resolution of 16 nm, 
+was employed. Measurements and surface roughness analysis were 
+conducted in accordance with BS EN ISO 4287/4288 guidelines, as 
+far as reasonably practical. Given that the rough insert was expected 
+to have an average surface roughness of 20 lm, an 8 mm cutoff 
+length was used. For the machined insert, a cutoff length of 0.8 mm 
+was applied.
+Roughness measurements were taken at both ends of each insert, 
+with all measurements spanning a 40 mm evaluation length. After 
+each reading, the insert was rotated by 120 deg to take the next 
+measurement. As shown in Fig. 4, this process resulted in six 
+measurements per insert, providing a detailed profile of internal 
+surface roughness, capturing any variations in surface finish along 
+each cylinder.
+2.4 Emissions Measurements. Exhaust gas sampling and 
+analysis were carried out using a standard industry system supplied 
+by Signal Gas Analysers Ltd (Camberley, UK). A single point probe 
+was positioned 170 mm downstream along the centerline of the 
+burner, remaining within the quartz confinement to prevent 
+atmospheric entrainment. The 50 m sample line was maintained at 
+a temperature of 453 K. To minimize losses, NO measurements were 
+performed hot and wet using a heated vacuum chemiluminescence 
+analyzer (Signal Instruments 4000VM). Additional flow was passed 
+through a chiller to reduce molar water concentration below 1% 
+before exhaust molar O2 measurements were made using a 
+paramagnetic analyzer (Signal Instruments 9000MGA).
+NOx emissions were normalized to a reference value of dry, 15% 
+O2 concentration via Eqs. (1) and (2), respectively. Although it is 
+recognized that this emission reporting method can overstate 
+pollutant concentrations for HHC fuels when comparing with 
+hydrocarbons [36], the dry 15% O2 method was considered 
+appropriate since this study does not focus on fuel switching 
+Fig. 1 Cross section view of the PJB assembly with detailed view A highlighting critical dimensions 
+Fig. 2 Radial view of instrumentation and ignitor location in 
+burner face of the PJB
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011014-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 4 ---
+
+NOdry ¼ NOmeasured
+1 −vH2O
+(1)  
+Exhaust water fractions (vH2O) were obtained from equilibrium 
+modeling. Measured dry O2 fractions (vO2) were then used to 
+subsequently normalize readings to an equivalent reference 15% O2 
+as shown in the following equation, in accordance with ISO 11042 
+[37]: 
+NOdry 15% O2 ¼ NOdry 
+0:209 −0:15
+0:209 −vO2
+ 
+!
+(2)  
+Typical uncertainties of approximately 65% of measurement 
+account for analyzer specifications, linearization, and accuracy in 
+span gas certification.
+2.5 Chemiluminescence. Roughness induced changes in the 
+flame topology were characterized via the use of high-speed OH* 
+chemiluminescence imaging focusing on the well-known A2Rþ !
+X2P OH* system [38]. Data collection was performed via a 
+Phantom v1212 high-speed CMOS camera (Wayne, NJ), a 
+Specialized Imaging SIL40HG50 high-speed image intensifier 
+(Pitstone, UK), a UV lens (78 mm F/4), and a 315 nm (615 nm 
+FWHM) narrow bandpass filter. Further information on this high- 
+speed imaging setup can be found in other works [9,39].
+Chemiluminescence data were recorded at 4 kHz, with the image 
+intensifier gated at 10 ls. A scaled target image was used to 
+determine the image resolution, which was equal to 4 pixels/mm. 
+The camera resolution was scaled down to reduce file sizes to 
+400  800 pixels, resulting in a field of view of 200 mm (axial, y) by 
+100 mm (radial, x). Each chemiluminescence dataset was time- 
+averaged over 2000 images (duration of 0.5 s). Postprocessing was 
+then performed using a modified Abel inversion algorithm to 
+produce a planar representation of the three-dimensional flame 
+brush, as described in previous studies [39,40]. Due to space 
+constraints, only Abel-deconvoluted half-flames are presented in 
+this paper, while the raw dataset is available in the institutional 
+repository.
+2.6 High-Speed Velocimetry. A 1D Dantec Dynamics Flow­
+lite Laser Doppler Anemometry System (Skovlunde, Denmark), 
+described in detail in previous studies [9], was used for character­
+izing the mean flow field and turbulence characteristics of 
+isothermal airflow exiting the burner nozzle. Three isothermal air 
+flow conditions were investigated, with equivalent total mass flow of 
+u ¼ 0.4 at 25 kW (u ¼ 66.2 m/s), u ¼ 0.7 at 20 kW (u ¼ 33.6 m/s), 
+and u ¼ 0.93 at 15 kW (u ¼ 20.5 m/s). This allows roughness effects 
+to be assessed across mean bulk nozzle exit axial velocities (u) 
+ranging from 20 m/s to 60 m/s. The airflow was seeded with Al2O3 
+particles of nominal 1 lm diameter. The burst signal was processed 
+using a BSA F60 processor and Dantec BSA FLOW SOFTWARE to 
+determine the mean and RMS velocities at the control volume. In 
+this study, both mean (u) and fluctuating (u0RMS) axial velocities 
+were measured 2 mm downstream of the burner exit nozzle. The 
+transmitter and receiver optics were mounted on a traverse system, 
+allowing the control volume to be positioned across the flow field. 
+Measurements were taken starting and ending 1.5 mm outside the 
+nozzle exit at 0.5 mm increments for the outermost 2.5 mm of radial 
+travel. Beyond this, measurements were taken at 1 mm intervals 
+across the remaining range (−8 mm  r  8 mm), resulting in a total 
+of 27 data points. To investigate the near-wall velocity and 
+turbulence intensity at the burner exit, the isothermal flow 
+measurements were conducted with the quartz confinement 
+removed. By controlling the seeding rate and density, data capture 
+rates of up to 3500 points or 10 s of acquisition time were achieved.
+Fig. 3 Conventionally machined (M1) and EDM (R2) interchangeable inserts with 
+respective surface profiles measured via the profilometer described in Sec. 2.3
+Fig. 4 Surface roughness measurement locations on M1 and R2 
+inserts
+011014-4 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 5 ---
+
+3 Results and Discussion
+3.1 Surface Finish and Form Deviation. Prior to conducting 
+any experimental work, the surface finish and inner diameters of 
+each insert were assessed. Average Ra, Rq (RMS surface roughness), 
+and Rz (ten-point average roughness) values for each insert are 
+presented in Table 1. Additional details on the surface roughness 
+quantifications mentioned above can be found in standards such as 
+BS 1134:2010 [41]. A comparison of the average surface finishes 
+achieved for both the M1 and R2 inserts reveals an order of 
+magnitude difference. The R2 insert closely aligns with the target 
+roughness of 20 lm Ra. For the M1 insert, surface roughness 
+measurements remain consistent both radially and axially. Higher 
+inconsistencies are observed for the R2 insert primarily due to 
+electrode wear during the manufacturing process. Overall, the 
+increased surface finish variation of R2 compared to M1 would also 
+be expected in AM processes, as it is well-documented that surface 
+roughness along the length of AM components varies discontinu­
+ously without a clear trend [42].
+Form deviation of the R2 insert relative to the smooth reference 
+was assessed by fitting a curve to radial TalySurf measurements via 
+the TALYMAP PLATINUM 7.1.7288 software. Measurements showed 
+radii to be within 60.100 mm of the reference, with deviations 
+similar to those of other AM components found in the literature 
+[43,44]. Area differences between the two inserts were found to be 
+1.78%.
+3.2 Flow Characterization. Understanding the effects of 
+increased surface roughness on the flow-field is of crucial 
+importance for gaining deeper insights into the phenomena 
+discussed in Sec. 3.3. Laser Doppler Anemometry is an effective 
+tool for this purpose, as it offers simultaneous temporal and spatial 
+measurements of both mean and fluctuating axial velocity 
+components. By combining u and u0RMS, turbulence intensity (TI) 
+can be quantified as shown in the following equation: 
+TI %
+ð
+Þ ¼
+u0RMS
+u
+
+
+ 100
+(3)  
+Axial velocity and TI profiles taken 2 mm downstream of the 
+nozzle exit are shown in Figs. 5 and 6. It is important to note that, in 
+the area outside the nozzle inner diameter (r < −10 mm or 
+r > 10 mm), while measurements were taken, particle detection 
+rates were often too low to produce usable data. As a result, both 
+axial velocity and turbulence data were truncated at the boundary of 
+this range. Three isothermal air flow conditions were investigated, 
+with equivalent total mass flow to u ¼ 0.4 at 25 kW, u ¼ 0.7 at 
+20 kW, and u ¼ 0.93 at 15 kW combustion conditions. The latter 
+flowrate was chosen because, under equivalent combustion 
+conditions, flashback occurred with the M1 insert only as discussed 
+in Sec. 3.3.2. The other two flowrates were selected to examine 
+potential changes in the effects of roughness at progressively higher 
+Reynolds numbers (Re). Bulk flow and maximum axial velocities 
+recorded at each isothermal condition together with percentage 
+differences between M1 and R2 flows, and respective Re are collated 
+in Table 2.
+Table 2 demonstrates a strong correlation between the theoretical 
+bulk flow velocities, calculated from first principles, and the 
+experimentally measured values. Differences in peak axial veloc­
+ities were observed between the M1 and R2 inserts, with the R2 cases 
+consistently exhibiting higher velocities. This increase in relative 
+velocity with increasing roughness is proportional to the overall bulk 
+flow velocity. Since the overall bulk flows remain largely unchanged 
+between the respective M1 and R2 cases, this suggests a shift in the 
+overall velocity profiles.
+From Fig. 5, all M1 velocity profiles exhibit a flatter and broader 
+profile than the respective R2 counterparts. The latter presenting 
+lower velocities in the boundary layer likely due to an increase in the 
+turbulence intensity near the wall. The relatively higher axial 
+velocities observed in the core flow for the R2 cases can be attributed 
+to a virtual reduction in the effective diameter of the pipe, resulting 
+from the accelerated boundary layer growth caused by the rough 
+elements [45], the effect being amplified as the Reynolds number 
+increases. Regarding the error bars, calculated using u0RMS values 
+collected at each point, it is evident that as velocities increase, the 
+overall error decreases.
+Figure 6 indicates that, for the 15 kW flow conditions (without 
+fuel flow and hence isothermal), the M1 flow field presents greater 
+turbulence in the core flow compared to its R2 counterpart, while the 
+latter shows higher turbulence in the boundary layer region 
+(69 mm). Similarly, in the 25 kW isothermal case, the R2 insert 
+also demonstrates increased turbulence in the boundary layer. For 
+the 20 kW and 25 kW isothermal conditions, differences in 
+turbulence within the core flow (−4 mm  r  4 mm) are less 
+pronounced, with average R2 values being approximately 2.9% and 
+4.5% higher than M1 values for the 20 kW and 25 kW isothermal 
+cases, respectively. This suggests that, particularly at higher 
+flowrates, surface roughness has a greater effect on boundary layer 
+turbulence compared to that in the core flow. These variations, also 
+reflected in the velocity profile changes shown in Fig. 5, help explain 
+the differences in operability limits between the M1 and R2 inserts 
+discussed in Sec. 3.3.2.
+3.3 Flame Behavior and Stability 
+3.3.1 Flame Location. Combustion experiments were per­
+formed under thermal powers ranging from 10 to 25 kW with 
+detailed OH* chemiluminescence data collected for 15 kW, 20 kW, 
+and 25 kW conditions. A full operability sweep from LBO to 
+flashback was performed by varying u for all three thermal powers 
+utilizing both inserts. If flashback conditions were not encountered, 
+the operability sweep was terminated upon reaching stoichiometry 
+(u ¼ 1). At each thermal power, OH* chemiluminescence data were 
+collected at 0.1 increments between 0.4  u  1. For the M1 insert, 
+the u ¼ 1.0 case was not recorded at 15 kW as flashback occurred 
+prior to reaching stoichiometry. Although the flame began showing 
+signs of lift-off at u ¼ 0.4 across all thermal power levels, the 
+data were presented to emphasize any roughness-induced changes 
+as the system approached LBO. Abel-transformed OH* 
+Table 1 Surface roughness measurements for each insert 
+Measurement location
+A
+B
+Insert
+Measurement
+I
+II
+III
+I
+II
+III
+Average (lm)
+M1
+Ra (lm)
+1.79
+1.89
+1.8
+1.6
+1.77
+1.52
+1.73
+Rz (lm)
+9.54
+9.96
+9.58
+9.08
+9.39
+8.43
+9.33
+Rq (lm)
+2.19
+2.3
+2.19
+2.01
+2.17
+1.89
+2.13
+R2
+Ra (lm)
+21.4
+21.9
+26.3
+19.4
+19.9
+18.3
+21.20
+Rz (lm)
+139
+137
+146
+118
+138
+116
+132.33
+Rq (lm)
+26.9
+27.2
+32.2
+23.5
+25.6
+22.5
+26.32
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011014-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 6 ---
+
+chemiluminescence images for all three thermal powers are shown 
+in Figs. 7 and 8. Each image represents a combination of both the M1 
+(left half) and R2 (right half) half-flame for the given thermal power 
+and u, where the left and right flames in each image correspond to 
+M1 and R2 inserts, respectively. As a result, the field of view 
+expands axially downstream from burner exit nozzle (y ¼ 0 mm) and 
+radially outward from the inner edge of the quartz confinement 
+(M1 ¼ 0 mm  r  32 mm, R2 ¼ 32 mm < r  64 mm). Images for 
+each u are shown with colormaps normalized to the maximum OH* 
+intensity in each half-flame. To avoid any issues with flame 
+asymmetry, the right-hand half-image is shown for both M1 and R2 
+flames, the M1 half-flame being mirrored horizontally prior to 
+aligning it with the respective R2 half-flame.
+In Figs. 7 and 8, it is observed that the flame moves upstream 
+toward the burner exit with increasing u, irrespective of the insert. 
+This behavior occurs due to a combination of decreased axial 
+Fig. 5 Axial velocity profiles at equivalent air flow to 15 kW at 
+u 5 0.93, 20 kW at u 5 0.7, and 25 kW at u 5 0.4. Note the change in 
+y-axis scale. Vertical lines at 69 mm showing ID of burner nozzle.
+Fig. 6 Turbulence intensity profiles at equivalent air flows to 
+15 kW at u 5 0.93, 20 kW at u 5 0.7, and 25 kW at u 5 0.4. Note 
+breaks in the y-axis for top and bottom plots. Vertical lines at 
+69 mm showing ID of burner nozzle.
+Table 2 Bulk and maximum axial velocities at the nozzle exit for all isothermal cases, along with the percentage 
+variations between M1 and R2 values and the corresponding Re 
+u ¼ 0.93 at 15 kW
+u ¼ 0.7 at 20 kW
+u ¼ 0.4 at 25 kW
+u (m/s)
+Theoretical
+20.5
+33.6
+66.2
+M1
+19.4
+32.1
+62.9
+R2
+19.6
+32.09
+65.1
+%
+1.1
+−0.06
+3.51
+umax (m/s)
+M1
+22.5
+36.6
+70.7
+R2
+23.3
+38.2
+75.3
+%
+3.9
+4.3
+6.5
+Re
+24,169
+39,825
+79,387
+011014-6 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 7 ---
+
+Fig. 7 Abel-transformed OH* chemiluminescence images for 15 kW over a range of u. 
+Colormap normalized to maximum OH* intensity in each half image. M1 results shown on 
+the left and R2 results shown on the right for each condition.
+Fig. 8 Abel-transformed OH* chemiluminescence images for 20 kW (top) and 25 kW (bottom) thermal 
+powers over a range of u. Colormap normalized to maximum OH* intensity in each half image. M1 results 
+shown on the left and R2 results shown on the right for each condition.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011014-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 8 ---
+
+velocity and higher flame speed. In addition, for a given u, the flame 
+length increases with thermal power primarily due to the increase in 
+bulk flow velocity. At u ¼ 0.4, the flame becomes progressively 
+lifted with increasing thermal power. Focusing on the 25 kW case at 
+u ¼ 0.4, the R2 flame appears noticeably more lifted than the M1 
+counterpart, suggesting that increased surface roughness leads to an 
+earlier onset of flame lift-off and, subsequently, LBO. A detailed 
+analysis of the effects of roughness on stability limits is provided in 
+Sec. 3.3.2.
+Variations in the peak OH* intensity were found to neither be 
+significant nor exhibit a consistent trend, indicating that surface 
+roughness did not impact heat release intensity. However, changes 
+in the overall flame shape were noted. For the same equivalence ratio 
+and thermal power, the R2 flame is observed to shift axially 
+upstream while remaining largely unchanged radially. This axial 
+shortening becomes more pronounced as the equivalence ratio is 
+reduced and thermal power increased. To better visualize shifts in 
+the flame and heat release center positions, the OH* chemilumi­
+nescence intensity centroid was calculated for both the raw averaged 
+and Abel-deconvoluted half-flames across all cases, following the 
+procedure described in Ref. [26]. Consistent trends were observed 
+for both the raw average and Abel-deconvoluted centroid locations. 
+Therefore, for brevity, only the raw average coordinates will be 
+presented as shown in Fig. 9.
+Radial shifts in centroid location were found to be small and lack a 
+consistent trend when compared with the axial shifts. The average 
+radial deviation of the R2 flame compared with the M1 flame was in 
+fact only found to be 1.4%. To simplify the presentation of the 
+data, only the axial coordinates for both M1 and R2 inserts are 
+plotted in Fig. 9 for all thermal powers and 0.5  u  1. The u ¼ 0.4 
+centroid locations were excluded, as the flame was lifted and 
+unstable at this equivalence ratio, particularly at higher thermal 
+powers, preventing reliable representation of centroid location 
+changes.
+From Fig. 9, the magnitude of axial shortening in the R2 flames 
+increases with both higher thermal power and lower equivalence 
+ratios, suggesting that susceptibility is proportional to the bulk flow 
+velocity. At the u ¼ 0.5 conditions in fact, the percentage shortening 
+of the R2 flame compared to the M1 flame increases by 33% and 
+83% for the 20 kW and 25 kW cases, respectively, compared to the 
+corresponding 15 kW shortening. This axial shortening is likely 
+driven by roughness-induced turbulence, particularly within the 
+boundary layer, as demonstrated in Sec. 3.2, which enhances mixing 
+and increases local burning rates. The effect becomes more 
+pronounced at higher bulk flows and lower equivalence ratios, 
+where the flame is more sensitive to turbulence-induced 
+enhancements.
+3.3.2 Stability Limits. Operability sweeps were conducted for 
+15 kW, 20 kW, and 25 kW, as described in Sec. 3.3.1. However, 
+flashback was observed only at 15 kW and exclusively with the M1 
+insert. Recognizing the significant influence of surface finish on 
+flashback behavior, a more detailed investigation was carried out at 
+lower thermal powers. For this study, thermal powers of 10 kW, 
+12.5 kW, and 15 kW were tested, with flashback occurring for both 
+inserts at all power levels except 15 kW for the range of u 
+investigated. Each flashback condition was repeated twice for every 
+thermal power, allowing sufficient time between tests for the burner 
+to thermally stabilize. Results are shown in Fig. 10.
+The results in Fig. 10 demonstrate that surface roughness has a 
+measurable impact on the burner flashback limits. At all thermal 
+Fig. 9 Axial raw averaged OH* centroid location movement 
+Fig. 10 Power setting versus u at the point of flashback to 
+demonstrate roughness induced changes in flashback behavior
+Fig. 11 Power setting versus u at the point of blow-off to 
+demonstrate roughness induced changes in LBO behavior
+Fig. 12 NOx emissions as a function of thermal power and 
+surface roughness
+011014-8 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 9 ---
+
+powers investigated, the R2 insert exhibited greater flashback 
+resistance compared to the M1 insert. For the same thermal power, 
+the R2 cases flashed back at a higher u (lower relative u) than with 
+the M1 insert. In addition, the flashback resistance seems to increase 
+with increasing thermal power. At 10 kW, flashback with the R2 
+insert occurred at 13% higher u than with the M1 insert, while at 
+12.5 kW it occurred at 19% higher u.
+Surface roughness was also found to influence LBO limits as 
+mentioned in Sec. 3.3.1. Although LBO was not investigated for the 
+lower thermal powers of 10 kW and 12.5 kW, at thermal powers 
+between 15 kW and 25 kW, LBO was found to occur on average at 
+2.5% higher equivalence ratios as shown in Fig. 11.
+The observed shifts in both flashback and LBO to higher u can be 
+partially attributed to the increased centerline velocities at the nozzle 
+exit, as identified isothermally in Sec. 3.2. Flashback exhibits a more 
+pronounced shift due to its greater sensitivity to local velocity 
+variations and turbulence near the walls, whereas LBO is primarily 
+governed by global turbulent flame speed. The significantly greater 
+impact of roughness on flashback compared to LBO suggests that 
+increased surface roughness positively influences operability limits.
+3.4 Exhaust Gas Emissions. Exhaust NOx emission measure­
+ments were taken at u ¼ 0.5, u ¼ 0.6, and u ¼ 0.7 for thermal 
+powers between 15 kW and 25 kW as shown in Fig. 12. In these lean 
+premixed flames, NOx production is expected to be primarily driven 
+by the thermal NOx pathway [46]. However, since surface roughness 
+has already been shown to influence flame position, stability limits, 
+flow-fields, and turbulence, measurable changes in NOx may be 
+observed.
+From Fig. 12, it can be observed that NOx emissions below 
+10 ppm were achieved across all test points investigated with values 
+at u ¼ 0.5 and u ¼ 0.6 being below 5 ppm. For these two 
+equivalence ratios, the minor differences observed between the 
+M1 and R2 cases did not allow for significant conclusions. Similar 
+findings were noted for the lower two thermal powers, where 
+measured differences were within the error bars. A more significant 
+effect was observed at u ¼ 0.7 for the 25 kW case, where NOx 
+emissions decrease by 12.6% as surface roughness increased.
+4 Conclusions
+The impact of surface roughness on the performance indicators of 
+a recently designed, industry-relevant generic premixed jet burner 
+fired on hydrogen was investigated under atmospheric operational 
+conditions. Guided by recent developments, two interchangeable 
+inserts were utilized: one conventionally machined, representing the 
+smooth benchmark, the other having a rough surface, mimicking 
+unprocessed raw AM components. Detailed experimental charac­
+terization was performed, including measurements of emissions, 
+flame behavior, and stability limits. By isolating surface finish as the 
+primary variable, building on previous research, the study offers 
+valuable insights into the implications of roughness for burner 
+operability and emissions.
+Key findings of this work are as follows:
+ Increased roughness was associated with significant changes in 
+stability limits. The rough insert (R2) demonstrated a wider 
+stable operating range with measurably improved flashback 
+resistance at the cost of marginally higher sensitivity to flame 
+lift-off and LBO.
+ Surface roughness caused an impact in flame position, with the 
+R2 insert showing a repeatable upstream shift of the flame 
+centroid, especially at higher thermal powers and lower 
+equivalence ratios. This was accompanied by increased 
+turbulence in the boundary layer leading to measurable 
+differences in axial velocity distributions.
+ NOx emissions were consistently low across the range of 
+conditions considered, with slight reductions observed for the 
+rough insert at higher thermal powers, suggesting that rough­
+ness may marginally improve emission profiles due to slight 
+mixing improvements.
+These results underscore the importance of considering surface 
+roughness effects in the design of hydrogen combustion systems, 
+particularly in contexts where AM is used. The study demonstrates 
+that adopting postprocessing AM components to achieve smoother 
+surfaces may not only be unnecessary but could also diminish 
+performance, suggesting the potential for commercial benefit. 
+Furthermore, this comprehensive dataset provides a foundation for 
+refining reacting computational models with roughness sensitivity 
+on novel state-of-the-art burner geometries.
+Acknowledgment
+Jadeed Beita and Suresh Sadasivuni are acknowledged for their 
+invaluable feedback and guidance throughout this work. Dr. Alastair 
+Clarke is acknowledged for his support in the surface roughness 
+measurements. Finally, Jack Thomas is acknowledged for his efforts 
+in operating and maintaining the experimental facility.
+Funding Data
+ Engineering and Physical Sciences Research Council 
+(EPSRC), Cardiff School of Engineering, and Siemens Energy 
+Industrial Turbomachinery Ltd. through the Centre for 
+Doctoral Training in Resilient Decarbonized Fuel Energy 
+Systems (Grant No. EP/S022996/1; Funder ID: 10.13039/ 
+501100000266).
+ HYFLEXPOWER.
+Data Availability Statement
+The data and information that support the findings of this article 
+are freely available1.
+Nomenclature
+AM ¼ additive manufacturing
+BLF ¼ boundary layer flashback
+EDM ¼ electron discharge machining
+HHC ¼ high hydrogen content
+LBO ¼ lean blow-off
+M1 ¼ machined insert
+PJB ¼ premixed jet burner
+r ¼ radial coordinate
+Ra ¼ arithmetic average roughness
+Rq ¼ RMS surface roughness
+Rz ¼ ten-point average roughness
+Re ¼ Reynolds number
+R2 ¼ rough insert
+TI ¼ turbulence intensity
+TP ¼ thermal power
+u ¼ axial velocity
+u ¼ mean nozzle exit axial velocity
+umax ¼ maximum axial velocity at nozzle exit
+u0RMS ¼ fluctuating axial velocity
+Xx ¼ mole fraction of x
+u ¼ equivalence ratio
+References
+0[1] Dutta, B., Sudarsanam, B., and Bradley, J., 2019, “Science,” Technology and 
+Applications of Metals in Additive Manufacturing, Elsevier, Amsterdam, The 
+Netherlands.
+0[2] Srinivasan, D., and Kiruthika, A., 2022, “Recent Advances in Alloy Development 
+for Metal Additive Manufacturing in Gas Turbine/Aerospace Applications: A 
+Review,” J. Indian Inst. Sci., 102(1), pp. 311–349.
+0[3] Gebisa, A. W., and Hirpa, G. L., 2018, “Additive Manufacturing for the 
+Manufacture of Gas Turbine Engine Components: Literature Review and Future 
+Perspectives,” ASME Paper No. GT2018-76686.
+0[4] Navrotsky, V., Andreas, G., and Brodin, H., 2015, “Industrialisation of 3D 
+Printing (Additive Manufacturing) for Gas Turbine Components Repair and 
+Manufacturing,” VGB PowerTech, 12, pp. 48–52.
+1https://doi.org/10.17035/cardiff.29597906
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011014-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 10 ---
+
+0[5] Durocher, A., Fan, L., Francolini, B., F€uri, M., Bourque, G., Sirois, J., May, D., 
+Bergthorson, J. M., Yun, S., and Vena, P., 2024, “Characterization of a Novel 
+Additive Manufacturing Micromix Nozzle Burning Methane to Hydrogen,” 
+ASME J. Eng. Gas Turbines Power, 146(5), p. 051009.
+0[6] Andersson, O., Graichen, A., Brodin, H., and Navrotsky, V., 2017, “Developing 
+Additive Manufacturing Technology for Burner Repair,” ASME J. Eng. Gas 
+Turbines Power, 139(3), p. 031506.
+0[7] Calignano, F., Manfredi, D., Ambrosio, E. P., Iuliano, L., and Fino, P., 2013, 
+“Influence of Process Parameters on Surface Roughness of Aluminum Parts 
+Produced by DMLS,” Int. J. Adv. Manuf. Technol., 67(9–12), pp. 2743–2751.
+0[8] Shinonaga, T., Kobayashi, H., Okada, A., and Tsuji, T., 2023, “Surface Smoothing 
+of Additively Manufactured Ti-6Al-4V Alloy by Combination of Grit Blasting 
+and Large-Area Electron Beam Irradiation,” Int. J. Adv. Manuf. Technol., 
+127(11–12), pp. 5127–5137.
+0[9] Runyon, J., Giles, A., Marsh, R., Pugh, D., Goktepe, B., Bowen, P., and Morris, S., 
+2020, “Characterization of Additive Layer Manufacturing Swirl Burner Surface 
+Roughness and Its Effects on Flame Stability Using High-Speed Diagnostics,” 
+ASME J. Eng. Gas Turbines Power, 142(4), p. 041017.
+[10] Psomoglou, I., Goktepe, B., Crayford, A., Bowen, P., Morris, S., and Jones, N., 
+2024, “Influence of AM Generated Burner Surface Roughness on NOx Emissions 
+and Operability of Hydrogen-Rich Fuels,” Combust. Sci. Technol., pp. 1–20.
+[11] Ding, S., Huang, K., Han, Y., and Valiev, D., 2021, “Numerical Study of the 
+Influence of Wall Roughness on Laminar Boundary Layer Flashback,” Phys. Rev. 
+Fluids, 6(2), p. 023201.
+[12] Al-Fahham, M., Hatem, F. A., Alsaegh, A. S., Valera-Medina, A., Bigot, S., and 
+Marsh, R., 2017, “Experimental Study to Enhance Resistance for Boundary Layer 
+Flashback in Swirl Burners Using Microsurfaces,” ASME Paper No. GT2017-63367.
+[13] Boyce, M. P., 2012, “Advanced Industrial Gas Turbines for Power Generation,” 
+Combined Cycle Systems for Near-Zero Emission Power Generation, D. Ashok, 
+ed., Woodhead Publishing, Cambridge, UK, pp. 44–102.
+[14] Du Toit, M. H., Avdeenkov, A., and Bessarabov, D., 2018, “Reviewing H2 
+Combustion: A Case Study for Non-Fuel-Cell Power Systems and Safety in 
+Passive Autocatalytic Recombiners,” Energy Fuels, 32(6), pp. 6401–6422.
+[15] Ebi, D., Bombach, R., and Jansohn, P., 2021, “Swirl Flame Boundary Layer 
+Flashback at Elevated Pressure: Modes of Propagation and Effect of Hydrogen 
+Addition,” Proc. Combust. Inst., 38(4), pp. 6345–6353.
+[16] Reichel, T. G., Terhaar, S., and Paschereit, O., 2015, “Increasing Flashback 
+Resistance in Lean Premixed Swirl-Stabilized Hydrogen Combustion by Axial Air 
+Injection,” ASME J. Eng. Gas Turbines Power, 137(7), p. 071503.
+[17] Kıymaz, T. B., B€onc€u, E., G€ulery€uz, D., Karaca, M., Yılmaz, B., Allouis, C., and 
+G€okalp, I., 2022, “Numerical Investigations on Flashback Dynamics of Premixed 
+Methane-Hydrogen-Air Laminar Flames,” Int. J. Hydrogen Energy, 47(59), 
+pp. 25022–25033.
+[18] Bons, J. P., 2010, “A Review of Surface Roughness Effects in Gas Turbines,” 
+ASME J. Turbomach., 132(2), p. 021004.
+[19] Stripf, M., Schulz, A., and Bauer, H., 2008, “Modeling of Rough-Wall Boundary 
+Layer Transition and Heat Transfer on Turbine Airfoils,” ASME J. Turbomach., 
+130(2), p. 021003.
+[20] Psomoglou, I., 2023, “Influence of Surface Roughness on Burner Characteristics 
+and Combustion Performance of AM Combustors,” Ph.D. thesis, Cardiff 
+University, Cardiff, UK.
+[21] Vandervort, C., Leach, D., Walker, D., and Sasser, J., 2019, “Commercialization 
+and Fleet Experience of the 7/9HA Gas Turbine Combined Cycle,” ASME Paper 
+No. GT2019-91594.
+[22] Funke, H. H. W., Beckmann, N., and Abanteriba, S., 2019, “An Overview on Dry 
+Low NOx Micromix Combustor Development for Hydrogen-Rich Gas Turbine 
+Applications,” Int. J. Hydrogen Energy, 44(13), pp. 6978–6990.
+[23] Krebs, W., Schulz, A., Witzel, B., Johnson, C., Laster, W., Pent, J., Schilp, R., Wasif, 
+S., and Weaver, A., 2022, “Advanced Combustion System for High Efficiency (ACE) 
+of the New SGT5/6-9000HL Gas Turbine,” ASME Paper No. GT2022-82299.
+[24] Majeed, A., Ahmed, A., Salam, A., and Sheikh, M. Z., 2019, “Surface Quality 
+Improvement by Parameters Analysis, Optimization and Heat Treatment of 
+AlSi10 Mg Parts Manufactured by SLM Additive Manufacturing,” Int. J. 
+Lightweight Mater. Manuf., 2(4), pp. 288–295.
+[25] Runyon, J., Marsh, R., Bowen, P., Pugh, D., Giles, A., and Morris, S., 2018, “Lean 
+Methane Flame Stability in a Premixed Generic Swirl Burner: Isothermal Flow 
+and Atmospheric Combustion Characterization,” Exp. Therm. Fluid Sci., 92, 
+pp. 125–140.
+[26] Runyon, J., 2017, “Gas Turbine Fuel Flexibility: Pressurized Swirl Flame 
+Stability, Thermoacoustics, and Emissions,” Ph.D. thesis, Cardiff University, 
+Cardiff, UK.
+[27] Stavropoulos, P., Foteinopoulos, P., Papacharalampopoulos, A., and Tsoukantas, 
+G., 2019, “Warping in SLM Additive Manufacturing Processes: Estimation 
+Through Thermo-Mechanical Analysis,” Int. J. Adv. Manuf. Technol., 104(1–4), 
+pp. 1571–1580.
+[28] Vafadar, A., Guzzomi, F., Rassau, A., and Hayward, K., 2021, “Advances in Metal 
+Additive Manufacturing: A Review of Common Processes, Industrial Applica­
+tions, and Current Challenges,” Appl. Sci., 11(3), p. 1213.
+[29] Ablyaz, T. R., Shlykov, E. S., Muratov, K. R., Sirotenko, L. D., and Matygullina, 
+E. V., 2020, “Creation of Textured Surfaces by Electrical Discharge Machining,” 
+Russ. Eng. Res., 40(10), pp. 880–881.
+[30] Karmiris-Obratanski, P., Zagorski, K., Papazoglou, E. L., and Markopoulos, A. P., 
+2021, “Surface Texture and Integrity of Electrical Discharged Machined Titanium 
+Alloy,” Int. J. Adv. Manuf. Technol., 115(3), pp. 733–747.
+[31] Obilanade, D., Dordlofva, C., and T€orlind, P., 2021, “Surface Roughness 
+Considerations in Design for Additive Manufacturing—A Literature Review,” 
+Proc. Des. Soc., 1, pp. 2841–2850.
+[32] Subramanian, R., Rule, D., and Nazik, O., 2021, “Dependence of LPBF Surface 
+Roughness on Laser Incidence Angle and Component Build Orientation,” ASME
+Paper No. GT2021-59755.
+[33] Koutiri, I., Pessard, E., Peyre, P., Amlou, O., and De Terris, T., 2018, “Influence of 
+SLM Process Parameters on the Surface Finish, Porosity Rate and Fatigue 
+Behavior of As-Built Inconel 625 Parts,” J. Mater. Process. Technol., 255, 
+pp. 536–546.
+[34] Strano, G., Hao, L., Everson, R. M., and Evans, K. E., 2013, “Surface Roughness 
+Analysis, Modelling and Prediction in Selective Laser Melting,” J. Mater. Process. 
+Technol., 213(4), pp. 589–597.
+[35] Mohamed Fahad, S., Mahashar Ali, J., and Siddhi Jailani, H., 2021, 
+“Characterization of Surface Roughness of Ground Specimens Using Image 
+Processing,” Advances in Design and Thermal Systems, Springer, Singapore, 
+pp. 133–141.
+[36] Douglas, C. M., Shaw, S. L., Martz, T. D., Steele, R. C., Noble, D. R., Emerson, 
+B. L., and Lieuwen, T. C., 2022, “Pollutant Emissions Reporting and Performance 
+Considerations for Hydrogen–Hydrocarbon Fuels in Gas Turbines,” ASME J. 
+Eng. Gas Turbines Power, 144(9), p. 091003.
+[37] British Standard, 1996, “Gas Turbines Exhaust Gas Emission Measurement and 
+Evaluation,” British Standards Institution, UK, Standard No. ISO 11042-1:1996.
+[38] Gaydon, A. G., 1974, The Spectroscopy of Flames, 2nd ed., Springer Netherlands, 
+Amsterdam, The Netherlands.
+[39] Pugh, D., Runyon, J., Bowen, P., Giles, A., Valera-Medina, A., Marsh, R., 
+Goktepe, B., and Hewlett, S., 2021, “An Investigation of Ammonia Primary Flame 
+Combustor Concepts for Emissions Reduction With OH*, NH2* and NH* 
+Chemiluminescence at Elevated Conditions,” Proc. Combust. Inst., 38(4), 
+pp. 6451–6459.
+[40] Pugh, D., Valera-Medina, A., Bowen, P., Giles, A., Goktepe, B., Runyon, J., 
+Morris, S., Hewlett, S., and Marsh, R., 2021, “Emissions Performance of Staged 
+Premixed and Diffusion Combustor Concepts for an NH3/Air Flame With and 
+Without Reactant Humidification,” ASME J. Eng. Gas Turbines Power, 143(5), 
+p. 051012.
+[41] British Standard, 2010, “Assessment of Surface Texture-Guidance and 
+General Information,” British Standards Institution, UK, Standard No. BS 
+1134:2010.
+[42] Klingaa, C. G., Dahmen, T., Baier-Stegmaier, S., Mohanty, S., and Hattel, J. H., 
+2020, “Investigation of the Roughness Variation Along the Length of LPBF 
+Manufactured Straight Channels,” Nondestr. Test. Eval., 35(3), pp. 304–314.
+[43] Lieneke, T., Denzer, V., Adam, G., and Zimmer, D., 2016, “Dimensional 
+Tolerances for Additive Manufacturing: Experimental Investigation for Fused 
+Deposition Modeling,” Procedia CIRP, 43, pp. 286–291.
+[44] Lieneke, T., Lammers, S., and Zimmer, D., 2021, “Geometrical Deviations 
+in Additive Manufacturing-Influences on the Manufacturing Accuracy,” 32nd 
+Annual International Solid Freeform Fabrication Symposium, Virtual, Aug. 2–4, 
+pp. 437–457.
+[45] Schlichting, H., 1979, Boundary Layer Theory, McGraw-Hill, New York.
+[46] Prade, B., 2013, “Gas Turbine Operation and Combustion Performance Issues,” 
+Modern Gas Turbine Systems, P. Jansohn, ed., Woodhead Publishing, Cambridge, 
+UK, pp. 383–423.
+011014-10 / Vol. 148, JANUARY 2026                                                                                                     
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011014/7532767/gtp-25-1244.pdf by University of Cincinnati user on 01 January 2026

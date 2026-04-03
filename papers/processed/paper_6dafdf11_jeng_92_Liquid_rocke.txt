@@ -1,0 +1,1402 @@
+
+--- Page 1 ---
+
+AlAA 92-3227 
+Liquid Rocket Spray Combustion Stability 
+Analysis 
+R. J. Litchford 
+University of Tennessee Space Institute 
+Tullahoma, TN 
+San-Mou Jen 
+University of 
+incinnati 
+Cincinnati, OH 8 
+AI AAISAEI ASM El AS E E 
+28th Joint Propulsion 
+Conference and Exhibit 
+July 6-8, 1992 / Nashville, TN 
+For permission to copy or republish, contact the American Institute of Aeronautics and Astronautics 
+370 L'Enfant Promenade, S.W., Washington, D.C. 20024 
+
+
+--- Page 2 ---
+
+LIQUID R O C K E T  SPRAY COMBUSTION STABaITY ANALYSIS 
+W 
+Ron J. Litchfordt 
+University of Tennessee Space Institute 
+Tullahorna, Tennessee 97988 
+San-Mou Jengt 
+University of Cincinnati 
+Cincinnati, Ohio 4522f 
+Abstract 
+Introduction 
+A computational methodology for the analysis 
+of spray combustion stability in liquid rocket com- 
+bustors has been constructed. The analysis is based 
+on the unsteady, quasi-two-dimensional Euler equa- 
+tions with interphase source terms derived from a La- 
+grangian treatment of the combusting spray. An ax- 
+isymetric combustor geometry is analyzed in terms 
+of an equivalent annular computational domain with 
+periodicity conditions which may further be special- 
+ized for a rectangular combustor geometry or re- 
+duced to a quasi-one-dimensional description for pure 
+longitudinal-mode analyses. The propellant spray 
+is represented by Lagrangian tracking of computa- 
+tional parcels each having a droplet spatial distri- 
+bution described by a probability density function. 
+The propellant burning rate is described by the d2 
+vaporization law with the Ranz-Marshall convection 
+correlation and a one-parameter phenomenological 
+pressure-sensitive response index. The longitudinal- 
+and tangential-mode instability characteristics of a 
+generic combustor were investigated using the devel- 
+oped methodology. Intrinsic longitudinal-mode in- 
+stability was observed at relatively high pressure- 
+sensitive combustion response levels. 
+The result- 
+ing limit cycle oscillation consisted of a single steep- 
+fronted pressure wave undergoing repeated injector 
+and nozzle reflections at the fundamental acoustical 
+frequency. Intrinsic tangential-mode instability was 
+observed even with vanishing pressure-sensitive com- 
+bustion response. The observed instability exhibited 
+mode switching from a single steep-fronted traveling 
+pressure wave to two steep-fronted waves traveling in 
+opposing directions. These extremely high-amplitude 
+pressure waves were localized very near the injector 
+face in a manner consistent with the shocklike waves 
+observed in some experiments. 
+- 
+t Research Engineer, UT-Calspan Center for 
+Space Transportation and Applied Research, Mem- 
+ber AIAA. 
+t. Associate Professor, Aerospace Engineering 
+and Engineering Mechanics, Member AIAA. 
+Copyright @American Institute of Aero- 
+nautics and Astronautics, Inc., 1992. All 
+rights reserved. 
+W 
+This paper reports on some recent efforts to ap- 
+ply modern computational techniques to the analysis 
+of spray combustion stability in liquid-fueled rocket 
+engines. 
+Such efforts seem justified on the basis 
+that numerical methods allow for a more compre- 
+hensive analysis of combustion instability than can 
+be achieved using classical analytical treatments. By 
+accounting for nonlinear behavior and allowing for 
+more comprehensive physical submodeling, a com- 
+putational approach becomes very alluring with the 
+promise of shedding valuable insight on the myste- 
+rious connections between unsteady combustion and 
+organized flow oscillations. From a practical stand- 
+point, an efficient computational tool can also serve 
+as a valuable design aid. In this paper, we outline our 
+attempt to construct the basic framework for such an 
+engineering analysis tool with emphasis on robustness 
+and efficiency while capturing the essential features of 
+the physical phenomena. 
+When attempting such a development, it is neces- 
+sary to recognize that numerical solution techniques 
+are beset with thier own special vexations in appli- 
+cation and that physical theories for unsteady com- 
+bustion phenomena retain a certain degree of uncer- 
+tainty. Meaningful analysis of the problem is not yet 
+a simple matter of mere implementation. For exam- 
+ple, both the dissipative and dispersive characteristics 
+of a particular scheme can have an important influ- 
+ence on numerical accuracy in unsteady flow prob- 
+lems as demonstrated by Hsieh.' Also, because com- 
+bustion instability is basically a wave phenomenon, 
+implementation of appropriate boundary conditions 
+is not trivial. Stability is greatly determined by the 
+transmission and reflection of flow disturbances in- 
+cident on the boundaries. Furthermore, instability 
+oscillation modes typically involve multidimensional 
+effects and time accurate solutions are required im- 
+posing additional computational burden. The fore- 
+most difficulty, however, is the absence of definitive 
+physical submodeling for unsteady combustion. 
+The complex physics of unsteady spray combus- 
+tion in liquid rocket engines can still only be grossly 
+modeled using our best contemporary descriptions. 
+Even with these available descriptions, there is diffi- 
+culty in implementing the modeling within a CFD 
+framework without introducing excessive computa- 
+tional penalties or nonphysical numerical noise. For 
+1 
+
+
+--- Page 3 ---
+
+instability problems, such nonphysical noise is of cen- 
+tral importance, Strong numerical noise can falsely 
+trigger nonlinear instabilities and yield misleading re- 
+sults. 
+The problems described above make the predic- 
+tion and description of spray combustion instabili- 
+ties especially difficult. Currently, stability analysis 
+methods can. serve only as guides leading to quali- 
+tative understanding rather than a priori quantita- 
+tive predictions from first principles. By adapting 
+contemporary computational techniques and refined 
+physical submodeling, however, this situation may 
+hopefully be improved. In fact, considerable progress 
+is being made toward achieving this goal by several 
+In this paper, our intent is to contribute to such 
+an effort by developing a computational framework 
+suitable for spray combustion stability analyses. Our 
+desire is that the resulting development serve initially 
+as a useful research code and ultimately as a de- 
+sign aide following the introduction of more complete 
+physical submodeling. Emphasis is placed on compu- 
+tational efficiency and robustness. At this early stage 
+of code development, a simple spray combustion phys- 
+ical submodel is considered with a one-parameter phe- 
+nomenological pressure-sensitive combustion response 
+index. It seems wise to first obtain results using a 
+simplified instability model in lieu of more compli- 
+cated physical submodeling with inherently more con- 
+voluted effects. With this controlled approach, we 
+hope to develop a computational framework more ef- 
+ficiently and still gain insight into the basic physical 
+phenomena. Once established, the retrogressive na- 
+ture of this developmental approach may be relaxed 
+by substituting more refined physical submodeling. 
+Theory 
+Physical Model 
+Recognizing that the physical model must ulti- 
+mately describe transverse-mode instabilities but that 
+computational efficiency is also essential, we have 
+adapted the equivalent annular combustor representa- 
+tion for an actual axisymmetric combustor geometry 
+as formulated by French researcber~.~~~ 
+Although this 
+approach neglects radial-mode instabilities, it allows 
+for a description of the more important tangential- 
+modes with the computational savings derived from 
+using a two-dimensional grid. The resulting formula- 
+tion may also be specialized for rectangular combus- 
+tors or reduced to a quasi-onedimensional description 
+for pure longitudinal-mode analyses. The resulting 
+computational framework is therefore quite versatile. 
+The geometry of an axisymmetric combustor and 
+an equivalent annular computational domain is shown 
+in Fig. 1. Here, the axial coordinate of the compu- 
+tational domain corresponds directly to that of the 
+actual engine. The transverse length I ,  however, is 
+chosen to match the desired nth tangential mode of 
+the real combustor. Periodicity of the transverse cc- 
+ordinate is also required. With these two lengths, the 
+annular width 6 is fixed such that the cross-sectional 
+areas match. Clearly, 6 is a function of axial posi- 
+tion only. If analysis of a rectangular combustor is 
+desired, I is taken as the height, b becomes a vari- 
+able width, and the transverse periodicity condition 
+is replaced by solid wall boundary conditions. For 
+a quasi-one-dimensional analysis, I is taken as unity 
+and 6 becomes a variable cross-sectional area. 
+We consider a bi-propellant system with injection 
+of a gaseous oxidizer and a fuel spray at the injector 
+face. Treatment of the gas phase was simplified by 
+neglecting viscous/turbulence effects except for inter- 
+phase momentum exchange. Physical modeling of the 
+combustion process was simplified by invoking the fol- 
+lowing assumptions: 
+w 
+Fuel is injected as a monodispersed spray of 
+droplets - atomization is neglected. 
+The local mean vaporization rate is determined 
+by applying the quasi-steady d2 vaporization law 
+with corrections for convection and pressure sen- 
+sitivity. 
+Combustion is assumed to occur infinitely fast 
+Analysis is restricted to fuel-lean operating con- 
+ditions only so that all fuel is completely con- 
+sumed. 
+The gas-phase combustion products are assumed 
+to be calorically as well as thermally perfect. 
+following vaporization of the fuel droplets. 
+u 
+Gas-Phase Formulation 
+In our development, the gas phase is treated us- 
+ing an Eulerian description with appropriate source 
+terms for interphase transport coupling with the 
+spray. The problem thus reduces to solving the un- 
+steady, quasi-two-dimensional Euler equations which 
+may be written in conservative form using matrix n e  
+tation as 
+aQ 
+aE 
+d F  
+-+-+-=H 
+at 
+ax 
+ay 
+where the conserved variable vector Q is defined by 
+r pb 1 
+Q =  
+4 
+and the convective flux vectors E and F are defined 
+-- 2 
+
+
+--- Page 4 ---
+
+The vector H contains contributions due to the vari- 
+able annular width and interphase transport source 
+terms. We denote this vector as the sum of two com- 
+ponents 
+H = H i  + I f 2  
+(4) 
+For single-phase flow, only H I  need be considered to 
+account for the variable annular width effect on the 
+axial momentum equation. It consists of asingle com- 
+ponent 
+For twophase flow, the source vector Hz must be 
+included to account for interphase transport effects 
+on the continuous-phase conservation equations. The 
+source vector HZ has the form 
+W 
+r 
+1 
+The perfect gas equation of state p = pRT = (y - 
+l)[e - p$] completes the governing system where e = 
+C,T + $ represents the total internal energy. 
+This inhomogeneous form of the Euler equations 
+retains a hyperbolic character. Thus, the Jacobian 
+coefficient matrix A = aE/BQ has real eigenvalues u, 
+u + e, u, and u - c with the speed of sound defined by 
+c = m. 
+Similarly, the eigenvalues of the Jacobian 
+coefficient matrix B = BF/BQ are v, u, u + c, and 
+u - c. Following conventional practice, A and B may 
+be diagonalized such that 
+T;'M-'AMT, 
+= A z  
+T;'M-'BMTy = Ay 
+(7) 
+where M = 
+is a transformation matrix from the 
+conservative variables Q to the primitive variables 
+V ,  T, and Ty are similarity transformation matrices 
+formed from the eigenvectors of the primitive variable 
+Jacobian coefficient matrices M-'AM and M - ' B M ,  
+and As and Ay are the diagonal eigenvalue matrices. 
+W 
+. ;:-i.~.i. 
+For convieniedce, we may define positive and neg- 
+ative eigenvalue matrices as A; 
+and A, where '+' in- 
+dicates the occurence of positive eigenvalues only and 
+I - '  
+indicates only negative eigenvalues. It follows, 
+therefore, that 
++ 
++ 
+(9) 
+1.41 = MTz(A$ - A;)T;'M-' 
+= A+ - A- 
+IBI = MTy(l\y+ - A;)T;'M-' 
+= B+ - B- 
+Numerical Scheme 
+Numerical solution of the Euler equations 
+is accomplished through optional spatial finite- 
+difference discretizations and a separate time- 
+integration method. In selecting discretization meth- 
+ods, we desired a conservative formulation capa- 
+ble of yielding meaningful spatial resolution with- 
+out spurious numerical oscillations. In selecting a 
+time-integration method, we desired meaningful time- 
+accuracy and good numerical stability. These prop- 
+erties are central to the description of unsteady flows 
+typically encountered in a combustion stability anal- 
+ysis. Therefore, both the dissipative and dispersive 
+characteristics of a numerical scheme are important 
+to the problem. Of course, efficiency is always of ut- 
+most concern. 
+An assessment of numerical techniques for such 
+unsteady flow calculations has been carried out by 
+Hsieh.' Based on his results, explicit Runge-Kutta 
+multi-stage timeintegration with 6th order central 
+differencing of the convective fluxes and 4th order ar- 
+tificial dissipation yield very good all around perfor- 
+mance. He also found that 2nd order, upwind flux- 
+differencing with Roe averaging of the Jacobian coef- 
+ficient matrices and nonlinear flux limiters to achieve 
+TVD conditions performed very well with regard to 
+shock capturing but entailed higher dissipative errors 
+in multidimensional problems. Our construction of a 
+computational method for spray combustion stability 
+is based on adopting the best performing techniques 
+from this study. 
+The development of the numerical scheme begins 
+from the spatially discretized Euler equations yielding 
+a system of ODES of the form 
+where R(Q,,t) represents an explicit spatial operator. 
+Applying the 4-stage Runge-Kutta method yields the 
+- 3 -  
+
+
+--- Page 5 ---
+
+operational sequence 
+Qfi = Q;,L 
+Q~.;L = QY,, - ; i ~ t ~ ( ~ ! o ) )  
+J,k 
+Q$;: = ~ 7 , ~  
+- -A~R(Q!')) 
+Jlk 
+Q$ = Q;,~ - -A~R(Q!~)) 
+>,k 
+1 
+1 
+3 
+1 
+2 
+(11) 
+QZE1 = QY,, - AtR(Q!3') 
+I l k  
+With 6th order central differencing of the convec- 
+tive fluxes and the addition of 4th order artificial dis- 
+sipation, the explicit spatial operator takes the form 
+1 
+R(Qi,k) = 
+(EI+s.x - QEj+z,k + 45Ejt1,t 
+-45Fj,t-1 4- 
+QFj,k-z - Fj,k-s 
++D,? + D$Yi - Hj,k 
+(12) 
+The dissipation vector for the streamwise coordinate 
+is9 
+- 4Qjt1,k + 6Qj,k 
+-4Qj-1,k 
++Qj-z.k) 
+(13) 
+with a similar definition for the transverse coordinate. 
+This central difference scheme is very efficient and the 
+method of choice in most cases. 
+For a more computationally intensive approach, 
+a characteristic-based spatial discretization using up- 
+wind flux-differencing is included as an alternative 
+where the explicit spatial operator may be written 
+in terms of numerical flux vectors treated on a locally 
+one-dimensional basis. 
+Here, the 1st order accurate numerical flux vector is 
+defined for the streamwise coordinate by 
+- 
+where the Jacobian coefficient matrix A is evaluated 
+using the Roe averaged quantities"." 
+W 
+SimiIar relations hold for the transverF fluxes in 
+terms of the Jacobian coefficient matrix B. 
+As developed, the above 1st order accurate 
+scheme exhibits robust nonoscillatory behavior, but 
+spatial resolution is poor. Direct substitution of 2nd 
+order difference formulas does not improve matters 
+either since this leads to the generation of spurious 
+oscillations. To circumvent this difficulty, Harten" 
+has introduced the total-variation-diminishing (TVD) 
+property and derived sufficient conditions for con- 
+structing schemes which satisfy this property. Such 
+constructions have been carried out for both explicit 
+and implicit time integration ~chemes.'~J~ 
+The mech- 
+anisms currently in use for satisfying TVD conditions 
+are based on some kind of gradient limiting procedure. 
+We adapt such a procedure based on a nonlinear flux 
+limiter. The second-order convective flux vector is 
+obtained by adding corrective terms to the first-order 
+flux vector. A generalized form which may he special- 
+ized for second-order central, second-order upwind, or 
+third-order biased upwind schemes is given by Hsieh' 
+- 4  
+
+
+--- Page 6 ---
+
+and the minmod operator is defined by 
+W 
+minmod[z,y] = sgn(z) 
+m 4 0 , m i n { l 4 y  sgn(z)ll 
+(21) 
+Similar forms hold for the transverse flux vector. The 
+values of K corresponding to the type of scheme are 
+presented in Table 1. The constant fl is a compression 
+parameter which is restricted to the range 1 5 fl 5 
+(3 - ~ ) / ( l -  
+K) with fl = 6 when K = 1. 
+Boundary Conditions 
+Boundary conditions for the computational anal- 
+ysis are implemented according to the propagation of 
+information along the flow characteristics. On a lc- 
+cally one-dimensional basis, for instance, each eigen- 
+value may be associated with a particular character- 
+istic. If the eigenvalue is positive, its corresponding 
+characteristic is right/up running. Conversely, if the 
+eigenvalue is negative, its characteristic is left/down 
+running. When a characteristic runs out of the com- 
+putational domain, the boundary condition depends 
+on the internal flow field, and a numerical bound- 
+ary condition must be formulated which depends on 
+the computed solution. The number of unknown flow 
+parameters minus the number of numerical bound- 
+ary conditions gives the number of physical boundary 
+conditions which must be imposed. 
+For the subsonic inflow boundary, there are three 
+in-running characteristics requiring three imposed 
+physical conditions. In this analysis, we demand that 
+the incoming gas-phase mass flux, flow angle (swirl), 
+and entropy remain constant. The fixed gas-phase 
+mass flux inflow implies the injection rate is insen- 
+sitive to fluctuations at the injector face. Pressure- 
+sensitive injection may be considered by including an 
+appropriate injector admittance condition. 
+For the outflow boundary, the flow is supersonic 
+in the diverging section of the nozzle and all char- 
+acteristics are out-running so that no physical con- 
+ditions need be specified. However, it suffices for 
+developmental purposes to consider a subsonic out- 
+flow boundary condition at the nozzle entrance by 
+making the short-nozzle appr~ximation.'~ 
+Here, the 
+flow is assumed to accelerate to sonic velocity in zero 
+length. The physical condition imposed for the single 
+in-running characteristic in this case is a fixed Mach 
+number. Although this approximation is strictly valid 
+for pure longitudinal-mode oscillations only, we uti- 
+lize the approximation for the sake of simplicity even 
+when transverse velocity components appear. 
+At 
+worse, this approach underestimates the nozzle damp- 
+ing effect. For the purpose of obtaining a mean flow 
+prior to making a stability calculation, we also have 
+the option of specifying the static pressure at the noz- 
+zle entrance. 
+W 
+- 
+- 5  
+Boundary conditions for the transverse direc- 
+tion are irrelevant for the annular combustor geome- 
+try in that it is only necessary to insure periodicity. 
+When specializing for rectangular combustor geome- 
+tries, solid wall boundary conditions are invoked by 
+forcing the normal velocity component to zero. 
+S p ~ y  
+Combustion Formulation 
+Treatment of the propellant spray is simplified 
+by neglecting the atomization process and assuming 
+the injection of groups of discrete droplets at specified 
+time intervals. Each droplet group is then represented 
+by a probability density function (pdf) in space. The 
+behavior of the droplets within each group is deter- 
+mined from the history of a single discrete compu- 
+tational parcel whose instantaneous position corre- 
+sponds to the mean of the pdf. Conversely to the gas 
+phase, these parcels are treated in a Lagrangian fash- 
+ion. Knowing the pdf's mean location and size at a 
+given instant, we may calculate the probable number 
+of physical droplets in each cell to evaluate interphase 
+transport. 
+The purpose of the pdf representation is to mini- 
+mize the numerical shot noise which normally results 
+when each parcel is described by a delta function 
+point source and the droplet spray is undersampled. 
+The numerical noise problem arising from the point 
+source representation may be minimized by using a 
+large number of parcels but with great sacrifice in 
+Computational efficiency. This fundamental difficulty 
+can be so troubling that an Eulerian description of 
+the spray is generally preferred. By introducing a 
+distributed parcel representation, we hope to allevi- 
+ate the generation of nonphysical numerical noise nor- 
+mally associated with a Lagrangian approach without 
+suffering severe computational penalty. 
+In this development, we employ a rectangular 
+uniform pdf shape as depicted schematically in Fig. 
+2. The streamwise width of this pdf corresponds to 
+the product of the propellant injection velocity and 
+a specified injection time interval. We currently im- 
+pose an injection time interval such that this width 
+is about 1.5 times the streamwise cell length. The 
+width of the pdf in the transverse direction is cur- 
+rently equated to the transverse cell length. In addi- 
+tion, we require that these characteristic dimensions 
+of the pdf shape remain fixed throughout a parcel's 
+lifetime. A general theory has been developed to in- 
+corporate the time evolving width of the pdf due to 
+turbulent dispersion,'6 but we are neglecting turbu- 
+lence effects in the present development. 
+The mean position of each pdf is determined from 
+Lagrangian tracking of a single computational parcel 
+characterizing the behavior of the physical droplets in 
+the group The equations governing particle motion 
+
+
+--- Page 7 ---
+
+are 
+(23) 
+For the sake of efficiency, we linearize Eq. (22) by 
+holding (pg/pp)(CD/dp)\iig - 
+constant over the 
+computational time step and integrate analytically. 
+This gives the updated parcel velocity as 
+gP tipo exp [+] 
++ gg( 1 - exp [+I} 
+(24) 
+The parcel position is obtained through an even sim- 
+pler treatment by using explicit Euler integration 
+Zp NN Zp, i 
+iip At 
+(25) 
+These approximate equations yield minimal error 
+for small computational time steps and are sufficient 
+for engineering calculations. Evaluation of parcel mo- 
+tion is simplified even further in the current analysis 
+by neglecting parcel motion in the transverse direc- 
+tion. This simplification may be relaxed its desired 
+but at increased computational expense. 
+Physical modeling of the unsteady spray com- 
+bustion process is an essential element of the stability 
+analysis. A comprehensive description should be able 
+to account for the effect of local flow fluctuations, in 
+thdform of organized flow oscillations as well as tur- 
+bulence, on interphase transport and the propellant 
+combustion rate. Frankly, such a complete descrip- 
+tion does not exist. Even the best current modeling 
+techniques retain a measure of uncertainty and are 
+generally quite complicated and encumbering. Be- 
+cause we wish to avoid such unnecessary complication 
+during the developmental process, we have adapted 
+the relatively simple d2-law for droplet vaporization 
+and have included simple multiplicative corrections 
+for convective effects and pressure sensitivity. The 
+instantaneous combustion rate of a parcel thus has 
+the form 
+(26) 
+?r 
+rh = ;ippdppIC,Kp 
+where the correction factor for convective erects is 
+given by the Ranz-Marshall correlation as'? 
+IC, = 1 + 0.3Re1'2Pr113 
+(27) 
+The factor representing pressure sensitive com- 
+bustion response is derived from the classical two- 
+parameter n - r formulation proposed by Cr~cco.'~ 
+In the n - 7 instability model, the propellant is as- 
+sumed to undergo combustion after some time lag 
+7 following injection. The mass burning rate dur- 
+v 
+ing combustion is also assumed to be proportional 
+to pressure raised to the power n. Recognizing that 
+our Lagrangian description of the spray yields a time 
+lag effect somewhat analogous to that of the 7 pa- 
+rameter, we concern ourselves only with the pressure- 
+sensitive combustion response strength as represented 
+by the n parameter. We then note that for small pres- 
+sure changes about the mean the power law pressure 
+dependence is approximately represented by a pro- 
+portional relationship between burning rate and in- 
+stantaneous pressure. Thus, expressing the burning 
+rate BS the sum of a mean and fluctuating quantity 
+h = Z + h', we introduce a pressure-sensitive com- 
+bustion response index a, analogous to n, such that 
+If we further assume that the 8-law corrected for 
+convective effects only represents the mean burning 
+rate, we may write the pressnre-sensitive correction 
+factor as 
+u 
+The notation expressing the functional dependency of 
+the pressure fluctuation implies that p'(t;zp) be eval- 
+uated at time t at the instantaneous location of the 
+parcel zp. This approach is somewhat artificial but 
+serves as a useful construct for developmental pur- 
+poses and is not devoid of merit as a phenomenologi- 
+cal description. 
+Computational Methodology 
+Application of the above modeling scheme re- 
+quires a two-part approach. First, a mean flow must 
+be computed by specifying the mean combustor pres- 
+sure at the nozzle entrance and setting a = 0. Be- 
+cause of the unsteadiness induced by the convection 
+correction, it is generally not possible to get a fully 
+converged steady-state flow field in this way. We 
+avoid this difficulty by freezing the source terms once 
+it becomes obvious that additional convergence is im- 
+possible and then continue the calculation. With 
+the source terms frozen the calculation coverges very 
+rapidly. For a multidimensional analysis, we also find 
+it expedient to import a 1D mean flow solution. Once 
+a mean flow field is obtained for reference by what- 
+ever method, stability calculations are performed by 
+restarting the code using the short-nozzle boundary 
+condition and a specified combustion response index. - 
+G 
+
+
+--- Page 8 ---
+
+Results and Discussion 
+W 
+There are two important combustor character- 
+istics which influence stability. One is the localized 
+combustion response to flow field fluctuations. An- 
+other is the mean combustion distribution. It is these 
+characteristics which greatly determine the tendency 
+for a pressure wave to be amplified or attenuated. In 
+our combustion model, the combustion response in- 
+dex and, to a certain extent, the Rauz-Marshall cou- 
+vection correlation describe the combustion response. 
+On the other hand, the mean spray combustion dis- 
+tribution is controlled by the mean burning rate con- 
+stant in conjunction with the Lagrangian tracking for- 
+mulation. 
+Based on this spray combustion model, we have 
+used the constructed computational methodology to 
+investigate the stability characteristics of a represen- 
+tative generic combustor. The propellant properties 
+considered are given in Table 2. The combustor physi- 
+cal conditions are given in Table 3. Because we wished 
+to examine the effect of combustion distribution on 
+stability, particularly longitudinal-mode, a mean flow 
+field was computed for three different burning rate 
+constants to obtain a range of mean spray lengths. 
+The burning rate constants and their resulting mean 
+spray lengths are summarized in Table 4. The mass 
+flow rate, Mach number, and temperature distribu- 
+tions for the computed mean flow fields are shown in 
+Fig. 3. 
+Our approach was two prong in that we first per- 
+formed a longitudinal-mode stability analysis using a 
+pure 1D description and then examined tangential- 
+mode instability using the equivalent annular combus- 
+tor formulation. In both cases, we varied the presure 
+sensitive combustion response index to determine the 
+levels needed for the combustor to become intrinsi- 
+cally unstable. The results of this evaluation are de- 
+scribed in the following sections. 
+Longitudinal-Mode Stability Characteristics 
+The longitudinal-mode calculations were per- 
+formed using characteristic-based upwind flux differ- 
+encing for spatial discretization. The 1D grid con- 
+tained 101 evenly spaced nodes. To determine in- 
+trinsic combustor stability, we examined the pressure 
+history at the nozzle entrance as it evolved following 
+restart from the mean flow with nonzero combustion 
+response. Triggered instability was also briefly exam- 
+ined by pulse combusting a specified fraction of the 
+spray following restart. 
+In Fig. 4, stable combustion behavior is demon- 
+strated for a spray length to combustor length ratio of 
+0.6 and a combustion response index of 0.9. Clearly 
+there is a pressure oscillation in the combustor, hut 
+its amplitude is too small to be of significance. In 
+- 
+- 
+contrast, Fig. 5 shows intrinsic instability when the 
+combustion response index is increased to 1.0. Here 
+we see classical exponential growth of the pressure 
+wave in the linear regime followed by attainment of 
+a nonlinear limit cycle oscillation where amplification 
+is balanced by damping and nozzle losses. The limit 
+cycle oscillation manifests a well defined steep-fronted 
+pressure wave which is truly periodic. The absence of 
+numerical noise is noteworthy. 
+Indeed, the spectral composition of the wave- 
+forms in Figs. 4 and 5 reveal that they are virtually 
+noiseless. The low amplitude pressure wave observed 
+during stable combustion is seen to be almost sinu- 
+soidal. However, the nonlinear limit cycle pressure 
+wave observed during unstable combustion has a sub- 
+stantial contribution from higher harmonics. In both 
+cases the fundamental frequency is found to corre- 
+spond with the classical acoustical frequency. This 
+behavior was characteristic of all calculations. 
+For additional insight, the fluctuations in veloc- 
+ity, temperature, and entropy are shown in relation to 
+fluctuations in pressure during unstable combustion 
+in Fig. 7. These waveforms are clearly periodic, but 
+they are far from sinusoidal. The nonlinear character 
+of the wave phenonmena during unstable combustion 
+is evident. The pressure profile within the unstable 
+combustor is also shown in Fig. 8 at various time 
+intervals where we see a single pressure wave imping- 
+ing the injector head and being reflected toward the 
+nozzle. 
+As a summary of the longitudinal-mode stability 
+calculations, a stability map has been constructed and 
+presented in Fig. 9. In this map, the intrinsic stability 
+limit is plotted against a normalized combustion re- 
+sponse strength and a normalized mean spray length. 
+The combustion response strength is defined as the 
+product of the response index and the mean burning 
+rate since it is this product which determines the mag- 
+nitude of the fluctuating burn rate as the spray length 
+is expanded or contracted. This is evident from an in- 
+spection of Eqs. (26) and (29). What we find is that 
+as the spray combustion region is expanded to en- 
+compass a larger portion of the combustor, damping 
+effects increase. While some energy is always added in 
+phase with the wave, with an increasingly larger com- 
+bustion region there is an increase in energy added 
+out of phase with the wave. The net effect is greater 
+stability. In contrast, as the spray combustion region 
+is contracted and concentrated near the injector face, 
+there is a simultaneous reduction in the out-of-phase 
+contributions and increase in the in-phase contribu- 
+tions. The net effect is greater instability. 
+To make an important point concerning our in- 
+stability model, the pressure history for a combustion 
+pulsed (3% of total spray) stability calculation is pre- 
+- 7  
+
+
+--- Page 9 ---
+
+sented in Fig. 10. Here, we find the same stability 
+behavior as for the non-pulsed case except that the de- 
+velopment of the limit cycle occurs much faster. The 
+resulting waveforms are identical to that obtained for 
+non-pulsed stability. This is further demonstrated by 
+the spectral composition of the waveform in Fig. 11. 
+The reason for this behavior is that the combustion 
+response is linearly related to pressure as seen in Eq. 
+(28). For a nonlinear model, pulsed stability could 
+differ greatly from non-pulsed stability. 
+Tangential-Mode Stability Characteristics 
+All tangential-mode calculations were performed 
+using 6th order central differencing for spatial dic 
+cretization. The 2D grid for the annular combustor 
+geometry contained 51 nodes in the axial coordinate 
+and 30 nodes in the tangential coordinate. The trans- 
+verse length was chosen to match the first tangential 
+mode, and the annular width was adjusted to obtain 
+the correct cross-sectional area. The inflow was con- 
+strained to have zero swirl. Again, intrinsic stability 
+behavior was examined by restarting from a mean 
+flow field imported from the 1D analysis. 
+Pressure histories for a spray length to combustor 
+length ratio of 0.6 and a combustion response index 
+of 0.1 are given in Fig. 12 demonstrating the de- 
+velopment of an intrinsic tangential-mode instability. 
+These pressures were recorded at 1/10 of the combus- 
+tor length from the injector and at 3 tangential loca- 
+tions differing by a phase angle of n/2. We observe 
+the evolution of an extremely high-amplitude pres- 
+sure wave traveling around the combustor although 
+combustion response is extremely small. In fact, in- 
+stability was observed for this combustor even with 
+zero pressure sensitive combustion response. Evi- 
+dently, the Ranz-Marshall convective correlation of- 
+fers enough sensitivity to velocity fluctuations to sup- 
+port a pressure wave. The reason for this behav- 
+ior is attributed to minimal damping from drag, 
+streamwise convective losses, and out-of-phase eu- 
+ergy contributions. Obviously, the combustor is much 
+more susceptible to tangential-mode instabilities than 
+longitudinal-modes in accord with practical experi- 
+ence. 
+Also observable is mode switching which oc- 
+curs during the 10 to 25 msec time interval follow- 
+ing restart. 
+The short term instability up to 10 
+msec consists of a single unidirectional traveling high- 
+amplitude pressure wave. This is evidenced by an ex- 
+ploded view of the short term pressure histories in 
+Fig. 13. We clearly see that the unstable pressure 
+waveforms at Q = 0 and Q = A are exactly half a 
+period out of phase. In the exploded view, we also 
+observe that the pressure wave is almost entirely pos- 
+itive biased, is shocklike in nature, and has a funda- 
+mental frequency corresponding to the first spinning 
+tangential-mode acoustical frequency of the chamber. 
+Furthermore, there are some superimposed high fre- 
+quency components which show up spectrally in Fig. 
+14 consisting of low level noise and possible precursors 
+to mode switching. 
+Following mode switching, the pressure wave- 
+forms at B = 0 and B = n are exactly in phase and 
+oscillate at twice the fundamental frequency. This 
+long term instability mode is shown in Fig. 15 during 
+the time interval 35 to 40 msec after restart. Here, we 
+also see that the pressure at B = A/Z is now oscillat- 
+ing at the fundamental frequency with very high am- 
+plitude peaks centered between the lower amplitude 
+ones manifested at -9 = 0 and Q = A. Obviously, the 
+instability now consists of two pressure waves travel- 
+ing in opposing directions which meet at B = n/2 and 
+B = 3 ~ / 2  
+to form two extremely large pressure spikes 
+on opposite sides of the combustor. 
+The pressure field behavior during instability is 
+exhibited more clearly in the flooded contour plots 
+of Figs. 16 and 17 which show the cornbustor pres- 
+sure history during the short term and long term 
+modes, respectively. A revealing feature discernable 
+from these flooded contour plots is the observation 
+that the severity of the instability is localized near 
+the injector face. The magnitude of the pressure wave 
+diminishes rapidly downstream most probably as a re- 
+sult of increased streamwise convective losses as the 
+Mach number increases. The wave is also curved 
+with the nozzle end leading the injector end. One 
+can clearly ascertain the rationale and effectiveness 
+of baffles in controlling tangential-mode instabilities 
+from these results. 
+Another noteworthy feature of this analysis is 
+that the basic features of the instability are in accord 
+with experimental results for a combustor with similar 
+physical  condition^.'^ The research combustor used 
+in the referenced experimental work was 11 inches 
+in diameter while the combustor of this analysis is 
+about 10 inches in diameter. Experimentally, a single 
+high-amplitude shocklike pressure wave was observed 
+sweeping about the chamber at the injector face with 
+a period of 470 ps corresponding to the first spinning 
+tangential-mode acoustical frequency. The pressure 
+wave was found to decay very rapidly in amplitude 
+and curve in the direction of rotation as one moved 
+away from the injector toward the nozzle entrance. 
+For the short term instability of our calculations, the 
+period was about 435 ps in correspondence with the 
+acoustical frequency, and we clearly have a strong 
+shocklike pressure wave decaying rapidly in strength 
+and curving in the direction of rotation downstream 
+from the injector. That these essential features are 
+common is encouraging and indicative that the anal- 
+ysis has indeed captured at least the basic physics. 
+W 
+.- 
+8 
+
+
+--- Page 10 ---
+
+Conclusion 
+v 
+Based on preliminary evaluation, the constructed 
+computational methodology appears promising as a 
+research tool and potential design/development aide 
+for investigating the stability characteristics of liquid 
+rocket engines. The low numerical noise properties 
+of the method are very favorable, and Lagrangian 
+treatment of the spray offers improved flexibility for 
+direct modeling of spray combustion. In our judg- 
+ment, the achievement of low noise while using a La- 
+grangian technique is noteworthy considering that the 
+number of computational parcels was kept to a mini- 
+mum through the use of probability distributions for 
+the propellant spray. The qualitative agreement he- 
+tween a predicted tangential-mode instability, where 
+a shocklike pressure wave was found to sweep about 
+the chamber near the injector face, with existing ex- 
+perimental results is also encouraging. 
+Although the current development has been con- 
+fined to a simplified linear pressure-sensitive combus- 
+tion response model, more comprehcnsive physical 
+submodeling may easily be implemented as desired. 
+In fact, the most important use of the developed com- 
+putational tool may well be as a research test bed for 
+investigating the effect of various physical submodels 
+on combustor stability characteristics. In conjunction 
+with experimental data, much can be learned about 
+the physical nature of combustion driven instabilities. 
+With time, as modeling becomes more refined through 
+an interplay between experiment and computation, it 
+should be possible to evolve a support capability for 
+aiding in design/development and investigating new 
+combustor concepts. 
+Acknowledgments 
+This work was conducted as part of an ongo- 
+ing spray combustion stability project supported by 
+the University of Tennessee-Calspan Center for Space 
+Transportation and Applied Research, UT Space In- 
+stitute, Tullahoma, T N  37388 under NASA Grant 
+NAGW-1195 and in part by Rocketdyne Div., Rock- 
+well Int., Canoga Park, CA 91303 with Mr. Merlin 
+Schuman as technical monitor. 
+Nomenclature 
+English Symbols 
+A ,  B 
+Jacobian coefficient matrices 
+A, B 
+b 
+annular combustor width (m) 
+C, 
+Co 
+drag coefficient, 
+- -  
+Roe-averaged Jacobian coefficient matrices 
+v 
+Cp 
+constant-pressure specific heat (J/kg IC) 
+constant-volume specific heat (J/kg I() 
+C 
+d 
+6 
+e 
+9 
+H 
+h 
+K" 
+m 
+n 
+PT 
+P 
+Q 
+P 
+Aq 
+R 
+Re 
+T 
+- 
+S 
+t 
+u, 21 
+V 
+w 
+= 24(1+ Re$/G)/Re ;Re < 1000 
+= 0.44 ;Re 2 1000 
+speed of s h n d  (m/s) 
+diameter (m) 
+momentum exchange per unit volume (N/m3), 
+convective flux vectors 
+numerical flux vectors 
+gradient limited flux vectors 
+total internal energy ( J l k g )  
+gravitational acceleration (m/s2) 
+source vector 
+specific stagnation enthalpy (J/kg) 
+Ranz-Marshall forced-convection correction 
+pressuresensitive combustion rate correction 
+transverse combustor length (m) 
+streamwise combustor length (m) 
+conservative to primitive variable 
+transformation matrix or mach number 
+mass vaporization rate ( k g l s )  
+particle density (particles/m3) 
+Prandtl number 
+pressure (Pa) 
+conserved variable vector 
+modulus of velocity (m/s) 
+net specific energy generation ( J / k g )  
+ideal gas constant ( J / k g  IC) 
+or explicit spatial difference operator 
+particle diameter based Reynolds number 
+specific entropy ( J / k g  I() 
+similarity transformation matrix or 
+temperature (IC) 
+time (s) 
+velocity components (m/s) 
+primitive variable vector, = b[p, zl, v,pIT 
+mass vaporization rate per unit 
+volume ( k g / m 3  s) 
+space coordinates (m) 
+- 
+- -r 
+nzdipColiip - tigl(Cp - tig) 
+Greek Symbols 
+a 
+presuresensitive combustion response index 
+p 
+compression parameter or 
+y 
+specific heat ratio 
+€ 
+dissipation parameter 
+K 
+spatial discretization selection parameter 
+A 
+eigenvalue matrix 
+X 
+conductivity (W/rnK) 
+p 
+viscosity (kglrns) 
+P 
+density (kg/m3) 
+u 
+flux-limiter parameter 
+7 
+particle relaxation time (s), 
+burning rate constant (m2/s) 
+= ( 4 / 3 ) ( P ~ / P g ) ( d p / c D ) ( 1 / l ~ g  - 
+Subscripts and Superscripts 
+9 
+gas-phase property 
+
+
+--- Page 11 ---
+
+grid index, parcel group index 
+grid index 
+liquid spray 
+time index 
+original value 
+parcel property 
+coordinate components 
+downstream influence 
+upstream influence 
+reference condition 
+vector 
+mean value 
+fluctuation about mean 
+References 
+1. Hsieh, K. C., “Assessment of Numerical Tech- 
+niques for Unsteady Flow Calculations,” AIAA 
+Paper No. 89-1956, 1989. 
+2. Habiballah, M., Lourme, D., and Pit, F., ‘ T H E  
+DRE - Numerical Model for Combustion Sta- 
+bility Studies Applied to the Ariane Viking En- 
+gine,” J. Propulsion and Power, Vol. 7, No. 3, 
+pp. 322-329, 1991. 
+3. DuBois, I. and Habiballah, M., “Numerical Sim- 
+ulation of High-Frequency Instability in an Oxy- 
+gen/Hydrogen Rocket Engine,” AIAA Paper No. 
+91-1860, 1991. 
+4. Venkateswaran, S., Grenda, J., and Merkle, C., 
+“Computational Fluid Dynamic Analysis of Liq- 
+uid Racket Combustion Instability,” AIAA Paper 
+No. 91-1609, 1991. 
+5. Grenda, J., Venkateswaran, S., and Merkle, C., 
+“Liquid Rocket Combustion Instability Analysis 
+by CFD Methods,” AIAA Paper No. 91-2085, 
+1991. 
+6. Bhatia, R. and Sirignano, W. A,, “One- 
+Dimensional Analysis of Liquid-Fueled Combus- 
+tion Instability,” J. Propulsion and Power, Vol. 
+7, No. 6, pp. 953-961, 1991. 
+7. Grenda, J., Venkateswaran, S., and Merkle, C., 
+8 
+9 
+10 
+“Multidimensional Analysis of Combustion In- 
+stabilities in Liquid Rocket Motors,” AIAA Pa- 
+per No. 92-3764, 1992. 
+Kim, Y., Chen, Z., and Chen, C., “Prediction of 
+Combustion Instability in High-pressure Liquid 
+Propellant Rocket Engines,” AIAA Paper No. 
+92-3763, 1992. 
+Beam, R. M. and Warming, R. F., “An Im- 
+plicit FiniteDifference Algorithm for Hyperbolic 
+Systems in Conservation-Law Form,” Journal of 
+Coniputalional Physics, Vol. 22, pp. 87-110, 
+1976. 
+Roe, P. L., “Approximate Riemann Solvcrs, Pa- 
+rameter Vectors, and Difference Schemes,” Jour- 
+nal of Computational Physics, Vol. 43, pp. 357- 
+372, 1981. 
+11. Roe, P. L., “Characteristic-Based Schemes for 
+the Euler Equations,” Annual Review of Fluid 
+Mechanics, Vol. 18, pp. 337-365, 1986. 
+12. Harten, A,, “High-Resolution Schemes for Hy- 
+perbolic Conservation Laws,“ Journal of Com- 
+putational Physics, Vol. 49, pp. 357-393, 1983. 
+13. Yee, H. C., Warming, R. F., and Harten, A,, 
+“Implicit Total Variation Diminishing (TVD) 
+Schemes for Steady-State Calculations,” Journal 
+of Computational Physics, Vol. 57, pp. 327-360, 
+1985. 
+14. Yee, H. C., “Construction of Explicit and Im- 
+plicit Symmetric TVD Schemes and Their Appli- 
+cations,” Journal of Computational Physics, Vol. 
+68, pp. 151-179, 1987. 
+15. Crocco, L. and Sirignano, W. A,, “Effect of the 
+Transverse Velocity Component on the Nonlinear 
+Behavior of Short Nozzles,” AIAA J., Vol. 4, No. 
+8, pp. 1428-1430, 1966. 
+16. Litchford, R. J. and Jeng, S-M., “Efficient Sta- 
+tistical nansport Model for Turbulent Particle 
+Dispersion in Sprays,” AIAA J., Vol. 29, No. 9, 
+pp. 1443-1451, 1991. 
+17. Ram, W. E. and Marshall, W. R., ‘Evapora- 
+tion from Drops - Part I ,” Chemical Engineering 
+Progress, Vol. 48, No. 3, pp. 141-146, 1952. 
+18. Crocco, L., “Aspects of Combustion Stability in 
+Liquid Propellant Rocket Motors - Parts I and 
+11,” ARS Journal, Vol. 21, No. 6, pp. 163-178, 
+Nov. 1951, and Vol. 22, No.1, pp. 7-16, Jan. 
+1952. 
+19. Clayton, R. M., Ragero, R. S., and Sotter, J. 
+G., “An Experimental Description of Destructive 
+Liquid Rocket Resonant Combustion,” AIAA J., 
+Vol. 6, No. 7, pp. 1252-1259, 1968. 
+w 
+- 10 
+
+
+--- Page 12 ---
+
+Table 1 Scheme Switchlng Parameter 
+Scheme 
+1: 
+26 Order Upwind 
+-1 
+z1 Order Central 
+1 
+v 
+3'' Order Biased Upwind 
+1 /3 
+Table 3 Combustor Physlcal Ccndltlcns 
+I* 
+0.5 m 
+4 
+0.05 m' 
+P. 
+34 atm 
+- 
+40 k g / s  
+ril,l rilq 
+0.25 
+4 
+100 pm 
+u, 0 
+75 m / s  
+Table 2 Propellant PrqmrIIes 
+Table 4 Mean Burning Rate I Spray Length 
+7 
+1 2  
+B 
+1. / I< 
+co 
+1800 J /kg K 
+4 
+20(10)' J I  kg 
+1 4  
+0.36 
+P 
+750 kQ/m' 
+1.0 
+0.60 
+Y- 
+S(10)' kg I m 3 
+0 8  
+0 90 
+x 
+l(10)' W / m K  
+- 
+~- 
+. 
+.. 
+Axisymmetric Canbustor 
+Entrance 
+Equivalent Annular Combustor 
+Figure 2. Schematic of rectangular uniform pdf in 
+relation to Computational grid. 
+Figure 1. Schematic of physical combustor and 
+equivalent annular computational geometry. 
+W 
+- 11 - 
+
+
+--- Page 13 ---
+
+0.3 
+, , , , , , , , 
+, 
+, , , , 
+T 
+M 
+IC I 0.5 m 
+1. I IC - 0.36 
+6 - 1.4 nm*l Y E  
+,
+.
+.
+I
+ , . . .  I
+.
+.
+.
+.
+ 
+0.w 
+1. = 0.5 m 
+6-1.omnfIa 
+u - 0.8 
+Y)w 
+*I10 
+2500 
+2260 -i 
+m 3 
+z m  D 
+m 
+,760 E 
+IIM E 
+5 
+x 
+1210 - 
+? O M  
+,so 
+6 W  
+L-
+65.0 
+11.6 
+W.0 
+W.0 
+P . 6  
+Time (msec) 
+Figure 4. Longitudinal-mode, non-pulsed combustor 
+stability calculation (stable). 
+Figure 3. Computed mean flow field. 
+- 12 
+
+
+--- Page 14 ---
+
+t 
+,Figure 5. Longitudinal-mode, non-pulsed combustor 
+stability calculation (unstable). 
+2. 
+m 
+0 0.40 
+'E 
+lI = 0.5 m 
+B = 1 mdlr 
+a I O . 8  
+lL(841 h2) 
+I. = 0.5 m 
+(L = 1.0 
+p = 1 mmv* 
+*.I 
+6.0 
+,.s 
+(0.0 
+Frequency (khz) 
+Figure 6. 
+during stable and unstable combustion. 
+Spectral composition of pressure wave 
+- 13 - 
+
+
+--- Page 15 ---
+
+Irn.0 
+707.0 
+102.0 
+,03.0 
+IM.0 
+106.0 
+Time (msec) 
+Figure 7. Fluctuation of flow parameters during un- 
+stable combustion. 
+7.20 - P,-Matm 
+1. - 0.5 m 
+B.I.Omm',~ 
+m -1.0 
+1 I 
+86.3 m 
+1 .. 98.3 moec 
+I - e5.7 moe~ 
+t = 96.1 m x c  
+W 
+Figure 8. Pressure profiles during unstable cornbus- 
+tion. 
+Figure 9. Longitudinal-mode combustor stability 
+map. 
+- 14 - 
+
+
+--- Page 16 ---
+
+IC - 0.5 m 
+o'zo 
+LI = 1.0 md/* 
+Figure 10. Longitudinal-mode, pulsed combustor 
+stability calculation (unstable). 
+Frequency (khz) 
+0 
+10 
+20 
+00 
+40 
+Time (rnsec) 
+Figure 12. Tangential-mode, non-pulsed combustor 
+stability calculation (unstable). 
+Figure 11. 
+from pulsed stability calculation. 
+Spectral composition of pressure wave 
+- 15 - 
+
+
+--- Page 17 ---
+
+x l l ~ = o . ,  
+- 
+8.0 
+6 -  1.0 md1r 
+_.... 
+o s n  
+a-0.1 
+0.m 7 
+Xllc=0.1 
+- 
+e - 0  
+O'*O[ 
+B-1.0mdIo 
+a.0.1 
+0.00 
+Figure 13. Short term tangential-mode instability. 
+0"'0 
+X I  IC I 
+0.1 
+8 . 0  
+6 - 1 mdls 
+u - 0.1 
+Frequency (khz) 
+Figure 14. Spectral composition of tangential pres 
+sure wave for short term mode. 
+- 
+B r O  
+e - r  
+....... 
+m, 
+;y1;;/* 
+- 
+e - 0  
+e = n 1 2  
+....... 
+a=0.1 
+Figure 15. Long term tangential-mode instability. 
+16 
+
+
+--- Page 18 ---
+
+W 
+e - 
+2r 
+e - 
+2r 
+.. 
+0.m 
+0.w 
+0.75 
+I .m 
+e - 
+2r 
+X l l ,  
+X / l ,  
+0.m 
+0.26 
+0.50 
+0.76 
+X / l ,  
+x / I, 
+Figure 16. Combustor pressure history over one pe- 
+riod of short term mode. 
+17 - 
+
+
+--- Page 19 ---
+
+x I Io 
+x I I( 
+X l l ,  
+W 
+0 - 
+2 R  
+Figure 17. Conhustor pressure history over one-half 
+period of long term mode. 

@@ -1,0 +1,3377 @@
+
+--- Page 1 ---
+
+Flame dynamics
+Moshe Matalon *
+Department of Mechanical Science and Engineering, University of Illinois at Urbana-Champaign,
+1206 West Green Street, Urbana, IL 61801, USA
+Abstract
+This lecture describes recent theoretical developments associated with the dynamics of ﬂames, obtained
+primarily by exploiting the various temporal and length scales involved in the combustion process. In pre-
+mixed ﬂames the focus is on ﬂame–ﬂow interactions that occur during the nonlinear development of hydro-
+dynamically unstable large-scale ﬂames, or during the propagation of curved ﬂames in two-dimensional
+channels. The second part of the paper deals with non-premixed and partially premixed ﬂames, where
+the focus is on understanding the nature of diﬀusive-thermal instabilities including the eﬀect of thermal
+expansion, and on stabilization mechanisms of edge ﬂames, which possess characteristics of both premixed
+and diﬀusion ﬂames. The results presented in this talk illustrate how simpliﬁed models, when analyzed to
+their extreme, yield predictions of qualitative nature with physical insight that have advanced our under-
+standing of combustion. This insight can be used to guide the experimental eﬀorts, explain observations
+and validate large-scale numerical simulations.
+ 2009 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+Keywords: Flame dynamics; Flame instability; Diﬀusion ﬂames; Hydrodynamic theory; Edge ﬂame
+1. Introduction
+Theory has made a strong impact on combus-
+tion science and will continue to play an impor-
+tant role in the foreseeable future. The recent
+advances in experimental methods, in particular
+laser diagnostic techniques, and in computational
+capabilities, including the accessibility of comput-
+ers and the eﬃciency of numerical tools, are pro-
+viding combustion scientists with ample data
+that require understanding and interpretation.
+Fundamental understanding is best achieved by
+constructing simpliﬁed models that retain the
+main features of the phenomena being considered
+and ﬁnding solutions to these models, either ana-
+lytically or numerically, in a manner that makes
+transparent the physical interactions occurring in
+the various regions of the ﬂow ﬁeld and the eﬀects
+that these have on the overall process.
+Modeling combustion systems involves the
+entire gamut of complexities associated with
+multi-component ﬂows, heat and mass transfer
+and chemical reactions, further complicated by a
+large number of elementary chemical reactions
+and the multidimensional and time-dependent
+nature of the ﬂow. Such processes, however, occur
+over a wide range of temporal and spatial scales.
+The chemical reactions occurring in mixtures
+commonly used in combustion devices evolve over
+disparate time scales that are relatively short com-
+pared to the ﬂow or diﬀusion time scales, which
+imply that the chemical activity is conﬁned to thin
+reaction layers. The reaction zones are embedded
+in the ﬂame, where diﬀusion, heat conduction and
+1540-7489/$ - see front matter  2009 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.proci.2008.08.002
+* Fax: +1 2172446534.
+E-mail address: matalon@uiuc.edu
+Available online at www.sciencedirect.com
+Proceedings of the Combustion Institute 32 (2009) 57–82
+www.elsevier.com/locate/proci
+Proceedings
+of the
+Combustion
+Institute
+
+
+--- Page 2 ---
+
+viscous dissipation take place. The ﬂame thick-
+ness, normally a fraction of a millimeter, is small
+when compared with the hydrodynamic length
+scale associated with the geometrical dimensions
+of the vessel within which combustion occurs.
+And on a yet larger scale, there is a nonlinear
+interaction with the acoustic ﬁeld generated, for
+example, at the combustor’s inlet. Resolving such
+problems, in a way that faithfully represents the
+underlying
+physico-chemical
+processes
+on
+all
+scales, small and large, is computationally inten-
+sive. It is not surprising, therefore, that the tech-
+niques of asymptotic analysis are the primary
+tools that have been used to derive and analyze
+simpliﬁed mathematical models of ﬂames.
+Perturbation or asymptotic methods are used
+to replace a complicated problem by a simpler
+one, taking advantage of the relative magnitude
+of the diﬀerent controlling parameters and/or
+the disparate scales in the problem. The neglected
+terms are clearly delineated and, in principle, can
+be incorporated in higher order corrections by
+systematically constructing a scheme of successive
+approximations with improved results. Such an
+approximation is referred to as a rational approx-
+imation and is one of the most eﬀective tools avail-
+able to scientists and engineers for constructing
+reliable solutions that provide deep physical
+insight. Van Dyke [1] provides a remarkable list
+of very useful approximations in ﬂuid mechanics
+that he calls irrational approximations, namely
+that are not deduced by a limit process expansion.
+In contrast to asymptotic methods, the success of
+such an approach is not known a-priori and there
+is no clear process by which the results can be
+improved. Attempting such an approximation
+requires ingenuity and deep physical insight and
+therefore should not be discarded a-priori. Its
+merit clearly lies on whether it produces sensible
+results that compare favorably with experiments.
+Often the asymptotic nature of an ad-hoc approx-
+imation is revealed in future studies. An example
+in combustion is the inﬁnitely fast chemistry limit
+used in diﬀusion ﬂames, which was ﬁrst intro-
+duced by Burke and Schumann [2]. The recogni-
+tion
+that
+the
+solution
+corresponds
+to
+the
+asymptotic limit of an inﬁnite Damko¨hler num-
+ber, namely when the chemical reaction time is
+much shorter than the ﬂow time, was discovered
+much later. This systematic approach also identi-
+ﬁes the relative thickness of the reaction zone
+and leads to an appropriate formulation of its
+internal structure with solutions that smoothly
+connect the discontinuous slope across the sheet.
+Because of the complexity and the highly non-
+linear nature of the governing equations of com-
+bustion problems, simpliﬁcations that appear
+quite dubious a-priori are often introduced. In
+studying diﬀusion ﬂames in concentric ducts,
+Burke and Schumann [2] assumed that the axial
+mass ﬂux throughout the duct remains constant.
+They eﬀectively introduced a constant-density
+approximation in order to decouple the hydrody-
+namic from the transport equations. The con-
+stant-density formulation can be systematically
+obtained as an asymptotic limit when the heat-
+release parameter is small. In real systems, how-
+ever, the heat release is never small and density
+varies signiﬁcantly across the ﬂame. Nevertheless,
+the approach is useful in elucidating some of the
+intricacies
+associated
+with
+thermo-diﬀusive
+aspects of the combustion process. The ﬂame
+shapes and heights predicted by Burke and Schu-
+mann [2], for example, are in remarkably good
+agreement with experimental results. The stability
+of a planar premixed ﬂame is another example
+where the constant-density approximation has
+been used to ﬁlter out hydrodynamic disturbances
+and provide unequivocal results about the role of
+diﬀusion on the onset of instabilities in the form of
+cells and/or oscillations [3]. These results were
+instrumental later on in constructing a more com-
+prehensive stability theory that includes the previ-
+ously
+missing
+hydrodynamic
+eﬀects
+[4–6],
+previously discovered by Darrieus and Landau.
+Asymptotic treatments of combustion prob-
+lems lead to simpliﬁed models that occasionally
+can be solved analytically, but otherwise require
+a
+numerical
+approach.
+An
+argument
+often
+expressed is that since a numerical solution is
+sought, one should then use the more complete
+governing equations that include detailed chemis-
+try and transport. This suggestion is shortsighted.
+Even if a reliable numerical strategy is available
+and integration over a suﬃciently long time is pos-
+sible, which is rare in combustion problems, the
+inclusion of everything that is likely to be of quan-
+titative importance will signiﬁcantly increase the
+number of parameters in the model and will not
+necessarily provide better understanding. The sim-
+pliﬁed problem possesses several advantages when
+the goal is to identify the key physics underlying a
+particular phenomenon. It is usually not as
+numerically intense as the complete problem,
+and since it contains fewer parameters, it is possi-
+ble to obtain full parametric solutions rather than
+solutions that are restricted to only a set of
+parameters.
+It also
+provides deeper physical
+insight by more easily identifying cause and eﬀect.
+In addition, asymptotic solutions may be useful in
+guiding and validating large-scale computations
+of the more complete governing equations. In this
+respect, asymptotic and numerical methods com-
+plement each other.
+A prominent theme in this lecture will be to
+describe how reduced models, when analyzed to
+their extreme without being distracted by the
+adopted simpliﬁcations, provide physical insight
+that have advanced our understanding of combus-
+tion. This insight has been used to guide experi-
+mental eﬀorts, explain observations and validate
+large-scale numerical simulations. The problems
+58
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 3 ---
+
+discussed below are concerned with the dynamics
+of premixed ﬂames, non-premixed (diﬀusion) and
+partially premixed ﬂames. The paper, however, is
+not a review on ﬂame dynamics; it complements
+related talks given at previous symposia [7–9],
+with a selection of topics that reﬂects the author’s
+own interest. References are only cited when
+directly
+relevant
+to
+the
+discussion,
+with
+no
+attempt to exhaustively cover all the pertinent lit-
+erature on the subject.
+2. Premixed ﬂames
+When a combustible gas mixture is ignited by a
+heat source within a ﬂow ﬁeld, a deﬂagration
+wave, or premixed ﬂame, propagates relative to
+the ﬂow into the unburned gas consuming the
+reactants and leaving behind hot products. The
+simplest problem in premixed combustion is the
+planar unconﬁned ﬂame that propagates steadily
+into a quiescent mixture. The ﬂame then depends
+on two parameters, which are characteristics of
+the combustible mixture: the adiabatic ﬂame tem-
+perature T a, achieved when the mixture burns to
+completion under isobaric and adiabatic condi-
+tions, and the laminar ﬂame speed SL, which is
+the speed that the (planar) ﬂame travels into the
+mixture in the absence of heat losses. In combus-
+tion applications ﬂames seldom behave in such an
+idealized way; they are typically corrugated and
+propagate in a non-steady manner. The tempera-
+ture and propagation speed vary along the ﬂame
+front and depend on nonuniformities in the mix-
+ture composition, heat losses, the diﬀusivity of
+the various species comprising the mixture and
+the local ﬂow conditions ahead of the ﬂame.
+It is commonplace in theoretical studies of
+combustion problems to describe the complex
+reaction scheme involved in a particular fuel oxi-
+dation by one-step Arrhenius kinetics. The adia-
+batic
+ﬂame
+temperature
+obtained
+from
+an
+overall
+energy
+balance
+is
+then
+given
+by
+T a ¼ T u þ QY u=cp, where T u is the temperature
+of the fresh unburned gas, Y u the mass fraction
+of the deﬁcient reactant in the fresh mixture (fuel
+in a lean and oxidizer in a rich mixture), Q the
+heat released per unit mass of (deﬁcient) reactant
+and cp the speciﬁc heat of the mixture (at constant
+pressure). The determination of the ﬂame speed
+requires solving the appropriate mass and energy
+conservation equations. But despite the one-
+dimensional simpliﬁcation, exact solutions of
+these highly nonlinear equations are not available.
+Approximate expressions for the ﬂame speed date
+back to Mallard and Le Chatelier [10], but a sig-
+niﬁcant breakthrough was due to Zel’dovich and
+Frank-Kamenetsky [11] who, using physical argu-
+ments, obtained an expression for the ﬂame speed
+valid for large activation energy. The realization
+more than 30 years later that the problem can be
+solved formally using matched asymptotic expan-
+sions [12], and the subsequent review article by
+Williams [13] that advocated the use of this formal
+approach, paved the way to much of the theoret-
+ical development that has taken place in recent
+years.
+The asymptotic treatment considers that both,
+the Damko¨hler number representing the ratio of
+the ﬂow to the chemical reaction times and the
+non-dimensional activation energy, or Zel’dovich
+number, are large parameters related by an appro-
+priate distinguished limit. As a consequence,
+chemical reaction is conﬁned to a thin layer that
+separates the preheat and equilibrium zones, and
+is negligible elsewhere. The reaction diﬀusion bal-
+ance yields, through asymptotic matching, jump
+conditions across the reaction zone that enable
+an explicit solution across the entire ﬂame includ-
+ing an expression for the laminar ﬂame speed. The
+formal approach permits deriving more accurate
+expressions for SL by retaining higher order terms
+in the expansions. More importantly these results
+can be generalized and used, through multi-
+parameter expansions and appropriate distin-
+guished limits, to describe the structure, speed
+and temperature of multi-dimensional and time-
+dependent ﬂames [14,15,5]. This has been an
+essential development in advancing the hydrody-
+namic theory of ﬂame propagation, which in its
+primitive form dates back to Darrieus [16] and
+Landau [17], with implications on numerous areas
+of combustion research.
+2.1. Hydrodynamic theory
+The mathematical description of multi-dimen-
+sional premixed ﬂames can be presented at vari-
+ous levels of detail. Viewed on the representative
+ﬂuid-ﬂow length scale, the whole ﬂame, where
+chemical reactions, diﬀusion, heat conduction
+and viscous dissipation take place, is relatively
+thin. The ﬂame may then be considered an inter-
+face that separates the unburned fresh mixture
+from the hot combustion products. The ﬂow ﬁeld
+on either side of the ﬂame sheet, whether laminar
+or turbulent, is determined by hydrodynamic
+equations and must satisfy appropriate jump con-
+ditions across the sheet, consistent with the con-
+servation laws of mass, momentum and energy.
+The hydrodynamic model was ﬁrst introduced
+by Darrieus [16] and Landau [17] who examined
+in this manner the stability of a planar ﬂame
+front. They solved the Euler equations on either
+side of the perturbed ﬂame surface, and connected
+the solutions on each side by using the Rankine–
+Hugoniot relations. To complete their formula-
+tion, they assumed that the ﬂame sheet propagates
+at a constant speed relative to the ﬂow immedi-
+ately ahead of the ﬂame surface. The Darrieus–
+Landau model ignores the transport phenomena
+and thus fails to properly account for the inﬂuence
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+59
+
+
+--- Page 4 ---
+
+of diﬀusion on the propagation. A great deal of
+work was done in the years that followed to
+improve on this model; notable is the study of
+Markstein [18] who assumed a dependence of
+the ﬂame speed on the local curvature of the ﬂame
+front through a phenomenological constant that
+has become known as the Markstein length (or
+Markstein number, when expressed in units of
+the diﬀusion length).
+The more rigorous treatments [5,6,4] exploit
+the multi-scale nature of the problem character-
+ized by two disparate length scales: the diﬀusion
+length scale lf representing the ﬂame thickness,
+where lf ¼ Dth=SL with Dth the thermal diﬀusivity
+of the mixture, and the hydrodynamic length scale
+L associated, for example, with the average size of
+the wrinkles on the ﬂame front or with the geo-
+metrical dimensions of the vessel within which
+combustion takes place. In the limit lf=L ! 0,
+the ﬂame is conﬁned to a sheet on either side of
+which the ﬂow is described by solving the incom-
+pressible Navier–Stokes equations with diﬀerent
+densities and viscosities, qu; lu for the unburned
+and qb; lb for the burned gas, respectively. The
+internal ﬂame structure is resolved on the diﬀu-
+sion scale with asymptotic matching providing
+expressions that relate the pressure and velocities
+across the entire ﬂame, and an equation for the
+speed, or equivalently for the instantaneous shape
+of the ﬂame front. The jump conditions take the
+form of generalized Rankine–Hugoniot relations,
+namely with corrections on the order of the ﬂame
+thickness that account for accumulation of mass
+and momentum inside of, and transverse mass
+and momentum ﬂuxes through, the thin ﬂame
+zone. The ﬂame speed depends on the local curva-
+ture of the surface and on the underlying hydro-
+dynamic strain, eﬀects that are said to stretch
+the ﬂame surface. The entire formulation is then
+a nonlinear free-boundary hydrodynamic problem
+with conditions at the free surface that describe
+the inﬂuences of the diﬀusion processes occurring
+within the ﬂame zone. The theory accounts for
+density variations, eﬀects of diﬀerential and pref-
+erential
+diﬀusion
+with
+temperature-dependent
+transport coeﬃcients, and eﬀects due to stoichi-
+ometry and arbitrary reaction. In its most general
+form the mathematical formulation was given by
+Matalon et al. [19]. Here, we only comment on
+selected ﬂame characteristics; further details can
+be found in the referenced paper.
+The ﬂame speed is unambiguously deﬁned in
+the present context as the propagation velocity
+of the sheet relative to the unburned gas. It is
+given by
+Sf ¼ SL  LK
+ð1Þ
+where L is the Markstein length and K is the (lo-
+cal) ﬂame stretch rate. Flame stretch is a measure
+of the ﬂame front deformation resulting from its
+motion and nonuniformities in the underlying
+ﬂow ﬁeld. It may be deﬁned, in general, as the pro-
+portionate rate of change of the surface area of a
+Langrangian ﬂame element [20]. Within the pres-
+ent approximation it can be expressed as the com-
+bined eﬀects of curvature and strain, namely
+K  SLj þ Ks where j ¼ 1=R1 þ 1=R2 is the total
+curvature, with R1; R2 the principle radii of curva-
+ture, and Ks ¼ n  E  n is the hydrodynamic
+strain, with E the rate of strain tensor [19]. An
+equivalent useful formula, expressed in terms of
+the local gas velocity v was given by Matalon
+[21] in the form K ¼ V f$  n  n  $  ðv  nÞ,
+where V f the velocity of the front (in a ﬁxed frame
+of reference) and n a unit vector normal to the
+sheet and pointing towards the burned gas region.
+The dimensionless parameter lfK=SL is often re-
+ferred to as the Karlovitz number.
+The Markstein length, which measures the sen-
+sitivity of the ﬂame speed to stretch, is given by
+L ¼
+r
+r  1
+Z r
+1
+kðsÞ
+s
+ds þ b Leeff  1
+ð
+Þ
+2ðr  1Þ
+
+
+Z r
+1
+kðsÞ
+s
+ln
+r  1
+s  1
+
+
+ds
+
+lf
+ð2Þ
+where r  qu=qb is the unburnt-to-burnt density
+ratio,
+or
+thermal
+expansion
+parameter,
+b  EðT a  T uÞ=RoT 2
+a is the Zel’dovich number,
+with E the overall activation energy of the chemi-
+cal reaction and Ro the universal gas constant, and
+k is the (dimensionless) thermal conductivity of
+the mixture assumed to depend solely on temper-
+ature. Here the state of the fresh unburned gas is
+chosen
+as
+reference
+so
+that
+k ¼ kðsÞ
+with
+s ¼ T=T u. The eﬀective Lewis number of the mix-
+ture, Leeff, is a weighted average of the individual
+Lewis numbers, LeF and LeO, representing the ra-
+tios of the thermal diﬀusivity of the mixture to the
+mass diﬀusivities of the fuel and oxidizer, respec-
+tively. It is given by
+Leeff ¼
+LeOþð1~/ÞLeF
+2~/
+lean
+LeFþð1þ~/ÞLeO
+2þ~/
+rich
+8
+<
+:
+where ~/  bð/  1Þ with / the equivalence ratio.
+For a stoichiometric mixture the eﬀective Lewis
+number is the average of the individual Lewis
+numbers of the two reactants. For an oﬀ-stoichi-
+ometric mixture the deﬁcient component is more
+heavily weighted such that for very lean/rich
+mixtures the eﬀective Lewis number is practically
+that of the fuel/oxidizer, respectively. Equation
+(1) implies that a positively-stretched element of
+the ﬂame surface propagates at a slower speed
+than SL if L > 0, namely when Leeff is suﬃ-
+ciently large as for lean hydrocarbon–air mix-
+tures (except possibly for methane), and at a
+faster speed than SL if L < 0 or when Leeff is
+suﬃciently small as for rich hydrocarbon–air
+mixtures. The reverse is true for a negative-
+stretched element of the ﬂame surface.
+60
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 5 ---
+
+The Markstein length varies signiﬁcantly with
+the mixture’s composition, as shown in Fig. 1.
+The graph displays the dependence of the Mark-
+stein number L=lf on equivalence ratio for diﬀer-
+ent fuel–air mixtures, calculated from Eq. (2) with
+k ¼ s1=2. For alcohol– and hydrocarbon–air mix-
+tures the Markstein number is generally positive
+and decreases monotonically as the mixture varies
+from lean to rich conditions. The large variations
+among the various fuels for lean conditions is due
+to the diﬀerence in their diﬀusive properties. For
+rich conditions the eﬀective Lewis number is prac-
+tically that of oxygen and the relatively minor dif-
+ference in the Markstein number among the
+various mixtures is due to the diﬀerent values of
+heat release. For mixtures of relatively light fuel,
+such as methane–air and hydrogen–air mixtures,
+L is found to decrease as the mixture varies from
+rich to lean conditions, and may become negative
+at suﬃciently low values of the equivalence ratio.
+It should be noted that the Markstein length is
+uniquely deﬁned in the asymptotic limit considered
+here, i.e. when the whole ﬂame shrinks to a sur-
+face that coincides with the reaction sheet. Real
+ﬂames have a ﬁnite thickness and the Markstein
+length is only known to within an amount propor-
+tional to the ﬂame thickness. This requires careful
+consideration when attempting to compare the
+theoretical results with experimental data. Since
+measurements are typically taken at a speciﬁc ref-
+erence location inside the ﬂame, the Markstein
+length L must be re-adjusted for this displace-
+ment as discussed in [22,23]. The magnitude of
+L decreases as a result of this adjustment and
+for a reference location further upstream, meth-
+ane–air mixtures may also have negative values
+of L in suﬃciently lean mixtures. A comparison
+between
+these
+predictions
+and
+representative
+experimental data was presented in [23].
+Variations of the ﬂame temperature T f from
+the adiabatic value are also proportional to
+stretch, but the deviation depends now on the
+Lewis number of the limited component in the
+mixture. For a lean mixture
+T f ¼T aT u LeF 1
+ð
+Þ
+Z r
+1
+kðsÞ
+s ln
+r1
+s1
+
+
+ds
+
+ lf
+SL
+K;
+ð3Þ
+in a rich mixture the Lewis number is replaced by
+LeO. These variations, however, are relatively
+small, being not only proportional to lf, but also
+to the deviation of the Lewis number from one.
+The temperature of methane–air ﬂames, for which
+the Lewis number is always near one, is close to
+the adiabatic temperature for all stretch rates.
+For slowly or highly diﬀusive fuels the tempera-
+ture of positively stretched elements of the ﬂame
+surface is slightly lower or slightly higher than
+T a, respectively. Under near-stoichiometric condi-
+tions it is possible for a fast-diﬀusing reactant ini-
+tially in excess to be depleted ﬁrst in the reaction
+zone, and hence to become the rate-controlling
+species; these reﬁnements are discussed in [24].
+Measurements of speed and temperature of
+stretched ﬂames were found to correlate well with
+expressions (1)–(3) for uniformly-stretched twin
+ﬂames
+in
+a
+counterﬂow
+[25,26],
+spherically
+expanding ﬂames [27,28] and Bunsen burner
+ﬂames [29,30], and were used to experimentally
+determine the Markstein length that quantiﬁes
+stretch eﬀects [31–33].
+The hydrodynamic model exhibits a complex
+interaction between the ﬂame and the surrounding
+gas and retains much of the physics of real ﬂames.
+The model is an appropriate framework in which
+to study the development of instabilities and the
+evolution of large-scale corrugated ﬂames. This
+asymptotic theory has also spurred activities in a
+number of other areas. It provided the basis of
+the ﬂamelet concept that views a turbulent ﬂame
+as an ensemble of stretched laminar ﬂamelets
+embedded in a turbulent ﬂow, and helped identify
+the diﬀerent regimes of premixed turbulent com-
+bustion, including the corrugated-ﬂamelets regime
+where the internal ﬂame structure is practically
+unaﬀected by the turbulence, and the thin-reac-
+tion-zone regime where small eddies of the size
+of the Kolmogorov scale are able to penetrate
+the preheat zone but not the reaction zone. It
+has also inspired modeling eﬀorts of turbulent
+ﬂames using the so-called G-equation, which
+involves expressing Eq. (1) in terms of a function
+Gðx; tÞ ¼ 0 that describes the instantaneous shape
+and location of the ﬂame sheet [34,35].
+There are limitations of the hydrodynamic
+theory that are encountered when trying to model
+ﬂames in real ﬂows. The theory is restricted to
+weakly-stretched ﬂames and does not predict
+quenching at high strain rates. It requires the
+Fig. 1. The dependence of the Markstein number L=lf
+on equivalence ratio for selected fuel–air mixtures, with
+the reference location taken at the reaction sheet.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+61
+
+
+--- Page 6 ---
+
+ﬂame surface to consist of a single sheet, with no
+holes or folds. Furthermore, diﬀusion inﬂuences,
+which have been added as a perturbation, are
+not properly resolved in regions where, to leading
+order, there is a discontinuity in the slope of the
+ﬂame front; for example near the tip of a Bunsen
+ﬂame or where the ﬂame comes in contact with a
+wall. The formulation in such cases is incomplete
+and must be supplemented with additional condi-
+tions that properly mimic the local description.
+Attempts have been made to incorporate such
+eﬀects in an ad-hoc manner, but more work is
+needed in this area. Recently, the theory has been
+generalized to account for volumetric heat losses
+with provisions for local quenching when the
+total integrated losses from the ﬂame zone are
+excessive [36]. The resulting formulation for the
+ﬂow ﬁeld remains unchanged if the ﬂame speed
+is normalized by the speed of a planar non-adia-
+batic ﬂame and lengths are scaled accordingly.
+The only diﬀerence is that the Markstein length
+now admits two separate values, one associated
+with curvature and the other with strain, values
+that can vary signiﬁcantly near the extinction
+conditions. Another drawback that may be found
+when trying to relate the theoretical results to
+real ﬂames is the one-step Arrhenius kinetics
+adopted in resolving the internal ﬂame structure.
+In rich hydrocarbon ﬂames, for example, the fuel
+may be partially oxidized to CO and H2 with no
+oxygen left, leading to a Markstein length that
+may
+diﬀer
+from
+that
+predicted
+in
+Fig.
+1.
+Although ﬂame structure analyses with reduced
+chemistry models have been successful in repro-
+ducing aspects of real ﬂames [37–40], they have
+been limited to simple ﬂow conﬁgurations with
+no attempt made to examine the inﬂuence of
+chemistry on ﬂame dynamics. Possible extensions
+of the hydrodynamic theory in this and other
+directions have been already noted in a recent
+review [9] prepared in honor of the 50th anniver-
+sary of the Combustion Institute.
+2.2. Linear stability analysis
+Hydrodynamic models are extremely useful in
+studies aimed at unraveling the intricate nature
+of ﬂame instabilities. The complex nature of the
+mathematical stability problem, which requires
+examining the response of the ﬂame to arbitrary
+initial conditions, disturbances of all possible
+wavelengths, and a whole range of physical param-
+eters is a formidable task that cannot be easily
+accomplished by numerical means. The relative
+simplicity of the hydrodynamic model yields ana-
+lytical expressions for the dispersion relation that
+describes the growth of arbitrarily small distur-
+bances, and since the model contains parameters
+that mimic the various physico-chemical processes
+involved, the inﬂuence of these parameters on sta-
+bility is clearly delineated.
+2.2.1. Planar ﬂames
+For a nominally planar ﬂame the dispersion
+relation that describes the growth x of a distur-
+bance with transverse wavenumber k is given by
+x ¼ xDLSLk  lf B1 þ b Leeff  1
+ð
+ÞB2 þ PrB3
+½
+SLk2;
+ð4Þ
+xDL  r þ
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+r3 þ r2  r
+p
+r þ 1
+:
+Here Pr is the Prandtl number and the coeﬃcients
+B1; B2; B3, which depend solely on r, are all posi-
+tive. Explicit expressions for these coeﬃcients
+can be found in [19].
+The ﬁrst term in (4) was obtained by Darrieus
+[16] and Landau [17] in an analysis that ignores
+the ﬂame structure (practically assuming lf ! 0),
+and does not account for diﬀusion processes at
+the small scale. The conclusion that planar ﬂames
+are unconditionally unstable, is known as the
+hydrodynamic or the Darrieus–Landau
+(DL)
+instability. The physical origin of the instability,
+which is due to thermal expansion, is illustrated
+in Fig. 2. If the planar front is slightly perturbed,
+such
+that
+y ¼ SLt þ uðx; tÞ,
+the
+Rankine–
+Hugoniot relations across the ﬂame together with
+the constant ﬂame speed hypothesis imply that
+vþ ¼ v ¼ ut
+uþ  u ¼ ðr  1ÞSLux
+ð5Þ
+where v; u are the induced velocities in the axial
+and transverse directions y; x, respectively, and
+the superscript  relate to conditions on the un-
+burned/burned side of the unperturbed sheet.
+The ﬁrst of these relations states that the ﬂame
+front is convected by the ﬂow; the latter shows
+that for r > 1 the jump in the transverse velocity
+component is as shown in Fig. 2(a). For weak
+thermal expansion the generation of vorticity in
+the burned gas region is negligible and the ﬂow
+ahead as well as behind the ﬂame is irrotational.
+Vorticity is only concentrated along the sheet so
+that the perturbed ﬂame is equivalent to a ﬂat vor-
+tex sheet of nonuniform strength. The distribution
+of vorticity is oriented such as to increase the ini-
+tial ﬂame displacement as shown in Fig. 2(b). The
+vorticity generated in the burned gas, which for
+realistic values of thermal expansion may not be
+neglected, does not have an adverse eﬀect on the
+motion of the sheet, as the stability analysis shows
+a posteriori.
+The second term in (4), which is proportional
+to lf was obtained more recently [5,6,4]; the three
+elements in this expression describe respectively
+the inﬂuences of thermal, molecular and viscous
+diﬀusion occurring within the ﬂame on stability.
+Thermal diﬀusion, which tends to smooth out
+temperature diﬀerences, always has a stabilizing
+inﬂuence. Due to the large change in viscosity
+across the ﬂame, viscous diﬀusion also has a stabi-
+lizing inﬂuence. On the other hand, the eﬀect of
+molecular diﬀusion depends on the mixture com-
+62
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 7 ---
+
+position, or the eﬀective Lewis number of the
+mixture.
+For suﬃciently small values of the Lewis num-
+ber, or speciﬁcally for Leeff < Le	
+eff, the second
+term in (4) becomes positive, implying that short
+wavelength disturbances are ampliﬁed and the
+hydrodynamic instability is enhanced by diﬀusion
+eﬀects. Thus, even when the long wavelength dis-
+turbances are excluded because of the ﬁnite size of
+the burner, or damped as a result of gravity for
+downward propagation,1 diﬀusion eﬀects do not
+permit the ﬂame to remain ﬂat. This limit is
+referred to as the diﬀusive-thermal instability.
+Proper description of the resulting cellular ﬂame
+requires including higher order terms in the dis-
+persion relation (4) for short wave stabilization.
+This was explored for weak thermal expansion,
+r  1 
+ 1, giving rise to a dispersion relation
+[41] of the form
+x ¼ 1
+2ðr1ÞSLk b
+2SLlf Leeff Lecr
+eff
+
+
+k2 4Dthl2
+f k4
+ð6Þ
+with the critical Lewis number, Lecr
+eff  1  2b1,
+slightly less than one. A similar expression for
+arbitrary r is not available, but when Lecr
+eff is esti-
+mated from Eq. (4) for the realistic value r  6 it
+yields much lower values, rarely exceeding 0.5.
+This makes most common combustion mixtures
+inaccessible to the instability except perhaps for
+lean hydrogen–air ﬂames [42]. The critical Lewis
+number Lecr
+eff increases when heat losses are incor-
+porated in the analysis and is closer to one near
+the ﬂammability limit [43,44]. Cellular ﬂames
+resulting from diﬀusive-thermal eﬀects may there-
+fore be observed at near-extinction conditions, for
+example near burners where heat losses are
+unavoidable.
+When the eﬀective Lewis number Leeff > Le	
+eff,
+which is clearly attainable in lean hydrocarbon–
+air or rich hydrogen–air mixtures, diﬀusion acts
+to stabilize the short wavelength disturbances.
+Stable planar ﬂames may then result provided
+the long wavelength disturbances are damped by
+gravitational forces [17], stretched by hydrody-
+namic strain [45], or excluded because of the pres-
+ence of walls in the transverse direction. When the
+long wavelength disturbances are not totally sup-
+pressed a corrugated ﬂame results. The instability,
+which is predominantly observed in large-scale
+ﬂames where the stabilizing eﬀects of diﬀusion
+are limited, is due to the hydrodynamic instability.
+2.2.2. Spherical ﬂames
+The onset of cells on spherically expanding
+ﬂames more clearly illustrates the distinction
+between the diﬀusive-thermal and hydrodynamic
+instabilities. The problem was ﬁrst examined by
+Istratov and Librovich [46] who considered a
+DL model with a Markstein correction, and later
+by Bechtold and Matalon [47] who incorporated
+hydrodynamic and diﬀusion eﬀects in a more sys-
+tematic way. Let the perturbed front of a spheri-
+cally expanding ﬂame be expressed in the form
+r ¼ RðtÞf1 þ AðtÞSnðh; uÞg, where R denotes the
+radius of the unperturbed spherical ﬂame, A the
+amplitude of the disturbance and Sn the spherical
+surface harmonics with n an integer, the growth
+rate is given by
+1
+A
+dA
+dt ¼
+_R
+R
+~xDL  lf
+R
+~B1 þ b Leeff  1
+ð
+Þ~B2 þ Pr~B3
+	
+
+
+
+ð7Þ
+with coeﬃcients ~xDL and ~B1; ~B2; ~B3 that depend on
+r and n, and with the exception of the low values
+of n are all positive [47]. Consistent with the
+hydrodynamic description this result is valid for
+R > R0, where R0 is the initial ﬂame radius as-
+sumed larger than the diﬀusion length lf. The ﬁrst
+term ~xDL represents the destabilizing eﬀect of
+thermal expansion, whereas those multiplying lf
+are, respectively, the inﬂuences of thermal, molec-
+ular and viscous diﬀusion.
+When Leeff < Le	
+eff, a value that slightly diﬀers
+from the corresponding value for a planar ﬂame,
+the amplitude grows in time for all n, starting at
+t ¼ 0. The instability must have developed when
+the ﬂame radius was smaller than the initial radius
+R0, and is diﬀusive-thermal in nature. Indeed,
+spherically expanding ﬂames in rich hydrocar-
+bon–air or lean hydrogen–air mixtures, character-
+a
+b
+Fig. 2. Schematic showing the physical origin of the DL
+instability. The jump in the transverse velocity across the
+ﬂame shown in (a) implies that the perturbed ﬂame is
+equivalent to a ﬂat vortex sheet of nonuniform strength
+with vorticity orientation, as shown in (b), that causes an
+increase in the initial ﬂame displacement. Also shown in
+(b) is the deﬂection of streamlines that results from the
+gas expansion and causes an expansion/contraction of
+the streamtubes and consequently a pressure gradient
+that increases an initial displacement of the ﬂame.
+1 For downward propagation, the modiﬁcation of the
+DL results shows that gravity acts to stabilize the long
+wavelength disturbances, disturbances with wavelength
+k > 2prS2
+L=g.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+63
+
+
+--- Page 8 ---
+
+ized by a Lewis number suﬃciently less than one,
+were observed to take on a cellular appearance
+shortly after ignition [48,49]. When Leeff > Le	
+eff,
+the right-hand side of (7) for a given n changes
+sign
+when
+the
+ﬂame
+reaches
+a
+critical
+size
+R ¼ Rc. All disturbances are initially damped
+out: the hydrodynamic instability is suppressed
+because of the large curvature of the front, and
+since for suﬃciently large Leeff molecular diﬀusion
+exerts stabilizing inﬂuences on the short wave-
+length disturbances, a smooth (stable) ﬂame
+results. As the ﬂame grows bigger, namely for
+R > Rc, the ﬂame is hydrodynamically unstable.
+Indeed, in lean hydrocarbon–air or rich hydro-
+gen–air mixtures, the expanding ﬂame was seen
+to remain smooth during the early stages of prop-
+agation, but took on a cellular appearance once it
+reached a critical size [50,51]. This has been more
+clearly illustrated in experiments carried out at
+diﬀerent pressure levels [52], as shown in Fig. 3.
+At ﬁve atmospheres a spherically-expanding rich
+hydrogen–air ﬂame, which is diﬀusively stable,
+remains smooth for a signiﬁcant time after igni-
+tion. Under similar conditions but at twenty
+atmospheres the onset occurs at a much earlier
+time. At high pressure the ﬂame is thinner, the sta-
+bilizing inﬂuences of diﬀusion are minimized and
+the hydrodynamic instability is enhanced.
+Information about the size of the cells that are
+likely to be observed during the initial stage of the
+self-wrinkling phenomenon can be deduced from
+the linear theory. Figure 4 shows the range of
+unstable modes as a function of the Peclet number
+Pe ¼ RSL=Dth or instantaneous ﬂame size. The
+nose of the peninsular instability determines the
+critical conditions for the onset of the instability.
+Since the fastest growing disturbance corresponds
+to nc  14, the ﬂame surface at the onset is instan-
+taneously covered with a large number of cells. As
+the ﬂame continues to expand, modes of higher
+wavenumber n grow faster and more and more
+cells develop on the ﬂame surface. Expected cell
+sizes fall in the range kmin < k < kmax with the lar-
+ger corrugations stabilized by stretch and distur-
+bances with shorter wavelength stabilized by
+diﬀusion. The smallest cell size, kmin ¼ 2pR=n 
+2plf, is nearly a constant that depends on mixture
+composition. The largest expected cell size, kmax 
+2pR=n	 with n	  7 is proportional to R. This
+implies that as the ﬂame expands the stretch rate
+decreases and cells of larger and larger size are
+able to develop on the ﬂame surface. Large cells,
+however, are hydrodynamically unstable and have
+the tendency to split into smaller cells. They are
+also sensitive to external noise, which, when ampli-
+ﬁed as a result of the hydrodynamic instability,
+leads to the spontaneous appearance of small-scale
+structures, or smaller-sized cells, superimposed on
+the ﬂame surface.
+The stability results have provided a frame-
+work for interpreting experimental observations
+[53,33,54]. The earlier results implied that the the-
+ory underestimates the critical Peclet number cor-
+responding to the appearance of cells, which has
+prompted several improvements of the model
+[55,56] with results that are more commensurate
+with the experimental record. It should be noted
+that the instability threshold is sensitive to the
+physical parameters, so that a quantitative agree-
+ment between theory and experiment requires a
+sensible choice of ﬂame properties that depend
+on the local experimental conditions. The evalua-
+tion of the thermal diﬀusivity of the mixture, for
+example, is subject to uncertainties in the choice
+Fig. 3. Photographs of spherically expanding ﬂames in rich hydrogen–air mixtures at (a) 5 atm and (b) 20 atm,
+respectively, captured 2 ms after ignition. In rich H2–air mixtures the eﬀective Lewis number is larger than unity and the
+ﬂames are diﬀusively stable. The wrinkling of the ﬂame surface is a manifestation of the hydrodynamic instability which,
+at high pressure, is observed at an earlier time because of the minimized inﬂuences of diﬀusion. The apparent increase in
+propagation speed is the cumulative result of high pressure and developing instabilities. Courtesy of C.K. Law.
+64
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 9 ---
+
+of temperature and concentrations, as is the glo-
+bal activation energy, which additionally depends
+on the detailed reaction mechanism. With a judi-
+cious choice of the parameters the predicted criti-
+cal Peclet number was found to agree with the
+experimental conditions under a wide range of
+conditions [57,58]. Regarding cell sizes, the exper-
+imental data determined from ﬂame visualization
+and Planar Laser-Induced Fluorescence images
+of cells [54] fall generally within a peninsular of
+instability, similar to that of Fig. 4.
+2.3.
+Nonlinear
+evolution
+of
+hydrodynamically
+unstable ﬂames
+The linear stability results identify the critical
+conditions for the inception of instabilities, and
+clarify the physical mechanisms responsible for
+their onset. Beyond the instability threshold, when
+the unstable modes have grown to suﬃciently
+large amplitudes, nonlinear eﬀects may no longer
+be neglected. The hydrodynamic instability is
+responsible for the formation of sharp crests that
+are often seen pointing toward the burned gas
+[59,60] or the roughened surface observed on cen-
+trally-ignited expanding ﬂames [61, p. 432], the
+description of which must be based on a nonlinear
+analysis.
+Theoretical progress on the nonlinear develop-
+ment
+of
+hydrodynamically
+unstable
+ﬂames
+ðLeeff > Le	
+effÞ has relied primarily on simpliﬁed
+models of a nominally planar front. One such
+model is the Michelson–Sivashinsky (MS) equa-
+tion [41,62] obtained in the weakly-nonlinear long
+wave asymptotic limit, when the density diﬀerence
+across the ﬂame is small. Attempts to extend the
+model by including higher order terms [63,64],
+produced results with only minor diﬀerences.
+With
+the
+ﬂame
+front
+described
+by
+y ¼ SLt þ uðx; tÞ, the ﬂame displacement satis-
+ﬁes the integro-diﬀerential equation
+ou
+ot þ SL
+2 ð$uÞ2  SLL$2u
+ r  1
+8p2 SL
+ZZ
+jkjeikðx~xÞuð~x; tÞdkd~x ¼ 0:
+On a ﬁnite domain of characteristic size L the
+problem
+depends
+on
+a
+single
+parameter
+a ¼ L=ðr  1ÞL,
+or
+the
+reduced
+Markstein
+number.
+The MS equation with periodic boundary con-
+ditions admits exact solutions, known as pole-
+solutions [65], which correspond to cusp-like
+structures (or cells) extended periodically in the
+transverse directions that propagate at a constant
+speed without change in shape. In two-dimensions
+they take the form
+u ¼ Uðr  1Þ2t þ UðxÞ;
+U ¼ SL
+2L
+Z L
+0
+U2
+x dx:
+so that the incremental increase in propagation
+speed is proportional to the fractional increase
+in surface area of the ﬂame front. For a > 0 there
+always exists a pole solution which is asymptoti-
+cally stable [66,67]. The zero-pole solution corre-
+sponds to a planar front and is the only stable
+solution for a < 2. Higher order pole solutions
+have similar shapes but higher amplitudes and
+sharper peaks. Numerical integration of the MS
+equation shows that, indeed, short-wavelength
+corrugations introduced through initial distur-
+bances merge forming bigger and bigger cells that
+eventually coalesce into a single-peak structure
+ﬁlling the entire interval [62,68]. This solution,
+which coincides with the corresponding pole solu-
+tion for the given value of a, continues to propa-
+gate at a constant speed as time progresses with
+no change in shape. The solution is easily ex-
+tended to three-dimensions, where the ﬂame sur-
+face Uðx; zÞ is now the superposition of two pole
+solutions [69]. The propagation speed U in this
+case is higher than the corresponding two-dimen-
+sional case.
+Numerical simulations of the Navier–Stokes
+equations, without restriction on the thermal
+expansion parameter, were carried out recently
+within the framework of a hydrodynamic theory
+[70,71]. Figure 5 shows the long-time development
+of a perturbed planar front at consecutive time
+intervals, for a ¼ 0:0025 and the realistic value
+r ¼ 6. Similar to the predictions of the MS equa-
+tion the ﬂame evolves into a single-peak structure
+that spans the entire interval and propagates at a
+constant speed. However, with realistic values of r
+the ﬂame reaches a larger amplitude and propa-
+gates at a higher speed. The incremental increase
+in speed is shown in Fig. 6 as a function of 1=a
+20
+80
+60
+40
+200
+400
+600
+800
+1000 1200
+1400
+1600
+0
+0
+λ min
+λ
+λ
+<
+<
+max
+min
+λ
+2π
+=
+R/n ~ R
+max
+*
+2π
+=
+R
+2πlf
+/n ~
+Peclet number   Pe = R/lf
+re
+b
+m
+u
+n
+e
+v
+a
+w
+n
+Pec
+nc
+λ
+Fig. 4. Peninsula of instability for spherically expanding
+ﬂames. The shaded region correspond to the range of
+unstable modes for a given Peclet number, Pe, or ﬂame
+size; corresponding to Leeff ¼ 1:23; Pr ¼ 0:7; r ¼ 6 with
+k ¼ s1=2. The critical value Pec, which marks the onset of
+the self-wrinkling phenomenon, assumes a smaller value
+when the mixture is made richer.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+65
+
+
+--- Page 10 ---
+
+for increasing values of the density ratio r. The
+intersection of these curves with the axis marks
+the critical value of 1=a ¼ ðr  1ÞL=L, above
+which
+the
+planar
+ﬂame
+is
+hydrodynamically
+unstable. In narrow domains the planar front is
+the preferred mode of propagation, but in larger
+domains a single-peak structure similar to the
+one shown in Fig. 5 is the favored shape. The
+incremental increase in speed of the evolving ﬂame
+rises sharply beyond the bifurcation point and
+tends rapidly to an asymptotic value, which, for
+r ¼ 6, corresponds to a 15% increase. This behav-
+ior is qualitatively captured by the MS equation
+when
+scaled
+appropriately.
+The
+incremental
+increase in speed varies linearly with thermal
+expansion [71]. The hydrodynamical instability,
+therefore, leads to corrugated structures with
+transverse dimensions that are much larger than
+those observed in the more common laboratory
+cellular ﬂames, which are a consequence of a dif-
+fusive-thermal instability. Moreover, the structure
+and propagation speed of the evolving ﬂames are
+practically independent of the domain size and
+mixture composition.
+When computations are carried out in suﬃ-
+ciently large domains, so that a is relatively small,
+the general structure of the solution is retained but
+the evolving ﬂames do not settle to a steadily
+propagating state. Rather, small-scale wrinkles
+appear sporadically on the ﬂame surface, as
+shown in Fig. 7, and the speed of propagation var-
+ies continuously in time. The wrinkles appear ﬁrst
+on the troughs (where the curvature is small),
+propagate along the ﬂame surface and disappear
+at the crests. This unsteady behavior, found in
+both the MS as well as in the fully nonlinear
+Navier–Stokes models is not a self-sustained phe-
+nomenon, but rather a response to an ever-present
+background noise (e.g. numerical noise). Indeed,
+the appearance of small-wrinkles can be reduced
+signiﬁcantly, or eliminated, if the numerical accu-
+racy is increased. Moreover, small-scale wrinkles
+that closely resemble those emerging from numer-
+ical noise can be artiﬁcially created on a smooth
+proﬁle of the MS equation, by introducing a low
+amplitude external forcing that represents random
+noise. In real ﬂames external noise may result, for
+example, from a weakly turbulent ﬂow in the
+incoming stream. The turbulence then provides a
+permanent level of noise which, when ampliﬁed
+by the hydrodynamic instability, results in small-
+scale wrinkles that ‘‘contaminate” the ﬂame sur-
+face. The appearance of a wrinkle leads to an
+increase in surface area and consequently an
+increase in propagation speed until it merges at
+the crest. The disappearance of a wrinkle is asso-
+ciated with a decrease in propagation speed which
+continues until new wrinkles reappear on the
+Fig. 5. The nonlinear evolution of a perturbed planar
+front for a ¼ 0:0025 with a realistic r ¼ 6. The ﬂame
+proﬁles uðxÞ, plotted at consecutive times from top to
+bottom, correspond to the long-time behavior of the
+solution after the initial transient has faded out. The
+steadily-propagating single-peak structure that develops
+is a consequence of the hydrodynamic instability.
+Fig. 6. The incremental increase in speed of the single-
+peak structure resulting from the hydrodynamic insta-
+bility as a function of the parameter 1=a for increasing
+values of the density ratio r.
+Fig. 7. The long-time development of a perturbed
+planar front for a ¼ 0:001, with r ¼ 6, as a result of
+the hydrodynamic instability. The ﬂame proﬁles uðxÞ are
+plotted at consecutive times, from top to bottom. The
+spontaneous appearance of small wrinkles is clearly seen
+as they develop near the trough and propagate along the
+surface towards the crest.
+66
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 11 ---
+
+ﬂame front. This is illustrated in Fig. 8 which
+shows the unsteady nature of the propagation
+speed relative to the speed of the corresponding
+steadily propagating single-peak structure, and
+the ﬂame proﬁles at four instances in time relative
+to the smooth uncontaminated proﬁle. The ﬂame
+proﬁles have been superimposed on top of each
+other in order to show the associated increase in
+surface area which explains the increase in speed.
+Note that the average incremental speed of the
+unsteady evolving ﬂame is nearly twice the lami-
+nar ﬂame speed.
+Direct numerical simulations of the low Mach
+number reactive conservation equations were
+recently carried out by Grcar and Matalon [72]
+to describe the nonlinear evolution of a nominally
+planar ﬂame and the consequences of the DL
+instability.
+These
+intensive
+computations
+are
+based on an adaptive mesh reﬁnement algorithm
+that was extended to model detailed kinetics and
+variable transport [73,74]. Each calculation begins
+with a randomly wrinkled ﬂame extending across
+the width of the region. The width of the domain
+of integration was treated as a parameter with the
+length taken ﬁve times larger. The inﬂow is con-
+trolled to keep the mean ﬂame location three
+domain widths above the lower boundary [75].
+The simulations were carried out for methane–
+air (equivalence ratio 0.8) with the reduced
+scheme DRM-19 (corresponding to 19 species
+and 84 reactions) derived from GRIMech-1.2 by
+Kazakov and Frenklach [76], along with its asso-
+ciated thermodynamics and transport databases.
+In accord with the asymptotic results, the DNS
+show that a ﬂat ﬂame results in a narrow box,
+and a single-peak structure spanning the entire
+width is obtained in wider boxes. A more detailed
+discussion, including ﬂame shape and speed,
+appears in the referenced paper.
+The experimental record reveals similar behav-
+ior. Lind and Whitson [77] performed experiments
+of large expanding ﬂames propagating in lean
+hydrocarbon–air mixtures. The mixture was ini-
+tially ﬁlled in 5–10 m radius thin plastic hemi-
+spherical bags. The plastic ﬁlm tore quickly after
+ignition and the entire hemisphere rose vertically.
+The expanding ﬂame ﬁrst appeared as a blue
+hemisphere, but as its size increased, the surface
+became rough with a pebbled appearance. The
+corrugations increased in size to about 0.4–1.0 m
+with a ﬁner structure superimposed. Pressure
+waves were barely detectable so that the ﬂame
+expanded freely at essentially constant pressure.
+The measured propagation velocities were 1.6–
+1.8 times the laminar ﬂame speed and the results
+were nearly the same for all ﬁve fuels studied.
+Bradley et al. [78] reported on measurements of
+large-scale explosions of methane– and propane–
+air mixtures carried out to radii just beyond 3 m.
+Self-wrinkling
+was
+observed
+when
+the
+ﬂame
+reached a size of approximately 0.5 m, and cells
+as large as 40 cm were detected for both mixtures
+with no signiﬁcant diﬀerence discerned between
+methane and propane.
+126
+128
+130
+132
+134
+136
+138
+140
+0.12
+0.13
+0.14
+0.15
+0.16
+0.17
+0.18
+0.19
+0.2
+0.21
+0.22
+t
+U
+0
+0.2
+0.4
+0.6
+0.8
+0
+0.05
+0.1
+0.15
+0.2
+0.25
+x
+a
+b
+Fig. 8. The unsteady nature of the evolving ﬂame in large domains ða ¼ 0:0035Þ: (a) time-history of the (scaled)
+incremental increase in speed U, relative to the corresponding smooth single-peak structure (dashed line) and (b) ﬂame
+proﬁles uðxÞ at the four marked instances, superimposed on top of each other, relative to the ﬂame shape of a smooth
+single-peak structure (dashed curve). The appearance of a small wrinkle at the trough (on the right side) traveling along
+the ﬂame surface is associated with the recorded increase in speed until its disappearance at the crest.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+67
+
+
+--- Page 12 ---
+
+2.4. Flame propagation in channels
+Another problem that involves ﬂame–ﬂow
+interaction, for which signiﬁcant advances have
+been made, is the propagation of a curved ﬂame
+in a two-dimensional channel. The analysis was
+carried out within the context of a constant-den-
+sity model, namely assuming that the density is
+independent of temperature so that the ﬂow ﬁeld
+not aﬀected by the ﬂame may be prescribed a-pri-
+ori. The transport equations were solved numeri-
+cally for a one-step global reaction with ﬁnite-
+rate kinetics and veriﬁed against asymptotic
+results in special limits. The results illustrate the
+eﬀects of channel width, conductive heat losses,
+diﬀerential diﬀusion and a convective ﬂow on
+the combustion characteristics.
+When a quiescent combustible gas mixture
+contained in a channel is ignited at one end, a
+ﬂame propagates through the gas. Under adia-
+batic conditions and when the channel is suﬃ-
+ciently
+narrow,
+the
+ﬂame
+is
+planar2
+and
+propagates at the laminar ﬂame speed SL. Results
+for non-adiabatic walls [79] are presented in
+Fig. 9, where the heat ﬂux through the walls is
+assumed proportional to the temperature diﬀer-
+ence between the gas and the walls with an appro-
+priately deﬁned heat transfer parameter kc. It
+ranges from kc ¼ 0, corresponding to adiabatic
+conditions, to kc ! 1, corresponding to cold iso-
+thermal walls. The graph shows the dependence of
+the propagation speed on heat losses for various
+channel widths. The parameter d ¼ d=lf repre-
+sents the channel width d measured in units of
+the laminar ﬂame thickness. The propagation
+speed is seen, in general, to decrease with increas-
+ing kc. In narrow channels, total extinction is
+brought about when kc exceeds a critical value.
+The propagation speed at extinction is nearly
+60% the value of the laminar ﬂame speed. The
+ﬂame in this limit is quasi-one-dimensional and
+the extinction conditions are well captured by
+those deduced from the asymptotic results of a
+planar ﬂame with volumetric heat loss [34]. The
+graph illustrates that total extinction by heat loss
+would
+only
+occur
+when
+d < 15,
+implying
+a
+quenching diameter dq  15lf which agrees with
+experimental observations. In wider channels
+burning persists even in the extreme case of iso-
+thermal walls maintained at the temperature of
+the fresh mixture, but the ﬂame survives only near
+the center of the channel. The dead-space corre-
+sponding to the distance near the walls where
+the ﬂame is quenched can be as large as 6lf in
+accord
+with
+experimentally
+reported
+values
+[80,81]. For suﬃciently large values of d, the walls
+have a very limited inﬂuence on the ﬂame, which
+then propagates at a speed close to the laminar
+ﬂame speed. Results on the quenching radius for
+ducts of circular cross-section and its dependence
+on the mixture’s Lewis number were reported by
+Kurdyumov and Ferna´ndez-Tarrazo [82].
+The eﬀect of a convective ﬂow on ﬂame prop-
+agation was studied for adiabatic [83] as well as
+non-adiabatic [79] walls. The ﬂow, assumed to
+be Poiseuille ﬂow, can be directed from the
+unburned towards the burned gas or vice versa,
+with the ﬂame either opposed or assisted by the
+ﬂow, respectively. When opposed by the ﬂow,
+the ﬂame shape is as shown in Fig. 10(a), with
+its central part pointing towards the burned gas
+and its leading edge at the wall. At suﬃciently
+low ﬂow rates, the ﬂame propagates to the left,
+a condition referred to as ﬂashback. For critical
+ﬂow conditions the ﬂame is stabilized, but beyond
+criticality it propagates to the right, a condition
+referred to as blowoﬀ. When assisted by the ﬂow
+the ﬂame is always blown oﬀand propagates to
+the left. Its shape is as shown in Fig. 10(b), namely
+with its central part pointing toward the unburned
+gas and its leading edge at the centerline. The
+graphs in Fig. 10 illustrate the eﬀect of the chan-
+nel’s width on the structure of a ﬂame (a)
+opposed, or (b) supported by the ﬂow. Each panel
+displays reaction rate contours in the range
+0 < x < xmax, with the maximum value quoted.
+10–2
+10–1
+100
+101
+102
+0.6
+0.8
+1
+U/SL
+=1,2,4
+13
+15.4
+20
+=40
+kc
+Fig. 9. Flame propagation in channels of various width
+d ¼ d=lf. The graph shows the dependence of the
+propagation speed as a function of conductive heat
+losses, represented by kc, for diﬀerent values of d.
+2 Beyond a certain channel width the ﬂame is curved,
+which is a manifestation of the hydrodynamic instability.
+In the present context, however, because thermal
+expansion is assumed negligible, this eﬀect is absent.
+68
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 13 ---
+
+The increase in ﬂame surface area in the presence
+of a convective ﬂow is associated with an increase
+in total burning rate. In both cases the burning
+rate increases but the rate of increase is slightly
+higher when the ﬂame is opposed by the ﬂow, as
+can be also deduced from the ﬁgure; the ﬂame
+length and xmax are both larger in this case.
+Graphs similar to those shown in Fig. 10 were
+obtained for non-adiabatic walls and various ﬂow
+conditions [79]. Results indicate that the ﬂame is
+more vulnerable to heat losses when it is opposed
+by the ﬂow than when assisted by the ﬂow. In par-
+ticular, the critical ﬂow conditions for ﬂame sta-
+bilization decreases with increasing kc, implying
+that it is easier to stabilize a ﬂame in the presence
+of heat losses as is well known from experience
+with burners.
+Figure 10 also illustrates the eﬀect of channel
+width on ﬂame propagation under adiabatic con-
+ditions. In narrow channels, with dimensions
+comparable to the ﬂame thickness, the ﬂame is
+broader and ﬂattens out, and the burning intensity
+decreases. The burning rate of these relatively
+thick ﬂames is found to be proportional to the
+square of the mean ﬂow velocity and is therefore
+not aﬀected by the ﬂow direction. And unlike thin
+ﬂames, the burning rate is not aﬀected by varia-
+tions in Lewis numbers. Transverse diﬀusion in
+the preheat zone becomes comparable to axial dif-
+fusion, diﬀerential diﬀusion is not accentuated
+and the burning rate tends to the laminar burning
+rate for all Lewis numbers [84]. This may have an
+implication on turbulent combustion, suggesting
+that Lewis number eﬀects may be more relevant
+in the ﬂame sheet regime, where the representative
+turbulent length scale is larger than the ﬂame
+thickness, than in the reaction sheet regime where
+the two length scales are comparable.
+Diﬀerential diﬀusion has also an inﬂuence on
+the nature of propagation. When the eﬀective
+Lewis number of the mixture is suﬃciently large,
+which can be realized by reducing the mass diﬀu-
+sivity of the deﬁcient reactant, for example by
+adding to the mixture an appropriate diluent, a
+pulsating mode of propagation is observed [85].
+Near the bifurcation point the oscillations have
+a sinusoidal behavior and the ﬂame propagates
+as a whole with an average speed that is close to
+the laminar ﬂame speed. For larger values of the
+Lewis number, however, the ﬂame performs relax-
+ation oscillations characterized by intermittent
+long-time intervals, where the ﬂame is nearly
+quenched, separated by short-time intervals where
+the reaction rate increases rapidly to cause a for-
+ward motion with a speed that signiﬁcantly
+exceeds the laminar ﬂame speed. The dependence
+of a convective ﬂow and of heat loss at the walls
+on the onset and nature of the oscillations were
+also examined in [85]. Recent experimental work
+has revealed ﬂame dynamics that is particular to
+small or ‘‘meso”-scale ducts, namely of diameter
+which is on the order of the ﬂame thickness
+[86,87]. In these circumstances the tube wall
+becomes thermally active relatively fast in all of
+its length and conducts heat from the ﬂame to
+the cold gas upstream. The competing eﬀects of
+the additional heat input to the fresh mixture with
+the natural tendency of ﬂame quenching at such
+small scales leads to ﬂame oscillations or a period-
+ically repeated extinction/re-ignition phenomena
+[88]. Attempts to theoretically describe this behav-
+ior have been presented in [87,89].
+Figure 11 illustrates
+another phenomenon
+associated with diﬀerential diﬀusion. The sub-ﬁg-
+ures correspond to ﬂames opposed by the ﬂow for
+mixtures with Lewis numbers less than one, such
+as rich hydrocarbon–air (except for methane)
+mixtures, under adiabatic conditions. Moving
+from the left panel to the right the eﬀective Lewis
+number decreases, or the hydrocarbon–air mix-
+ture is made richer. One observes that when the
+Lewis number becomes suﬃciently small, the tip
+opens up and the opening increases when the
+Lewis number is further reduced. Despite the sig-
+niﬁcant drop in reaction rate near the tip, there is
+no leakage of the deﬁcient reactant and the ﬂame
+survives along the entire interface as discussed by
+Kagan and Sivashinsky [90]. (Local extinction
+with incomplete combustion near the tip is only
+possible in the presence of radiative losses). Dif-
+ferential diﬀusion is responsible here for the non-
+uniform burning pattern along the curved ﬂame,
+which is more intense along the sides than near
+the tip. Indeed, ﬂame tip opening has been exper-
+imentally observed in the closely-related problem
+of Bunsen ﬂames [91,26] for rich, but not lean
+propane air mixtures, and in numerical simula-
+tion of H2–air Bunsen ﬂames [92]. Finally, when
+the ﬂame is supported by the ﬂow the opening
+0
+1
+0
+0.5
+1
+0
+1
+0
+1
+0
+1
+0
+1
+max = 2.28
+max = 1.53
+max = 2.15
+x
+Unburned
+gas
+0
+1
+0
+0.5
+1
+0
+1
+0
+1
+0
+1
+0
+1
+max = 2.03
+max = 2.06
+max = 1.52
+x
+Unburned
+gas
+–1
+–1
+–1
+–0.5
+–1
+–1
+–1
+–0.5
+Fig. 10. Flame propagation in a channel with adiabatic
+walls (a) opposed by and (b) aligned with a Poiseuille
+ﬂow. Shown in the ﬁgures are reaction rate contours that
+identify the ﬂame shape and broadness. For the reported
+calculations the ﬂame always propagate to the left and
+its leading edge is set at the origin. The ﬁgure illustrates
+the
+eﬀects
+of
+channel
+width
+with
+d ¼ 20; 7; 3,
+respectively.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+69
+
+
+--- Page 14 ---
+
+occurs near the walls, namely at the ﬂame’s lead-
+ing edge.
+3. Diﬀusion ﬂames
+When fuel and oxidizer initially separated are
+brought together, mixing and reaction occur
+simultaneously in the reaction zone. The ﬂame is
+commonly known as a diﬀusion ﬂame, since diﬀu-
+sion is the rate-controlling process. Unlike pre-
+mixed ﬂames, diﬀusion ﬂames do not have a
+characteristic speed; the burning rate is deter-
+mined by the rate at which the fuel and oxidizer
+are transported from opposite sides in the right
+proportions to sustain the chemical reaction.
+Flat premixed ﬂames are readily established in
+the laboratory in a carefully controlled uniform
+ﬂow kept equal to the laminar ﬂame speed. In
+contrast, a steady planar diﬀusion ﬂame in a truly
+one-dimensional setting, with one of the reactants
+supplied far upstream and the other far down-
+stream, is not possible. For a steady diﬀusion
+ﬂame to exist, one must have nonzero ﬂuxes of
+fuel and oxidizer toward the ﬂame, and this can-
+not be produced in a one-dimensional ﬂow
+because the net ﬂux of the reactant originating
+at the downstream end must remain ﬁxed.3 A
+one-dimensional model—the chambered diﬀusion
+ﬂame—can be formulated if one of the reactants is
+supplied at a ﬁnite location [93,94]. In the present
+discussion fuel is fed from the bottom of the
+chamber at a constant rate, and oxidizer diﬀuses
+uniformly from the top of the chamber against
+the ﬂow of products. To sustain a steady ﬂame,
+conditions at the top must be maintained con-
+stant, which has been realized in the idealized-con-
+struct by a fast ﬂowing stream of oxidizer across
+the exit of the chamber; see Fig. 12(a). However,
+it is experimentally diﬃcult, if not impossible, to
+retain a uniform concentration of oxidizer at the
+top of the chamber and ensure the removal of
+product gases. This experimental diﬃculty has
+been overcome only recently by Lo Jacono et al.
+[95] in a novel experimental design. In this burner
+the oxidizer is introduced into the chamber
+through an array of hundreds of closely spaced
+hypodermic needles, spaced equally to allow the
+hot combustion products to escape vertically
+between the needles. The inhomogeneity near the
+exit plane of the needles is limited to a layer of
+thickness comparable to the needle spacing and
+the desired uniform conditions are realized just
+beyond this layer. Figure 12(b) shows a side-view
+photograph of a planar unstrained ﬂame. The
+measured strain rates at the ﬂame front were less
+than 0:5 s1 and these resulted from ﬂow non-uni-
+formities caused by heat loss to the chamber walls
+[96]. These imperfections were circumvented in the
+latest design of the chamber [97], which has been
+also improved to permit better control of the mag-
+nitude and direction of the bulk ﬂow. In the new
+symmetric design both reactants are supplied
+through hypodermic needles which allows the cre-
+ation of a ‘‘pure” diﬀusion ﬂame with no net ﬂow
+across the ﬂame.
+The
+experimental
+realization
+of
+a
+planar
+unstrained diﬀusion ﬂame opens the realm possi-
+bilities for the exploration of fundamental ques-
+tions related to diﬀusion ﬂames, and for the
+0
+1
+0
+–1
+–1
+–1
+1
+0
+1
+0
+1
+0
+1
+0
+1
+y
+x
+x
+x
+ω     = 3.97
+max
+ω     = 2.2
+max
+ω     = 7.68
+max
+Fig. 11. Flame propagation opposed by Poiseuille ﬂow for mixtures with a Lewis number less than one. The ﬁgure
+illustrates the phenomenon of tip opening when the Lewis number becomes suﬃciently small.
+3 Planar diﬀusion ﬂames are commonly established in
+the ﬂow ﬁeld of two impinging jets issued from opposing
+nozzles. However, the underlying ﬂow ﬁeld in this
+conﬁguration is two-dimensional and the ﬂame is
+strained.
+Fig. 12. The chambered diﬀusion ﬂame: (a) the theoret-
+ical model, and (b) side view photograph of a planar
+unstrained ﬂame sustained by a stream of CO2-diluted
+hydrogen fed from the bottom with oxygen diﬀusing
+from the top against the stream. Courtesy of P.
+Monkewitz.
+70
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 15 ---
+
+experimental validation of theoretical and numer-
+ical models. It provides for the ﬁrst time a valida-
+tion of the results on ﬂame instabilities, which
+have been primarily based on the chambered dif-
+fusion ﬂame model [98–100] as described below.
+In addition, the unstrained planar ﬂame can be
+potentially used for experimental studies of the
+structure, including oxidation mechanisms and
+transport rates of diﬀusion ﬂames in their purest
+form, i.e. where mass transport is by diﬀusion
+only, and where the ﬂames are free of the imped-
+ing eﬀects of ﬂuid dynamic strain, or curvature.
+3.1. Reaction sheet model
+The
+mathematical
+description
+of
+diﬀusion
+ﬂames dates back to Burke and Schumann [2],
+who introduced the inﬁnitely fast-chemistry limit.
+They hypothesized that chemical reaction is con-
+ﬁned to a sheet that separates a region where there
+is fuel but no oxidizer, from a region where there
+is oxidizer but no fuel. Fuel and oxidizer ﬂow into
+the reaction sheet in stoichiometric proportions, a
+condition that along with the requirement of com-
+plete consumption of reactants determines the
+combustion ﬁeld including the shape and location
+of the reaction sheet, or stoichiometric surface.
+The latter depends on the fuel and oxidizer con-
+centrations at the supply boundaries, or initial
+mixture strength /, and on the diﬀusivity of the
+reactants, or Lewis numbers LeF and LeO. For-
+mally, the Burke and Schumann solution corre-
+sponds to the limit D ! 1, where D is the
+Damko¨hler number [101–103]. The thin reaction
+zone is ‘‘passive” and except for smoothly con-
+necting the discontinuity in slopes it imposes no
+restrictions on the solution.
+A signiﬁcant advancement in the analysis of
+diﬀusion ﬂames is due to Lin˜a´n [104] who re-
+examined the structure of the reaction zone in
+the context of a counterﬂow ﬂame assuming that
+both the Damko¨hler number and the activation
+energy parameter are large but related in an
+appropriate distinguished limit. The structure of
+the reaction zone now depends on the reduced
+Damko¨hler number d, that measures the intensity
+of the chemical reaction, or the departure from
+equilibrium conditions. Integration across the
+reaction zone shows that the reaction–diﬀusion
+balance is sustained only when d P dc. The criti-
+cal value dc determines the lowest possible value
+of the Damko¨hler number, Dext, that corresponds
+to ﬂame extinction.4 For the counterﬂow ﬂame
+Dext determines the maximum possible strain rate
+above which extinction occurs; for a spherical
+ﬂame it determines the critical size below which
+extinction occurs. Figure 13 shows the relevant
+part of the S-response curve that characterizes
+the solution which extends from complete com-
+bustion down to extinction, or Dext 6 D < 1.
+The graph illustrates the dependence of the ﬂame
+temperature T f on D. As D ! 1 the curve
+asymptotes to the Burke–Schumann solution cor-
+responding to complete combustion with the
+ﬂame temperature equal the stoichiometric tem-
+perature T s. The intensity of the reaction dimin-
+ishes when D is reduced; as a consequence the
+ﬂame temperature drops and there is signiﬁcant
+leakage of unburned reactants through the reac-
+tion zone. Extinction occurs when the leakage
+becomes excessive and the ﬂame temperature
+drops signiﬁcantly below T s.
+In a recent development that parallels Lin˜a´n’s
+seminal
+work,
+Cheatham
+and
+Matalon
+[98]
+derived a general asymptotic formulation that is
+not restricted to any particular geometry and
+allows for non-unity Lewis numbers. Chemical
+reaction is conﬁned to a sheet which is near, but
+does not necessarily coincide with the stoichiome-
+tric surface. The internal structure of the reaction
+zone depends on the auxiliary parameters d and c.
+The parameter d is associated with the intensity of
+the reaction and controls the total amount of heat
+generated in the reaction zone. The parameter c
+determines the amount of heat needed on each
+side of the sheet to sustain combustion. At any
+point along the sheet these parameters are deter-
+mined by the local ﬂow, temperature and concen-
+tration conditions. Numerical integration of the
+reaction
+zone
+provides
+through
+asymptotic
+matching jump conditions in terms of c and d, that
+permit the determination of the combustion ﬁeld
+as well as the shape and location of the sheet itself.
+These conditions include the extent of fuel and
+oxidizer leakages Y 	
+F and Y 	
+O, which for c > 0 are
+proportional to the functions S1 and S2 shown
+in Fig. 14; for c < 0 the roles of S1 and S2 are
+interchanged. Both functions vanish as d ! 1, a
+limit corresponding to the Burke–Schumann solu-
+tion for which Y 	
+F ¼ Y 	
+O ¼ 0. The amount of fuel
+and/or oxidizer leaking through to opposite sides
+of the reaction zone increases as D, which is
+related to the parameter d decreases, with the fuel
+preferred5 when c > 0 and oxidizer when c < 0.
+The leakage of one of the reactants becomes
+excessive as D ! Dext, and a further reduction
+in D leads to extinction. Explicit formulae for S1
+4 It is often convenient to use the mixture fraction
+Zðx; tÞ as one of the coordinates [35]; the extinction
+condition then depends on the scalar dissipation rate
+j$Zj2.
+5 The preferred reactant that leaks through the reac-
+tion zone in this one-step activation energy asymptotic
+approximation does not always agree with experiments.
+For hydrocarbon–air ﬂames rate–ratio asymptotic
+approximation of reduced chemistry models provides
+better results, but such analysis have been limited at the
+present to one-dimensional ﬂame structure studies.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+71
+
+
+--- Page 16 ---
+
+and S2, which represent the numerical results with
+suﬃcient accuracy, are presented in the referenced
+article, and were used in a number of studies to
+facilitate the analysis circumventing the need to
+integrate the structure equation numerically for
+every set of conditions [98–100,105].
+The entire formulation is a nonlinear free-
+boundary problem for the combustion ﬁeld,
+including the location of the reaction sheet, with
+conditions that permit incomplete combustion
+with diﬀerent degrees of reactant consumption.
+It is therefore appropriate for analyses of multi-
+dimensional and time-dependent problems. The
+theory predicts local extinction along the sheet
+and hence the possible creation of holes. However,
+it does not provide information about the evolu-
+tion of holes where combustion is presumably
+governed locally by the characteristics of edge
+ﬂames, a topic that will be further discussed
+below. Modeling eﬀorts on the dynamics of holes
+have been recently initiated for the simple case of
+circular ﬂame holes [106], but more work is
+needed in this area.
+3.2. Flame instabilities
+Studies of ﬂame instability have been predom-
+inantly concerned with premixed combustion,
+but there is ample experimental evidence of insta-
+bilities in diﬀusion ﬂames6 The ﬁrst known study
+is due to Gardside and Jackson [107] who
+observed that the surface of a hydrogen–air jet
+ﬂame often comprises of triangular cells in the
+shape of a polyhedron. Later Dongworth and
+Melvin [108] observed that under certain condi-
+tions the straight base of a hydrogen–oxygen dif-
+fusion ﬂame on top of a splitter-plate burner
+becomes
+cellular.
+Similar
+observations
+were
+reported in recent studies of a Wolfhard–Parker
+burner [109], jet [110,111] and counterﬂow [112]
+diﬀusion ﬂames. A common feature of all these
+observations is that the instability results at suf-
+ﬁciently high ﬂow rates, or at near-extinction
+conditions. Another feature is that cells form
+when at least one of the Lewis numbers is suﬃ-
+ciently small; for example, in hydrogen–oxygen
+ﬂames diluted in CO2, N2 or Ar, in which case
+LeF  0:33–0:35, but not when diluted in He
+because LeF is near one and LeO is quite large.
+Similarly they form in methane–air diluted with
+SF6, in which case LeF; LeO  0:4–0:5, but not
+when diluted in He or N2 because the Lewis
+numbers are again near or larger than one. The
+propensity of diﬀusion ﬂames to form cells is
+increased when decreasing the initial mixture
+strength /, deﬁned as the fuel-to-oxidizer mass
+supplied in their respective streams normalized
+by their stoichiometric proportions [111].
+Another form of instability that appears in
+non-premixed systems is spontaneous ﬂame oscil-
+lations. Oscillations were observed in condensed-
+phase fuels [113], candle and large suspended fuel
+droplets in a microgravity environment [114,115],
+jet diﬀusion ﬂames [116], spray ﬂames [117] and
+ﬂame spreading over liquid beds [118,119]. The
+nature of the oscillation in each of these experi-
+ments is quite diﬀerent: The droplet ﬂame exhibits
+radial oscillations and the jet ﬂame expands and
+contracts as a whole during a cycle. For the micro-
+gravity candle ﬂame the edge is seen to move back
+and forth along the hemispherical ﬂame surface.
+In ﬂame spreading the oscillations are also pri-
+marily seen near the edge, decaying along the
+trailing diﬀusion ﬂame.
+The
+underlying
+hydrodynamics
+in
+the
+reported
+experiments
+is
+generally
+non-trivial,
+involving multidimensional shear and strained
+ﬂows that produce nonuniform conditions over
+the ﬂame surface and complicate comparison
+with theoretical predictions. The recent realiza-
+tion of an unstrained planar diﬀusion ﬂame pro-
+vides
+the
+opportunity
+to
+investigate
+ﬂame
+instabilities in their simplest form. Results on
+the onset of cellular ﬂames in a CO2-diluted
+hydrogen–air system have been already reported
+[95]. The oxidizer concentration is set by control-
+ling the oxygen injected from the hypodermic
+needles, and the hydrogen mass fraction in the
+fuel stream is gradually decreased by increasing
+the CO2 concentration in the incoming stream.
+The ﬂame appears ﬁrst ﬂat, but when reducing
+the fuel concentration below a critical value it
+takes on a cellular appearance as shown in
+Fig. 15. The cellular structure is retained when
+the hydrogen concentration is continuously low-
+ered down to a limiting value where ﬂame extinc-
+D ext
+D
+Tf
+Damkohler number
+..
+Flame temperature
+D*
+Tf = Ts
+Fig. 13. The dependence of the ﬂame temperature of a
+diﬀusion ﬂame on the Damko¨hler number (upper
+portion of the familiar S response curve). The turning
+point D ¼ Dext corresponds to ﬂame extinction. The
+dashed segment corresponds to states that, depending on
+the Lewis numbers and the initial mixture strength, may
+be unstable; the critical value D	 is the marginally stable
+state.
+6 The focus here is on intrinsic instabilities associated
+with the combustion process itself. Combustion studies
+that favor an unstable underlying ﬂow that promotes
+mixing are often of interest, but are not considered here.
+72
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 17 ---
+
+tion occurs. Cellular ﬂames are observed over a
+signiﬁcant range of H2
+concentration, corre-
+sponding to initial mixture strengths / < 1 and
+for Lewis numbers in the range LeO  0:97–1:33
+and LeF  0:22–0:29. This range narrows when
+increasing /, and for / > 1 the systematic reduc-
+tion of hydrogen concentration led directly to
+extinction. The observed cells at the transition
+are  0:7–1 cm wide, with the smaller size seen
+when the transition occurred near the extinction
+limit. More recent results by Robert and Monke-
+witz [97] are reported in a paper presented in this
+symposium.
+3.3. Cellular and oscillating ﬂames
+Stability analyses of diﬀusion ﬂames have
+predominantly used a planar ﬂame as a basic
+(unperturbed) state [98–100,120–123]. Although
+the models used by various investigators diﬀer
+slightly by the boundary conditions imposed,
+these minor diﬀerences do not aﬀect the results
+in
+any
+signiﬁcant
+way.
+The
+most
+elaborate
+results are obtained using the reaction sheet for-
+mulation, further assuming that the density is
+constant in order to ﬁlter out hydrodynamic dis-
+turbances. An explicit dispersion relation can be
+derived but due to its transcendental nature,
+ﬁnding roots for the growth rate in the complex
+plane requires substantial numerical computa-
+tions
+[98,99].
+The
+free-boundary
+eigenvalue
+problem was also solved numerically [100] and
+together with the analytical results yielded com-
+prehensive results that included the critical con-
+ditions
+for
+the
+onset
+of
+instability
+and
+a
+characterization of the possible patterns that
+are likely to be observed beyond the instability
+threshold.
+The Burke–Schumann solution of complete
+combustion is unconditionally stable. If the pla-
+nar ﬂame is slightly perturbed, the requirement
+of complete reactant consumption forces the reac-
+tion sheet back to its planar form which, for the
+given parameters, is the only stoichiometric sur-
+face. Instabilities can only exist when there is
+appreciable reactant leakage, or when the Dam-
+ko¨hler number is suﬃciently low (the dashed seg-
+ment in Fig. 13), i.e. in the range Dext 6 D < D	.
+Since the characteristic ﬂow time for the cham-
+bered ﬂame is lD=U, where lD ¼ Dth=U is the dif-
+fusion length and U is the bulk ﬂow velocity, this
+corresponds to relatively high ﬂow rates or near-
+extinction conditions. The marginally stable state
+D	 and the nature of the instability when D is
+0.0
+0.5
+1.0
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+S1
+0.0
+0.5
+1.0
+0.0
+0.2
+0.5
+0.0
+0.5
+1.0
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+S2
+Fig. 14. The functions S1 and S2 associated with the reactant leakage through the reaction sheet as a function of the
+parameters d and c. The degree of reactant consumption depends on d with complete consumption occurring when
+d ! 1. For c ¼ 0 there are equal amounts of fuel and oxidizer leaking though the sheet from opposite directions; more
+fuel leaks through the sheet when c > 0 and more oxidizer leaks through the sheet when c < 0.
+Fig. 15. Photograph (taken in an oblique angle) of a
+cellular diﬀusion ﬂame. The nominally planar ﬂame was
+sustained by a stream of CO2-diluted hydrogen fed from
+the bottom with oxygen diﬀusing from the top against
+the stream. The cellular ﬂame is obtained by reducing
+the H2 concentration in the feeding stream. Courtesy of
+P. Monkewitz and E. Robert.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+73
+
+
+--- Page 18 ---
+
+reduced below D	 depend on the mixture compo-
+sition and on the mobility of the reactants.
+The diagram in Fig. 16 shows the various pat-
+terns that are likely to be observed at the instabil-
+ity threshold in the Lewis numbers parameter
+plane. The dashed vertical line separates regions
+of relatively lean (to the left) and rich (to the right)
+mixtures, and shifts to the right as the initial mix-
+ture strength / decreases. Stationary cells occur in
+the region below the solid curve shown in the sta-
+bility
+diagram
+that
+encompasses
+the
+square
+0 < LeF < 1, 0 < LeO < 1. This region stretches
+out to include a wider range of LeO when reducing
+/, implying that leaner mixtures are more suscep-
+tible to cellularity. Characteristic cell size at the
+onset
+of
+the
+instability
+are
+in
+the
+range
+k  3–12lD, depending on the mixture strength
+and the ﬂow rate [100]. For conditions associated
+with the CO2-diluted hydrogen-oxygen cham-
+bered ﬂame, the predicted cells are 0.5–2 cm wide.
+The smaller cells are expected near the extinction
+limit, or when D	 is suﬃciently near Dext, in which
+case the analysis must be reconsidered to incorpo-
+rate small wavelength perturbations comparable
+to the reaction zone thickness that evolve on the
+fast chemical reaction time [121]. The theoretical
+predictions of the critical conditions, including
+ﬂow rate, mixture strength and Lewis numbers,
+for the onset of cellular ﬂames as well as the char-
+acteristic cell size are in agreement with the exper-
+imental record.
+Planar pulsation occurs in the upper right cor-
+ner of the stability diagram and is associated with
+suﬃciently large Lewis numbers. Since the dashed
+vertical line shifts to the left as / increases, oscil-
+lations are favored in relatively rich mixtures. Pla-
+nar pulsation for the chambered diﬀusion ﬂame
+has been recently observed in rich mixtures with
+one of the Lewis numbers suﬃciently large. The
+conditions concerning the onset of oscillations
+appear also commensurate with other experimen-
+tal observations [116]. Oscillations were observed
+for propane-air jet ﬂames diluted in nitrogen when
+/ P 1:32, in which case LeF varies from 1.1 to 1.8
+with LeO  1, but were not observed in the rela-
+tively lean system with / 6 0:76 despite the
+large-fuel Lewis number that resulted from the
+N2 dilution. These conditions fall within the pre-
+dicted regions [100] for the corresponding value
+of /. To examine the development beyond the
+instability threshold, Cheatham [124] carried out
+a bifurcation analysis and obtained amplitude
+equations that lead to either time-periodic solu-
+tions corresponding to sustained oscillations, or
+unbounded solutions that imply premature extinc-
+tion or blowoﬀ. The dependence of these results
+on the parameters was discussed in [125].
+Although cellular structures and ﬂame oscilla-
+tion are the predominant forms of instability,
+other possible patterns, such as oscillating cells
+or competing modes of comparable and/or dispa-
+rate scales, may exist in the transition regions
+between various domains or for extreme values
+of the parameters. Mixed modes of instability
+were reported, for example, in jet diﬀusion ﬂames
+in the form of travelling, or rotating cells [110] and
+long cells were reported in a recent study of non-
+premixed tubular ﬂame [126].
+The mathematical consequence of non-unity
+Lewis numbers on the combustion ﬁeld is that it
+yields temperature and concentration proﬁles that
+are non-similar. Physically non-unity Lewis num-
+bers represents the competing eﬀects of heat con-
+duction away, and diﬀusion of fuel and oxidizer
+toward the reaction zone. Volumetric heat loss,
+which aﬀects the temperature but not the concen-
+tration ﬁelds, also generates non-similar proﬁles
+that can promote diﬀusive-thermal instabilities.
+In the presence of gas-phase radiation, for exam-
+ple, it was found that ﬂame oscillation can be trig-
+gered by appreciable heat losses even when the
+Lewis numbers are identically equal to one [127],
+and that the instability is enhanced by heat losses
+when the conditions already favor oscillations
+[99]. Indeed, oscillations were observed in jet
+ﬂames when a fraction of the fuel supplied was
+introduced in the form of liquid droplets that
+extract heat from the gaseous phase for their
+vaporization [117]. Under similar conditions, but
+with the droplets content replaced by fuel vapor,
+the ﬂame was stable. Further compelling evidence
+of the role of heat loss was provided when water
+droplets were injected instead of the fuel droplets
+leading to oscillations of similar frequencies.
+The eﬀect of thermal expansion on the stability
+of a planar diﬀusion ﬂame has been considered
+only recently by Metzener and Matalon [128].
+Because thermal expansion is not the driving
+competing
+instability
+modes
+pulsations
+Oscillatory
+cells
+1
+1
+LeF
+LeO
+high-frequency
+instability
+high-frequency
+instability
+stationary cells
+Fig. 16. Typical stability diagram illustrating the vari-
+ous patterns that are likely to be observed at the onset of
+an instability of a nominally planar diﬀusion ﬂame. The
+dashed vertical line separates regions of relatively lean
+(to the left) and rich (to the right) mixtures, and shifts to
+the right as / decreases; the solid curve which always
+includes the point LeF ¼ LeO ¼ 1 stretches out as /
+decreases.
+74
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 19 ---
+
+mechanism for instability, the general character-
+ization described above remains qualitatively cor-
+rect even when realistically accounting for density
+variations. In particular, the Burke–Schumann
+state of complete combustion remains uncondi-
+tionally stable. The main eﬀect of thermal expan-
+sion is varying the degree of instability and
+consequently shifting the marginal state D	. In
+particular, it is found to play diﬀerent roles on
+the various mode of instability. The growth rate
+in the parameter range corresponding to cellular
+ﬂames increases with increasing thermal expan-
+sion, implying that thermal expansion acts to fur-
+ther destabilize the ﬂame. The induced ﬂow
+resulting near a cellular structure involves regions
+of concentrated vorticity upstream of the reaction
+surface with extrema near the crests and troughs
+(Fig. 17). The vortical motion enhances the trans-
+port of fuel to these regions, which sustains the
+corrugated structure. The onset of cellular ﬂames
+occurs at a value D	 signiﬁcantly larger than that
+predicted by the constant-density model, which
+implies that a wider range of physical states are
+susceptible to cellularity. On the other hand, the
+growth rate associated with planar pulsation
+decreases when increasing the thermal expansion
+parameter. Since the ﬂame remains planar and
+its back and forth motion is towards denser ﬂuid,
+thermal expansion has a damping inﬂuence on the
+oscillations. The marginal state D	 is signiﬁcantly
+lower than the value predicted by the constant-
+density model, which implies that a narrower
+range of physical states are susceptible to pulsa-
+tion. Overall, although thermal expansion has a
+marked inﬂuence of the dynamics of diﬀusion
+ﬂames, it does not play a crucial role as it does
+for premixed ﬂames.
+4. Edge ﬂames
+The planar deﬂagration and chambered diﬀu-
+sion ﬂames are two fundamental structures that
+have been traditionally used to gain understand-
+ing into the more complex ﬂame behaviors that
+occur in real applications. They constitute two
+extremes in which fuel and oxidizer are either well
+mixed before introduced into the combustion
+chamber, or supplied from diﬀerent origins with
+mixing and combustion taking place simulta-
+neously. The edge ﬂame is another fundamental
+structure, albeit a two-dimensional one, which is
+associated with partially premixed conditions
+and thus has characteristics of both premixed
+and nonpremixed ﬂames. A representative edge
+ﬂame formed in the wake of splitter plate separat-
+ing two parallel streams, one containing fuel and
+the other oxidizer, is shown in Fig. 18(b). Partial
+mixing occurs behind the tip of the plate and com-
+bustion takes place in the stratiﬁed medium, once
+the mixture is ignited. The edge ﬂame has a tri-
+brachial structure (also referred to as a triple
+ﬂame) which consists of a highly curved premixed
+ﬂame with lean and rich branches, and a diﬀusion
+ﬂame trailing behind consuming the remaining
+unburned reactants.
+Edge ﬂames occur in variety of situations. At
+low speeds, a fuel jet injected into an oxidizer
+environment burns, when ignited, along a diﬀu-
+sion ﬂame attached to the nozzle. At high ﬂow
+rates, the ﬂame is stabilized further downstream
+within the jet. Lifting the ﬂame base oﬀthe nozzle
+has the advantage of avoiding thermal contact
+Fig. 17. The vorticity ﬁeld in the vicinity of a cellular ﬂame at the instability threshold, calculated for a density ratio  3.
+The solid curve denotes the reaction sheet. The concentrated vortical motion near the crests and troughs enhances the
+transport of fuel to these regions, thus sustaining the cellular structure.
+fuel
+oxidizer
+oxidizer
+fuel
+oxidizer
+oxidizer
+diffusion flame
+edge-flame
+Fuel
+Oxidizer
+Fig. 18. (a) Lifted jet diﬀusion ﬂame, calculated for
+stoichiometric conditions and Pe  RU=Dth ¼ 5, where
+Pe is the Peclet number based on the radius R of the
+nozzle and a representative gas velocity U. (b) A sketch
+of the local structure of the edge ﬂame near the nozzle
+illustrating its tri-brachial structure.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+75
+
+
+--- Page 20 ---
+
+between the ﬂame and the rim and enhancing mix-
+ing. The lifted ﬂame has an edge as shown in
+Fig. 18, which has been also observed experimen-
+tally [129,130]; see also the more recent review
+article by Chung [131]. Edge ﬂames also occur
+near holes poked in turbulent diﬀusion ﬂames as
+a result of excessive thermal gradients or high
+strain. Through the hole, fuel and oxidizer come
+in contact and a stratiﬁed pocket of premixed
+gas varying from lean to rich conditions is formed.
+When thermal gradients increase well above the
+quenching limit through turbulent ﬂuctuations,
+the gas mixture can ignite and propagate in the
+form of an edge ﬂame. The edge ﬂame can either
+propagate inwards into the pocket of fresh gases,
+reestablishing the ﬂame and reducing the size of
+the hole, propagate outwards, spreading extinc-
+tion to other parts of the ﬂame, or ‘‘holding” in
+some way those parts of the ﬂame that did not
+extinguish. This has been observed experimentally
+near the axisymmetric hole created in a counter-
+ﬂow diﬀusion ﬂame [132–134]. An edge ﬂame
+has been also observed in the weakly nonuniform
+straining ﬁeld created in an opposed slot-jet bur-
+ner with nonparallel jet exits [135]. The diﬀusion
+ﬂame is sustained in the region where the strain
+rate is suﬃciently low but is quenched, and thus
+terminates with an edge, when the strain rate is
+above a critical value.
+4.1. Mathematical description
+The earliest analytical attempt to describe the
+structure of an edge-ﬂame was made by Ohki
+and Tsuge [136], but the interest in such problems
+started a few years later and have focused on
+ﬂame propagation in weakly stratiﬁed mixtures
+[137–140]. Analytical considerations were based
+on perturbation of the planar premixed ﬂame,
+neglecting the eﬀect of thermal expansion. From
+these studies expressions for the speed of the
+edge-ﬂame were obtained and the dependence on
+the imposed concentration gradient was identiﬁed.
+A one-dimensional model that describes the tran-
+sition between burning and non-burning states
+along the axis of a ﬂame sheet has been proposed
+as a paradigm of an edge ﬂame [141], providing
+results that illustrate
+some
+characteristics
+of
+observed edges. However, an edge ﬂame is an
+intrinsically two-dimensional conﬁguration and
+the one-dimensional setting requires modifying
+the reaction term in the governing equations in
+order to emulate transverse diﬀusion that is an
+essential element in the physical description.
+Recent advances have, therefore, relied on numer-
+ical computations.
+4.2. Edge ﬂames in a mixing layer
+Numerical study of a model problem that
+involves an edge ﬂame in a non-premixed system,
+has been carried out by Buckmaster and Zhang
+[142]. A ﬂat diﬀusion ﬂame is assumed to exist
+along an axis, with fuel and oxidizer supplied at
+two opposing ends in the transverse direction.
+The edge results from cutting-oﬀthe fuel supply
+arbitrarily at a ﬁnite position. The calculations
+illustrate the onset of spontaneous oscillations in
+mixtures for which the fuel Lewis number is suﬃ-
+ciently larger than one (the oxidizer Lewis number
+was assumed equal to one) when the Damko¨hler
+number is suﬃciently low; see also [143] and the
+references therein.
+The more realistic problem of an edge ﬂame in
+a mixing layer was treated by Kurdyumov and
+Matalon [144–147]. Combustion occurs down-
+stream of the trailing edge of a plate, held at a
+constant temperature, and separating fuel and
+oxidizer streams. The earlier work assumes that
+the streams, of equal and constant velocities,
+remain unperturbed by the ﬂow. In the more
+recent results the ﬂow ﬁeld is calculated based
+on the Navier–Stokes equations7 with upstream
+proﬁles that emulate the local behavior of the
+boundary layers near the trailing edge of the plate,
+as illustrated in Fig. 18(b). The velocity gradients
+on either side of the plate are assumed equal and
+characterized by U=lBL, where U is a representa-
+tive velocity and lBL is the boundary layer thick-
+ness.
+The
+ﬂame
+standoﬀ
+distance
+depends
+primarily on the ﬂow rate, or on the Damko¨hler
+number D which is inversely proportional to U 2.
+At low ﬂow rates (large D) the edge is attached
+to the plate. It lifts oﬀwhen the ﬂow rate increases
+and stands at a well-deﬁned distance from the tip
+of the plate. The position ðxw; ywÞ depends on the
+mixture
+composition,
+or
+the
+initial
+mixture
+strength, and the mobility of the reactants, or
+the Lewis numbers. When there is no preferential
+diﬀusion, LeF ¼ LeO, and when the reactants are
+in stoichiometric proportions, / ¼ 1, the edge
+ﬂame is symmetric with respect to the axis of the
+plate. Otherwise it leans towards the fuel or oxi-
+dizer sides; for / > 1 with LeF ¼ LeO, for exam-
+ple, the edge ﬂame is on the oxidizer side with
+the trailing diﬀusion ﬂame nearly aligned with
+the stoichiometric surface.
+Representative solutions calculated for equal
+and unity Lewis numbers, but with / ¼ 5, are
+shown in Fig. 19. A comparison of the two ﬁgures
+illustrates the eﬀect of thermal expansion, which
+was neglected in (a) but fully accounted for in
+(b). In the ﬁrst case the streamlines remain parallel
+7 Although the boundary layer approximation can be
+used to describe the mixing process between the two
+streams, there is a region near the tip of the plate where
+the ﬂow ﬁeld must satisfy the full Navier–Stokes
+equations. This region is embedded in the lower deck
+of the much larger triple deck region that describes the
+ﬂow near the plate’s trailing edge.
+76
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 21 ---
+
+and symmetric with respect to the axis. The
+change in slope at the station x ¼ 0 is associated
+with the acceleration experienced by the ﬂuid ele-
+ments entrained into the mixing layer. The ﬂame
+leans towards the oxidizer side, as expected, with
+its edge located very close to the tip of the plate
+and the trailing diﬀusion ﬂame aligned (approxi-
+mately) with the stoichiometric surface. Thermal
+expansion causes a deﬂection of the streamlines
+crossing the premixed segments and a lateral dis-
+placement of the streamlines near the diﬀusion
+ﬂame. At suﬃciently far distances the ﬂow is no
+longer aﬀected by the ﬂame and becomes parallel
+again. The edge is seen located further down-
+stream when compared to the case displayed in
+(a), but this is simply a scaling issue as discussed
+in greater detail in [147].
+The most comprehensive results on ﬂame
+dynamics were obtained using a constant-density
+model [146], which consists of solving the trans-
+port equations with the prescribed ﬂow shown in
+Fig. 19(a). The steady-form of the equations were
+integrated ﬁrst in order to obtain all possible solu-
+tions—stable and unstable. The time-dependent
+version was then solved to determine whether a
+given state is stable or not. Figure 20 shows results
+corresponding to a wide range of Lewis numbers
+assumed equal for the fuel and oxidizer, and
+denoted by Le, with / ¼ 1. For these conditions
+the ﬂame remains symmetric with respect to the
+axis and its position is characterized solely by
+xw. The graph displays the standoﬀdistance of
+the edge ﬂame as a function of D. The curves
+are generally multi-valued; for large values of Le
+the turning point occurs at a large xw that is out-
+side the domain of integration. The turning point
+marked by the symbol  identiﬁes the lowest pos-
+sible Damko¨hler number Dbl for ﬂame stabiliza-
+tion.
+When
+reducing
+D
+below
+Dbl
+or,
+equivalently, when increasing U the ﬂame is
+blown
+oﬀ
+by
+the
+ﬂow.
+The
+upper
+branch
+(dashed–dotted segments) correspond to unstable
+states that cannot be realized physically. We note
+1.2
+1.
+0.8
+0.6
+0.4
+0.2
+0.
+-5
+0
+5
+10
+-5
+0
+5
+10
+-10
+-5
+0
+5
+10
+7
+6
+5
+4
+3
+2
+1
+0
+-10
+-5
+0
+5
+10
+a
+b
+Fig. 19. An edge ﬂame stabilized in a mixing layer calculated for a ﬁxed value of D, LeF ¼ LeO ¼ 1 and / ¼ 5, with
+thermal expansion neglected in (a) but fully accounted for, in (b). In (b) the thermal expansion parameter was taken as
+r ¼ 5. The graphs display reaction rate contours that identify the ﬂame shape and standoﬀdistance and streamlines that
+show their displacement when thermal expansion has not been neglected.
+50
+=1.7
+=1.5
+Le=0.8
+Damkohler number D
+10
+0
+8
+6
+4
+2
+101
+100
+103
+102
+100 150
+5
+4
+3
+2
+1
+w
+Standoff distance x
+Le=1
+Le =1.2
+Le
+Le
+Le=1.45
+Le=1.5
+..
+Fig. 20. The dependence of the standoﬀdistance of the
+edge ﬂame on the Damko¨hler number for distinct values
+of the Lewis numbers assumed equal (denoted by Le).
+The dashed–dotted segments correspond to unstable
+states; the symbol  marks the turning point, or blowoﬀ
+conditions. The dashed segments correspond to oscilla-
+tory states and the symbol  marks the marginally-stable
+states.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+77
+
+
+--- Page 22 ---
+
+that Dbl is signiﬁcantly lower for mixtures with
+small values of Le. It is easier, therefore, to stabi-
+lize a hydrogen ﬂame burning in air near the tip of
+the plate than it is to stabilize a hydrocarbon
+ﬂame. The hydrogen ﬂame remains near the plate
+when increasing the ﬂow rate to suﬃciently high
+values, conditions under which the hydrocarbon
+ﬂame would not have survived; the ﬂame would
+have been already blown oﬀwith a much lower
+value of the ﬂow rate. We also note that a hydro-
+carbon ﬂame can be lifted to suﬃciently large dis-
+tances in contrast to a hydrogen ﬂame that can
+only be stabilized in the vicinity of the plate [129].
+The dashed segments of the response curves in
+Fig. 20, seen primarily for relatively large values
+of Le, correspond to unstable states. The instabil-
+ity here is associated with ﬂame oscillation. At
+large D the ﬂame is close to the plate and is stabi-
+lized by heat loss to the plate. When D is lowered
+below a critical value, D	, the ﬂame undergoes
+spontaneous oscillations with the edge moving
+back and forth along the axis dragging with it
+the trailing diﬀusion ﬂame. It is primarily the edge
+of the ﬂame that oscillates; the oscillations are
+weakened further downstream along the diﬀusion
+ﬂame sheet and are damped at suﬃciently large
+distances. For Le ¼ 1:7, the onset occurs when
+D is reduced just below D	  450 and the oscilla-
+tions persist for all values of D < D	 (within the
+computation
+domain).
+For
+the
+lower
+value
+Le ¼ 1:5, the oscillatory states are limited to the
+range D	 < D < D	; the edge ﬂame is re-stabilized
+when reducing D below D	 or, equivalently, by
+increasing the ﬂow rate to a suﬃciently high value.
+Stabilization here is apparently achieved at a
+point xw where the edge speed is balanced by the
+gas velocity just in front. The time evolution of
+slightly perturbed states, corresponding to values
+of D just ahead, behind and within the unstable
+range, is shown in Fig. 21. After an initial tran-
+sient the solution evolves either to the steady state
+or to a limit cycle. The re-stabilization phenome-
+non has been examined in more details in a similar
+problem—the ﬂat porous-plug burner ﬂame—
+which, because of its simplicity, is amenable to a
+complete stability analysis [148]. One also sees in
+Fig. 20 that the range of oscillatory states shrinks
+as Le is reduced below 1.5 and disappears when it
+is less than 1.45. Oscillations are not observed in
+mixtures with Le less than a critical value near
+one. Finally we note that when the combustion
+ﬁeld is non-symmetric, the oscillations are associ-
+ated with both coordinates varying periodically in
+time, and the edge-ﬂame moves back and forth
+along a surface that coincides approximately with
+the stoichiometric surface [145].
+Volumetric heat loss, such as radiative losses,
+have a signiﬁcant eﬀect on the combustion ﬁeld.
+The edge ﬂame stands farther away from the tip
+when heat losses are accounted for, than it would
+under adiabatic conditions, and the trailing diﬀu-
+sion ﬂame is of ﬁnite extent. More importantly,
+heat losses can trigger oscillations under condi-
+tions when, in their absence, the ﬂame is stable.
+For example, when the losses are appreciable the
+ﬂame
+may
+undergo
+spontaneous
+oscillations
+[144] even in the absence of diﬀerential diﬀusion
+(i.e. when Le ¼ 1).
+As a ﬁnal comment we note that edge ﬂames also
+occur in premixed systems. The edge forms in front
+of a relatively sharp temperature gradient, with the
+trailing wings supported by a straining ﬁeld [149–
+153]. This has been observed experimentally in the
+weakly nonuniform straining ﬁeld created in an
+opposed slot–jet burner with nonparallel jet exits
+[154]. The ﬂame is sustained in the region where
+the strain rate is suﬃciently low but is quenched
+when the strain rate is above a critical value; the
+edge-ﬂame describes the transitional state between
+the burning and non-burning states.
+5. Concluding remarks
+Because of the high cost of Direct Numerical
+Simulations, limitations in memory and speed of
+available computers, theoretical and numerical
+0
+20
+40
+60
+80
+100
+0
+1
+2
+3
+4
+5
+D=27
+xw
+t
+0
+20
+40
+60
+80
+100
+0
+1
+2
+3
+4
+5
+D=40
+xw
+t
+0
+20
+40
+60
+80
+100
+0
+1
+2
+3
+4
+5
+D=100
+xw
+t
+Fig. 21. Time evolution of the edge ﬂame position for
+three values of D, showing the evolution to a stable state
+when D ¼ 100, onset of oscillations when D ¼ 40, and
+re-stabilization when D ¼ 27. Calculated for Le ¼ 1:5.
+78
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 23 ---
+
+modeling will remain at least in the foreseeable
+future essential tools for extending our under-
+standing of combustion and addressing the chal-
+lenging problems of increasing eﬃciency and
+reducing pollutant emissions. The techniques of
+asymptotic analysis, which systematically exploit
+the various length and time scales involved in a
+process, are the primary tools available to derive
+systematic and reliable models of ﬂames. The
+hydrodynamic theory of premixed ﬂames, for
+example, was shown capable of describing the
+propagation of multi-dimensional ﬂames with
+results that compare favorably with experimental
+observations. Similarly, the reaction sheet model
+was shown capable of describing time-dependent
+and multi-dimensional diﬀusion ﬂames and pro-
+viding stability results over a wide range of param-
+eters, including thermal expansion. In either case,
+the theory can be extended to accommodate for
+more complex reaction schemes and for holes cre-
+ated on the ﬂame or reaction surface, which at the
+present seem to be its main drawbacks.
+The paper also illustrates that limiting behav-
+iors, when carried out systematically, can provide
+valuable predictions that should not be discarded
+a-priori based only on physical intuition. The
+results of the MS equation, valid for weak thermal
+expansion, remain valid even when density varia-
+tions are accounted for. These were consequently
+used in guiding and validating the more intense
+Direct Numerical Simulations. The wealth of
+results
+obtained
+under
+the
+constant-density
+assumption for ﬂame propagation in channels
+and for edge ﬂames share many characteristics of
+real ﬂames and is a source of physical understand-
+ing of the complex ﬂame-ﬂow interactions that
+occur in combustion systems. Attempts to reexam-
+ine these problems while allowing for density vari-
+ations are surfacing only now, with results that
+appear consistent with the constant-density pre-
+dictions at least in some range of the parameters.
+Theoretical results have been often used to
+guide experimental eﬀorts. The linear relationship
+between ﬂame speed and stretch for weakly
+stretched ﬂames, has been tested in many circum-
+stances and used in correlating experimental data
+in order to determine the Markstein number that
+quantiﬁes the eﬀects of strain and curvature. A
+more recent example is the experimental realiza-
+tion of a planar unstrained diﬀusion ﬂame which
+has been motivated by stability predictions that
+have been based on the idealized chambered diﬀu-
+sion ﬂame model.
+Acknowledgments
+It is a great pleasure to thank Professors M.
+Smooke and H. Kobayashi for their invitation
+to prepare and deliver this lecture.
+The paper has beneﬁted from invaluable dis-
+cussions with many colleagues, in particular John
+K. Bechtold, Joe Grcar, Dimitrios C. Kyritsis,
+Vadim Kurdyumov, Chung K. Law, Philippe
+Metzener, Peter A. Monkewitz, Carlos A. Pant-
+ano-Rubino, Norbert Peters and Grisha I. Siva-
+shinsky to whom I am extremely grateful. This
+work has been supported by the National Science
+Foundation under Grants CBET-0733146 and
+DMA-0708588 and by the US-Israel Bi-National
+Science Foundation under Grant 2004069.
+References
+[1] M. Van Dyke, Perturbation Methods in Fluid
+Mechanics, annotated ed., Parabolic Press, 1975.
+[2] S.P. Burke, T.E.W. Schumann, Ind. Eng. Chem. 20
+(1928) 998.
+[3] G.I. Sivashinsky, Combust. Sci. Technol. 15 (1977)
+137–145.
+[4] M.L. Frankel, G.I. Sivashinsky, Combust. Sci.
+Technol. 29 (1982) 207–224.
+[5] M. Matalon, B.J. Matkowsky, J. Fluid Mech. 124
+(1982) 239–259.
+[6] P. Pelce, P. Clavin, J. Fluid Mech. 124 (1982) 219–
+237.
+[7] P. Clavin, Proc. Combust. Inst. 28 (2000) 569–585.
+[8] G.I. Sivashinsky, Proc. Combust. Inst. 29 (2002)
+1737–1761.
+[9] J.D. Buckmaster, P. Clavin, A. Lin˜a´n, et al., Proc.
+Combust. Inst. 30 (2005) 1–19.
+[10] E. Mallard, H.L. Le Chatelier, Ann. Mines 4
+(1883) 274–388.
+[11] Y.B. Zel’dovich, D.A. Frank-Kamenetsky, Z.
+Fizich. Khim. 12 (1) (1938) 100–105.
+[12] W.B. Bush, F.E. Fendell, Combust. Sci. Technol. 1
+(1970) 421–428.
+[13] F.A. Williams, Ann. Rev. Fluid Mech. 3 (1971)
+171–188.
+[14] J.D.
+Buckmaster,
+G.S.S.
+Ludford,
+Theory
+of
+Laminar Flames, Cambridge University Press,
+Cambridge, 1982.
+[15] P. Clavin, F.A. Williams, J. Fluid Mech. 116
+(1982) 251.
+[16] G. Darrieus, Propagation d’un front de ﬂamme,
+presented at La Technique Moderne (Paris) and in
+1945 at Congre`s de Me´canique Applique´e, Paris,
+1938 (unpublished work).
+[17] L.D. Landau, Acta Physicochim. USSR 19 (1944)
+77–85.
+[18] G.H. Markstein, Nonsteady Flame Propagation,
+The Macmillan Company, New York, 1964.
+[19] M. Matalon, C. Cui, J.K. Bechtold, J. Fluid Mech.
+487 (2003) 179–210.
+[20] F.A. Williams, A review of some considerations of
+turbulent ﬂame structure, in: M. Barrere, (Ed.),
+Analytical and Numerical Methods for Investigation
+of Flow Fields with Chemical Reactions, Especially
+Related to Combustion. AGARD Conf. Proc. No.
+164, 1975.
+[21] M. Matalon, Combust. Sci. Technol. 31 (1983)
+169–181.
+[22] J.H. Tien, M. Matalon, Combust. Flame 84 (1990)
+238–248.
+[23] J.K. Bechtold, M. Matalon, Combust. Flame 127
+(2001) 1906–1913.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+79
+
+
+--- Page 24 ---
+
+[24] E.S. Antoniou, J.K. Bechtold, M. Matalon, SIAM
+J. Appl. Math. 64 (2004) 1434–1456.
+[25] C.K. Wu, C.K. Law, Proc. Combust. Inst. 20
+(1984) 1941–1949.
+[26] C.K. Law, Combustion Physics, Cambridge Uni-
+versity press, Cambridge, 2007.
+[27] D.R. Dowdy, D.B. Smith, S.C. Taylor, A. Wil-
+liams,
+Proc.
+Combust.
+Inst.
+(1990)
+325–
+332.
+[28] D. Bradley, P.H. Gaskell, X.J. Gu, Combust.
+Flame 104 (1–2) (1996) 176–198.
+[29] T. Echekki, M.G. Mungal, Proc. Combust. Inst. 23
+(1990) 455–461.
+[30] C.W. Choi, I.K. Puri, Combust. Flame 126 (2001)
+1640–1654.
+[31] S. Kwon, L.K. Tseng, G.M. Faeth, Combust.
+Flame 90 (1992) 230–246.
+[32] U.C. Mu¨ller, M. Bollig, N. Peters, Combust. Flame
+108 (1997) 349–356.
+[33] D. Bradley, R.A. Hicks, M. Lawes, C.G.W.
+Sheppard,
+R.
+Woolley,
+Combust.
+Flame
+115
+(1998) 126.
+[34] F.A. Williams, Combustion Theory, The Benjamin/
+Cummings Publishing Company Inc., Menlo Park,
+CA, 1985.
+[35] N. Peters, Turbulent Combustion, Cambridge Uni-
+versity Press, Cambridge, 2000.
+[36] M.
+Matalon,
+J.K.
+Bechtold.
+A
+multi-scale
+approach to the propagation of non-adiabatic
+premixed
+ﬂames.
+J.
+Eng.
+Math.,
+in
+press,
+doi:10.107/s10665-008-9228-0.
+[37] M. Bui-Pham, K. Seshadri, F.A. Williams, Com-
+bust. Flame (1992) 343–362.
+[38] K. Seshadri, N. Peters, F.A. Williams, Combust.
+Flame 96 (1994) 407–427.
+[39] K. Seshadri, Proc. Combust. Inst. 26 (1996) 831–
+846.
+[40] K. Seshadri, X.S. Bai, H. Pitsch, N. Peters,
+Combust. Flame 113 (1998) 589–602.
+[41] G.I. Sivashinsky, Acta Astronaut. 4 (1977) 1177–
+1206.
+[42] P. Clavin, Prog. Energy Combust. Sci. 11 (1985) 1–
+59.
+[43] G. Joulin, P. Clavin, Combust. Flame 35 (1979)
+139–153.
+[44] T.L. Jackson, A.K. Kapila, Combust. Sci. Technol.
+49 (1986) 305–317.
+[45] Y.D. Kim, M. Matalon, Combust. Sci. Technol. 69
+(4–6) (1990) 85–97.
+[46] A.G. Istratov, V.B. Librovich, Astronaut. Acta 14
+(1969) 453–467.
+[47] J.K. Bechtold, M. Matalon, Combust. Flame 67
+(1987) 77.
+[48] J. Manton, G. von Elbe, B.J. Lewis, J. Chem.
+Phys. 20 (1952) 153–157.
+[49] A. Palm-Leis, R.A. Strehlow, Combust. Flame 13
+(1969) 111–119.
+[50] D.M. Simon, E.L. Wong, J. Chem. Phys. 21 (1953)
+936.
+[51] E.G. Groﬀ, Combust. Flame 48 (1982) 51.
+[52] C.K. Law, Combust. Sci. Technol. 178 (2006) 335–
+360.
+[53] D. Bradley, C.M. Harper, Combust. Flame 99
+(1994) 562.
+[54] D. Bradley, C.G.W. Sheppard, R. Woolley, D.A.
+Greenhalgh, R.D. Lockett, Combust. Flame 122
+(2000) 195.
+[55] R. Addabbo, J. Bechtold, M. Matalon, Proc.
+Combust. Inst. 29 (2002) 1527–1535.
+[56] J.K. Bechtold, C. Cui, M. Matalon, Proc. Com-
+bust. Inst. 30 (2004) 177–184.
+[57] G. Jomaas, C.K. Law, J.K. Bechtold, On Transi-
+tion to Cellularity in Expanding Spherical Flames:
+Experiment
+and
+Theoretical
+Comparison,
+43rd
+ASM Meeting and Exhibit, Number AIAA 2005-
+0713, 2005.
+[58] C.K. Law, G. Jomaas, J.K. Bechtold, Proc.
+Combust. Inst. 30 (2005) 159–167.
+[59] M.S. Uberoi, A.M. Kuethe, H.R. Menkes, Phys.
+Fluids 1 (2) (1958) 150–158.
+[60] S.S. Sattler, D.A. Knaus, F.C. Gouldin, Proc.
+Combust. Inst. 29 (2002) 1785–1792.
+[61] R.A.
+Strehlow,
+Combustion
+Fundamental,
+McGraw-Hill Book Company, New York, 1984.
+[62] D.M. Michelson, G.I. Sivashinsky, Acta Astro-
+naut. 4 (1977) 1207–1221.
+[63] V. Bychkov, Phys. Fluids 10 (1998) 2091–2098.
+[64] K.A. Kazakov, M.A. Liberman, Phys. Fluids 14
+(2002) 1166–1181.
+[65] O. Thual, U. Frisch, M. He´non, J. Phys. 46 (9)
+(1985) 1485–1494.
+[66] D. Vaynblat, M. Matalon, SIAM J. Appl. Math.
+60 (2) (2000) 679–702.
+[67] D. Vaynblat, M. Matalon, SIAM J. Appl. Math.
+60 (2) (2000) 703–728.
+[68] S. Gutman, G.I. Sivashinsky, Physica D 43 (1990)
+129–139.
+[69] D.M.
+Michelson,
+G.I.
+Sivashinsky,
+Combust.
+Flame 48 (1982) 211–217.
+[70] Y. Rastigejev, M. Matalon, Combust. Theory
+Model. 10 (3) (2006) 459–481.
+[71] Y. Rastigejev, M. Matalon, J. Fluid Mech. 554
+(2006) 371–392.
+[72] J.F. Grcar, M. Matalon, Direct simulation of
+hydrodynamically unstable premixed ﬂames, in
+preparation.
+[73] A.S. Almgren, J.B. Bell, P. Colella, L.H. Howell,
+M.L. Welcome, J. Computat. Phys. 142 (1998) 1–
+46.
+[74] M.S. Day, J.B. Bell, Combust. Theory Model. 4 (4)
+(2000) 535–556.
+[75] J.B. Bell, M.S. Day, J.F. Grcar, M.J. Lijewski,
+Commun. Appl. Math. Comput. Sci. 1 (2) (2005)
+29–52.
+[76] A. Kazakov, M. Frenklach, Reduced Reaction
+Sets Based on GRI-Mech 1.2, http:www.me.berke-
+ley.edu/drm, 1994.
+[77] C.D. Lind, J.C. Whitson, Explosion Hazards
+Associated with Spills of Large Quantities of
+Hazardous Materials, Technical Report CG-D-
+85-77, Department of Transportation, U.S. Coast
+Guard Final Report, ADA 047585, 1977.
+[78] D. Bradley, T.M. Cresswell, J.S. Puttock, Com-
+bust. Flame 124 (2001) 551–559.
+[79] J. Daou, M. Matalon, Combust. Flame 128 (2002)
+321–339.
+[80] C.W. Clendening, W. Shackleford, R. Hilyard,
+Proc. Combust. Inst. 18 (1981) 1583–1590.
+[81] P.W. Fairchild, R.D. Fleeter, F.E. Fendell, Proc.
+Combust. Inst. 20 (1985) 85–90.
+[82] V. Kurdyumov, E. Ferna´ndez-Tarrazo, Combust.
+Flame 128 (2002) 382–394.
+[83] J. Daou, M. Matalon, Combust. Flame 124 (2001)
+337–349.
+80
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+
+
+--- Page 25 ---
+
+[84] C. Cui, M. Matalon, J. Daou, J. Dold, Combust.
+Theory Model. 8 (2004) 41–64.
+[85] C. Cui, M. Matalon, T.L. Jackson, AIAA J. 43 (6)
+(2005) 1284–1292.
+[86] F. Richecoeur, D.C. Kyritsis, Proc. Combust. Inst.
+30 (2005) 2419–2427.
+[87] K. Maruta, T. Kataoka, N. Kim, S. Minaev, R.
+Fursenko, Proc. Combust. Inst. 30 (2005) 2429–
+2436.
+[88] C.J. Evans, D.C. Kyritsis, Proc. Combust. Inst. 32
+(2009) 3107–3114.
+[89] T.L. Jackson, J. Buckmaster, Z. Lu, D.C. Kyritsis,
+L. Massa, Proc. Combust. Inst. 31 (2007) 955–962.
+[90] L. Kagan, G.I. Sivashinsky, Phys. Rev. E 53 (6)
+(1996) 6021–6027.
+[91] B. Lewis, G. von Elbe, Combustion, Flames and
+Explosions of Gases, Academic Press Inc., Orlan-
+do, 1987.
+[92] V.R. Katta, W.M. Roquemore, Combust. Flame
+102 (1992) 21–40.
+[93] L.L. Kirkby, R.A. Schmitz, Combust. Flame 10
+(1966) 205–220.
+[94] M. Matalon, G.S.S. Ludford, J. Buckmaster, Acta
+Astronaut. 6 (1979) 943–959.
+[95] D. Lo Jacono, P. Papas, M. Matalon, P.A.
+Monkewitz, Proc. Combust. Inst. 30 (2005) 501–
+509.
+[96] E.
+Robert,
+P.A.
+Monkewitz.
+Thermo-diﬀusive
+Instabilities
+in
+a
+Low-strain,
+Planar
+Diﬀusion
+Flame, Fifth US Combustion Meeting, San Diego,
+2007.
+[97] E. Robert, P.A. Monkewitz, Proc. Combust. Inst.
+32 (2009) 987–994.
+[98] S. Cheatham, M. Matalon, J. Fluid Mech. 414
+(2000) 105–144.
+[99] S. Kukuck, M. Matalon, Combust. Theory Model.
+5 (2001) 217–240.
+[100] P.
+Metzener,
+M.
+Matalon,
+Combust.
+Theory
+Model. 10 (4) (2006) 701–725.
+[101] A. Lin˜a´n, On the Structure of Laminar Diﬀusion
+Flames, Ph.D. Thesis, Caltech, 1963.
+[102] F.E. Fendell, J. Fluid Mech. 21 (1965) 305–
+331.
+[103] D.R. Kassoy, F.A. Williams, Phys. Fluids 11
+(1968) 1343–1351.
+[104] A. Lin˜a´n, Acta Astronaut. 2 (1974) 1009.
+[105] H.Y. Wang, J.K. Bechtold, C.K. Law, Int. J. Heat
+Mass Transfer 51 (3–4) (2008) 630–639.
+[106] C. Pantano, D.I. Pullin, J. Fluid Mech. 480 (2003)
+311–332.
+[107] J.E. Gardside, B. Jackson, Nature 168 (1951) 1085.
+[108] M.R. Dongworth, A. Melvin, Combust. Sci. Tech-
+nol. 14 (1976) 177–182.
+[109] R. Chen, G.B. Mitchell, P.D. Ronney, Proc.
+Combust. Inst. 24 (1992) 213–221.
+[110] D. Lo Jacono, P. Papas, P.A. Monkewitz, Com-
+bust. Theory Model. 7 (2003) 634–644.
+[111] D. Lo Jacono, P.A. Monkewitz, Combust. Flame
+151 (2007) 321–332.
+[112] S. Ishizuka, H. Tsuji, Proc. Combust. Inst. 18
+(1981) 695–703.
+[113] W. Chan, J.S. Tien, Combust. Sci. Technol. 18
+(1979) 139–143.
+[114] H. Ross, R.G. Sotos, J.S. T’ien, Combust. Sci.
+Technol. 75 (1991) 155–160.
+[115] V. Nayagam, F.A. Williams. Dynamics of Diﬀusion
+Flame Oscillations Prior to Extinction During Low
+Gravity Droplet Combustion. Seventh International
+Conference on Numerical Combustion, York, UK,
+1998.
+[116] M. Fu¨ri, P. Papas, P.A. Monkewitz, Proc. Com-
+bust. Inst. 28 (2000) 831–838.
+[117] B. Golovanevsky, Y. Levy, J.B. Greenberg, M.
+Matalon, Combust. Flame 117 (1999) 373–383.
+[118] H.D. Ross, Prog. Energy Combust. Sci. 20 (1)
+(1994) 17–64.
+[119] D.N. Schiller, H.D. Ross, W.A. Sirignano, Com-
+bust. Sci. Technol. 118 (1996) 203–255.
+[120] J.S. Kim, F.A. Williams, P.D. Ronney, J. Fluid
+Mech. 327 (1996) 273–301.
+[121] J.S. Kim, Combust. Theory Model. 1 (1997) 13–40.
+[122] R. Vance, M. Miklavcic, I.S. Wichman, Combust.
+Theory Model. 5 (2001) 147–162.
+[123] M. Miklavcic, A.B. Moore, I.S. Wichman, Com-
+bust. Theory Model. 9 (2005) 403–416.
+[124] S. Cheatham, On the Structure and Stability of
+Diﬀusion
+Flames,
+Ph.D.
+Thesis,
+Northwestern
+University, Evanston, 1997.
+[125] H.Y. Wang, J.K. Bechtold, C.K. Law, Combust.
+Flame 145 (2006) 376–389.
+[126] Y. Wang, S. Hu, R.W. Pitz, Proc. Combust. Inst.
+32 (2008) in press.
+[127] S. Cheatham, M. Matalon, Proc. Combust. Inst. 26
+(1996) 1063–1070.
+[128] P. Metzener, M. Matalon, The eﬀect of thermal
+expansion on the stability of a planar diﬀusion
+ﬂame, submitted for publication.
+[129] B.J. Lee, S.H. Chung, Combust. Flame 109 (1997)
+163–172.
+[130] S.H. Chung, B.J. Lee, Combust. Flame 86 (1991)
+62–72.
+[131] S.H. Chung, Proc. Combust. Inst. 31 (2007) 877–
+892.
+[132] V.S. Santoro, A. Linan, A. Gomez, Proc. Combust.
+Inst. 28 (2000) 2039–2046.
+[133] P. Papas, A.G. Tomboulides, Combust. Sci. Tech-
+nol. Commun. 1 (2000) 1–17.
+[134] G. Amantini, J.H. Frank, A. Gomez, Proc. Com-
+bust. Inst. 30 (2005) 313–321.
+[135] M.L. Shay, P.D. Ronney, Combust. Flame 112
+(1998) 171–180.
+[136] Y. Ohki, S. Tsuge, Dynamics of reactive systems,
+Prog. Astronaut. Aeronaut., 1986, 105–114 (J.R.
+Bowen, J.C. Leyer, R.I. Soloukhin (Eds.)).
+[137] J.D. Buckmaster, M. Matalon, Proc. Combust.
+Inst. 22 (1988) 1527.
+[138] J.W. Dold, Combust. Flame 76 (1989) 71–88.
+[139] J.W. Dold, L.J. Hartley, D. Green, Dynamics of
+laminar triple-ﬂamelet structures, in: P.C. Fife, A.
+Linan, and F.A. Williams (Eds.), Dynamical Issues
+in Combustion Theory, 83 (1991) 105.
+[140] L.J. Hartley, J.W. Dold, Combust. Sci. Technol. 80
+(1991) 23–46.
+[141] J.D. Buckmaster, J. Eng. Math. 31 (1997) 269.
+[142] J. Buckmaster, Yi Zhang, Combust. Theory Model.
+3 (1999) 547–565.
+[143] J. Buckmaster, Prog. Energy Combust. Sci. 28
+(2002) 435–475.
+[144] V. Kurdyumov, M. Matalon, Proc. Combust. Inst.
+29 (2002) 45–52.
+[145] V. Kurdyumov, M. Matalon, Combust. Flame 139
+(2004) 329–339.
+[146] V. Kurdyumov, M. Matalon, Proc. Combust. Inst.
+31 (2007) 909–917.
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82
+81
+
+
+--- Page 26 ---
+
+[147] V. Kurdyumov, M. Matalon, Proc. Combust. Inst.
+32 (2009) 1107–1115.
+[148] V. Kurdyumov, M. Matalon, Combust. Flame 153
+(2008) 105–118.
+[149] T.G. Vedarajan, J. Buckmaster, Combust. Flame
+114 (1998) 267–273.
+[150] T.G. Vedarajan, J. Buckmaster, P.D. Ronney,
+Proc. Combust. Inst. 27 (1998) 537–544.
+[151] J. Daou, A. Lin˜a´n, Combust. Theory Model. 2
+(1998) 449–477.
+[152] J. Daou, A. Lin˜a´n, Combust. Flame 118 (1999)
+479–488.
+[153] J. Daou, M. Matalon, A. Lin˜a´n, Combust. Flame
+121 (2000) 107–121.
+[154] J.B. Liu, P.D. Ronney, Combust. Sci. Technol. 144
+(1999) 21–45.
+82
+M. Matalon / Proceedings of the Combustion Institute 32 (2009) 57–82

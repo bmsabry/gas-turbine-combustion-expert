@@ -1,0 +1,662 @@
+
+--- Page 1 ---
+
+Effect of vortex generator on combustion performance of micro-mixing 
+diffusion combustor: A multi-objective optimization via orthogonal design
+Yi Jin , Yunbiao Wang *
+, Dongqi Jiang , Tao Zhang , Jianrong Wu
+Key Laboratory of Thermal Management and Energy Utilization of Aircraft, Ministry of Industry and Information Technology, Nanjing, 210016, China
+A R T I C L E  I N F O
+Keywords:
+Hydrogen
+Micro-mixing diffusion combustion
+Vortex generator
+Low emission
+A B S T R A C T
+Micro-mixed diffusion combustion technology represents a viable technical pathway for the engineering appli­
+cation of hydrogen as a clean energy source. While this technology has been applied in gas turbines, it still faces 
+challenges such as poor variable-load adaptability, narrow stable combustion range, and high NO emissions. In 
+this study, a vortex generator (VG) was innovatively introduced as a key control component into the structure of 
+a typical micro-mixed diffusion combustor. Orthogonal design methods and high-precision numerical simulation 
+techniques were comprehensively employed to systematically analyze the influence of VG geometry parameters 
+on the combustion performance of a hydrogen micro-mixed diffusion combustor. Through range analysis, the 
+weight differences of each parameter on core performance indicators were quantitatively revealed. The results 
+show that VG significantly enhances combustion performance through multiple flow field regulation mecha­
+nisms: by increasing the penetration depth of hydrogen jets and inducing local micro-vortices, the mixing effi­
+ciency of hydrogen and air is strengthened; by controlling the redistribution of primary air to reduce the 
+mainstream air velocity, uniform distribution of the temperature field in the combustor is achieved; the tem­
+perature peak and the residence time of nitrogen in high-temperature zones are significantly reduced, thereby 
+inhibiting NO formation. Within the scope of this study, compared with the original model, the optimized scheme 
+achieves a 9.7 % increase in average outlet temperature, a 90 % reduction in the overall temperature distribution 
+factor OTDF, and a 5.9 % reduction in NO mass fraction.
+1. Introduction
+Low-carbon and low-pollution emission technologies represent one 
+of the key development priorities for future aero-engines, aerospace 
+vehicles, 
+and 
+gas 
+turbines 
+[1]. 
+Lightweight, 
+efficient, 
+and 
+high-calorific-value fuels have long been urgently sought in aerospace 
+applications. Due to its low emissions and high calorific value, hydrogen 
+has consistently been regarded as the preferred fuel for near-space 
+propulsion systems [2]. However, hydrogen’s low density poses signif­
+icant challenges for sufficient mixing with the mainstream air in 
+high-velocity air jets. Additionally, the conventional combustor head 
+structures struggle to achieve adequate hydrogen-air mixing, often 
+leading to localized hydrogen concentration hotspots that generate 
+high-temperature regions and substantial nitrogen oxides [3].
+Structurally, replacing traditional swirl mixing channels with 
+arrayed micro-mixing channels represents a viable technical approach. 
+Micro-mixed combustion technologies broadly encompass two cate­
+gories: micro-mixed premixed combustion and micro-mixed diffusion 
+combustion. Compared to premixed combustion, diffusion combustion 
+offers the advantage of effectively preventing flashback during 
+hydrogen combustion, significantly enhancing combustion stability [4]. 
+The micro-mixed diffusion combustion technology pioneered by Aachen 
+University of Applied Sciences in Germany serves as a leading example. 
+With over 30 years of research experience since the 1990s, the sixth 
+generation of micro-mixed diffusion combustors has been developed. 
+Through the design and application of multiple micro air channels 
+combined with fine hydrogen micro-nozzles, this technology has effec­
+tively reduced NOx formation during pure hydrogen combustion [5–8].
+While the developed micro-mixed diffusion combustion scheme has 
+successfully controlled the residence time of nitrogen in high- 
+temperature regions to reduce NO formation However, precise control 
+over the jet penetration depth of hydrogen still remains necessary. 
+Additionally, due to the small size of the air channels, the flame is prone 
+to blowout when the flow conditions increase. In previous studies, to 
+address these challenges, a bluff body is placed at the outlet of the air 
+channel to disturb the mainstream air and achieve rapid mixing of 
+* Corresponding author.
+E-mail address: Yunbiao_W@nuaa.edu.cn (Y. Wang). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2025.152708
+Received 21 June 2025; Received in revised form 8 September 2025; Accepted 19 November 2025  
+International Journal of Hydrogen Energy 198 (2026) 152708 
+Available online 24 November 2025 
+0360-3199/© 2025 Hydrogen Energy Publications LLC. Published by Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and 
+similar technologies. 
+
+
+--- Page 2 ---
+
+hydrogen and air [9], while this study introduces a vortex generator 
+(VG) upstream of the hydrogen fuel injection port. The VG is designed to 
+block the air upstream of the hydrogen jet, protect the hydrogen jet, 
+enhance hydrogen penetration depth, improve hydrogen-air mixing, 
+reduce the direct impact velocity of mainstream air, and expand the 
+flame stability.
+2. Research object
+Fig. 1 shows the geometric model of a micro-mixing diffusion burner 
+with vortex generator (VG), where the VG thickness is 0.25 mm, the 
+length is A, the width is B, and the distance from the center of the H2 
+nozzle is C. The geometric structure of the combustor is designed with 
+reference to Ref. [10], and the detailed dimensions are listed in Table 1, 
+the outlet position is at Z = 47 mm. For all cases in this study the 
+operating pressure is set to1 bar, the hydrogen and air inlet temperatures 
+are set to 300K and 600K respectively and an equivalence ratio of 0.35 is 
+selected.
+3. Numerical details
+3.1. Numerical model
+In the Sydney Bluff-Body Burner [11], where both jet and swirling 
+flows coexist, the standard k-ε turbulence model has been validated to 
+accurately predict the flow field. Based on the comparison results of this 
+model, this paper revises the model parameter Cε1 to 1.6 [12].
+Flamelet Generated Manifold (FGM) with diffusion flamelets is 
+employed for modelling hydrogen combustion and turbulence- 
+chemistry interaction. The FGM model uses the flow pattern in one- 
+dimensional laminar flames to replace multi-dimensional flames. Its 
+basic idea is the same as that of the Steady Laminar Flamelet Method 
+(SLFM), which both map complex multi-dimensional chemical reaction 
+information onto one or more characteristic variables. This approach not 
+only considers detailed chemical reaction mechanisms but also reduces 
+the number of transport equations to be solved, greatly improving 
+computational efficiency. In this paper, the GRI3.0 [13] detailed reac­
+tion mechanism is used to calculate one-dimensional freely propagating 
+laminar premixed flames, and turbulent chemo-thermodynamic tables 
+are obtained by assuming a Beta distribution integral.
+3.2. Verification of computational method
+To investigate the reliability of the numerical model, the experi­
+mental setup and data of the Sydney bluff-body flame HM1e were used 
+for validation [15]. Due to the low density of hydrogen, its diffusion is 
+restricted, which easily leads to the formation of local high-temperature 
+zones. In such combustion scenarios, the thermal mechanism is regarded 
+as the dominant mechanism for NO formation [14]. In the process of 
+mixed combustion of hydrocarbon fuels, the formation of NO is calcu­
+lated with the addition of the prompt mechanism. As shown in Fig. 2, a 
+recirculation zone and a jet diffusion region coexist downstream of a 
+circular bluff-body nozzle with a diameter D = 50 mm. For more details 
+about the experimental setup and data, refer to Refs. [16–18].
+Fig. 3 presents a comparison between the numerical results and 
+experimental data of the radial distribution of mass fractions for O2, 
+H2O, CO, and NO at different axial positions. It can be seen that the 
+predicted values of temperature, mass fractions of the main reactant O2, 
+main product H2O, and intermediate product CO obtained using the 
+above reaction mechanism and numerical model are in good agreement 
+with the experimental results.
+3.3. Mesh independence test
+The computational domain was meshed using unstructured grids 
+with grid refinement applied to the H2 inlet and VG, as shown in Fig. 4. 
+Four grid generation schemes were employed for the mesh indepen­
+dence test. As illustrated in Fig. 5, the temperature along the central axis 
+of the combustor were selected to compare these four schemes. The 
+results show that when the grid size in the primary combustion zone is 
+0.05 mm, the total number of grids is 8 million, meeting the re­
+quirements for computational stability and accuracy.
+Fig. 1. Schematic of geometry.
+Table 1 
+Numerical domain parameter.
+Design parameter
+Value
+H2 offset distance
+1.5 mm
+Mixing distance
+1.5 mm
+H2 inlet diameter
+0.3 mm
+Air gate aspect ratio
+1.5
+Air gate exit area
+1.5 mm2
+Fig. 2. Flame structure of Sydney bluff body flame HM1e [18].
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+2 
+
+
+--- Page 3 ---
+
+Fig. 3. Comparisons of numerical and experimental results for the temperature and mass fractions of O2,H2O, CO, NO, (Y(O2), Y(H2 O), Y(CO)andY(NO)) at different 
+axial positions.
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+3 
+
+
+--- Page 4 ---
+
+3.4. Comparison of reaction mechanisms
+Although the simulation results were compared with the experi­
+mental results in Section 3.1, it should be noted that the fuel used in the 
+Sydney bluff-body flame contains a portion of methane (CH4). In 
+contrast, the fuel studied in this paper is pure hydrogen, which does not 
+involve the prompt NOx reaction mechanism. Therefore, two pure 
+hydrogen reaction mechanisms Polimi and C3 [19,20] were compared 
+with the Gri3.0 reaction mechanism, and the NO reaction mechanism 
+with NNH as an intermediate was also considered [21]. The comparison 
+results of temperature and NO mass fraction are shown in Fig. 6. The 
+calculated temperatures of the three reaction mechanisms are basically 
+consistent, but the NO mass fraction calculated by the C3 reaction 
+mechanism is higher than that by the other two mechanisms, while the 
+calculation results of the Gri3.0 and Polimi reaction mechanisms are 
+similar. Subsequent calculations are carried out using the Gri3.0 reac­
+tion mechanism.
+4. Results and discussion
+4.1. Orthogonal simulation design
+The key factors for evaluating the performance of a hydrogen-fueled 
+combustor include the average outlet temperature, Outlet Temperature 
+Distribution Factor (OTDF), and NO emission levels. To investigate the 
+Fig. 4. Schematic of the computational domain mesh.
+Fig. 5. Comparisons of axial temperature along the central axis of the 
+combustor without VG using four mesh generation schemes.
+Fig. 6. Comparisons of axial temperature and mass fraction of NO along the central axis of the combustor without VG using three reaction mechanisms.
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+4 
+
+
+--- Page 5 ---
+
+influence of VG on combustion performance, an orthogonal simulation 
+method was adopted. Orthogonal design is an efficient approach for 
+studying multiple factors at multiple levels [22]. To explore the impact 
+of VG, three factors were selected: the length of VG (A), the width of VG 
+(B), and the distance from the center of the H2 nozzle (C), with three 
+levels assigned to each factor. A 3-factor 3-level orthogonal table was 
+constructed, as shown in Table 2.
+The orthogonal simulation design for Table 2 was carried out by 
+referring to the 3-factor and 3-level orthogonal array L9(34). Numerical 
+calculations were performed on nine combustors with different VG pa­
+rameters, and the calculation results are shown in Table 3. After adding 
+the VG (vortex generator), average outlet temperature and OTDF have 
+been optimized, with a slight change in NO emission.
+4.2. Range analysis
+The range analysis method was used to analyze the numerical data of 
+9 sets of orthogonal tests. Tables 4–6 present the analysis results of three 
+evaluation indicators: average outlet temperature, OTDF, and average 
+outlet NO mass fraction. In the tables: Kij represents the average value of 
+test results at level j (j = 1,2,3) for indicator i (i = 1,2,3; denoting T, 
+OTDF, and Y(NO), respectively); Ri represents the range value of indi­
+cator i. The range value reflects the sensitivity of each factor to the test 
+indicator—the larger the range value, the greater the influence.
+4.2.1. Average outlet temperature
+Range order: A > C > B, indicating that the VG length has the 
+greatest influence on the average outlet temperature, followed by the VG 
+position, and the VG width has the smallest effect. Higher average outlet 
+temperature signifies higher combustion efficiency. The optimal 
+parameter level is A3B1C1.
+4.2.2. OTDF
+Range order: A > C > B, indicating that OTDF is most sensitive to the 
+VG length, followed by the VG position, with the VG width having the 
+least impact. A smaller OTDF indicates a more uniform temperature 
+field. The optimal parameter level is A3B2C2.
+4.2.3. NO emissions
+Range order: A > B > C, indicating that NO formation is most 
+influenced by the VG position, followed by the VG length, while the VG 
+width has a negligible effect. Lower Y(NO) is preferable. The optimal 
+parameter level for NO emissions is A3B2C1.
+Fig. 7 shows the effect curve of the orthogonal test design for each 
+indicator, reflecting the influence law of structural parameter factors on 
+combustion performance indicators. As shown in Fig. 7 (a), the average 
+outlet temperature increases with the increase of VG length, and de­
+creases with the increase of VG width and the distance from the H2 
+nozzle. As shown in Fig. 7 (b), the OTDF is negatively correlated with the 
+VG length; the OTDF first decreases and then increases with the increase 
+of VG width and the distance from the H2 nozzle. As shown in Fig. 7 (c), 
+NO emissions reduction with the increase of VG length, especially in the 
+stage where A changes from 0.3 mm to 0.6 mm, The outlet NO emissions 
+first decrease and then increase with the increase of VG length, When the 
+VG is close to the H2 nozzle, NO emissions reduction.
+4.3. Combustion performance optimization
+In summary, the optimal parameter combinations for the three in­
+dicators are A3B1C1, A3B2C2, and A2B2C1, respectively. Considering the 
+weight of each indicator, the comprehensive optimal parameter com­
+bination is determined to be A3B2C1. Specifically, when the VG length is 
+set to the maximum value of 0.9 mm, the width is 0.4 mm, and the 
+distance from the H2 nozzle is minimized to 0.25 mm, the combustion 
+performance reaches its optimum. As shown in Table 7, the results 
+before and after optimization indicate that the outlet combustion tem­
+perature is increased by 9.7 %, the OTDF is reduced by 90 %, and the NO 
+emissions are decreased by 5.9 %.
+The flow field structures before and after optimization are shown in 
+Fig. 8. The flow field of Case 0 reveals that a small recirculation zone 
+forms behind the guide vane and above the hydrogen injection port, 
+while separation of the hydrogen-air mixture at the edge of the rear step 
+leads to the formation of a large recirculation zone within the 
+combustor. For the mixing performance of the jet-in-crossflow flame 
+(JICF), its dominant vortex structure and key phenomenon are the 
+Table 2 
+Influencing factors and their levels.
+Level
+Factor
+A/(mm)
+B/(mm)
+C/(mm)
+1
+0.3
+0.3
+0.25
+2
+0.6
+0.4
+0.75
+3
+0.9
+0.5
+1.25
+Table 3 
+Orthogonal simulation results.
+Case
+VG parameter combinations
+Evaluation indicators
+T/(K)
+OTDF
+Y(NO)
+0
+​
+1385.35
+0.77
+1.19E-03
+1
+A1B1C1
+1497.07
+0.49
+1.23E-03
+2
+A1B2C2
+1447.01
+0.43
+1.23E-03
+3
+A1B3C3
+1395.87
+0.55
+1.24E-03
+4
+A2B1C2
+1507.38
+0.15
+1.15E-03
+5
+A2B2C3
+1487.42
+0.23
+1.17E-03
+6
+A2B3C1
+1479.59
+0.36
+1.19E-03
+7
+A3B1C3
+1462.69
+0.35
+1.18E-03
+8
+A3B2C1
+1520.35
+0.07
+1.12E-03
+9
+A3B3C2
+1511.11
+0.15
+1.16E-03
+Table 4 
+Range analysis of average outlet temperature.
+Analysis parameters
+A
+B
+C
+K11
+1446.65
+1489.05
+1499.00
+K12
+1491.46
+1484.93
+1488.50
+K13
+1498.05
+1462.19
+1448.66
+R1
+51.40
+26.86
+50.34
+Optimal level
+A3
+B1
+C1
+Range order
+A > C > B
+Table 5 
+Range analysis of OTDF.
+Analysis parameters
+A
+B
+C
+K21
+0.49
+0.33
+0.31
+K22
+0.25
+0.24
+0.25
+K23
+0.19
+0.35
+0.37
+R2
+0.30
+0.11
+0.13
+Optimal level
+A3
+B2
+C2
+Range order
+A > C > B
+Table 6 
+Range analysis of outlet NO mass fraction.
+Analysis parameters
+A
+B
+C
+K31
+1.23E-03
+1.19E-03
+1.179E-03
+K32
+1.17E-03
+1.17E-03
+1.18E-03
+K33
+1.15E-03
+1.20E-03
+1.20E-03
+R3
+8.2E-05
+2.7E-05
+1.8E-05
+Optimal level
+A3
+B2
+C1
+Range order
+A > B > C
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+5 
+
+
+--- Page 6 ---
+
+counter-rotating vortexes (CRV) located in the far field of the JICF. After 
+introducing the VG, the mainstream air is forced to separate prematurely 
+at a larger angle, resulting in a more uniform spatial distribution of air. 
+Meanwhile, the VG guides hydrogen to increase its penetration depth 
+and forms a miniature low-pressure recirculation zone behind it, 
+dominating and enhancing the mixing process. Additionally, an 
+entrainment vortex forms at the tip of the air-hydrogen mixed jet, 
+increasing the jet turning angle and squeezing the large recirculation 
+zone downstream of the rear step to move upstream.
+The mixture fraction distribution on the central cross-section is 
+shown in Fig. 9. In Case 0, the mixing process of fuel and air is relatively 
+slow influenced by the CRV. Due to the insufficient penetration depth of 
+hydrogen, part of the fuel is entrained into the large recirculation zone. 
+In Case 8, however, the VG enhances the hydrogen penetration depth, 
+and under the combined action of the miniature recirculation zone 
+downstream of the VG and the entrainment vortex at the jet tip, the 
+mixing process is significantly intensified. Hydrogen is confined to flow 
+within the shear layer, avoiding the large recirculation zone.
+This difference in mixing characteristics leads to the following: In 
+Fig. 7. Effect curve of orthogonal simulation design.
+Table 7 
+Comparison of results before and after optimization.
+Comparison item
+T/(K)
+OTDF
+Y(NO)
+Before optimization
+1385.35
+0.77
+1.19E-03
+After optimization
+1520.35
+0.07
+1.12E-03
+Degree of optimization
++9.7 %
+−90.0 %
+−5.9 %
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+6 
+
+
+--- Page 7 ---
+
+Case 0, combustion reactions occur in both the shear layer and the large 
+recirculation zone, forming high-temperature regions, and large radial 
+temperature gradients are generated due to the uneven spatial distri­
+bution of air. In Case 8, high-temperature regions are only formed in the 
+entrainment vortex at the jet tip and the shear layer. As the flow pro­
+ceeds, these high-temperature regions rapidly mix with the surrounding 
+air, causing the temperature peak to gradually decrease along the flow 
+direction, resulting in a more uniform temperature distribution, as 
+shown in Fig. 10. Additionally, the introduction of the VG improves 
+combustion performance while reducing the temperature of the 
+combustor head wall, alleviating the cooling burden on the wall.
+In Case 0, due to the excessively high temperature environment in 
+Fig. 8. Comparison of flow filed before and after optimization.
+Fig. 9. Comparison of mixture fraction before and after optimization.
+Fig. 10. Comparison of temperature before and after optimization.
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+7 
+
+
+--- Page 8 ---
+
+the large recirculation zone formed inside the combustor and the 
+significantly prolonged residence time of the fluid in this zone, favorable 
+conditions are created for the formation of NO. Specifically, high tem­
+peratures promote the reaction between nitrogen and oxygen in the air, 
+while the longer residence time further intensifies this reaction process. 
+Therefore, as shown in Fig. 11, not only is a relatively high concentra­
+tion distribution of NO detected inside the large recirculation zone, but 
+the surrounding shear layer region also exhibits significant NO enrich­
+ment due to the influence of the recirculation zone.
+In contrast, the flow field characteristics of Case 8 have undergone 
+significant changes: only a small-scale distribution of low-concentration 
+NO appears within the local entrainment vortex formed at the tip of the 
+hydrogen jet. This is because the entrainment vortex is smaller in size 
+and has a relatively low internal temperature level, which greatly in­
+hibits the formation reaction of NO. Meanwhile, in the subsequent 
+downstream process, as fresh air is continuously entrained and suffi­
+ciently mixed, the originally low-concentration NO is further diluted, 
+and its mass fraction thus shows a significant downward trend.
+5. Conclusions
+This study systematically investigated the influence of VG structural 
+parameters (length, width, and distance from the H2 nozzle) on the 
+combustion performance of a hydrogen micro-mixed diffusion 
+combustor using orthogonal design and numerical simulation methods. 
+Within the scope of this study, the range analysis results showed that the 
+VG length was the most critical factor affecting the average outlet 
+temperature, OTDF and NO emissions.
+Through multi-index comprehensive optimization, the optimal 
+parameter combination was determined as a VG length of 0.9 mm, width 
+of 0.4 mm, and distance from the nozzle of 0.25 mm. This scheme 
+increased the combustion temperature by 9.7 %, reduced the OTDF by 
+90.0 %, and significantly decreased NO emissions by 5.9 %. The opti­
+mized parameters improved combustion efficiency, temperature uni­
+formity, and pollutant control performance.
+Flow field analysis revealed that VG enhanced mixing capabilities by 
+increasing hydrogen penetration depth, inducing miniature recircula­
+tion zones, and generating entrainment vortices at the jet tip. This 
+effectively reduced the temperature peak, homogenized the temperature 
+field distribution, and shortened the residence time of NO precursor 
+species in high-temperature regions. These mechanisms provide insights 
+for the design of low-pollution and high-efficiency hydrogen burners.
+CRediT authorship contribution statement
+Yi Jin: Writing – review & editing, Supervision, Methodology, 
+Funding acquisition. Yunbiao Wang: Writing – original draft, Investi­
+gation, Formal analysis. Dongqi Jiang: Investigation. Tao Zhang: 
+Validation. Jianrong Wu: Software.
+Declaration of competing interest
+The authors declare the following financial interests/personal re­
+lationships which may be considered as potential competing interests: 
+Yunbiao Wang reports financial support was provided by Key Labora­
+tory of Thermal Management and Energy Utilization of Aircraft, Min­
+istry of Industry and Information Technology. If there are other authors, 
+they declare that they have no known competing financial interests or 
+personal relationships that could have appeared to influence the work 
+reported in this paper.
+Acknowledgements
+Supported by Key Laboratory of Thermal Management and Energy 
+Utilization of Aircraft, Ministry of Industry and Information Technology 
+(No. CEPE2024006).
+References
+[1] Lee C, Chang C, Kramer S, Herbon JT. Aiaa 2013-0540. 2020.
+[2] Ghali PF, Lei H, Khandelwal B. A review of modern hydrogen combustor injection 
+technologies for the aerospace sector. Springer Singapore; 2021. https://doi.org/ 
+10.1007/978-981-15-5667-8_21.
+[3] Stouffer SD, Ballal DR, Zelina J, Shouse DT, Hancock RD, Mongia HC. Development 
+and combustion performance of a high-pressure WSR and TAPS combustor. 43rd 
+AIAA Aerosp Sci Meet Exhib Meet Pap 2005:5529–37. https://doi.org/10.2514/ 
+6.2005-1416.
+[4] Y Z, Han X, et al. Research progress and future prospect of hydrogen micromix 
+combustion technology. Acta Aeronautica Astronautica Sinica 2024;45(7):028994. 
+https://doi.org/10.7527/S1000-6893.2023.28994 (in Chinese).
+[5] Funke HHW, Beckmann N, Abanteriba S. An overview on dry low NO x micromix 
+combustor development for hydrogen-rich gas turbine applications. Int J Hydrogen 
+Energy 2019;44:6978–90. https://doi.org/10.1016/j.ijhydene.2019.01.161.
+[6] Funke H, Tekin N, Ashikaga M, Horikawa A. Enhancement of fuel flexibility of 
+industrial gas turbines by development of innovative hydrogen combustion systems 
+development of an innovative combustion system view project dry Low NOx 
+Micromix Combustion with H2/CH4 Fuels view project nurettin tekin 
+enhancement of fuel flexibility of industrial gas turbines. Development of 
+innovative hydrogen combustion systems. 2019. https://www.researchgate.net/pu 
+blication/332290711.
+[7] Haj Ayed A, Kusterer K, Funke HHW, Keinz J, Striegan C, Bohn D. Experimental 
+and numerical investigations of the dry-low-NOx hydrogen micromix combustion 
+chamber of an industrial gas turbine. Propuls Power Res 2015;4:123–31. https:// 
+doi.org/10.1016/j.jppr.2015.07.005.
+[8] Funke HHW, Boerner S, Keinz J, Kusterer K, Kroniger D, Kitajima J, Kazari M, 
+Horikawa A. Numerical and experimental characterization of low NOX micromix 
+combustion principle for industrial hydrogen gas turbine applications. Proc ASME 
+Turbo Expo 2012;2:1069–79. https://doi.org/10.1115/GT2012-69421.
+Fig. 11. Comparison of NO mass fraction before and after optimization.
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+8 
+
+
+--- Page 9 ---
+
+[9] Mo D, Lin Y, Ma H, Han X, Liu Y. Investigation on hydrogen micromix diffusive 
+combustion organization based on bluff body disturbance, Acta Aeronaut. 
+Astronaut Sin 2024;45:128928. https://doi.org/10.7527/S1000- 
+6893.2023.28928.
+[10] Sun X, Agarwal P, Carbonara F, Abbott D, Gauthier P, Sethi B. Numerical 
+investigation into the impact of injector geometrical design parameters on 
+hydrogen micromix combustion characteristics. Proc ASME Turbo Expo 2020;3: 
+1–11. https://doi.org/10.1115/GT2020-16084.
+[11] Schefer RW, Hartmann V, Dibble RW. Conditional sampling of velocity in a 
+turbulent nonpremixed propane jet. AIAA J 1987;25:1318–30. https://doi.org/ 
+10.2514/3.9786.
+[12] Dally BB, Fletcher DF, Masri AR. Flow and mixing fields of turbulent bluff-body jets 
+and flames. Combust Theory Model 1998;2:193–219. https://doi.org/10.1088/ 
+1364-7830/2/2/006.
+[13] Smith GP, Golden DM, Frenklach M, Moriarty NW, Eiteneer B, Goldenberg M, et al. 
+GRI 3.0 mechanism. Gas Res Inst; 1999 [Me Berkeley Edu/Gri_mech].
+[14] Skottene M, Rian KE. A study of NOx formation in hydrogen flames. Int J Hydrogen 
+Energy 2007;32:3572–85. https://doi.org/10.1016/j.ijhydene.2007.02.038.
+[15] Dally BB, Masri AR, Barlow RS, Fiechtner GJ. Instantaneous and mean 
+compositional structure of bluff-body stabilized nonpremixed flames. Combust 
+Flame 1998;114:119–48. https://doi.org/10.1016/S0010-2180(97)00280-0.
+[16] Dally BB, Masri AR, Barlow RS, Fiechtner GJ, Fletcher DF. Measurements of no in 
+turbulent non-premixed flames stabilized on a bluff body. Symp Combust 1996;26: 
+2191–7. https://doi.org/10.1016/S0082-0784(96)80045-2.
+[17] Li X, Guo H, Yu H, Zheng P. Study on combustion and emission performance of 
+hydrogen fuel gas turbine combustor, vol. 56. Hsi-An Chiao Tung Ta Hsueh/ 
+Journal Xi’an Jiaotong Univ.; 2022. p. 9–16. https://doi.org/10.7652/ 
+xjtuxb202206002.
+[18] Kempf A, Lindstedt RP, Janicka J. Large-eddy simulation of a bluff-body stabilized 
+nonpremixed flame. Combust Flame 2006;144:170–89. https://doi.org/10.1016/j. 
+combustflame.2005.07.006.
+[19] Stagni A, Cavallotti C, Arunthanayothin S, Song Y, Herbinet O, Battin-Leclerc F, 
+Faravelli T. An experimental, theoretical and kinetic-modeling study of the gas- 
+phase oxidation of ammonia. React Chem Eng 2020;5:696–711. https://doi.org/ 
+10.1039/c9re00429g.
+[20] Zhang Y, Mathieu O, Petersen EL, Bourque G, Curran HJ. Assessing the predictions 
+of a NOx kinetic mechanism on recent hydrogen and syngas experimental data. 
+Combust Flame 2017;182:122–41. https://doi.org/10.1016/j. 
+combustflame.2017.03.019.
+[21] Hayhurst AN, Hutchinson EM. Evidence for a new way of producing NO via NNH in 
+fuel- rich flames at atmospheric pressure. Combust Flame 1998;114:274–9. 
+https://doi.org/10.1016/S0010-2180(97)00328-3.
+[22] Qingsong Bai, Yang Wu, Li Hou. Atomization characteristics analysis and struture 
+optimization of an aviation fuel nozzle, J, vol. 57. Shanghai Jiaotong University; 
+2023. p. 84–92. https://xuebao.sjtu.edu.cn.
+Y. Jin et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152708 
+9 

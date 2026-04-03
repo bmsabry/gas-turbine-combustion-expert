@@ -1,0 +1,1750 @@
+
+--- Page 1 ---
+
+Hongwei Chen
+The Department of Mechanics and
+Aerospace Engineering,
+Southern University of Science and Technology,
+Shenzhen, Guangdong 518055, China
+Liming Yin
+The Department of Mechanics and
+Aerospace Engineering,
+Southern University of Science and Technology,
+Shenzhen, Guangdong 518055, China
+Xiaopei Liu
+Shanghai Electric Gas Turbine Co., Ltd.,
+Shanghai 200240, China
+Mingmin Chen
+College of Power and Energy Engineering,
+Harbin Engineering University,
+Harbin, Heilongjiang 150001, China
+Dong Yang1
+The Department of Mechanics and
+Aerospace Engineering,
+Southern University of Science and Technology,
+Shenzhen, Guangdong 518055, China
+e-mail: yangd3@sustech.edu.cn
+On the Optimum Distribution of
+Multiple Helmholtz Resonators
+for Annular Combustors
+The combustors of many modern land-based gas turbines and aero-engines are annular.
+This kind of combustors often suffer from thermoacoustic oscillations, with the occurrence of
+mostly the circumferential ﬁrst-order, second-order, and third-order oscillation modes in
+the annular combustion chamber. This could cause severe pressure oscillations in the
+combustor, which may increase noise and NOx emissions, affect the safe operation of the
+engine and even cause irreversible damages to the structure. To solve this problem, passive
+control methods are widely used—adding passive acoustic dampers such as Helmholtz
+resonators (HRs). Depending on the type and number of HRs, and the possible positions over
+the circumference to install them, there could easily have millions, or even billions, of
+possible arrangement patterns. Finding a good design is the key to solve this problem. In this
+paper, we perform a theoretical and numerical study of an annular combustor installed with
+multiple types of HRs over the circumference. First, a simple annular duct with arbitrary
+distributions of these HRs is studied analytically by solving the nonlinear eigenvalue
+problem of a one-dimensional network model. Based on the results of the analytical method,
+the impact of the HRs on the acoustic modes of the combustion chamber is studied and the
+optimum arrangement of multiple resonators is obtained. This arrangement usually gives a
+null (or small) mode splitting strength and a good damping effect. Finally, we apply the
+optimum arrangement to damp the thermoacoustic modes that have been captured by
+numerical simulation for a real annular combustor. We use numerical simulations based on
+solving the three-dimensional Helmholtz equation in COMSOL to verify the feasibility of the
+optimum arrangement. [DOI: 10.1115/1.4066354]
+Keywords: Helmholtz resonator, optimum distribution, thermoacoustic instability, annular
+combustor
+1
+Introduction
+In order to achieve low NOx emission, modern aero-engines and
+land-based gas turbines often use the concept of lean premixed
+combustion. This signiﬁcantly increases the risk of thermoacoustic
+instabilities in the combustion system. Many of these combustors
+are annular in shape, with the circumference being much longer than
+or of the same order of magnitude as the longitudinal length. As
+thermoacoustic instabilities usually happen in the low-frequency
+region, this results in thermoacoustics modes in annular combustors
+to be usually associated with the ﬁrst 1–3 azimuthal acoustic modes
+[1–4].
+Acoustic damping devices, such as Helmholtz resonators (HRs),
+quarter-wave tubes, etc., are widely used to damp thermoacoustic
+oscillations. They suppress thermoacoustic oscillations by increas-
+ing the acoustic energy dissipation of the combustion process and
+breaking the phase angle between pressure and heat release [5].
+Many studies have been performed to improve the acoustic
+absorption performance of the HR itself, or to better model its
+inﬂuence on the acoustics inside the combustor. For example, the
+neck length, diameter, and the cavity volume have been considered
+to increase the sound absorption bandwidth [6–8]. New types of
+resonators, such as the one with a cavity accommodating multiple
+secondary necks connecting each other has also been studied [9].
+When the resonator is installed in the combustion chamber whose
+temperature is high, the effect of introducing cooling air into the HR
+has been studied. A new model of the acoustic-entropy wave
+relationship inside the combustor was developed [10] to consider the
+inﬂuence of the temperature difference. Betz et al. [11] used
+different methods to calculate the damping rate and compared it with
+the experimental results. Based on a realistic annular combustor, the
+damping effect was calculated and the effect of HRs on the
+thermoacoustic modes was experimentally studied [12]. Zahn et al.
+[13] solved the linearized Euler equations to predict the stability of
+the combustion chamber after the addition of HR. Mensah and
+Moeck [14] proposed a Helmholtz solver combined with the adjoint
+method, and used it to study the effect of installing multiple
+resonators on the stability of the combustion chamber. By
+combining an adjoint-based sensitivity analysis and a gradient-
+based optimization method, Yang et al. [15] utilized a two-
+dimensional low-order network mode to optimize multiple HRs
+targeting multiple thermoacoustic modes.
+Turbo Expo, June 24–28, 2024. GT2024.
+1Corresponding author.
+Manuscript received July 12, 2024; ﬁnal manuscript received July 25, 2024;
+published online September 26, 2024. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-1
+Copyright V
+C 2025 by ASME; reuse license CC-BY 4.0
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 2 ---
+
+When the HRs are attached to the combustion chamber, they
+could be placed at the inlet, middle, and outlet of the combustion
+chamber. Experiments have shown that the best damping effect
+could usually be obtained when they are placed at the inlet of the
+combustion chamber [9,11]. As the ﬁrst several azimuthal modes
+are the most important target modes, when the longitudinal
+location is ﬁxed, the number and distribution patterns of the HRs
+arranged over the circumference can make a signiﬁcant difference
+and have also been widely studied. When more HRs are used, the
+damping performance is usually better. It has also been known that
+the detailed distribution pattern could signiﬁcantly change their
+damping performance—when the dampers are arranged in differ-
+ent patterns, i.e., symmetrically or asymmetrically, in the
+circumferential direction, the damping performance could be
+rather different [9,16–20]. However, at least two difﬁculties arise
+when one wants to systematically study this: (i) when tens of HRs
+with several types are arranged over the circumference, millions to
+billions of possible different patterns could be easily resulted in,
+exhausting these possibilities to obtain the optimum distribution is
+difﬁcult; (ii) in many cases, especially for the optimum distribution
+case, modes may merge or nearly merge, making accurately
+resolving the nonlinear eigenvalue problem especially
+challenging.
+Regarding the effect of the distribution of different burners on the
+splitting and stability of the azimuthal thermoacoustic modes,
+Bauerheim et al. [21] have developed an analytical model based on a
+Taylor expansion of the nonlinear eigenvalue problem around the
+acoustic modes of the combustion chamber. In this model, the effect
+of mixing different burners on the splitting and stability of the
+azimuthal thermoacoustic modes can be explicitly obtained. This
+provides a very potential capability to study the effect of multiple
+dampers and possibly to ﬁnd their optimum distributions over the
+circumference.
+Based on previous studies, the important inﬂuence of damper
+arrangements on azimuthal thermoacoustic oscillations has been
+recognized and it can be seen that a systematic study on the dampers’
+optimum distribution over the circumference could be very
+valuable. This paper focuses on this topic. We extend the theoretical
+model from Ref. [21] to systematically study the optimum
+circumferential arrangement of HRs given their speciﬁc types and
+number. The three-dimensional (3D) FEM Helmholtz solver from
+COMSOL is used to simulate the annular combustion system of a
+realistic gas turbine from Shanghai Electric (Shanghai, China) to
+verify the effect of the optimum arrangements.
+2
+Theoretical Models
+Following a similar line as the annular network reduction model
+from Ref. [21], an annular combustion chamber is uniformly
+divided over its circumference into N parts, each with a central
+angle 2p=N and an arc length of 2pR=N. An HR with impedance Zi
+(i ¼ 1, 2,…, N) is attached to each segment, as shown in Fig. 1(a).
+The theoretical model to determine the eigenvalues of this problem
+was derived in Ref. [23]. To aid the readers, we brieﬂy introduce
+the main steps.
+2.1
+Network Model. Assuming that the axial length of the
+combustor is much shorter than its circumference, so for the low
+frequency thermoacoustic mode, only acoustic wave propagation on
+the circumferential direction needs to be considered. The circum-
+ferential length between each two HRs is Xc ¼ Rh ¼ 2Lc=N, as
+shown in Fig. 1. By using jump conditions at the ith HR (between the
+perturbations at i þ 1=2 and i þ 1), a transfer matrix can be
+expressed as
+p0
+q0c0u0
+
+
+iþ1
+¼
+1
+0
+2jCi
+1
+
+
+p0
+q0c0u0
+
+
+iþ1=2
+(1)
+where j is the imaginary unit, Ci is
+Ci ¼  j
+2
+Si
+ScZi
+(2)
+Zi is the impedance, Si is the neck cross-sectional area of the ith HR,
+and Sc is the longitudinal cross-sectional area of the annular
+combustion chamber. Between the i and the i þ 1 HR, the
+propagation of azimuthal waves can be expressed by a transfer
+matrix
+qþ
+q
+
+
+iþ1
+¼
+W
+0
+0
+1
+W
+2
+4
+3
+5 qþ
+q
+
+
+i
+(3)
+where q6 ¼ p06q0c0u0, W ¼ e2jkLc=N, and the wavenumber
+k ¼ x=c0.
+Considering the periodic boundary condition over the circum-
+ference annular network reduction methodology furnishes an
+implicit analytical dispersion relation for the angular frequency x
+det
+Y
+N
+i¼1
+Mi  Id
+ 
+!
+¼ 0
+(4)
+where Id is the 2  2 identity matrix.
+For annular chambers without HRs, the eigenfrequencies are
+real:f ¼ rc0=2Lc, r ¼ 1, 2, 3   . When HRs are installed on the
+annular chamber, they can be seen as a minor perturbation to the
+combustion chamber’s acoustic modes, given that jCij  1. Using
+Taylor expansion of the entire system around f ¼ rc0=2=Lc up to the
+second-order, yielding
+det
+Y
+N
+i¼1
+Mi  Id
+ 
+!
+  W2N  2WN þ 1
+WN
+ jR W2N  1
+ð
+Þ
+WN
+þ
+X
+N1
+i¼1
+X
+N
+h¼iþ1
+CiCh W2N  WN2 hi
+ð
+Þ  W2 hi
+ð
+Þ þ 1
+
+
+¼ 0 (5)
+where R ¼ PN
+i¼1Ci.
+Given the low-coupling assumption, use an appropriate asymp-
+totic expansion of W6 ¼ e2j rpþ6
+ð
+Þ=N  e2jrp 1 þ 2j6=N
+
+
+and
+consider Taylor expansion of the terms W 6
+ð
+Þ and Ci 6
+ð
+Þ in the
+dispersion relation at the second-order gives
+Fig. 1
+Schematic diagram of an HR-annular chamber system in
+(a) full 3D view, (b) a simpliﬁed one-dimensional network model,
+and (c) one module of the network model. Similar to diagrams
+from Refs. [21] and [22].
+021004-2 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 3 ---
+
+A  4B6 þ 4C62 ¼ 0
+(6)
+where
+A ¼ 4
+X
+N1
+i¼1
+X
+N
+e¼iþ1
+C0
+i C0
+e sin 2rp
+N
+e  i
+ð
+Þ
+
+	
+
+2
+B ¼ 
+X
+N1
+i¼1
+C0
+i
+C ¼ 1
+(7)
+thus 6 ¼ 1=2
+ð
+Þ R06u0
+ð
+Þ, where R0 ¼PN
+i¼1C0
+i and u0 ¼
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+R2
+0A
+q
+,
+and the 0 in C0
+i represents the selected circumferential order
+designator. u0 is called splitting strength and can be expressed as
+u2
+0 ¼
+X
+N
+i¼1
+C0
+i cos 4rpi=N
+ð
+Þ
+"
+#2
+þ
+X
+N
+i¼1
+C0
+i sin 4rpi=N
+ð
+Þ
+"
+#2
+¼
+X
+N
+i¼1
+C0
+i ej4rpi=N 
+X
+N
+i¼1
+C0
+i ej4rpi=N
+(8)
+Then the eigenvalues of the system are (from the deﬁnition of
+kLc ¼ rp þ 6)
+f 6 ¼ rc
+2Lc
+þ
+c
+2pLc
+6
+(9)
+The growth rate of the modes are
+Im f 6
+
+
+¼ 
+c
+4pLc
+Im R06u0
+ð
+Þ
+(10)
+2.2
+The Effect of the Helmholtz Resonators’ Distribution on
+Mode Splitting and Damping Properties. Based on this theory,
+Yin and Yang [23] have studied the inﬂuence of the number of the
+same HRs which are (evenly distributed along the circumference) on
+the splitting of the ﬁrst three circumferential modes. It was found
+that when the number of HRs is less than 7, the ﬁrst three
+circumferential modes could be either degenerate or nondegenerate;
+when the number is greater than or equal to 7, the ﬁrst three
+circumferential modes will all be degenerated. Following the same
+line, the annular chamber is uniformly divided into N parts.
+However, we can either install or not install an HR for each part. For
+the position with HR placement, it is solved according to Eq. (2), and
+for the positionwithout HR placement, it isconsidered to be the solid
+wall (i.e., Z ¼ 1, that is, C ¼ 0). Therefore, the study will not be
+limited to the case of uniform HRs arrangement, and the previous
+study will be extended to the case of arbitrary HRs arrangement.
+2.2.1
+The Splitting Strength With the Same Type of Helmholtz
+Resonators. If only one type of HRs are considered (C0
+i ¼ C1).
+Equation (8) can be written as
+u2
+0 ¼
+X
+N
+i¼1
+C1ej4ppi=N
+"
+#
+
+X
+N
+i¼1
+C1ej4rpi=N
+"
+#
+¼ C1 a1 þ b1j
+ð
+Þ  C1 a1  b1j
+ð
+Þ
+¼ C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+(11)
+We already know that the two solutions are
+f þ ¼ rc
+2Lc
+þ
+c
+2pLc
+ 1
+2 R0 þ 1
+2 u0
+
+	
+f  ¼ rc
+2Lc
+þ
+c
+2pLc
+ 1
+2 R0  1
+2 u0
+
+	
+(12)
+By combining Eqs. (2), (11), and (12), the follow relation can be
+obtained:
+lk ¼ Re f þ
+ð
+Þ  Re f 
+ð
+Þ
+Im f þ
+ð
+Þ  Im f 
+ð
+Þ
+¼ Re  1
+2 R0 þ 1
+2 u0
+
+
+ Re  1
+2 R0  1
+2 u0
+
+
+Im  1
+2 R0 þ 1
+2 u0
+
+
+ Im  1
+2 R0  1
+2 u0
+
+
+¼ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+¼ Re C1
+ð
+Þ
+Im C1
+ð
+Þ ¼
+Re  j
+2
+Si
+ScZ
+
+
+Im  j
+2
+Si
+ScZ
+
+ ¼ Im Z
+ð Þ
+Re Z
+ð Þ
+(13)
+Equation (13) has an important indication: no matter what the
+number and the arrangement of the HRs are, the line linking the two
+split eigenvalues on the complex plane always have a ﬁxed slope
+which is determined only by the impedance of the HR Z.
+Furthermore, the corresponding intercept lb ¼ y  lkx, if we denote
+y ¼ Re f þ
+ð
+Þ and x ¼ Im f þ
+ð
+Þ, and thus
+lb ¼ Re
+rc
+2Lc
+þ
+c
+2pLc
+ 1
+2 R0 þ 1
+2 u0
+
+	
+
+	
+ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+ Im
+rc
+2Lc
+þ
+c
+2pLc
+ 1
+2 R0 þ 1
+2 u0
+
+	
+
+	
+¼ Re
+rc
+2Lc
+
+	
+þ
+c
+2pLc
+ Re  1
+2 R0 þ 1
+2 u0
+
+	
+ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+
+c
+2pLc
+ Im  1
+2 R0 þ 1
+2 u0
+
+	
+(14)
+According to Eq. (11)
+u0 ¼
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+X
+N
+i¼1
+C1ej4rpi=N 
+X
+N
+i¼1
+C1ej4rpi=N
+v
+u
+u
+t
+¼ C1 
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+a2
+1 þ b2
+1
+
+
+q
+(15)
+Using this relationship and R0 ¼ N  C1, and Eq. (14) can be
+rewritten as
+lb ¼Re
+rc
+2Lc
+
+	
+þ
+c
+2pLc
+Re 1
+2NC1þ1
+2
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+a2
+1þb2
+1
+
+
+q
+C1
+
+	
+Re NC1
+ð
+Þ
+Im NC1
+ð
+Þ
+c
+2pLc
+Im 1
+2NC1þ1
+2
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+a2
+1þb2
+1
+
+
+q
+C1
+
+	
+¼Re
+rc
+2Lc
+
+	
+¼f0
+(16)
+We can now arrive at an important (and perhaps rather surprising)
+conclusion: when the same type of HRs are installed over the
+circumference, no matter how many HRs are used and no matter how
+they are distributed, the resulting eigenvalue solutions will always
+be on the same straight line
+y ¼ Im Z
+ð Þ
+Re Z
+ð Þ x þ f0
+(17)
+the slope is the division of the real part and the imaginary part of the
+impedance (acoustic impedance and acoustic resistance), and the
+intercept is the frequency of the acoustic mode without any
+resonator. fc ¼ rc=2Lc þ c=2pLc  1=2
+ð
+ÞR0
+ð
+Þ is the eigen value
+when the splitting strength is zero and we deﬁne it as the center point.
+Then the two solutions fþ and f– when the splitting strength is not
+zero will appear in pairs along the line y ¼ Im Z
+ð Þ=Re Z
+ð Þ
+
+
+x þ f0
+with fc as the center. A plot of this line and the corresponding
+eigenvalue solutions can be found in Sec. 3.1.3.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 4 ---
+
+2.2.2
+Considering Different Types of Helmholtz Resonators.
+When more than one type ofHRs are used, the result will change. We
+take the case with three types of HRs as an example to show how this
+could be analyzed. The three types of HRs are adjusted to have a
+resonant frequency close to the ﬁrst-, second-, and third-order
+azimuthal modes, respectively. In this case, the splitting strength is
+u2
+0 ¼
+X
+N1
+q¼1
+C1e
+j4rpql
+N þ
+X
+N2
+d¼1
+C2e
+j4rpdl
+N þ
+X
+N3
+t¼1
+C3e
+j4rptl
+N
+0
+@
+1
+A
+
+X
+N1
+i¼1
+C1e
+j4rpql
+N þ
+X
+N2
+m¼1
+C2e
+j4rpdl
+N þ
+X
+N3
+n¼1
+C3e
+j4rptl
+N
+ 
+!
+¼ C1 a1 þ b1j
+ð
+Þ þ C2 a2 þ b2j
+ð
+Þ þ C3 a3 þ b3j
+ð
+Þ
+
+
+ C1 a1  b1j
+ð
+Þ þ C2 a2  b2j
+ð
+Þ þ C3 a3  b3j
+ð
+Þ
+
+
+¼ C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+þ C2
+ð
+Þ2 a2
+2 þ b2
+2
+
+
+þ C3
+ð
+Þ2 a2
+3 þ b2
+3
+
+
+þ 2C1C2 a1a2 þ b1b2
+ð
+Þ þ 2C1C3 a1a3 þ b1b3
+ð
+Þ
+þ 2C2C3 a2a3 þ b2b3
+ð
+Þ
+(18)
+where N ¼ N1 þ N2 þ N3 and ql, dl, tl could be any integer between
+1 and 24 (ql 6¼ dl 6¼ tl).
+The effect of only one type of HRs, C1, cannot fully represent the
+overall effect. The other two types of HRs, C2 and C3, will inevitably
+affect the u0 value. However, if we’re-interested in the inﬂuence of
+the HRs on the ﬁrst azimuthal mode (our Taylor expansion is done
+around this mode), the impedance of the ﬁrst type of HRs will be
+much smaller than those of the second and third types, resulting
+jC2j  jC1j and jC3j  jC1j. Equation (18) can thus be approx-
+imately written as
+u2
+0  C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+(19)
+In this case, the inﬂuence of all the HRs is dominated by the
+arrangement of the ﬁrst type of HRs, so the problem is the same as
+the case considering only one type of HRs f þ and f – are still
+distributed in pairs in straight lines.
+If jC3j  jC1j, but jC2j is of the same order of magnitude as
+jC1j—this happens when the resonant frequencies of the ﬁrst and
+second types of HRs are not too far apart. Equation (18) can rewrited
+as
+u2
+0  C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+þ C2
+ð
+Þ2 a2
+2 þ b2
+2
+
+
+þ 2C1C2 a1a2 þ b1b2
+ð
+Þ
+(20)
+At this point, it can be seen that the expression of the splitting
+strength is more complex and the distribution of the split modes on
+the complex plane is no longer along a straight line. For the ﬁrst
+azimuthal mode (r ¼ 1), if we assume that even though C2 is not
+negligible, jC1j is signiﬁcantly larger than jC2j, so the term
+proportional to C2
+ð
+Þ2 can be neglected. Using the same method as
+above, the slope lk is
+lk ¼ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+¼
+Re
+C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+þ 2C1C2 a1a2 þ b1b2
+ð
+Þ
+
+
+Im
+C1
+ð
+Þ2 a2
+1 þ b2
+1
+
+
+þ 2C1C2 a1a2 þ b1b2
+ð
+Þ
+
+
+¼
+Re
+1
+Z1
+ 2
+a2
+1 þ b2
+1
+
+
+þ
+2
+Z1Z2 a1a2 þ b1b2
+ð
+Þ
+
+	
+Im
+1
+Z1
+ 2
+a2
+1 þ b2
+1
+
+
+þ
+2
+Z1Z2 a1a2 þ b1b2
+ð
+Þ
+
+	
+(21)
+the intercept lb is
+lb ¼ Re
+rc
+2Lc
+
+	
+þ
+c
+2pLc
+ Re  1
+2 R0 þ 1
+2 u0
+
+	
+ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+
+c
+2pLc
+ Im  1
+2 R0 þ 1
+2 u0
+
+	
+¼ f0 þ
+c
+2pLc
+ Re  1
+2 R0
+
+	
+
+c
+2pLc
+ Im  1
+2 R0
+
+	
+ Re u0
+ð
+Þ
+Im u0
+ð
+Þ
+(22)
+the center point fc is
+fc
+¼ rc
+2Lc
+þ
+c
+2pLc
+ 1
+2 R0
+
+	
+(23)
+where R0 ¼ N1  C1 þ N2  C2.
+When the type and number of HRs are determined, R0 and Zi are
+ﬁxed. Therefore, the only factor that affects the splitting strength is
+the arrangements (In the above case, it is a1, b1, a2, and b2). f þ and f –
+occur in pairs, and the values are distributed in two ranges. A plot of
+these eigenvalue solutions can be found in Sec. 3.1.4.
+Foranannularcombustorwithcircumferentialrotationalsymmetry
+and considering a linear ﬂame transfer function, the circumferential
+thermoacoustic mode of the system is second-order degenerate in the
+absence of resonators. This means that the mode shape of the mode
+can involve any combinations of clockwise and counterclockwise
+pressure components, and is thus undetermined—can exhibit various
+mode properties, such as standing, spinning, or mixed modes. The
+introduction of resonators can break this rotational symmetry and the
+splitting strength is the key factor affecting the nature of the resultant
+modes. When the splitting strength is 0, the thermoacoustic mode
+maintains the second-order degenerate property, and when the
+splitting strength is nonzero, the mode shape is determined—these
+can be predicted by the present model.
+2.2.3
+Analysis of the Best Damping Effect. The effect of
+splitting strength on mode stability has been discussed in Ref.
+[21]. It was found that uniform distributions of the same type of
+burners could lead to mode splitting, and one of the two split modes
+become more stable but the other one is always more unstable. For
+the distribution of dampers, we can conclude that f 6 ¼ fc at u0 ¼ 0;
+when u0 6¼ 0: f 6 are two solutions distributed on both sides of the fc.
+This is going to be discussed in Sec. 3.1.3. As the angle of inclination
+of the solution distribution line will not be equal to 90 deg
+(Re Z
+ð Þ 6¼ 0), when u0 6¼ 0, there must have two solutions f 6
+distributed along the distribution line on both sides of fc. This means
+that there must be one solution that is more stable and the other more
+unstable. As the stability of the whole system is limited by the least
+stable mode, the less stable mode after considering a nonzero
+splitting strength is more likely to enter the unstable state compared
+to the case when the same fc but a lower (or zero for the optimum
+damping) splitting strength is achieved, as shown in Fig. 2.
+Therefore, the safest way is to directly ﬁnd the solution with the
+minimum u0 so that the mode does not split or has minimum
+splitting, which can better ensure the suppression of oscillations. For
+the arrangement of a single type of resonator, the design scheme of
+u0 ¼ 0 is the easiest and most effective. When there are multiple
+types of resonators, the distribution of mode solutions (three types
+are given in this paper) is going to be discussed in Sec. 3.1.5.
+However, satisfying the u0 ¼ 0 requires more demanding con-
+ditions, such as the expression of the splitting intensity u0 derived
+from Eq. (18), and the effects of a1, a2, a3, b1, b2, b3 all need to be
+considered.
+It should be clariﬁed that zero splitting does not guarantee
+stability—it’s determined by the acoustic energy balance between
+the source from the ﬂame and the overall damping in the system.
+021004-4 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 5 ---
+
+Furthermore, under real geometry and operating conditions, there
+are many uncertainties that may need to be taken into account:
+nonlinear effect, noise from turbulent combustion, machining
+accuracy, etc. These effects could make it difﬁcult to achieve the
+ideal state of u0 ¼ 0. The present results could provide a theoretical
+guidance for further studies on these aspects.
+3
+Case Study and Discussions
+We now consider an annular combustion chamber which is
+modeled as a one-dimensional annular duct. Its ﬁrst three
+circumferential modes are calculated as 229 Hz, 458 Hz, and
+687 Hz. According to the theoretical model, the term that causes
+mode splitting is u0, it is mainly related to the coupling parameter C.
+In the annular-combustor gas turbine of a certain type from Shanghai
+Electric, there are a total of 24 burners, and beside each burner one
+HR could be installed. In this real industrial gas turbine, three types
+of HRs have been installed, each tuned to one of the ﬁrst three
+azimuthal modes. The number of each typeof HRs beingused is 7. In
+this paper, both seven and eight HRs for each type will be studied in
+order to ﬁnd optimum HR distribution patterns.
+3.1
+Considering 24 Helmholtz Resonators Categorized Into
+Three Groups. We ﬁrst consider the case with 24 HRs uniformly
+distributed over the circumference. These HRs consist of three
+types, each with eight HRs tuned to one of the ﬁrst three azimuthal
+modes of the annular combustion chamber. When these HRs are
+installed, there are in total approximately 1:5  109 different
+distribution patterns. Using numerical simulations to obtain
+solutions of the targeted nonlinear eigenvalue system across all
+cases at this number is very heavy although not impossible,
+especially when the split modes are very close to each other so are
+very difﬁcult to be accurately differentiated numerically. It should
+be noted that because the HRs are arranged in the circumferential
+direction, there must be two arrangements that conform to mirror
+symmetry or rotation axial symmetry, and the effects of these two
+arrangements are the same. That is to say: if the axis line is made at
+the position of 1–13, as shown in Fig. 3. Figures 3(a) and 3(b) are a
+mirror-symmetrical pair. On the other hand, due to the rotational
+symmetry of the system, when the system is rotated either
+clockwisely or anticlockwisely for an integer times of 2p=24, the
+resultant distribution is the same as the original one, as shown in
+Figs. 3(a) and 3(c).
+In the following part of this subsection, we will ﬁrst study the case
+with eight HRs of only one type considering all their possible
+distribution patterns over the 24 positions. The corresponding mode
+splitting and damping properties will be discussed in detail. This will
+then be extended to consider all three types of HRs simultaneously.
+Basedontheideaofthetheoreticalmodel,forthepositionwheretheHR
+is located, it is assumed that it has a corresponding impedance Zi and Ci
+according to Eq. (2). Then the splitting strength u0 could be written as
+u2
+0 ¼
+X
+N1
+q¼1
+C0
+i ej4rpql=N
+0
+@
+1
+A 
+X
+N1
+q¼1
+C0
+i ej4rpql=N
+0
+@
+1
+A
+(24)
+The value of N1 is 8, and C0
+i is the value calculated based on the
+impedance at the targeted azimuthal mode frequency (because the
+HRs are all of the same type, it can be regarded as C). Among them,
+ql represents any eight of the 24 positions. For the analysis of this
+equation, we can start with discussing about the two extreme cases:
+the zero splitting case and the maximum splitting case.
+3.1.1
+Eight Helmholtz Resonators of the Same Type and
+u0 ¼ 0. We now consider the ﬁrst three azimuthal modes (r ¼ 1,
+2, 3) as an example to show how the problem could be studied. The
+values of ej4pql=24 for ql ¼ 1, 2, …24 are shown on a complex plane
+in Fig. 4 when ql takes different values between 1 and 24, each
+ej2rpql=24 gives a corresponding complex value (there will be a total
+of 24 complex values, but it is likely that some of them will be the
+same). We plot the corresponding complex values on the complex
+plane to get Fig. 4. And 12, 6, and 4 different positions (or values)
+over this unit circle would be obtained when r is taken 1, 2, and 3,
+respectively. Note that ej4pql=24 is just the conjugate, so is not
+shown. The arrangements to achieve u0 ¼ 0 can be considered from
+two perspectives.
+The ﬁrst way is to think from the perspective of the resultant force.
+The impact ofeach HR could beseen as a unit force directed from the
+origin point to the point of the HR on the unit circle. When the sum of
+Fig. 2
+Stability of split modes under different splitting strengths
+Fig. 3
+Schematic diagram of mirror symmetry and rotational
+symmetry. The highlighted blue circles denote the position of the
+resonators, and the other numbers correspond to hard walls
+(Z5‘). (Color version online.)
+Fig. 4
+Complex values of e
+j4pql
+24 with ql 5 1, 2, 3,. . ., 24. Different
+numbers represent complex values in different locations, the
+locations of the duplicates are separated by an underline.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 6 ---
+
+forces from all HRs is 0, the splitting strength u0 ¼ 0. This can be
+proved by using Eq. (24). There are a number of options that can
+satisfy the above criteria.
+For the r ¼ 1 mode (Fig. 4(a)), this includes cases where forces are
+in all eight different directions (see Fig.5(b)), six different directions
+(see Fig. 5(c)), and only four different directions (see Fig. 5(a)); for
+the r ¼ 2 mode (as shown in Fig. 4(b)), this includes cases where the
+forces are in two directions (see Fig. 5(d)), four directions (see
+Figs. 5(e) and 5(f)); for the r ¼ 3 mode (as shown in Fig. 4(c)), this
+includes cases where the forces are in four directions (see Figs. 5(g)
+and 5(i)) and two directions (see Fig. 5(h)).
+In Fig. 5, the highlighted number denotes the position of the
+resonators, and the other numbers correspond to hard walls
+(Z ¼ 1). For example, Fig. 5(a) shows that we have placed
+resonators at eight positions with the highlighted numbers 1-4-7-10-
+13-16-19-22, and the arrow represents the force in the direction from
+the center of the circle to the position of each highlighted number,
+and the resultant overall force of all arrows is 0. Figure 5(a)
+corresponds to Fig. 6(a), which represents the placement of the
+resonator in the highlighted circles 1-4-7-10-13-16-19-22 and the
+rest of the hard walls (Z ¼ 1). Based on this, each of Figs. 5(a)–5(i)
+corresponds, respectively, to Figs. 6(a)–6(i) and they are all
+arrangements with a splitting strength of 0.
+The second way is to think from a numerical perspective,
+PN1
+q¼1Ce
+j4rpql
+N
+and PN1
+q¼1Ce
+j4rpql
+N . The result is a complex number. If
+PN1
+q¼1Ce
+j4rpql
+N
+¼ G þ Hj, PN1
+q¼1Ce
+j4rpql
+N
+¼ G  Hj. The only way to
+make u0 ¼ 0 is
+G þ Hj
+ð
+Þ  G  Hj
+ð
+Þ ¼ G2 þ H2 ¼ 0, that is,
+G ¼ H ¼ 0. Therefore all arrangements found in the complex
+domain satisfying this condition correspond to the cases in which the
+modes do not split.
+The eight-HRs arrangements corresponding to cases in Fig. 5 are
+given, respectively, in Fig. 6. It is worth noting that these are all
+typicaltypes ofarrangementsgiving zeroresultantforce and thus zero
+splitting strength. These types of arrangements are important as it will
+be seen later that they provide the optimal damping performance
+among all possible arrangements of this eight-HRs system.
+3.1.2
+Eight Helmholtz Resonators of the Same Type and
+u0 ¼ max. The arrangement with the largest splitting strength
+essentially corresponds to the situation where u0 ¼ max. Based on
+the idea that the resultant force can still be used, the resultant force of
+the eight selected HR positions in this case should be the one with the
+largest resultant force among all arrangements. Therefore, it is easy
+to think that the selected positions should avoid force cancelation
+between each other (even if there is, it should be as small as
+possible). Figure 7 shows the maximum resultant force for the ﬁrst
+three modes. For example, Fig. 7(a) represents that we have placed
+the resonators in eight positions of the highlighted numbers 1-2-3-4-
+13-14-15-16, and the purple arrow represents the force in the
+direction from the center of the circle to the position of each
+resonator, and the overall resultant force is indicated by a red arrow
+(this is the maximum resultant force). The corresponding distribu-
+tion patterns of the HRs are shown in Fig. 8. For the r ¼ 1 mode, as
+two HRs at the opposite positions (with a p angle in between) gives
+the same force, the opposite arrangement gives maximum overall
+force, so the optimum splitting was obtained with the distribution
+shown in Figs. 7(a) and 8(a). For the r ¼ 2 and r ¼ 3 modes, the
+rotation period for HRs to give the same force is reduced to p=2 and
+p=3, respectively. Therefore, it can be seen that the maximum
+splitting appearsatthe distribution patternswithHRs 1/4-circleand 1/
+6-circle apart, respectively, for r ¼ 2 and r ¼ 3. It should be noted that
+for the r ¼ 3 case, only six HRs could be arranged 1/6-circle apart; the
+remaining two can only be placed at positions giving different forces
+compared to the six determined positions, but their resultant force
+should be as aligned as possible to that of the six given HRs, so two
+locations just beside the HRs already arranged are chosen.
+3.1.3
+Eight Helmholtz Resonators of the Same Type for
+Arbitrary Arrangements. Except for the two extreme cases
+discussed above, all other possible distribution patterns are now
+studied, and the results are shown in Fig. 9. It can be seen from the
+results that the two split solutions appear in pairs, and all solutions
+form a straight line with a speciﬁc slope and intercept. The function
+of this straight line is y ¼ Im Z
+ð Þ=Re Z
+ð Þ
+
+
+x þ f0, being consistent
+with our theoretical derivation in Sec. 2.2.1. It is interesting to see
+Fig. 5
+Schematic diagram of cases with a zero resultant overall
+force. The highlighted numbers represent the selected HR
+position, and the arrows represent the overall force in each
+direction.
+021004-6 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 7 ---
+
+that although the number of the HRs’ distribution patterns are the
+same for the r ¼ 1, 2, and 3 cases, the number of different mode
+splitting solutions are much fewer for larger rs. This is because, with
+larger rs, more different HRs’ distribution patterns could give the
+same splitting strength and thus the same mode solutions.
+3.1.4
+The Effect of 24 Helmholtz Resonators With Three
+Different Types on a Particular Azimuthal Mode. We now consider
+all three types of HRs, with the number of each type being 8. We ﬁrst
+focus on only the effect on the ﬁrst azimuthal mode. To this end, the
+expression of the splitting strength has been given in Eq. (18). The
+resonant frequency of the ﬁrst type HR is tuned to match the ﬁrst-
+order azimuthal mode of the annular combustion chamber,
+f1 ¼ c=2=p
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+S1=l1=V1
+p
+¼ 286 Hz. For the second and third types
+of HRs, we ﬁrst assume that their resonant frequencies are much
+higher than that of the ﬁrst-order azimuthal mode, i.e., f2 ¼ 2436 Hz,
+f3 ¼ 2566 Hz. In this case, jC2j  jC1j and jC3j  jC1j, so the ﬁrst
+type HRs contribute dominantly to the inﬂuence on the ﬁrst order
+azimuthal mode, and the results of the eigenvalue solution
+considering all HRs approximately overlap with the straight line
+predicted by Eq. (17), as shown in Fig. 10(a). Among all possible
+distribution patterns, Figs. 10(b) and 10(c) show one pattern
+corresponding to the maximum and minimum splitting strengths,
+respectively. It can be clearly seen that the maximum splitting
+corresponds to the case where the ﬁrst eight HRs are split into two
+groups p-angle apart with each group having four neighboring HRs,
+being consistent with the maximum splitting pattern for the r ¼ 1
+mode shown in Fig. 8(a). The minimum splitting case is achieved
+with the eight ﬁrst type HRs being uniformly distributed,
+corresponding to the ﬁrst of the three cases shown in Fig. 8 where
+zero splitting has been achieved for the r ¼ 1 mode. It is worth noting
+that, as jC2j  jC1j and jC3j  jC1j, the detailed distributions of the
+second and third types of HRs changes very little of the results; they
+can be arbitrarily distributed on the rest positions.
+If we change the resonant frequency of the second type HR to
+f2 ¼ 398 Hz and keep f3 ¼ 2566 Hz, jC3j  jC1j and jC3j  jC2j.
+Even though jC2j is still smaller than jC1j, but they are now of the
+same order of magnitude. The eigenvalue solutions are shown in
+Fig. 11. It can be seen that the eigenvalue solutions are now scattered
+near the straight line of the case when only type one HR dominates,
+agreeing with our prediction in Sec. 2.2.2. It should be noted that for
+cases where none of these three types dominates, such as when f1, f2,
+and f3 are close and the r ¼ 2 mode is considered, a comprehensive
+consideration of all possible arrangements is needed.
+3.1.5
+The Effect of 24 Helmholtz Resonators With Three
+Different Types on All of the First Three Azimuthal Modes.
+Although the above case considers all the three types of HRs, it
+focuses on only one particular azimuthal mode. In a real gas turbine
+combustor, several azimuthal modes, such as the ﬁrst three modes
+with r ¼ 1, 2, 3, could all become unstable, so the design of multiple
+HRs may need to consider the optimum damping to all of these
+modes. Moreover, the frequencies of these modes may be not far
+away, so when each type of HRs are tuned to one azimuthal modes
+and the acoustic absorption bandwidth of the HRs are not too
+narrow, C1, C2, and C3 could be of the same order of magnitude
+when targeting any one particular mode. Therefore, the key point to
+ﬁnd optimum distributions of multiple HRs is to make sure that all
+targeted modes see as small as possible (ideally zero) splitting
+strength.
+For the optimum damping of 24 HRs with three different types on
+all of the ﬁrst three azimuthal modes, based on the analysis in Sec.
+3.1.1 (particularly Figs. 6(a), 6(d), and 8(g)), one optimum design
+for achieving this is the uniform distribution of all the three types of
+HRs, as shown in Fig. 12. Although it might be a bit surprising to ﬁnd
+Fig. 6
+HR arrangement with a resultant force of 0. (a), (b), and
+(c) r 5 1 mode; (d), (e), and (f) r 5 2 mode; and (g), (h), and (i) r 5 3
+mode.
+Fig. 7
+Schematic diagram of the maximum resultant force
+Fig. 8
+HR arrangement of the maximum resultant force (a) r 5 1
+mode; (b) r 5 2 mode; and (c) r 5 3 mode
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 8 ---
+
+that the optimum distribution is such a simple uniform (or
+rotationally symmetric) pattern, given the conclusion that for a
+given number of HRs, the optimum distribution is those giving zero
+splitting strength, it’s very straightforward to understand this—for
+each type of resonator, this distribution pattern guarantees that the
+resultant force is 0 for any of the ﬁrst three azimuthal modes.
+3.2
+Considering 21 Helmholtz Resonators Categorized Into
+Three Groups. The 24 ¼ 8 þ 8 þ 8 HRs case is special since all
+three types of HRs could be evenly distributed, and all of the ﬁrst
+three azimuthal modes have zero splitting strength and thus
+optimum damping. In the real gas turbine from Shanghai Electric,
+21 HRs with seven in each of the three types have been used. The
+number of burners and thus possible installation positions are still
+24, so there will be three empty positions (without HR, so the
+impedance could be seen as inﬁnitely large).
+As shown in Figs. 13(a)–13(c), the distribution patterns to obtain
+the maximum splitting strength are similar to those for the case of
+eight HRs—the idea of maximizing the resultant force can still be
+used and the distribution patterns giving the maximum splitting are
+similar to those shown in Fig. 8. As for the minimum splitting,
+however, the results are quite different. The ﬁrst difference is that
+seven HRs cannot be evenly distributed now as seven is not a factor
+of 24. In addition, for the r ¼ 1 and r ¼ 2 cases, based on the rule of
+zero resultant force, it is still possible to ﬁnd speciﬁc distribution
+patterns (such as those shown in Figs. 13(d) and 13(e), respectively)
+which give zero splitting. However, this is not possible anymore for
+the r ¼ 3 case, so a pattern which gives the minimum (but not zero)
+splitting is given in Fig. 13(f).
+When all three types of HRs are used and the damping on all three
+azimuthal modes are considered, two situations need to be
+considered. The ﬁrst is the case when only one or two of the
+azimuthal modes require to be damped, i.e., the r ¼ 1 and r ¼ 2
+modes. The ﬁrst two types of HRs are tuned to resonant frequencies
+which are equal to these two modes, respectively. It is possible to
+Fig. 12
+The arrangement of zero splitting strength u050
+considering 24 HRs with three types
+Fig. 9
+Frequency values of all arrangements, the f1 and f2
+solutions correspond one-to-one. (Color version online.)
+Fig. 10
+(a) Eigenvalue solutions of all possible HR distribution
+patterns, (b) the arrangement of maximum splitting, and (c) the
+arrangement of minimum splitting
+Fig. 11
+Schematic diagram of the distribution of solutions
+021004-8 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 9 ---
+
+prioritize the placement of these two types of HRs so they are both
+arranged in their optimum patterns. The third type HRs then have
+only ten positions left to choose—it is normally not possible to
+arrange this type in its optimum pattern (as that shown in Fig. 13(f))
+so the best possible arrangement from these ten positions are used, as
+shown in Fig. 14(a). The second situation is that all three azimuthal
+modes could be unstable so all of them need to be considered in the
+optimum design. In this case, in order to ﬁnd the optimum
+distribution pattern, an objective function is needed. This objective
+function could be the sum of the three splitting strengths, the growth
+rate of the least stable mode corresponding to all of the three
+azimuthal modes, or it could be an weighted sum of the growth rates
+of all modes, such as those done in Ref. [15]. When the objective is to
+minimize all three splitting strengths, the ﬁnal optimum distribution
+pattern is usually the result of a compromise in the arrangement of
+the three types of HRs—it will satisfy the small overall splitting
+strength of the three modes, but it may not achieve the minimum
+splitting strength of any single mode. An optimum result of this case
+is shown in Fig. 14(b). Summarizing the results of this part, it can be
+found that to achieve an arrangement scheme with the best damping
+effect for multiple circumferential modes at the same time, it is
+necessary to have the minimum splitting strength (that is, the best
+damping effect) for each mode. When the HRs can be arranged evenly,
+this is generally a more direct solution; but once it is difﬁcult to arrange
+evenly, not only a systematic calculation of Eq. (18) considering all
+possible arrangements is usually required, but also one or more
+carefully selected objective functions may need to be considered.
+4
+Application in a Real Industrial Gas Turbine
+In the annular combustion chamber of a gas turbine from
+Shanghai Electric, thermoacoustic oscillations of the ﬁrst three
+azimuthal modes have been observed to occur and will affect the
+operation of the unit. Therefore, the circumferential HR arrange-
+ments studied in this paper are now used in a full 3D Helmholtz
+solver for the thermoacoustic instabilities of this combustor to assess
+their ability in damping thermoacoustic instabilities and provide
+suggestions on optimum distribution of these HRs.
+4.1
+The Thermoacoustic Modes. In this real annular combus-
+tor, thermoacoustic oscillations are more likely to occur in the
+circumferential mode at low frequencies [24]. Therefore, the
+circumferential modes without an HR is calculated (circumferential
+ﬁrst-, second-, and third-order modes). The mean temperature ﬁeld
+of the combustion system is obtained from a RANS simulation based
+on the k   turbulence and premixed combustion model. The mean
+temperature in both the plenum and the combustor match well with
+the measurements, guaranteeing the satisfactorily accurate estima-
+tion of the frequencies of the thermoacoustic modes. The ﬂame
+transfer function is unknown, so a typical n  s model with a two-
+dimensional scan of n over [0, 1] and s over [1 ms, 10 ms] has been
+performed, providing an approximate estimation (by comparing
+with onsite measurements of the dynamic pressure) of the unstable
+azimuthal modes with n ¼ 1 and s ¼ 8, 8:2, 8:4, 8:6 ms. As will be
+seen later, we consider four slightly different ss toillustrate the mode
+splitting property. The mode shapes of the ﬁrst three unstable modes
+with s ¼ 8 msare shown inFigs. 15(a)–15(c). These three modes are
+the thermoacoustic modes that need to be suppressed, and thus the
+target of the design of the corresponding HRs.
+4.2
+Damper Designs. When the frequencies of the targeted
+modes are determined, we use the following empirical expression
+for resonant frequency to choose geometrical parameters for the HR:
+f ¼ c=2=p
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+S=V=l
+p
+, where c is the speed of sound, l and S are the
+length and cross-sectional area of the HR’s neck, respectively, and V
+is the volume of the cavity. It should be noted that V is limited by the
+space that can be used and l limited by the thickness of the wall of the
+burner. The temperature and velocity of the mean ﬂow passing
+through the HR neck are determined by those of the ﬂow coming
+from the last stage of the compressor. After the geometrical and
+mean ﬂow properties are determined, the impedance of the HR can
+be determined by using the same model as in Refs. [15] and [25]. In
+COMSOL, the HR is simpliﬁed to the equivalent impedance Z and
+placed at the inlet of the combustion chamber, as shown in
+Fig. 15(d). Three different HR arrangements are considered:
+Arrangement one: the uniform distribution of 24 ¼ 8 þ 8 þ 8 HRs
+as shown in Fig. 12; Arrangement two: with the same 24 ¼ 8 þ 8 þ 8
+HRs, but divide the circumference into three sectors, each with a
+central angle 2p=3 and contains the same type of HR; Arrangement
+Fig. 13
+Arrangementsofmaximumsplittingstrengthforr 5 1,2,3
+are shown in (a)–(c), respectively, and arrangements of minimum
+splitting strength for r 5 1, 2, 3 are shown in (d)–(f), respectively
+Fig. 14
+Arrangement of two different schemes (a) r 5 1 and r 5 2
+modes are considered ﬁrst, and the r 5 3 mode is considered last.
+(b) Consider all three modalities and use the sum of the three
+splitting strengths as the objective function.
+Fig. 15
+Circumferential ﬁrst-, second-, and third-order acoustic
+modes of the annular combustion chamber
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 10 ---
+
+three: considering the 24 ¼ 7 þ 7 þ 7 þ 3 arrangement as shown in
+Fig. 14(b)—with 21 HRs and three empty positions and optimizing
+the ﬁrst three azimuthal modes simultaneously. It is expected that
+under the ﬁrst arrangement scheme, the circumferential mode will
+not split, the second arrangement would be the arrangement with the
+largest mode splitting, and the third arrangement will give a smaller
+(but not zero) splitting compared to the second arrangement.
+4.3
+Results and Discussions. As shown in Fig. 16, without
+including any HR, the ﬁrst three unstable modes are located at
+(1, 0.04), (1.966, 0.0036), and (2.706, 0.0087) (s ¼ 8 ms has been
+considered and all results are normalized to the ﬁrst mode). They
+correspond to the ﬁrst three azimuthal modes of the combustion
+chamber, with the mode shapes shown in Figs. 15(a)–15(c). The
+black box represents the circumferential modes with no resonator
+added (the ﬁrst-, second-, and third-order circumferential modes).
+After adding the resonator, the diamond mark represents the mode
+trajectory of scheme 1, the circle mark represents the
+mode trajectory of scheme 2, and the cross mark represents
+the mode trajectory of scheme 3. The reason that the frequencies of
+the third mode is lower than 3 is because the frequency is normalized
+by the frequency of the ﬁrst mode, and the mode involve not just
+circumferential but also longitudinal wave propagations, and the
+effect of plenum-combustor coupling is not negligible.
+With the HRs, no matter which arrangement is considered, all
+modes become more stable, showing the effective damping
+performance of the HRs. Considering the mode splitting effect, if
+we now use abs jf þ  f j
+
+
+to quantify this, it can be clearly seen
+that the ﬁrst arrangement scheme gives much smaller (nearly zero)
+splitting compared to that from schemes 2 and 3. Both schemes 2 and
+3 give signiﬁcant splitting results. Even though scheme 3 is
+supposed to be an optimal arrangement, the resulted mode splitting
+is not always negligible, especially for the ﬁrst mode. This isbecause
+that an optimum design based on an objective function considering
+all modes does not guarantee that each mode will be well damped. It
+can be seen that the ﬁrst scheme stabilized all of the three originally
+unstable azimuthal modes, while the second and third schemes both
+see two splitmodes, of which one mode couldbe unstable forthe ﬁrst
+and third azimuthal modes. This proves that the ﬁrst scheme is a
+better design than the other two for the current case. The ﬁrst
+distribution scheme results in no mode splitting while the other two
+both results insplitting and one mode less stable than the other, being
+consistent with our theoretical derivations in Sec. 2.
+5
+Conclusions
+In this paper, we use a theoretical model and a 3D Helmholtz
+solver to study the effect of the distribution patterns of multiple HRs
+on the azimuthal thermoacoustic modes. Given the positions over
+the circumference on which the HRs can be installed, all possible
+circumferential arrangements of a single type of HRs, as well as two
+and three types of HRs each tuned to one of the ﬁrst three azimuthal
+modes, are considered. It is shown that in realistic applications, such
+typical cases could involve a total number of possible arrangement
+patterns as large as O 109
+ð
+Þ. Based on the analysis of the splitting
+strength and the optimal damping effect, the optimal arrangement
+schemes targeting the ﬁrst-order, second-order, and third-order
+circumferential modes are obtained. The arrangement schemes are
+applied to the annular combustion chamber of a gas turbine from
+Shanghai Electric, and the 3D FEM Helmholtz solver from
+COMSOL is used to calculate the effect of installing the designed
+arrangement patterns of HRs and compare with the theory. The main
+ﬁndings are listed below.
+(1) When the same type of HRs are considered, and if we use f 6
+to denote the two modes after splitting, it was found that, no
+matter how many HRs are used and no matter how they are
+arranged over the circumference when their number is ﬁxed,
+the two split modes will always distribute along a given
+straight line with fc as the center. fc ¼ rc=2Lc þ
+c=2pLc  1=2
+ð
+ÞR0
+ð
+Þ depends on the number and type of
+HRs, and f þ and f – are related to the splittingstrength u0. The
+slope of the straight line is determined by the resonator
+impedance Z as Im Z
+ð Þ=Re Z
+ð Þ, and the intercept is the
+frequency f0 of the circumferential mode without HR. R0 ¼
+PN
+i¼1Ci depends on the type and number of HRs, and
+determines the optimum damping.
+(2) The splitting strength u0 can be understood by using the
+concept of the overall resultant force: the splitting strength is
+the largest when the resultant force is maximum (That is
+jf þ  f j ¼ max). When the resultant force is 0, the splitting
+strengthis 0.The optimaldamping effect isobtained whenthe
+splitting strength is 0 (f þ ¼ f  ¼ fc).
+(3) When there are multiple types of HRs, each tuned to target a
+certain mode, such as the ﬁrst three azimuthal modes, the
+relation of these modes need to be considered. When a
+particular target mode is far away from the other modes, only
+the HRs that are tuned to this particular target mode needs to
+be considered when calculating the effect on the target mode.
+In this case, f 6 are still distributed along a given straight line
+no matter how the HRs are arranged. If the target modes are
+close to each other, all types of HR need to be considered, and
+the calculation of all arrangements is necessary.
+(4) The idea of overall resultant force can still be used to obtain
+the optimal distribution patterns of multitype HRs: the net
+force of each type of HR for each target mode is 0. When the
+resultant force cannot be exactly 0 or multiple targeted modes
+need to be considered simultaneously, it is usually necessary
+to select an appropriate objective function, i.e., prioritizing
+one or two modes, or optimizing the overall damping to all
+modes.
+(5) Even in the 3D simulation of a realistic complex combustor,
+the ﬁrst scheme given in Fig. 16 was found being able to keep
+the modes not split (or with a very small splitting) thus
+provides an optimum damping. A random arrangement
+would usually split the modes, leading to one mode less
+damped than that of the optimum case.
+Acknowledgment
+The authors would like to thank the National Natural Science
+Foundation of China (Project No. 52106159) and Science Center for
+GasTurbineProject(P2022-B-II-013-001)forsupportingthisresearch.
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article are
+obtainable from the corresponding author upon reasonable request.
+Nomenclature
+Latin Characters
+c ¼ speed of sound (m s1)
+f ¼ frequency (Hz)
+Fig. 16
+Splitting of the ﬁrst three circumferential modes under
+different schemes. In the ﬂame transfer function, n 5 1 and
+s58:0, 8:2, 8:4, 8:6ms has been used to calculate each mode so
+four solutions were obtained for each mode [22].
+021004-10 / Vol. 147, FEBRUARY 2025
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026
+
+
+--- Page 11 ---
+
+k ¼ wave number
+L ¼ circumference (m)
+N ¼ total number of HRs
+p ¼ pressure (Pa)
+r ¼ circumferential mode order
+S ¼ cross-sectional area (m2)
+V ¼ HR cavity volume (m2)
+Z ¼ acoustic impedance (Pas m3)
+Greek Symbols
+C ¼ coupling parameter
+ ¼ wavenumber perturbation
+q ¼ density (kg m3)
+R ¼ coupling strength
+u ¼ splitting strength
+Subscripts
+c ¼ combustor section
+i ¼ Helmholtz resonator section
+Superscript
+’ ¼ ﬂuctuating quantity
+References
+[1] Dowling, A. P., and Stow, S. R., 2003, “Acoustic Analysis of Gas Turbine
+Combustors,” J. Propul. Power, 19(5), pp. 751–764.
+[2] O’Connor, J., Acharya, V., and Lieuwen, T., 2015, “Transverse Combustion
+Instabilities: Acoustic, Fluid Mechanic, and Flame Processes,” Prog. Energy
+Combust. Sci., 49, pp. 1–39.
+[3] Poinsot, T., 2017, “Prediction and Control of Combustion Instabilities in Real
+Engines,” Proc. Combust. Inst., 36(1), pp. 1–28.
+[4] Prieur, K., Durox, D., Schuller, T., and Candel, S., 2017, “A Hysteresis
+Phenomenon Leading to Spinning or Standing Azimuthal Instabilities in an
+Annular Combustor,” Combust. Flame, 175, pp. 283–291.
+[5] Zhao, D., and Li, X., 2015, “A Review of Acoustic Dampers Applied to
+Combustion Chambers in Aerospace Industry,” Prog. Aerosp. Sci., 74,
+pp. 114–130.
+[6] Gysling, D. L., Copeland, G. S., McCormick, D. C., and Proscia, W. M., 2000,
+“Combustion System Damping Augmentation With Helmholtz Resonators,”
+ASME J. Eng. Gas Turbines Power, 122(2), pp. 269–274.
+[7] Dupe`re, I. D. J., and Dowling, A. P., 2005, “The Use of Helmholtz Resonators in a
+Practical Combustor,” ASME J. Eng. Gas Turbines Power, 127(2), pp. 268–275.
+[8] Schulze, M., Kathan, R., and Sattelmayer, T., 2015, “Impact of Absorber Ring
+Position and Cavity Length on Acoustic Damping,” J. Spacecr. Rockets, 52(3),
+pp. 917–927.
+[9] Bothien,M., Noiray, N., and Schuermans, B., 2014, “A Novel Damping Device for
+Broadband Attenuation of Low-Frequency Combustion Pulsations in Gas
+Turbines,” ASME J. Eng. Gas Turbines Power, 136(4), p. 041504.
+[10] Yang, D., and Morgans, A. S., 2017, “Acoustic Models for Cooled Helmholtz
+Resonators,” AIAA J., 55(9), pp. 3120–3127.
+[11] Betz, M., Zahn, M., Hirsch, C., and Sattelmayer, T., 2019, “Impact of Damper
+Placement on the Stability Margin of an Annular Combustor Test Rig,” ASME
+Paper No. GT2019-90238.
+[12] Lepers, J., Krebs, W., Prade, B., Flohr, P., Pollarolo, G., and Ferrante, A., 2005,
+“Investigation of Thermoacoustic Stability Limits of an Annular Gas Turbine
+Combustor Test-Rig With and Without Helmholtz-Resonators,” ASME Paper No.
+GT2005-68246.
+[13] Zahn, M., Betz, M., Schulze, M., Hirsch, C., and Sattelmayer, T., 2017,
+“Predicting the Inﬂuence of Damping Devices on the Stability Margin of an
+Annular Combustor,” ASME Paper No. GT2017-64238.
+[14] Mensah, G. A., and Moeck, J. P., 2017, “Acoustic Damper Placement and Tuning
+for Annular Combustors: An Adjoint-Based Optimization Study,” ASME J. Eng.
+Gas Turbines Power, 139(6), p. 061501.
+[15] Yang, D., Sogaro, F. M., Morgans, A. S., and Schmid, P. J., 2019, “Optimising the
+Acoustic Damping of Multiple Helmholtz Resonators Attached to a Thin Annular
+Duct,” J. Sound Vib., 444, pp. 69–84.
+[16] Stow, S. R., and Dowling, A. P., 2003, “Modelling of Circumferential Modal
+Coupling Due to Helmholtz Resonators,” ASME Paper No. GT2003-38168.
+[17] Noiray, N., Bothien, M., and Schuermans, B., 2011, “Investigation of Azimuthal
+Staging Concepts in Annular Gas Turbines,” Combust. Theory Modell., 15(5),
+pp. 585–606.
+[18] Noiray, N., and Schuermans, B., 2013, “On the Dynamic Nature of Azimuthal
+Thermoacoustic Modes in Annular Gas Turbine Combustion Chambers,” Proc. R.
+Soc. A: Math., Phys. Eng. Sci., 469(2151), p. 20120535.
+[19] Mazur, M., Nyga˚rd, H. T., Dawson, J., and Worth, N., 2018, “Experimental Study
+of Damper Position on Instabilities in an Annular Combustor,” ASME Paper No.
+GT2018-75070.
+[20] Humbert, S. C., Moeck, J. P., Paschereit, C. O., and Orchini, A., 2023, “Symmetry-
+Breaking in Thermoacoustics: Theory and Experimental Validation on an Annular
+System With Electroacoustic Feedback,” J. Sound Vib., 548, p. 117376.
+[21] Bauerheim, M., Salas, P., Nicoud, F., and Poinsot, T., 2014, “Symmetry Breaking
+of Azimuthal Thermo-Acoustic Modes in Annular Cavities: A Theoretical Study,”
+J. Fluid Mech., 760, pp. 431–465.
+[22] Li, C., Yang, D., Li, S., and Zhu, M., 2019, “An Analytical Study of the Effect of
+Flame Response to Simultaneous Axial and Transverse Perturbations on
+Azimuthal Thermoacoustic Modes in Annular Combustors,” Proc. Combust.
+Inst., 37(4), pp. 5279–5287.
+[23] Yin, L., and Yang, D., 2023, “Modal Coupling and Mode Degeneracy in Annular
+Combustor With Multiple Helmholtz Resonators: A Theoretical Study,”
+Symposium on Thermoacoustics in Combustion: Industry Meets Academia
+(SoTiC 2023), Zurich, Switzerland, Sept. 11–14, p. 72.
+[24] Vignat, G., Durox, D., Prieur, K., and Candel, S., 2019, “An Experimental Study
+Into the Effect of Injector Pressure Loss on Self-Sustained Combustion
+Instabilities in a Swirled Spray Burner,” Proc. Combust. Inst., 37(4),
+pp. 5205–5213.
+[25] Howe, M. S., and Lighthill, M. J., 1979, “On the Theory of Unsteady High
+Reynolds Number Flow Through a Circular Aperture,” Proc. R. Soc. London, Ser.
+A, 366(1725), pp. 205–223.
+Journal of Engineering for Gas Turbines and Power
+FEBRUARY 2025, Vol. 147 / 021004-11
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/2/021004/7383084/gtp_147_02_021004.pdf by guest on 01 January 2026

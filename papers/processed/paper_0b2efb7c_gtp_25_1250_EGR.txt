@@ -1,0 +1,1270 @@
+
+--- Page 1 ---
+
+Javier Rodriguez Camacho
+Department of Mechanical Engineering,  
+Pennsylvania State University,  
+University Park, PA 16802
+Christopher Birkbeck
+Department of Mechanical Engineering,  
+Pennsylvania State University,  
+University Park, PA 16802
+Min Kyeong Yoon
+Department of Mechanical Engineering,  
+University of South Carolina,  
+Columbia, SC 29208
+Ana Victoria Kock
+Department of Mechanical Engineering,  
+University of South Carolina,  
+Columbia, SC 29208
+Sang Hee Won
+Department of Mechanical Engineering,  
+University of South Carolina,  
+Columbia, SC 29208
+Jacqueline O’Connor
+Department of Mechanical Engineering,  
+Pennsylvania State University,  
+University Park, PA 16802
+Effect of Exhaust Gas 
+Recirculation on Combustion 
+Efficiency in a Swirl Stabilized 
+Flame With Blends of Natural Gas 
+and Hydrogen
+Reducing the carbon impact of power-generation and industrial gas turbines can be 
+achieved through blending of low-carbon fuels as well as carbon capture. In gas turbines, 
+carbon capture is facilitated by the use of exhaust gas recirculation (EGR), where exhaust 
+gases are mixed with inlet gases to increase carbon dioxide concentrations in the exhaust, 
+which in turn increases the efficiency of carbon capture technologies. However, increasing 
+the diluent fraction of the reactants can decrease flame static stability and lead to flame 
+elongation, potentially affecting combustion efficiency and emissions. In this study, we 
+measure emissions in a single-nozzle model combustor at a range of EGR levels and 
+compositions for blends of natural gas (NG) and hydrogen (H2) to understand the impact of 
+EGR on combustion efficiency. Different blends of diluents that mimic the effects of EGR are 
+tested with oxygen mole fractions from 21% (no diluent injection) down to 15%. Blends of 
+NG and H2 are tested with up to 40% H2 by volume. Flame imaging is used to better 
+understand the connection between EGR, fuel composition, flame stabilization, and 
+combustion efficiency. As EGR level increases, the flame becomes longer and more diffuse. 
+H2 blending aids flame stabilization and combustion efficiency. The experimental results are 
+complemented by detailed chemical kinetic modeling to identify the changes in reaction 
+pathways that are driven by high levels of diluents and various fuel compositions. We 
+conclude with a discussion of the impact of low combustion efficiency on both cycle efficiency 
+as well as the performance of downstream carbon capture systems.  
+[DOI: 10.1115/1.4069459] 
+Keywords: exhaust gas recirculation, diluents, hydrogen combustion, emissions 
+1 Introduction
+In recent years, there has been a push to reduce the impact caused 
+by greenhouse gas emissions, specifically carbon dioxide (CO2). In 
+the United States, over a third of CO2 emissions are emitted by the 
+power generation sector, with approximately 30% of electricity 
+generation coming from the combustion of natural gas (NG) [1,2]. 
+Within this sector, gas turbine engines are one of the key 
+technologies that rely on combustion of NG. To reduce the carbon 
+impact of gas turbines, a transition toward net-zero emissions has 
+been receiving increasing attention. To this end, various technol­
+ogies and scenarios are being developed. For example, the use of 
+low-carbon intensity fuels, such as hydrogen (H2), can result in 
+lower CO2 emissions. Several demonstrations of hydrogen blending 
+into natural gas in power-generation gas turbines have shown that 
+many machines can operate normally with up to 40% hydrogen 
+[3–5]. Alternatively, the deployment of carbon capture and storage 
+(CCS) technologies can reduce the CO2 emissions of gas turbines 
+running on carbon-bearing fuels such as NG. However, these 
+solutions can pose issues in terms of engine operability, specifically 
+for the combustion process.
+The use of these decarbonization strategies in modern gas turbine 
+engines designed for natural gas operation can have detrimental 
+impacts on combustor operability and cycle performance. For 
+example, the use of H2 fuel can modify the thermoacoustic 
+instability characteristics of a combustor, increase thermal loading, 
+and can potentially lead to flashback issues [6–8]. On the other hand, 
+the use of CCS can impact on the overall efficiency and performance 
+of a plant. To enable CCS as an economically feasible solution, 
+exhaust gas recirculation (EGR) is used. When using EGR, 
+combustion products are recirculated to the engine inlet, which 
+results in an increase in the CO2 concentration at the outlet of the 
+engine. This increase in CO2 concentration improves the 
+efficiency of CCS technologies [9–12]. However, the increased 
+fraction of diluents in the oxidizer stream can affect the combustion 
+process.
+Turbo Expo: Turbomachinery Technical Conference and Exposition (GT2025), 
+June 16–20, 2025. GT2025.
+Manuscript received June 27, 2025; final manuscript received July 21, 2025; 
+published online October 6, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011001-1 
+Copyright V
+C 2026 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 2 ---
+
+The use of EGR can reduce the overall reactivity of the reactants 
+by either affecting the chemical kinetic rates or by changing the 
+thermophysical properties of the mixture in the combustor, with 
+different EGR composition affecting the combustion process in 
+different ways [13–15]. The effects of EGR can result in decreased 
+flame speed, poor flameholding, and changes in dynamic and static 
+stability, which can result in flame blowout depending on the 
+concentration and composition of EGR used [15–21].
+The use of both alternative fuels and EGR has been studied for 
+certain operating conditions and injector configurations. Research 
+has shown that the use of H2 and EGR can by themselves, drastically 
+change the combustion process and their combined effect can have 
+additional effects on the combustion behavior of a system [14,21]. 
+For example, Galeotti et al. [21] considered the improvements of a 
+CO2-diluted NG flame with a nonpremixed H2 pilot and how it 
+affects emissions. They showed an improvement in flame stability 
+and CO emissions over baseline NG conditions, demonstrating the 
+potential for decarbonizing gas turbines through combined EGR and 
+H2. Cycle analysis studies have demonstrated the possibility of 
+benefiting from both H2 and EGR solutions without sacrificing 
+engine performance [10]. Additionally, some researchers have 
+looked at the economic performance and challenges of H2 and EGR 
+combined for improving the performance of CCS technologies and 
+have shown desirable performance compared to baseline cases. 
+These benefits can be particularly important for load-following gas 
+turbines where carbon-based fuels can be used while still 
+maintaining low emissions [9,10]. As such, gas turbine decarbon­
+ization with EGR and H2 is a solution that merits further evaluation.
+Our previous work showed the effects of various levels and 
+compositions of EGR on a neutrally piloted, swirl-stabilized model 
+combustor operating on NG [15]. Under the conditions tested, the 
+flame becomes elongated and dynamically stable at intermediate 
+oxygen (O2) levels. However, at the lower O2 conditions, the flame 
+exhibits what seems to be a nonthermoacoustic instability most 
+likely driven by extinction and reignition behavior. This work was 
+extended to H2-enriched natural gas flames, where the same 
+conditions were tested with up to 40% H2 by volume [20]. The 
+addition of H2 noticeably improved the static and dynamic stability 
+of the lower O2 conditions, demonstrating the benefits of combining 
+both EGR and H2 as viable methods for decarbonizing gas turbine 
+engines. Our prior work, however, did not evaluate the emission 
+performance for these test conditions. As the EGR level increases, 
+particularly for low levels of H2, the flame is quite long. We expect 
+that the combustion efficiency at these conditions may be subpar 
+compared to the baseline cases, which would result in an increase of 
+carbon monoxide (CO) and unburned hydrocarbon (UHC) emis­
+sions. The effects on emissions from the combination of H2 and EGR 
+are different for different species: CO and UHC tend to increase with 
+EGR and decrease with H2, while the trend for nitric oxide (NO) is a 
+reduction with EGR and an increase with H2 [18,19,21]. Under­
+standing how the H2 and EGR interactions can affect combustor 
+emissions is a crucial step toward understanding the viability of 
+these techniques for reducing CO2 emissions.
+The goal of this work is to quantify the impact of dilution level and 
+composition as well as H2 level on combustion efficiency for a 
+constant flame temperature test matrix. In this study, combustion 
+efficiency is obtained by measuring emissions for stable flame 
+conditions, eliminating the impact of thermoacoustic instabilities on 
+the flame and its emissions. Combustion efficiency is defined as the 
+ratio of the CO2 level measured in the combustor to the equilibrium 
+CO2 level calculated using chemical kinetic modeling. Results show 
+that the combustion efficiency is lowest for the high dilution cases. 
+CO emissions are also highest at the lowest oxygen condition tested. 
+The addition of H2 in the fuel results in a moderate decrease in the 
+CO emissions at each condition tested. Comparison of flame images 
+between cases shows that the time-averaged flame shape has a 
+relationship with the emission outputs, where highly diffuse flames 
+have low efficiency and high CO emissions. Companion chemical 
+kinetic analysis shows agreement with the trends in CO2 and 
+combustion efficiency, providing insight into the changes in 
+chemical pathways that occur with increasing diluents in the 
+oxidizer and H2 in the fuel. To interpret experimental results, 
+perfectly stirred reactor (PSR) calculations are performed to 
+elucidate the experimentally determined combustion efficiency 
+and its impact of unburned hydrocarbon emissions. Reaction 
+pathway analysis is used to identify the ways in which the diluents 
+affect the combustion efficiency and resultant pollutant emissions.
+2 Experimental Overview
+2.1 Experimental Facility. This work is done in an experi­
+mental rig equipped with a dual-fuel injector compatible with liquid 
+and gaseous fuel; our previous work with the same test matrix used a 
+different, gaseous-only fuel injector [15,20]. The experimental rig, 
+shown in Fig. 1, is a variable-length combustor that consists of a 
+single-nozzle model combustor with a dual-fuel injector installed in 
+a settling chamber. In this study, only gaseous fuels are used (NG 
+and H2). The injector consists of a main circuit with swirler vanes 
+and a central pilot circuit inside a centerbody. The rig is operated at 
+atmospheric pressure and the oxidizer mixture (air, CO2, and N2) is 
+preheated to 250 C using an 88 kW electrical heater. The oxidizer 
+mixture is delivered to the settling chamber through a choke plate 
+where it then branches into the main and pilot circuits. Fuel is 
+delivered directly to the injector, with the main and pilot circuits 
+independently controlled. The fuel is mixed with the air in the 
+injector, resulting in a technically premixed flame. The gases (fuel 
+and oxidizer mixture) are metered using thermal mass flow meters. 
+Approximately 5% of the gases are delivered to the pilot circuit with 
+the remaining fraction delivered through the main annular passage. 
+In this study, the combustor is operated with neutral piloting, where 
+both the main flame and the pilot flame have the same equivalence 
+ratio (/). The injector configuration is representative of industrial 
+hardware used in operational gas turbine engines.
+Downstream of the injector is an optically accessible quartz 
+combustor with a length of 34 cm. Further downstream is a metallic, 
+variable-length exhaust section where a water-cooled piston can be 
+moved between combustor lengths (Lcomb) of 68.5 cm and 132 cm. 
+The combustor length is the distance from the injector outlet to the 
+piston. Moving the piston changes the acoustic modes of the 
+combustor, allowing for a survey of acoustic behavior at each 
+operating condition. In the current study, the combustor is initially 
+tested at various combustor lengths for all operating conditions and 
+only one combustor length that has a thermoacoustically stable 
+flame for all operating conditions is used.
+A representative stability map for the combustor is shown in 
+Fig. 2; this map was taken at a variety of combustor lengths at the 
+baseline condition (no diluents) for 0% H2 in NG and 40% H2 in NG. 
+Figure 2 also shows the frequency in the spectrum with the highest 
+amplitude. At most combustor lengths, this frequency is in the 
+200–500 Hz range, which is typical for a longitudinal mode of this 
+rig. The rig exhibits instability at the longest combustor lengths, 
+where instability is defined as a pressure fluctuation amplitude above 
+1% of atmospheric pressure. This mapping was completed for all the 
+operating conditions in this study, and a similar instability map was 
+seen. For this study, the emission sampling process is conducted for 
+a combustor length of approximately 81 cm to avoid thermoacoustic 
+instability at any of the operating conditions.
+2.2 Diagnostics and Data Processing. The rig is instrumented 
+with K-type thermocouples to monitor the gas stream temperature 
+ahead of the injector and to maintain the integrity of various 
+components downstream of the flame. Additionally, dynamic 
+pressure measurements are taken at a port on the dump plane of 
+the experiment with a water-cooled dynamic pressure transducer 
+(PCB 113B28); this signal is used to determine the thermoacoustic 
+stability of the combustor. Additional pressure transducers are 
+located in the fuel lines to monitor fluctuations in the fuel. Pressure 
+signals are acquired at 8921 Hz for 8 s and evaluated in the frequency 
+domain using a fast Fourier transform to identify peaks in the signal. 
+The oscillations in the combustor are characterized by determining 
+011001-2 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 3 ---
+
+the root-mean-squared (RMS) of the acoustic pressure fluctuation at 
+the dump plane (P0RMS) within a 62.5 Hz band centered about the 
+oscillation frequency with the highest fluctuation amplitude.
+A Photron Fastcam SA4 camera (Tokyo, Japan) was used with a 
+LAVISION intensified relay optics (IRO) intensifier to evaluate the 
+time-averaged flame shape by capturing CH* chemiluminescence 
+images. The camera is filtered with a 430610 nm bandpass filter. 
+For all test conditions, the flame is imaged at 2000 frames per second 
+over 1 s. For the stable flames evaluated in this study, the acquired 
+image set is sufficient to capture the time-averaged flame shape. The 
+intensifier gain settings are such that the flame is clearly observable 
+without saturating the sensor. The same intensifier gain settings are 
+used for all conditions. The images are time-averaged and an Abel 
+inversion process is used to visualize the center slice of the 
+axisymmetric flame. First, median and averaging filters are applied 
+to the raw images to reduce spatial noise. The flame is considered 
+nominally axisymmetric and so the time-average flame shape is 
+processed using an Abel inversion algorithm by applying a 
+Hankel–Fourier operator [22]. To account for the total heat release 
+rate associated with each pixel location, the images are radially 
+weighted to produce images representative of CH* emission 
+integrated over the azimuthal coordinate.
+The emission sampling is done with a Horiba MEXA-584L 
+equipped with oxygen (O2), CO2, total hydrocarbon (HC), and 
+carbon monoxide (CO) sensors. The analyzer has a repeatability 
+of 0.01% volume or 1.7% of the reading for CO and 3.3 ppm or 
+1.7% of the reading for HC [23]. The device was calibrated using 
+prescribed gas mixtures at the start of each test day and verified 
+at the end to measure the drift in calibration. Additionally, the 
+sampling line is cleaned at the end of each test day and HC hang- 
+up tests are conducted on the line before and after testing. A 
+water-cooled, copper-tipped stainless-steel sampling probe is 
+attached to a port downstream of the quartz liner in the postflame 
+region to obtain samples for all test conditions. The probe design 
+has been used in previous studies and has been adequate for 
+measuring emissions in the postflame region [24]. The probe is 
+located 42 cm downstream of the dump plane but 39 cm ahead of 
+the cooled piston, so no water from the piston cooling is expected 
+to be captured by the sampling system. The probe is water-cooled 
+and the gases are delivered to a filter and a water dropout section 
+prior to reaching the analyzer. The cooling water used for the 
+probe is kept at approximately 70 C. The analyzer and sampling 
+line filters are replaced before every test. The sample has an 
+approximate residence time of 1.4 s inside the probe line before 
+reaching the analyzer, with approximately 0.02 s of residence 
+time in the combustor prior to entering the sampling line. To 
+ensure that the emission measurements are representative of each 
+test condition, the samples are taken only after the flame and the 
+rig temperatures are stable and the analyzer readings have 
+stopped fluctuating. Repeatability tests were conducted for each 
+condition on different days. In addition to the analyzer display 
+values, the measurements are acquired as analog signals directly 
+from the analyzer and sampled over a 16 s window. The acquired 
+signals are time averaged to obtain a representative value for the 
+condition of interest. The time-averaged values are used to verify 
+any discrepancies with the analyzer display values during testing. 
+During testing, the sampling line is inspected to make sure that 
+water is collected in the water dropout portion of the sample line 
+and not in the analyzer inlet or the remainder of the sampling 
+line.
+Before testing in the rig, the analyzer was baselined using a 
+McKenna burner [25] operated with methane and air at room 
+temperature and pressure. The device was tested with a sweep of 
+equivalence ratios from 0.70 to 1.00 as the conditions of interest are 
+lean, premixed flames. The results for the emission sampling, 
+specifically for CO2, are shown in Fig. 3 as a function of equivalence 
+ratio. The analyzer ideally removes all the water, resulting in a dry 
+basis measurement. The measured data align well with equilibrium 
+values for a dry and wet basis calculated using ANSYS CHEMKIN PRO 
+[26] using USC MECH II [27]. The largest difference between 
+measurements occurred for an equivalence ratio of 0.80 and is less 
+than 3% difference between values, showing good repeatability for 
+the measurements. To account for any variability that the analyzer 
+can introduce, repeat tests will be conducted for all test conditions on 
+different days.
+2.3 Chemical Kinetic Modeling. Chemical kinetic modeling 
+with CHEMKIN PRO with the USC MECH II [27] was used to calculate the 
+initial baselining data for the McKenna burner test of the emission 
+sampling device. The equilibrium solver was used to calculate the 
+products for all methane/air conditions tested. Additionally, the test 
+matrix was also designed using the equilibrium solver in CHEMKIN 
+with USC MECH II. The solver was used to calculate the adiabatic flame 
+temperature (Tad) and equilibrium product composition at the inlet 
+conditions (523 K and 1 atm) for each mixture. The adiabatic flame 
+temperature is held constant at roughly 1834 K for the whole test 
+matrix; the equivalence ratio is modified for each condition to 
+maintain that temperature.
+While the equilibrium calculation only uses a chemical 
+thermodynamic database, flame behaviors are highly dependent 
+on the fidelity of a chemical kinetic model utilized, which is used to 
+understand the impact of fuel and diluent composition on emissions. 
+To assess the prediction fidelities of chemical kinetic models, four 
+other chemical kinetic models were used: GRI 3.0 [28], REAL FUEL 3 
+Fig. 1 Experimental combustor rig 
+Fig. 2 Representative stability map of the combustor with 
+combustor length for Baseline 0% H2 and 40% H2
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011001-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 4 ---
+
+from Dooley et al. [29], a model from Hashemi et al. (referred to as 
+the DTU model) [30], and the FFCM-2 model from Zhang et al. [31]. 
+Figure 4 compares the calculated adiabatic flame temperatures from 
+equilibrium calculations among five chemical kinetic models. 
+Except for the GRI 3.0 model, four other models predict average 
+adiabatic flame temperatures of 1834 K with a standard deviation of 
+4 K. The GRI 3.0 model predicts slightly lower than average adiabatic 
+flame temperature at 1830 K with noticeable inconsistencies, which 
+can be attributed to the inconsistency in the thermodynamics 
+database as discussed in Ref. [32].
+Figure 5 compares the calculated laminar flame speed (So
+LÞ of the 
+premixtures in the test matrix among the five chemical kinetic 
+models. As expected, the predicted laminar flame speed values differ 
+quantitatively among the models. Nevertheless, all models demon­
+strate qualitatively similar trends depending on fuel/air composi­
+tions, along with their Pearson coefficients to each other greater than 
+0.98. This result suggests that any model can be used for qualitative 
+analysis. Here, we utilized FFCM-2 model from Zhang et al. [31] for 
+chemical analysis, since it is the latest version in the literature, and is 
+well-validated for flame conditions.
+Finally, the experiments were performed with natural gas, 
+whereas the key combustion properties are derived from using 
+pure methane as a surrogate for natural gas. The chemical 
+composition of natural gas used in experiments was obtained from 
+the local gas company near Penn State. It is composed of 96.793% 
+CH4, 3.05% C2H6, 0.139% nC3H8, 0.007% iC4H10, 0.011% nC4H10, 
+thus, can be categorized as a dry natural gas. We computed three key 
+combustion properties: laminar flame speed, extinction stretch rate, 
+and maximum flame speed at the extinction limit. To access the use 
+of methane as a surrogate for dry natural gas, the Pearson 
+coefficients between methane and dry natural gas for these 
+combustion properties are compared and found to be greater than 
+0.99, confirming the adequacy of methane as a surrogate for dry 
+natural gas.
+2.4 Test Matrix. The test matrix for this study focuses on a 
+constant adiabatic flame temperature condition. This test matrix 
+mimics the operational scenario of a gas turbine engine where 
+turbine inlet temperature is maintained as constant. In this case, the 
+adiabatic flame temperature is 1834 K, which is the Tad from a 
+baseline case used in several previous studies [15,20,33–35]. For 
+each diluent and fuel composition, the equivalence ratio is adjusted 
+to maintain the Tad within 11 K of the baseline condition. Table 1
+shows the test matrix. For each diluent mixture, the hydrogen 
+content in the fuel varies from 0% to 40% by volume while the O2 
+fraction varies from 21% to 15%. The H2 enrichment of the fuel 
+results in a Wobbe Index range of approximately 48–43 MJ/m3, with 
+a decrease in the index as the H2 fraction increases to 40% by 
+volume. The test matrix consists of a Baseline condition with air as 
+the oxidizer along with a set of conditions focused on decreasing the 
+O2 fraction in the oxidizer stream by adding higher quantities of N2 
+(conditions beginning with “N”) and a set of CO2 (conditions 
+beginning with “C”). The naming convention for each test includes 
+the diluent condition, the O2 content of the oxidizer, and the 
+hydrogen content in the fuel (e.g., N17_H40 is a high-N2 test 
+condition with 17% O2 in the oxidizer and 40% H2 in the fuel).
+3 Results and Discussion
+3.1 Time-Averaged Flame Shape. Figure 6 shows the time- 
+averaged, Abel-inverted flame shape as a function of both diluent (in 
+columns) and hydrogen level in the fuel (in rows). The top-half of 
+each image is provided at each condition and a sketch of the injector 
+and combustor liner is indicated in the top-left image. The flame has 
+two parts: a main flame, which is stabilized in the inner shear layer of 
+the swirling jet and expands outward until it impinges on the wall, as 
+a typical V-flame, and a central pilot jet flame, which is visible along 
+the centerline in all cases.
+The flame has a similar shape for the conditions with an inlet O2 
+level above 17%. In all these cases, the main flame is clearly 
+stabilized on the centerbody. The main impact of the decreasing 
+oxygen content is the length of the flame, which increases as the 
+oxygen level decreases. Note that there is not a significant difference 
+between the C17 and N17 cases, meaning that the diluent 
+composition does not have a significant impact on the flame 
+structure at this level of O2. At the 15% O2 conditions, the flame is 
+weakly anchored on the centerbody and becomes noticeably 
+Fig. 3 Comparison of CO2 measurements and equilibrium 
+calculation values
+Fig. 4 Comparison of calculated adiabatic flame temperatures 
+from equilibrium calculations among five chemical kinetic 
+models
+Fig. 5 Comparison of calculated laminar flame speed (So
+L) of the 
+premixtures in the test matrix among five chemical kinetic models
+011001-4 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 5 ---
+
+elongated and diffuse, especially for the C15 case. This difference 
+between the N15 and C15 conditions could be a result of the 
+thermophysical properties of CO2, which has a higher specific heat 
+than N2. Prior work with this test matrix in a different injector 
+showed similar differences in flame structure between the C15 and 
+N15 cases, where the C15 case has a noticeably lower flame speed 
+and extinction strain rate than the N15 mixtures, resulting in a much 
+more diffuse flame.
+The effect of the diluents on flame elongation is reduced by the 
+addition of H2. As the fraction of H2 in the fuel increases, the flame 
+becomes shorter and more compact. This change is likely a 
+combination of both the higher flame speed of fuel mixtures with 
+hydrogen as well as the higher extinction strain rate, as can be seen in 
+Table 1. For the higher O2 conditions, the flame has noticeably less 
+activity close to the wall as it becomes more compact and the center 
+of heat release moves closer to the nozzle. For the N15 and C15 
+conditions, the addition of H2 reduces the flame length and makes 
+the flame less diffused. At 40% H2, the N15 and C15 conditions have 
+similar flame shapes and are no longer elongated. The distribution of 
+the flame inside the combustor can be characterized by the use of a 
+coefficient of spatial uniformity as shown in the following equation: 
+CSU ¼
+ffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffiffi
+P Ii −Iavg
+ð
+Þ2
+N
+ 1
+Iavg
+s
+(1) 
+The coefficient represents how concentrated or localized the 
+flame is in the combustor. A higher value represents a compact 
+flame, while a flame that is evenly distributed will have a lower 
+coefficient. The values of the coefficient, show that the flame 
+becomes more compact at higher O2 concentrations. As the O2 
+fraction decreases, the coefficient decreases, indicating that the 
+flame is more evenly distributed inside the combustor. Increasing 
+the level of H2 in the fuel decreases coefficient of spatial uniformity 
+at each O2 condition.
+3.2 Emissions Measurements. The combustor emissions, 
+particularly CO, CO2, O2, and UHC, were measured at each 
+condition. Figure 7 shows the CO2 and CO emissions and Fig. 8
+shows the O2 and UHC emissions as a function of inlet oxygen level 
+condition for the three levels of H2 in the fuel. In the case of CO2, 
+trends match those predicted from equilibrium calculations, 
+presented in Table 1. For a given O2 level, the high-CO2 cases 
+have proportionally higher CO2 cases than the high-N2 cases, as was 
+intended in the test matrix. Additionally, the amount of CO2 at each 
+condition decreases with increasing H2 in the fuel. These CO2 results 
+are used in the calculation of combustion efficiency, discussed next.
+The CO levels are negligibly small at each of the conditions 
+except for the 15% oxygen conditions. For both C15 and N15, the 
+CO levels are highly elevated compared to the rest of the test matrix. 
+Further, increasing the amount of hydrogen in the fuel decreases the 
+CO fraction, likely a result of both low production of CO and better 
+conversion of CO to CO2 through routes involving OH. Finally, the 
+unburned hydrocarbon levels are relatively similar across the test 
+matrix. The reason for this lack of trend in UHC is likely twofold. 
+First, the level of unburned hydrocarbons in a lean NG/hydrogen 
+flame is relatively low to start with and likely challenge the fidelity 
+of the instrument at these levels. Further, we expect that some of the 
+heavier UHCs may drop out of the line with the water as it is 
+condensed before the emissions measurement, which would result in 
+a lower level of measured UHC in all cases.
+Figure 9 shows the calculated combustion efficiency based on 
+measured CO2 versus equilibrium CO2, accounting for the drying 
+process ahead of the emissions measurement. The combustion 
+efficiency is above 0.95 for most of the cases, with a variation 
+between test days of around 0.05 for most conditions, with the 
+exception of the 15% O2 conditions. The variation presented for the 
+15% O2 conditions is independent of the H2 level and has only been 
+measured in the C15 condition (high CO2 condition). Our previous 
+work in a similar experiment [15] encountered transient behavior for 
+the C15 condition that was not encountered for the other conditions. 
+Table 1 Test matrix with H2 content, oxidizer composition, equivalence ratio, flame properties, and product CO2 
+Case
+H2 fuel volume  
+fraction
+O2
+CO2
+N2
+/
+Tad (K)
+So
+L
+(cm/s)
+jjextj
+(1/s)
+SL,max  
+(cm/s)
+Equilibrium CO2  
+(% vol. dry)
+Baseline_H0
+0.00
+0.21
+0.00
+0.79
+0.60
+1840
+45.25
+1922
+93.76
+6.70
+Baseline_H10
+0.10
+0.21
+0.00
+0.79
+0.60
+1845
+47.96
+2494
+103.39
+6.54
+Baseline_H20
+0.20
+0.21
+0.00
+0.79
+0.59
+1834
+49.56
+2958
+114.76
+6.23
+Baseline_H30
+0.30
+0.21
+0.00
+0.79
+0.59
+1841
+53.88
+3941
+133.45
+5.99
+Baseline_H40
+0.40
+0.21
+0.00
+0.79
+0.58
+1832
+56.72
+4951
+152.14
+5.60
+C19_H0
+0.00
+0.19
+0.03
+0.78
+0.67
+1832
+40.03
+1551
+82.15
+9.98
+C19_H10
+0.10
+0.19
+0.03
+0.78
+0.67
+1837
+42.40
+2013
+92.22
+9.82
+C19_H20
+0.20
+0.19
+0.03
+0.78
+0.67
+1843
+45.41
+2328
+104.44
+9.62
+C19_H30
+0.30
+0.19
+0.03
+0.78
+0.66
+1835
+47.62
+3116
+117.69
+9.28
+C19_H40
+0.40
+0.19
+0.03
+0.78
+0.66
+1844
+52.52
+4229
+138.79
+9.00
+C17_H0
+0.00
+0.17
+0.08
+0.75
+0.78
+1843
+33.54
+1149
+70.30
+15.63
+C17_H10
+0.10
+0.17
+0.08
+0.75
+0.77
+1835
+34.75
+1436
+76.57
+15.37
+C17_H20
+0.20
+0.17
+0.08
+0.75
+0.77
+1841
+37.25
+1852
+87.83
+15.18
+C17_H30
+0.30
+0.17
+0.08
+0.75
+0.76
+1835
+39.29
+2327
+96.05
+14.86
+C17_H40
+0.40
+0.17
+0.08
+0.75
+0.76
+1843
+43.24
+2985
+112.84
+14.58
+N17_H0
+0.00
+0.17
+0.05
+0.78
+0.76
+1835
+35.41
+1251
+73.03
+12.22
+N17_H10
+0.10
+0.17
+0.05
+0.78
+0.76
+1841
+37.38
+1548
+81.12
+12.06
+N17_H20
+0.20
+0.17
+0.05
+0.78
+0.75
+1833
+39.03
+1944
+91.36
+11.77
+N17_H30
+0.30
+0.17
+0.05
+0.78
+0.75
+1840
+42.14
+2440
+101.85
+11.54
+N17_H40
+0.40
+0.17
+0.05
+0.78
+0.74
+1835
+45.33
+3209
+117.04
+11.17
+C15_H0
+0.00
+0.15
+0.12
+0.73
+0.90
+1836
+25.04
+677
+51.17
+20.04
+C15_H10
+0.10
+0.15
+0.12
+0.73
+0.90
+1841
+26.61
+807
+57.11
+19.88
+C15_H20
+0.20
+0.15
+0.12
+0.73
+0.89
+1836
+28.21
+1050
+63.73
+19.61
+C15_H30
+0.30
+0.15
+0.12
+0.73
+0.88
+1832
+30.30
+1319
+72.40
+19.30
+C15_H40
+0.40
+0.15
+0.12
+0.73
+0.88
+1841
+34.48
+1703
+83.11
+19.03
+N15_H0
+0.00
+0.15
+0.07
+0.78
+0.87
+1834
+28.57
+786
+58.26
+14.43
+N15_H10
+0.10
+0.15
+0.07
+0.78
+0.87
+1839
+30.28
+953
+63.77
+14.26
+N15_H20
+0.20
+0.15
+0.07
+0.78
+0.86
+1833
+31.95
+1231
+71.37
+13.99
+N15_H30
+0.30
+0.15
+0.07
+0.78
+0.86
+1840
+34.69
+1551
+80.90
+13.76
+N15_H40
+0.40
+0.15
+0.07
+0.78
+0.85
+1837
+37.51
+2047
+93.54
+13.40
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011001-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 6 ---
+
+The behavior appeared to be an extinction-reignition behavior in the 
+combustor that was sustained at H2 levels below 30%. Although the 
+conditions tested here are stable under the 1% Patm criterion, the C15 
+condition did exhibit some amount of low frequency noise of around 
+0.4% Patm that could be sufficient to cause variation in the emission 
+measurements. Although there was some amount of noise, the flame 
+itself was not noticeably fluctuating during testing. Another reason 
+for the combustion efficiency behavior of the C15 condition could be 
+its flame length. The condition is more distributed than the other 
+conditions and this may cause greater variation in the measurement 
+of emissions at the exit of the combustor where the emission probe is 
+located.
+The coefficient of spatial uniformity is calculated from the 
+time-averaged, Abel-deconvoluted flame shapes to see if there is 
+any relation between the flame shape and the emissions that can 
+be applied for all the diluents and H2 conditions of interest. The 
+relations obtained for the combustion efficiency and measured 
+CO2 as a function of the coefficient of spatial uniformity are 
+shown in Fig. 9(b). The results for the CO2 show a clear decrease 
+in emitted CO2 with increasing coefficient magnitude. The larger 
+coefficient values indicate that the flame is more compact and 
+localized. The compact flame shape tends to happen for conditions 
+with higher flame speeds, which are those with either low levels 
+of diluent injection or sufficiently high H2 in the fuel, which 
+translates into a reduced CO2 fraction at the outlet. The highly 
+diluted conditions with low levels of H2 in the fuel tend to have 
+diffuse and elongated flames that are well distributed within the 
+combustor, leading to a smaller coefficient magnitude. However, 
+the relation in the coefficient of spatial uniformity for the C15 
+condition follows the behavior of the combustion efficiency and 
+shows some variation for said test case. As previously discussed, 
+this variation could be due to some transient behavior or low 
+amplitude fluctuations in the flame along with the fact the 
+elongated flame might cause greater variation in the emissions at 
+the probe inlet.
+3.3 Chemical Kinetic Modeling. Chemical modeling is used 
+to help interpret experimental results as the diluent and fuel 
+compositions change. The use of a chemical reactor network 
+approach is common for interpreting chemical kinetic behaviors in a 
+gas turbine combustor, which requires a substantial optimization 
+process to appropriately estimate the emissions formation compa­
+rable to the experimental results [36,37]. While the chemical reactor 
+network will be explored through optimization in the future, here we 
+use a single perfectly stirred reactor (PSR) to assess the role of 
+chemical kinetics on the experimental results from a high level.
+Figure 10 shows an example PSR simulation for the baseline 
+condition (Baseline_H40), exhibiting the combustion efficiency 
+defined as the ratio of CO2 to the CO2 in equilibrium as a function of 
+flow residence time in the PSR. The combustion efficiency 
+decreases with decreasing flow residence time in PSR. The main 
+UHC at the exit of the PSR are CH4 and CH2O and exhibit a rapid 
+increase in their mole fractions as the extinction limit is approached. 
+The solid vertical line indicates the flow residence time between the 
+flame and the emissions probe in the experiments, estimated using 
+volumetric flowrate and combustor volume (0.02 s). To evaluate 
+the impact of flame properties on combustion efficiency, the flow 
+residence time in the PSR that matches experimentally determined 
+combustion efficiency is calculated and indicated in the dashed line.
+Since the experiment determines CO2 mole fraction after 
+subtracting the H2O vapor in exhaust gas, the species mole fractions 
+in the modeling results are reevaluated after removing H2O mole 
+fraction. Figure 11 compares experimental results with modeling 
+results for CO2 (top), O2 (middle), and combustion efficiency 
+(bottom). Here, the combustion efficiency is based on the measured/ 
+predicted CO2 mole fraction normalized by CO2 mole fraction in 
+equilibrium. Except for the C15 cases, the modeling results from a 
+single PSR capture the overall trends in experiments reasonably 
+well, with the decrease of CO2 mole fraction and the increase of O2 
+mole fraction with increasing H2 content. In the C15 cases (0, 20, 
+40% H2), experimental results show considerably lower CO2 mole 
+fractions and higher O2 mole fraction than the predicted values in the 
+simulation, indicating incomplete combustion. Consequently, the 
+combustion efficiencies based on CO2 mole fraction in experiments 
+exhibit significantly low values (0.88) for C15 cases (0, 20, 40% 
+H2), compared to the model predictions, while exhibiting reasonable 
+Fig. 6 Time-averaged CH* chemiluminescence imaging of the flame structure 
+Fig. 7 Measurements of (a) CO2 and (b) CO for all conditions, with results grouped by test case 
+011001-6 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 7 ---
+
+agreements for 10 and 30% H2. As discussed above, this somewhat 
+inconsistency can be attributed to the flame stability specific to C15 
+cases.
+To further analyze the results of C15 cases, the flow residence 
+time in PSR calculation is reevaluated to the condition where the 
+predicted combustion efficiency matches experimental results. 
+Figure 12 shows the reevaluated flow residence time normalized 
+with the residence time at extinction limit, thus the Damk€ohler 
+number (Da). While other cases have significantly large Da values 
+for matching combustion efficiencies, regardless of the variation of 
+H2 content, the C15 cases (0, 20, 40% H2) shows Da values close to 
+unity, suggesting that the combustion processes occur near 
+extinction limit. Interestingly, the N15 cases exhibit noticeably 
+high Da values in general despite substantially reduced O2 content, 
+suggesting a unique contribution of CO2 in the diluents to 
+combustion efficiency. Both N15 and C15 cases exhibit relatively 
+slower laminar flame speeds compared to other O2 content cases 
+(Table 1), thus slower reactivity and longer flow residence time at 
+extinction limit in the PSR calculation. C15 has slightly slower 
+reactivities (laminar flame speeds) than the N15 cases. This trend 
+matches with the flame images shown in Fig. 6, where the flame/ 
+reaction zones are noticeably broader than in the other cases. While 
+adding more H2 content results in compact flame shapes as shown in 
+Fig. 6, the low combustion efficiencies for C15 can be attributed to a 
+noticeably slower rate constant of the major CO oxidation reaction, 
+CO þ OH ¼ CO2 þ H. The modeling results suggest that the heat 
+release is mainly produced by H þ O2 (þM) ¼ HO2 (þM), 
+HO2 þ OH ¼ H2O þ O2, and CO þ OH ¼ CO2 þ H. The rate con­
+stant of CO þ OH ¼ CO2 þ H reaction is roughly two-order of 
+magnitudes slower than those of the other two reactions at 
+temperatures above 1000 K. Considering the rapid decrease in 
+combustion efficiency near the extinction limit as shown in Fig. 11, 
+the results shown in Fig. 12 indicate the need for employing a 
+chemical reactor network approach, which would require careful 
+Fig. 8 Measurements of (a) O2 and (b) UHC emissions for all conditions, with results grouped by 
+test case
+Fig. 9 Measurements of (a) combustion efficiency with results grouped by test case and (b) measured CO2 
+as a function of the flame distribution coefficient for all conditions, with H2 content indicated by the colorbar
+Fig. 10 Example PSR simulation for the baseline condition 
+(Baseline_H40), exhibiting combustion efficiency, CH4 and CH2O 
+mole fractions as a function of flow residence time
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011001-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 8 ---
+
+consideration for the impact of flame properties on the overall flow/ 
+flame structures and thus the overall time scales specific to each 
+initial mixture composition.
+To identify the potential unique contribution of CO2 in the 
+diluents over N2 (C15 versus N15 cases), a series of flux analyses 
+were performed, primarily focusing on key radicals (e.g., OH, H) 
+and CO oxidation. The CO consumption pathway is dominated by a 
+single reaction, CO þ OH ¼ CO2 þ H (>99% in total consumption 
+flux), regardless of flow residence time, as expected, suggesting the 
+importance of OH for CO oxidation and thus combustion efficiency. 
+At the flow residence time of 0.02 s, two major reactions play 
+dominant roles in OH production, H þ O2 ¼ O þ OH and 
+H2O þ O ¼ OH þ OH, both chain branching reactions responsible 
+for >80% of total OH production, regardless of the H2, CO2, and N2 
+content in the initial mixtures. Figure 13 also shows that the overall 
+OH consumption pathways are not much affected by the initial 
+diluent compositions, except suggesting a strong impact by 
+increasing H2 content. While the variations in CO2 and N2 contents 
+at low H2 conditions do not affect overall OH consumption 
+pathways, the increase in H2 content augments the OH consumption 
+channel through H2 þ OH ¼ H þ H2O, producing the H atom, which 
+is then recycled to produce OH by the reaction of H þ O2 ¼ O þ OH 
+(a major OH production pathway), which has a very strong 
+temperature dependence.
+On the other hand, CH4 and CH2O oxidation contribute 
+considerable OH consumption flux. The increase of CO2 content 
+results in slightly lower reactor temperature compared to N2 content, 
+thus resulting in the increase of PSR flow residence time at the 
+extinction limit, which can be attributed to higher specific heat value 
+for CO2 over N2. The slightly reduced temperature in the C15 case 
+results in slightly slower production of OH by temperature sensitive 
+reaction over the N15 case, thus relatively lower combustion 
+efficiency.
+Although not shown in the figure, the OH mole fraction rapidly 
+decreases near the extinction limit in the PSR. Major consumption 
+channels for CH4 and CH2O oxidation are by the reaction with OH, 
+thus the rapid decrease of OH mole fraction near extinction limit 
+results in the rapid increases of CH4 and CH2O in exhaust gas, as 
+shown in Fig. 10. Regardless of the initial mixture composition, the 
+modeling results suggest that CH4 and CH2O are the major species in 
+UHC (>80% of total UHC mole fraction). At 0.02 s flow residence 
+time, the average mole fraction of CH4 in dry exhaust gas is found to 
+be 21 ppm with 2.7 ppm standard deviation, and that of CH2O to be 
+4 ppm with 0.46 ppm standard deviation for all tested conditions. 
+When the flow residence time is matched with the experimentally 
+determined combustion efficiency, the average mole fractions of 
+CH4 and CH2O in dry exhaust gas, except for the C15 cases (0, 20, 
+40% H2) are found to be 17 ppm and 3.4 ppm, respectively. In the 
+C15 cases (0, 20, 40% H2), where combustion efficiencies are 
+significantly lower at 0.88, the modeling results suggest average 
+values of 143 ppm CH4 and 21 ppm CH2O as UHC in dry exhaust 
+gas. While CH4 in UHC is well known as methane slip in natural gas 
+combustion, the CH2O in UHC needs further attention, particularly 
+considering its notorious health impact.
+Encouraged by the fact that the overall trend of the measured 
+combustion efficiency and exhaust gas composition in an atmos­
+pheric condition is reasonably well captured by single PSR 
+modeling, further numerical analysis at elevated pressures (up to 
+20 atm) was performed. Although not shown in the figure, the 
+numerical result suggests an increase in combustion efficiency with 
+pressure, which can be attributed to augmenting overall reaction 
+rates due to the increase of the number density of molecules at high 
+pressure, thus increasing temperature. On the other hand, the 
+increase of pressure results in the substantial reduction of radical 
+pool concentrations (OH, O and H), which leads to the reduction of 
+NOx emissions. In Zel’dovich thermal NOx formation mechanism, 
+Fig. 11 Comparison between experimental and modeling 
+results for CO2 (top), O2 (middle), and combustion efficiency 
+(bottom). Flow residence time of 0.02 s is used for modeling 
+results.
+Fig. 12 Comparison of Damk€ohler number (Da) defined by the 
+flow residence time matching experimentally determined com­
+bustion efficiency normalized by the flow residence time at 
+extinction limit in PSR calculation
+Fig. 13 Consumption pathways of OH radical at C15 and N15 
+cases at the flow residence time of 0.02 s in PSR calculations
+011001-8 / Vol. 148, JANUARY 2026                                                                                                       
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 9 ---
+
+NO is initially produced from N2 þ O ¼ NO þ N and 
+N þ O2 ¼ NO þ O. In PSR calculations, NO is majorly consumed 
+through NO þ O þ M ¼ NO2 þ M (50%) and produced by 
+H þ NO2 ¼ NO þ OH (50%) at all pressure conditions, known 
+as NO–NO2 conversion. Therefore, O and H play an important role 
+in NO and NO2 formation through thermal NOx formation reactions. 
+Consequently, the reduction of radical pool concentrations sup­
+presses the overall formation of NOx emissions. For example, 
+Baseline 0H at 1 atm suggests 21 ppm NOx emissions in dry exhaust 
+gas, while 14 ppm at 20 atm, thus 33% of reduction. Nevertheless, 
+the current modeling approach based on single PSR might not reflect 
+flame chemistry behaviors adequately at various pressure con­
+ditions, where the flame chemistry will be strongly coupled with 
+molecular and turbulence transport characteristics
+4 Conclusion
+This study considers the effect of simulated EGR and hydrogen 
+enrichment on the emissions performance of a natural gas swirl- 
+stabilized flame. The test matrix includes various levels and 
+compositions of EGR, using CO2 and N2 mixed with air, and 
+hydrogen blends up to 40% by volume in natural gas. The 
+combustion efficiency is noticeably affected by the highly diluted 
+conditions, with CH* chemiluminescence imaging showing the 
+change in flame shape as the reactant stream is modified. The 
+addition of high levels of diluents results in an elongated, diffuse, 
+and evenly distributed flame that exhibits variability in its 
+combustion efficiency with different diluent compositions. Addi­
+tionally, the emission measurements show an increase in CO for the 
+highly diluted conditions. Companion chemical kinetic analysis 
+identified critical reaction pathways that drive differences in the 
+combustion efficiency, particularly the formation and consumption 
+of the OH radical, which is highly dependent on the level of H2 in the 
+fuel. The use of EGR with fuel-flexible combustors can pose 
+challenges in terms of both emissions and flame behavior that must 
+be further addressed.
+Funding Data
+ Office of Naval Research at Penn State (Grant No. N00014-23- 
+1-2725; Funder ID: 10.13039/100000006).
+ University of South Carolina with Program Monitor Mark 
+Spector (Grant No. N00014-23-1-2724; Funder ID: 10.13039/ 
+100000006).
+ Solar Turbines Incorporated, with program monitor Dang Le 
+(Funder ID: 10.13039/100020767).
+Nomenclature
+EGR ¼ exhaust gas recirculation
+Lcomb ¼ combustor length (cm)
+P0RMS ¼ pressure fluctuation amplitude (Pa)
+Patm ¼ atmospheric pressure (Pa)
+SL,max ¼ maximum stretched flame speed (cm/s)
+So
+L ¼ unstretched laminar flame speed (cm/s)
+Tad ¼ adiabatic flame temperature ( C)
+xa ¼ volume fraction of a
+jext ¼ extinction strain rate (1/s)
+/ ¼ equivalence ratio
+References
+0[1] Administration U.S. Energy Information, 2022, “Monthly Energy Review August 
+2022,” Administration U.S. Energy Information, Washington, DC, accessed Nov. 
+24, 2024, https://www.eia.gov/totalenergy/data/monthly
+0[2] EPA, 2022, “Inventory of U.S. Greenhouse Gas Emissions and Sinks: 
+1990–2020,” U.S. Environmental Protection Agency, EPA 430-R-22-003, 
+Washington, DC, accessed Nov. 24, 2024, https://www.epa.gov/ghgemissions/ 
+inventory-us-greenhouse-gas-emissions-and-sinks-1990-2020.
+0[3] Webb, B. M., Harper, J., Steele, R., Noble, D. R., Emerson, B., David, W., and 
+Lieuwen, T., 2023, “Assessment of Current Capabilities and Near-Term 
+Availability of Hydrogen-Fired Gas Turbines Considering a Low-Carbon Future,” 
+ASME Paper No. GT2023-103962.
+0[4] Steele, R. C., Martz, T. D., Ettlinger, A., Zandes, T., Alexander, M. J., Hockman, 
+B. K., and Goldmeer, J., 2023, “Hydrogen Co-Firing Demonstration at New York 
+Power Authority Brentwood Site: GE LM6000 Gas Turbine,” ASME Paper No. 
+GT2023-101283.
+0[5] Harper, J., Cloyd, S., Pigon, T., Thomas, B., Wilson, J., Johnson, E., and Noble, D. 
+R., 2023, “Hydrogen Co-Firing Demonstration at Georgia Power’s Plant 
+McDonough: M501G Gas Turbine,” ASME Paper No. GT2023-102660.
+0[6] Lhuillier, C., Oddos, R., Zander, L., L€uckoff, F., G€ockeler, K., Paschereit, C. O., 
+and Djordjevic, N., 2017, “Hydrogen-Enriched Methane Combustion Diluted 
+With Exhaust Gas and Steam: Fundamental Investigation on Laminar Flames and 
+NOx Emissions,” ASME Paper No. GT2017-64885.
+0[7] Aguilar, J. G., Æsøy, E., and Dawson, J. R., 2022, “The Influence of Hydrogen on the 
+Stability of a Perfectly Premixed Combustor,” Combust. Flame, 245, p. 112323.
+0[8] Shanbhogue, S. J., Sanusi, Y. S., Taamallah, S., Habib, M. A., Mokheimer, E. M. 
+A., and Ghoniem, A. F., 2016, “Flame Macrostructures, Combustion Instability 
+and Extinction Strain Scaling in Swirl-Stabilized Premixed CH4/H2 Combustion,” 
+Combust. Flame, 163, pp. 494–507.
+0[9] Vantaggiato, E., Riboldi, L., Anantharaman, R., Carcasci, C., Andreini, A., 
+Roussanaly, S., and Ditaranto, M., 2024, “Understanding the Potential and the 
+Challenges of a NGCC Integrated With Hydrogen-Assisted EGR and CO2 
+Capture,” ASME Paper No. GT2024-125639.
+[10] Ravelli, S., 2024, “Thermodynamic Optimization of Load-Following Operation in 
+a Decarbonized Combined Cycle Power Plant Under Net-Zero Scenarios,” J. Eng. 
+Gas Turbines Power, 146(10), p. 101020.
+[11] Akram, M., Ali, U., Best, T., Blakey, S., Finney, K. N., and Pourkashanian, M., 2016, 
+“Performance Evaluation of PACT Pilot-Plant for CO2 Capture From Gas Turbines 
+With Exhaust Gas Recycle,” Int. J. Greenhouse Gas Control, 47, pp. 137–150.
+[12] Ali Motamed, M., Genrup, M., and Nord, L. O., 2024, “Part-Load Thermal 
+Efficiency Enhancement in Gas Turbine Combined Cycles by Exhaust Gas 
+Recirculation,” Appl. Therm. Eng., 244, p. 122716.
+[13] Shareh, F. B., Silcox, G., and Eddings, E. G., 2018, “Calculated Impacts of 
+Diluents on Flame Temperature, Ignition Delay, and Flame Speed of 
+Methane–Oxygen Mixtures at High Pressure and Low to Moderate Temper­
+atures,” Energy Fuels, 32(3), pp. 3891–3899.
+[14] Duan, X., Li, Y., Liu, Y., Zhang, S., Guan, J., Lai, M.-C., and Liu, J., 2020, 
+“Dilution Gas and Hydrogen Enrichment on the Laminar Flame Speed and Flame 
+Structure of the Methane/Air Mixture,” Fuel, 281, p. 118794.
+[15] Rodriguez Camacho, J., Akiki, M., Blust, J., and O’Connor, J., 2024, “Effect of 
+Inert Species on the Static and Dynamic Stability of a Piloted, Swirl-Stabilized 
+Flame,” ASME J. Eng. Gas Turbines Power, 146(6), p. 061021.
+[16] Xu, C., Sung, Y., Johnson, D., and Steele, C., 2024, “Predicting Exhaust Gas 
+Recirculation Impacts on Instability and Emissions of an Industrial Gas Turbine 
+Combustor Using Large Eddy Simulations,” ASME Paper No. GT2024-124313.
+[17] Karlis, E., Hardalupas, Y., and Taylor, A. M. K. P., 2020, “Effects of Inert Fuel 
+Diluents on Thermoacoustic Instabilities in Gas Turbine Combustion,” AIAA J., 
+58(6), pp. 2643–2657.
+[18] ElKady, A. M., Evulet, A., Brand, A., Ursin, T. P., and Lynghjem, A., 2008, 
+“Exhaust Gas Recirculation in DLN F-Class Gas Turbines for Post-Combustion 
+CO2 Capture,” ASME Paper No. GT2024-124313.
+[19] Galeotti, S., Picchi, A., Becchi, R., Meloni, R., Babazzi, G., Romano, C., and 
+Andreini, A., 2024, “Experimental Characterization of an Industrial Burner 
+Operated With Simulated EGR,” Appl. Therm. Eng., 246, p. 122943.
+[20] Rodriguez Camacho, J., Le, D., Blust, J., and O’Connor, J., 2025, “Impact of 
+Diluents on Flame Stability With Blends of Natural Gas and Hydrogen,” ASME J. 
+Eng. Gas Turbines Power, 147(1), 011017.
+[21] Galeotti, S., Picchi, A., Becchi, R., Lemmi, G., Meloni, R., Babazzi, G., Giannini, 
+N., Facchini, B., and Andreini, A., 2024, “Experimental Study on Stability 
+Enhancement of a Natural Gas GT Burner With Hydrogen Flame Piloting Operated 
+With Simulated Exhaust Gas Recirculation,” ASME Paper No. GT2024-128732.
+[22] Alvarez, R., Rodero, A., and Quintero, M. C., 2002, “An Abel Inversion Method 
+for Radially Resolved Measurements in the Axial Injection Torch,” Spectrochim. 
+Acta Part B At. Spectrosc., 57(11), pp. 1665–1680.
+[23] HORIBA, 2024, “Mexa-584l,” HORIBA, Kyoto, Japan, accessed Nov. 23, https:// 
+www.horiba.com/usa/automotive/products/detail/action/show/Product/mexa- 
+584l-120/
+[24] Turns, S. R., Merkle, C. L., Lovett, J. A., and Hosangadi, A., 1988, Mixing and 
+Combustion of Pulsed Gas Jets Annual Report (July 1987 - June 1988), Gas 
+Research Institute, Chicago, IL.
+[25] Egolfopoulos, F. N., Hansen, N., Ju, Y., Kohse-H€oinghaus, K., Law, C. K., and Qi, F., 
+2014, “Advances and Challenges in Laminar Flame Experiments and Implications 
+for Combustion Chemistry,” Prog. Energy Combust. Sci., 43, pp. 36–67.
+[26] Kee, R. J., Rupley, F. M., Miller, J. A., Coltrin, M. E., Grcar, J. F., Meeks, E., 
+Moffat, H. K., et al., 2022, “Ansys Chemkin-Pro 2022 R1,”  accessed Sept. 22, 
+2025, https://www.scribd.com/document/626343487/ANSYS-Chemkin-Pro- 
+Visualization-Manual
+[27] Wang, H., You, X., Joshi, A. V., Davis, S. G., Laskin, A., Egolfopoulos, F., Law, 
+C. K. II, 2007, “USC Mech Version II. High-Temperature Combustion Reaction 
+Model of H2/CO/C1-C4 Compounds,” University of Southern California, Los 
+Angeles, CA, accessed Nov. 23, 2024, https://chemistry.cerfacs.fr/en/chemical- 
+database/mechanisms-list/usc-ii-mechanism/
+[28] Smith, G. P., 1999, “GRI-Mech 3.0,” University of California Berkeley, Berkeley, 
+CA, accessed Nov. 23, 2024, http://combustion.berkeley.edu/gri-mech/version30/ 
+text30.html
+[29] Dooley, C., Won, S. H., Haas, F. M., Santner, J., Ju, Y., Dryer, F. L., and Farouk, 
+T. I., 2014, “Development of Reduced Kinetic Models for Petroleum-Derived and 
+Alternative Jet Fuels,” 50th AIAA Joint Propulsion Conference on Combustion 
+Modeling and Simulation II, Cleveland, OH, July 28–30.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JANUARY 2026, Vol. 148 / 011001-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026
+
+
+--- Page 10 ---
+
+[30] Hashemi, H., Christensen, J. M., Gersen, S., Levinsky, H., Klippenstein, S. J., and 
+Glarborg, P., 2016, “High-Pressure Oxidation of Methane,” Combust. Flame, 172, 
+pp. 349–364.
+[31] Zhang, Y., Dong, W., Xu, R., Smith, G. P., and Wang, H., 2024, “Foundational 
+Fuel Chemistry Model 2 – Iso-Butene Chemistry and Application in Modeling 
+Alcohol-to-Jet Fuel Combustion,” Combust. Flame, 259, p. 113168.
+[32] Mhadeshwar, A. B., Wang, H., and Vlachos, D. G., 2003, “Thermodynamic 
+Consistency in Microkinetic Development of Surface Reaction Mechanisms,” 
+J. Phys. Chem. B, 107(46), pp. 12721–12733.
+[33] Peluso, S., 2012, “An Experimental Study of Flame Response Mechanisms 
+in a Lean-Premixed Gas Turbine Combustor,” Pennsylvania State University, 
+University Park, PA.
+[34] O’Meara, B., 2015, “An Experimental Study of the Effect of a Pilot Flame on 
+Technically Pre-Mixed, Self-Excited Combustion Instabilities,” Pennsylvania 
+State University, University Park, PA.
+[35] Li, J., 2019, An Experimental Study of The Effect of a Pilot Flame on Combustion 
+Instabilities, Pennsylvania State University, University Park, PA.
+[36] Fichet, V., Kanniche, M., Plion, P., and Gicquel, O., 2010, “A Reactor Network 
+Model for Predicting NOx Emissions in Gas Turbines,” Fuel, 89(9), 
+pp. 2202–2210.
+[37] Park, J., Nguyen, T. H., Joung, D., Huh, K. Y., and Lee, M. C., 2013, “Prediction of 
+NOx and CO Emissions From an Industrial Lean-Premixed Gas Turbine 
+Combustor Using a Chemical Reactor Network Model,” Energy Fuels, 27(3), 
+pp. 1643–1651.
+011001-10 / Vol. 148, JANUARY 2026                                                                                                     
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/1/011001/7530930/gtp-25-1250.pdf by University of Cincinnati user on 05 January 2026

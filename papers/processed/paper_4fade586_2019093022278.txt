@@ -1,0 +1,1038 @@
+
+--- Page 1 ---
+
+ 
+-PUBLIC- 
+ 
+GE Research 
+Technical publication 
+ 
+ 
+Impact of Secondary Air Flow on 
+Combustor Emissions 
+ 
+PUBLIC
+November 2021 
+                                                                                                                
+Bassam Sabry Mohammad Abdelnabi (abdelnab@ge.com) 
+Keith McManus (mcmanus@ge.com) 
+Thermosciences 
+ 
+ 
+Abstract 
+It is a common practice to characterize DLE combustion systems based on the mixer flame temperature 
+which is estimated by metering the air and the fuel flowing through the mixer. In many combustion 
+systems, the exit temperature (or nozzle inlet temperature) is low enough that it is not considered in 
+characterizing the combustion emissions. The difference between the combustion flame temperature and 
+exit temperature is mainly due to the secondary air. There is no detailed published data that quantifies 
+this effect. The target of this study is to quantify the impact of secondary air percentage on emissions 
+both globally and locally. Experiments are conducted under high pressure at H class gas turbine operating 
+conditions on a DLE combustion system. Secondary air refers to the air used for cooling, dilution and 
+leaking air. In the context of DLE combustion system it is the cooling and leakage air. Since the introduction 
+of DLE systems the percentage of air running through the mixer has been increasing steadily to reduce 
+the flame temperature and improve the combustion NOx emissions. With the NOx requirements moving 
+toward the single digit NOx, it becomes essential to accurately quantify the impact of reducing the 
+secondary air percentage on performance. In addition to the need to carefully study the impact of local 
+interaction of the secondary air with the flame. The combustion system is configured with two 
+independently controlled mixers along with a variable secondary air circuit that can change the secondary 
+air percent from 0 to 6.25%. Multiple emissions rakes are used at the combustor exit to delineate the 
+interaction and relate it to the flame region. The system is configured to enable sampling from individual 
+rakes to study local emissions and to gang the rakes to get the overall combustion emissions. This research 
+provides a quantification of the improvement of the NOx margin with a decrease in the secondary air 
+percentage. The study shows that the increase in margin is not a simple reestimate of the combustor 
+emissions using the NOx design curve because of the flame quenching effects. Also, the results show that 
+the secondary air can be used to improve the NOx emissions via controlling the interaction with the primary 
+flame. 
+ 
+Keywords 
+NOx Emissions, NOx Design Curve, Secondary Air, Combustor Air Redistribution, DLE, DLN,  
+ 
+ 
+This publication is intended for external publication: 
+TurboExpo 2020 
+ 
+2019093022278 
+
+
+--- Page 2 ---
+
+ 
+2 
+ 
+ 
+ 
+ 
+CLASSES OF GENERAL ELECTRIC 
+TECHNICAL REPORTS 
+CLASS 1 — PUBLIC (CLASS 1) - GENERAL INFORMATION 
+Available to anyone on request. GEGR management, and relevant Company component 
+reviews are required before publication. 
+CLASS 2 — GE INTERNAL (CLASS 2) - GENERAL COMPANY INFORMATION 
+Available on request to any GE employee or employee of a GE subsidiary company that has 
+executed a non-disclosure agreement with GE. 
+CLASS 3 — GE CONFIDENTIAL (CLASS 3) - LIMITED AVAILABILITY INFORMATION 
+Original distribution limited to those individuals with specific need for the information. 
+Subsequent Company availability requires originating component approval. 
+CLASS 4 — GE RESTRICTED (CLASS 4) - HIGHLY RESTRICTED DISTRIBUTION 
+Original distribution to those individuals personally responsible for the Company’s interests 
+in the subject. Copies are serially numbered and assigned, and the recipients’ names are 
+recorded. Knowledge of existence and material content is restricted to the copy holder. 
+ 
+Class 2, 3, and 4 reports may be subject to Export Control, depending on 
+subject matter. 
+ 
+In addition to the limitations above, distribution of Class 2, 3 and 4 information may be 
+controlled by Export Control laws or Regulations.  Consult your Export Control representative 
+or the GEGR Export Control Manager whenever you have a question in 
+this regard. 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 3 ---
+
+ 
+ 
+ 
+3 
+ 
+ 
+IMPACT OF SECONDARY AIR FLOW ON COMBUSTOR EMISSIONS 
+ 
+ 
+Bassam S. Mohammad, Brian Volk and Keith McManus  
+General Electric Global Research Center 
+Niskayuna, NY 12309, USA 
+ 
+ 
+ 
+ 
+ABSTRACT 
+ 
+It is a common practice to relate emissions performance 
+of Dry Low Emissions (DLE) combustion systems to the flame 
+temperature that is estimated from the mass flows of air and fuel 
+flowing through the premixer. In many combustion systems, the 
+exit temperature (or turbine nozzle inlet temperature) is quite low 
+and is not a good parameter for estimating combustion 
+emissions. The difference between the combustion flame 
+temperature and exit temperature is mainly due to secondary air 
+dilution. To our knowledge there are no detailed published data 
+that quantify the impact of this temperature difference on 
+combustion emissions. The target of this study is to quantify the 
+impact of secondary air variation on emissions, both globally and 
+locally. High pressure experiments are conducted at H class gas 
+turbine operating conditions using a DLE combustion system. In 
+the context this DLE system, secondary air refers to cooling and 
+leakage flows because direct air dilution of the combustion 
+gasses is not necessary. This is because the flame stabilized 
+downstream of the premixer is well mixed and fuel-lean. With 
+NOx requirements moving toward single digit (ppm) levels, it 
+becomes essential to accurately quantify the impact of reducing 
+the secondary air percentage on emissions performance. In 
+addition to the need to carefully study the impact of local 
+interaction of the secondary air with the flame. The combustion 
+system is configured with two independently controlled mixers 
+along with a variable secondary air circuit that can change the 
+secondary air fraction from 14 to 8%. Multiple emissions rakes 
+are used at the combustor exit to delineate the interaction and 
+relate it to the flame structure. The system is configured to enable 
+sampling from individual rakes to study local emissions and the 
+rakes can be ganged together to measure the bulk-averaged 
+combustion emissions. This research provides a quantification of 
+the improvement of the NOx margin with a decrease in the 
+secondary air percentage. The study shows that the increase in 
+margin is not a simple re-estimate of the combustor emissions 
+using the NOx design curve due to flame quenching effects. The 
+results also show that the secondary air can be used to improve 
+the NOx emissions via controlling the interaction with the 
+primary flame. The impact is quantified in terms of emissions, 
+acoustics and metal temperatures. 
+ 
+1    INTRODUCTION 
+Emissions reduction has been the main driver for gas 
+turbine combustion system development for decades. The Dry 
+Low Emissions (DLE) or Dry Low NOx systems (DLN) have 
+been introduced for about 30 years now. They successfully drove 
+the NOx emissions reduction from hundreds of ppm to less than 
+25 ppm (operation on gas). Today several Original Equipment 
+Manufacturers (OEM) offer products that achieve better than 15 
+ppm NOx levels. However, the increase in efficiency 
+requirements calls for an increase in the firing temperature and 
+pressure which tend to drive NOx higher. The combustion 
+community has reached maturity in understanding NOx 
+generation and control using advanced fuel injection and mixing 
+devices. The philosophy is simple and relies on designing fuel-
+air mixing devices that provide perfect homogeneous mixtures. 
+On the other hand, combustion emissions are also sensitive to 
+operating conditions and the overall combustor configuration. 
+More research is required to provide better understanding of the 
+influence of these factors on combustor operability and emission 
+performance.   
+Several 
+parameters 
+influence 
+the 
+combustion 
+emissions. NOx and CO are sensitive to flame temperature, 
+operating pressure, residence time, fuel composition and mixing 
+quality (controlled by premixer performance). There are 
+interactions between all of these parameters so quantifying the 
+impact of each separately is not straight forward. Most of this 
+paper will be focused on NOx emissions as it is the dominant 
+component formed at high pressure and temperature.  
+Flame temperature is the major driver for NOx 
+emissions. The NOx design curve is the typical tool used to 
+quantify the impact of flame temperature on NOx emissions. The 
+curve is simply the amount of NOx generated as a function of 
+flame temperature. The combustion designer develops a specific 
+mixer and then evaluates the performance and collects data to 
+generate this curve. However, this curve is dependent on many 
+parameters. Essentially a different curve exists at different 
+operating conditions (combustor pressure, P3, and exit 
+temperature T4), flame distribution, residence time, fuel type, 
+oxidizer type and diffusion portion of the flame (if it exists). 
+ In an attempt to define the lowest possible emissions at 
+a given flame temperature or the best NOx design curve, the 
+concept of entitlement was introduced in the 1990’s by the 
+pioneering work of Leonard and Correa [1]. They ran a simple 
+jet flame-based system under perfectly premixed conditions and 
+quantified the corresponding emissions. This concept was 
+revived by Elkady et. al  [2] and they extended the data collected 
+to other operating condition. In addition, they validated several 
+kinetics models against it to specify the best models for NOx 
+simulation using reactor network modelling. The same 
+combustor architecture (with different variations) was used for 
+several emissions related studies. Mohammad et. al used it to 
+show that flame oscillations can drive higher NOx emissions 
+even for the entitlement data [3].  It was also used by Elkady et. 
+
+
+--- Page 4 ---
+
+ 
+ 
+ 
+4 
+ 
+ 
+al to quantify the reduction in NOx emissions corresponding to 
+40% exhaust gas recirculation (EGR)[4]. The rig data was also 
+used for successful CO modeling close to lean blow out (LBO) 
+[5, 6]. 
+Several authors documented the impact of pressure on 
+combustion emissions [1, 7-9]. It is a complex effect that 
+depends on the flame temperature and degree of mixedness. This 
+does not mean that the pressure effect only depends on these two 
+parameters. It just means this is what is available in published 
+literature. The higher the flame temperature the higher the NOx 
+emissions penalty at elevated pressure. CO decreases with 
+pressure. Residence time effect on NOx emissions is 
+documented in few publications, but was not thoroughly studied 
+in a way that provides combustor designers to make the best 
+selection based on target cycle conditions [2, 10, 11]. However, 
+these publications still provide useful quantification for the 
+impact of residence time on emissions. As the residence time 
+increases the NOx increase, but growth rate is dependent on 
+flame temperature. It also depends on the diffusion portion of the 
+flame. The authors are not aware of any existing thorough 
+published research that documents the effect of residence time 
+on CO.  The literature is lacking guidance or quantification of 
+the impact of cooling flow on combustion emissions. 
+Combustion system cooling is essential to protect the 
+combustor parts from failure. This cooling air interacts with the 
+flame and may have an emissions impact. The percentage of air 
+used for cooling the combustor is a function of the cycle 
+conditions and flame temperature. It is also dependent on the 
+advent in heat transfer technologies, developments of advanced 
+coatings and thermally capable materials. There is no published 
+data that quantifies the impact of the change in cooling air 
+percentage on combustion emissions. Marosky et. al provided a 
+rare study on the interaction of the cooling air with the main air 
+[12]. They showed that the air strongly interacts with the flame 
+and caused dilution and fluctuations to the equivalence ratio 
+which may lead to combustion instabilities. However, they did 
+isothermal experiments using water flow and hence did not study 
+the impact on emissions.  
+ This paper describes a study of the impact of cooling 
+air (referred to below as secondary air) on combustion emissions 
+for a DLE combustion system operating at H class gas turbine 
+conditions. The primary air term in this paper refers to the air 
+flowing through the premixer only. The combustor used in this 
+study features two premixers that are mounted side-by-side. The 
+system is configured to enable variation of the secondary air 
+from 14% to 8%. The data is collected at variable flame 
+temperatures as well as with a side-to-side temperature bias to 
+more 
+thoroughly 
+quantify 
+the 
+effect 
+on 
+emissions.  
+Instrumentation at the combustor inlet and exit are used not only 
+to quantify the effect of secondary air on emissions, but to 
+delineate 
+the 
+extent 
+of 
+flame 
+interaction. Also, 
+the 
+instrumentation are used to provide a possible strategy to tailor 
+the secondary air distribution to reduce NOx levels.  
+ 
+2    NOMENCLATURE 
+P3 
+= Combustor feed pressure 
+T3 
+= Combustor inlet air and fuel temperature 
+TC 
+= Thermocouple 
+P/P 
+= Operating pressure drop across nozzle 
+NOx 
+= Nitric Oxides 
+CO 
+= Carbon Monoxide 
+O2 
+= Oxygen 
+CO2 
+= Carbon Dioxide 
+H2 
+= Hydrogen 
+ppmvd 
+= Particle per million volume dry 
+Tflame  
+= Flame temperature-based mixer only air 
+TExit  
+= Combustor exit temperature 
+ms 
+= combustor residence time in millisecond 
+p’ 
+= Thermo-acoustic instabilities pressure fluctuation 
+in psi 
+pk-pk 
+= Pressure fluctuations peak to peak 
+TKHS 
+= Thermocouple placed on the heat shield 
+DLE 
+= Dry Low Emissions combustion systems 
+EPA 
+= Environmental protection agency 
+Secondary Air = All air flowing inside the combustor less the 
+mixers air 
+Variable Secondary Air = The portion of the secondary air that 
+is controlled and varied 
+GER 
+= General Electric Research 
+ 
+ 
+3     EXPERIMENTAL SETUP AND TEST CONDITIONS: 
+3.1 Test facility capability 
+The General Electric Research (GER) combustion facility is 
+highly capable for developing and evaluating advanced 
+combustor component technologies. The facility is composed of 
+multiple test cells where each provides a unique capability 
+corresponding to a specific problem of interest. Multiple fuel and 
+air delivery systems are available that supply combustor inlet 
+flows consistent with those found in actual turbine engines, 
+including heavy duty, aeroderivative and aircraft engines, 
+operating at full power. 
+3.2 Test cell capability 
+This study was conducted in a combustion test cell with 
+extensive capability (see Figure 1). The test cell can supply 
+multiple gas fuel circuits, multiple liquid fuel circuits, multiple 
+air circuits, and different types of gaseous fuels and gas fuel 
+blends. It is equipped with a fuel heater to control the gaseous 
+fuel temperature to the desired value. There are two different 
+ways of supplying fuel blends of interest: a specific fuel blend 
+prepared in a blowdown reservoir; or via online blending in the 
+test cell. This blending capability is often required to assess the 
+flex fuel capability of different combustion technologies. This is 
+in addition to the ability of using water injection for emissions 
+control via a liquid fuel water emulsion or direct water injection 
+through dedicated water injection circuit. The cell is configured 
+to enable sampling from individual emissions rakes as well as 
+ganging the emissions to provide an area weighted average of the 
+emissions at the combustor exit.   
+
+
+--- Page 5 ---
+
+ 
+ 
+ 
+5 
+ 
+ 
+ 
+3.3 Problem definition and combustor design 
+The target of this research is to study the impact of 
+secondary air on emissions, both locally and globally. In the 
+context of this study, primary air is only the portion of the air 
+running through the DLE mixers. The secondary air refers to all 
+other air streams flowing into the combustor. Typically, the 
+secondary air streams include heat shield cooling, dome cooling, 
+leakage flows, and liner cooling flows. The secondary air in this 
+specific problem is composed of mainly two parts. The first part 
+is the dome and leakages air which forms around 8 % of the 
+combustor flow. This portion is fixed and not varied through the 
+experiment. The second part is variable and is varied in this study 
+roughly from 0 to 6% (zero corresponds to 8 % secondary flow 
+and 6% corresponds to 14% secondary flow).   
+Based on the problem under investigation, two DLE mixers 
+are required to help study the local effects as will be discussed 
+shortly. Also, two air streams are needed. The main air stream 
+will be feeding the combustor directly and the second will be 
+used as a source for the variable secondary air. Both air streams 
+are metered and controlled. The combustor layout is given in 
+Figure 2. The variable secondary air injection is located toward 
+the outer mixer at roughly 25% of the combustor length (relative 
+to the front end) as shown in Figure 2.  
+The variable secondary air injector is inserted to the 
+combustor through a ferrule that is designed to enable flexible 
+mounting as well as to provide a leeway for thermal expansion 
+without interference with the combustor walls as the systems 
+operates at high-pressure and -temperature. This is of extreme 
+importance because the thermal expansion can drive geometrical 
+variations resulting in interference between parts and eventually 
+hardware failure. A hydrogen torch is inserted through the 
+opposite wall to provide an ignition source for the combustor. It 
+is also inserted through a ferrule assembly to allow for thermal 
+expansion.  
+ 
+Figure 1.  Test cell 4 layout and capabilities 
+ 
+ 
+Figure 2. Combustion system components and 
+design 
+ 
+ 
+The flow path of the combustor assembly is given in Figure 
+3. There are two pressure measurements ports for monitoring the 
+static and dynamic pressure. They are in the same plane of the 
+igniter and secondary air injection point. A flow sleeve surrounds 
+the liner for cooling air to cool the walls from the backside. 
+Emissions rakes are located at the exit for emissions sampling as 
+will be discussed in detail below. There are two emissions rakes 
+aligned with each mixer to help identify and clearly define the 
+interaction between the cooling air and different flame 
+structures. Also, they will help explore the impact of the flame 
+temperature bias. These are key characteristics that will be 
+evaluated in this study.  
+ 
+3.4 Combustor instrumentation 
+Combustor development and validation is a complex 
+process that requires high-accuracy. Test quality is ensured via 
+closures of metered air, fuel, emissions, temperatures and 
+pressures. The combustor under investigation is instrumented 
+both internally and externally to ensure integrity and safe test 
+execution. There are four static pressure measurements ports as 
+illustrated in Figure 4. They are used to determine the pressure 
+drop and hence facilitate the estimation of air flowing through 
+the mixers. Two of the four ports are used also for dynamics 
+pressure monitoring which is a critical measurement for DLE 
+combustion systems.  Also, there are 3 pressure measurement 
+points at the inlet of the combustor that are used to monitor the 
+operating pressure (P3). This test is conducted at an operating 
+pressure of 22.1 atm. 
+
+
+--- Page 6 ---
+
+ 
+ 
+ 
+6 
+ 
+ 
+It was mentioned earlier that it is important to be able to 
+study the extent of interaction between the secondary air and 
+combustion air. Therefore, the relative location of the inlet flows 
+and instrumentation is important. Figure 4 shows the inlet 
+location of the secondary air and Figure 2 shows that it is located 
+downstream from the dome (at 25% of the combustor axial 
+length). The dome is the structure shown in Figure 4 and it is 
+essentially the structure that forms the front end of the combustor 
+and through which the mixers are installed. The dome structure 
+is cooled using a portion of the incoming air to maintain 
+acceptable metal temperature values. Typically, this air is split 
+from the compressor air feeding the combustor which is at T3, 
+the air preheat temperature (784 K).  
+Thermocouple instrumentation (TC’s) that measure heat 
+shield temperatures are a very important part of this study. They 
+will be used along with the local emissions data to provide 
+insight on the extent of interaction of the secondary air and the 
+main flames. There are four thermocouples that are strategically 
+located as shown in Figure 4. TKHSA1 is located at the same 
+side of the combustor corresponding to the secondary air 
+injection. However, it is located on the dome which is not in the 
+same axial plane of the injection point. The response of this TC 
+can indicate if the secondary air recirculates back to the dome 
+through the combustor flow reversal zones. TKHSA2 is located 
+at the center of the outer mixer. TKHSB1 is located at the 
+midpoint of the combustor and TKHSB2 is located all the way 
+at the opposite corner. These TC’s are brazed in position to 
+ensure perfect representation of the metal temperature being 
+measured as well as to prolong the TC life which is typically 
+influenced by combustion dynamics and vibration.  
+ 
+ 
+Figure 3. Flow path and pressure measurement point 
+ 
+ 
+Figure 4. Instrumentation diagram (location of Thermocouples 
+and pressure ports) 
+ 
+3.5 Emissions sampling system 
+The emissions sampling system is an integral part of this 
+study. The system is illustrated in Figure 5. The four emissions 
+rakes are strategically located such that each two are facing one 
+mixer. Rake 1 is the closest to the secondary air injection and 4 
+is the furthest.  This arrangement enables local study of the extent 
+of penetration and interaction between the secondary air and the 
+mixer flames. The rakes are water cooled to ensure survivability 
+in the hot combustion products. Each rake can be used 
+independently by sampling through a scanning valve. Only four 
+channels are used in this case and each corresponds to a single 
+emissions rake. Also, the four sampling lines are can be ganged 
+together to provide an area weighted average of the combustion 
+emissions at the combustor exit. Overall there are 20 sampling 
+ports distributed over the combustor exit as there are 5 sampling 
+holes per emissions rake. Two shutoff solenoids make it possible 
+to sample in ganged mode or in a single channel mode as 
+illustrated in Figure 5. 
+The collected emissions sample is then transferred to a 
+heated filter and eventually to the emissions stand. The sample 
+flows through an electrically heated hose that help maintain the 
+sample temperature at 422K. This temperature ensures no 
+condensation of the water in the sample gas will occur before 
+feeding the sample to the analyzer. This is important as NO2 is 
+water soluble. If water condensation occurs, then NO2 may be 
+lost and hence the total NOx measured will be in error. This is a 
+very serious and frequent problem in emissions sampling 
+systems.  Most standard NOx analyzers are chemiluminescence 
+based analyzers which do not measure NO2 directly. They use 
+an internal converter that converts NO2 to NO and then measure 
+the total NO. This converter deteriorates with time and needs to 
+be continuously monitored for the decline of the conversion 
+efficiency. The Environmental Protection Agency (EPA) method 
+7E is of extreme importance to be referred to by researchers and 
+industrial entities performing emissions sampling [13] 
+The emissions stand is composed of a series of analyzers 
+that are used to measure all major components of the sampled 
+gas stream. Mainly we are interested in oxygen (O2), nitric 
+oxides (NOx), carbon monoxide (CO), unburned hydro carbons 
+
+
+--- Page 7 ---
+
+ 
+ 
+ 
+7 
+ 
+ 
+(UHC), methane (CH4) and carbo dioxide (CO2). NOx 15 refers 
+to the standard correction of the NOx emissions to 15% oxygen. 
+The same terminology applies for CO. 
+  
+3.6 Operating conditions, data storage and reporting 
+Data collection and combustion operation for this study is 
+conducted at representative H class gas turbine operating 
+conditions. The combustor pressure (P3) is ~22.1 atm, pressure 
+drop through the mixers is maintained at 3.5% relative to P3, air 
+preheat temperature (T3) is 785K. Residence time is ~ 13.5 ms 
+which represents an average size combustion system. The 
+variable secondary air is provided at an unheated temperature of 
+~310K and enables the study of the interaction between the 
+secondary air injection and the main flames. The fixed secondary 
+air portions (dome, heatshield and leakages) is also provided at 
+T3. Therefore, the finger print of the secondary air and its 
+interaction with the dome (though it is injected downstream) can 
+be tracked since it is supplied at much colder temperature as will 
+be discussed shortly. However, the test was repeated with a 
+heated secondary air stream (at 588.7K) to confirm that the 
+reported impact is minimally influenced by the temperature 
+difference. 
+All data is recorded at a rate of 1 data point per second. The 
+data presented here is collected at steady state. Each point is an 
+average of 60 instantaneous data points. This minimizes standard 
+deviation and significantly improves the accuracy of the reported 
+average.  
+4     RESULTS AND DISCUSSION 
+4.1 Effect of secondary air flowrate on emissions 
+performance 
+Figure 6 shows the NOx emissions of this combustion 
+systems at the baseline case with 14 % secondary air as well as 
+cases with 11% and 8%, respectively. The emissions are 
+presented as a function of TFlame. Figure 7 shows a plot of the 
+same data set vs the combustor exit temperature (TExit). The 
+curves may be seen to provide contradictory conclusions. Figure 
+6 shows emissions increase with the decrease of the secondary 
+air while Figure 7 shows the opposite. Figure 8 can help explain 
+why they appear contradictory. At a fixed combustor exit 
+temperature the reduction of secondary air calls for reduction in 
+the flame temperature since less fuel is needed to maintain the 
+same exit temperature. Let us explain this in detail. 
+The combustor can be thought of as a black box. The overall 
+air and fuel always have to be the same for a fixed engine 
+operating condition. Combustors are designed to receive a 
+certain amount of air from the turbomachinery and burn a certain 
+amount of fuel to provide power. The combustor is a hot gas 
+generator that delivers a prescribed TExit (which is the inlet 
+temperature to the first stage turbine nozzle). This is the view 
+point that will be focused on in this study. Therefore, Figure 7 is 
+the proper way to characterize this problem.  
+Running a lab test is different from an engine test. In an 
+engine, the air will always redistribute (as we discussed 
+previously), but in a lab test the system components are 
+independent and really nothing can force the system to use the 
+same air, burn the same fuel or maintain the same exit 
+temperature. In an engine, the compressor, combustor and 
+turbine are all one system. On the other hand, the compressor, air 
+heater and the combustor in the lab are all independent systems 
+(there is no turbine). In lab test, the test is designed to mimic a 
+specific problem. The reader will notice that we ran the 
+combustor under multiple firing temperatures and while 
+changing the exit and flame temperature as well. This is not 
+possible in an engine test. Therefore, the data presented should 
+be clear about what was varied and what was help constant.  
+The problem presented here represents an existing 
+combustion system that will be redesigned by reducing the 
+secondary air used for cooling and feeding it to the mixer. This 
+type of study is typically driven by the advent in coatings, 
+materials and cooling mechanisms such that the secondary 
+cooling air percent can be efficiently cut down without impact 
+on durability. In this study we are presenting three cases. The 
+baseline case corresponds to the starting point where the 
+combustion system is running at 14% secondary air. The second 
+and third case correspond to a reduction of 3% and 6% in the 
+cooling air respectively.  
+ 
+ 
+ 
+Figure 5. sampling system 
+ 
+
+
+--- Page 8 ---
+
+ 
+ 
+ 
+8 
+ 
+ 
+ 
+ 
+Figure 6. NOx emissions vs TFlame with variable secondary 
+air 
+ 
+ 
+ 
+Figure 7. NOx emissions vs TExit with variable secondary air 
+ 
+Figure 8. TFlame vs. TExit 
+Using the data from Figure 7, the NOx reduction 
+associated with the reduction in secondary air at various flame 
+temperatures can be estimated. Figure 9 shows a plot 
+corresponding to a 6% reduction in cooling air. Assuming that 
+this reduction is linear then emissions reduction corresponding 
+to 3.16% cooling flow reduction can be predicted. Now both the 
+linear prediction and the measured data at 3.16% reduction can 
+be compared as shown in Figure 9. It appears that the linear 
+approximation is an excellent approximation at TExit higher than 
+1800K. The deviation from linear behavior increases in the low 
+temperature range. Nevertheless, the low temperature range is 
+characterized with low NOx emissions since they vary 
+exponentially with temperature. Also, at the low temperature 
+side, the linear prediction underestimates the saving in 
+emissions. This is a safe practice from an engineering 
+perspective since it provides a quantification of the merit with 
+margin.   
+Figure 10 shows the NOx15 emissions reduction while 
+varying secondary air (linear approximation) vs the reduction 
+estimated using the NOx design curve. Typically, the problem 
+under investigation is initiated when an existing combustion 
+system needs to be improved. The existing system is 
+characterized by what is called the NOx design curve. This curve 
+is the black curve shown in Figure 6 and corresponds to 14% 
+secondary air. This curve can be used to estimate the NOx 
+reduction as a function of secondary air reduction since this air 
+will represent an increase in the mixer air and hence a decrease 
+in the flame temperature. For the problem under investigation, 
+we have already measured the actual reduction in NOx 
+emissions.  Both curves are plotted in Figure 10 and shows a 
+comparison between the NOx reduction estimated from the NOx 
+design curve and the actual reduction from measured data.  At 
+the higher temperature range (more than 1800K where the linear 
+approximation is accurate) the estimate using the NOx design 
+curve over estimates the benefit of reducing the secondary air by 
+~50%. This sheds light on the importance of evaluating the 
+system performance experimentally before introduction to the 
+engine to quantify the actual benefit in NOx emissions with 
+reduction in cooling air.  Our data suggests a 50 % correction 
+factor should be applied to the prediction from the NOx design 
+curve. The problem appears to be straight forward and may not 
+call for extensive testing and validation since the hardware is 
+essentially the same and will be fired at a lower flame 
+temperature. However, it is evident that the interaction between 
+both flows is strong and will have a significant impact on the 
+emissions. 
+Figure 11 shows the impact of reducing the secondary 
+air on CO emissions. It appears there is minimal impact at high 
+flame temperatures. CO in this region of the curve is mainly due 
+to CO2 dissociation. However, at lower temperatures, the CO 
+emissions is reduced with a reduction in secondary air. This 
+agrees well with the understanding that CO in this portion of the 
+curve is mainly generated due to a quenching mechanism. This 
+highlights the fact that manipulating secondary air can lead to 
+improvements in both NOx and CO emissions. Typically, when 
+one of these species increases the other is decreased. The reason 
+
+
+--- Page 9 ---
+
+ 
+ 
+ 
+9 
+ 
+ 
+the CO improves at the low secondary air flows is due to the 
+reduction of flame quenching. In other words, the reduction of 
+secondary cooling air results in a reduction of the flame 
+temperature needed to achieve the same combustor exit 
+temperature. Also, the quenching air (the cooling air) was 
+reduced. There are two competing effects and quantifying this is 
+not straight forward. The quenching effect is dependent on flame 
+flow interaction. To the authors knowledge, very limited success 
+has been attained in capturing this through modelling techniques. 
+The only possible accurate quantification method available today 
+is to run the test and measure the impact. NOx is much better 
+from a modeling perspective than CO.  
+ 
+ 
+ 
+Figure 9. Percentage NOx reduction vs Tflame corresponding 
+to secondary air percentage reduction 
+ 
+ 
+Figure 10. NOx reduction vs Tflame corresponding to 1 
+percent reduction in secondary air.  
+ 
+ 
+Figure 11. Impact of secondary air reduction on CO emissions 
+4.2 Extent of interaction between secondary air and 
+the main flame and impact on acoustics 
+The interaction between the secondary air and the mixer 
+air is driving the behavior reported in this study. The 
+thermocouples placed on the dome as well as the emissions rakes 
+at the exit can help identify the extent of interaction. This section 
+is only focused on understanding the extent of interaction 
+between the main and the variable portion of the secondary air. 
+Therefore, the data presented here is given at the same TFlame 
+and not the same TExit (the exit combustor temperature is not 
+fixed, but the flame temperature is fixed and the only variable is 
+the secondary air). This is important because the flame is the 
+main source of heat to the heat shield and we will be using the 
+thermocouples response to identify the extent of upstream 
+interaction.  
+ Figure 12 shows a plot of the variation of the dome heat 
+shield temperature as the secondary air is being increased while 
+holding the flame temperature constant. The four TC’s shown 
+here are located as described previously in Figure 4. The data 
+shows that the secondary air major influence happens in the first 
+quadrant and fades away as the middle plane of the combustor is 
+reached. The interesting observation is the air is injected 25% 
+downstream the dome structure, but it is circulated back to the 
+dome by the main flow and the temperature drops as more air is 
+being introduced. This behavior is because of the flow 
+recirculation in the combustor. It appears that the interaction 
+between the secondary air and the mixer flows influences the 
+temperature distribution along the whole length of the combustor 
+and not only downstream from the injection point. 
+Figure 13 shows the combustor exit profile at a fixed 
+flame temperature and while the secondary air is increased 6% 
+(from 8% to 14%). Again, we are only focusing on the extent of 
+interaction. It is evident that the secondary flow continues to 
+interact along the combustor length and the interaction grows as 
+the flow proceeds toward the exit. The growth occurs slightly 
+
+
+--- Page 10 ---
+
+ 
+ 
+ 
+10 
+ 
+ 
+beyond the mid plane of the combustor as indicated by the 
+change in the emissions profile.   
+With this level of interaction of the secondary air with 
+the main flame, it is important to study the impact on thermo 
+acoustic instabilities. Marosky et. al discussed that the 
+interaction between the panel air (similar to dome air in this 
+study) and the main flow causes equivalence ratio fluctuations 
+which may induce thermo-acoustic instabilities [12]. However, 
+they did not run the test to confirm. Also, the flow field and 
+physics of the combustion system is highly nonlinear such that 
+no universal response dominates. If the question is will 
+secondary cooling air cause thermo-acoustic instabilities? The 
+right answer is it depends on what the secondary air is causing. 
+Let us discuss what happened in this combustion system under 
+investigation. 
+Figures 14 and 15 show the impact of secondary air 
+variation on the low-frequency (up to 1000Hz) and high-
+frequency dynamics (1000-6000 Hz), respectively. The curves 
+are plotted vs the same combustor exit temperature since the 
+target of the curve is to show the impact of the redesign on 
+dynamics levels. The high-frequency dynamics did not change. 
+The low-frequency dynamics changed slightly for high levels of 
+secondary flow. The change did not impact overall operability 
+because the oscillations levels are small and not detrimental to 
+performance. However, the change in low-frequency dynamics 
+content is notable. At 1750K there is no change in the acoustics 
+signature with varying secondary air. At higher temperatures the 
+amplitude increased and at lower flame temperatures the 
+amplitude decreased. It appears that the increase in flame 
+temperature that is associated with the increase in secondary air 
+drives more oscillations at the high side and more stable flame at 
+the low side. The neutral point for this system is at 1750K.  
+ 
+ 
+ 
+Figure 12. Impact of secondary air percentage increase on 
+dome and heat shield temperature 
+ 
+ 
+Figure 13. Impact of secondary air percentage increase on 
+combustor exit NOx profile 
+ 
+ 
+ 
+Figure 14. Impact of secondary air percentage variation on low 
+frequency dynamics.  
+ 
+Figure 15. Impact of secondary air percentage variation on 
+high frequency dynamics.  
+
+
+--- Page 11 ---
+
+ 
+ 
+ 
+11 
+ 
+ 
+4.3 Utilizing the secondary air to achieve emissions 
+reduction rather than imposing a penalty 
+In the previous sections it was shown that the reduction of 
+the secondary air results in reduced NOx emissions. Also, for 
+increased secondary flow (due to an increase in cooling 
+requirements, for example) then there is a NOx penalty. In this 
+section we will show that by appropriate handling of the cooling 
+air distribution, one can reduce NOx emissions under some 
+operating conditions. 
+Most 
+combustion 
+systems 
+use 
+flame 
+temperature 
+nonuniformity to suppress thermo-acoustic instabilities. Hence, 
+some flames run hotter than others and we refer to this as mixer 
+flame temperature bias. As we discussed previously, the overall 
+air and fuel in the engine will not change at a specific load, but 
+the bias can be large (up to hundreds of degrees).  
+This bias is illustrated in Figure 16. The figure shows the 
+simple combustion system under investigation running in two 
+modes based on mixer fuel flow bias. The first mode is 
+essentially a mode where the burners are sent the same amount 
+of fuel and hence, they have the same target flame temperature. 
+In this case the target flame temperature is 1930K and the exit 
+temperature is 1777K. The front portion of the combustor is 
+referred to as the head-end. The combined air and fuel flowing 
+through the mixer is summed together to provide a head-end 
+temperature. Therefore, the first mode corresponds to a head-end 
+temperature that is the same as each mixer flame temperature. 
+Mode 2 corresponds to a bias in the mixer flame temperature. If 
+we set one burner at 1875K then the second one must be 1986K 
+to maintain the same head end temperature and consequently the 
+same combustor exit temperature. This is a bias of 111K between 
+both burners. Another way to look at this, is that there is a certain 
+budget for the fuel and it can be divided any way among the 
+mixers as long as operation is possible and emissions are 
+acceptable. 
+Figure 17 shows the emissions variation for the two modes 
+of operation. This is repeated two more times at 3 % (11 %) and 
+zero variable secondary air (8%). The curve is only to be used to 
+compare the two points at the same secondary air fraction. Close 
+to zero secondary flow, it is apparent that the emissions with 
+flame bias is higher than the emissions with the uniform flames. 
+This can be explained by NOx production being an exponential 
+function of temperature. Hence, the increase in temperature on 
+one side due to the bias will result in a NOx penalty.  
+On the other hand, the 6% case shown in Figure 17 shows 
+that NOx reduction can be achieved by releasing the secondary 
+air at the hot portion of the flame. This is illustrated in Figure 16 
+for the non-uniform flame mode. The implication of this to the 
+combustor designer is that the release of the secondary or cooling 
+air close to the hot flames will improve the system emissions and 
+can be used to reduce NOx emissions. Therefore, the system can 
+be designed intelligently with the knowledge of the expected 
+flame bias and the proper handling of the secondary air.  The 
+specific example shown here shows how the same combustion 
+system emissions can be reduced from 9.25 ppm to 8.25 ppm just 
+by handling the secondary air intelligently and without a penalty 
+on acoustics. This is a transition of the same exact system from 
+a low NOx to ultralow NOx system (ultra-low NOx stands for 
+combustion systems running at < 9 ppm). The release of the 
+cooing air close to the front end and deeper into the flame will 
+always help NOx emissions. 
+Figure 18 can be used to better explain why this reduction is 
+achieved. The figure shows the NOx emissions profile at the 
+combustor exit with a 111K temperature bias with and without 
+6% secondary cooling air. The blue upper curve shows that most 
+NOx generation is occurring at the right-hand side burner which 
+is running 111K hotter than the left-hand side burner (this is aft 
+looking forward as shown in Figure 4. One burner is on the left-
+hand side and the other is on the right-hand side).  Discharging 
+6% of the secondary air at this specific spot will bring the NOx 
+emissions down because this is the hot spot where the NOx is 
+generated. This curve is not at the same combustor exit 
+temperature. It is at the same flame temperature. It is just being 
+used here for illustrations and magnification of the phenomenon 
+under discussion. Figure 17 shows the two points compared at 
+the same exit temperature (the two points all the way to the right) 
+with and without the temperature bias.  
+ 
+Figure 16. Illustration of the bias in individual mixers flame 
+temperature while maintaining the same combustor exit 
+temperature at 6% secondary air injection.  
+ 
+ 
+Figure 17. Impact of the secondary air on emissions in the 
+presence of burner flame temperature bias  
+     
+
+
+--- Page 12 ---
+
+ 
+ 
+ 
+12 
+ 
+ 
+ 
+Figure 18. Impact of the secondary air on emissions in the 
+presence of burner flame temperature bias  
+5     CONCLUSIONS 
+Cooling air and secondary flow interacts with the main mixer 
+flows and this interaction was shown to impact both NOx and 
+CO. Decreasing secondary air was shown to yield a NOx and CO 
+benefit. The point of admission or release of the secondary air 
+and the method will dictate the amount of saving. In this 
+combustion system under investigation, the reduction of NOx 
+measured per percent reduction in secondary air is about 7%. The 
+variation is a function of the temperature, but this value provides 
+an approximate level. Estimating the NOx benefit using the NOx 
+design curve yields an estimate that is 2x higher than what is 
+achievable in this case. If there was no interaction between the 
+secondary air and the main air then the NOx reduction will 
+follow the estimate from the NOx design curve. In other words, 
+in this study, the secondary air was already quenching the flame 
+and reducing NOx. The decrease in NOx associated with the 
+decrease in secondary air appears to be linear at least within the 
+boundaries of this study (14-8 % roughly in this study). The 
+linear approximation is valid in the high temperature range 
+which is typically the area of concern regarding NOx. There was 
+limited impact on operability manifested in little to no impact on 
+acoustics signature. The data shows that the interaction was not 
+only from the injection point to the downstream portion, but the 
+flow was carried to the dome structure through main flow 
+recirculation. If the combustor is operating with a temperature 
+bias, then the NOx can be improved by discharging the 
+secondary air close to the hot flame.   It was demonstrated that 
+the combustion system emissions can be reduced by directing the 
+interaction between the secondary flow toward the hot portion of 
+the flame. The results of this study are system dependent and it 
+would be expected that some of the interactions between 
+secondary air and the main combustion flows would vary among 
+different combustor geometries. Nevertheless, the trends 
+observed are expected to be similar for other configurations. 
+6     REFRENCES 
+ 
+[1] Leonard, G., and Correa, S., "NOx Formation in Premixed 
+High-Pressure Lean Methane Flames," Proc. Fossil Fuel 
+Combustion 
+Symposium: 
+13th 
+Annual 
+Energy-Sources 
+Technology Conference and Exhibition, pp. 69-74. 
+[2] Elkady, A. M., Herbon, J., Kalitan, D. M., Leonard, G., 
+Akula, R., Karim, H., and Hadley, M., 2012, "Gas Turbine 
+Emission Characteristics in Perfectly Premixed Combustion," 
+Journal of Engineering for Gas Turbines and Power, 134(6). 
+[3] Mohammad, B. S., Balasubramanyam, P., McManus, K., 
+Ruszczyk, J., Elkady, A. M., and Mueller, M. A., "Combustion 
+Dynamics Diagnostics and Mitigation on a Prototype Gas 
+Turbine Combustor," Proc. ASME Turbo Expo 2012: Turbine 
+Technical Conference and Exposition, pp. 383-389. 
+[4] Elkady, A. M., Brand, A. R., Vandervort, C. L., and Evulet, 
+A. T., "Exhaust Gas Recirculation Performance in Dry Low 
+Emissions Combustors," Proc. ASME 2011 Turbo Expo: Turbine 
+Technical Conference and Exposition, American Society of 
+Mechanical Engineers, pp. 1183-1192. 
+[5] Graham, G., Zhuyin, R., Hendrik, F., Liuyan, L., Venkat, T., 
+and Hasan, K., "Modeling CO With Flamelet-Generated 
+Manifolds: Part 2 — Application," Proc. ASME Turbo Expo 
+2012: Turbine Technical Conference and Exposition, American 
+Society of Mechanical Engineers, pp. 1177-1184. 
+[6] Karim, G. G., Zhuyin, R., Hendrik, F., Liuyan, L., Venkat, T., 
+and Hasan, "Modeling CO With Flamelet-Generated Manifolds: 
+Part 1—Flamelet Configuration," Proc. ASME Turbo Expo 
+2012: Turbine Technical Conference and Exposition, American 
+Society of Mechanical Engineers, pp. 1141-1151. 
+[7] Bhargava, A., Kendrick, D. W., Colket, M. B., Sowa, W. A., 
+Casleton, K. H., and Maloney, D. J., "Pressure Effect on NOx 
+and CO Emissions in Industrial Gas Turbines," Proc. ASME 
+Turbo Expo 2000: Power for Land, Sea, and AirV002T02A017. 
+[8] Rutar, T., and Malte, P. C., 2002, "NOx Formation in High-
+Pressure Jet-Stirred Reactors With Significance to Lean-
+Premixed Combustion Turbines," Journal of Engineering for Gas 
+Turbines and Power, 124(4), p. 776. 
+[9] Biagioli, F., and Guthe, F., 2007, "Effect of pressure and fuel–
+air unmixedness on NOx emissions from industrial gas turbine 
+burners," Combustion and Flame, 151(1-2), pp. 274-288. 
+[10] Rutar, T., Horning, D. C., Lee, J. C. Y., and Malte, P. C., 
+"NOx Dependency on Residence Time and Inlet Temperature for 
+Lean-Premixed Combustion in Jet-Stirred Reactors," Proc. 
+ASME 1998 International Gas Turbine and Aeroengine 
+Congress and ExhibitionV003T06A036. 
+[11] Therkelsen, P., Werts, T., McDonell, V., and Samuelsen, S., 
+2009, "Analysis of NOx Formation in a Hydrogen-Fueled Gas 
+Turbine Engine," Journal of Engineering for Gas Turbines and 
+Power, 131(3). 
+[12] Marosky, A., Seidel, V., Bless, S., Sattelmayer, T., and 
+Magni, F., 2012, "Impact of Cooling Air Injection on the Primary 
+Combustion Zone of a Swirl Burner," Journal of Engineering for 
+Gas Turbines and Power, 134(12). 
+[13] 
+Agency, 
+E. 
+P., 
+"Method 
+7e," 
+https://www.epa.gov/sites/production/files/2017-
+08/documents/method_7e.pdf. 
+ 

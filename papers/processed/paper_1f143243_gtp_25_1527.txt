@@ -1,0 +1,676 @@
+
+--- Page 1 ---
+
+Renee Cole1
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332   
+e-mail: rcole36@gatech.edu
+Cristian D. Avila Jimenez
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: cristianavila1990@gmail.com
+David R. Noble
+Electric Power Research Institute (EPRI),  
+Charlotte, NC 28262  
+e-mail: bnoble@epri.com
+Robert Steele
+Electric Power Research Institute (EPRI),  
+Charlotte, NC 28262  
+e-mail: rcsteele4@hotmail.com
+David Wu
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: dwu9@gatech.edu
+Ben Emerson1
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: bemerson@gatech.edu
+Tim Lieuwen
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: tim.lieuwen@gatech.edu
+Toward the Development  
+of an RRQL System—Part I:  
+Swirl Pattern Effect on  
+Exhaust Emissions and 
+Chemiluminescence Distribution 
+for NH3–Air Premixed Swirl 
+Flames
+Ammonia (NH3) is a carbon–free energy source and hydrogen carrier, but its fuel–bound 
+nitrogen can lead to significant nitrogen oxides (NOx) emissions. Staged combustion 
+strategies, such as rich–quench–lean, can achieve low NOx emissions. However, improper 
+design may result in high NOx levels when operating with a rich head end without a sufficient 
+post–flame relaxation time. Previous work has shown that a rich–relaxation–quench–lean 
+(RRQL) configuration can minimize NOx emissions in the rich head end (Cole et al., 2024, 
+“Rich Ammonia Flame Shapes and NO Relaxation: Facility Development and Character­
+ization,” ASME Paper No. GT2024–122369). This study focuses on how different swirl 
+geometries affect exhaust emissions and flame morphology in rich, premixed NH3–air 
+flames, for the design of a rich relaxation head end of an RRQL combustor. Experiments were 
+conducted using a modular swirl burner and measuring NOx, N2O, and NH3 emissions, and 
+recording natural flame luminosity and NH2* and OH* chemiluminescence images. Swirler 
+design affects emissions by influencing flame length (with shorter flames allowing for more 
+postflame relaxation time) and flame–wall interactions (influencing NH3 and N2O 
+emissions). A compact flame with minimal wall interactions allows for increased NOx 
+relaxation, while minimal wall interactions prevent heat losses and instabilities, which 
+minimize NH3 and N2O emissions at a richer equivalence ratio, potentially enhancing H2 
+production during the relaxation phase without increasing overall primary stage NOx 
+emissions, thereby improving system efficiency. Detailed spatial evolution of NOx, N2O, and 
+NH3 emissions further supports the RRQL as a promising combustor design for NH3 
+combustion, if the rich head end is designed properly. [DOI: 10.1115/1.4069796] 
+1 Introduction
+Ammonia (NH3) is gaining interest as a potential noncarbon 
+containing energy source to contribute to decarbonizing the energy 
+sector [1–3]. Its well–established production, storage, and distribu­
+tion infrastructure—largely driven by applications in fertilization 
+and refrigeration—positions it as a feasible alternative to fossil 
+fuels. However, NH3 combustion presents significant challenges, 
+including flame stability and emissions control. The slow flame 
+speeds, low reactivity, and narrow flammability limits lead to 
+stability and operability concerns. From an emissions perspective, 
+the additional fuel–bound nitrogen oxides (NOx) penalty, NH3 slip, 
+and nitrous oxide (N2O) emissions lead to environmental impact 
+concerns. Different combustion schemes, including fuel blends, 
+high swirl stabilization, and staged combustion strategies, among 
+others, have been proposed by researchers as potential avenues to 
+mitigate the reactivity and emissions challenges with NH3 [4–6].
+Chemiluminescence studies for NH3–air flames can map radical 
+intensities with flame shapes and may potentially be correlated with 
+emissions trends in a reaction zone in a non–invasive manner. For 
+example, chemiluminescence studies have shown that N2O and NO 
+emissions have been correlated with NH2 radicals [7]. NH2 is a key 
+species in NOx formation and reduction through HNO reactions, as 
+well as NH3 oxidation through NHi pathways [8,9]. Additionally, 
+OH* is known to accelerate NH3  decomposition, and NOx 
+1Corresponding authors.
+Manuscript received August 15, 2025; final manuscript received September 2, 2025; 
+published online December 22, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2026, Vol. 148 / 071002-1 
+Copyright V
+C 2026 by ASME; reuse license CC-BY 4.0
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 2 ---
+
+formation in the flame zone is sensitive to OH* production [10], and 
+Zhu et al. found that OH* intensity correlates with peak NO fractions 
+for NH3–H2 blends [11].
+Researchers at Cardiff University have extensively examined 
+NH3–H2 and NH3–CH4 blends at ratios that yield comparable flame 
+speeds to typical hydrocarbons. Pugh et al. studied single–stage 
+swirling NH3–H2–air flames and found operability limits narrower 
+than other fuels but with relatively good flame stability [5,12]. From 
+an emissions perspective, they reported that rich equivalence ratios 
+produced minimal NOx levels and high NH3 slip, and NH
+2 
+chemiluminescence was observed to peak at similar conditions. 
+Additionally, N2O emissions rose in extreme lean cases, whereas 
+NH* and OH* were found to peak closer to stoichiometric lean 
+cases.
+Hayakawa et al. also extensively studied swirling NH3–air flames 
+[13]. The increased swirl intensity enhanced reactant mixing but led 
+to higher NOx emissions, which were attributed to higher flame 
+temperatures. NOx emissions were minimized when NH* would 
+peak under rich conditions. In contrast, OH* exhibited a maximum, 
+and NOx levels were elevated under lean conditions.
+Wang et al. studied how residence time and swirl intensity affect 
+NOx emissions in premixed NH3–CH4–air swirling flames using a 
+bespoke single–stage swirl burner at elevated pressures [14]. 
+Increasing residence time, either by extending the combustion 
+chamber or enhancing swirl, was found to advance chemical 
+reactions and reduce NO2 and N2O emissions, with swirl showing 
+greater efficiency in lowering NOx than increasing combustor 
+length. However, increased swirl can slightly decrease combustion 
+efficiency, as evidenced by increased CO under certain conditions. 
+These findings provide insight into optimizing flame configurations 
+to minimize NOx emissions without compromising performance and 
+disagree with findings from Hayakawa et al. [13].
+Cole et al. recently introduced the rich–relaxation–quench–lean 
+(RRQL) strategy to minimize NOx emissions [15]. The relaxation 
+stage takes advantage of relatively low equilibrium NOx emissions 
+produced from rich NH3–air flames and utilizes long residence times 
+and elevated pressures to kinetically relax NOx emissions toward 
+equilibrium values [4]. The RRQL experimental facility demon­
+strated NOx relaxation in the primary stage, which consisted of a 
+swirling NH3–air flame in a modular swirl burner. A preliminary 
+study of the effect of swirl number (Sg) on flame stability and shape 
+is presented; however, the effect of swirl geometry on emissions was 
+left for future studies. Several new 3D–printed modular swirlers 
+were studied, examining the effects of Sg, number of vanes, and vane 
+shape on flame morphology, NH
+2 and OH* radical distribution, and 
+averaged emissions at a single residence time. Finally, detailed axial 
+and radially resolved emissions are compared between the standard 
+swirler design [15] and the best performing swirler geometry.
+2 Materials and Methods
+2.1 Burner and Conditions. Experiments were conducted 
+with a lab–scale modular burner, shown in Fig. 1. The burner 
+consists of a modular swirler, and the swirler center body houses a 
+hydrogen torch and spark ignitor which is used only to ignite the 
+NH3–air mixture. This burner simulates the rich and relaxation 
+sections of an RRQL NH3 combustor, and the reader can refer to Ref. 
+[15] for further details. The burner is built to accommodate 
+additional upgrades for pressurized lean stage combustion after 
+the rich burn and relaxation stages. It has also been designed to 
+accommodate a modular and interchangeable swirler, which is 
+3D–printed stainless steel with diverse geometric swirl numbers (Sg) 
+and swirler geometries. They are each either axial curved or straight 
+Fig. 1 Burner schematic with diagnostics 
+071002-2 / Vol. 148, JULY 2026                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 3 ---
+
+vane swirlers, and Sg is calculated using Eq. (1)[16] for curved vanes 
+and Eq. (2) [16] for flat vanes. 
+Sg ¼
+1
+1 −u  1
+2 
+1 −
+Dhub
+Dsw
+
+4
+1 −
+Dhub
+Dsw
+
+2 tanh; u ¼
+Nvanestvane
+2pRhubcosh
+(1)   
+Sg ¼ 2
+3 
+1 −
+Dhub
+Dsw
+
+3
+1 −
+Dhub
+Dsw
+
+2 tanh
+(2)  
+Table 1 shows that the five different swirlers were tested with 
+various Sg and different numbers of vanes (8, 12, 16). Due to the 
+change in effective area, the thermal power has been slightly 
+adjusted between 0.75 and 0.85 kW to keep a constant nozzle 
+velocity (U0) of 0.90 m/s. The nozzle velocity is calculated by 
+considering mass continuity of the air–fuel mixture across the 
+effective area of the swirler, and the swirler effective area is 
+calculated to account for swirler vane blockage. Swirlers are named 
+for their Sg (0.7 or 1.1), geometry of the vanes (straight or curved), 
+and number of vanes, e.g., Sg0.7–S16 corresponds to a swirler with 
+Sg ¼ 0.7 and 16 straight vanes.
+The combustor liner consists of a 33 cm long quartz tube with a 
+5.02 cm inner diameter that fits concentrically onto the burner and 
+seals with an O–ring. The length from the dump plane to the top of 
+the quartz is 26.5 cm. There is a blockage plate on the top of the 
+quartz to prevent backflow or interactions with outside air. The long 
+quartz tube is meant to allow NOx emissions to relax toward 
+equilibrium with residence times around 100 ms post–flame for a 
+5 cm flame, depending on the nozzle velocity and expansion ratio. 
+As shown in Ref. [4], these values should enable the capture of the 
+first order of magnitude NO relaxation at 1 bar and nearly the full 
+approach to equilibrium at 10 bar.
+Equivalence ratios (/) and the nozzle velocity are calculated in 
+real–time using the mass flow ratios for the fuel and air circuits. The 
+mass flow rates are metered using manual and electronic pressure 
+regulators to control upstream pressures through critical orifices. An 
+upstream pressure transducer and thermocouple in combination 
+with a downstream pressure transducer allow the operator to ensure 
+sonic flow for effective metering. An additional thermocouple is 
+located upstream of the swirler to track the reactant temperature. The 
+air and fuel flow control setup described leads to an accuracy better 
+than 1% for the /. The nozzle velocity is defined using the reactant 
+density, effective nozzle area, and reactant mass flow. The Reynolds 
+number at the nozzle exit varies between 10,000 and 18,000, and it is 
+most sensitive to nozzle velocity and varies only marginally with 
+equivalence ratio due to similarities in kinematic viscosity for air 
+and NH3.
+2.2 Exhaust Emissions. Emissions data are collected using a 
+California Analytical Instruments 700 LX Series non–dispersive 
+infrared (NDIR) O2 Analyzer for O2 and 700 Fourier–transform 
+infrared spectroscopy (FTIR) multigas analyzer with NO, NH3, and 
+N2O measurement capabilities (Orange, CA). The emissions sample 
+line between the probe and analyzer is heated to 150 C. Exhaust 
+emissions were normalized by the standard of 15% dry O2 [17]. A 
+single–point quartz emissions probe was used for all emissions 
+measurements. For the average emissions comparison, as shown in 
+Sec. 3.3, the three radial points are area averaged. For a more 
+detailed investigation of NOx relaxation, the emissions are resolved 
+radially at three positions: centerline, midway between the wall and 
+centerline, and a near–wall point, for seven axial locations spanning 
+from the flame brush, determined by the NH
+2 chemiluminescence 
+isocontour, to 7.6 cm downstream from the flame brush. As shown in 
+Fig. 1, a clear fused quartz sampling probe with a long tapered end 
+(1.5 mm diameter) was implemented to withdraw gas samples both 
+at and downstream from the flame brush, and the reader is referred to 
+Table 1 Definition and parameter of several swirlers tested 
+Tag
+Sg 
+No. of vanes 
+Vane type 
+Vane angle (deg)
+Effective area (m2)
+Sg0.7–S16
+0.7
+16
+Straight
+43.25
+6.7  10−4
+Sg1.1–C8
+1.1
+8
+Curved
+45.18
+8.8  10−4
+Sg1.1–C12
+1.1
+12
+Curved
+35.90
+7.8  10−4
+Sg1.1–S12
+1.1
+12
+Straight
+55.95
+7.8  10−4
+Sg1.1–S16
+1.1
+16
+Straight
+55.95
+6.7  10−4
+Fig. 2 DSLR flame images for test matrix of modular swirler 
+geometries for various /
+Table 2 Experimental matrix 
+Parameter
+Value
+Equivalence ratio (/)
+1.05/1.10/1.13/1.15/1.18
+Nozzle velocity (U0)
+0.90 m/s
+Geometric swirl (Sg)
+0.7/1.1
+Inlet temperature
+298 K
+Inlet pressure
+0.101 MPa
+Ammonia mole fraction (XNH3)
+1.0
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2026, Vol. 148 / 071002-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 4 ---
+
+Ref. [18] for additional information about the sampling probe 
+design. A condenser is located downstream from the probe and 
+upstream from the emissions bench, which hosts the FTIR and NDIR 
+modules. The condenser dries the sample to protect the analyzers 
+and prevent any interference with the FTIR spectra. The authors 
+acknowledge that NH3 can be absorbed by water, and sensitivity 
+studies were conducted to show that less than 100 ppm of NH3 may 
+be absorbed by the water in the condenser. In addition, the sample is 
+kept at 150 C to avoid water condensation inside the line and 
+equipment.
+2.3 Flame Imaging. Time–averaged broadband flame images 
+were recorded with a digital single-lens reflex (DSLR) camera with 
+an exposure time of 1/4 s, an aperture of f/16, and an ISO number of 
+800. White balance was kept constant at 4000 K throughout the 
+experimental campaign. Chemiluminescence images were recorded 
+with a high–speed, intensified camera (FASTCAM (Tokyo, Japan) 
+SA–X2/HiCATT intensifier) fitted with a UV lens (CERCOV
+R 
+(Concord, CA), 2178, f ¼ 150 mm, f/2.8). A 20 nm bandpass filter 
+centered at 308 nm (Invisible Vision) was used for OH*, and a 10 nm 
+bandpass filter centered at 633 nm (Andover Corp., Salem, NH, 
+633FS10-50) was used for NH
+2. It is acknowledged that several 
+species may emit in this range, such as H2O*, NO
+2, and NH
+2 [19,20]. 
+The PHOTRON FASTCAM software is used to record 300 frames for each 
+data condition at 500 fps, which were then background subtracted, 
+temporally averaged, and inverse Abel–transformed during post­
+processing to map flame shapes across the swirlers under the varying 
+swirlers and equivalence ratios listed in Table 2.
+3 Results and Discussion
+3.1 Flame Appearance. Figure 2 shows the time–averaged 
+broadband flame images as a function of the / for all the swirlers 
+tested. In general, the flames present the typical V–shaped 
+morphology of a swirling flame, and the flame length increases as 
+a function of the /. The Sg1.1–C8 swirler (first row) produces a 
+compact flame with lobe–like structures when the flow interacts with 
+the combustor liner walls. Generally, compact flames are desirable 
+due to their increased NOx relaxation zones for a fixed geometry. 
+However, in a preliminary study, flame instabilities and oppor­
+tunities for improved emissions production [15] were found for this 
+specific swirler. These lobes decrease by increasing the number of 
+vanes (Sg1.1–C12), but they are still present. Using a swirler with 
+straight (flat) vanes sharpens the lobe—like structures but produces 
+a slightly more elongated flame (Sg1.1–S12). Increasing the number 
+of vanes to 16 (Sg0.7–S16) produces a compact flame, and minor 
+differences can be spotted for the two swirl numbers Sg0.7–S16 and 
+Fig. 3 Mean normalized OH* (left) and NH
+2 (right) as a function of 
+equivalence ratio (left to right) and swirler (top to bottom)
+Fig. 4 Inverse Abel–transformed OH* (left) and NH
+2 (right) as a 
+function of equivalence ratio (left to right) and swirler (top to 
+bottom)
+071002-4 / Vol. 148, JULY 2026                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 5 ---
+
+Sg1.1–S16, which produce flames with minor flame to wall 
+interaction. Increased flame to wall interaction was found to 
+increase flame sensitivity to quartz–burner alignment and triggered 
+an intermittent precessing outer recirculation zone kernel which 
+leads to increased NH3 emissions.
+3.2 Flame Chemiluminescence. Figure 3 presents the mean 
+normalized OH* (left panel) and NH
+2 (right panel) as a function of / 
+for all the swirlers tested. OH* is a marker for high temperature 
+reaction zones, while NH
+2 is associated with NH3 decomposition 
+and intermediate reactions. All the flames are inner shear layer 
+stabilized in the inner recirculation zone; however, increasing / 
+changes the spatial distribution and intensity of OH* and NH
+2 [21]. 
+At lean conditions, both radical concentrations increase across the 
+flame surface and concentrations in regions near the edges, where 
+the flame would interact with the quartz wall. Changing swirler 
+geometry also captures radical concentrations throughout the visible 
+flame geometry.
+Figure 4 presents the normalized inverse Abel–transformed OH* 
+(left panel) and NH
+2 (right panel) as a function of / for all the 
+swirlers tested. The Abel–transformed images show increasing 
+radical concentration with / across the different swirler geometries. 
+Notably, geometries Sg1.1–C8, Sg1.1–C12, and Sg1.1–S12 show a 
+double walled structure which is an artifact of the lobes of the 
+swirler.
+Figure 5 presents isocontours for inverse Abel–transformed OH* 
+(black lines) and NH
+2 (gray lines) as a function of / for all the 
+swirlers tested. The solid lines represent isocontours of 40% 
+maximum intensity, and the dashed lines represent isocontours of 
+90% intensity. Overall, the NH
+2 radicals are primarily observed on 
+the outer side of the flame front, beginning at the swirler outlet and 
+extending downstream. Looking at the 40% intensity isocontour, as 
+/ increases, the NH
+2 profile becomes more pronounced and lifts 
+slightly, indicating a delayed stabilization of the flame in richer 
+mixtures. Additionally, the length of the NH
+2 zone grows with 
+increasing /, signifying enhanced radical production in the preheat 
+zone. In contrast, OH* radicals are concentrated on the inner side of 
+the flame front and are typically lifted, reflecting their association 
+with higher temperature regions closer to the flame core. 
+Furthermore, when analyzing the 90% isocontour line, the relative 
+locations of NH
+2 and OH* are consistent, where OH* is typically 
+lifted on the inner edge of the flame.
+Generally, with increasing /, the length of the radical isocontour 
+decreases, which is particularly apparent for the swirl geometries 
+with a visible lobe structure (Sg1.1–C8, Sg1.1–C12, and Sg1.1–S12). 
+Furthermore, these swirl geometries with lobe structure present in 
+the flame brush have a smaller area in the 90% isocontour for both 
+radical distributions as opposed to the swirlers, which produce a 
+more traditional inner recirculation zone flame shape (Sg1.1–S16, 
+Sg0.7–S16). The key takeaway in terms of swirler geometry 
+performance from the chemiluminescence images is the interaction 
+of the lobe structures with the quartz liner. Regions of high OH* 
+intensity, such as the 90% OH* isocontour, are located closer to the 
+quartz liner, which can cause dramatic effects on NOx relaxation, 
+NH3 cracking, and N2O emissions produced due to cold liner walls.
+Fig. 5 Isocontours for 40% (solid lines) and 90% (dashed lines) 
+intensity of inverse Abel–transformed OH* (black dashed line) 
+and NH
+2 (gray line) images as a function of equivalence ratio and 
+swirler
+Fig. 6 NOx, N2O, and NH3 concentration in the flue gases as a 
+function of the equivalence ratio. Zoom in to show the sweet spot 
+for low NOx and NH3 concentration.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2026, Vol. 148 / 071002-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 6 ---
+
+3.3 Exhaust Emissions. Figure 6 shows the concentration of 
+NOx, NH3, and N2O at 7.6 cm downstream from the flame, or 
+80 ms from the flame brush, as a function of / for all the swirlers 
+tested. It is observed that in general NOx decreases while N2O and 
+NH3 increase as a function of /, trends that are well known in 
+literature [10]. To better observe the impact of the swirler geometry 
+on the optimal / (minimum NOx–NH3 tradeoff), a zoomed-in plot is 
+also shown in Fig. 6 (bottom panel). It can be seen that Sg1.1–C8 has 
+its sweet spot at a leaner / (see circle solid dot) at approximately 
+1.11. This optimal spot shifts toward richer / (see red arrow) by 
+increasing the number of vanes. The vane shape, curved versus 
+straight, causes a slight shift in the optimal / toward the rich end, 
+which can be compared with the Sg1.1–C12 and Sg1.1–S12 
+geometries. Furthermore, increasing Sg also causes a slight shift in 
+the optimal / toward the rich end, which can be compared with the 
+Sg1.1–S16 and Sg0.7–S16 geometries. However, this shift is within 
+the average error in /. Although not demonstrated within this test 
+matrix, the Sg will affect flame stability and decrease the stable 
+operability limits. Increasing the number of vanes to 16 in the 
+Sg1.1–S16 produced the lowest NOx emissions at the richest sweet 
+spot of 1.13 (see diamond solid dot) which could produce more H2 
+for the second stage.
+Generally, with improved flame shape and decreased liner 
+interaction caused by slight modifications in swirler geometry 
+such as the number of vanes and the vane geometry, the optimal / 
+shifts to richer equivalence ratios. The flame shape and peak OH* 
+concentrations show that with increased heat losses to liner walls, at 
+the same / NH3 and N2O emissions double. NOx emissions see a 
+slight improvement due to the increased NH3 slip, meaning that all 
+the fuel–bound N2 is not being released in the primary stage. 
+Fig. 7 NOx, N2O, and NH3 emissions at 15% dry O2 corrected for Sg1.1–S16 (top) and 
+Sg1.1–C8 (bottom) at / 5 1.13
+071002-6 / Vol. 148, JULY 2026                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 7 ---
+
+However, in a staged combustion architecture, such as RRQL, the 
+NOx emissions in the second stage would be expected to spike 
+significantly due to the increased NH3 slip, and NOx emissions 
+would not have the opportunity to relax toward equilibrium values.
+3.4 NOx Relaxation. NOx, NH3, and N2O emissions were 
+recorded for the 30 spatially resolved measurements as described in 
+Fig. 1 for two different / (1.13 and 1.15) for the two swirlers, 
+Sg1.1–C8 and Sg1.1–S16, which had the leanest and richest optimal 
+/, respectively. Sg1.1–C8 has an optimal primary equivalence ratio 
+of 1.11, and Sg1.1–S16 has an optimal primary equivalence ratio of 
+1.13. The / sweeps were predetermined based on previous studies 
+that have used insulation to decrease heat losses in the quartz and are 
+therefore slightly richer than the optimal swirler / [15]. Figure 7
+represents the emissions plot for Sg1.1–S16 and Sg1.1–C8 at / of 
+1.13, and Fig. 8 represents both swirlers at / of 1.15. For both swirler 
+geometries, elevated emissions are located at the quartz wall at the 
+visible flame brush, or the most downstream observable region of the 
+flame, where reactions occur. The spike in all emissions species 
+confirms the axial location of the flame brush from the flame 
+imaging.
+Qualitatively, both swirlers demonstrate similar trends in terms of 
+NOx relaxation as a percentage of maximum NOx measurement at 
+the flame brush. Both swirlers generate compact flames with long 
+NOx relaxation zones within the test matrix. However, the 
+Sg1.1–S16 geometry demonstrates lower concentrations of NH3 
+slip post flame brush, indicating lower heat losses and higher 
+Fig. 8 NOx, N2O, and NH3 emissions at 15% dry O2 corrected for Sg1.1–S16 (top) and 
+Sg1.1–C8 (bottom) at / 5 1.15
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2026, Vol. 148 / 071002-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025
+
+
+--- Page 8 ---
+
+combustion efficiency. When compared with the isocontours in 
+Fig. 5, the area in contact with the quartz liner is decreased for 
+Sg1.1–S16 compared to Sg1.1–C8. Furthermore, the general flame 
+shape transitions from a characteristic convex shape to a concave 
+shape with increased interaction on the quartz liner. NH3 emissions 
+are elevated with the Sg1.1–C8 geometry, which are double that of 
+the Sg1.1–S16 geometry for the same equivalence ratio, despite 
+starting at similar levels in the flame brush. The increased unburned 
+fuel and combustion inefficiency may be correlated with the flame 
+shape and heat losses due to contact with quartz. For the Sg1.1–S16 
+geometry, the increased combustion efficiency observed from the 
+NH3 emissions suggests a higher concentration of H2 available for 
+the secondary stage of the RRQL system, and minimal NH3 for a 
+lower contribution of fuel–bound NOx to the total staged 
+combustion emissions.
+In terms of N2O, the emissions trends are slightly elevated at the 
+quartz walls of the burner, particularly for the Sg1.1–C8 geometry, 
+indicating lower temperatures and higher wall heat losses. By 
+comparison, the Sg1.1–S16 swirler geometry has a more uniform 
+distribution of N2O across the radial point positions.
+4 Conclusions
+An experimental study was carried out to understand the impact of 
+the swirl pattern on the flame morphology and exhaust emissions 
+of rich premixed NH3–air flames. Focus was on the characterization 
+of the combustion zone through flame imaging and exhaust 
+emissions. The main conclusions are:
+(1) Swirler geometry can dramatically affect flame shape, peak 
+radical concentrations, and emissions species for rich NH3 
+flames.
+(2) Elevated heat losses caused by swirler–liner interaction, 
+indicated by regions of high OH* intensity, can cause the 
+optimal / to shift closer to stoichiometric due to elevated 
+NH3 and N2O emissions at richer / as shown by the Sg1.1–C8 
+swirler configuration.
+(3) This leaner / for Sg1.1–C8 suggests a potentially lower H2 
+concentration for the second combustion stage, which could 
+result in reduced overall combustion efficiency.
+(4) The elevated N2O concentrations are likely attributed to heat 
+losses through the walls, potentially exacerbated by the 
+higher flame to wall interaction area produced by the lobed 
+flame structures.
+(5) Reduced NH3 cracking in the primary stage implies a higher 
+contribution of fuel–bound nitrogen (fuel–NOx) to overall 
+NOx production in the secondary lean stage.
+These findings highlight the intricate interplay between swirler 
+geometry, flame structure, and emission characteristics, under­
+scoring the importance of careful optimization for minimizing 
+emissions and maintaining combustion efficiency. As a result, we 
+chose the Sg1.1–S16 swirler for further RRQL studies (Part II of this 
+paper).
+Acknowledgment
+The authors gratefully acknowledge the technical contributions 
+and insights of Mark Winquist and John Vega at GTI Energy.
+Funding Data
+ DOE/National Energy Technology Laboratory (Grant Nos. 
+DE-FE0032079 and DE-FE003217; Funder ID: 10.13039/ 
+100000015).
+Data Availability Statement
+The datasets generated and supporting the findings of this article are 
+obtainable from the corresponding author upon reasonable request.
+Nomenclature
+CO ¼ carbon monoxide
+CH4 ¼ methane
+FTIR ¼ Fourier-transform infrared
+H2 ¼ hydrogen
+NH3 ¼ ammonia
+NOx ¼ nitrogen oxide
+N2O ¼ nitrous oxide
+RRQL ¼ rich–relaxation–quench–lean
+Sg ¼ geometric swirl number
+U0 ¼ bulk velocity
+/ ¼ equivalence ratio
+References
+0[1] Patonia, A., and Poudineh, R., 2020, “Ammonia as a Storage Solution for Future 
+Decarbonized Energy Systems,” OIES Press, Oxford, UK.
+0[2] Valera-Medina, A., Xiao, H., Owen-Jones, M., David, W. I. F., and Bowen, P. J., 
+2018, “Ammonia for Power,” Prog. Energy Combust. Sci., 69, pp. 63–102.
+0[3] Kobayashi, H., Hayakawa, A., Somarathne, K. D., Kunkuma, A., and Okafor, 
+E. C., 2019, “Science and Technology of Ammonia Combustion,” Proc. Combust. 
+Inst., 37(1), pp. 109–133.
+0[4] Gubbi, S., Cole, R., Emerson, B., Noble, D., Steele, R., Sun, W., and Lieuwen, T., 
+2023, “Air Quality Implications of Using Ammonia as a Renewable Fuel: How 
+Low Can NOx Emissions Go?,” ACS Energy Lett., 8(10), pp. 4421–4426.
+0[5] Pugh, D., Runyon, J., Bowen, P., Giles, A., Valera-Medina, A., Marsh, R., 
+Goktepe, B., and Hewlett, S., 2021, “An Investigation of Ammonia Primary Flame 
+Combustor Concepts for Emissions Reduction With OH*, NH2* and NH* 
+Chemiluminescence at Elevated Conditions,” Proc. Combust. Inst., 38(4), 
+pp. 6451–6459.
+0[6] Rocha, R. C., Costa, M., and Bai, X.-S., 2021, “Combustion and Emission 
+Characteristics of Ammonia Under Conditions Relevant to Modern Gas 
+Turbines,” Combust. Sci. Technol., 193(14), pp. 2514–2533.
+0[7] Alnasif, A., Mashruk, S., Kovaleva, M., Wang, P., and Valera-Medina, A., 2022, 
+“Experimental and Numerical Analyses of Nitrogen Oxides Formation in a High 
+Ammonia-Low Hydrogen Blend Using a Tangential Swirl Burner,” Carbon 
+Neutrality, 1(1), p. 24.
+0[8] Choe, J., and Sun, W., 2022, “Experimental Investigation of Non-Equilibrium 
+Plasma-Assisted Ammonia Flames Using NH2* Chemiluminescence and 
+OH Planar Laser-Induced Fluorescence,” Proc. Combust. Inst., 39(4), 
+pp. 5439–5446.
+0[9] Gutesa Bozo, M., Mashruk, S., Zitouni, S., and Valera-Medina, A., 2021, 
+“Humidified Ammonia/Hydrogen RQL Combustion in a Trigeneration Gas 
+Turbine Cycle,” Energy Convers. Manage., 227, p. 113625.
+[10] Mashruk, S., Kovaleva, M., Alnasif, A., Chong, C. T., Hayakawa, A., Okafor, 
+E. C., and Valera-Medina, A., 2022, “Nitrogen Oxide Emissions Analyses in 
+Ammonia/Hydrogen/Air Premixed Swirling Flames,” Energy, 260, p. 125183.
+[11] Zhu, X., Khateeb, A. A., and Roberts, W. L., 2021, “NO and OH* Emission 
+Characteristics of Very-Lean to Stoichiometric Ammonia–Hydrogen–Air Swirl 
+Flame,” Proc. Combust. Inst., 38(4), pp. 5155–5162.
+[12] Mashruk, S., Okafor, E. C., Kovaleva, M., Alnasif, A., Pugh, D., Hayakawa, A., 
+and Valera-Medina, A., 2022, “Evolution of N2O Production at Lean Combustion 
+Condition in NH3/H2/Air Premixed Swirling Flames,” Combust. Flame, 244, 
+p. 112299.
+[13] Hayakawa, A., Arakawa, Y., Mimoto, R., Somarathne, K. D. K. A., Kudo, T., and 
+Kobayashi, H., 2017, “Experimental Investigation of Stabilization and Emission 
+Characteristics of Ammonia/Air Premixed Flames in a Swirl Combustor,” Int. J. 
+Hydrogen Energy, 42(19), pp. 14010–14018.
+[14] Wang, G., Guiberti, T. F., Cardona, S., Jimenez, C. A., and Roberts, W. L., 2023, 
+“Effects of Residence Time on the NOx Emissions of Premixed Ammonia- 
+Methane-Air Swirling Flames at Elevated Pressure,” Proc. Combust. Inst., 39(4), 
+pp. 4277–4288.
+[15] Cole, R., Gubbi, S., Wu, D., Emerson, B., Noble, D., Steele, R., Sun, W., and 
+Lieuwen, T., 2024, “Rich Ammonia Flame Shapes and NO Relaxation: Facility 
+Development and Characterization,” ASME Paper No. GT2024-122369.
+[16] Syred, N., and Beer, J. M., 1974, “Combustion in Swirling Flows: A Review,” 
+Combust. Flame, 23(2), pp. 143–201.
+[17] Baukal, C. E., and Eleazer, P. B., 1998, “Quantifying NOx for Industrial 
+Combustion Processes,” J. Air Waste Manage. Assoc., 48(1), pp. 52–58.
+[18] Kramlich, J. C., and Malte, P. C., 1978, “Modeling and Measurement of Sample 
+Probe Effects on Pollutant Gases Drawn From Flame Zones,” Combust. Sci. 
+Technol., 18(3–4), pp. 91–104.
+[19] Zhu, X., Roberts, W. L., and Guiberti, T. F., 2023, “UV-Visible Chemilumi­
+nescence Signature of Laminar Ammonia-Hydrogen-Air Flames,” Proc. Com­
+bust. Inst., 39(4), pp. 4227–4235.
+[20] Weng, W., Alden, M., and Li, Z., 2023, “Visible Chemiluminescence of Ammonia 
+Premixed Flames and Its Application for Flame Diagnostics,” Proc. Combust. 
+Inst., 39(4), pp. 4327–4334.
+[21] Chterev, I., Foley, C. W., Foti, D., Kostka, S., Caswell, A. W., Jiang, N., Lynch, A., 
+et al., 2014, “Flame and Flow Topologies in an Annular Swirling Flow,” Combust. 
+Sci. Technol., 186(8), pp. 1041–1074.
+071002-8 / Vol. 148, JULY 2026                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071002/7538122/gtp-25-1527.pdf by guest on 31 December 2025

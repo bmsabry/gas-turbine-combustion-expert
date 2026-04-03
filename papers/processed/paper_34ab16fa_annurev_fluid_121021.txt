@@ -1,0 +1,1438 @@
+
+--- Page 1 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Annual Review of Fluid Mechanics
+Thermoacoustic Instability in
+Combustors
+Aimee S. Morgans1 and Dong Yang2
+1Department of Mechanical Engineering, Imperial College London, London, United Kingdom;
+email: a.morgans@imperial.ac.uk
+2Department of Mechanics and Aerospace Engineering, Southern University of Science and
+Technology, Shenzhen, China; email: yangd3@sustech.edu.cn
+Annu. Rev. Fluid Mech. 2025. 57:9–33
+First published as a Review in Advance on
+July 26, 2024
+The Annual Review of Fluid Mechanics is online at
+fluid.annualreviews.org
+https://doi.org/10.1146/annurev-fluid-121021-
+032828
+Copyright © 2025 by the author(s). This work is
+licensed under a Creative Commons Attribution 4.0
+International License, which permits unrestricted
+use, distribution, and reproduction in any medium,
+provided the original author and source are credited.
+See credit lines of images or other third-party
+material in this article for license information.
+Keywords
+thermoacoustic instability, combustion instability, acoustics, aeroacoustics,
+reacting flows, combustors, burners, acoustic damping
+Abstract
+Thermoacoustic instability is a flow instability that arises due to a two-way
+coupling between acoustic waves and unsteady heat release rate. It can cause
+damaging, large-amplitude oscillations in the combustors of gas turbines,
+aeroengines, rocket engines, etc., and the transition to decarbonized fuels is
+likely to introduce new thermoacoustic instability problems. With a focus on
+practical thermoacoustic instability problems, especially in gas turbine com-
+bustors, this review presents the common types of combustor and burner
+geometry used. It discusses the relevant flow physics underpinning their
+acoustic and unsteady flame behaviors, including how these differ across
+combustor and burner types. Computational tools for predicting thermoa-
+coustic instability can be categorized into direct computational approaches,
+in which a single flow simulation resolves all of the most important length
+scales and timescales, and coupled/hybrid approaches, which couple sepa-
+rate computational treatments for the acoustic waves and flame, exploiting
+the large disparity in length scales associated with these. Examples of suc-
+cessful computational prediction of thermoacoustic instability in realistic
+combustors are given, along with outlooks for future research in this area.
+9
+
+
+--- Page 2 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+1. INTRODUCTION
+Thermoacoustic instability is a flow instability that arises due to a two-way coupling between
+acoustic waves and unsteady heat release rate. Its practical occurrence is within combustors,
+where the unsteady heat release rate is associated with unsteady combustion, and hence it is often
+termed combustion instability. It is invariably unwanted, as it often leads to large and damag-
+ing flow and heat release rate oscillations, which can cause structural damage, excessive vibration
+and noise, flame flashback, flame blow-off, and other deterioration in a combustion system’s
+performance.
+The combustors of gas turbines, aeroengines, rocket engines, domestic boilers, afterburners,
+etc. can all exhibit thermoacoustic instability. The phenomenon first came to prominence due
+to its occurrence in rocket engines, including the F-1 rocket engines for the Apollo missions
+(Oefelein & Yang 1993). Over recent decades, it has been a major issue for gas turbine manufac-
+turers (both land-based and aeroengines), as the use of lean premixed combustion for low NOx
+emissions significantly exacerbates thermoacoustic instability problems (Mongia et al. 2003).
+Whether thermoacoustic instability is a problem generally becomes apparent late in the design
+and development process, making modifications for its mitigation difficult and costly (Poinsot
+2017). The current need to decarbonize energy generation and aviation is driving a transition
+toward carbon-free fuels, such as hydrogen and ammonia, as well as other sustainable fuels, such
+as sustainable aviation fuel, with new designs of fuel injectors, burners, combustors, and cooling
+systems potentially needed to accommodate these. New problems with thermoacoustic instability
+are likely to arise; for example, the use of hydrogen in fuel can sometimes increase the propensity
+to instability (Beita et al. 2021). However, the need for redesigns also creates new opportunities
+for mitigating instability and a more urgent need for accurate computational predictions that can
+help inform the design process.
+Returning to the underpinning mechanism, thermoacoustic instability arises due to a two-way
+coupling between acoustic (sound) waves and unsteady heat release. For example, background
+sound disturbances incident on a flame will cause oscillations in the heat release rate—this may
+be through local changes in the fuel–air ratio or hydrodynamic oscillations causing flame-front
+movement (Candel 2002, Ducruix et al. 2003, Lieuwen 2003). Unsteady combustion is an effi-
+cient acoustic source and in turn generates new acoustic waves, which propagate away from the
+flame (Ducruix et al. 2003, Dowling & Mahmoudi 2015). These partially reflect from the bound-
+aries of the combustor, arriving back at the flame where they further perturb the heat release rate.
+Under some conditions, the resulting cycle will lead to oscillations of certain frequencies succes-
+sively growing in amplitude—thermoacoustic instability. It is noted that intrinsic thermoacoustic
+modes arise from a slightly different coupling mechanism that does not require acoustic reflection
+from boundaries—the works by Hoeijmakers et al. (2014), Emmert et al. (2015), and Silva (2023)
+provide more details on these. Thermoacoustic instability is typically linear, meaning that small
+perturbations grow in time, eventually reaching levels that introduce nonlinear effects that limit
+further growth. Self-excited oscillations occur, often in the form of limit cycle oscillations dom-
+inated by a single oscillation frequency, although more complex nonlinear dynamics are possible
+( Juniper & Sujith 2018).
+The key flow phenomena are thus the acoustic waves and the flame’s unsteady heat release
+rate, which depend upon acoustic propagation, acoustic reflection, turbulent reacting flow, vortex
+dynamics, combustion chemistry, heat transfer, etc. These diverse flow physics span a very large
+range of length scales and timescales. For example, the length scales relevant to the flame include
+turbulent flame-front wrinkling and even smaller chemical reaction scales, while the acoustic
+waves typically have wavelengths of the order of a meter or more. The flame-front chemical
+10
+Morgans • Yang
+
+
+--- Page 3 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+reactions are very fast, but instability develops over long timescales. The complexities of real
+systems introduce effects such as elevated pressure, elevated temperature, and often interactions
+of multiple flames and/or combustors.
+It is for these reasons that achieving accurate thermoacoustic instability predictions for de-
+signs of real combustors remains a challenging and expensive endeavor. Direct computational
+approaches, in which simulations directly resolve all of the most relevant scales and flow physics,
+are possible (Poinsot 2017). Alternative approaches instead apply separate computational treat-
+ments to the two key phenomena—the acoustic waves and the flame—and then couple these. The
+use of such hybrid/coupled methods has the benefit of allowing different computational tools
+to be tailored to the relevant flow scales and flow physics, with potentially significant savings in
+computational time.
+This article builds on previous relevant reviews (Candel 2002, Dowling & Morgans 2005,
+Candel et al. 2014, Poinsot 2017, Juniper & Sujith 2018) by focusing on the flow physics, tools,
+and advances associated with moving predictive capability of thermoacoustic instability toward
+increasingly realistic combustors, as well as advances that may allow mitigation of thermoacoustic
+instability to be incorporated into new designs.
+The behavior of acoustic waves within a combustor is dictated by its geometry, boundary
+conditions, and temperature profile. Section 2 explores the different categories of geometry
+used in practical combustors, along with their associated acoustic characteristics. This review
+focuses on geometries relevant to gas turbine applications, but the key flow physics and in-
+teraction mechanisms also apply to other applications. Section 3 then discusses the effect of
+the burner, in terms of both the response of the flame’s unsteady heat release rate and the
+burner’s acoustic characteristics. Combustor acoustic modes depend on combustor boundary con-
+ditions, while the thermoacoustic stability is determined by the balance between acoustic energy
+gain and acoustic energy damping. Section 4 discusses combustor boundaries and flow field in
+terms of acoustic boundary conditions, temperature profile, and acoustic damping. For acoustic
+damping, sources both inherent to the combustion system and deliberately introduced through
+acoustic dampers are considered. An important aspect of work in the field over the last decade
+has been the success of hybrid/coupled approaches for predicting thermoacoustic instability.
+Section 5 presents examples in which thermoacoustic instability has been successfully predicted
+using both direct computational tools and hybrid/coupled tools employing a range of different
+approaches.
+2. COMBUSTOR GEOMETRY
+The combustor geometry informs the length scales and timescales over which acoustic waves
+propagate and reflect back from boundaries to interact with the flame. Together with the com-
+bustor boundary conditions and speed of sound field, it informs the frequency and acoustic mode
+shape corresponding to any thermoacoustic instability.
+Combustors sustain a mean flow, and the pressure fluctuations associated with their acoustic
+waves generally remain small compared to the mean pressure, even during large-amplitude ther-
+moacoustic oscillations. Furthermore, the effect of viscosity on the acoustic waves is generally
+negligible. Small (linear) flow perturbations are then governed by the linearized Euler equa-
+tions (Dowling & Stow 2003), which can be solved numerically, either as part of a full flow field
+computational fluid dynamics (CFD) solution or as a separate linearized simulation. If some fur-
+ther simplifications are made, it is possible to solve for the acoustic field more quickly but still
+with good accuracy and potentially in a manner that retains more physical insight. There are two
+main branches of approach for further acoustic simplifications.
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+11
+
+
+--- Page 4 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+The first is to neglect the effect of the mean flow on the acoustic field, yielding an
+inhomogeneous wave equation (Dowling & Stow 2003):
+1
+c2
+∂2p′
+∂t2 −ρ ∇·
+( 1
+ρ ∇p′
+)
+= (γ −1)
+c2
+∂q′
+∂t ,
+1.
+where c and ρ denote the speed of sound and density in an undisturbed medium, p′ denotes the
+pressure fluctuation, q′ the heat release rate fluctuation per unit volume, and γ the ratio of spe-
+cific heats. This can be converted to a Helmholtz equation in the frequency domain and solved
+numerically using Helmholtz solvers. The response of the flame’s unsteady heat release rate to
+acoustic perturbations is needed for closure and is normally included as a flame model, provided
+from models, CFD, or experiments, as discussed in Section 3. This Helmholtz solver approach to
+simplifying the acoustics has the advantage of being able to account for spatially complex geome-
+tries and speed of sound fields. However, an implication of neglecting the mean flow is that many
+physical sources of acoustic damping are not incorporated, so an artificial acoustic damping term
+is typically added to the left-hand side to attempt to correct for this.
+The second approach is to retain the mean flow contribution. The mean flow not only causes a
+shift in the acoustic mode frequencies of the order of the Mach number squared,such that the error
+in neglecting it at M = 0.2 is approximately 5% (Dowling & Stow 2003), but is also fundamental
+to capturing the transport of entropy, vorticity, and compositional fluctuations as well as the main
+acoustic damping mechanisms. The simplification this time exploits the fact that thermoacoustic
+instability tends to occur at low frequencies—this being because flames are generally more sensi-
+tive to low-frequency disturbances and the dominant acoustic damping mechanisms increase with
+frequency. This means that thermoacoustic modes typically correspond to the low-order acoustic
+modes of the combustion system, which exhibit a reduced spatial dimension. The reduced spatial
+dimension underpins low-order network approaches, which retain the contribution of the mean
+flow but instead simplify the geometry and mean speed of sound field. The low frequencies also
+imply that the spatial extent of the flame is short compared to the long acoustic wavelengths,
+allowing the generation of acoustics arising from the flame’s unsteady heat release rate to be sim-
+plified. This can be included either through the combination of a flame model and flame jump
+conditions or through a combined burner transfer matrix approach, as discussed in Section 3.
+Several broad categories of combustor geometry as used in gas turbine applications are shown
+in Figure 1, with these geometry types and their key flow physics also extending to other ap-
+plications. They include (a) single-can combustors with one or multiple burners; (b) can-annular
+combustors, in which many can combustors are interconnected through an annular gap at their
+outlet; and (c) annular combustors, in which both the plenum and the combustor are annular in
+shape and many burners are installed around the combustor circumference. The geometric simpli-
+fications and their implications for the acoustic fields in each of these combustor geometry types
+are discussed in more detail in the following sections.
+2.1. Can Combustors
+For a typical single-can combustor, its longitudinal length significantly exceeds its length across
+the other two dimensions, as shown in Figure 1a. For frequencies below the cut-on frequency of
+transverse/radial acoustic modes, only planar acoustic waves can propagate: Higher-order modes
+are evanescent and decay exponentially. This means that away from sources of the heat release
+rate, the acoustic field is governed by the one-dimensional convected wave equation (Dowling &
+Stow 2003),
+1
+¯c2
+¯D2p′
+Dt2 −∂2p′
+∂x2 = 0,
+2.
+12
+Morgans • Yang
+
+
+--- Page 5 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Inlet
+Inlet
+Burners
+Plenum
+Combustor
+x
+θ
+Can combustors
+Cross talk
+Burner
+Inlet
+Combustor
+Plenum
+Outlet
+Outlet
+Outlet
+Cross talk
+Cross talk
+Low-order network models
+Real combustor geometries
+x
+θ
+x
+a
+b
+c
+Figure 1
+Three categories of combustor geometry and their corresponding low-order network model representations,
+showing pictures of (a) SGT-A05 (single-can), (b) SGT5-9000HL (can-annular), and (c) SGT5-4000F
+(annular) combustors. Images provided by Siemens Energy.
+where ¯D/Dt = ∂/∂t + ¯u∂/∂x is the convective derivative and ¯u is the one-dimensional approxi-
+mation to the mean flow velocity. The solution for this consists of planar waves propagating in
+either direction, at the speed of sound with respect to the mean flow. Acoustic feedback inside the
+combustor establishes through only these planar acoustic waves, and the thermoacoustic mode
+shapes vary only in the longitudinal direction (a mode shape with purely longitudinal variation is
+shown in Figure 2a, but for an annular geometry).
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+13
+
+
+--- Page 6 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+∆r
+a
+b
+c
+d
+e
+1.0
+0.5
+0
+1.0
+0.5
+–0.5
+–1.0
+0
+1.0
+0.5
+0
+1.0
+0.5
+–0.5
+–1.0
+0
+1.0
+0.5
+–0.5
+–1.0
+0
+L
+Lc
+Lg
+Lg
+Figure 2
+Examples of acoustic pressure mode shapes corresponding to (a) a purely longitudinal mode, (b) a purely
+circumferential mode, (c) a mixed longitudinal-circumferential mode, (d) a slanted mode, and (e) a push–pull
+mode in a simplified representation of a can-annular combustor with 12 cans. The longitudinal direction is
+taken as upward. L denotes the longitudinal length of the combustor, Lc and 1r the mean circumference and
+the radial gap width of the annular combustor respectively, and Lg the length of the annular gap at the
+outlets of the can-annular combustor. The color bars denote normalized pressure perturbation.
+To incorporate the effect of the flame, it can usually be assumed that the longitudinal extent of
+the flame is much shorter than the dominant acoustic wavelengths. This means that the change
+in acoustic wave strengths across the flame can be taken to be spatially discontinuous. It can be
+included either by the combined effect of a flame model and compact jump conditions for first-
+order (linear) flow fluctuations across the flame or by using a combined burner transfer matrix
+approach, as described in Section 3.
+It is worth mentioning that another modeling approach, employing truncated Galerkin ex-
+pansions (Culick & Yang 1995), can be used to model the acoustics. Such approaches account
+for neither the mean flow nor the velocity jump across the flame, and errors may arise if trunca-
+tion is applied after too few terms (Dowling & Stow 2003). However, they extend more naturally
+to nonlinear acoustic regimes and hence are useful where this can be important, e.g., for rocket
+engines (Culick & Yang 1995).
+Even though the presence of flame unsteadiness can significantly affect the stability of ther-
+moacoustic modes, it usually modifies the acoustic mode shape and frequency only slightly. Thus,
+as long as the combustor length, mean temperature distribution, and acoustic boundary condi-
+tions (which are discussed in more detail in Section 4) can be prescribed, the frequencies of the
+possible thermoacoustic modes follow quite straightforwardly. However, predicting the stability
+of a mode, as well as its oscillation amplitude if it is unstable, requires the flame response and the
+acoustic damping to be prescribed; these are usually much more challenging and will be addressed
+in Sections 3 and 4, respectively.
+14
+Morgans • Yang
+
+
+--- Page 7 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+It is possible for more than one thermoacoustic mode to be unstable, although a single mode
+is generally seen to dominate the thermoacoustic oscillations resulting from instability (Stow &
+Dowling 2009, Li & Morgans 2015, Acharya et al. 2018, John et al. 2023). If the transverse di-
+mensions of the combustor are large enough and the acoustic damping not sufficiently strong,
+transverse thermoacoustic instabilities can occur, as is often the case in rocket engines (Culick &
+Yang 1995, Urbano et al. 2016), afterburners (Rogers & Marble 1956, Nakaya et al. 2021), and
+sometimes gas turbine combustors (Schwing et al. 2011, Berger et al. 2017). Recent interest has
+emerged in the use of sequential combustors for their operational flexibility and ultralow NOx
+emissions: They employ a secondary flame downstream of the main flame to shorten the high
+temperature region. For these, thermoacoustic interactions remain similar, with the heat release
+rate from both the main and the secondary flame zones contributing (Schulz et al. 2019, Xiong
+et al. 2021, Choi & Kim 2023).
+2.2. Can-Annular Combustors
+Many modern heavy-duty gas turbines have a can-annular geometry. Multiple separate can com-
+bustors are installed around a circumference, with a transition duct at the combustor outlets
+linking to the relevant segment of the annular turbine inlet, as shown in Figure 1b.
+Due to thermal expansion effects, a gap is usually left between the transition duct outlet and the
+turbine inlet guide vane. This leads to acoustic cross talk between neighboring can combustors.
+Even though the flame in each can is well separated from those in other cans, this cross talk can
+result in acoustically coupled thermoacoustic modes. An example is the push–pull thermoacoustic
+mode, where the pressure oscillations between neighboring cans are out of phase (Farisco et al.
+2017, Moon et al. 2019), as illustrated in Figure 2e, where the cross-talk gap is denoted Lg. Several
+recent studies have investigated the acoustic characteristics of the cross talk, for example, model-
+ing it using Rayleigh conductivity–based hole models (von Saldern et al. 2021b), considering the
+acoustically quasi-one-dimensional end annulus (Haeringer et al. 2021), and taking the effect of
+mean gazing flow into consideration (Orchini 2022). The cross talk gives rise to both longitudinal
+and circumferential modes, with clusters of modes very close in frequency occurring (Ghirardo
+et al. 2019). Accounting for the nonlinear responses of the flames, these clusters may cause com-
+plex and relatively slow mode interaction transients, with different modes able to synchronize (von
+Saldern et al. 2021a).
+When the system exhibits rotational symmetry, i.e., all combustors are identical, Bloch-wave
+theory can be used to provide the boundary condition at the cross talk of a single can (Ghirardo
+et al. 2019), reducing the system to be analyzed to just a single can. If a source of asymmetry
+between cans is introduced, the full system needs to be analyzed. Such asymmetry can arise from
+one can having a different flame response, different equivalence ratio (Moon et al. 2021), different
+nozzle swirl distribution (Guan et al. 2023), or different can-to-can coupling strength (Buschmann
+et al. 2023). A significant impact on the azimuthal pressure distribution can result (Ghirardo et al.
+2019).
+2.3. Annular Combustors
+Combustors with a thin annular shape are widely used in both aeroengines and land-based gas
+turbines. Typically, more than 10–20 burners are uniformly installed around the annulus, with the
+aim of achieving a uniform temperature distribution at the turbine inlet, as shown in Figure 1c.
+The combustor’s mean circumference (denoted Lc in the simplified geometries of Figure 2) is
+typically much larger than its thin radial gap (denoted 1r in Figure 2), while its length (denoted
+L in Figure 2) can vary from being much shorter to being of the same order as the circumference.
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+15
+
+
+--- Page 8 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+At low frequencies, thermoacoustic modes that involve acoustic propagation purely in the cir-
+cumferential (also termed azimuthal) direction can exist if both the inlet and outlet boundaries are
+acoustically closed. A mode shape with purely circumferential variation is illustrated in Figure 2b.
+For such modes, if the combustor is further acoustically decoupled from the plenum, simple mod-
+els based on the Galerkin expansion can be used (Noiray et al. 2011, Ghirardo et al. 2016). When
+the combustor and plenum acoustics are coupled, a quasi-one-dimensional linear model that ac-
+counts for purely circumferential acoustic propagation (Bauerheim et al. 2014a, 2016) can offer
+analytical expressions for mode stability and azimuthal mode degeneracy/splitting properties, ac-
+counting for both uniform and differing burners around the annulus (Bauerheim et al. 2014b,
+Poinsot 2017).
+When the combustor’s longitudinal length is not negligible compared to the acoustic wave-
+length or the acoustic boundary conditions differ from closed–closed, acoustic waves can vary
+in the longitudinal as well as circumferential direction. Research on annular combustor geome-
+tries has benefited from the development of lab-scale annular combustion rigs over the last
+decade (Worth & Dawson 2013, Bourgouin et al. 2015b). The combination of longitudinal and
+circumferential variations may lead to acoustic mode shapes that vary only in the longitudinal
+direction, as shown in Figure 2a, mode shapes that vary in both the circumferential and lon-
+gitudinal directions, as shown in Figure 2c, and even modes that involve a coupling between
+circumferential and longitudinal components (Bourgouin et al. 2015a, Moeck et al. 2019, Orchini
+et al. 2019, Yang et al. 2019a), as shown in Figure 2d. The presence of acoustic dampers or varying
+burners around the annulus will lead to more complicated modal couplings. Two-dimensional
+low-order network models (Stow & Dowling 2001, Evesque & Polifke 2002, Stow & Dowling
+2009, Yang et al. 2019a), which apply wave solutions to the convected wave equation in a thin
+annulus and allow for variations in both the longitudinal and circumferential directions (Dowling
+& Stow 2003), can be used to capture these effects. Such models have been used to study the
+effect of dampers (Stow & Dowling 2003, Yang et al. 2019b) and feedback control (Morgans &
+Stow 2007, Illingworth & Morgans 2010) in annular combustors and have included the effects of
+differing burners around the annulus (Morgans & Stow 2007) and flame nonlinearities (Stow &
+Dowling 2004, 2009; Yang et al. 2019a). The effect of symmetry breaking resulting from differing
+burners can lead to mode splitting of circumferential modes (Noiray et al. 2011, Bauerheim et al.
+2014b).
+Circumferential modes differ from other modes in that rather than having acoustic boundary
+conditions at either end of their spatial domain, they instead have the requirement of periodicity
+every 2π radians. This permits both standing and spinning modes, with the balance of these de-
+termined by a parameter known as the nature angle (Ghirardo & Bothien 2018, Ghirardo et al.
+2021). When the system is rotationally symmetric, such as when the burners are all the same and
+a purely spinning mode is considered, Bloch-wave theory can be used to reduce the simulation of
+the full annular combustor to a single segment (Mensah et al. 2016). An azimuthal mean flow, even
+if small, causes a difference in the clockwise and anticlockwise wave propagation speeds and thus
+significantly affects the nature angle (Bauerheim et al. 2015). The flame response to azimuthal
+velocity perturbations can be nonzero for asymmetric flames, arising, for example, from a non-
+negligible azimuthal mean flow. While the azimuthal flame response may be much smaller than
+its longitudinal counterpart, it may also alter the nature angle (Li et al. 2019). Recent experimen-
+tal results (Nygård et al. 2021) showed that an annular geometry with swirling flames generally
+gives different flame responses to clockwise and anticlockwise acoustic forcing. This leads to the
+heat release rate perturbation having a different nature angle to that of the pressure perturbation
+and a nonzero heat release rate response at the pressure node of a perfectly standing pressure
+mode.
+16
+Morgans • Yang
+
+
+--- Page 9 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Flow
+Flow
+fu
+gu
+fd
+u'
+Q'
+gd
+a
+b
+Figure 3
+The two main approaches for accounting for the unsteady heat release rate of the flame. (a) The burner
+transfer matrix approach (Section 3.1), where f and g denote the pressure amplitudes of waves moving to the
+right and left, respectively. (b) The flame model approach (Section 3.2), where u′ denotes the velocity
+fluctuation just upstream of the flame and Q′ denotes the unsteady component of the flame’s global heat
+release rate.
+3. BURNER GEOMETRY
+Thermoacoustic instabilities depend not only on the propagation and reflection of acoustic waves
+in the combustor, but also on how the flame generates and responds to acoustic waves. It is at the
+burner (also referred to as an injector) that reactants are brought together, setting up conditions
+for combustion within a desired spatial zone in the combustor. Burners are typically located at the
+upstream end of the combustor (with sequential/staged combustors involving further sequences
+of burners along the combustor). Their effect on thermoacoustic behavior occurs through both
+the unsteady characteristics of the flame(s) associated with them and their acoustic characteristics.
+These can be treated either in a combined manner or separately, as follows.
+3.1. Combined Acoustic/Unsteady Flame Treatment of Burners
+The combined effect of burner geometry and the effect of its subsequent unsteady flame on
+the acoustics can be characterized through a burner transfer matrix, which relates acoustic wave
+strengths upstream and downstream of the burner. Following the pressure wave notation of
+Figure 3a, the burner transfer matrix [T ]2×2 is defined as
+[
+fd
+gd
+]
+= [T]2×2
+[
+fu
+gu
+]
+.
+3.
+This can be measured experimentally using acoustic excitation (e.g., from a loudspeaker) and
+pressure sensors both upstream and downstream of the burner unit (Paschereit et al. 2002). The
+approach can be applied to all burner geometry types but is limited to linear analysis and prediction
+of linear stability.
+For nonlinear analysis, including prediction of limit cycle oscillations [particularly for the many
+situations where nonlinearity is associated with the flame rather than the acoustics (Noiray et al.
+2008)], or for combustors where upstream and downstream acoustic excitation becomes difficult,
+it may be preferable to treat the acoustics of the burner and the subsequent unsteady response of
+its flame separately.
+3.2. Unsteady Flame Response of Burners
+The response of the flame’s global unsteady heat release rate to acoustic perturbations can be
+characterized by what is widely known as the flame model (Candel 2002, Lieuwen 2003). As shown
+in Figure 3b, this typically links the velocity perturbation ahead of the flame to the global heat
+release rate perturbation of the flame, although it can be extended to also include the effect of
+equivalence ratio fluctuations on the heat release rate (Lieuwen 2003).
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+17
+
+
+--- Page 10 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Many early thermoacoustic studies were based on analytical characterization of this flame
+model, most famously through the n – τ model (Crocco 1951), which takes the flame model to
+be a gain, n, and a time delay, τ. Semi-analytical approaches have also been used, for example, via
+kinematic tracking of a thin, fast-reacting flame front (Fleifil et al. 1996); these offer important
+insights but tend not to capture sufficient complexity for real combustors. For these, it is prefer-
+able to characterize the flame response to acoustic perturbations using experiments or CFD, in
+the form of a linear flame transfer function (FTF) (Giauque et al. 2005, Kim et al. 2010), a weakly
+nonlinear flame describing function (FDF) (Balachandran et al. 2005, Noiray et al. 2008, Palies
+et al. 2011, Han & Morgans 2015, Xia et al. 2019), or (linear) distributed time delays (Polifke
+2020). Following the notation of Figure 3b, the FTF and FDF are defined as
+FTF =
+ˆQ(ω)/Q
+ˆu(ω)/u ,
+FDF =
+ˆQ(ω, | ˆu|)/Q
+ˆu(ω, | ˆu|)/u ,
+4.
+where ω is the radian frequency, ˆ( ) denotes the Fourier amplitude, and ( ) denotes the mean value.
+It can be seen that the FDF incorporates weak nonlinearity: It assumes that the main heat release
+rate response matches the frequency of the velocity forcing but with a gain and phase shift that
+depend upon the forcing amplitude as well as frequency. Only by using nonlinear flame mod-
+els such as the FDF is it possible to predict the final thermoacoustic oscillations resulting from
+instability (Stow & Dowling 2009, Han et al. 2015, Laera et al. 2017a).
+Flame models typically have the form of a low-pass filter combined with a phase lag. The
+latter is linked to time delays with various physical roots: acoustic inertia (flames respond to
+hydrodynamic/vortical disturbances resulting from acoustic excitation, which advect along the
+flame front), mixing, transport, and sometimes evaporation delays (Candel 2002, Ducruix et al.
+2003). While it is possible to define the FTF and FDF with respect to a range of different acoustic
+variables (Gaudron et al. 2017), it is the upstream velocity perturbation that links most physically
+to these effects. Interestingly, hydrogen enrichment of the fuel has been found to extend the band-
+width of the flame response—the gain drop-off is pushed to higher frequencies (Æsøy et al. 2021,
+Lim et al. 2021). This may at least partly explain why hydrogen-fueled combustors often exhibit
+an increased propensity to thermoacoustic instability (Beita et al. 2021).
+Swirl burners often exhibit additional dips in the gain of their flame response at certain fre-
+quencies (Candel et al. 2014, Æsøy et al. 2022). There are currently relatively few data on flame
+models for multiflame burners (Noiray et al. 2008); these hold promise for achieving stable low
+NOx combustion of 100% hydrogen and so may receive increased attention in the future.
+3.3. Acoustic Characteristics of Burners
+Combustor thermoacoustic behavior can sometimes be decoupled from that of upstream com-
+ponents such as the plenum (Schuller et al. 2012). Then the location of the burner outlet, i.e.,
+where the reactants leave the burner and enter the combustion chamber, can be taken to form
+the thermoacoustic domain’s upstream acoustic boundary, with this being characterized by the
+flow contraction presented by the burner flow passageways. Most simplistically, this may be
+approximated as a closed acoustic boundary, but more sophisticated treatments are possible.
+If the combustor is not sufficiently decoupled from components upstream of the burner, which
+in general comprise both the airstream and the fuel stream, then the upstream boundary will need
+to shift upstream of these (Stow & Dowling 2001, 2009; Han et al. 2015; Laera et al. 2017a; Xia
+et al. 2019). As the acoustic impedance of the airstream is typically much lower than that of the fuel
+stream, often only the former is accounted for, via components such as air plenums. The acoustic
+characteristics of the burner must be prescribed, with the simplest approach being to account
+18
+Morgans • Yang
+
+
+--- Page 11 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Combustor
+Combustor
+Combustor
+Air
+Air
+Air
+Air
+Air
+Air
+Flame-holder burner
+Swirl burner
+Multiflame burner
+Figure 4
+Simplified illustration of the three broad categories of burner geometry for fluid reactants. The red dots denote the approximate
+locations of fuel injection.
+for the compact flow contraction at the burner inlet, the longitudinal variation of acoustic waves
+within the burner, and the compact expansion at the burner outlet, but to neglect all details of the
+burner beyond this (Stow & Dowling 2001, 2009; Han et al. 2015; Laera et al. 2017a). Models for
+the flow expansion can account for the stagnation pressure loss that occurs due to large-scale flow
+separation, as is discussed further in Section 4.4.
+The effect of the flame’s heat release rate on the acoustic wave strengths can be captured by
+assuming the flame length to be acoustically compact and applying one-dimensional quasi-steady
+linearized flow conservation equations across it, with the heat release rate included in the energy
+equation. These manifest as jump conditions across the flame (Dowling 1997, Dowling & Stow
+2003), i.e., across the shaded zone in Figure 3b. In addition to changing the strength of acoustic
+waves, the flame unsteadiness can lead to the generation of entropy perturbations that advect
+downstream from the flame—this effect is also captured in the above jump conditions (Dowling
+& Stow 2003).
+More complex models for the acoustic characteristics of the burner require some details of the
+burner geometry to be considered. For fluid reactants, burners can be broadly categorized into
+(a) flame-holder-type burners, (b) swirl burners, and (c) multiflame burners, as illustrated in
+Figure 4. Incorporating the details of the burner geometry remains at an early stage but offers
+promise for better capturing and potentially exploiting the associated acoustic damping. Relevant
+progress for the different burner types is briefly outlined below.
+3.3.1. Flame-holder burners. Flame-holder burners typically stabilize the flame via a recir-
+culation zone generated by a bluff body. Such a bluff body will inevitably introduce drag, with
+the potential to affect the acoustic characteristics. Dowling (1995) showed analytically that bluff-
+body drag was likely to be thermoacoustically important above area blockage ratios of 25%. The
+acoustic response of a simple bluff body—a circular disc surrounded by flow through an annular
+aperture—was then considered in more detail by Schleicher & Howe (2013), who used an un-
+steady drag term to account for the acoustic damping associated with vortex shedding from the
+disc edge. Su et al. (2021) considered a circular bluff-body burner centrally located at the expan-
+sion plane of a circular duct: Using a Green’s function and a vortex sheet model, they predicted
+the acoustic reflection and transmission characteristics well compared to results from nonreacting
+compressible large eddy simulations (LES).
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+19
+
+
+--- Page 12 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+3.3.2. Swirl burners. Swirl burners with multiple swirl passages (Candel et al. 2014) are ubiqui-
+tous in gas turbine combustors. Despite this, there have been few attempts to model their acoustic
+response beyond applying compact area changes. Su et al. (2019) simplified the geometry of a
+swirler passage, with acoustic predictions comparing well to CFD. Their results confirmed that
+the length of the passage affects the phase of the acoustic response and that acoustic energy is
+mainly dissipated by the unsteady vorticity shed from the swirl vanes and the large-scale flow
+expansion at the passage exit.
+3.3.3. Multiflame burners. Multiflame burners (Durox et al. 2009) are plates with multiple
+small holes; a flame front forms downstream of each hole. These multiple flame fronts may inter-
+act. For such burners, models for the acoustic response of isolated holes with mean flow passing
+through them—based on the work of Howe (1979)—can capture acoustic damping due to vor-
+tex shedding. More recent work has found that short holes, where the mean flow that separates
+upon entering the hole does not reattach within the hole (typically holes with a length less than
+1.5 times their diameter), can generate rather than damp acoustic energy ( Jing & Sun 2000, Su
+et al. 2015). Models that account for two-way acoustic–vorticity coupling can capture this (Yang &
+Morgans 2016, 2017b), with some studies also linking to a purely hydrodynamic instability (Fabre
+et al. 2020). For longer holes, accounting for the unsteady vortex sheets shed from the hole inlet
+and outlet properly captures the acoustic response (Brokof et al. 2023). For multihole plates, in-
+teraction between neighboring holes can affect the hole acoustics—particularly the reactance, i.e.,
+the imaginary part of the impedance (Lee et al. 2007).
+Although linking the aeroacoustic response of multiflame burner holes with thermoacoustic
+stability is still in its infancy, it is a concept that may gain importance. The rapidly growing interest
+in hydrogen as a fuel means that multiflame burners (which offer both flashback resistance in the
+context of hydrogen’s fast flame speed and fast mixing of products for low NOx) may be used more
+widely in the future (Beita et al. 2021).
+4. COMBUSTOR BOUNDARIES AND FLOW FIELD
+As discussed in Section 2, the thermoacoustic modes of a system depend upon the combustor
+geometry and the acoustic boundary conditions. The thermoacoustic stability is then determined
+by the balance between (a) the acoustic energy source arising from the unsteady heat release rate of
+the flame and (b) the damping rate of the acoustic energy (Chu 1965, Dowling & Morgans 2005).
+This balance is important both in determining the system’s linear stability and in determining
+the nonlinear oscillation amplitude resulting from instability, the latter of which occurs when the
+above acoustic energy source and acoustic energy damping terms are balanced.
+The boundaries and flow field of a combustor affect both its acoustic boundary conditions and
+its acoustic damping. The acoustic damping may arise from the intrinsic properties of the geome-
+try and flow field (including the burner itself, as discussed in Section 3). It may also be augmented
+by the addition of acoustic dampers as passive control methods for mitigating thermoacoustic
+instability (Richards et al. 2006, Zhao & Li 2015, Lahiri & Bake 2017). It is worth noting that
+since damping typically arises from acoustic-flow interactions, it is often naturally accounted for
+in low-order network models (Gaudron et al. 2021), but it needs to be more carefully included in
+Helmholtz solvers (Ni et al. 2017, 2018; Heilmann & Sattelmayer 2022), which by default neglect
+mean flow effects.
+4.1. Upstream Boundary
+Combustion chambers in real engines typically sit between the compressor and turbine, with the
+thermoacoustic domain boundary conditions set by these components. As discussed in Section 3,
+20
+Morgans • Yang
+
+
+--- Page 13 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+the combustor can sometimes be decoupled thermoacoustically from components upstream of
+the burner (Schuller et al. 2012), such that the burner outlet can be taken as the thermoacous-
+tic domain’s upstream boundary. The acoustic boundary condition then needs to capture the
+flow contraction (as seen from downstream) presented by the burner flow passageways, with the
+various options described in Section 3. When the thermoacoustic domain needs to extend up-
+stream of the burner, the upstream boundary condition of the compressor is often approximated
+as choked (Dowling & Stow 2003). In cases where the domain is truncated between the compres-
+sor and the burner outlet, it can be hard to choose how far upstream this should extend (Wolf et al.
+2012).
+4.2. Downstream Boundary
+Lab-based combustors operating at atmospheric pressure typically have open downstream bound-
+aries, but combustors operating at raised pressure have more complex downstreams, for example,
+a nozzle that may or may not be choked. For gas turbines, the downstream end of the combus-
+tor interfaces with the turbine, the first stator row of which is known as the nozzle guide vane
+(NGV). The flow through this rapidly accelerates to an approximately choked condition, turning
+as it does so. Acoustically, the reflection of acoustic waves is no longer the only source of boundary
+acoustics, as the indirect noise (Marble & Candel 1977) arising from the acceleration of entropy,
+compositional, and possibly vortical fluctuations may also need accounting for (Goh & Morgans
+2013, Duran et al. 2014, Dowling & Mahmoudi 2015, Morgans & Duran 2016, Ihme 2017).
+The downstream acoustic boundary condition can be approximated by analytical methods
+that assume choked nozzle flows and account for both direct and indirect acoustic reflection.
+Such models have progressed from those assuming one-dimensional, very low-frequency per-
+turbations (Marble & Candel 1977) to those that extend to any frequency (Duran & Moreau
+2013, Magri et al. 2016, Yeddula et al. 2022), including for annular configurations (Duran &
+Morgans 2015). Analytical attempts to account for blade effects (Cumpsty & Marble 1977,
+Mishra & Bodony 2013, Guzmán-Iñigo et al. 2021) exist, but approaches that push beyond the
+zero frequency assumption remain immature for practical application. Experiments (Bake et al.
+2009) and computations (Leyko et al. 2009, Brouzet et al. 2024) can be used to inform nozzle flow
+boundary conditions as well as real blade passage (NGV) boundary conditions (Leyko et al. 2014).
+4.3. Combustor Walls
+The combustor bounding walls can affect both the flame and the acoustic waves in the combustor.
+The mean and unsteady flame response can be affected by wall heat transfer and wall temperature
+effects near the flame anchoring position (Agostinelli et al. 2021). For the acoustics, visco-thermal
+damping effects at walls are generally negligible for the typical cross-sectional size of real com-
+bustors (Li & Morgans 2016). The effect on the acoustics of heat transfer and an axially varying
+temperature field is discussed in Section 4.5, and the effect of dampers embedded into or attached
+to the combustor walls in Section 4.6.
+4.4. Area Changes
+Although the main combustion chamber often exhibits only gradual changes in the cross-sectional
+area, the larger thermoacoustic domain, comprising the plenum, burner, combustor, etc., typically
+involves a sequence of rapid area changes. When such area changes happen over a length scale that
+is much smaller than the acoustic wavelength, jump conditions can be used to link the strength
+of linear flow perturbations across this change. For area contractions, the flow changes are isen-
+tropic, and conservation of mass and energy combined with the isentropic condition yields jump
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+21
+
+
+--- Page 14 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+conditions (Dowling & Stow 2003). These jump conditions also apply to axisymmetric nonplanar
+entropy waves passing through a flow contraction (Yang et al. 2022).
+At rapid area expansions, large-scale flow separation occurs and the isentropic condition must
+be replaced by a condition that captures the key effect of this flow separation and stagnation pres-
+sure loss. This condition involves a momentum balance that assumes that the static pressure is
+unchanged across the area expansion interface (Ronneberger 1987, Dowling & Stow 2003). In a
+recent study, Gaudron et al. (2023) confirmed the validity of this assumption for flow perturba-
+tions as well as the mean flow, by comparing to simulations using the linearized Navier–Stokes
+equations. The authors furthermore characterized the acoustic damping associated with the stag-
+nation pressure loss, finding that the flow expansion damps acoustic energy, except for a very
+few conditions involving a large Mach number when acoustic generation is possible. This implies
+that acoustic modeling approaches that assume constant static pressure across an area expansion
+implicitly account for an important source of acoustic damping.
+While entropy noise is typically more relevant for flow contractions where the flow acceler-
+ates, recent laboratory experiments on entropy noise (Rolland et al. 2017) have used a downstream
+orifice plate, which first contracts and then expands the flow. For the flow expansion, the compact
+isentropic model (Marble & Candel 1977) failed to accurately predict the entropy noise. Model-
+ing by Yang et al. (2020) showed that the spatial extent of the recirculation zone caused by flow
+separation was the main cause of this divergence. By applying the aforementioned assumption of
+constant static pressure across the area change,entropy noise can be predicted well (Guzmán-Iñigo
+et al. 2022).
+4.5. Spatially Varying Flow Field
+In real combustors, the flow field temperature and possibly the cross-sectional area often vary
+in the axial direction, the former due to mixing with cooling flows and/or heat losses. Flow
+field temperature changes directly alter the speed of sound and hence affect acoustic propaga-
+tion and thermoacoustic modes. Acoustic modeling approaches based on the inhomogeneous
+Helmholtz equation are able to account for axial variations in temperature and cross-sectional
+area naturally (Laera et al. 2017a). Acoustic characterization via wave-based models can account
+for these effects simplistically by slicing the combustor domain into smaller axial segments (Laera
+et al. 2017b). There has also been significant recent progress in extending wave-based acoustic
+modeling (i.e., for low-order acoustic network models) to account for axial variations in temper-
+ature (Li & Morgans 2017, Li et al. 2018), cross-sectional area (Yeddula & Morgans 2021), and
+heat transfer (Yeddula et al. 2022), including for annular geometries (Li et al. 2021).
+4.6. Acoustic Dampers
+The types of acoustic damper commonly added to combustion systems include Helmholtz res-
+onators, perforated liners, and quarter-wave tubes (Richards et al. 2006, Zhao & Li 2015, Lahiri
+& Bake 2017). These are all underpinned by holes sustaining a bias and/or grazing flow in order
+to absorb acoustic energy. Vorticity generated by flow separation at the hole edges is convected
+by the mean flow and finally dissipated into heat, absorbing the acoustic energy. Linear acous-
+tic models are usually sufficient to predict the acoustic characteristics of such dampers (Eldredge
+& Dowling 2003, Bellucci et al. 2004, Dupere & Dowling 2005). For holes where the dominant
+flow is the bias flow through them rather than grazing flow, vortex-sound theory for thin circular
+holes (Howe 1979) has been widely used to predict the acoustic characteristics, predicting acoustic
+absorption/damping across all frequencies. However, for holes with similar length and diameter,
+the flow that separates from the hole inlet edge does not reattach before the hole exit, and the hole
+22
+Morgans • Yang
+
+
+--- Page 15 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+can generate acoustic energy rather than absorbing it over some frequencies ( Jing & Sun 2000,
+Su et al. 2015). Recent semianalytical models suggest that this is caused by coupling between vor-
+tex shedding at the inlet edge and its interaction with the outlet edge at the expansion (Yang &
+Morgans 2016, 2017b). Such holes exhibit strong sensitivity of their acoustic characteristics to
+slight modifications in the hole edge geometry (Guzmán-Iñigo et al. 2019), which has recently
+led to successful geometry optimization for acoustic damping (Guzmán-Iñigo & Morgans 2024).
+Longer holes, with a length-to-diameter ratio of 1.5 ∼3, exhibit vortex shedding at both the inlet
+and outlet edges, and the growth and decay of unsteady vorticity inside the hole significantly affect
+the hole’s absorption characteristics (Brokof et al. 2023).
+For dampers installed in realistic combustors, it can be important to account for more complex
+effects, such as grazing flow (Sun et al. 2002, Eldredge & Dowling 2003, Moers et al. 2017), tem-
+perature differences across the damper (Yang & Morgans 2017a, Miniero et al. 2023) (since the
+bias flow through dampers often also provides cooling), and, for annular geometries, the interplay
+with spinning and standing modes (Stow & Dowling 2003, Lepers et al. 2005, Camporeale et al.
+2008, Bothien et al. 2014, Zahn et al. 2017, Yang et al. 2019b, Zhang et al. 2020).
+5. EXAMPLES OF THERMOACOUSTIC INSTABILITY PREDICTION
+FOR REALISTIC COMBUSTORS
+The prediction of thermoacoustic instabilities in realistic combustors has progressed over the last
+two decades, targeting different levels of combustor and burner complexity and using different
+prediction tools. The targeted combustor type varies from lab-scale single-burner combustors to
+industrial-scale multiple-burner annular combustors, with the burners varying from bluff-body
+stabilized burners through laboratory matrix burners to industrial swirl burners. The predic-
+tion methods can be broken down into two main categories: (a) direct methods, which use
+CFD, mainly in the form of compressible LES, to solve for thermoacoustic oscillations in a
+combustion system, and (b) hybrid/coupled methods, which couple separate treatments for the
+acoustic waves and the flame unsteadiness. The computational expense of hybrid/coupled meth-
+ods is generally much lower than for direct methods, since the physics-informed characterization
+of the acoustic waves is captured with fewer resources. Some examples of thermoacoustic pre-
+dictions achieved and a summary of the combustor type and prediction method are shown in
+Table 1.
+For single-burner combustors, predicting the thermoacoustic mode frequencies requires re-
+solving the acoustic propagation within the spatial domain along with the acoustic boundary
+conditions at either end. The former is relatively straightforward, requiring knowledge of the
+mean temperature and thus speed of sound; the latter can be obvious for some combustors but
+commonly requires some consideration of the acoustic-flow interactions at the boundaries. In or-
+der to go beyond predicting thermoacoustic modal frequencies to predicting the stability of these
+modes, the linear flame response and the acoustic damping must be characterized with reasonable
+accuracy. While it is possible to prescribe the linear flame response using theoretical or numerical
+models, for realistic combustors it usually needs to be obtained from experimental measurements
+or LES. The need for experimental or CFD characterization is especially true if the flame is long
+enough to not be acoustically compact or is at elevated pressure. Due to the typical low combustor
+Mach numbers, LES for the flame response can be incompressible, i.e., allowing density changes
+due to temperature but not pressure—this exploits the fact that flames respond primarily to the
+hydrodynamic fluctuations initiated by acoustic excitation (Candel 2002, Ducruix et al. 2003). In-
+compressible LES has the benefit of allowing larger time steps and avoiding the need to deal with
+the acoustic performance of the simulation’s boundary conditions.
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+23
+
+
+--- Page 16 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Table 1
+Summary of predictions for thermoacoustic instabilities
+Reference
+Combustor type
+Method
+Prediction
+Validation
+Stow & Dowling 2001
+Ind/annular
+LONM + FTF
+Freq
+Exp
+Evesque & Polifke 2002
+Model annular
+LONM + BTM
+Freq
+HS
+Schuermans et al. 2003
+Longitudinal/annular
+Galerkin (SS) + BTM
+Freq
+HS
+Stow & Dowling 2004
+Ind/annular
+LONM + FDF
+Freq/type/amp
+Exp
+Kopitz et al. 2005
+Lab/annular
+LONM + FTF
+Freq
+Exp
+Nicoud et al. 2007
+Ind/annular
+HS + FTF
+Freq/type
+No
+Staffelbach et al. 2009
+Ind/swirl/annular
+Compressible LES
+Freq/amp
+No
+Stow & Dowling 2009
+Ind/annular
+LONM (time domain)
+Type
+Exp
+Wolf et al. 2012
+Ind/swirl/annular
+Compressible LES
+Freq/amp
+No
+Silva et al. 2013
+Lab/swirl/can
+HS + exp FDF
+Freq/amp
+Exp
+Campa & Camporeale 2014
+Ind/annular
+HS + CFD mean flow
+Freq
+No
+Han et al. 2015
+Lab/bluff-body/can
+LONM + LES FDF
+Freq/amp
+Exp
+Mensah et al. 2016
+Ind/annular
+HS + BWT + FTF
+Freq
+HS
+Urbano et al. 2016
+Ind/liquid rocket
+Compressible LES
+Triggering/freq
+Exp
+Laera et al. 2017a
+Lab/M-B/annular
+HS + exp FDF
+Freq/amp
+Exp
+Laera et al. 2017b
+Lab/M-B/annular
+LONM + exp FDF
+Freq/type/amp
+Exp
+Li et al. 2017
+Lab/long flame/can
+LONM + LES FDF
+Freq/amp
+Exp
+Xia et al. 2019
+Ind/pd/swirl/can
+LONM + LES FDF
+Freq/amp
+Exp
+Yang et al. 2019a
+Lab/M-B/annular
+LONM + FDF
+Freq/type/amp
+HS
+Fredrich et al. 2021
+Lab/swirl/can
+Compressible LES
+Freq/amp
+Exp
+Kumar et al. 2023
+Lab/swirl/can
+Compressible LES
+Freq/amp
+Exp
+Abbreviations: amp, mode amplitude; BTM, burner transfer matrix; BWT, Bloch-wave theory; CFD, computational fluid dynamics; exp, experiment; FDF,
+flame describing function; freq, mode frequency; FTF, flame transfer function; HS, Helmholtz solver; ind, industrial scale; lab, lab scale; LES, large eddy
+simulation; LONM, low-order network model; M-B, matrix burner; pd, pressurized; SS, state space; type, mode type.
+Capturing the amplitude of the thermoacoustic oscillations resulting from instability is more
+challenging, again requiring both the nonlinear flame response and the acoustic damping to be
+prescribed with reasonable accuracy.
+Progress in achieving computational prediction of thermoacoustic instability using direct com-
+putational approaches was reviewed by Poinsot (2017), with subsequent works shown in Table 1.
+Achieving fast and accurate computational prediction using coupled/hybrid methods had been a
+long-standing challenge, but progress combining low-order network models for the acoustics with
+incompressible LES for the flame has been made over the last decade for both lab-scale (Han et al.
+2015, Li et al. 2017) and industrial-complexity (Xia et al. 2019) can combustors. For the latter, the
+pressurized combustion rig for which good thermoacoustic instability and oscillation predictions
+were achieved is shown in Figure 5a, with its low-order thermoacoustic network representation
+shown in Figure 5b. The coupled/hybrid method was able to correctly predict that the combus-
+tor operating at 3-bar pressure was stable, while at 6-bar pressure it was unstable, with the final
+frequency and amplitude of the resulting oscillations predicted well.
+Annular combustors, beyond the challenges discussed above, require acoustic propagation to
+be characterized in both the longitudinal and circumferential directions. Accurate prediction may
+also need coupling between circumferential modes of different orders to be accounted for, as well
+as the ability to determine whether modes are spinning, standing, mixed, slanted, or involve even
+more complicated coupling (Laera et al. 2017b, Prieur et al. 2017, Yang et al. 2019a). In terms
+24
+Morgans • Yang
+
+
+--- Page 17 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Burner
+Combustor
+Exhaust pipe
+Flame sheet
+Plenum
+Combustor
+Exhaust pipe
+Burner
+(radial swirler)
+Acoustic inlet boundary:
+model for perforated plate
+upstream of burner
+Acoustic outlet boundary:
+model for damped
+open end
+Burner
+Combustor
+a
+b
+Figure 5
+The pressurized (3 bar and 6 bar) industrial demonstrator rig (Stopper et al. 2013) for which good hybrid/coupled thermoacoustic
+predictions were achieved (Xia et al. 2019). (a) Schematic of the rig, burner, and combustor. (b) Sketch of low-order thermoacoustic
+network representation. Top portion of panel a adapted with permission from Xia (2019). Bottom portion of panel a adapted from Xia
+et al. (2018) (CC BY 4.0).
+of predicting thermoacoustic instability in annular combustors, notable progress was made by
+Laera et al. (2017a), who combined a Helmholtz solver with experimentally measured FDFs and
+predicted the frequency and amplitude of both spinning and standing limit cycles observed in an
+experimental lab annular combustor.
+For combustors that exhibit more complex flow physics, such as real gas effects in supercritical
+rocket engines, accurate prediction requires further refined simulations (Urbano et al. 2016). For
+such combustors, as well as for when the final thermoacoustic behavior is more complex than limit
+cycle oscillations (Kumar et al. 2023), experimentally validated predictions have so far been limited
+to direct computational approaches.
+Finally, it is notable that none of the entries in Table 1 are for can-annular combustor
+geometries.While there have been several lab-based experimental rigs developed for annular com-
+bustors (Worth & Dawson 2013, Bourgouin et al. 2015b), comparable facilities for can-annular
+systems remain needed.
+SUMMARY POINTS
+1. Thermoacoustic instabilities are caused by a two-way coupling between acoustic waves
+and unsteady heat release rate.
+2. Thermoacoustic instabilities are problematic for combustors in aeroengines, land-based
+gas turbines, rocket engines, domestic boilers, etc., often arising late in the design and
+development process.
+3. There has been significant research activity over the last decade on modeling and un-
+derstanding thermoacoustic instabilities in annular-shaped combustors, largely driven
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+25
+
+
+--- Page 18 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+by new experimental facilities. There is now growing research activity on modeling and
+understanding thermoacoustic instabilities in can-annular geometries.
+4. Fast and accurate computational prediction of thermoacoustic instability and ther-
+moacoustic oscillations in real combustors remains challenging and computationally
+intensive, largely due to the range of length scales, timescales, and flow physics at play.
+5. Significant progress has been made over the last decade using coupled/hybrid approaches
+for computational prediction of thermoacoustic instability. Such approaches combine
+separate computational treatments for the acoustic waves and the flame. Successful
+predictions extend to pressurized and industrially representative combustors.
+FUTURE ISSUES
+1. The move to decarbonize energy systems and aviation is driving a transition to new
+fuels. Some of these will require substantial redesign of the burner and/or combustor.
+This transition will likely bring new thermoacoustic instability problems but also new
+opportunities to explore ways of mitigating thermoacoustic instability.
+2. Can-annular combustor geometries are relevant to large/efficient gas turbines for en-
+ergy generation. Further thermoacoustic characterization and understanding of these
+are needed across experimental, modeling, and numerical tools.
+3. Given that burner designs are likely to undergo quite significant changes in the context
+of the transition to new fuels, it will be important to quickly develop an understanding
+of both the unsteady flame response and acoustic damping mechanisms associated with
+new burner designs.
+4. Further understanding and accurate incorporation of the main acoustic damping
+mechanisms into thermoacoustic instability prediction methods are needed.
+5. Data-driven tools such as optimization remain relatively unexplored for mitigation of
+thermoacoustic instability and may offer avenues for exploiting the high sensitivity that
+thermoacoustic stability can exhibit to design changes.
+DISCLOSURE STATEMENT
+The authors are not aware of any affiliations, memberships, funding, or financial holdings that
+might be perceived as affecting the objectivity of this review.
+ACKNOWLEDGMENTS
+A.S.M. would like to acknowledge the European Research Council Consolidator Grant
+AFIRMATIVE (2018–2023) for financial support, and D.Y. would like to thank the National
+Natural Science Foundation of China (project 52106159).
+LITERATURE CITED
+Acharya VS, Bothien MR, Lieuwen TC. 2018. Non-linear dynamics of thermoacoustic eigen-mode
+interactions. Combust. Flame 194:309–21
+26
+Morgans • Yang
+
+
+--- Page 19 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Æsøy E, Aguilar JG, Bothien MR, Worth NA, Dawson JR. 2021. Acoustic-convective interference in transfer
+functions of methane/hydrogen and pure hydrogen flames. J. Eng. Gas Turbines Power 143(12):121017
+Æsøy E, Nygård HT, Worth NA, Dawson JR. 2022. Tailoring the gain and phase of the flame transfer function
+through targeted convective-acoustic interference. Combust. Flame 236:111813
+Agostinelli P, Laera D, Boxx I,Gicquel L,Poinsot T.2021.Impact of wall heat transfer in large eddy simulation
+of flame dynamics in a swirled combustion chamber. Combust. Flame 234:111728
+Bake F, Richter C, Mühlbauer B, Kings N, Röhle I, et al. 2009. The entropy wave generator (EWG): a
+reference case on entropy noise. J. Sound Vib. 326(3–5):574–98
+Balachandran R, Ayoola B, Kaminski C, Dowling AP, Mastorakos E. 2005. Experimental investigation of the
+nonlinear response of turbulent premixed flames to imposed inlet velocity oscillations. Combust. Flame
+143(1–2):37–55
+Bauerheim M, Cazalens M, Poinsot T. 2015. A theoretical study of mean azimuthal flow and asymmetry effects
+on thermo-acoustic modes in annular combustors. Proc. Combust. Inst. 35(3):3219–27
+Bauerheim M, Nicoud F, Poinsot T. 2016. Progress in analytical methods to predict and control azimuthal
+combustion instability modes in annular chambers. Phys. Fluids 28(2):021303
+Bauerheim M, Parmentier JF, Salas P, Nicoud F, Poinsot T. 2014a. An analytical model for azimuthal
+thermoacoustic modes in an annular chamber fed by an annular plenum. Combust. Flame 161(5):1374–89
+Bauerheim M, Salas P, Nicoud F, Poinsot T. 2014b. Symmetry breaking of azimuthal thermo-acoustic modes
+in annular cavities: a theoretical study. J. Fluid Mech. 760:431–65
+Beita J, Talibi M, Sadasivuni S, Balachandran R. 2021. Thermoacoustic instability considerations for high
+hydrogen combustion in lean premixed gas turbine combustors: a review. Hydrogen 2(1):33–57
+Bellucci V, Flohr P, Paschereit CO, Magni F. 2004. On the use of Helmholtz resonators for damping acoustic
+pulsations in industrial gas turbines. J. Eng. Gas Turbines Power 126(2):271–75
+Berger FM, Hummel T, Hertweck M, Kaufmann J, Schuermans B, Sattelmayer T. 2017. High-frequency
+thermoacoustic modulation mechanisms in swirl-stabilized gas turbine combustors—part I: experimental
+investigation of local flame response. J. Eng. Gas Turbines Power 139(7):071501
+Bothien MR, Noiray N, Schuermans B. 2014. A novel damping device for broadband attenuation of low-
+frequency combustion pulsations in gas turbines. J. Eng. Gas Turbines Power 136(4):041504
+Bourgouin JF, Durox D, Moeck JP, Schuller T, Candel S. 2015a. A new pattern of instability observed in an
+annular combustor: the slanted mode. Proc. Combust. Inst. 35(3):3237–44
+Bourgouin JF, Durox D, Moeck JP, Schuller T, Candel S. 2015b. Characterization and modeling of a spinning
+thermoacoustic instability in an annular combustor equipped with multiple matrix injectors. J. Eng. Gas
+Turbines Power 137(2):021503
+Brokof P, Guzmán-Iñigo J, Yang D, Morgans AS. 2023. The acoustics of short circular holes with reattached
+bias flow. J. Sound Vib. 546:117435
+Brouzet D, Krisna B, McCormick D, Reimann CA, Mendoza J, Ihme M. 2024. Analysis of direct and indirect
+noise in a next-generation aviation gas turbine combustor. Combust. Flame 260:113249
+Buschmann PE, Worth NA, Moeck JP. 2023. Thermoacoustic oscillations in a can-annular model combustor
+with asymmetries in the can-to-can coupling. Proc. Combust. Inst. 39(4):5707–15
+Campa G, Camporeale SM. 2014. Prediction of the thermoacoustic combustion instabilities in practical
+annular combustors. J. Eng. Gas Turbines Power 136(9):091504
+Camporeale SM, Fortunato B, Mastrovito M. 2008. Prediction of thermoacoustic instability in combustion
+chamber equipped with passive dampers. In Proceedings of the ASME Turbo Expo 2008: Power for Land, Sea,
+and Air, Vol. 3: Combustion, Fuels and Emissions, Parts A and B, pp. 1087–94. New York: Am. Soc. Mech.
+Eng.
+Candel S. 2002. Combustion dynamics and control: progress and challenges. Proc. Comb. Inst. 29:1–28
+Candel S, Durox D, Schuller T, Bourgouin JF, Moeck JP. 2014. Dynamics of swirling flames. Annu. Rev. Fluid
+Mech. 46:147–73
+Choi Y, Kim KT. 2023. Mode shape-dependent thermoacoustic interactions between a lean-premixed primary
+flame and an axially-staged transverse reacting jet. Combust. Flame 255:112884
+Chu BT. 1965. On the energy transfer to small disturbances in fluid flow (Part I). Acta Mech. 1(3):215–34
+Crocco L. 1951. Aspects of combustion stability in liquid propellant rocket motors Part I: Fundamentals. Low
+frequency instability with monopropellants. J. Am. Rocket Soc. 21(6):163–78
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+27
+
+
+--- Page 20 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Culick FE, Yang V. 1995. Overview of combustion instabilities in liquid-propellant rocket engines. In Liq-
+uid Rocket Engine Combustion Instability, ed. V Yang, pp. 3–37. Washington, DC: Am. Inst. Aeronaut.
+Astrophys.
+Cumpsty N, Marble F. 1977. The interaction of entropy fluctuations with turbine blade rows; a mechanism of
+turbojet engine noise. Proc. R. Soc. A 357(1690):323–44
+Dowling AP. 1995. The calculation of thermoacoustic oscillations. J. Sound Vib. 180(4):557–81
+Dowling AP. 1997. Nonlinear self-excited oscillations of a ducted flame. J. Fluid Mech. 346:271–90
+Dowling AP, Mahmoudi Y. 2015. Combustion noise. Proc. Combust. Inst. 35:65–100
+Dowling AP, Morgans AS. 2005. Feedback control of combustion oscillations. Annu. Rev. Fluid Mech. 37:151–
+82
+Dowling AP, Stow SR. 2003. Acoustic analysis of gas turbine combustors. J. Propul. Power 19(5):751–64
+Ducruix S, Schuller T, Durox D, Candel S. 2003. Combustion dynamics and instabilities: elementary coupling
+and driving mechanisms. J. Propul. Power 19(5):722–34
+Dupere ID, Dowling AP. 2005. The use of Helmholtz resonators in a practical combustor. J. Eng. Gas Turbines
+Power 127(2):268–75
+Duran I, Moreau S. 2013. Solution of the quasi-one-dimensional linearized Euler equations using flow
+invariants and the Magnus expansion. J. Fluid Mech. 723:190–231
+Duran I, Moreau S, Nicoud F, Livebardon T, Bouty E, Poinsot T. 2014. Combustion noise in modern aero-
+engines. Aerosp. Lab 7:5
+Duran I, Morgans AS. 2015. On the reflection and transmission of circumferential waves through nozzles.
+J. Fluid Mech. 773:137–53
+Durox D, Schuller T, Noiray N, Birbaud AL, Candel S. 2009. Rayleigh criterion and acoustic energy balance
+in unconfined self-sustained oscillating flames. Combust. Flame 156(1):106–19
+Eldredge JD, Dowling AP. 2003. The absorption of axial acoustic waves by a perforated liner with bias flow.
+J. Fluid Mech. 485:307–35
+Emmert T, Bomberg S, Polifke W. 2015. Intrinsic thermoacoustic instability of premixed flames. Combust.
+Flame 162(1):75–85
+Evesque S, Polifke W. 2002. Low-order acoustic modelling for annular combustors: validation and inclusion
+of modal coupling. In Proceedings of the ASME Turbo Expo 2002: Power for Land, Sea, and Air, Vol. 1: Turbo
+Expo 2002, pp. 321–31. New York: Am. Soc. Mech. Eng.
+Fabre D, Longobardi R, Citro V, Luchini P. 2020. Acoustic impedance and hydrodynamic instability of the
+flow through a circular aperture in a thick plate. J. Fluid Mech. 885:A11
+Farisco F, Panek L, Kok JB. 2017. Thermo-acoustic cross-talk between cans in a can-annular combustor. Int.
+J. Spray Combust. Dyn. 9(4):452–69
+Fleifil M, Annaswamy AM, Ghoneim Z, Ghoniem AF. 1996. Response of a laminar premixed flame to flow
+oscillations: a kinematic model and thermoacoustic instability results. Combust. Flame 106(4):487–510
+Fredrich D, Jones WP, Marquis AJ. 2021. Thermo-acoustic instabilities in the PRECCINSTA combustor
+investigated using a compressible LES-pdf approach. Flow Turbul. Combust. 106:1399–415
+Gaudron R, Gatti M, Mirat C, Schuller T. 2017. Impact of the injector size on the transfer functions of
+premixed laminar conical flames. Combust. Flame 179:138–53
+Gaudron R, Guzmán Iñigo J, Morgans AS. 2023. Variation of acoustic energy across sudden area expansions
+sustaining a subsonic flow. AIAA J. 61(1):378–90
+Gaudron R, Yang D, Morgans A. 2021. Acoustic energy balance during the onset, growth, and saturation of
+thermoacoustic instabilities. J. Eng. Gas Turbines Power 143(4):041026
+Ghirardo G, Bothien MR. 2018. Quaternion structure of azimuthal instabilities. Phys. Rev. Fluids 3(11):113202
+Ghirardo G, Di Giovine C, Moeck JP, Bothien MR. 2019. Thermoacoustics of can-annular combustors.
+J. Eng. Gas Turbines Power 141(1):011007
+Ghirardo G, Juniper M, Moeck JP. 2016. Weakly nonlinear analysis of thermoacoustic instabilities in annular
+combustors. J. Fluid Mech. 805:52–87
+Ghirardo G, Nygård HT, Cuquel A, Worth NA. 2021. Symmetry breaking modelling for azimuthal
+combustion dynamics. Proc. Combust. Inst. 38(4):5953–62
+Giauque A, Selle L, Gicquel L, Poinsot T, Buechner H, et al. 2005. System identification of a large-scale
+swirled partially premixed combustor using LES and measurements. J. Turbul. (6):N21
+28
+Morgans • Yang
+
+
+--- Page 21 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Goh CS, Morgans AS. 2013. The influence of entropy waves on the thermoacoustic stability of a model
+combustor. Combust. Sci. Technol. 185:249–68
+Guan Y, Li LK, Jegal H, Kim KT. 2023. Effect of flame response asymmetries on the modal patterns and
+collective states of a can-annular lean-premixed combustion system. Proc. Combust. Inst. 39(4):4731–39
+Guzmán-Iñigo J, Durán I, Morgans AS. 2021. Scattering of entropy waves into sound by isolated aerofoils.
+J. Fluid Mech. 923:A10
+Guzmán-Iñigo J, Morgans AS. 2024. Designing the edges of holes (with bias flow) to maximise acoustic
+damping. J. Sound Vib. 575:118224
+Guzmán-Iñigo J, Yang D, Gaudron R, Morgans AS. 2022. On the scattering of entropy waves at sudden area
+expansions. J. Sound Vib. 540:117261
+Guzmán-Iñigo J, Yang D, Johnson HG, Morgans AS. 2019. Sensitivity of the acoustics of short circular holes
+with bias flow to inlet edge geometries. AIAA J. 57(11):4835–44
+Haeringer M, Fournier GJ, Meindl M, Polifke W. 2021. A strategy to tune acoustic terminations of single-can
+test-rigs to mimic thermoacoustic behavior of a full engine. J. Eng. Gas Turbines Power 143(7):071029
+Han X, Li J, Morgans AS. 2015. Prediction of combustion instability limit cycle oscillations by com-
+bining flame describing function simulations with a thermoacoustic network model. Combust. Flame
+162(10):3632–47
+Han X, Morgans AS. 2015. Simulation of the flame describing function of a turbulent premixed flame using
+an open-source LES solver. Combust. Flame 162(5):1778–92
+Heilmann G, Sattelmayer T. 2022. On the convective wave equation for the investigation of combustor
+stability using FEM-methods. Int. J. Spray Combust. Dyn. 14(1–2):55–71
+Hoeijmakers M, Kornilov V, Arteaga IL, de Goey P, Nijmeijer H. 2014. Intrinsic instability of flame–acoustic
+coupling. Combust. Flame 161(11):2860–67
+Howe M. 1979. On the theory of unsteady high Reynolds number flow through a circular aperture. Proc. R.
+Soc. A 366(1725):205–23
+Ihme M. 2017. Combustion and engine-core noise. Annu. Rev. Fluid Mech. 49:277–310
+Illingworth SJ, Morgans AS. 2010. Adaptive feedback control of combustion instability in annular combustors.
+Combust. Sci. Technol. 182(2):143–64
+Jing X, Sun X. 2000. Effect of plate thickness on impedance of perforated plates with bias flow. AIAA J.
+38(9):1573–78
+John T, Acharya VS, Bothien MR, Lieuwen TC. 2023. Dynamics of coupled thermoacoustic modes: noise
+and frequency spacing effects. Combust. Flame 252:112738
+Juniper MP, Sujith RI. 2018. Sensitivity and nonlinearity of thermoacoustic oscillations. Annu. Rev. Fluid Mech.
+50:661–89
+Kim D, Lee JG, Quay BD, Santavicca DA, Kim K, Srinivasan S. 2010. Effect of flame structure on the flame
+transfer function in a premixed gas turbine combustor. J. Eng. Gas Turbines Power 132(2):021502
+Kopitz J, Huber A, Sattelmayer T, Polifke W. 2005. Thermoacoustic stability analysis of an annular combus-
+tion chamber with acoustic low order modeling and validation against experiment. In Proceedings of the
+ASME Turbo Expo 2005: Power for Land, Sea, and Air, Vol. 2: Turbo Expo 2005, pp. 583–93. New York: Am.
+Soc. Mech. Eng.
+Kumar AD, Massey JC, Stöhr M, Meier W, Swaminathan N. 2023. Period-2 thermoacoustics in a swirl-
+stabilised partially premixed flame computed using large eddy simulation. Flow Turbul. Combust.
+111(3):995–1028
+Laera D, Schuller T, Prieur K, Durox D, Camporeale SM, Candel S. 2017a. Flame describing function analysis
+of spinning and standing modes in an annular combustor and comparison with experiments. Combust.
+Flame 184:136–52
+Laera D, Yang D, Li J, Morgans AS. 2017b. A novel acoustic network model to study the influence of mean flow
+and axial temperature distribution on spinning limit cycles in annular combustors. Paper presented at 23rd
+AIAA/CEAS Aeroacoustics Conference, Denver, CO, AIAA Pap. 2017-3191
+Lahiri C, Bake F. 2017. A review of bias flow liners for acoustic damping in gas turbine combustors. J. Sound
+Vib. 400:564–605
+Lee SH, Ih JG, Peat KS. 2007. A model of acoustic impedance of perforated plates with bias flow considering
+the interaction effect. J. Sound Vib. 303(3–5):741–52
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+29
+
+
+--- Page 22 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Lepers J, Krebs W, Prade B, Flohr P, Pollarolo G, Ferrante A. 2005. Investigation of thermoacoustic stability
+limits of an annular gas turbine combustor test-rig with and without Helmholtz-resonators.In Proceedings
+of the ASME Turbo Expo 2005: Power for Land, Sea, and Air, Vol. 2: Turbo Expo 2005, pp. 177–89. New York:
+Am. Soc. Mech. Eng.
+Leyko M, Duran I, Moreau S, Nicoud F, Poinsot T. 2014. Simulation and modelling of the waves transmission
+and generation in a stator blade row in a combustion-noise framework. J. Sound Vib. 333(23):6090–106
+Leyko M, Nicoud F, Poinsot T. 2009. Comparison of direct and indirect combustion noise mechanisms in a
+model combustor. AIAA J. 47(11):2709–16
+Li C, Yang D, Li S, Zhu M. 2019. An analytical study of the effect of flame response to simultaneous axial and
+transverse perturbations on azimuthal thermoacoustic modes in annular combustors. Proc. Combust. Inst.
+37(4):5279–87
+Li J, Morgans AS. 2015. Time domain simulations of nonlinear thermoacoustic behaviour in a simple
+combustor using a wave-based approach. J. Sound Vib. 346:345–60
+Li J, Morgans AS. 2016. Feedback control of combustion instabilities from within limit cycle oscillations using
+H∞loop-shaping and the ν-gap metric. Proc. R. Soc. A 472(2191):20150821
+Li J, Morgans AS. 2017. The one-dimensional acoustic field in a duct with arbitrary mean axial temperature
+gradient and mean flow. J. Sound Vib. 400:248–69
+Li J,Wang D,Morgans AS,Yang L.2021.Analytical solutions of acoustic field in annular combustion chambers
+with non-uniform cross-sectional surface area and mean flow. J. Sound Vib. 506:116175
+Li J, Xia Y, Morgans AS, Han X. 2017. Numerical prediction of combustion instability limit cycle oscillations
+for a combustor with a long flame. Combust. Flame 185:28–43
+Li J, Yang D, Morgans AS. 2018. The effect of an axial mean temperature gradient on communication between
+one-dimensional acoustic and entropy waves. Int. J. Spray Combust. Dyn. 10(2):131–53
+Lieuwen T. 2003. Modeling premixed combustion-acoustic wave interactions: a review. J. Propuls. Power
+19:765–81
+Lim Z, Li J, Morgans AS. 2021. The effect of hydrogen enrichment on the forced response of CH4/H2/Air
+laminar flames. Int. J. Hydrogen Energy 46(46):23943–53
+Magri L, O’Brien J, Ihme M. 2016. Compositional inhomogeneities as a source of indirect combustion noise.
+J. Fluid Mech. 799:R4
+Marble FE, Candel SM. 1977. Acoustic disturbance from gas non-uniformities convected through a nozzle.
+J. Sound Vib. 55:225–43
+Mensah GA, Campa G, Moeck JP. 2016. Efficient computation of thermoacoustic modes in industrial annular
+combustion chambers based on Bloch-wave theory. J. Eng. Gas Turbines Power 138(8):081502
+Miniero L, Mensah GA, Bourquard C, Noiray N. 2023. Failure of thermoacoustic instability control due to
+periodic hot gas ingestion in Helmholtz dampers. J. Sound Vib. 548:117544
+Mishra A, Bodony DJ. 2013. Evaluation of actuator disk theory for predicting indirect combustion noise.
+J. Sound Vib. 332(4):821–38
+Moeck JP, Durox D, Schuller T, Candel S. 2019. Nonlinear thermoacoustic mode synchronization in annular
+combustors. Proc. Combust. Inst. 37(4):5343–50
+Moers E, Tonon D, Hirschberg A. 2017. Strouhal number dependency of the aero-acoustic response of wall
+perforations under combined grazing-bias flow. J. Sound Vib. 389:292–308
+Mongia HC, Held T, Hsiao G, Pandalai R. 2003. Challenges and progress in controlling dynamics in gas
+turbine combustors. J. Propul. Power 19(5):822–29
+Moon K, Jegal H, Gu J, Kim KT. 2019. Combustion-acoustic interactions through cross-talk area between
+adjacent model gas turbine combustors. Combust. Flame 202:405–16
+Moon K, Yoon C, Kim KT. 2021. Influence of rotational asymmetry on thermoacoustic instabilities in a can-
+annular lean-premixed combustor. Combust. Flame 223:295–306
+Morgans AS, Duran I. 2016. Entropy noise: a review of theory, progress and challenges. Int. J. Spray Combust.
+8(4):285–98
+Morgans AS, Stow SR. 2007. Model-based control of combustion instabilities in annular combustors. Combust.
+Flame 150(4):380–99
+Nakaya S, Omi K, Okamoto T, Ikeda Y, Zhao C, et al. 2021. Instability and mode transition analysis of a
+hydrogen-rich combustion in a model afterburner. Proc. Combust. Inst. 38(4):5933–42
+30
+Morgans • Yang
+
+
+--- Page 23 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Ni F, Miguel-Brebion M, Nicoud F, Poinsot T. 2017. Accounting for acoustic damping in a Helmholtz solver.
+AIAA J. 55(4):1205–20
+Ni F, Nicoud F, Méry Y, Staffelbach G. 2018. Including flow–acoustic interactions in the Helmholtz
+computations of industrial combustors. AIAA J. 56(12):4815–29
+Nicoud F, Benoit L, Sensiau C, Poinsot T. 2007. Acoustic modes in combustors with complex impedances and
+multidimensional active flames. AIAA J. 45(2):426–41
+Noiray N, Bothien MR, Schuermans B. 2011. Investigation of azimuthal staging concepts in annular gas
+turbines. Combust. Theory Model. 15(5):585–606
+Noiray N, Durox D, Schuller T, Candel S. 2008. A unified framework for nonlinear combustion instability
+analysis based on the flame describing function. J. Fluid Mech. 615:139–67
+Nygård HT, Ghirardo G, Worth NA. 2021. Azimuthal flame response and symmetry breaking in a forced
+annular combustor. Combust. Flame 233:111565
+Oefelein JC, Yang V. 1993. Comprehensive review of liquid-propellant combustion instabilities in F-1 engines.
+J. Propul. Power 9(5):657–77
+Orchini A. 2022. An effective impedance for modelling the aeroacoustic coupling of ducts connected via
+apertures. J. Sound Vib. 520:116622
+Orchini A, Mensah GA, Moeck JP. 2019. Effects of nonlinear modal interactions on the thermoacoustic
+stability of annular combustors. J. Eng. Gas Turbines Power 141(2):021002
+Palies P, Durox D, Schuller T, Candel S. 2011. Nonlinear combustion instability analysis based on the flame
+describing function applied to turbulent premixed swirling flames. Combust. Flame 158(10):1980–91
+Paschereit CO, Schuermans B, Polifke W, Mattson O. 2002. Measurement of transfer matrices and source
+terms of premixed flames. J. Eng. Gas Turbines Power 124(2):239–47
+Poinsot T. 2017. Prediction and control of combustion instabilities in real engines. Proc. Combust. Inst. 36(1):1–
+28
+Polifke W. 2020. Modeling and analysis of premixed flame dynamics by means of distributed time delays. Prog.
+Energy Combust. Sci. 79:100845
+Prieur K, Durox D, Schuller T, Candel S. 2017. A hysteresis phenomenon leading to spinning or standing
+azimuthal instabilities in an annular combustor. Combust. Flame 175:283–91
+Richards GA, Straub DL, Robey EH. 2005. Passive control of combustion instabilities in stationary gas tur-
+bines. In Combustion Instabilities in Gas Turbine Engines, ed. TC Lieuwen, V Yang, pp. 533–79. Reston,
+VA: Am. Inst. Aeronaut. Astronaut.
+Rogers DE, Marble FE. 1956. A mechanism for high-frequency oscillation in ramjet combustors and
+afterburners. J. Jet Propul. 26(6):456–62
+Rolland E, De Domenico F, Hochgreb S. 2017. Theory and application of reverberated direct and indirect
+noise. J. Fluid Mech. 819:435–64
+Ronneberger D. 1987. Theoretische und experimentelle Untersuchung der Schallausbreitung durch Quer-
+schnittssprünge und Lochplatten in Strömungskanälen.Tech.Rep.,DFG-Abschlussbericht,Drittes Phys.Inst.
+Univ. Göttingen, Göttingen, Ger.
+Schleicher RM, Howe MS. 2013. On the interaction of sound with an annular aperture in a mean flow duct.
+J. Sound Vib. 332(21):5594–605
+Schuermans B, Bellucci V, Paschereit CO. 2003. Thermoacoustic modeling and control of multi burner com-
+bustion systems. In Proceedings of the ASME Turbo Expo 2003, collocated with the 2003 International Joint
+Power Generation Conference, Vol. 2: Turbo Expo 2003, pp. 509–19. New York: Am. Soc. Mech. Eng.
+Schuller T, Durox D, Palies P, Candel S. 2012. Acoustic decoupling of longitudinal modes in generic
+combustion systems. Combust. Flame 159(5):1921–31
+Schulz O, Doll U, Ebi D, Droujko J, Bourquard C, Noiray N. 2019. Thermoacoustic instability in a sequential
+combustor: large eddy simulation and experiments. Proc. Combust. Inst. 37(4):5325–32
+Schwing J, Sattelmayer T, Noiray N. 2011. Interaction of vortex shedding and transverse high-frequency pres-
+sure oscillations in a tubular combustion chamber. In Proceedings of the ASME 2011 Turbo Expo: Turbine
+Technical Conference and Exposition, Vol. 2: Combustion, Fuels and Emissions, Parts A and B, pp. 259–68. New
+York: Am. Soc. Mech. Eng.
+Silva CF. 2023. Intrinsic thermoacoustic instabilities. Prog. Energy Combust. Sci. 95:101065
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+31
+
+
+--- Page 24 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Silva CF, Nicoud F, Schuller T, Durox D, Candel S. 2013. Combining a Helmholtz solver with the flame
+describing function to assess combustion instability in a premixed swirled combustor. Combust. Flame
+160(9):1743–54
+Staffelbach G, Gicquel L, Boudier G, Poinsot T. 2009. Large eddy simulation of self excited azimuthal modes
+in annular combustors. Proc. Combust. Inst. 32(2):2909–16
+Stopper U, Meier W, Sadanandan R, Stöhr M, Aigner M, Bulat G. 2013. Experimental study of industrial gas
+turbine flames including quantification of pressure influence on flow field, fuel/air premixing and flame
+shape. Combust. Flame 160(10):2103–18
+Stow SR, Dowling AP. 2001. Thermoacoustic oscillations in an annular combustor. In Proceedings of the ASME
+Turbo Expo 2001: Power for Land, Sea, and Air, Vol. 2: Coal, Biomass and Alternative Fuels; Combustion and
+Fuels; Oil and Gas Applications; Cycle Innovations, V002T02A004. New York: Am. Soc. Mech. Eng.
+Stow SR, Dowling AP. 2003. Modelling of circumferential modal coupling due to Helmholtz resonators. In
+Proceedings of the ASME Turbo Expo 2003, collocated with the 2003 International Joint Power Generation
+Conference, Vol. 2: Turbo Expo 2003, pp. 129–37. New York: Am. Soc. Mech. Eng.
+Stow SR, Dowling AP. 2004. Low-order modelling of thermoacoustic limit cycles. In Proceedings of the ASME
+Turbo Expo 2004: Power for Land, Sea, and Air, Vol. 1: Turbo Expo 2004, pp. 775–86. New York: Am. Soc.
+Mech. Eng.
+Stow SR, Dowling AP. 2009. A time-domain network model for nonlinear thermoacoustic oscillations. J. Eng.
+Gas Turbines Power 131(3):031502
+Su J, Garmory A, Carrotte J. 2019. On the acoustic response of a generic gas turbine fuel injector passage.
+J. Sound Vib. 446:343–73
+Su J, Rupp J, Garmory A, Carrotte JF. 2015. Measurements and computational fluid dynamics predictions of
+the acoustic impedance of orifices. J. Sound Vib. 352:174–91
+Su J, Yang D, Morgans AS. 2021. Modelling of sound-vortex interaction for the flow through an annular
+aperture. J. Sound Vib. 509:116250
+Sun X, Jing X, Zhang H, Shi Y. 2002. Effect of grazing–bias flow interaction on acoustic impedance of
+perforated plates. J. Sound Vib. 254(3):557–73
+Urbano A, Selle L, Staffelbach G, Cuenot B, Schmitt T, et al. 2016. Exploration of combustion instabil-
+ity triggering using large eddy simulation of a multiple injector liquid rocket engine. Combust. Flame
+169:129–40
+von Saldern JG, Moeck JP, Orchini A. 2021a. Nonlinear interaction between clustered unstable thermoacous-
+tic modes in can-annular combustors. Proc. Combust. Inst. 38(4):6145–53
+von Saldern JG, Orchini A, Moeck JP. 2021b. Analysis of thermoacoustic modes in can-annular combustors
+using effective Bloch-type boundary conditions. J. Eng. Gas Turbines Power 143(7):071019
+Wolf P, Staffelbach G, Gicquel LY, Müller JD, Poinsot T. 2012. Acoustic and large eddy simulation studies of
+azimuthal modes in annular combustion chambers. Combust. Flame 159(11):3398–413
+Worth NA, Dawson JR. 2013. Modal dynamics of self-excited azimuthal instabilities in an annular combustion
+chamber. Combust. Flame 160(11):2476–89
+Xia Y. 2019. Prediction of thermoacoustic instability in gas turbine combustors. PhD Thesis, Imperial Coll. London,
+London
+Xia Y, Duran I, Morgans AS, Han X. 2018. Dispersion of entropy perturbations transporting through an
+industrial gas turbine combustor. Flow Turbul. Combust. 100:481–502
+Xia Y, Laera D, Jones WP, Morgans AS. 2019. Numerical prediction of the flame describing function and
+thermoacoustic limit cycle for a pressurised gas turbine combustor. Combust. Sci. Technol. 191(5–6):979–
+1002
+Xiong Y, Droujko J, Schulz O, Noiray N. 2021. Investigation of thermoacoustic instability in sequential
+combustor during first stage lean blow-off. Proc. Combust. Inst. 38(4):6165–72
+Yang D, Guzmán-Iñigo J, Morgans AS. 2020. Sound generation by entropy perturbations passing through a
+sudden flow expansion. J. Fluid Mech. 905:R2
+Yang D, Guzmán-Iñigo J, Morgans AS. 2022. Sound generated by axisymmetric non-plane entropy waves
+passing through flow contractions. Int. J. Aeroacoust. 21(5–7):521–36
+Yang D, Laera D, Morgans AS. 2019a. A systematic study of nonlinear coupling of thermoacoustic modes in
+annular combustors. J. Sound Vib. 456:137–61
+32
+Morgans • Yang
+
+
+--- Page 25 ---
+
+Downloaded from www.annualreviews.org.  Guest (guest) IP:  98.28.237.49 On: Thu, 01 Jan 2026 00:26:59
+Yang D, Morgans AS. 2016. A semi-analytical model for the acoustic impedance of finite length circular holes
+with mean flow. J. Sound Vib. 384:294–311
+Yang D, Morgans AS. 2017a. Acoustic models for cooled Helmholtz resonators. AIAA J. 55(9):3120–27
+Yang D, Morgans AS. 2017b. The acoustics of short circular holes opening to confined and unconfined spaces.
+J. Sound Vib. 393:41–61
+Yang D, Sogaro FM, Morgans AS, Schmid PJ. 2019b. Optimising the acoustic damping of multiple Helmholtz
+resonators attached to a thin annular duct. J. Sound Vib. 444:69–84
+Yeddula SR, Guzmán-Iñigo J, Morgans AS. 2022. A solution for the quasi-one-dimensional linearised Euler
+equations with heat transfer. J. Fluid Mech. 936:R3
+Yeddula SR, Morgans AS. 2021. A semi-analytical solution for acoustic wave propagation in varying area ducts
+with mean flow. J. Sound Vib. 492:115770
+Zahn M, Betz M, Schulze M, Hirsch C, Sattelmayer T. 2017. Predicting the influence of damping devices on
+the stability margin of an annular combustor. In Proceedings of the ASME Turbo Expo 2017: Turbomachinery
+Technical Conference and Exposition, Vol. 4A: Combustion, Fuels and Emissions, V04AT04A081. New York:
+Am. Soc. Mech. Eng.
+Zhang G, Wang X, Li L, Sun X. 2020. Effects of perforated liners on controlling combustion instabilities in
+annular combustors. AIAA J. 58(7):3100–14
+Zhao D, Li X. 2015. A review of acoustic dampers applied to combustion chambers in aerospace industry.
+Prog. Aerosp. Sci. 74:114–30
+www.annualreviews.org • Thermoacoustic Instability in Realistic Combustors
+33

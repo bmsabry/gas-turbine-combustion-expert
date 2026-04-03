@@ -1,0 +1,1107 @@
+
+--- Page 1 ---
+
+H. Schütz
+DLR-German Aerospace Center,
+Institute of Combustion Technology,
+Linder Höhe,
+51147 Cologne, Germany
+e-mail: harald.schuetz@dlr.de
+R. Lückerath
+DLR-German Aerospace Center,
+Institute of Combustion Technology,
+Pfaffenwaldring 38-40,
+70569 Stuttgart, Germany
+e-mail: rainer.lueckerath@dlr.de
+T. Kretschmer
+DLR-German Aerospace Center,
+Institute of Combustion Technology,
+Linder Höhe,
+51147 Cologne, Germany
+B. Noll
+M. Aigner
+DLR-German Aerospace Center,
+Institute of Combustion Technology,
+Pfaffenwaldring 38-40,
+70569 Stuttgart, Germany
+Analysis of the Pollutant
+Formation in the FLOX®
+Combustion
+FLOX®, or ﬂameless combustion is characterized by ultralow NOx emissions. Therefore
+the potential for its implementation in gas turbine combustors is investigated in recent
+research activities. The major concern of the present paper is the numerical simulation of
+ﬂow and combustion in a FLOX®-combustor [Wünning, J. A., and Wünning, J. G., 1997,
+“Progress in Energy and Combustion Science,” 23, pp. 81–94; Patent EP 0463218] at
+high pressure operating conditions with emphasis on the pollutant formation. FLOX®-
+combustion is a highly turbulent and high-velocity combustion process, which is strongly
+dominated by turbulent mixing and chemical nonequilibrium effects. By this means the
+thermal nitric oxide formation is reduced to a minimum, because even in the nonpremixed
+case the maximum combustion temperature does not or rather slightly exceeds the adia-
+batic ﬂame temperature of the global mixture due to almost perfectly mixed reactants
+prior to combustion. In a turbulent ﬂow, the key aspects of a combustion model are
+twofold: (i) chemistry and (ii) turbulence/chemistry interaction. In the FLOX®-
+combustion we ﬁnd that both physical mechanisms are of equal importance. Throughout
+our simulations we use the complex ﬁnite rate chemistry scheme GRI3.0 for methane and
+a simple partially stirred reactor (PaSR) model to account for the turbulence effect on the
+combustion. The computational results agree well with experimental data obtained in
+DLR test facilities. For a pressure level of 20 bar, a burner load of 417 kW and an air to
+fuel ratio of 2.16 computational results are presented and compared with experimen-
+tal data. DOI: 10.1115/1.2747266
+Keywords: FLOX®-combustion, numerical simulation, complex ﬁnite rate chemistry,
+PaSR model
+Introduction of the Flox Principle
+FLOX® is a registered trademark of WS Wärmeprozess-
+technik 1. The combustor design was supplied by this company
+and the manufacturing, particularly with regard to the speciﬁc
+demands of the high pressure operation, was accomplished by
+DLR. The term FLOX® is an acronym for “ﬂameless oxidation,”
+which actually means that no distinct ﬂame is visible. The way in
+which this is performed and what follows as a consequence
+thereof, will be pointed out in the following. The fuel used in the
+experiments and the simulations is natural gas and its composition
+is depicted in Table 1.
+In order to give a ﬁrst impression of the FLOX® principle a
+longitudinal slice through combustor axis and two subtending
+nozzles is displayed in Fig. 1. The streamlines represent the ﬂow
+and we recognize an outer and a stronger inner recirculating vor-
+tex that stabilizes the ﬂame. In view of the pollutant formation the
+molar fraction distribution of CO and NO is shown on the upper
+and lower half of Fig. 1, respectively. At ﬁrst glance we observe
+that the reaction zone is far detached from the nozzle exit.
+In principle, FLOX® is a technique employed to reduce nitric-
+oxide NO emission to a minimum within the combustion pro-
+cess. The relevant NO-formation mechanisms during methane
+combustion are: i Zeldovich thermal NO, ii Fenimore
+prompt NO, and iii N2O–NO. It is generally accepted that
+with
+increasing
+combustion
+temperature
+the
+thermal
+NO-
+formation becomes absolutely dominant over the other mecha-
+nisms. Therefore, low NO-emission values may be attained if the
+combustion is controlled in a manner in which the temperature
+does not exceed the adiabatic ﬂame temperature of the global
+mixture.
+Equilibrium computations reveal that increasing adiabatic ﬂame
+temperature correlates with increasing preheating temperature and
+with decreasing air to fuel ratio . In order to maintain high op-
+erational efﬁciency, the preheating temperature has to be as high
+as possible. Consequently, adiabatic ﬂame temperatures below
+1800 K imply an air to fuel ratio  in the range of 23.
+If reaction occurs before the mixture is globally mixed on the
+molecular level, the local ﬂame temperature is higher than the
+adiabatic ﬂame temperature of the global mixture due to regimes
+of lower air to fuel ratio which are closer to stoichiometry than the
+global mixture. This should be avoided, in particular, ﬂashback
+into the nozzle is absolutely prohibitive.
+As is seen in Fig. 2, the mixing of fuel and oxidizer taking
+place in the burner is not complete; indeed, there is a slight non-
+concentric distribution of methane on the nozzle exit cross section
+with a maximum concentration of 17.7% near the nozzle axis and
+a minimum concentration of 0.3% at the nozzle walls. Details of
+the nozzle design are not shown here.
+It will be seen in the computational results that this incomplete
+mixing in the burner is of less relevance in the FLOX®-
+combustion. The key is that mixing proceeds at extremely high
+ﬂow velocity. The consequence is that on the one hand turbulent
+mixing is highly improved in the shear layer around the impinging
+jet and on the other hand that chemical reactions are strongly
+delayed by reason of nonequilibrium effects, even for high pre-
+heating temperatures. This is also the reason why simulations us-
+ing combustion models on the basis of equilibrium or near-
+Contributed by the International Gas Turbine Institute of ASME for publication in
+the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript received
+January 4, 2007; ﬁnal manuscript received January 29, 2007, published online
+January 9, 2008. Review conducted by Dilip R. Ballal. Paper presented at the ASME
+Turbo Expo 2006: Land, Sea and Air GT2006, May 8–11, 2006, Barcelona, Spain,
+Paper No. GT2006-91041.
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2008, Vol. 130 / 011503-1
+Copyright © 2008 by ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+equilibrium chemistry e.g., presumed pdf using ﬂamelets
+completely fail, as they predict combustion in the nozzle 2.
+The incompletely mixed fuel/air jet perpendicularly enters the
+combustion chamber with high, nonswirled velocity, forming a
+recirculating annulus around the jet due to mass continuity see
+Fig. 1. After a certain penetration depth the jet expands, leading
+to a strong reduction of the velocity magnitude. Prior to the onset
+of the chemical reactions at appropriate ﬂow velocity values, mix-
+ing is further improved on-the-ﬂy by turbulence. Simultaneously,
+the jet is further preheated by the recirculating hot ﬂue gases. This
+process is also supported by the hot combustor walls, as is found
+by Vaz 2. The inﬂuence of the entrainment of the ﬂue gases in
+the jet is not quantiﬁed here.
+Due to nonequilibrium chemistry effects the formation of a
+ﬂame is spatially delayed up to a volumetric heat release at mean
+temperatures in the range of or even below the adiabatic ﬂame
+temperature. Accordingly a distinct ﬂame is no more visible. At
+that temperature the NO-formation is very low 1–10 ppm; far
+below the equilibrium values which indicates that this process is
+very slow. In contrast, the CO formation and consumption is very
+fast, and we may expect exhaust values in the range of the equi-
+librium data.
+Computational and Experimental Setup
+The computational domain is derived from the combustor,
+which was experimentally investigated at the DLR test facility.
+Combustor length and diameter are 200 and 100 mm, respec-
+tively. From Fig. 3a we see that on the combustor head twelve
+nozzles inner Ø 4.5 mm are equidistantly arranged along a circle
+Ø 80 mm centered about the combustor axis. For a better optical
+access, the cross section of the combustion chamber on the test rig
+is of hexagonal shape. However, in the simulations a cylindrical
+geometry with a combustor diameter of 106 mm is assumed in
+order to reduce the computational cost. Hence, the computational
+domain may be limited to a 15 deg sector as indicated in Fig. 3a.
+The axial extent of the domain is displayed in Fig. 3c. Scalabil-
+ity issues of the investigated FLOX® combustor had not been
+addressed in the present paper as it was our primary goal to de-
+velop and validate our combustion code. However, this topic will
+be investigated in future work.
+For the ﬂow simulation we use the commercial code Fluent 6.1.
+applying the realizable k- model with standard wall functions
+and the segregated solver. Chemistry and turbulence/chemistry in-
+teraction are computed using the DLR combustion code IGNIS,
+which supplies the Fluent code with the source terms for the com-
+position and internal energy transport equations. These transport
+equations are then solved in Fluent. Based on our experience, the
+best results concerning performance, stability and accuracy are
+achieved by performing unsteady computations. Coupling Fluent
+and IGNIS in a steady mode does not converge or is highly inef-
+ﬁcient due to the need for very small relaxation factors.
+In order to lower computational cost, we use the Fluent code
+capability to dynamically adapt the computational mesh to the
+physical solution. Precisely, we start the computation with a very
+coarse mesh of about 8000 cells. A steady state solution is ﬁnally
+obtained on an adapted mesh of about 80,000 cells. As the adap-
+Table 1
+Operational conditions. The air to fuel ratio is deﬁned
+as =„nAir/nFuel…/„nAir/nFuel…stoic, where n is the respective num-
+ber of moles and the subscript stoic denotes stoichlometry
+Air to fuel ratio 
+of the global mixture
+1
+2.16
+Pressure
+bar
+20
+Air temperature
+K
+721
+Fuel temperature
+K
+352
+Air mass ﬂow
+g/s
+302
+Fuel mass ﬂow
+g/s
+8.33
+Speciﬁc heat density
+MW/m3/bar
+12.3
+Burner load
+kW
+417
+Fuel composition
+mole % CH4
+97.88
+C2H6
+0.76
+C3H8
+0.37
+CO2
+0.06
+N2
+0.93
+Fig. 1
+CO and NO molar fraction distribution and streamline
+representation of the ﬂow on longitudinal slice through nozzle
+and combustor axis for =2.16. Note: the molar fraction is re-
+lated to dry gas and 15% O2 concentration at the combustor
+exit „see Table 2….
+Fig. 2
+Inhomogeneous methane distribution at burner nozzle
+exit, CH4min=0.3%, CH4max=17.7% -turbulent velocity proﬁle at
+the nozzle exit, vmaxÉ187 m/s, vmeanÉ173 m/s. Note: Maxi-
+mum speed of vÉ197 m/s is reached about 3.7 mm down-
+stream of the nozzle exit-streamlines indicating recirculation
+around the jet.
+Fig. 3
+Schematic of the experimental/computational setup
+011503-2 / Vol. 130, JANUARY 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+tation criteria we use the global reaction rate and the production
+rates for CO and OH. For example a mesh cutout after a mesh-
+reﬁnement procedure based on the CO production rate is shown in
+Fig. 3b. Computations are performed for the operational condi-
+tions summarized in Table 1.
+The Combustion Model
+The IGNIS code is a powerful chemistry simulation package
+incorporating different turbulent combustion models. IGNIS may
+be coupled with any arbitrary CFD-code via user-deﬁned func-
+tions supplying the internal energy and species densities transport
+equations with the appropriate source terms. The code kernel is a
+highly optimized routine solving complex chemical systems of
+elementary reactions applying the “Reference Species Technique”
+3 see Appendix A. This technique is a semi-implicit solution
+procedure where the individual reaction equations are sequentially
+solved by linearization in the respective reference species. In this
+regard we found it crucial for the quality of the solution to rear-
+range and solve the elementary reactions in the order of increasing
+characteristic chemistry times. Within the global time step  the
+characteristic chemistry time chem is then used as the time step in
+a subcycled explicit solution process of each reaction equation.
+Thus, the solution of a fast reaction is introduced into the solution
+process of the next slower reaction, and so on. As an example, the
+reordering of the reactions in the computational cell of greatest
+heat release is shown in Fig. 4. While the original order reveals a
+strongly ﬂuctuating behavior the rearranged order is represented
+by a smooth curve revealing that the characteristic chemistry
+times of the fastest and the slowest reaction ranging from
+10−9 to 106 s, respectively. Unfortunately this order is different
+for each cell and each time level and has to be computed sepa-
+rately.
+With our focus on the pollutant emission we decided to use the
+GRI3.0 4 reaction mechanism comprised of 325 elementary re-
+actions and 53 species to investigate the relative importance of the
+different NO-formation mechanisms. In practice, solution of a
+very complex chemistry system is prohibitive for the concurrent
+use of an elaborate turbulence/chemistry interaction model for
+example, the presumed pdf approach by reason of the computa-
+tional cost. Therefore the simple “Partially Stirred Reactor Model”
+5,6 see Appendix B is applied in the present computations.
+This model suffers from the fact that all the turbulent structures in
+a computational cell have the same mean composition and that
+there is only one integral turbulent mixing time involved. On this
+account the model has to be calibrated by adjusting the model
+constant Cmix in Eq. B5 of Appendix B by comparison with
+experimental data. For the FLOX®-combustion we found an ap-
+propriate value of Cmix=0.002. The justiﬁcation for this will be
+given later.
+In order to evaluate the combustion model it is useful to com-
+pute the local turbulent Damköhler number which may be inter-
+preted as a measure of the relative importance of turbulence and
+chemistry in the combustion zone. From the results of the simu-
+lation used below for the code and model validation we ﬁrst com-
+pute the characteristic chemistry time as deﬁned in Eq. A9 of
+Appendix A. The distribution of the chemistry time and the char-
+acteristic turbulent mixing time is plotted on the lower and upper
+half of Fig. 5, respectively. Figure 5, as well as subsequent ﬁgures,
+represents a cutout of the reaction zone behind the burner nozzle
+on a longitudinal slice through burner nozzle and combustor axis.
+At ﬁrst glance we see that the chemistry time is almost one
+order of magnitude higher than the turbulence mixing time indi-
+cating that the FLOX® combustion is notably dominated by ﬁnite
+rate chemistry effects. Both characteristic times are combined to
+form the Damköhler number deﬁned through Eq. B10. For com-
+parison the distribution of the heat release rate and the Damköhler
+number is plotted on the upper and lower half of Fig. 6, respec-
+tively.
+We observe that heat of combustion is released on an envelope
+around the impinging fuel/air jet with a maximum of 1010 W/m3
+located about 55 mm downstream behind the nozzle exit. We fur-
+ther observe that the Damköhler number strongly correlates with
+the heat release rate, however, the maximum value of DaT0.4 is
+located slightly upstream of the point of maximum heat release.
+This fact is also reﬂected in Fig. 5 by an absolute minimum in the
+chemistry time.
+If the computed Damköhler number is located in the Borghi-
+Fig. 4
+Characteristic chemistry time over the elementary reac-
+tions of the GRI3.0 reaction scheme. Red colored line: nonor-
+dered; black colored line: ordered chemical reactions.
+Fig. 5
+Characteristic chemistry time „lower half… and turbulent
+mixing time „upper half… in the combustion zone on a longitu-
+dinal slice through the burner nozzle and combustor axis
+Fig. 6
+Damköhler-# „lower half… and heat release rate „upper
+half… in the combustion zone on a longitudinal slice through the
+burner nozzle and combustor axis
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2008, Vol. 130 / 011503-3
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+diagram 7 we ﬁnd that the FLOX® combustion is characterized
+by the conditions prevailing in a more or less well stirred reactor.
+From the above considerations we may conclude that our
+choice to use a complex ﬁnite rate chemistry scheme along with
+the partially stirred reactor model is justiﬁed in the FLOX® ap-
+plication.
+Results
+Code and Model Validation. For the validation of the combus-
+tion models and the evaluation of the computational results OH-
+LIF measurement data are available from DLR-experiments relat-
+ing to the relative amount of OH-radicals and the temperature 8.
+Details of the experimental theory are not presented here but may
+be found in 9. The species concentrations of CO and NO were
+detected by suction probing 65 mm downstream of the combustor
+exit Ø 50 mm. The outer diameter of the probe is 5 mm and we
+may assume that the probe does not interfere with the combustor
+ﬂow. The exhaust temperature was measured with an uncorrected
+thermocouple. All these values are resumed in Table 2 and used as
+validation data for the simulations. The measured pressure drop
+across the combustor of about 5% is coincident with the compu-
+tational result.
+OH. OH is involved in almost all elementary reactions and
+consequently has an important inﬂuence on the accurate predic-
+tion of the pollutant formation. In Figs. 7 and 8 the results of the
+simulations without quasilaminar and with application of the
+PaSR-model are qualitatively compared with the LIF-measured
+OH-concentration on slice plane 2, as indicated in Fig. 3a.
+In the simulations the onset of the OH-formation is rather
+abrupt with a steep gradient in the reaction zone. In contrast, there
+is a smooth transition of OH from the zero value in the center of
+the jets to the surroundings. This is certainly due to a strong tur-
+bulent exchange or entrainment across the shear layer between the
+jets and the recirculating hot ﬂue gases. This physical process is
+only deﬁciently described by the k- turbulence model. Obvi-
+ously, this is not only a problem of the combustion model but
+rather of the turbulence model in the ﬂow simulation code.
+The results of the quasilaminar approach presented in Fig. 7
+clariﬁes the pure chemistry aspect of the combustion assuming
+that the composition at the beginning of each time step is perfectly
+mixed on the molecular level. This is the limit of inﬁnitely fast
+turbulent mixing or mix=0. Although the ﬂame front is strongly
+delayed behind the nozzle exit due to ﬁnite rate chemistry effects,
+comparison with the experimental data shows that the reaction is
+still to fast. This shows that we have to account for the incomplete
+mixing in the computational cells by application of the PaSR
+turbulence/chemistry interaction model. As mentioned above the
+PaSR-model has to be calibrated by adjusting the model param-
+eter Cmix in Eq. B8. For this purpose we used the OH-LIF mea-
+surement data to determine a value of Cmix=0.002 by tuning the
+conformity
+of
+the
+computational
+and
+experimental
+OH-
+distribution pattern. The result is shown in Fig. 8.
+With the Cmix parameter ﬁxed, we further compare computa-
+tional and experimental results for the temperature and the global
+emission values at the combustor exit. These values are summa-
+rized in Table 2 with reference to the corresponding equilibrium
+data.
+Temperature. Figure 9 shows the temperature distribution on
+plane 3 of Fig. 3a related to a color map ranging from 1200 K
+up to 2000 K. The result of the simulation is displayed on the
+upper half of the ﬁgure while the data from the LIF experiment is
+shown on a rectangular cutout near the combustor center on the
+lower half. Comparing both data on the corresponding rectangular
+areas as outlined in Fig. 9 we ﬁnd that the computational distri-
+bution is almost homogeneous with the average value of 1750 K
+Table 2
+Comparison of computational and experimental results
+Air to fuel ratio 
+2.16
+Max. nozzle velocity m/s
+195
+Adiabatic temperature K
+1749
+Equil. CO molar fraction ppm
+3.8/2.8a
+Equil. NO molar fraction ppm
+2587
+Combustion model
+Simulation
+GRI3.0
+quasilaminar
+Simulation
+GRI3.0
+PaSR
+Experiment
+Max. mean temperature K
+1755
+1750
+1719c
+Exhaust temperature K
+1743
+1742
+1267b,d
+Max. CO molar fraction ppm
+6668
+9084
+¯
+Exhaust CO molar fraction ppm
+3.6
+2.3a
+3.6
+2.3a
+1.0a,b
+Max. NOx molar fraction ppm
+3.2
+3.0
+¯
+Exhaust NOx molar fraction ppm
+2.5
+1.8a
+2.3
+1.6a
+6.2a,b
+aConcentration for dry exhaust gas related to 15% O2 concentration.
+bSuction thermocouple probing 65 mm behind the combustor exit.
+cMeasured on an area as indicated-in Fig. 9.
+dTemperature decreased due to undeﬁned amount of cooling air, uncorrected thermocouple.
+Fig. 7
+OH molar fraction distribution on slice plane 2 „see Fig.
+3„a…… for =2.16. Comparison-Simulation: GRI3.0 quasilaminar/
+Experiment: LIF.
+011503-4 / Vol. 130, JANUARY 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+being very close to the adiabatic ﬂame temperature of the global
+mixture. Against this the experimental data are very inhomoge-
+neous in the range of 1498–1983 K indicating turbulent effects.
+The averaged value is 1719 K and is about 30 K lower than the
+computational result. As already discussed above with respect to
+the OH distribution the computational code is not able to correctly
+predict this inhomogeneity. The consequence thereof in terms of
+the NO formation will be discussed below.
+Due to some heat loss across the combustor wall the computed
+exhaust temperature is about 10 K lower than the maximum tem-
+perature. This value does not match the experimental value which
+is almost 475 K lower. However, it has to be noted that in the
+experiment the exhaust ﬂow is diluted by an unspeciﬁed amount
+of cooling air and that there is no radiative correction of the ther-
+mocouple.
+CO and NO at the Combustor Exit. The maximum value of the
+CO molar fraction in the reaction zone is far beyond the equilib-
+rium value of 2.8 ppm. We also ﬁnd that this value is essentially
+higher with application of the PaSR model 9000 ppm than
+with the quasilaminar approach 6600 ppm. This tendency is in
+the opposite direction of the OH formation see Figs. 7 and 8
+which will be investigated in more detail in the next section. How-
+ever, in both combustion models CO is reduced in the remainder
+of the combustor and approaches a value of 2.3 ppm related to
+15% O2 at the combustor exit, which is slightly lower than the
+equilibrium data. The respective experimental value is less than
+1.0 ppm.
+Concerning the NOx formation the computational result at the
+combustor exit is 1.8 ppm for the quasilaminar model and
+1.6 ppm for the PaSR model, respectively. The experimental value
+is 6.2 ppm. For almost perfectly premixed combustion Leonard
+and Stegmaier 10 found an NOx emission value of less than
+2 ppm for a combustion temperature of 1750 K. They further
+found that this is independent of pressure level, preheating tem-
+perature, and residence time. Even though mixing on-the-ﬂy prior
+to
+combustion—as
+it
+is
+characteristic
+for
+the
+FLOX®
+combustion—is efﬁcient, we conclude from the work of Leonard
+and Stegmaier that in the present application the mixing is not yet
+perfect. One indication of this is given by the measured tempera-
+ture distribution displayed in Fig. 9 where hot spots of up to
+2000 K may be found. The fact is that turbulent structures may
+contain near-stoichiometric mixture locally resulting in tempera-
+ture values essentially higher than the cell mean temperature. Ac-
+cordingly the thermal NO formation in the experiment is higher
+than the value computed from the mean cell temperature. The
+reason is, as explained before, that ﬁrst the k- model in the
+RANS approach has a strong smoothing behavior and second that
+the PaSR model does not account for different composition in the
+turbulent substructures of the computational cells. Both deﬁcien-
+cies will be addressed in future works.
+In contrast to the decrease of CO, the NO concentration slowly
+increases towards the combustor exit. Consequently there must be
+an optimal combustor length with an acceptable level of the CO
+and NO emission values, as well. The process of CO and NO
+formation will be considered in more detail in the next section.
+Analysis of CO and NO Formation. As mentioned before,
+OH plays an important role in the formation and consumption of
+CO as well as NO. Therefore the production rate of OH is incipi-
+ently compared with the heat release rate as shown on the upper
+and lower half of Fig. 10, respectively.
+Identifying the layer of maximum heat release with the ﬂame
+front we observe that the OH production rate increases in the
+streamwise direction on a cross section through the ﬂame front.
+Roughly speaking, OH is consumed in front of the ﬂame front and
+attains its absolute maximum immediately behind the ﬂame front.
+The formation process of OH is far to complex to be displayed
+here rather its inﬂuence on the pollutant formation is discussed
+below.
+CO Formation. From Fig. 11 we ﬁnd that the CO formation
+inversely correlates with the OH formation. For a better under-
+Fig. 8
+OH molar fraction distribution on slice plane 2 „see Fig.
+3„a…… for =2.16. Comparison-Simulation: GRI3.0+PaSR-model
+„Cmix=0.002…/Experiment: LIF.
+Fig. 9
+Temperature distribution on slice plane 3 „see Fig. 3„a……
+for =2.16-Comparison-Simulation: GRI3.0+PaSR/Experiment:
+OH-LIF
+Fig. 10
+OH „upper half… production rate and heat release rate
+„lower half… in the combustion zone on a longitudinal slice
+through the burner nozzle and combustor axis
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2008, Vol. 130 / 011503-5
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+standing of this fact the GRI3.0 reaction mechanism is analyzed
+with respect to the CO formation at the two characteristic points
+of highest production and consumption, as indicated in Fig. 11.
+The result is depicted in Fig. 12 where the relative amount of the
+CO production is plotted over the individual equations of the
+GRI3.0 reaction scheme. The red bars in the charts signify the
+elementary reactions that produce CO primarily from HCO, viz.,
+HCO+H2O⇔CO+H+H2O,
+HCO+O2⇔CO+HO2,
+and
+HCO⇔CO+H. In the blue colored reactions, CO is consumed.
+We observe that at both analysis points the same elementary re-
+actions are involved. While the CO formation process is com-
+prised of several reactions with several intermediate species in-
+volved see legend in Fig. 11, the CO consumption is primarily
+described by a single one reaction, viz., CO+OH⇔CO2+H.
+At the analysis point 2 where OH is at its maximum this reac-
+tion is absolutely predominant over the formation reactions result-
+ing in an almost complete consumption of CO. Against this the
+CO consumption at the analysis point 1 is essentially diminished
+for lack of OH radicals. Also the formation reactions are stronger
+leading to a net production and also to an absolute maximum of
+CO of about 9000 ppm at this point see Fig. 1.
+NO Formation. In analogy to CO the distribution of the NO
+formation is compared with the OH formation in Fig. 13. How-
+ever, in contrast to CO the NO formation directly correlates with
+the OH formation. Clearly, the production of NO begins with the
+advent of the OH formation.
+Here we analyze the NO formation at the three points indicated
+in Fig. 13 with the results for the ﬁrst and second analysis point
+shown in Fig. 14. The ﬁrst analysis point is located in front of the
+reaction zone where we ﬁnd a weak consumption of NO. The
+respective analysis of the reaction mechanism shown in Fig. 14
+reveals that this primarily results from two competing reactions
+describing an exchange between NO and NO2. Of course, this is
+not really a reduction of the pollutant emission since NO2 is also
+a harmful chemical. Additionally there is also a minor amount of
+NO consumption attributed to Fenimore reactions that are associ-
+ated with the CH species see Fig. 14.
+The second analysis point is located at the maximum of the NO
+formation. The respective analysis in Fig. 14 reveals that com-
+pared to the ﬁrst analysis point a lot more reactions are involved.
+In particular, the number of Fenimore reactions is numerous.
+These are the blue colored reactions in Fig. 14 and are those
+reactions that are associated with the CH species see legend of
+Fig. 14. In addition we also ﬁnd a contribution of the three Zel-
+dovich reactions red and two reactions describing the NO for-
+mation from N2O green. The analysis at the third point is similar
+to that at the second point and is not plotted here.
+Recapitulating, the relative amount attributed to the different
+NO formation mechanisms at the three analysis points and inte-
+grated over the whole computational domain is shown in Table 3.
+In the reaction zone point 2 the amount of Fenimore-NO is
+almost 70% and the amount of NO produced from the Zeldovich,
+N2O and NO2 reactions is approximately in equal measure of
+Fig. 11
+OH „upper half… and CO „lower half… production rate in
+the combustion zone on a longitudinal slice through the burner
+nozzle and combustor axis. 1, 2 analysis points.
+Fig. 12
+Relative amount of CO production plotted over the el-
+ementary reactions of the GRI3.0 mechanism at analysis point
+1 „left… and analysis point 2 „right…
+Fig. 13
+OH „upper half… and NO „lower half… production rate in
+the combustion zone on a longitudinal slice through burner
+nozzle and combustor axis. 1, 2, 3 analysis points.
+Fig. 14
+Relative amount of NO production plotted over the el-
+ementary reactions of the GRI3.0 mechanism at analysis point
+1 and 2. Red: Zeldovich, Green: N2O, Black: NO2, Blue:
+Fenimore.
+011503-6 / Vol. 130, JANUARY 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+about 10%. Beyond the reaction zone at analysis point 3 the
+Fenimore-NO decreases and simultaneously the relative impor-
+tance of Zeldovich- and N2O–NO is increased. NO and NO2 are
+almost counterbalanced in the respective reactions. The percent-
+age values at point 3 seem to be representative for the remainder
+of the combustion chamber. This is evident from the comparison
+of the global integrated values with the results of point 3. As
+mentioned above Zeldovich- or thermal NO becomes dominant in
+the case of high temperatures. Obviously the FLOX®-combustion
+is characterized by a temperature level where NO produced from
+the Zeldovich-, Fenimore-, and N2O-mechanisms is of the same
+order of magnitude.
+Conclusions
+In the present paper results of the numerical simulation of the
+FLOX®-combustion at 20 bar and =2.16 were presented and
+validated using experimental data from the DLR test facility. For
+this purpose the highly optimized DLR-combustion code IGNIS
+was presented and used throughout the computations in a coupled
+unsteady mode with the commercial code Fluent. The computa-
+tional results are in good agreement with the experimental data.
+In the reaction zone the turbulent Damköhler number is in the
+range of unity indicating equal importance of the ﬁnite rate chem-
+istry and the turbulence/chemistry interaction model. In this re-
+gard we successfully applied the GRI3.0 reaction mechanism in
+combination with the PaSR model. With respect to the NO forma-
+tion we found that the contribution from the three NO formation
+mechanisms: Zeldovich, Fenimore, and N2O is approximately of
+equal measure. However, in the case of incomplete mixing the
+PaSR model has to be improved with respect to the inhomoge-
+neous composition in the turbulent substructures within the com-
+putational cells. Furthermore it was found, that the turbulent mix-
+ing process between the high-velocity fuel/air jet and the
+recirculating hot ﬂue gases is deﬁciently described by the k-e
+turbulence model leaving some potential for further improvement.
+Acknowledgment
+This work presented was ﬁnancially supported in part by the
+European Community within the Project New Combustion Sys-
+tems for Gas Turbines NGT under Contract No. ENK5-CT-
+2001-00564.
+Nomenclature
+air  stoichiometric coefﬁcients of educt species in re-
+action r
+bir  stoichiometric coefﬁcients of product species in
+reaction r
+ci  molar concentration of species i
+ci
+r  molar concentration of species i in reaction r
+ci  mean concentration of species i in the cell
+Cmix  PaSR model constant
+DaT  turbulent Damköhler number
+DaT
+r  turbulent Damköhler number deﬁned for reaction
+r
+Fi
+r  reaction rate of species i in reaction r
+k  turbulent kinetic energy
+kfr  Arrhenius coefﬁcients for forward reactions
+kbr  Arrhenius coefﬁcients for backward reactions
+Q  the internal energy
+ReT  turbulent Reynolds number
+Greek
+  dissipation rate of k
+hi
+0  heat of formation of species i at absolute zero
+  reactive volume fraction of the computational cell
+  kinematic viscosity
+  inﬁnitesimal time step
+chem
+r
+ characteristic chemistry time of reaction r
+chem  integral characteristic chemistry time
+mix  integral characteristic turbulent mixing time
+K  Kolmogorov time scale
+T  Taylor time scale
+Subscripts
+i  species counter
+r  elementary reaction counter
+K  indicates reference species
+Superscripts
+r  elementary reaction counter
+N  indicates quantity in nonreacting volume fraction
+of the cell also indicates preceding time level
+R  indicates quantity in the reacting volume fraction
+of the cell
+Appendix A: Reference Species Technique
+Each combustion process is described by the solution of a sys-
+tem of elementary chemical reactions of the form
+dci
+dt =
+r
+dci
+r
+dt =
+r
+Fi
+rcj
+A1
+where ci is the molar concentration of species i and Fi
+r is the rth
+reaction rate deﬁned as
+Fi
+rcj = bir −air	fr −	br
+A2
+with
+	fr ª kfr
+j
+cj
+ajr
+and 	br ª kbr
+j
+cj
+bjr
+A3
+.
+In Eqs. A2 and A3, air and bir are the stoichiometric coef-
+ﬁcients and kfr and bfr are the Arrhenius-type reaction coefﬁcients
+for forward and backward reactions, respectively. Equation A1
+is a strongly nonlinear system of equations whose fully implicit
+solution, applying the Newton linearization is very tedious. In
+contrast, although the explicit solution is very simple it is time
+step dependent and frequently leads to an unphysical composition
+negative species densities.
+In the IGNIS code, a semi-implicit solution procedure accord-
+ing to the so-called “reference species technique” 3 is applied,
+which displays a very fast and stable solution behavior. The basic
+idea is to linearize Eq. A1 with respect to the species K which
+for each reaction r is in greatest danger of being driven negative.
+This species is deﬁned to be the reference species cK
+r following
+from the condition
+cK
+r =	ci
+r
+dci
+r
+dt
+ci
+r = minimum i
+A4
+Performing Taylor series expansion of Fi
+r around Fi
+rN the
+upper index N denotes the preceding time level and neglecting all
+Table 3
+Relative amount of the NO formation mechanisms at
+the three analysis points indicated in Fig. 13 and Integrated
+over all computational cells „global…
+Point 1
+Point 2
+Point 3
+Global
+Zeldovich
+0.0%
+7.8%
+30.5%
+40.7%
+Fenimore prompt
+−9.8%
+67.3%
+33.5%
+26.6%
+N2O
+0.1%
+10.1%
+34.2%
+31.7%
+NO2
+−90.1%
+14.8%
+−1.8%
+−1.0%
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2008, Vol. 130 / 011503-7
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+derivatives in the Jacobian matrix except those with respect to the
+reference species cK
+r leads to the following semi-implicit form of
+Eq. A1
+dci
+dt =
+r
+dci
+r
+dt 
+r
+bir −air
+˙ r
+*
+A5
+with
+
+˙ r
+* = 	fr
+N −	br
+N
+1 +
+
+chem
+r
+A6
+where chem
+r
+is the characteristic chemistry time for each elemen-
+tary reaction, viz.,
+chem
+r
+ª
+cK
+rN
+aKr −bKraKr	fr
+N −bKr	br
+N
+A7
+and  is an inﬁnitesimal time step used to approximate the tem-
+poral derivative of the reference species.
+In analogy to Eq. A5 the source term in the internal energy
+equation reads
+dQ
+dt = −
+r 
+i
+bir −airhi
+0
+˙ r
+*
+A8
+where Q is the internal energy and hi
+0 is the heat of formation of
+species i at absolute zero.
+In order to specify an expression for a characteristic chemistry
+time chem representative for all elementary reactions in a compu-
+tational cell we found it reasonable to derive this from Eq. A8 as
+a heat release weighted average of the form
+chem =
+
+r
+Qr
+chem
+r
+ + chem
+r
+
+r
+Qr
+1
+ + chem
+r
+A9
+with
+Qr ª
+i
+bir −airhi
+0	fr
+N −	br
+N
+A10
+Appendix B: Partially Stirred Reactor Model (PaSR)
+This model is based upon the fundamental assumption that
+within a computational cell chemical reaction may occur only in
+the volume fraction  of the cell where reactants are mixed on a
+molecular level. The mean concentration ci of each involved spe-
+cies in the considered cell is then given by the simple linear rela-
+tion
+ci = 1 −ci
+N + ci
+R;
+  0,1
+B1
+Here the upper indices R and N denote the reactive and nonre-
+active part of the cell, respectively. Equation B1 may be inter-
+preted as a temporal process where ci
+N is the initial concentration
+and ci is the mean concentration after the lapse of an inﬁnitesimal
+time .
+In a turbulent ﬂow, the reactive composition is generated by
+turbulent dispersion and molecular diffusion. The turbulent disper-
+sion is a very complex process proceeding simultaneously on all
+turbulent length scales with an inherent spectrum of characteristic
+mixing times.
+In the present model the temporal decay of turbulent eddies up
+to the Kolmogorov-scale is described by a single integral mixing
+time mix which will be explained later. It is evident that  is
+proportional to  molecular diffusion and also proportional to
+1−mix turbulent dispersion. Assuming equal proportionality Eq.
+B1 may be written in the form
+ci −ci
+N
+
+= ci
+R −ci
+mix
+ Fi
+R
+B2
+Equation B2 is graphically displayed in Fig. 15 where it is
+further assumed that the slope of the curve is equal to the reaction
+rate Fi
+R in the reactive part  of the cell. In Fig. 15 we distinguish
+two parallel processes I and II:
+I During reaction time tchem=+mix the initial molar con-
+centration in the reactive fraction  changes from ci
+N to ci
+R;
+II The reactive fraction is mixed by turbulence with the non-
+reactive fraction resulting in the averaged concentration ci.
+Equation B2 written for the reference species K of reaction r
+and Taylor-series expansion of FK
+r R around FK
+r  leads to the
+implicit form
+cK
+r  −cK
+r N
+
+= rFK
+r 
+B3
+with
+r ª
+1
+1 + DaT
+r
+and DaT
+r ª mix
+chem
+r
+B4
+In Eq. B4 a turbulent Damköhler number DaT
+r for reaction r was
+introduced as the ratio of a characteristic turbulent mixing time
+related to a characteristic chemistry time.
+Semi-implicit formulation of Eq. B3 using the reference spe-
+cies technique and summing up over all elementary reaction ﬁ-
+nally yields
+dci
+dt  ci −ci
+N
+
+=
+r
+rbir −air
+˙ r
+*
+B5
+with
+
+˙ r
+* = 	fr
+N −	br
+N
+1 + r
+
+chem
+r
+B6
+Comparing Eqs. B5 and B6 with Eqs. A5 and A6 reveals
+that the turbulence/chemistry interaction is accounted for through
+the term r, which depends on the turbulent Damköhler number as
+speciﬁed in Eq. B4. chem
+r
+is given by Eq. A7 and with deﬁni-
+tion of the Kolmogorov time scale K/, the Taylor time
+scale Tk/, and the turbulent Reynolds number ReTªk2/v
+=T/K2 the following expressions for mix are found in the lit-
+erature.
+According to the model of Byggstøyl and Magnussen 11
+Fig. 15
+Graphical representation of Eq. „12…
+011503-8 / Vol. 130, JANUARY 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 9 ---
+
+mix =
+1
+23.6
+k2
+v
+1/4k
+ =
+1
+23.6ReT1/4T
+B7
+mix increases with increasing turbulent Reynolds number which
+results in the unphysical fact that the amount of the reactive vol-
+ume fraction  decreases.
+An alternative approach is given by Karlsson and Chomiak 12
+as the geometrical mean of the Kolmogorov and the Taylor time
+scales, viz.,
+mix = CmixTK = CmixReT−1/4T
+B8
+Kjäldman 12 reported that best results were obtained by simply
+using the Taylor time scale
+mix = CmixT
+B9
+Cmix is a model constant which lies in the range of Cmix=0.001
+−0.3 depending on the ﬂow considered.
+For a better interpretation of the computational results it is use-
+ful to deﬁne global expressions for the ﬁne structure volume frac-
+tion  and the turbulent Damköhler number representative for all
+reactions in each computational cell. Using Eq. A9 we may de-
+ﬁne analogously to Eq. B4,
+DaT ª mix
+chem
+B10
+and
+ ª
+1
+1 + DaT
+or DaT ª 1 −
+
+B11
+Finally, we recognize from Eq. B11 that within the PaSR-
+model the Damköhler number may be interpreted as the ratio of
+the nonreacting, coarse-structured volume fraction related to the
+reacting, ﬁne-structured volume fraction of each computational
+cell.
+References
+1 Wünning, J. A., Patent EP 0463218.
+2 Vaz, D. C., Borges, A. R. J., van Buijtenen, J. P., and Spliethoff, H., 2004, “On
+the Stability Range of a Cylindrical Combustor in the Flameless Oxidation
+Regime,” GT2004–53790, Proceedings of the ASME Turbo Expo 2004, June
+14–17, Vienna, Austria.
+3 Amsden, A. A., O’Rourke, P. J., and Butler, T. D., 1989, KIVA-II: A computer
+Program for Chemically Reactive Flows with Sprays. LA-11560-MS.
+4 Smith, G. P., Golden, D. M., Frenklach, M., Moriarty, N. W., Eiteneer, B.,
+Goldenberg, M., Bowman, C. T., Hanson, R. K., Song, S., Gardiner, W. C. Jr.,
+Lissianski, V. V., and Qin, Z., 1999, “GRI3.0 mechanism version 3.07/30/99,”
+see http://www.me.berkley.edu/gri_mech.
+5 Nordin, P. A. N., 1995, “Complex Chemistry Modelling of Diesel Sprays,”
+Ph.D. thesis, Chalmers University of Technology, Göteborg.
+6 Karlsson, J. A. J., 1995, “Modelling Auto-Ignition, Flame Propagation and
+Combustion in Non-Stationary Turbulent Sprays,” Ph.D. thesis, Chalmers Uni-
+versity of Technology, Göteborg.
+7 Warnatz, J., Maas, U., and Dibble, R. W., 1997, Verbrennung, Springer-Verlag,
+Berlin Heidelberg, 2. Auﬂage.
+8 Lückerath, R., Schütz, H., Noll, B., and Aigner, M., 2005, “Experimental
+Investigations of FLOX®-Combustion at High Pressure,” Flameless Combus-
+tion Workshop, Lund, Sweden, June 19–21.
+9 Meier, U. E., Wolff-Gaßmann, D., and Stricker, W., 2000, “LIF Imaging and
+2D Temperature Mapping in a Model Combustor at Elevated Pressure,”
+Aerosp. Sci. Technol., 4, pp. 403–414.
+10 Leonard, G., and Stegmaier, J., 1993, “Development of an Aeroderivative Gas
+Turbine Dry Low Emission Combustion System,” ASME Paper No. 93-GT-
+288.
+11 Byggstøyl, S., and Magnussen, B. F., 1985, “A Model for Flame Extinction in
+Turbulent Flow,” 4th Symposium on Turbulent Shear Flows, pp. 381–395.
+12 Karlsson, J. A. J., and Chomiak, J., 1995, “Physical and Chemical Effects in
+Diesel Spray Ignition,” 21st Congress of CIMAC, Interlaken Switzerland, May
+15–18.
+Journal of Engineering for Gas Turbines and Power
+JANUARY 2008, Vol. 130 / 011503-9
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

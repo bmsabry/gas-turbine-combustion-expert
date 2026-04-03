@@ -1,0 +1,1042 @@
+
+--- Page 1 ---
+
+Insights into ignition, flame propagation, and emission characteristics of 
+ammonia/hydrogen combustion under intermediate-to-high temperatures 
+and high pressures
+Tao Cai , Ke Chen , Aikun Tang *
+School of Energy and Power Engineering, Jiangsu University, Zhenjiang, 212013, China
+A R T I C L E  I N F O
+Keywords:
+Ammonia/hydrogen combustion
+High-temperature autoignition
+Sensitivity analysis
+Laminar burning velocity
+NOx emissions
+A B S T R A C T
+Accurate predictions of ignition and flame propagation performances of ammonia/hydrogen combustion under 
+intermediate-to-high temperatures and high-pressure conditions are significant in the design and development of 
+gas turbines and internal combustion engines. This work tailors a reduced mechanism for NH3/H2 combustion 
+featuring 19 species and 83 elementary reactions. It is found that removing N2Hx (x = 2, 3, and 4) chemistry 
+produces better or comparably satisfactory results over experimental data relative to the remaining models. The 
+inclusion of NNH chemistry slows down auto-ignition processes under intermediate temperature conditions but 
+plays a minimal role under high-temperature conditions. However, the ignition difference between Mech18 and 
+19 is negligible if the blending ratio exceeds 30 %, indicating the gradually weakened impact of NNH-related 
+chemistry on auto-ignition processes. Further evaluation in terms of laminar burning velocities indicates that 
+Mech19 generally exhibits a better predictive ability at elevated inlet temperatures and pressures. By imple­
+menting sensitivity and pathway flux analyses, the NNH-related reaction of NH2 + NO=NNH + OH has been 
+identified to be critical in determining flame propagation characteristics of ammonia/hydrogen blends. This 
+reduced mechanism is then applied to evaluate the dependence of NOx emissions on inlet operational parame­
+ters. Increasing inlet pressure facilitates reducing pollutant formation, which is much more remarkable under 
+fuel-rich conditions, whereas a higher inlet temperature is not favored. Finally, the non-monotonic response 
+characteristics of pollutant generation to the blending ratio are also pinpointed. In general, the simplified 
+mechanism can be applied to shed light on the fundamental physics/chemistry of combustion phenomena under 
+gas turbine-relevant conditions.
+1. Introduction
+There is increasing demand for searching for alternative zero/low- 
+carbon fuels, aiming to mitigate greenhouse gas emissions in the 
+power generation and propulsion sector and extend energy availability 
+by minimizing fossil fuel dependence [1–4]. Ammonia, as a carbon-free 
+and hydrogen carrier, has recently emerged as a promising solution to 
+these issues due to the mature production technology, well-established 
+storage, and transportation methods. This is further pushed by the 
+renewable strategies to produce green ammonia via wind and solar 
+energy or electrochemical nitrogen reduction reaction [5,6]. Neverthe­
+less, pure ammonia/air combustion features quite low flame speed and 
+slow ignition, presenting a barrier to practical operation [7–9]. Co-firing 
+ammonia with active species is quite attractive in terms of enhancing the 
+combustion reactivity and reducing carbon footprint [10–12].
+In the past decade, extensive research interest has been paid to 
+applying renewable ammonia to gas turbines [13,14], compression en­
+gines [15–17], and spark ignition engines [18,19]. In this context, the 
+efficient prediction of the ignition characteristics of ammonia binary 
+mixtures under internal engines and/or gas turbines-relevant operating 
+environment is of great importance in the design and development of 
+power and propulsion systems [20–22], which requires the determina­
+tion of accurate kinetic mechanisms. Earlier work on developing 
+ammonia/hydrogen reaction mechanisms was implemented by Mathieu 
+and Petersen [23] by using a shock tube. The high-temperature ignition 
+data from 1560 to 2455 K were obtained and then adopted to verify the 
+accuracy of the proposed chemical mechanism. By constructing a 
+computational model containing 176 species and 1418 elementary 
+* Corresponding author.
+E-mail address: tycoon@ujs.edu.cn (A. Tang). 
+Contents lists available at ScienceDirect
+Chemical Engineering Journal
+journal homepage: www.elsevier.com/locate/cej
+https://doi.org/10.1016/j.cej.2025.171040
+Received 31 May 2025; Received in revised form 3 October 2025; Accepted 18 November 2025  
+Chemical Engineering Journal 526 (2025) 171040 
+Available online 19 November 2025 
+1385-8947/© 2025 Elsevier B.V. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+steps, Issayev et al. [24] verified the feasibility of capturing the auto­
+ignition process of ammonia/dimethyl ether combustion. Based on this 
+detailed mechanism, a simplification work was carried out by Guan et al. 
+[25], who proposed a reduced mechanism comprising 48 species and 
+294 steps by revisiting the kinetic parameters of certain reaction steps 
+and analyzed the turbulent combustion characteristics via direct nu­
+merical simulation. Liu et al. [26] pointed out the significance of the 
+reaction NH3 + M = NH2 + H + M in the ignition delay time predictions 
+in ammonia/methane combustion under high-temperature conditions.
+As another critical fundamental parameter, laminar burning veloc­
+ities have also been commonly selected to validate the applicability of 
+ammonia combustion [27,28]. Nakamura et al. [29] developed an 
+ammonia/air reaction mechanism featuring 33 species and 232 
+elementary species, which was shown to reasonably capture weak flame 
+characteristics within a cylindrical micro-tube equipped with external 
+heating. A detailed chemical mechanism for ammonia/methane com­
+bustion containing 59 species and 356 steps was proposed by Okafor 
+et al. [30], who identified the ammonia oxidation path as the predom­
+inant rate-limiting reaction. In a follow-up work [31], they proposed a 
+reduced mechanism that was able to predict the laminar burning ve­
+locities of ammonia/methane combustion at elevated pressure condi­
+tions and found that the reaction of NH + H2O = HNO + H2 was critical 
+to NO formation. Furthermore, by extracting thermophysical data from 
+San Diego [32] and Konnov mechanisms [33], Wang et al. [34] deter­
+mined a new mechanism for ammonia/methane mixtures and demon­
+strated the viability of predicting flame speed, while Arunthanayothin 
+et al. [35] revealed different enhancement mechanisms of ammonia- 
+methane combustion with elevating operating temperature ranges. Co- 
+firing ammonia with alcohol is a promising way to enhance reactivity 
+chemistry and reduce carbon footprint [36]. By conducting a systematic 
+verification, Han et al. [37] proposed a detailed reaction mechanism 
+suitable for the analysis of NH3/CO and NH3/syngas.
+Developing ammonia/hydrogen co-firing technology has aroused 
+wide research interest since the combustion of both fuels does not pro­
+duce any carbon-based emissions [38]. Shu et al. [39] extensively 
+evaluated the ignition process of ammonia/hydrogen combustion under 
+low to intermediate temperature conditions and identified the different 
+response characteristics. It was found that the auto-ignition was highly 
+dependent on the elementary reaction of NH2 + NO=NNH + OH as the 
+operating temperature ranges from 1100 to 1600 K, whereas under low- 
+temperature conditions of 950–1150 K, the mechanism’s predictive 
+ability was greatly affected by the reactions of NH2 with NO and H2NO 
++ O2 = HNO + HO2. Pochet et al. [40] also analyzed the low- 
+temperature ignition characteristics of ultra-lean ammonia/hydrogen 
+combustion experimentally and numerically under high pressures (43 
+and 65 bar) and low temperatures (1000−1100K) conditions. H2NO- 
+involved reactions were shown to be extremely significant to pure 
+ammonia combustion, while N2Hx-related steps were responsible for the 
+over-reaction of ammonia/hydrogen combustion. By comparing the 
+predictive performances of ammonia and ammonia/hydrogen combus­
+tion using ten different chemical mechanisms, da Rocha et al. [41] 
+highlighted the significance of NNH and HNO sub-mechanisms on the 
+laminar burning velocity. Zhao et al. [42] developed a reduced mech­
+anism for 50 %NH3/50 %H2 combustion under atmospheric operating 
+conditions and applied it to evaluate the emission and thermal perfor­
+mances of micro-power systems. Recently, Wang et al. [43] numerically 
+identified two different ignition modes of hydrogen-enriched ammonia 
+combustion under low and high pressure conditions in the presence of a 
+localized energy deposition. The autoignition enhancement arising from 
+such a strategy was mainly due to ignition kernels preheating and local 
+temperature elevation.
+Furthermore, species profiles with advanced measurement apparatus 
+are also reliable for developing a suitable chemical mechanism and 
+validating the feasibility [44,45]. Zou et al. [46] explored the interac­
+tion chemistry of ammonia and nitrogen oxides using laser-based multi- 
+species measurements in a shock tube. It was demonstrated that for NH3- 
+NO systems, the reactions NH2 + NO=N2 + H2O and NH2 + NO=NNH 
++ OH played dominating roles in NH3 consumption and NO reduction, 
+while NH + NO=N2O + H governed N2O formation. By performing 
+experimental and kinetic analysis of NH3/CH3OH combustion, Welp 
+et al. [47] pointed out that under plug-flow conditions, CH3OH + HO2 =
+CH2OH + H2O2 was one of the most sensitive reactions enhancing the 
+system’s reactivity. Li et al. [48] developed two-step reaction kinetics 
+for ammonia/hydrogen, including 2H2 + O2 = 2H2O and 4NH3 + 3O2 =
+2 N2 + 6H2O, which can be further used to predict deflagrations with the 
+aid of high-accuracy simulation tools.
+Previous studies indicated that most mechanism simplification for 
+ammonia/hydrogen combustion was conducted under low and inter­
+mediate operating conditions. Little attention has been paid to the 
+combustion characteristics, such as autoignition properties and NOx 
+emissions under intermediate-to-high temperatures and high-pressure 
+conditions, which are significant to the design and development of gas 
+turbines and internal combustion engines. Furthermore, there is a need 
+to establish a reduced mechanism with a smaller number of species and 
+elementary reaction steps to control computational cost while main­
+taining sufficiently accurate predictions of combustion processes. This 
+partially motivates the present work. Considering the scarcity of 
+ammonia/hydrogen reduced mechanisms under intermediate-to-high 
+temperatures and high-pressure conditions, this work presents a 
+simplification investigation towards the existing detailed mechanism. It 
+aims to examine the feasibility of the reduced mechanisms in capturing 
+the critical features, such as ignition delay time and laminar burning 
+velocity, identify the reaction pathway change via the key radical gen­
+eration, and discuss the dependence of NOx formation on the thermo­
+dynamic operational parameters.
+2. Numerical methodologies
+Starting from the detailed mechanism involving C-H-O-N in­
+teractions developed by Okafor et al. [30], an effort to achieve reduced 
+but accurate chemical kinetics is made in this work. This detailed 
+mechanism has been extensively used to explore the combustion fun­
+damentals of NH3/CH4/H2 mixtures and is shown to be extremely 
+effective in capturing the laminar flame speed and auto-ignition prop­
+erties. By removing all C-related and less important N-containing re­
+actions, two reduced mechanisms (Mech18 and Mech19) for NH3/H2 
+mixtures are proposed with the aid of a direct relation graph with error 
+propagation (DRGEP) method in Chemkin-Pro 2020. Table 1 presents a 
+summary of the number of species and elementary reactions for the 
+detailed and simplified chemical-kinetic mechanisms in this work. 
+Depending on the simplification degree, different numbers of N- 
+involved species are removed in the reduced mechanisms, along with 
+the corresponding reaction steps. Among them, Mech18 is the most 
+simplified one, with seven N-involved species excluded in comparison to 
+the original mechanism.
+The fidelity of the proposed mechanisms in the prediction of the 
+ignition delay time under intermediate-to-high temperatures and high 
+pressures is validated against the experimental measurements in the 
+previous work. Regarding the numerical determination of ignition delay 
+time, a zero-dimensional constant-volume reactor is applied by solving 
+the enthalpy equation. By identifying the time required when the 
+maximum temperature inflection occurs, the ignition delay time is 
+determined. Meanwhile, the auto-ignition sensitivity is also calculated 
+to identify dominant elementary reactions, where the positive sensitivity 
+coefficient signifies the ignition enhancement and the negative value 
+denotes the ignition suppression. Furthermore, a mechanism applica­
+bility analysis in the laminar burning velocity estimation is also con­
+ducted using a one-dimensional freely flame propagation model. The 
+computational domain is 10 cm, with the solution gradient and curva­
+ture of 0.02 and 0.1, respectively. The mixture-averaged transport 
+model is applied to determine the species diffusion ordinary coefficients 
+and fluxes.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+2 
+
+
+--- Page 3 ---
+
+3. Results and discussion
+3.1. Autoignition behavior prediction
+As a starting point for validating the applicability of the reduced 
+mechanisms described, the auto-ignition behaviors of pure ammonia 
+combustion are explored and compared with the experimental data 
+marked in symbols from Ref. [49] under intermediate-to-high temper­
+atures, where the oxidizer is composed of oxygen and argon instead of 
+nitrogen. Fig. 1 depicts the variations of experimental and numerical 
+ignition delay times at various inlet pressures. Most reaction mecha­
+nisms overestimate the ignition delay time, especially under atmo­
+spheric pressure, as presented in Fig. 1(a). Of them, Mech18 produces 
+the largest overestimation by a factor of 1.47 against the experimental 
+data. Nevertheless, as the inlet pressure is elevated to 10 atm, the pre­
+dictive ability of these reaction mechanisms is enhanced, especially for 
+Mech 19, where the experimental and numerical results almost overlap. 
+This may imply that radical formation and elementary reaction rates in 
+Mech 19 have a stronger pressure dependence.
+From Fig. 1, it can also be observed that an increase in the inlet 
+pressure gives rise to a lower ignition delay time, which is a commonly 
+applied approach to promote ignition in practical applications such as 
+internal combustion engines and gas turbine engines. Regardless of the 
+inlet pressure, predictions from Mech18 are significantly higher 
+compared to those of Mech19. This phenomenon is much more signifi­
+cant at P = 10 atm (see Fig. 1(b)), indicating that NNH-related reactions 
+tend to play a stronger role in the reaction process at high pressures, and 
+removing them leads to a longer ignition time. To conclude, estimations 
+from Mech19 are generally better, or comparable to those computed by 
+the remaining mechanisms, with the maximum discrepancy only being a 
+factor of 0.6, and thus can be regarded as the most appropriate mech­
+anism for pure ammonia combustion.
+In consideration of the merits of hydrogen combustion, including 
+large laminar flame speed and wide flammability limit, blending it with 
+ammonia is a promising and effective way to enhance the weak reac­
+tivity of ammonia combustion. Before conducting a relevant evaluation, 
+it is imperative to define the ammonia/hydrogen blending ratio (R) 
+signifying the percentage of hydrogen to the total fuel on a molar basis. 
+Fig. 2 illustrates the variation of the ignition delay time of ammonia/ 
+hydrogen mixtures at R = 5 %. The agreement between experimental 
+data and numerical results calculated with the adopted chemical reac­
+tion mechanisms is satisfactory, irrespective of the inlet temperature and 
+pressure. Meanwhile, it is seen that Mech19 tends to have a quick 
+response to the inlet temperature variation compared to the remaining 
+mechanisms, as evidenced by the relatively small ignition time. 
+Furthermore, by comparing Figs. 1 and 2, it is revealed that the ignition 
+delay time can be significantly shortened even though the hydrogen 
+content added is as low as 5 %. Furthermore, the dependence of the 
+ammonia autoignition on the pressure is much more remarkable in the 
+presence of hydrogen. For instance, the response of the autoignition 
+behavior to inlet pressure variation in pure ammonia combustion is 
+much weaker than the ammonia/hydrogen mixture. For example, at the 
+inlet temperature of approximately 1666.7 K, increasing the inlet pres­
+sure from 1.2 to 10 atm leads to the ignition delay time being decreased 
+by a factor of 4.5 for pure ammonia combustion, whereas the factor is 
+about 6.64 for ammonia/hydrogen combustion at R = 5 %.
+Fig. 3 shows the profiles of computed and measured ignition delay 
+times as the blending ratio is set to 30 %. Regardless of the initial inlet 
+pressure, the agreement between experiments and simulation predicted 
+by all chemical mechanisms becomes much more satisfactory in com­
+parison to the case of a lower blending ratio, as presented in Figs. 1 and 
+2. Further, the difference in the predicted ignition delay time between 
+Mech18 and Mech19 is shown to gradually reduce with decreasing 
+ammonia concentration. This is acceptable since, as the blending ratio is 
+elevated, hydrogen combustion chemistry starts to play a greater role 
+and thus minimizes the impact of the NNH reaction. It is also interesting 
+to note that the NNH chemistry on the oxidation process under 
+intermediate-temperature 
+conditions 
+is 
+much 
+more 
+significant 
+compared to that under high-temperature conditions.
+Fig. 4 presents the computational and experimental ignition delay 
+times at atmospheric and elevated pressures, as the blending ratio (R) is 
+set to be 70 %. It can be noted that Mech20 exhibits a slower ignition 
+process compared to other chemical mechanisms, which is much more 
+Table 1 
+Description of ammonia/hydrogen reaction mechanisms applied.
+Mechanism 
+name
+Number of 
+species
+Number of 
+reaction 
+steps
+Nitrogen- 
+involving species 
+excluded
+Nitrogen- 
+involving 
+reactions 
+excluded
+Okafor59
+59
+356
+None
+None
+Mech20
+20
+89
+NH2OH, H2NO, 
+HONO, N2H4, 
+N2H3
+N2H4 +
+O=NH2OH + NH, 
+NH2 + O2 =
+H2NO + O, 
+H2NO +
+OH=HNO + H2O, 
+NH +
+HONO=NH2 +
+NO2, 
+NH2 +
+HONO=NH3 +
+NO2, 
+HNO + NO2 =
+HONO+NO, 
+NH2 + NH2 =
+N2H4, 
+N2H4 +
+O=NH2OH + NH, 
+N2H3 + HO2 =
+N2H4 + O2, 
+N2H3 = N2H2 +
+H,  
+N2H3 + H=N2H2 
++ H2, 
+N2H3 + HO2 =
+N2H2 + H2O2, 
+N2H3 +
+NH=N2H2 + NH2
+Mech19
+19
+83
+NH2OH, H2NO, 
+HONO, N2H4, 
+N2H3, N2H2
+NH2 + NH=N2H2 
++ H, 
+N2H2 + H=NNH 
++ H2, 
+N2H2 + O=NNH 
++ OH, 
+N2H2 + O=NH2 
++ NO, 
+N2H2 +
+OH=NNH + H2O, 
+N2H2 +
+NH=NNH + NH2
+Mech18
+18
+72
+NH2OH, H2NO, 
+HONO, N2H4, 
+N2H3, N2H2, 
+NNH
+NH2 + NO=NNH 
++ OH, 
+NNH=N2 + H, 
+NNH + H=N2 +
+H2, 
+NNH + O=N2O 
++ H, 
+NNH + O=NH +
+NO, 
+NNH + OH=N2 
++ H2O, 
+NNH + O2 = N2 
++ HO2, 
+NNH + O2 = N2 
++ H + O2, 
+NNH + NH = N2 
++ NH2, 
+NNH + NH2 = N2 
++ NH3, 
+NNH + NO=N2 +
+HNO
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+3 
+
+
+--- Page 4 ---
+
+Fig. 1. Comparison of experimentally [49] and numerically predicted ignition delay time for pure stoichiometric ammonia combustion at various inlet temperatures: 
+(a) P = 1.2 atm and (b) P = 10 atm.
+Fig. 2. Comparison of experimentally [49] and numerically predicted ignition delay time for ammonia/hydrogen combustion versus the inlet temperature at R = 5 
+%: (a) P = 1.2 atm and (b) P = 10 atm.
+Fig. 3. Comparison of experimentally [49] and numerically predicted ignition delay time for ammonia/hydrogen combustion versus the inlet temperature at R =
+30 %: (a) P = 1.2 atm and (b) P = 10 atm.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+4 
+
+
+--- Page 5 ---
+
+remarkable at an elevated pressure of 10 atm. Furthermore, a unique 
+feature of this figure is that when the hydrogen concentration in the 
+mixture is 70 %, predictions from Mech18 and Mech19 are almost 
+overlapped, indicating the gradually weakening role of NNH-involved 
+reactions in the auto-ignition process. It further reveals that the NNH 
+chemistry only exhibits a strong impact on the auto-ignition when the 
+ammonia content is sufficiently high. This should be taken into 
+consideration and has a potential application when carrying out mech­
+anism simplification work in the future.
+Further validations on the mechanism applicability under internal 
+combustion engines-relevant conditions are conducted. Fig. 5 illustrates 
+the variations of the experimentally [50] and numerically autoignition 
+delay time under the inlet pressures of 20 and 40 bar. Apparently, at the 
+inlet pressure of 20 bar, numerical predictions by all chemical mecha­
+nisms show a satisfactory agreement with the experimental ignition 
+delay time, with Mech20 having slight overestimations. From Fig. 5(b), 
+it can be observed that such overestimations are much remarkable at P 
+= 40 bar, leading to the autoignition delay time being extended by a 
+factor of 1.33 at least. In contrast, the remaining chemical mechanisms 
+exhibit an excellent ability to predict the autoignition process.
+In general, the N2Hx (x = 2, 3, and 4) chemistry is extremely 
+important for the prediction of ignition performances in ammonia 
+combustion, but removing them produces better results against 
+experimental data available in the literature in comparison to the full 
+Okafor mechanism. This phenomenon has also been demonstrated by 
+Mathieu and Petersen [23] and Zhang et al. [51]. A comparison of 
+Figs. 1–5 reveals that the inclusion of N2H2-related typically leads to a 
+slow auto-ignition since it is a quickly turned-over species, which was 
+also confirmed in the previous work [52]. In contrast, the NNH-involved 
+chemistry impact on ignition processes is highly dependent on the fuel 
+composition, operational temperature, and pressure. Its removal yields 
+significant overestimation when ammonia concentrations are relatively 
+high, but leads to negligible difference at low concentration conditions, 
+which has also been reported by Monge-Palacios et al. [53]. To 
+conclude, in consideration of the model accuracy and mechanism 
+simplification, Mech19 can be reasonably regarded as the most suitable 
+one for the ignition prediction of stoichiometric ammonia combustion.
+3.2. Kinetic analyses
+3.2.1. Reaction pathway analysis
+To identify how the species removed in the reduced mechanisms play 
+a role in the chemical reaction process, a reaction pathway analysis 
+calculated with Mech18 and Mech19 is performed, as depicted in Fig. 6. 
+It is seen that the reaction of NH3 with OH plays a dominant role in the 
+NH2 generation, with the contributing rate exceeding 94 %. Both 
+Fig. 4. Comparison of experimentally [49] and numerically predicted ignition delay time for ammonia/hydrogen combustion versus the inlet temperature at R = 70 
+%: (a) P = 1 atm and (b) P = 10 atm.
+Fig. 5. Comparison of experimentally [50] and numerically predicted ignition delay time for ammonia/hydrogen combustion: (a) ϕ = 0.5, R = 10 %, 56.2 %Ar/14.1 
+%N2 and (b) ϕ = 1.0, R = 5 %, 71.1 %Ar/3.7 %N2.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+5 
+
+
+--- Page 6 ---
+
+chemical mechanisms reveal that, unlike atmospheric pressures, NH2 
+radicals are mainly consumed by reacting with NO radicals at P = 10 
+atm. This is the reason for the NOx suppression under elevated pressures, 
+which was consistent with the findings in Ref. [39]. Nevertheless, sig­
+nificant differences in the reaction pathway from NH2 to N2 are identi­
+fied, along with the contribution rate of each step. For example, the 
+reaction of NH2 with NO is the major pathway to generate NNH and then 
+N2 in Mech18, followed by reactions with OH and H. In contrast, an 
+intermediate pathway occurs in Mech19, which first forms NNH and 
+then N2, thus emphasizing the critical role of NNH-related reactions in 
+the ignition process. Meanwhile, the importance of NH2 reacting with 
+OH and H to generate amidogen (NH) becomes negligible, as evidenced 
+by the vanishment of the reaction pathways. This suggests that the 
+chemical effect arising from reaction pathway variation may be one of 
+the major mechanisms for different prediction performances.
+To provide insight into the different prediction characteristics of 
+Mech19 in capturing autoignition process of pure ammonia and 
+ammonia/hydrogen combustion (see Figs. 1–3), further reaction 
+pathway analysis is conducted at T = 1666.7 K at various inlet pressures, 
+as plotted in Fig. 7. Note that the blending ratio of ammonia/hydrogen 
+mixtures is 30 %. It is clear that, regardless of the fuel composition and 
+inlet pressure, the most significant reaction responsible for NH2 is the 
+reaction of NH3 with OH. However, such a reaction could be weakened 
+in the presence of hydrogen by comparing results from Fig. 7(a) and (c). 
+In the meantime, the contribution rate of NH3 with H to produce NH2 is 
+increased from 16.6 % to 31.3 % if hydrogen is added to ammonia 
+mixtures. Further, it is worth pointing out that for ammonia/hydrogen 
+combustion, NH3 decomposition by H radical is greatly reduced as the 
+inlet pressure is elevated from 1.2 to 10 atm, which may be the reason 
+for the underestimations of autoignition delay time. On the contrary, the 
+contribution rate of NH3 with OH in pure ammonia combustion is only 
+74.4 %, signaling the weak reaction process and thus producing over­
+predictions in the autoignition delay time.
+3.2.2. Rate-of-production analyses
+Since the OH radical formation plays a crucial role in the oxidation of 
+NH3, it is interesting to understand the net generation rate. Fig. 8
+compares the OH and NH2 profiles calculated with Mech18 and Mech19 
+under different blending ratios, as the equivalence ratio and inlet pres­
+sure are 1.0 and 10 atm, respectively. Note that calculation data from 
+Mech18 are marked in solid lines, whereas dashed lines denote results 
+by Mech19. Fig. 8(a) shows that for pure ammonia/air combustion, 
+there are some differences in the OH and NH2 profiles calculated with 
+Mech18 and Mech19. By examining Fig. 8(b), it can be observed that, 
+notwithstanding the existing discrepancy in the NH2 profiles, OH mole 
+fractions computed by these two chemical mechanisms almost overlap. 
+This further emphasizes the importance of OH generation in the deter­
+mination of auto-ignition properties and may explain the different 
+Fig. 6. Integrated N-atom mass flux analysis of ammonia oxidation and pyrolysis at R = 0 %, ϕ = 1.0, T = 1500 K, and P = 10 atm: (a) Mech18 and (b) Mech19.
+Fig. 7. Reaction pathways of pure ammonia and ammonia/hydrogen calculated with Mech19 at the inlet pressure of 1.2 and 10 atm.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+6 
+
+
+--- Page 7 ---
+
+kinetic prediction performances.
+To further identify the key reaction steps responsible for OH gener­
+ation, a rate-of-production analysis is performed. This is a complemen­
+tary tool that permits the identification of the contributions of each 
+reaction step to the formation/destruction of a specified species. Fig. 9
+compares the reaction rate variations of the 10 most important steps 
+predicted by Mech18 and Mech19 at R = 0 %, P = 10 atm, and T = 1500 
+K. It is seen that the 10 most important reaction steps affecting 
+ammonia/hydrogen ignition are the same for the condition considered. 
+However, the reaction rates of certain steps are shown to vary signifi­
+cantly, especially for the most terminating reaction of NH3 + OH=NH2 
++ H2O. To be more specific, the peak reaction rate of such a step 
+calculated with Mech18 is less than 0.024 mol•cm−3•s−1, and it turns 
+out to be almost 0.034 mol•cm−3•s−1, which accounts for a 41.7 % in­
+crease. This considerable difference can greatly affect the overall com­
+bustion process and is the key factor for the varying ignition prediction 
+behavior for Mech18 and Mech19.
+3.3. Evaluation of laminar burning velocity
+Insights into the flame propagation characteristics of ammonia/ 
+hydrogen combustion under elevated inlet temperature and pressure are 
+also of great interest due to the potential industrial application. In this 
+section, numerical predictions are compared to experimental measure­
+ments reported by Shrestha et al. [54] to further confirm the fidelity of 
+the reaction kinetics proposed. Note that the initial temperature for neat 
+ammonia and ammonia/hydrogen combustion is 473 K and shall not be 
+presented for brevity. Fig. 10 illustrates the variations of numerically 
+and experimentally laminar burning velocities at various blending ratios 
+and equivalence ratios. The agreement between the numerical results 
+obtained with all reaction mechanisms except for Mech18 and experi­
+mental data is quite satisfying when the blending ratio is less than 20 %. 
+In contrast, all chemical mechanisms tend to under-predict the flame 
+speed at R = 20 %, highlighting the importance of further kinetic op­
+timizations under such conditions. Furthermore, it is seen that the 
+laminar burning velocity predictions of Mech18 are much lower than 
+those of the rest chemical mechanisms, regardless of the operating 
+Fig. 8. OH and NH2 profiles of stoichiometric ammonia/hydrogen mixtures calculated with Mech18 and Mech19 at P = 10 atm: (a) R = 0 % and T = 1500 K; (b) R =
+70 % and T = 1100 K.
+Fig. 9. Rates of production of the 10 most significant reaction steps controlling OH formation and destruction at P = 10 atm, R = 0 %, and T = 1500 K.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+7 
+
+
+--- Page 8 ---
+
+conditions. This indicates that NNH-involved reactions are extremely 
+crucial to flame propagation, and eliminating them can lead to a low 
+reaction rate.
+To further describe high-pressure flame propagation characteristics, 
+Fig. 11 illustrates the laminar burning velocities as a function of the 
+equivalence ratio for ammonia/hydrogen combustion at T = 473 K and 
+Fig. 10. Variations of experimentally [54] and numerically laminar burning velocities for ammonia/hydrogen combustion for varying blending ratio and equiva­
+lence ratio under ambient pressure and T = 473 K.
+Fig. 11. Computed and measured [54] laminar burning velocities of ammonia flames versus the equivalence ratio in the absence/presence of hydrogen at P = 3 bar 
+and T = 473 K.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+8 
+
+
+--- Page 9 ---
+
+P = 3 bar. In the absence of hydrogen, Mech19 yields an overestimation 
+under fuel-lean and stoichiometric conditions, but Mech18 produces a 
+much lower laminar flame speed, signaling the importance of NNH- 
+related steps in the determination of flame propagation in pure 
+ammonia combustion. This figure also shows that Mech18 can accu­
+rately capture the experimental data under stoichiometric and fuel-lean 
+conditions, but results in a significant underestimation at fuel-rich 
+conditions. This phenomenon is much more remarkable in the pres­
+ence of hydrogen. On the contrary, the agreement of experiments with 
+numerical calculations by Mech19 is satisfying under fuel-rich condi­
+tions, indicating that NNH-involved reactions are more favored when 
+the oxidizer is in excess.
+The sensitivity analysis is a feasible and useful means to clarify the 
+most important reaction steps on which the laminar burning speed of a 
+reacting mixture is dependent. In this work, the 10 most significant steps 
+for flame propagation calculated with different chemical mechanisms 
+are considered and compared. Fig. 12 shows the sensitivity coefficients 
+of the laminar burning speed with Mech18 and Mech 19 under fuel-lean 
+and rich conditions (ϕ = 0.9 and 1.2) at T = 298 K and P = 3 bar. It is 
+apparent that the top 2 important steps remain unchanged even if the 
+chemical mechanism or equivalence ratio is varied. Certainly, it is worth 
+mentioning that there are some differences in the 10 most important 
+reaction steps that the laminar burning velocity is sensitive to. For 
+example, when applying different chemical mechanisms, the third 
+important step contributing to the laminar burning velocity is N2O(+M) 
+= N2 + O(+M) (R37), which becomes NH2 + NO=NNH + OH (R64) in 
+Mech19. These results further confirm that removing the NNH reaction 
+step can affect the contribution rates of elementary steps, thus changing 
+the flame propagation behavior. Further, a closer examination of this 
+figure shows that for a fixed chemical mechanism, varying the equiva­
+lence ratio leads to the terminating reaction steps being changed as 
+marked in red, which then explains the different predictive ability under 
+fuel-rich and lean conditions.
+To further identify how NNH-related reaction affects the flame speed 
+prediction performance, a rate of production analysis is implemented. 
+Fig. 13 compares the rate of production for NNH species of ammonia/ 
+hydrogen combustion calculated with Mech19 at R = 10 % under fuel- 
+lean and rich conditions. Notably, the 10 most significant reactions 
+responsible for intermediate NNH species remain unchanged, regardless 
+of the equivalence ratio. Additionally, it can be noted that the reaction 
+rates of the most terminating/promoting steps for NNH destruction/ 
+formation at ϕ = 0.9 are much higher than those of ϕ = 1.2. This is 
+therefore beneficial to the generation of active OH and H radicals, 
+enhancing the reactivity of the mixture, which is the reasoning for larger 
+laminar burning velocity predictions under fuel-lean conditions.
+As far as ammonia combustion is concerned, burning it under fuel- 
+rich conditions is advantageous in terms of minimizing hazardous NOx 
+emissions in practice. Further evaluation of the model is conducted for 
+ammonia/hydrogen blends at the equivalence ratio and inlet tempera­
+ture of 1.1 and 473 K, as the inlet pressure varies from 1 to 7 bar, as 
+presented in Fig. 14. At atmospheric pressure, predictions of laminar 
+burning velocities by Mech19 and Okafor59 are almost overlapped, 
+which are lower than experimental measurements at R > 5 %. On the 
+contrary, these two reaction mechanisms produce a larger estimation, 
+indicating the weak pressure dependence of reaction rates of these 
+chemical mechanisms and better prediction performance. Furthermore, 
+a closer examination of this figure shows that neglecting NNH-involved 
+reactions leads to an overestimation of the laminar flame speed, which is 
+much more significant at an increasing inlet pressure. Certainly, further 
+kinetic parameters optimization over flame burning velocities of 
+ammonia/hydrogen combustion at elevated temperature conditions is 
+still required, especially for relatively higher blending ratio conditions.
+To distinguish the different response mechanisms of Mech18 and 
+Mech19 in predicting the flame propagation at elevated inlet tempera­
+ture conditions, a sensitivity analysis on OH radical generation/ 
+destruction is conducted by examining the 10 most important reaction 
+steps, as illustrated in Fig. 15. Regardless of which chemical mechanism 
+is applied, the sensitivities of the flame speed to the chain branching and 
+terminating reactions change in the opposite way, which are progres­
+sively weakened and enhanced respectively with an increase in the 
+initial pressure. This synergetic effect leads to a reduction in the com­
+bustion burning rate and thus flame speed. By comparing Fig. 15(a) and 
+(b), it is seen that the most important reaction steps are less sensitive to 
+the chemical mechanism, but the sensitivity degree of each reaction 
+varies, especially for major termination and chain branching steps. 
+Taking the main branching reaction H + O2 = OH + O(R11) for 
+example, the sensitivity coefficient of Mech18 at P = 1 bar is 0.5053, and 
+it becomes 0.5158, accounting for a 2.1 % increment. This is also 
+accompanied by the sensitivity variation in the termination reactions, 
+further highlighting the significance of NNH-related reactions in the 
+determination of the flame speed at elevated pressures and 
+temperatures.
+Fig. 12. Reaction sensitivities of the laminar burning velocity calculated with different chemical mechanisms at R = 10 % and P = 3 bar: (a) ϕ = 0.9 and (b) ϕ = 1.2.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+9 
+
+
+--- Page 10 ---
+
+4. Emission dependence analysis on inlet temperature and 
+pressure
+Having demonstrated the application of the reduced mechanism in 
+capturing ignition and flame propagation characteristics, it is of interest 
+to identify the pollutant formation of ammonia/hydrogen combustion 
+under elevated inlet temperatures and pressures [55–57]. Considering 
+that N2O and NO2 mole fractions are much lower compared to NO, NO 
+Fig. 13. Rate of production of NNH species calculated with Mech19 at R = 10 %, T = 298 K, and P = 3 bar: (a) ϕ = 0.9 and (b) ϕ = 1.2.
+Fig. 14. Variations of experimental [54] and numerical laminar burning velocities of ammonia/hydrogen mixtures as a function of blending ratio and inlet pressure 
+with ϕ = 1.1 and T = 473 K.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+10 
+
+
+--- Page 11 ---
+
+concentrations are thus regarded as the indicator for NOx emissions. 
+Fig. 16 depicts the NO mole fractions of ammonia/hydrogen mixtures at 
+R = 50 % calculated with Mech19 as a function of equivalence ratio, as 
+the inlet pressure is varied from 1 to 50 atm. It can be seen that 
+increasing the equivalence ratio gives rise to a reduction in the NO 
+formation, mostly due to the gradually decreasing oxygen atom. 
+Meanwhile, a higher inlet pressure is more likely to be associated with a 
+lower NO generation. This is because the third body terminating reac­
+tion of H + OH + M = H2O + M can be enhanced, leading to a decrease 
+in the OH concentration and thus NO formation. Additionally, it is 
+interesting to point out that the sensitivity of NO formation to the inlet 
+pressure is stronger under fuel-rich conditions. Specifically, elevating 
+inlet pressure from 1 to 50 atm enables the NO emission at ϕ = 1.1 to be 
+decreased by a factor of 0.993, but this value is only 0.5 at ϕ = 0.759. 
+These results suggest that properly designing inlet thermodynamic pa­
+rameters can be an effective means to control NO emissions.
+In consideration of the significant drop in the NO emission as the 
+inlet pressure is elevated from 1 to 5 atm, a rate of production analysis 
+concerning NO formation is implemented to shed light upon the un­
+derlying mechanism, as illustrated in Fig. 17, where the equivalence 
+ratio is set to 1.0. Regardless of the initial inlet pressure, the most 
+important contributing/terminating reactions remain unchanged, which 
+are HNO + H=H2 + NO (R78) and NH + NO=N2O + H (R50), respec­
+tively. By comparing Fig. 17(a) and (b), it is seen that increasing the inlet 
+pressure enables the NO formation pathway to be changed, as evidenced 
+by the emergence of H + NO+M = HNO + M (R76) and HNO +
+OH=NO+H2O (see black lines). Furthermore, it can be observed that 
+reaction rates of all steps have been increased with the inlet pressure 
+elevated from 1 to 5 atm. Nevertheless, it is worth noting that the 
+relative importance of the NO termination step (R50) to the promotion 
+step (R78) is enhanced at a higher inlet pressure, which thus causes low 
+NO emissions.
+In practice, inlet preheating is a viable way to increase the mixture’s 
+laminar burning velocity and thus enhance the combustion process. 
+Thus, it is also meaningful to explore how pollutant generation varies 
+with the inlet temperature, as illustrated in Fig. 18, where the equiva­
+lence ratio and inlet pressure are fixed to be 1.0 and 1 atm, respectively. 
+Notably, elevating the inlet temperature results in a higher NO mole 
+fraction, which should be taken into consideration in practical appli­
+cations. Meanwhile, the most striking observation to emerge from this 
+figure is that the response characteristics of NO formation to the inlet 
+temperature are gradually weakened. For instance, elevating the inlet 
+temperature from 300 to 400 K at R = 25 % leads to NO emission being 
+increased by 6 %. Nevertheless, such a percentage increment is only 1.6 
+% with T varying from 700 to 800 K. Furthermore, it is worth pointing 
+out that for any specified inlet temperatures, the NO mole fraction shows 
+a non-monotonic changing trend with the blending ratio, with the peak 
+pollutant emission taking place at R = 25 %. Such a phenomenon has 
+also been observed in previous studies [58–60], most attributed to the 
+enhanced thermal-NO pathway. However, this is quite different from the 
+ammonia/hydrogen stratified combustion [61], where a low hydrogen 
+blending ratio facilitates lower nitrogen oxides emissions via the DeNOx 
+process. Thus, it can be concluded that optimizing the ammonia/ 
+hydrogen blending ratio is beneficial to suppress NO emissions under 
+elevated inlet temperatures.
+5. Conclusions
+Insights into the ignition and flame propagation characteristics of 
+ammonia/hydrogen combustion under intermediate-to-high tempera­
+tures and high-pressure conditions enable its application to gas turbines 
+and internal combustion engines. For this, this work developed a 
+reduced chemical mechanism for ammonia/hydrogen combustion, 
+whose applicability is widely validated over different combustion re­
+gimes such as laminar burning velocity and ignition delay time. The 
+different response laws of various chemical mechanisms in the pre­
+Fig. 15. OH sensitivities calculated with Mech18 and Mech19 for varying inlet pressure at R = 20 %, ϕ = 1.1 and T = 473 K.
+Fig. 16. NO generation as a function of inlet pressure and equivalence ratio.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+11 
+
+
+--- Page 12 ---
+
+dictions of the results are underpinned by adopting reaction pathways 
+and sensitivity analyses. The proposed reduction mechanism is then 
+applied to explore the NOx emission performance over elevated inlet 
+temperatures and pressures. The key findings achieved through this 
+work are as follows: 
+(1) The exclusion of N2Hx (x = 2, 3, and 4) chemistry produces better 
+or comparably satisfactory ignition results over experimental 
+data compared to the remaining models under intermediate-to- 
+high temperatures and high pressures. The reaction step of 
+NH2 + NO=NNH + OH is identified as the most important 
+pathway to affect the ignition process between Mech18 and 
+Mech19.
+(2) Removing NNH-related chemistry is shown to extend the ignition 
+delay time. Such reaction steps are more likely to play a greater 
+role in the ignition process due to the changed reaction pathways 
+and radical formation, but their impact can be negligible when 
+the blending ratio is up to 70 %. Further, the effect of these re­
+actions on ignition is much weakened by elevating the inlet 
+pressure and temperature.
+(3) The response of the autoignition behaviors to inlet pressure 
+variation in pure ammonia combustion is much weaker than that 
+of the ammonia/hydrogen mixture. For example, at the inlet 
+temperature of approximately 1666.7 K, increasing the inlet 
+pressure from 1.2 to 10 atm leads to the ignition delay being 
+decreased by a factor of 4.5 for pure ammonia combustion, 
+whereas the factor is about 6.64 for ammonia/hydrogen com­
+bustion at R = 5 %.
+(4) The reduced mechanisms are shown to reveal the flame propa­
+gation behaviors at an inlet temperature of 473 K, but can result 
+in over-estimations when the inlet pressure is much larger due to 
+the large sensitivity of H + O2 = OH + O (R11). For all operating 
+conditions considered, laminar burning velocities calculated with 
+Mech19 are larger than those of Mech18, where NH2 +
+NO=NNH + OH (R64) has been identified as the key reaction step 
+for flame propagation.
+(5) An increase in the inlet pressure and equivalence ratio is highly 
+desirable in terms of minimizing NO emissions, while elevating 
+inlet temperatures results in more pollutants being generated. 
+The sensitivity of NO formation to the inlet pressure is stronger 
+under fuel-rich conditions. Specifically, elevating inlet pressure 
+from 1 to 50 atm enables the NO emission at ϕ = 1.1 to be 
+decreased by a factor of 0.993, but this value is only 0.759 at ϕ =
+0.9. For any specified inlet temperatures, the NO emission shows 
+a non-monotonic changing trend with the blending ratio, with the 
+peak pollutant emission taking place at R = 25 %.
+In general, this work has identified the key radical formation and its 
+reaction pathway in affecting the ignition and flame propagation per­
+formances of ammonia/hydrogen combustion under gas turbine- 
+relevant conditions. The insights gained from this work are beneficial 
+to developing more simplified chemical mechanisms of ammonia com­
+bustion and can also be applied to explain combustion phenomena. 
+Meanwhile, the response of NO formation to high inlet temperatures and 
+pressures is also helpful for designing the low-emission ammonia-pow­
+ered practical applications.
+CRediT authorship contribution statement
+Tao Cai: Writing – original draft, Project administration, Funding 
+acquisition, Formal analysis, Data curation, Conceptualization. Ke 
+Chen: Validation, Investigation, Data curation. Aikun Tang: Writing – 
+review & editing, Supervision, Project administration, Funding 
+Fig. 17. Rates of production regarding NO formation/destruction with different inlet pressures.
+Fig. 18. The dependence of NO formation on the inlet temperature at various 
+blending ratios.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+12 
+
+
+--- Page 13 ---
+
+acquisition.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgments
+We gratefully acknowledge the financial support provided by the 
+Natural Science Foundation of Jiangsu Province (Grant No. 
+BK20240860), China Postdoctoral Science Foundation (No. 2025 
+M770579), and the National Natural Science Foundation of China 
+(Grant No. 52176112).
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi. 
+org/10.1016/j.cej.2025.171040.
+Data availability
+Data will be made available on request.
+References
+[1] T. Cai, A. Tang, Q. Zhang, Q. Ni, J. Li, A systematic review of enhancing 
+stabilization performance and mitigating thermoacoustic instability in renewable 
+ammonia turbulent combustion, Renew. Sust. Energ. Rev. 217 (2025) 115760.
+[2] J. Tian, C. Hou, J. Liu, S. Shi, H. Yang, Q. Zhou, et al., Experimental and kinetic 
+study of laminar combustion characteristics of ammonia/air mixtures under 
+oxygen enrichment at high temperature and pressure, Chem. Eng. J. 507 (2025) 
+160528.
+[3] Z. Zhang, J. Lv, G. Xie, S. Wang, Y. Ye, G. Huang, et al., Effect of assisted hydrogen 
+on combustion and emission characteristics of a diesel engine fueled with biodiesel, 
+Energy 254 (2022) 124269.
+[4] F. Yan, Z. Huang, H. Wang, X. Tian, D. Wei, F. Zhang, et al., Hydrogen-powered 
+micro thermophotovoltaic system with optimized multi-layers porous medium and 
+operating conditions: experimental and numerical studies, Int. J. Hydrog. Energy 
+105 (2025) 427–440.
+[5] Robert F. Service, Ammonia—a renewable fuel made from sun, air, and 
+water—could power the globe without carbon, Science 10 (2018).
+[6] MacFarlane DR, P.V. Cherepanov, J. Choi, B.H. Suryanto, R.Y. Hodgetts, J. 
+M. Bakker, et al., A roadmap to the ammonia economy, Joule 4 (2020) 1186–1205.
+[7] H. Rong, D. Zhao, T. Cai, S. Becker, Enhancing thermal and exergy performances in 
+a CO2-free micro-combustor with reverse flow double-channel outlet structure, 
+Appl. Therm. Eng. 233 (2023) 121180.
+[8] T. Cai, D. Zhao, L. Ji, A.K. Agarwal, Removal and mechanism analysis of NOx 
+emissions in carbon-free ammonia combustion systems with a secondary fuel 
+injection, Fuel 344 (2023) 128088.
+[9] Z. Xing, X. Jiang, Neural network potential-based molecular investigation of 
+pollutant formation of ammonia and ammonia-hydrogen combustion, Chem. Eng. 
+J. 489 (2024) 151492.
+[10] X. Han, Z. Wang, M. Costa, Z. Sun, Y. He, K. Cen, Experimental and kinetic 
+modeling study of laminar burning velocities of NH3/air, NH3/H2/air, NH3/CO/ 
+air and NH3/CH4/air premixed flames, Combust. Flame 206 (2019) 214–226.
+[11] J. Ou, R. Yang, Y. Yan, J. Liu, Z. Liu, J. Liu, Chemical mechanism development for 
+ammonia/n-heptane blends in dual fuel engines, J. Energy Inst. 120 (2025) 
+102077.
+[12] M. Zhang, X. Wei, J. Wang, Z. Huang, H. Tan, The blow-off and transient 
+characteristics of co-firing ammonia/methane fuels in a swirl combustor, Proc. 
+Combust. Inst. 38 (2021) 5181–5190.
+[13] A. Valera-Medina, S. Morris, J. Runyon, D.G. Pugh, R. Marsh, P. Beasley, et al., 
+Ammonia, methane and hydrogen for gas turbines, Energy Procedia 75 (2015) 
+118–123.
+[14] O. Kurata, N. Iki, T. Matsunuma, T. Inoue, T. Tsujimura, H. Furutani, et al., 
+Performances and emission characteristics of NH3–air and NH3CH4–air 
+combustion gas-turbine power generations, Proc. Combust. Inst. 36 (2017) 
+3351–3359.
+[15] R. Yang, J. Liu, J. Liu, Investigation of nitrogen-based pollutants formation 
+mechanisms in ammonia-diesel dual-fuel engines by decoupling dilution, thermal, 
+and kinetic effects, J. Energy Inst. 120 (2025) 102125.
+[16] Y. Yan, T. Xie, J. Liu, Rapid and accurate prediction of molecular dynamics 
+simulations using physics-informed LSTM networks in engine emission analysis: a 
+case study of C3H6/NH3 pyrolysis for PAH formation, J. Energy Inst. 120 (2025) 
+102090.
+[17] Q. Huang, R. Yang, J. Liu, T. Xie, J. Liu, Investigation of the mechanism behind the 
+surge in nitrogen dioxide emissions in engines transitioning from pure diesel 
+operation to methanol/diesel dual-fuel operation, Fuel Process. Technol. 264 
+(2024) 108131.
+[18] F.R. Westlye, A. Ivarsson, J. Schramm, Experimental investigation of nitrogen 
+based emissions from an ammonia fueled SI-engine, Fuel 111 (2013) 239–247.
+[19] M. Ezzat, I. Dincer, Development and assessment of a new hybrid vehicle with 
+ammonia and hydrogen, Appl. Energy 219 (2018) 226–239.
+[20] H. Xiao, S. Lai, A. Valera-Medina, J. Li, J. Liu, H. Fu, Experimental and modeling 
+study on ignition delay of ammonia/methane fuels, Int. J. Energy Res. 44 (2020) 
+6939–6949.
+[21] A.A. Konnov, An exploratory modelling study of chemiluminescence in ammonia- 
+fuelled flames. Part 2, Combust. Flame 253 (2023).
+[22] J. Li, G. Shu, L. Wang, H. Wei, J. Pan, An experimental investigation on hydrogen 
+jet ignition of ammonia: emphasis on reactivity stratification, Proc. Combust. Inst. 
+40 (2024) 105328.
+[23] O. Mathieu, E.L. Petersen, Experimental and modeling study on the high- 
+temperature oxidation of Ammonia and related NOx chemistry, Combust. Flame 
+162 (2015) 554–570.
+[24] G. Issayev, B.R. Giri, A.M. Elbaz, K.P. Shrestha, F. Mauss, W.L. Roberts, et al., 
+Ignition delay time and laminar flame speed measurements of ammonia blended 
+with dimethyl ether: a promising low carbon fuel blend, Renew. Energy 181 (2022) 
+1353–1370.
+[25] W. Guan, A. Abdelsamie, C. Chi, Z. He, D. Th´evenin, A dedicated reduced kinetic 
+model for ammonia/dimethyl-ether turbulent premixed flames, Combust. Flame 
+257 (2023) 113002.
+[26] J. Liu, C. Zou, J. Luo, Experimental and modeling study on the ignition delay times 
+of ammonia/methane mixtures at high dilution and high temperatures, Proc. 
+Combust. Inst. 39 (2023) 4399–4407.
+[27] T. Cai, D. Zhao, S.H. Chan, M. Shahsavari, Tailoring reduced mechanisms for 
+predicting flame propagation and ignition characteristics in ammonia and 
+ammonia/hydrogen mixtures, Energy 260 (2022) 125090.
+[28] T. Cai, D. Zhao, Enhancing and assessing ammonia-air combustion performance by 
+blending with dimethyl ether, Renew. Sust. Energ. Rev. 156 (2022) 112003.
+[29] H. Nakamura, S. Hasegawa, T. Tezuka, Kinetic modeling of ammonia/air weak 
+flames in a micro flow reactor with a controlled temperature profile, Combust. 
+Flame 185 (2017) 16–27.
+[30] E.C. Okafor, Y. Naito, S. Colson, A. Ichikawa, T. Kudo, A. Hayakawa, et al., 
+Experimental and numerical study of the laminar burning velocity of CH4–NH3–air 
+premixed flames, Combust. Flame 187 (2018) 185–198.
+[31] E.C. Okafor, Y. Naito, S. Colson, A. Ichikawa, T. Kudo, A. Hayakawa, et al., 
+Measurement and modelling of the laminar burning velocity of methane-ammonia- 
+air flames at high pressures using a reduced reaction mechanism, Combust. Flame 
+204 (2019) 162–175.
+[32] Chemical-Kinetic Mechanisms for Combustion Applications, San Diego Mechanism 
+web page, Mechanical and Aerospace Engineering, (Combustion Research), 
+University of California at San Diego, 2012, http://combustion.ucsd.edu.
+[33] G. Capriolo, C. Brackmann, M.L. Lavadera, T. Methling, A. Konnov, An 
+experimental and kinetic modeling study on nitric oxide formation in premixed C3 
+alcohols flames, Proc. Combust. Inst. 38 (2021) 805–812.
+[34] S. Wang, Z. Wang, C. Chen, A.M. Elbaz, Z. Sun, W.L. Roberts, Applying heat flux 
+method to laminar burning velocity measurements of NH3/CH4/air at elevated 
+pressures and kinetic modeling study, Combust. Flame 236 (2022) 111788.
+[35] S. Arunthanayothin, A. Stagni, Y. Song, O. Herbinet, T. Faravelli, F. Battin-Leclerc, 
+Ammonia–methane interaction in jet-stirred and flow reactors: an experimental 
+and kinetic modeling study, Proc. Combust. Inst. 38 (2021) 345–353.
+[36] Z. Wang, X. Han, Y. He, R. Zhu, Y. Zhu, Z. Zhou, et al., Experimental and kinetic 
+study on the laminar burning velocities of NH3 mixing with CH3OH and C2H5OH 
+in premixed flames, Combust. Flame 229 (2021).
+[37] X. Han, Z. Wang, Y. He, Y. Zhu, K. Cen, Experimental and kinetic modeling study of 
+laminar burning velocities of NH3/syngas/air premixed flames, Combust. Flame 
+213 (2020) 1–13.
+[38] T. Cai, A. Tang, C. Li, Experimental and kinetic analyses on the flame dynamics and 
+stabilization of ammonia/hydrogen-air mixtures in a micro-planar combustor, 
+Chem. Eng. J. 477 (2023) 147038.
+[39] B. Shu, S. Vallabhuni, X. He, G. Issayev, K. Moshammer, A. Farooq, et al., A shock 
+tube and modeling study on the autoignition properties of ammonia at 
+intermediate temperatures, Proc. Combust. Inst. 37 (2019) 205–211.
+[40] M. Pochet, V. Dias, B. Moreau, F. Foucher, H. Jeanmart, F. Contino, Experimental 
+and numerical study, under LTC conditions, of ammonia ignition delay with and 
+without hydrogen addition, Proc. Combust. Inst. 37 (2019) 621–629.
+[41] R.C. da Rocha, M. Costa, X.-S. Bai, Chemical kinetic modelling of ammonia/ 
+hydrogen/air ignition, premixed flame propagation and NO emission, Fuel 246 
+(2019) 24–33.
+[42] H. Zhao, D. Zhao, S. Becker, Thermal performances investigation on an ammonia- 
+fuelled heat-recirculating micro-combustor with reduced chemical mechanism, 
+Appl. Therm. Eng. 236 (2024) 121685.
+[43] L. Wang, X. Mao, J. Li, H. Wei, G. Shu, J. Pan, Role of hydrogen enrichment in 
+ammonia forced ignition at elevated pressures, Combust. Flame 272 (2025) 
+113908.
+[44] K.N. Osipova, S.M. Sarathy, O.P. Korobeinichev, A.G. Shmakov, Chemical structure 
+of premixed ammonia/hydrogen flames at elevated pressures, Combust. Flame 246 
+(2022).
+[45] C. Brackmann, V.A. Alekseev, B. Zhou, E. Nordstr¨om, P.-E. Bengtsson, Z. Li, et al., 
+Structure of premixed ammonia + air flames at atmospheric pressure: laser 
+diagnostics and kinetic modeling, Combust. Flame 163 (2016) 370–381.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+13 
+
+
+--- Page 14 ---
+
+[46] J. Zou, M. Adil, A. Elkhazraji, A. Farooq, Interaction of ammonia with nitric oxide 
+and nitrous oxide: multi-species time-history measurements and comprehensive 
+kinetic modeling, Combust. Flame 276 (2025) 114135.
+[47] A. Welp, C. Rudolph, B.R. Giri, K.P. Shrestha, R. Verma, F. Mauss, et al., Oxidation 
+kinetics of ammonia methanol blends: an experimental and kinetic modeling study, 
+Combust. Flame 278 (2025) 114210.
+[48] B. Li, D. Fern´andez-Galisteo, A.L. S´anchez, F.A. Williams, Systematically derived 
+reduced kinetics for hydrogen/ammonia gas-turbine combustion, Combust. Flame 
+269 (2024) 113698.
+[49] J. Chen, X. Jiang, X. Qin, Z. Huang, Effect of hydrogen blending on the high 
+temperature auto-ignition of ammonia at elevated pressure, Fuel 287 (2021) 
+119563.
+[50] L. Dai, S. Gersen, P. Glarborg, H. Levinsky, A. Mokhov, Experimental and 
+numerical analysis of the autoignition behavior of NH3 and NH3/H2 mixtures at 
+high pressure, Combust. Flame 215 (2020) 134–144.
+[51] Y. Zhang, O. Mathieu, E.L. Petersen, G. Bourque, H.J. Curran, Assessing the 
+predictions of a NOx kinetic mechanism on recent hydrogen and syngas 
+experimental data, Combust. Flame 182 (2017) 122–141.
+[52] D.F. Davidson, K. Kohse-H¨oinghaus, A.Y. Chang, R.K. Hanson, A pyrolysis 
+mechanism for ammonia, Int. J. Chem. Kinet. 22 (1990) 513–535.
+[53] M. Monge-Palacios, X. Zhang, N. Morlanes, H. Nakamura, G. Pezzella, S. 
+M. Sarathy, Ammonia pyrolysis and oxidation chemistry, Prog. Energy Combust. 
+Sci. 105 (2024) 101177.
+[54] K.P. Shrestha, C. Lhuillier, A.A. Barbosa, P. Brequigny, F. Contino, C. Mounaïm- 
+Rousselle, et al., An experimental and modeling study of ammonia with enriched 
+oxygen content and ammonia/hydrogen laminar flame speed at elevated pressure 
+and temperature, Proc. Combust. Inst. 38 (2021) 2163–2174.
+[55] T. Cai, D. Zhao, E. Gutmark, Overview of fundamental kinetic mechanisms and 
+emission mitigation in ammonia combustion, Chem. Eng. J. 458 (2023) 141391.
+[56] Z. Zhang, S. Wang, M. Pan, J. Lv, K. Lu, Y. Ye, et al., Utilization of hydrogen-diesel 
+blends for the improvements of a dual-fuel engine based on the improved Taguchi 
+methodology, Energy 292 (2024) 130474.
+[57] Z. Zhang, J. Ye, D. Tan, Z. Feng, J. Luo, Y. Tan, et al., The effects of Fe2O3 based 
+DOC and SCR catalyst on the combustion and emission characteristics of a diesel 
+engine fueled with biodiesel, Fuel 290 (2021) 120039.
+[58] R.C. Rocha, C.F. Ramos, M. Costa, X.-S. Bai, Combustion of NH3/CH4/air and 
+NH3/H2/air mixtures in a porous burner: experiments and kinetic modeling, 
+Energy Fuel 33 (2019) 12767–12780.
+[59] M. Alzueta, M. Abi´an, I. Elvira, V. Mercader, L. Sieso, Unraveling the NO reduction 
+mechanisms occurring during the combustion of NH3/CH4 mixtures, Combust. 
+Flame 257 (2023) 112531.
+[60] Z. Huang, R. Yin, F. Zhang, Q. Peng, H. Yang, H. Wang, et al., Experimental and 
+numerical investigation on optimizing energy efficiency and emissions reduction of 
+ammonia fueled combustion with addition of hydrogen and porous media, Renew. 
+Energy 242 (2025) 122422.
+[61] J. Li, R. Zhang, L. Wang, G. Shu, H. Wei, J. Pan, Hydrogen stratification improving 
+ammonia combustion and emission performance in SI engines, Energy Convers. 
+Manag. 344 (2025) 120332.
+T. Cai et al.                                                                                                                                                                                                                                      
+Chemical Engineering Journal 526 (2025) 171040 
+14 

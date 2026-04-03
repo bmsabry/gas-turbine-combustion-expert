@@ -1,0 +1,883 @@
+
+--- Page 1 ---
+
+Ashoke De
+Shengrong Zhu
+Department of Mechanical Engineering,
+Louisiana State University,
+Baton Rouge, LA 70803
+Sumanta Acharya1
+Professor
+Department of Mechanical Engineering,
+Louisiana State University,
+Baton Rouge, LA 70803;
+Turbine Innovation and Energy Research Center,
+Louisiana State University,
+Baton Rouge, LA 70803
+e-mail: acharya@me.lsu.edu
+An Experimental and
+Computational Study of a
+Swirl-Stabilized Premixed Flame
+An unconﬁned strongly swirled ﬂow is investigated for different Reynolds numbers using
+particle image velocimetry (PIV) and large eddy simulation (LES) with a thickened-ﬂame
+(TF) model. Both reacting and nonreacting ﬂow results are presented. In the LES-TF
+approach, the ﬂame front is resolved on the computational grid through artiﬁcial thick-
+ening and the individual species transport equations are directly solved with the reaction
+rates speciﬁed using Arrhenius chemistry. Good agreement is found when comparing
+predictions with the experimental data. Also the predicted root mean square (rms) ﬂuc-
+tuations exhibit a double-peak proﬁle with one peak in the burnt and the other in the
+unburnt region. The measured and predicted heat release distributions are in qualitative
+agreement with each other and exhibit the highest values along the inner edge of the
+shear layer. The precessing vortex core (PVC) is clearly observed in both the nonreacting
+and reacting cases. However, it appears more axially elongated for the reacting cases
+and the oscillations in the PVC are damped with reactions. DOI: 10.1115/1.4000141
+Keywords: large eddy simulation, thickened-ﬂame, swirl, premixed combustion, gas
+turbine, unconﬁned conﬁguration
+1
+Introduction
+Land-based gas turbines operate primarily in a lean-premixed
+mode LPM with natural gas as the fuel of choice due, in part, to
+environmental regulations of reducing NOx. Swirl is used to pro-
+vide ﬂame-holding, and plays an important role in premixed gas
+turbine combustors 1,2. Several experimental studies have been
+reported that characterize the ﬂame structure and provide insight
+into the ﬂame-turbulence interaction in laboratory scale burners
+3–5. Since experiments are generally expensive to undertake, in
+order to properly design premixed combustion systems, accurate
+predictions of premixed ﬂames are desirable. The capability of the
+classical
+approach
+using
+Reynolds
+averaged
+Navier–Stokes
+RANS equations in conjunction with phenomenological com-
+bustion models 6 is limited from an accuracy viewpoint. There-
+fore, numerical simulations of reacting ﬂows based on large eddy
+simulations LES have been proposed for providing accurate and
+cost-effective predictions. The main philosophy behind LES of a
+reacting ﬂow is to explicitly simulate the large scales of the ﬂow
+and reactions, and to model the small scales. Hence, it is capable
+of capturing the unsteady phenomenon more accurately. The un-
+resolved small scales or subgrid scales must be modeled accu-
+rately to include the interaction between the turbulent scales.
+Since the typical premixed ﬂame thickness is smaller than the
+computational grid , the small scale or subgrid scale modeling
+must also take care of the interaction between turbulence and the
+combustion processes.
+In turbulent premixed combustion, a popular approach is to rely
+on the ﬂamelet concept, which essentially assumes the reaction
+layer thickness to be smaller than the smallest turbulence scales.
+The two most popular models based on this concept are the ﬂame
+surface density model FSD 7 and the G-equation model 8,9.
+It has been reported that the FSD model is not adequate beyond
+the corrugated ﬂamelet regime 10,11, while the G-equation ap-
+proach depends on a calculated signed-distance function that rep-
+resents an inherent drawback of this method.
+Another family of models relies on the probability density func-
+tion PDF approach 12. This is a stochastic method, which di-
+rectly considers the probability distribution of the relevant sto-
+chastic
+quantities
+in
+a
+turbulent
+reacting
+ﬂow.
+The
+PDF
+description of turbulent reacting ﬂow has certain theoretical ben-
+eﬁts; the complex chemistry is taken care of without applying any
+ad hoc assumptions like “ﬂamelet” or “fast reaction”. Moreover,
+it can be applied to nonpremixed, premixed, and partially pre-
+mixed ﬂames without having much difﬁculty. However, the major
+drawback of the PDF transport approach is its high dimensional-
+ity, which essentially makes the implementation of this approach
+to different numerical techniques, like ﬁnite volume method
+FVM or ﬁnite element method FEM, limited.
+In this work, a thickened-ﬂame TF model 13 is invoked
+where the ﬂame is artiﬁcially thickened to resolve it on computa-
+tional grid points, where reaction rates from kinetic models are
+speciﬁed using reduced mechanisms. The inﬂuence of turbulence
+is represented by a parameterized efﬁciency function. A key ad-
+vantage of the TF model is that it directly solves the species
+transport equations and uses the Arrhenius formulation for the
+evaluation of the reaction rates.
+The conﬁguration of interest in the present work is that of a
+swirl-stabilized ﬂame. An extensive review on swirling ﬂows can
+be found in Refs. 4,2. Chanaud 14 reported periodic vortex
+instabilities in a certain regime of Reynolds number and swirl
+numbers. These were identiﬁed to be the precision vortex core
+PVC. Tangirala et al. 15 studied a nonpremixed swirl burner
+where they reported that the mixing and ﬂame stability can be
+improved with swirl up to a swirl number of about unity, beyond
+which a further increase in swirl reduces the turbulence level as
+well as the ﬂame stability. Broda et al. 16 and Seo 17 experi-
+mentally investigated the combustion dynamics in a lean-
+premixed swirl-stabilized combustor. As the swirl number exceeds
+a critical value, vortex breakdown takes place and leads to the
+formation of an internal recirculation zone 18. The shape and
+size of the recirculation zone largely depends on swirl and Rey-
+nolds numbers 5.This recirculation not only enhances fuel-air
+1Corresponding author.
+Contributed by International Gas Turbine Institute of ASME for publication in the
+JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript received April 24,
+2009; ﬁnal manuscript received April 28, 2009; published online April 9, 2010.
+Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071503-1
+Copyright © 2010 by ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+mixing, but also carries hot products back to the reactants and
+plays an important role in the ﬂame holding. However, despite
+several years of research, the mechanisms of vortex breakdown
+are only partially understood 2,19,20.
+In this investigation, we employed both computational and ex-
+perimental methods to investigate premixed swirl-stabilized
+ﬂames. The experimental approach uses particle image velocim-
+etry PIV and intensiﬁed charge-coupled device CCD imaging
+of ﬂame CH-chemiluminescence. The computational method uses
+LES combined with a TF approach for combustion. A key task is
+the assessment of LES-TF model predictions through validations
+with measurements in this study. A second task is to use the vali-
+dated model predictions to analyze the ﬂow and combustion phys-
+ics and, in particular, to explore how increasing ﬂow velocities
+alter the vortical structures and the associated heat release behav-
+ior which play an important role in the ﬂame-holding and blow-
+off behavior.
+2
+Experimental Conﬁguration and Techniques
+The conﬁguration considered here is an unconﬁned swirl
+burner. The experimental setup includes the combustor, the PIV
+system for velocity measurement, and the PI-MAX ICCD camera
+Princeton Instruments for CH-emissions measurement. The
+combustor consists of the inlet fuel and air-delivery system, and
+the premixing section. The ﬂame is swirl-stabilized and attached
+to the center body at the dump plane for conditions corresponding
+to the measurements in this study.
+The 45 deg swirl vane is ﬁtted with a solid center body which
+also acts as a fuel injector Fig. 1. This center body extends
+beyond the swirl vane and is ﬂushed with the dump plane of the
+combustor. The diameter of the center body is 12.7mm 0.5 in.
+and the outer diameter O.D. of the swirler is 34.9 mm 1.375
+in.. Methane gas is injected radially from the center body through
+eight holes immediately downstream of the swirler vane. The fuel/
+air mixer is assumed to be perfectly premixed at the dump plane
+and the equivalence ratio is calculated to be =0.7. The geometric
+swirl number, deﬁned as the ratio of the axial ﬂux of the tangential
+momentum to the product of axial momentum ﬂux and a charac-
+teristic radius, is Sg=0.82. Experiments are conducted at atmo-
+spheric pressure and temperature for two different Reynolds num-
+bers of 10,144 and 13,339 based on inlet bulk velocity and
+hydraulic diameter.
+2.1
+Stereoscopic PIV Measurements. For three-dimensional
+velocity measurements, a commercial PIV system IDT Inc., Tal-
+lahassee, FL using two Sharp Vision 1300DE cameras is used.
+These
+CCD
+cameras
+have
+a
+resolution
+of
+1280H
+1024V pixels with pixel size of 6.76.7 m. Both cameras
+are equipped with a 50mm Nikon lens. To illuminate the ﬂow ﬁeld
+of interest, a pulsed Nd:YAG laser light sheet at 532 nm is used.
+During the measurement, the PIV system is operated at a 10 Hz
+frame rate. The time between two laser pulses is between 20 s
+and 40 s, depending on the ﬂow velocity. The ﬁeld of view
+FOV is approximately 8560 mm2, and the lens aperture is
+adjusted to ensure the appropriate image size for the seeding par-
+ticles to ensure the accuracy of postprocessing the data. The seed-
+ing particles are small enough to ensure good tracking of the ﬂuid
+motion low Stokes number and big enough to scatter light for
+image capturing. Here TiO2 particles with nominal diameter of
+3 m are introduced upstream of the swirler in order to distribute
+them homogeneously and to follow the ﬂow oscillation with a
+frequency of up to 1 kHz 21.
+IDT PRO-VISION software with adaptive interrogation mode is
+utilized; it is based on a second-order accurate mesh free algo-
+rithm 22, and is designed to reduce errors associated with loss of
+pairing, image truncation, and spatial averaging of velocity gradi-
+ents. A 6050 mesh has been used to get 3000 vectors per frame
+with 3232 correlation windows yielding a spatial resolution of
+approximately 1.11.0 mm. Because of the complex nature of
+the swirling ﬂow ﬁeld, care is taken to optimize interframe timing,
+camera aperture setting, laser-sheet thickness, and seeding density.
+Sets of 500 image pairs are usually recorded for each data set and
+statistically processed for the mean and rms values.
+3
+Numerical Details
+3.1
+Flow Modeling Using LES. To model the turbulent ﬂow,
+LES is used where the energetic larger-scale motions are resolved,
+and the small scale ﬂuctuations are modeled. Therefore, the equa-
+tions solved are the ﬁltered governing equations for the conserva-
+tion of mass, momentum, energy, and species transport in a cur-
+vilinear coordinate system 23. The subgrid stress modeling uses
+a dynamic Smagorinsky model where the unresolved stresses are
+related to the resolved velocity via a gradient approximation:
+uiuj
+ −ui
+uj
+ = −2tS¯ij
+1
+where
+t = Cs
+22S¯
+2
+S¯ik = 1
+2amk
+u¯i
+m
++ amk
+u¯k
+m
+3
+S¯ =2S¯ikS¯ik
+4
+and S is the mean rate of strain. The coefﬁcient Cs is evaluated
+dynamically 23 and locally averaged.
+3.2
+Combustion Modeling. Modeling the ﬂame-turbulence
+interaction in premixed ﬂames requires tracking of the thin ﬂame
+front on the computational grid. In the present paper we use the
+thickened-ﬂame approach, which is a cost-effective strategy while
+allowing the chemistry to be represented. In this technique, the
+ﬂame front is artiﬁcially thickened to resolve it on the computa-
+tional grid while allowing the ﬂame to propagate at the same
+speed as the unthickened ﬂame 13. The artiﬁcial thickening of
+the ﬂame front is obtained by multiplying the diffusion term by a
+factor F and dividing the reaction rates by the same factor to
+maintain the ﬂame speed. More detailed description of this tech-
+Fig. 1
+Sectional view of the swirl injector
+071503-2 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+nique is found in the literature 23.
+The major advantage associated with this TF model is the abil-
+ity to capture the complex swirl-stabilized ﬂame behavior, which
+is often found in a gas turbine combustor. Since this type of ge-
+ometry with the premixing section does not guarantee a perfectly
+premixed gas at the dump plane, the fully premixed assumption in
+the numerical model is not valid any more. The present TF model
+is capable of taking care of this type of partially premixed gas
+since we solve for the individual species transport equations and
+the reaction rates are speciﬁed using Arrhenius expressions.
+In the LES framework, the spatially ﬁltered species transport
+equation using artiﬁcial thickening is written as
+¯Y˜ i
+t
++ 
+xj
+¯Y˜ iu˜ j = 
+xj¯EFDi
+Y˜ i
+xj + E˙¯ i
+F
+5
+where the modiﬁed diffusivity ED, before multiplication by F to
+thicken the ﬂame front, may be decomposed as ED=DE-1+D
+and corresponds to the sum of molecular diffusivity, D, and a
+turbulent subgrid scale diffusivity, E-1D. In fact, E-1D can be
+regarded as a turbulent diffusivity used to close the unresolved
+scalar transport term in the ﬁltered equation. Since the thickened
+ﬂame does not respond to turbulence like the initial ﬂame, the
+subgrid scale effects have been incorporated into the thickened-
+ﬂame model, and parameterized using an efﬁciency function E
+derived from direct numerical simulation DNS results 13. The
+detailed description of E is found in the literature 23.
+3.3
+Chemistry Model. As all the species are explicitly re-
+solved on the computational grid, the TF model is best suited to
+resolve major species. Intermediate radicals with very short time
+scales cannot be resolved. To this end, only simple global chem-
+istry has been used with the thickened-ﬂame model.
+In the present study, a two-step chemistry, which includes six
+species CH4, O2, H2O, CO2, CO, and N2 is used and given by
+the following equation set.
+CH4 + 1.5O2 →CO + 2H2O
+6
+CO + 0.5O2 ↔CO2
+7
+The corresponding reaction rate expressions are given by
+q1 = A1 exp-Ea
+1/RTCH4a1O2b1
+8
+q2f = A2 exp-Ea
+2/RTCOO2b2
+9
+q2b = A2 exp−Ea
+2/RTCO2
+10
+where
+the
+activation
+energy
+Ea
+1=34500 cal/mol,
+Ea
+2
+=12000 cal/mol, a1=0.9, b1=1.1, b2=0.5, and A1 and A2 are
+21015 and 1109, respectively, as given by Selle et al. 24.
+The ﬁrst reaction Eq. 6 is irreversible, while the second reac-
+tion Eq. 7 is reversible and leads to an equilibrium between
+CO and CO2 in the burnt gases. Hence the expression in Eq. 8
+represents the reaction rates for the irreversible reaction Eq. 6
+and the expressions Eq. 9 and 10 represent the forward and
+backward reaction rates for the reversible reaction Eq. 7. Prop-
+erties
+including
+density
+of
+mixtures
+are
+calculated
+using
+CHEMKIN-II 25 and TRANFIT 26 depending on the local
+temperature and the composition of the mixtures at 1 atm.
+3.4
+Solution Procedure. In the present study, a parallel multi-
+block compressible ﬂow code for an arbitrary number of reacting
+species, in generalized curvilinear coordinates, is used. Chemical
+mechanisms and thermodynamic property information of indi-
+vidual species are input in standard Chemkin format. Species
+equations along with momentum and energy equation are solved
+implicitly in a fully coupled fashion using a low Mach number
+preconditioning technique, which is used to effectively rescale the
+acoustics scale to match that of convective scales 27. An Euler
+differencing for the pseudotime derivative and second-order back-
+ward three-point differencing for physical time derivatives are
+used. A second-order low diffusion ﬂux-splitting algorithm is used
+for convective terms 28. However, the viscous terms are dis-
+cretized using second-order central differences. An incomplete
+lower-upper ILU matrix decomposition solver is used. Domain
+decomposition and load balancing are accomplished using a fam-
+ily of programs for partitioning unstructured graphs and hyper-
+graphs and computing ﬁll-reducing orderings of sparse matrices,
+METIS. The message communication in distributed computing
+environments is achieved using message passing interface MPI.
+The multiblock structured curvilinear grids presented in this paper
+are
+generated
+using
+commercial
+grid
+generation
+software
+GRIDPRO™.
+3.5
+Computational Domain and Boundary Conditions. As
+noted earlier, and shown in Fig. 2, the conﬁguration of interest in
+the present work is an unconﬁned swirled burner. The computa-
+tional domain extends 20D downstream of the dump plane fuel-
+air nozzle exit, 13D upstream of the dump plane location of the
+swirl vane in Fig. 2 and 6D in the radial direction. Here, D is the
+center-body diameter. Two different LES grids are studied for
+cold ﬂow only: one that consists of 21013832 grid points
+downstream of the dump plane plus 642332+7517
+32 grid points upstream where the grid is in two blocks, and
+corresponds to approximately 1.22M grid points mesh1: coarse.
+The ﬁner mesh consists of 32020848 grid points downstream
+of the dump plane plus 983248+1142248 grid
+points upstream, and contains approximately 3.94M grid points
+mesh2: ﬁne.
+The inﬂow boundary condition is assigned at the experimental
+location immediately downstream of the swirler blades. The mean
+axial velocity distribution is speciﬁed as a one-seventh power law
+proﬁle to represent the fully developed turbulent pipe ﬂow, with
+superimposed ﬂuctuations at 10% intensity levels generated us-
+ing Gaussian distribution. A constant tangential velocity compo-
+nent is speciﬁed as determined from the swirl vane angle. Con-
+vective boundary conditions 29 are prescribed at the outﬂow
+boundary, and stress-free conditions are applied on the lateral
+boundary in order to allow the entrainment of ﬂuid into domain.
+The time step used for the computation is dt=1.010−3.
+4
+Results and Discussion
+We will ﬁrst present the measurements and predictions for the
+nonreacting LES calculations to ensure that the grid and boundary
+conditions are properly chosen, and to assess the cold-ﬂow ﬂow
+Fig. 2
+Streamline patterns for nonreacting ﬂow condition †D:
+center-body diameter…‡: „a… Re=10,144 and „b… Re=13,339
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071503-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+characteristics. This will be followed by a discussion of the react-
+ing ﬂow calculations where we will examine both the ﬂow and
+heat release distributions.
+4.1
+Nonreacting Flow Results. Figure 2 shows the stream
+line patterns for the two Reynolds number. Three distinct recircu-
+lation regions are observed in the high Reynolds number case,
+Re=13,339, that include a separation wake recirculation zone
+WRZ behind the center body, a corner-recirculation zone CRZ
+due to sudden expansion of combustor conﬁguration, and a central
+toroidal recirculation zone CTRZ formed due to vortex break-
+down. The CTRZ, however, is not prominent in the low Reynolds
+number case Re=10,144 and appears as an asymmetric struc-
+ture that becomes more clearly visible and symmetric at higher
+Reynolds number Re=13,339. The asymmetry at the lower
+Reynolds number indicates a low-frequency unsteadiness Fig. 7
+that is not averaged out despite the long integration times 15–25
+ﬂow through times used for statistical averaging. Thus the origins
+of the CTRZ at the lower Re appear to be in the form of a ﬂapping
+vortical structure that becomes steadier and well deﬁned at higher
+Reynolds numbers. Based on these observations, at the lower Re,
+the WRZ and CRZ are likely to play an important role in the ﬂame
+holding, while with increasing Re, the CTRZ becomes the domi-
+nant structure and will be of primary signiﬁcance in the ﬂame-
+holding behavior.
+The radial distribution of the axial and tangential mean velocity
+proﬁles and the axial and tangential ﬂuctuations at different axial
+locations are shown in Fig. 3 for Re=13,339. The time-averaged
+mean quantities are normalized by the corresponding bulk veloc-
+ity Uo=9.57 corresponds to Reynolds number Re=13,339. Re-
+sults from both the coarse and ﬁne grids are shown in the plots. In
+general, the agreement between LES and the experimental data is
+quite good with the peak velocities and turbulence levels correctly
+predicted both in magnitude and location. The shape, size, and the
+intensity of the recirculation zone region of negative axial veloci-
+ties at the center are well predicted along with the overall spread-
+ing of the turbulent swirling jet. Some level of asymmetry can be
+observed in both the simulations and the experiments and indicate
+that the statistical averaging period needs to be carried out over a
+longer period of time. However, due to the presence of low-
+frequency unsteadiness in the ﬂow, the averaging time-periods can
+be very large and impractical from both computational and experi-
+mental perspectives. Similar observations of asymmetry in the
+averaged proﬁles have also been reported in the literature for a
+conﬁned combustor geometry 24.
+The rms ﬂuctuations of the axial and tangential velocities are
+also shown in Fig. 3. The LES predictions only report the resolved
+stresses, but these predictions are in excellent agreement with the
+experimental data. The predicted axial ﬂuctuations indicate that
+the primary contributor to these stresses is from the larger re-
+solved scales. The peak in the axial velocity ﬂuctuations is ob-
+served to be in the shear layer and between the location of the
+peak velocity and the recirculation bubble. In this region, the
+steepest velocity gradient Ui/xj is obtained and promotes the
+production of the peak kinetic energy. The tangential velocity
+ﬂuctuations show a ﬂatter proﬁle than the axial velocity ﬂuctua-
+tions and their peaks are shifted radially inwards as for the mean
+tangential velocities.
+For both the mean velocity and ﬂuctuations, the ﬁne mesh
+3.94M grid points results are in better agreement with the ex-
+perimental data compared with those from the coarse mesh
+1.22M grid points for all the cases considered 23. Hence, the
+ﬁne mesh is chosen for the reacting ﬂow calculations.
+4.2
+Reacting Flow Results. Compared to nonreacting cases
+Fig. 2, the stream line patterns corresponding to the shear layers
+are quite different due to the added heat release, and the shear
+layers appear to be more distinct and axially directed compared
+with the nonreacting case as observed in Fig. 4. It can be seen that
+the heat release distributions dramatically alter the ﬂow patterns.
+Notably, the length of inner recirculation zone both the WRZ and
+CTRZ is reduced while the length of corner-recirculation zone
+increased quite signiﬁcantly in the reacting ﬂow ﬁeld.
+Contours of the mean temperature levels are superimposed on
+the streamlines in Fig. 4 and show that the highest temperatures
+occur along the inner edge of the shear layers and in the CTRZ.
+Note the inner edges of the shear layer are associated with the
+highest turbulence, which are likely to promote molecular-level
+mixing and combustion.
+Figure 5 shows the snapshots of the isovorticity surface at 
+=13 s−1 for both reacting and nonreacting cases. It is clearly ob-
+served that for low Reynolds number case, a typical vortex spiral
+starts evolving from the shear layers due to Kelvin–Helmholtz
+instabilities in both the axial and azimuthal directions. This struc-
+Fig.
+3
+Nonreacting
+ﬂow
+results
+for
+Re=13,339
+at
+different
+axial
+locations
+†r1=„r/2D…
+Ã25.4;
+X2,
+X3,
+X4=„X/2D…Ã25.4‡: Experimental data „…; lines are LES predictions: ﬁne mesh
+„—…, coarse mesh „- – – –…. Mean axial velocity U/Uo, mean tangential velocity W/Uo, axial velocity
+ﬂuctuation u/Uo, and tangential velocity ﬂuctuation w/Uo
+071503-4 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+ture, called the PVC, precesses around the centerline and sustains
+for several turns before breaking down into smaller structures. For
+the higher Reynolds number, the spiral vortex structures are also
+observed; however, the structures appear to be more complex due
+to the higher centrifugal force and they spread more rapidly in the
+radial direction before breaking down to form smaller scale
+structures.
+While the PVC is clearly observed for both the nonreacting
+cases and reacting cases, the PVC appears more axially elongated
+for the reacting cases, but suppressed radially Fig. 5. To under-
+stand this behavior, it is educational to look at the terms of the
+vorticity transport equation which is written as
+11
+where the right-hand side RHS terms are I vortex stretching,
+II gas expansion, III baroclinic production, and IV viscous
+diffusion. Figure 6 shows these terms at one Reynolds number
+13,339 for both the nonreacting and reacting ﬂow ﬁelds. The
+vortex stretching term is comparable for both the reacting cases
+and the nonreacting cases, and is not shown since it is not respon-
+sible for the differences seen in Fig. 5. The gas expansion term
+acts as a sink in reacting cases due to negative sign in the trans-
+port equation. This term is directly proportional to the gas dilata-
+tion ratio across the ﬂame u/b, which increases as the tem-
+perature increases in presence of combustion. This term and its
+greater value for the reacting case Fig. 6 is clearly partly respon-
+sible for the reaction-induced-damping of the PVC seen in Fig. 5.
+As the kinematic gas viscosity increases due to temperature in the
+ﬂame, this substantially enhances the rate of vorticity diffusion
+and further dampens the core vorticity. However, the pressure gra-
+dient generated due to inclination and expansion of the ﬂame with
+respect to the ﬂow ﬁeld contributes to the baroclinic production of
+vorticity. The gas expansion ratio u/b affects both the source
+and sink terms. In the present case, it actually gives rise to the
+production and gas expansion terms and diffusion term as well
+Fig. 6. Hence, the combined effects of gas expansion, produc-
+tion, and diffusion terms make the PVC axially elongated. More-
+over, the size of the CRZ in Fig. 4 also supports the existence of
+the axially elongated PVC, although the effects of this exother-
+micity produce thicker vortical structures in the reacting cases
+Fig. 5.
+Figure 7 shows the frequency spectra of the velocity ﬁeld at a
+speciﬁc location in the PVC. In both cases, the PVC oscillating
+frequencies are below 12 Hz. For the nonreacting case, the low
+frequency oscillation peaks are more clearly observed with two
+dominant peaks around 1.5 Hz and 3 Hz. This clearly indicates
+that the PVC oscillation frequencies are suppressed with reaction.
+Figure 8 shows the distributions of the normalized axial veloc-
+ity proﬁles, and axial ﬂuctuations at different axial locations for
+Re=13,339. The overall agreement of the predictions with the
+data is found to be quite reasonable, considering the complexity of
+the physical processes and the conﬁguration. Compared with the
+nonreacting cases, the magnitude of the velocity peak is increased
+and the radial-spreading angle is wider. With increasing axial dis-
+tance the magnitude of the peak velocity decreases and the loca-
+Fig. 4
+Mean temperature ﬁeld streamline patterns for reacting
+ﬂow condition: „a… Re=10,144 and „b… Re=13,339
+Fig. 5
+Snapshots of isovorticity surface at =13 s−1 for non-
+reacting ﬂow „left… and reacting ﬂow „right… conditions: „a… Re
+=10,144 and „b… Re=13,339
+Fig. 6
+Snapshots of gas expansion „top…, baroclinic produc-
+tion „middle…, and diffusion term „bottom… for nonreacting „up-
+per half… and reacting ﬂow „lower half… conditions for Re
+=13,339
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071503-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+tion of the peak is moved further outwards radially. As noted
+earlier by comparing the streamline plots in Figs. 2 and 4, the
+negative velocities for the nonreacting cases are larger in magni-
+tude than the reacting ﬂow cases.
+While the general agreement between the data and predictions
+are satisfactory, and the LES results show the right qualitative
+features and the peak magnitudes, there are intrinsic differences
+between the predictions and data. The axial velocities show a
+narrower shear-layer region and a small over-prediction of the
+peak axial velocity particularly at the upstream locations. Pre-
+dicted rms ﬂuctuations clearly exhibit two peaks. The location of
+the peaks correspond to the burnt and unburnt regions in the inner
+part of the shear layer and associated with the high velocity gra-
+dients where the turbulence production due to the mean velocity
+gradient is the highest. The ﬁrst peak is lower in magnitude and
+located in the burnt region of the shear layer downstream of the
+center body where the temperatures are higher. The high tempera-
+tures cause the viscosity value to go up, and this reduces the
+magnitude of the peak stress component. The second peak is ob-
+served in the unburnt regions of the shear layer where the tem-
+peratures are relatively on the lower side, which reduces the vis-
+cosity value and in turn exhibits higher ﬂuctuating components.
+Similar trends for rms ﬂuctuations have also been reported by
+other researchers reporting calculations 30. However, the mea-
+surements do not clearly show this dual-peak behavior.
+The radial distributions of the major species mass fractions are
+presented in the Fig. 9 for Re=13,339. The entrainment of ambi-
+ent air is clearly observed in the distributions of O2. Along the
+centerline, CH4 and O2 consumptions are higher which, in turn,
+reﬂect in the higher temperature zones observed earlier Fig. 4.
+Unburnt CH4 is observed behind the center-body. No reacting
+species excluding O2 is observed away from the ﬂame region
+r1	20 mm. Away from the dump plane X4=40 mm the tem-
+perature goes down; consequently the O2 consumption level goes
+down. This lower temperature zone is clearly visible from Figs. 4
+and 10, where the predicted mean heat release patterns show
+shorter ﬂame length and lower temperature regions.
+4.3
+CH-Chemiluminescence Measurement. CH radicals are
+produced at the ﬂame front and represent the reaction zones.
+Therefore CH-chemiluminescence imaging has been carried out in
+the present work 24, and Fig. 10 shows such an integrated image
+across the ﬂame left. CH-chemiluminescence is considered here
+to be representative of the heat release rate as shown in Fig. 10,
+which also shows the predicted heat release distributions along the
+center plane middle and averaged across the ﬂame right. It
+should be noted that the CH data and the predicted heat release
+distributions while related to each other are not directly the same
+quantity and can only be qualitatively compared with each other,
+and show reasonable agreement compare the averaged measured
+image on left with the averaged predicted image on the right in
+Fig. 10.
+Figure 10 shows that the CH distributions and the heat release
+patterns are similar to each other, in that, the levels are highest in
+the inner-regions of the shear layer. It can be seen that the turbu-
+lent ﬂame exhibits its peak CH signal closer to the dump plane.
+This is seen in both the experimental and computational distribu-
+tions. It is observed experimentally that the ﬂame is slightly lifted
+Fig. 7
+Spectrum of axial velocity ﬂuctuations for non reacting
+and reacting cases for Re=10,144
+Fig. 8
+Reacting ﬂow results for Re=13,339 at different axial
+locations
+†r1=„r/2D…Ã25.4;
+X2,
+X3,
+X4=„X/2D…Ã25.4‡:
+Experimental data „…; lines are LES predictions „—…. Axial ve-
+locity U/Uo and axial velocity ﬂuctuation u/Uo
+Fig. 9
+Mean species concentration for Re=13,339 at two axial
+locations
+†r1=„r/2D…Ã25.4;
+X1,
+X4=„X/2D…Ã25.4‡:
+CH4
+„—…, O2 „– – –…, H2O„··–…, CO2„·-·-…, and 10ÃCO „– –…
+071503-6 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+off; however, computations show a more compact ﬂame and
+shorter ﬂame length also seen in mean velocity predictions, Fig.
+8. While not shown, a higher Re tends to increase the turbulence
+intensity and the ﬂame speed and consequently shortens the ﬂame
+length. Further, as Re increases, higher turbulence enhances the
+ﬂame-turbulence interaction resulting in higher heat release. Tur-
+bulent kinetic energy TKE is usually lower in the higher tem-
+perature regions and increases in the lower temperature regions.
+Thus, with reference to Fig. 10 middle the peak TKE is obtained
+on either side of the maximum CH release and explains the double
+peak captured in the predictions of the rms ﬂuctuations of the
+axial velocity Fig. 8.
+5
+Conclusions
+PIV measurements and LES with a TF model are used to in-
+vestigate unconﬁned swirling ﬂows in a laboratory based model
+combustor. Both reacting and nonreacting ﬂow conditions for dif-
+ferent Reynolds numbers are studied. A two-step chemical scheme
+is invoked to represent the ﬂame chemistry for methane-air com-
+bustion. The equivalence ratio for the ﬂame is 0.7 and the geo-
+metric
+swirl
+number
+for
+the
+conﬁguration
+is
+0.82.
+CH-
+chemiluminescence imaging is also carried out to characterize the
+heat release distributions.
+Isothermal ﬂow predictions are in good agreement with the
+measurements and indicate that the boundary conditions and grid
+are properly chosen. Reynolds number is seen to have an impact
+on the ﬂow ﬁeld particularly for the nonreacting cases. At a high
+Re, all the recirculation zones, such as WRZ, CRZ, and CTRZ
+caused due to vortex breakdown, are clearly observed. At lower
+Re, the CTRZ is a weaker structure that exhibits a low-frequency
+unsteady ﬂapping.
+For the reacting ﬂows, the mean axial velocity proﬁles are in
+good agreement with measurements, and slightly over-predicted
+close to the dump plane locations. This over-prediction is reﬂected
+by a more compact and attached ﬂame in the predictions com-
+pared with the experimental observations, which show a slightly
+lifted ﬂame. Moreover, the predicted rms ﬂuctuations exhibit
+double peak in the burnt and unburnt regions, and on either side of
+the peak heat release.
+The measured and predicted heat release distributions are in
+qualitative agreement with each other and exhibit the highest val-
+ues along the inner edge of the shear layer. With increasing Rey-
+nolds number the ﬂame region is seen to be more compact both
+experimentally and computationally.
+This study demonstrates that the thickened-ﬂame based LES
+approach with simpliﬁed chemistry for reacting ﬂows is a prom-
+ising tool to investigate reacting ﬂows in complex geometries.
+Acknowledgment
+This work was supported by the Clean Power and Energy Re-
+search Consortium CPERC of Louisiana through a grant from
+the Louisiana Board of Regents. Simulations are carried out on
+the computers provided by LONI network at Louisiana, LA ww-
+w.loni.org and HPC resources at LSU www.hpc.lsu.edu. This
+support is gratefully acknowledged.
+Nomenclature
+A 
+ pre-exponential constant
+Cs 
+ LES model coefﬁcient
+Di 
+ molecular diffusivity
+E 
+ efﬁciency function
+Ea 
+ activation energy
+Sij 
+ mean strain rate tensor
+Ta 
+ activation temperature
+U 
+ mean axial velocity
+Uo 
+ bulk inlet velocity
+ui
+ 
+ velocity vector
+u 
+ rms turbulence velocity
+W 
+ mean tangential velocity
+w 
+ tangential rms velocity
+xi 
+ Cartesian coordinate vector
+Y˜ i 
+ species mass fraction
+Greek Symbols
+ 
+ mesh spacing
+t 
+ kinematic turbulent eddy viscosity
+¯ 
+ mean density
+i 
+ reaction rate
+References
+1 Lefebrve, A. H., 1999, Gas Turbine Combustion, Taylor & Francis, Philadel-
+phia, PA.
+2 Syred, D. G., and Beer, J. M., 1974, “Combustion in Swirling Flows: A Re-
+view,” Combust. Flame, 23, pp. 143–201.
+3 Cheng, R. K., 2000, “Velocity and Scalar Characteristics of Premixed Turbu-
+lent Flames Stabilized by Weak Swirl,” Combust. Flame, 28, pp. 399–405.
+4 Schneider, C., Dreizler, A., and Janicka, J., 2005, “Fluid Dynamical Analysis
+of Atmospheric Reacting and Isothermal Swirling Flows,” Flow, Turbul. Com-
+bus., 74, pp. 103–127.
+5 Al-Abdeli, Y. M., and Masri, A. R., 2007, “Turbulent Swirling Natural Gas
+Flames: Stability Characteristics, Unsteady Behavior and Vortex Breakdown,”
+Combust. Sci. Technol., 179, pp. 207–225.
+6 Poinsot, T., and Veynante, D., 2001, Theoretical and Numerical Combustion,
+Edwards, Ann Arbor.
+7 Hawkes, E., and Cant, R., 2001, “Implications of a Flame Surface Density
+Approach to Large Eddy Simulation of Premixed Turbulent Combustion,”
+Combust. Flame, 126, pp. 1617–1629.
+8 Williams, F., 1985, Combustion Theory, Addison-Wesley, Reading, MA.
+9 Peters, N., 2000, Tubulent Combustion, Cambridge University Press, London.
+10 Düsing, M., Sadiki, A., and Janicka, J., 2006, “Towards a Classiﬁcation of
+Models for the Numerical Simulation of Premixed Combustion Based on a
+Generalized Regime Diagram,” Combust. Theory Modell., 10, pp. 105–132.
+11 Pitsch, H., and Duchamp de La Geneste, L., 2002, “Large-Eddy Simulation of
+a Premixed Turbulent Combustion Using Level-Set Approach,” Proc. Com-
+bust. Inst., 29, pp. 2001–2008.
+12 Pope, S. B., 1985, “PDF Methods for Turbulent Reactive Flows,” Prog. Energy
+Combust. Sci., 11, pp. 119–192.
+13 Colin, O., Ducros, F., Veynante, D., and Poinsot, T., 2000, “A Thickened
+Flame Model for Large Eddy Simulation of Turbulent Premixed Combustion,”
+Phys. Fluids, 127, pp. 1843–1863.
+Fig. 10
+Experimental CH-chemiluminescence measurement „left…, computational mean
+heat release „W/m3… predictions at center plane „middle…, and computational mean heat
+release „W/m3… predictions averaged across ﬂame „right… for Re=13,339
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071503-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+14 Chanaud, R. C., 1965, “Observation of Oscillatory Motion in Certain Swirling
+Flows,” J. Fluid Mech., 21, pp. 111–127.
+15 Tangirala, V., Chen, R. H., and Driscoll, J. F., 1987, “Effect of Heat Release on
+the Recirculation Within Swirl-Stabilized Flames,” Combust. Sci. Technol.,
+51, pp. 75–95.
+16 Broda, J. C., Seo, S., Santoto, R. J., Shirhattikar, G., and Yang, V., 1998, “An
+Experimental Study of Combustion Dynamics of a Premixed Swirl Injector,”
+Proc. Combust. Inst., 27, pp. 1849–1856.
+17 Seo, S., 1999, “Parametric Study of Lean Premixed Combustion Instability in
+a Pressured Model Gas Turbine Combustor,” Ph.D. thesis, Pennsylvania State
+University, University Park, PA.
+18 Huang, Y., and Yang, V., 2005, “Effect of Swirl on Combustion Dynamics in a
+Lean-Premixed Swirl-Stabilized Combustor,” Proc. Combust. Inst., 30, pp.
+1775–1782.
+19 Syred, N., 2006, “A Review of Oscillation Mechanisms and the Role of Pre-
+cessing Vortex Core PVC in Swirl Combustion Systems,” Prog. Energy
+Combust. Sci., 32, pp. 93–161.
+20 Duwig, C., Fuchs, L., Lacarelle, A., Beutke, M, Paschereit, C. O., 2007,
+“Study of the Vortex Breakdown in a Conical Swirler Using LDV, LES and
+POD,” ASME Paper No. GT2007-27006.
+21 Melling, A., 1997, “Tracer Particles and Seeding for Particle Image Velocim-
+etry,” Meas. Sci. Technol., 8, pp. 1406–1416.
+22 Lourenco, L. M., and Krothapalli, A., 2000, “TRUE Resolution PIV: A Mesh-
+Free Second Order Accurate Algorithm,” Proceedings of the International
+Conference on Applications of Laser Fluid Mechanics, Lisbon, Portugal.
+23 De, A., Zhu, S., Acharya, S., 2009, “An Experimental and Computational
+Study of a Swirled Stabilized Unconﬁned Premixed Flame,” ASME Paper No.
+GT2009-60230.
+24 Selle, L., Lartigue, G., Poinsot, T., Koch, R., Schildmacher, K. U., Krebs, W.,
+Prade, B., Kaufmann, P., and Veynante, D., 2004, “Compressible Large Eddy
+Simulation of Turbulent Combustion in Complex Geometry on Unstructured
+Meshes,” Combust. Flame, 137, pp. 489–505.
+25 Kee, R. J., Rupley, F. M., and Miller, J. A., 1989, “Chemkin-II: A Fortran
+Chemical Kinetics Package for Analysis of Gas-Phase Chemical Kinetics,”
+Sandia Report No. SAND 89-8009B.
+26 Kee, R. J., Dixon-Lewis, G., Warnats, J., Coltrin, M. E., and Miller, J. A.,
+1986, Sandia National Laboratories Technical Report No. SAND86-8246
+TRANFIT, Livermore, CA.
+27 Weiss, J. M., and Smith, W. A., 1995, “Preconditioning Applied to Variable
+and Constant Density Flows,” AIAA J., 33, pp. 2050–2057.
+28 Edwards, J. R., 1997, “A Low-Diffusion Flux-Splitting Scheme for Navier-
+Stokes Calculations,” Comput. Fluids, 26, pp. 635–659.
+29 Akselvoll, K., and Moin, P., 1996, “Large-Eddy Simulation of Turbulent Con-
+ﬁned Coannular Jets,” J. Fluid Mech., 315, pp. 387–411.
+30 Galpin, J., Naudin, A., Vervisch, L., Angelberger, C., Colin, O., and Domingo,
+P., 2008, “Large-Eddy Simulation of a Fuel-Lean Premixed Turbulent Swirl
+Burner,” Combust. Flame, 155, pp. 247–266.
+071503-8 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

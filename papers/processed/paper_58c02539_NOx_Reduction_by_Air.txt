@@ -1,0 +1,1139 @@
+
+--- Page 1 ---
+
+Nathan T. Weiland
+National Energy Technology Laboratory,
+Pittsburgh, PA 15236-0940;
+Department of Mechanical and Aerospace
+Engineering,
+West Virginia University,
+Morgantown, WV 26506-6106
+e-mail: nathan.weiland@mail.wvu.edu
+Peter A. Strakey
+National Energy Technology Laboratory,
+Morgantown, WV 26507-0880
+NOx Reduction by Air-Side
+Versus Fuel-Side Dilution in
+Hydrogen Diffusion Flame
+Combustors
+Lean-direct-injection (LDI) combustion is being considered at the National Energy Tech-
+nology Laboratory as a means to attain low NOx emissions in a high-hydrogen gas
+turbine combustor. Integrated gasiﬁcation combined cycle (IGCC) plant designs can
+create a high-hydrogen fuel using a water-gas shift reactor and subsequent CO2 separa-
+tion. The IGCC’s air separation unit produces a volume of N2 roughly equivalent to the
+volume of H2 in the gasiﬁer product stream, which can be used to help reduce peak ﬂame
+temperatures and NOx in the diffusion ﬂame combustor. Placement of this diluent in
+either the air or fuel streams is a matter of practical importance, and it has not been
+studied to date for LDI combustion. The current work discusses how diluent placement
+affects diffusion ﬂame temperatures, residence times, and stability limits, and their re-
+sulting effects on NOx emissions. From a peak ﬂame temperature perspective, greater
+NOx reduction should be attainable with fuel dilution rather than air or independent
+dilution in any diffusion ﬂame combustor with excess combustion air, due to the complete
+utilization of the diluent as a heat sink at the ﬂame front, although the importance of this
+mechanism is shown to diminish as ﬂow conditions approach stoichiometric proportions.
+For simple LDI combustor designs, residence time scaling relationships yield a lower
+NOx production potential for fuel-side dilution due to its smaller ﬂame size, whereas air
+dilution yields a larger air entrainment requirement and a subsequently larger ﬂame, with
+longer residence times and higher thermal NOx generation. For more complex staged-air
+LDI combustor designs, the dilution of the primary combustion air at fuel-rich conditions
+can result in the full utilization of the diluent for reducing the peak ﬂame temperature,
+while also controlling ﬂame volume and residence time for NOx reduction purposes.
+However, differential diffusion of hydrogen out of a diluted hydrogen/nitrogen fuel jet can
+create regions of higher hydrogen content in the immediate vicinity of the fuel injection
+point than can be attained with the dilution of the air stream, leading to increased ﬂame
+stability. By this mechanism, fuel-side dilution extends the operating envelope to areas
+with higher velocities in the experimental conﬁgurations tested, where faster mixing rates
+further reduce ﬂame residence times and NOx emissions. Strategies for accurate compu-
+tational modeling of LDI combustors’ stability characteristics are also discussed.
+DOI: 10.1115/1.4000268
+1
+Introduction
+Following the deregulation of the electric power industry, the
+integrated gasiﬁcation combined cycle IGCC power plant has
+become increasingly interesting to power producers, due to its
+increased efﬁciency and reduced footprint, capital cost, and emis-
+sion controls relative to conventional coal-ﬁred power plants. In
+addition, reduction in CO2 emissions can be accommodated in the
+IGCC plant design by using a water-gas shift reactor to convert
+steam and the CO in the gasiﬁed coal syngas to hydrogen and
+CO2, which is separated and sequestered, leaving a relatively
+high-purity hydrogen fuel for combustion in the gas turbine. Pend-
+ing future regulation of CO2 emissions, an increase in the number
+of likely future IGCC installations with carbon capture and se-
+questration capabilities presents an opportunity to redesign the gas
+turbine combustor to more efﬁciently utilize high-hydrogen fuels.
+The mode of combustion currently used for syngas and high-
+hydrogen fuels in gas turbine engines is dominated by swirl-based
+diffusion ﬂames 1–6. In comparison to premixed ﬂames, these
+are much more tolerant of variations in the fuel content, and are
+also immune to the damaging effects of ﬂashback and auto-
+ignition that plague high-hydrogen premixed ﬂames due to hydro-
+gen’s high ﬂame speed. However, stoichiometric conditions at the
+ﬂame front result in high peak ﬂame temperatures and hence high
+levels of NOx production in diffusion ﬂames. In addition, there
+has been little optimization of the traditional swirl-based combus-
+tor design to accommodate diffusion ﬂame combustion of high-
+hydrogen fuels.
+Much work has been done in recent years on lean-direct-
+injection LDI burners 7–14, where fuel and excess air are in-
+troduced separately into the combustor and are rapidly mixed in
+an attempt to approach lean premixed ﬂame conditions. These
+combustors avoid the ﬂashback issues associated with true pre-
+mixed combustion systems, while producing NOx emissions at
+levels below traditional swirl-based combustors, but still some-
+what higher than premixed combustors. NOx emission reductions
+in LDI combustors are achieved through distributed injection
+schemes, utilizing many small ﬂames to reduce ﬂame residence
+times. This is an improvement over traditional swirl-based com-
+Contributed by the International Gas Turbine Institute IGTI of ASME for pub-
+lication in the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript
+received May 1, 2009; ﬁnal manuscript received May 21, 2009; published online
+April 14, 2010. Editor: Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071504-1
+Copyright © 2010 by ASME and U.S. Dept. of Energy
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+bustors that utilize large ﬂames and longer residence times to
+improve CO burnout, a feature not required for high-hydrogen
+combustion.
+LDI burners can be further subdivided into swirl-based 7–11
+and jet-based injection schemes 12–14. The swirl-based designs
+originally developed for liquid-fuelled aero-engines 8,9 have
+been recently modiﬁed to burn hydrogen fuel 10 and hold some
+promise for reducing NOx emissions, though they are prone to
+ﬂame anchoring issues at elevated pressures 11. Flame anchor-
+ing too close to the injection point can overheat and damage the
+injector, which has been a problem for some jet-based LDI com-
+bustors 13.
+While LDI combustors are still in the research stages for the
+combustion of high-hydrogen fuels, traditional swirl-based diffu-
+sion ﬂame combustors have already been used in ﬁelded turbines
+burning syngas 3,6,15. These combustors have been able to
+achieve a low of 12–15 ppm NOx with nitrogen dilution 15,
+though the addition of steam to the combustor is also used to
+reduce the combustion temperature and hence the NOx production
+16,17. While frequently used, steam is not an ideal combustion
+diluent, as it increases the water consumption of the plant. Fur-
+thermore, the energy used to vaporize the water to form steam is
+not recovered in the power-producing turbine section, and steam
+addition increases the heat transfer to the turbine blades, thereby
+decreasing their effective lifespan. In an oxygen-blown IGCC
+plant, however, the air separation unit produces a nitrogen byprod-
+uct that can be used as a diluent in the combustion chamber,
+avoiding many of the issues associated with the steam dilution of
+the combustor 16. In an air-blown IGCC, nitrogen from the air
+supplied to the gasiﬁcation process is contained in the syngas,
+essentially diluting the fuel stream in such a combustor.
+It is likely that substantial reductions in NOx emissions can be
+realized by combining the dilution approach of traditional swirl-
+based combustors with the low residence times of LDI-style in-
+jectors. Utilization of a combustor diluent has not been studied for
+high-hydrogen fuelled LDI combustion systems to date with the
+exception of Ref. 14, which utilizes a 65% hydrogen and 35%
+nitrogen base fuel mixture. However, this study does not consider
+alternative dilution levels or arrangements, such as premixing the
+diluent with the combustion air or injecting the diluent separately
+into the combustor.
+Studies of dilution placement in traditional swirl-based com-
+bustors have concluded that there is little difference between fuel
+or air dilution from a NOx emission perspective 5,18, though
+this is largely an artifact of the near-stoichiometric conditions in
+the primary combustion zone in such combustors. One notable
+exception to these studies concluded that fuel-side dilution re-
+duced NOx more than air-side dilution in a model gas turbine
+combustor operating on methane, though the stoichiometry em-
+ployed in these experiments is unknown 19.
+Typically, diluent has been added to the combustion air stream
+to date, often to minimize the amount of redesign required to
+accommodate a high-hydrogen fuel in existing diffusion ﬂame
+combustors. Due to its low energy content per unit volume, the
+diluent has typically not been added to the fuel as this would
+increase the required fuel ﬂow rate, in some cases to eight times
+that in a higher energy density natural gas combustor, resulting in
+fuel manifold sizing problems 17. In industrial diffusion ﬂame
+combustion conﬁgurations, Feese and Turns 20 investigated the
+placement of a nitrogen diluent in either the methane or air
+streams, and concluded that the effects of dilution placement on
+ﬂame residence time is of great importance to the overall NOx
+emissions of the combustor.
+Accordingly, the following study investigates the effect of ni-
+trogen diluent placement on NOx emissions of LDI-style hydro-
+gen ﬂames in a laboratory setting, including its effects on ﬂame
+temperature, ﬂame residence time, and static ﬂame stability. In
+particular, this report targets simple turbulent diffusion ﬂame de-
+signs, where swirl is imparted neither to the fuel nor air streams as
+they enter the combustion chamber, although some aspects of di-
+luent placement with respect to swirl-based designs are addressed
+below, where applicable.
+2
+Experimental Setup
+The atmospheric pressure combustor used in the experimental
+portion of this study is shown in Fig. 1. The fuel tube has inside
+and outside diameters of dF=1.45 mm and dF,o=3.18 mm, re-
+spectively, and is positioned concentrically within interchangeable
+coaxial air nozzles of dA=5.00 mm and 6.35 mm inside diameter.
+Additional air can be supplied as low-velocity coﬂow air to enable
+the effects of coaxial air velocity and global equivalence ratio to
+be studied separately in the combustor. High purity hydrogen,
+nitrogen, and air are metered separately to the combustor using
+independent mass ﬂow controllers, while the nitrogen is supplied
+to either the hydrogen or coaxial air lines well upstream of the
+combustor to ensure full premixing of the diluent with its carrier
+stream.
+At the top of the combustor, three wire mesh screens, sus-
+pended from the exhaust cap, are used to mix the combustion
+products in advance of the gas sampling, and they have been
+shown to eliminate sample proﬁle effects without affecting the
+ﬂame in the current set of experiments. A gas sample is drawn
+through a heated sample line to an NO2 to NO converter, then
+through a gas cooler and a desiccant trap to remove the water
+vapor. The gas is then analyzed at steady state conditions by Rose-
+Fig. 1
+Dilute diffusion ﬂame combustor
+071504-2 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+mount chemiluminescent and paramagnetic detectors to measure
+the NOx and oxygen content in the dry combustion products, re-
+spectively.
+The measured NOx is converted to a corrected NOx using the
+measured product gas O2 mole fraction and the following for-
+mula:
+NOx,corr = NOx,meas
+0.2095 −0.15
+0.2095 −O2,meas1 +
+1
+20.2095
+1 −0.2095D
+= 6.6  EINOx
+1
+where D is the number of moles of nitrogen diluent per mole of
+hydrogen,
+and
+EINOx
+is
+the
+emission
+index
+in
+units
+g NO2/kg H2. The ﬁrst part of Eq. 1 is the standard correc-
+tion to 15% O2 in the combustion products 21, while the last
+term in parentheses accounts for the diluent effect of nitrogen on
+the corrected NOx measurement, such that the same corrected
+NOx results if the diluent nitrogen is replaced by the same number
+of moles of air to yield 15% O2 in the dry combustion products.
+Equation 1 can be derived from the more general expression of
+ElKady et al. 22 as a special case for hydrogen combustion,
+though the result is greatly simpliﬁed if the quantity D is known,
+as it is in this work.
+Computations of adiabatic ﬂame temperatures were performed
+with the
+GASEQ program 23. Computational ﬂuid dynamic
+CFD modeling of the diluted coaxial air ﬂames was done with
+FLUENT’S code, using a Reynolds stress model coupled with an
+eddy dissipation concept EDC model 24 and the H2/O2 chemi-
+cal mechanism of Li et al. 25.
+3
+Results and Discussion
+Simpliﬁed scaling analyses of thermal NOx in a simple hydro-
+gen turbulent jet ﬂame predict that EINOx scales with ﬂame resi-
+dence time and the Damköhler number as 26
+EINOx  tres Da−1/2dNO
+dt
+2
+The ﬂame temperature primarily affects NOx production via the
+thermal NO production rate 27
+dNO
+dt
+ ON2e−38,370/T
+3
+in which O and N2 are the concentrations of O-atoms and N2
+molecules, respectively, and T is the ﬂame temperature in Kelvin.
+The residence time for a jet ﬂame can be determined from the
+ﬂame volume, which is proportional to the ﬂame length cubed Lf
+3,
+divided by the volume ﬂow rate of fuel leaving the jet exit UFdF
+2
+26. Equations 2 and 3 form the basis for determining the
+effects of the dilution placement on NOx through temperature and
+residence time effects, which will be considered individually in
+Secs. 3.1 and 3.2 for a simple jet conﬁguration. Following this,
+more realistic LDI-type injection schemes are studied from an
+idealized coaxial jet conﬁguration, where the effects of static
+ﬂame stability and operating regimes on NOx emissions can be
+determined.
+3.1
+Dilute Flame Temperatures. Calculated adiabatic ﬂame
+temperatures for different types of ﬂames and dilution scenarios
+are presented as a function of the overall combustor equivalence
+ratio in Fig. 2. For each level of nitrogen diluent available, pre-
+mixed ﬂame temperatures also represent fully mixed adiabatic
+combustor exit/turbine inlet temperatures for both premixed and
+nonpremixed combustor types. Peak diffusion ﬂame temperatures,
+which control thermal NOx formation, are also shown for air- and
+fuel-side nitrogen dilutions.
+To illustrate the effects of the dilution placement on peak ﬂame
+temperatures, consider the operation of the combustor at a global
+equivalence ratio of global=0.5, where twice as much air is
+present than is needed for complete combustion. The dilution of
+the air stream at this equivalence ratio will result in half of the
+diluent arriving at the ﬂame front, where the fuel and air meet in
+stoichiometric proportions. For air-side dilution with one mole of
+nitrogen per mole of hydrogen the dotted light gray line in Fig.
+2, this yields an equivalent adiabatic ﬂame temperature to fuel-
+side dilution for N2/H2=0.5 marked by the square in Fig. 2. By
+comparison, all of the diluent must pass through the ﬂame front if
+it is added to the fuel stream, thereby reducing peak ﬂame tem-
+peratures at lean overall equivalence ratios. Likewise, if the dilu-
+ent is independently injected into the combustor as a separate
+stream, there are no guarantees that all of the diluent will arrive at
+the ﬂame front to serve, essentially, as a heat sink. Thus, the use of
+the diluent for peak ﬂame temperature suppression is maximized
+with the dilution of the fuel stream, regardless of whether or not
+swirl is utilized in the combustor.
+However, from a ﬂame front dilution perspective, this tempera-
+ture effect diminishes with an increasing equivalence ratio. When
+a stoichiometric amount of air is supplied to the combustor, it is
+irrelevant whether the fuel or air is diluted, as all of the diluent
+must arrive at the ﬂame front in either case. In traditional swirl-
+based diffusion ﬂame combustors, the primary combustion zone
+typically operates at near-stoichiometric conditions, with the bal-
+ance of the air used to provide liner cooling, complete CO burnout
+downstream, and create the desired pattern factor at the inlet to the
+turbine 21. For these combustors, the effects of air- or fuel-side
+dilution have been found to be negligible due to the absence of a
+substantial ﬂame temperature reduction 5,18, leading manufac-
+turers to use air-side dilution for ease of implementation 17. LDI
+combustors, on the other hand, strive to supply air at low equiva-
+lence ratios to the ﬂame front for peak ﬂame temperature NOx
+reduction and rapid quenching of thermal NOx reactions, thus
+fuel-side dilution is expected to achieve the maximum beneﬁt in
+this regard.
+It is important to note that this idealized ﬂame temperature
+analysis does not account for other effects that often occur in
+actual combustor operations. For instance, if mixing times are
+relatively slow, the differential diffusion of hydrogen out of a
+hydrogen/nitrogen fuel jet may cause localized regions of higher
+hydrogen content and superequilibrium ﬂame temperatures not ac-
+counted for in this analysis 28. In addition, cases may arise in
+which independent diluent injection may be beneﬁcial to LDI
+combustor operation, for instance, for cooling the injector surface
+1000
+1200
+1400
+1600
+1800
+2000
+2200
+2400
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+1.1
+1.2
+Global Equivalence Ratio,  global
+Adiabatic Flame Temperature, Tad (K)
+N2/H2 = 0, Premixed
+N2/H2 = 0, Diffusion
+N2/H2 = 0.5, Premixed
+N2/H2 = 0.5, Air-side Diffusion
+N2/H2 = 0.5, Fuel-side Diffusion
+N2/H2 = 1, Premixed
+N2/H2 = 1, Air-side Diffusion
+N2/H2 = 1, Fuel-side Diffusion
+Fig. 2
+Adiabatic ﬂame temperatures for premixed and diffu-
+sion ﬂames with varying N2/H2 dilution ratios
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071504-3
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+or for creating a nonreactive buffer zone that ensures that the
+ﬂame does not attach to the injector and cause damage from over-
+heating 13.
+3.2
+Flame Residence Time. The effect of air-side dilution
+versus fuel-side dilution on ﬂame residence times and NOx emis-
+sions is easily understood by considering the factors inﬂuencing
+the ﬂame length of a simple momentum-dominated turbulent jet
+ﬂame 29
+Lf  dF
+fs
+F
+A
+1/2
+4
+where fs is a stoichiometric mixture fraction and F and A are the
+fuel and air densities, respectively. This similarity-based scaling
+heavily inﬂuences the ﬂame residence time through its cubic de-
+pendence on ﬂame length. Under this scaling, the fuel jet’s mo-
+mentum increases linearly with its density, and the conservation of
+momentum requires that the mass entrainment of air increase in
+proportion, resulting in a velocity-independent ﬂame length scal-
+ing. With the N2 dilution of H2 fuel, this yields increased turbulent
+mixing and more oxygen available for combustion of a smaller
+amount of fuel, by volume. The overall effect of decreasing the
+ﬂame height by simultaneously increasing the jet density and stoi-
+chiometric mixture fraction through fuel-side dilution, according
+to Eq. 4, can be seen in Fig. 3. Note that the stoichiometric
+mixture fraction for a pure hydrogen fuel burning in ambient air is
+fs=0.03. Adding an equal part of nitrogen by volume to the fuel
+stream N2/H2=1 yields fs=0.30, while adding this same quan-
+tity of nitrogen to a stoichiometric air stream instead yields fs
+=0.02.
+Chen and co-workers 26,30,31 have shown that for pure and
+diluted hydrogen jet ﬂames, the NOx emission index, normalized
+by the ﬂame’s characteristic residence time, is proportional to the
+square root of the global strain rate of the ﬂame UF/dF1/2. This
+gives rise to the Da−1/2 scaling in Eq. 2 for a given fuel compo-
+sition, and results from turbulence-chemistry interactions that
+arise at high mixing rates. Including the effect of global ﬂame
+strain with residence time, the NOx emission scaling of Eq. 2 for
+a simple turbulent jet ﬂame, excluding temperature effects, can be
+expressed as
+EINOx 
+Lf
+3
+UFdF
+2
+UF
+dF
+1/2
+ 1
+fs
+3
+dF
+UF
+1/2
+F
+A
+3/2
+5
+For a given fuel jet diameter and hydrogen ﬂow rate, the scaling
+of Eq. 5, normalized by the case for no dilution, is plotted
+against the N2/H2 ratio in Fig. 4 for fuel- and air-side dilutions at
+two different global equivalence ratios dotted lines. From a resi-
+dence time perspective, Fig. 4 shows that the effect of air-side
+dilution is to increase NOx emissions, primarily due to an increase
+in ﬂame volume, while fuel-side dilution can reduce NOx by two
+orders of magnitude in a simple jet ﬂame. The effects of ﬂame
+temperature on NOx, as embodied in Eq. 3 and Fig. 2, are plot-
+ted as dashed lines in Fig. 4, where the effects of fuel-side dilution
+and air-side dilution at global=1 are identical, as noted in Sec.
+3.1. The solid lines in Fig. 4 show the combined effect of tem-
+perature, residence time, and global ﬂame strain on NOx, accord-
+ing to Eq. 2. For air-side dilution, the potential NOx reductions
+due to ﬂame temperature are tempered somewhat by the adverse
+residence time effect, while the combined temperature and resi-
+dence time effects yield substantially higher NOx reduction poten-
+tial for fuel-side dilution.
+While not likely to be directly applicable to many LDI injector
+designs, this analysis illustrates that residence time reduction is
+very important to decreasing NOx emissions in LDI combustors.
+In addition, the dilution of the air or fuel streams can have a
+signiﬁcant effect on the fuel/air mixing in cases where mass en-
+trainment by a jet is relied upon to produce or enhance mixing. In
+particular, the dilution of a low-density hydrogen fuel jet, even
+with a small amount of premixed air, may drastically increase its
+jet momentum and mixing characteristics, which is an important
+consideration in LDI injector styles that rely on jet-in-crossﬂow
+conﬁgurations for mixing 12,13, and in swirl-based injectors in
+which a fuel jet penetrates into a swirling air ﬂow 5–7.
+Before leaving the topic of simple jet ﬂames, it is important to
+note that many of the above results are speciﬁc to the use of
+hydrogen as a fuel, and will be altered by the presence of other
+fuel components such as CO or methane. In particular, the above
+results are primarily applicable to the thermal NOx generation
+mechanism, and are further complicated by the inclusion of the
+prompt NOx mechanism, which accompanies the use of hydrocar-
+bons as fuel components 19,30.
+3.3
+Operating Regimes. Jet entrainment alone does not pro-
+vide adequate fuel/air mixing to create a realistic jet-based LDI
+injector. Forced mixing strategies such as angled injection, in
+which fuel and air jets impinge upon one another, are frequently
+used to signiﬁcantly reduce ﬂame lengths, residence time, and
+hence NOx emissions 13,14. Since these geometry-dependent
+schemes do not lend themselves to parametric or analytical study,
+the current study utilizes the coaxial air injection scheme shown in
+Fig. 1 to simulate various aspects of the forced mixing strategy.
+Analytically, the ﬂame length of a staged coaxial air ﬂame, as
+utilized in this study, can be expressed as 26,32
+Fig. 3
+Flame length versus the nitrogen dilution of hydrogen
+in a simple turbulent jet ﬂame
+0.0001
+0.001
+0.01
+0.1
+1
+10
+0
+0.2
+0.4
+0.6
+0.8
+1
+N2/H2 Ratio
+EINOx , Relative to No Dilution
+Fuel
+Air,  global = 1.0
+Air,  global = 0.5
+t res
+T ad
+t res &T ad
+Fig. 4
+Simple jet ﬂame temperature and residence time scal-
+ing of NOx emissions with air- and fuel-side dilutions
+071504-4 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+Lf  dF
+fs	
+F/A
+1 + AUA
+2dA
+2 −dF,o
+2 
+FUF
+2dF
+2
+6
+where UA is the coaxial air velocity. This equation quantiﬁes the
+effects of coaxial air jet momentum on reducing the overall ﬂame
+length. Although this is a good indicator of reduced ﬂame resi-
+dence time, it should be noted that Lf
+3 is no longer proportional to
+the ﬂame volume for a coaxial air ﬂame 33, thus the simple
+residence time scaling in Eq. 5 no longer applies.
+The effect of coaxial air on NOx emissions for a simple
+hydrogen/air ﬂame with no nitrogen dilution can be seen clearly in
+Fig. 5. For a fuel jet velocity of 100 m/s with no coaxial air, a
+baseline reading of 68 ppm NOx at 15% O2 is attained. Increasing
+coaxial air to 45 m/s reduces the ﬂame length considerably, result-
+ing in about 3.3 ppm NOx, though increasing the coaxial air ve-
+locity further results in blowoff. While a seemingly large reduc-
+tion in NOx is attained, note that the ﬂame is very stable at UF
+=100 m/s without coaxial air, but is on the verge of blowoff with
+45 m/s coaxial air, a substantial reduction in the ﬂame’s stability
+margin. A more reasonable comparison would consider the 45 m/s
+coaxial air case against a case with a similar stability margin, i.e.,
+just before blowoff. Although the required fuel ﬂow could not be
+attained for this case, in the absence of coaxial air ﬂow the ﬂame
+should detach from the burner at UF
+700 m/s, yielding about
+26 ppm NOx at 15% O2 according to the scaling of Eq. 5. The
+addition of high velocity coaxial air therefore represents a factor
+of 8 reduction in the NOx output at a similar stability condition.
+Maximizing the utilization of a diluent for peak ﬂame tempera-
+ture reduction purposes dictates that the diluent be added to the
+coaxial air ﬂow, adjacent to the fuel jet, rather than the coﬂow air
+in the current conﬁguration. In addition, if the coaxial air equiva-
+lence ratio is limited to coax1, then coaxial air dilution could
+potentially reduce the ﬂame temperature as well as fuel-side dilu-
+tion. In this case, forced mixing ensures that nearly all of the
+coaxial air will be mixed with the hydrogen fuel jet prior to com-
+plete combustion, allowing the diluent to reduce combustion tem-
+peratures and thermal NOx production at the ﬂame front.
+For the simple coaxial air arrangement discussed above, using
+dA=6.35 mm, the effects of movement of the nitrogen diluent
+from the coaxial air stream to the hydrogen fuel stream on NOx
+emissions are shown in Fig. 6. In these experiments, for a given
+hydrogen ﬂow rate in standard L/min slm, a stoichiometric
+amount of air is supplied through the coaxial air ﬂow coax
+=1.0, with the same amount of air also supplied via the low-
+velocity coﬂow air. This arrangement yields a constant global
+equivalence ratio global=0.5 and provides a direct comparison
+between nitrogen diluent placement in either the air or fuel
+streams, accounting for differences in the air and fuel velocities
+caused by the diluent. Figure 6 reveals that at most, 10% reduc-
+tion in NOx is achieved in this case by diluting the hydrogen
+stream rather than the air stream. In addition, note that in the case
+of low nitrogen dilution, higher hydrogen ﬂow rates are attained
+for coaxial air dilution than for fuel dilution, while the opposite is
+true at high nitrogen dilution levels.
+As with the diluent-free case in Fig. 5, it is worthwhile to con-
+sider the effect of dilution on combustor stability margins, where
+the potential to reduce NOx emissions via residence time reduc-
+tions can result from high velocity fuel and air injections. The
+practical stability limits of coaxial air ﬂames are linked to the
+ﬂameholding mechanism, in which the ﬂame attaches to the fuel
+tube in the low-velocity wake region behind the fuel tube’s lip
+thickness. This wake region extends from the edges of the tube lip
+up to the intersection of the jet’s shear layers, and contains a
+potentially combustible mixture of fuel and air. Similar ﬂame-
+holding regions exist in jet-type LDI injectors 13,14, though
+angled fuel or air injection may create stronger recirculation vor-
+tices within this wake region.
+For coaxial air ﬂames attached to the tube lip, instability can
+occur in one of two primary ways 34: detachment of the ﬂame
+base from the wake region, sometimes leading to the formation of
+a lifted ﬂame, and the creation of a “split ﬂame” as shown in Fig.
+7c, where high shear strain creates a region of local ﬂame ex-
+tinction at the intersection of the jet shear layers. In a split ﬂame,
+a “rim ﬂame” exists within the wake region of the fuel tube, and
+supplies heat and radicals to the upper ﬂame above the shear layer
+0
+10
+20
+30
+40
+50
+60
+70
+0
+10
+20
+30
+40
+50
+Coaxial Air Velocity, U A (m/s)
+Corrected NOx (ppm @ 15% O2)
+d A = 5.00 mm
+No N2 dilution
+U F = 100 m/s
+U F = 700 m/s
+Fig. 5
+NOx reduction with increased mixing from coaxial air
+ﬂow without dilution
+0
+2
+4
+6
+8
+10
+12
+0
+5
+10
+15
+20
+25
+Hydrogen Flow Rate (slm)
+Corrected NOx (ppmv @ 15% O2)
+Fuel N2/H2 = 0.25
+Air N2/H2 = 0.25
+Fuel N2/H2 = 0.5
+Air N2/H2 = 0.5
+Fuel N2/H2 = 1
+Air N2/H2 = 1
+d A = 6.35 mm
+ coax = 1.0
+ global = 0.5
+Fig. 6
+Effect of air-side dilution versus fuel-side dilution on
+NOx with dA=6.35 mm and coax=1
+Fig. 7
+Split ﬂame formation for dA=5.00 mm, N2/H2=0.25, and
+coax=0.5. „a… Stable ﬂame at UF=100 m/s, „b… near split ﬂame
+at 120 m/s, and „c… split ﬂame at 140 m/s
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071504-5
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+intersection. In very high coaxial air ﬂows, the upper ﬂame can be
+extinguished altogether, leaving a residual rim ﬂame at the injec-
+tor tip 35. Stability limits relating to the formation of a split
+coaxial air ﬂame are applicable, to some extent, to the high strain
+regions at the point of jet impingement in an angled injection LDI
+burner.
+Stability limits for air- and fuel-side dilutions are shown in Fig.
+8 as a function of jet exit velocities for the dA=5.00 mm coaxial
+air case. For the dilute fuel cases, the “blowoff” results indicate
+conditions in which a rim-attached ﬂame abruptly blows off the
+burner without establishing a stable lifted ﬂame, while the “split”
+limits correspond to the point at which the tip of the split ﬂame
+extinguishes, leaving a residual rim ﬂame attached to the fuel tube
+i.e., very low combustion efﬁciency. For the dilute coaxial air
+cases, the nitrogen diluent is expressed in terms of the resulting
+oxygen content of the coaxial air stream. For reference, the
+N2/H2=0.25, coax=1 and N2/H2=0.5, coax=0.5 cases both re-
+sult in 19.0% O2 content; the N2/H2=0.5, coax=1 and N2/H2
+=1, coax=0.5 cases both result in 17.4% O2 content; and the
+N2/H2=1, coax=1 case yields 14.8% O2 content in the coaxial
+air stream. In these cases, only the blowoff stability limit is
+shown, although the maximum hydrogen jet velocities plotted are
+those at which a stable jet ﬂame exists. Higher fuel jet velocities
+can result in lifted or split ﬂames, as discussed above, although
+lifted ﬂames were not observed for the dilute fuel cases in this
+study.
+The results of Fig. 8 show that for the increasing nitrogen di-
+lution of the coaxial air, both the maximum stable fuel jet and
+coaxial air velocities decrease. The stability limit governing the
+formation of a split ﬂame seems to be equally affected by air or
+fuel dilution, as decreasing fuel jet velocities are accompanied by
+the dilution of either stream. This is consistent with a decrease in
+ﬂame speed and/or ﬂame temperature in the high strain regions
+characterized by fast mixing rates, in which nitrogen diluent is
+present regardless of its point of origin.
+The most interesting result from Fig. 8 is that the addition of
+nitrogen to the fuel jet increases the attainable air/fuel velocity
+ratio, even above the case in which there is no diluent present. For
+instance, 70 m/s or 80 m/s coaxial air is not attainable for a pure
+H2 jet, but can be attained with 30% N2 dilution in the hydrogen.
+This is related to the entrainment properties of the fuel jet and its
+effect on the fuel/air stoichiometry in the wake region, as will be
+discussed in Sec. 3.4.
+Although not shown here, it should be noted that, from a jet
+velocity perspective, the stability regimes of Fig. 8 are not a func-
+tion of the coaxial air jet diameter. In addition, the stability limits
+can be further increased by increasing the fuel tube lip thickness,
+though there is an upper limit beyond which increasing lip thick-
+ness ceases to increase the stability limit 35, which is related to
+the quenching distance for a given fuel/air mixture 34. Further-
+more, decreasing the fuel jet diameter serves to increase the sta-
+bility limits as well 35, which also reduces NOx emissions
+through reduced ﬂame residence times.
+The resulting effect of the dilution placement on the combus-
+tor’s stability margins is shown in Fig. 8 for N2/H2=1, where
+moving the nitrogen diluent from the coaxial air to the fuel side
+results in increases in attainable fuel and air velocities, as deter-
+mined by their respective stability regimes. These increases in fuel
+and air velocities for fuel dilution can be expected to yield a
+decrease in residence time and NOx emissions according to Eqs.
+5 and 6.
+Measured NOx reductions for these N2/H2=1 cases are illus-
+trated in Fig. 9, where replacing the 6.35 mm diameter coaxial air
+nozzle with the 5.00 mm nozzle has the effect of doubling the
+coaxial air velocity at a given volume ﬂow rate or coax of
+coaxial air. This results in a 30–40% reduction in NOx at a given
+hydrogen ﬂow rate, as shown in Fig. 9, although increased stabil-
+ity margins allow for much higher hydrogen ﬂow rates, and hence
+lower NOx, for fuel-side dilution with the 5.00 mm coaxial air jet
+diameter. To further illustrate this beneﬁt, the dilute fuel case in
+which all of the air is supplied through the coaxial air jet coax
+=0.5 is also shown, where doubling the air velocity again further
+reduces NOx by about 38%. Turbulent ﬂames are not attainable at
+these hydrogen ﬂow rates and coaxial air velocity levels using
+air-side dilution, as the blowoff stability limit is exceeded, as
+shown in Fig. 8. Thus, the operating regimes attainable with fuel-
+side dilution allow for greater NOx reduction than those attainable
+with air-side dilution in the coaxial air conﬁguration. Similar re-
+sults should be expected for angled LDI-injection schemes, as the
+stability mechanisms that determine the operating regimes of
+these burners are similar to those of the current study.
+3.4
+Flameholding Mechanism. The predominant stability
+mechanism that is relevant to coaxial air and angled LDI-injection
+burners is blowoff of the rim ﬂame from the small recirculation
+0
+10
+20
+30
+40
+50
+60
+70
+80
+0
+50
+100
+150
+200
+250
+Fuel Jet Velocity, U F (m/s)
+Coaxial Jet Velocity, UA (m/s)
+No Dilution
+30% Fuel N2 (Blowoff)
+19% Coax O2
+30% Fuel N2 (Split)
+17% Coax O2
+50% Fuel N2 (Blowoff)
+15% Coax O2
+50% Fuel N2 (Split)
+Air, 6.35 mm, Phi = 1
+Fuel, 6.35 mm, Phi = 1
+Air, 5.00 mm, Phi = 1
+Fuel, 5.00 mm, Phi = 1
+Air, 5.00 mm, Phi = 0.5
+Fuel, 5.00 mm, Phi = 0.5
+Unstable
+Stable
+Fig. 8
+Stability regimes for coaxial air-side dilution versus
+fuel-side dilution using dA=5.00 mm. Air dilution is expressed
+in terms of the resulting percent oxygen in the air. NOx test
+conditions of Fig. 9 for N2/H2=1 are shown as lines of constant
+UF/UA emanating from the origin.
+0
+0.5
+1
+1.5
+2
+2.5
+3
+3.5
+4
+4.5
+0
+1
+2
+3
+4
+5
+6
+7
+Hydrogen Flow Rate (slm)
+Corrected NOx (ppmv at 15% O2)
+Air, 5.00 mm
+Air, 6.35 mm
+Fuel, 5.00 mm
+Fuel, 6.35 mm
+Fuel, 5.00 mm,  coax = 0.5
+Fig. 9
+Corrected NOx measurements for N2/H2=1, as a func-
+tion of diluent placement, dA, and coax „=1 unless otherwise
+noted…
+071504-6 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+region between the fuel and air injection points. This region is
+typically small enough that heat transferred from the attached
+ﬂame to the burner surface can be sufﬁciently removed by the
+incoming fuel and air ﬂows to prevent thermal damage to the
+burner. As discussed above in connection with Fig. 8, the blowoff
+velocity associated with the ﬂameholding mechanism in this re-
+gion is signiﬁcantly increased with fuel-side dilution and reduced
+with air-side dilution. This leads to increased ﬂameholding ability
+in the recirculation region with fuel-side dilution, while air-side
+dilution can be used in cases where ﬂameholding on the LDI
+injector face is to be avoided to reduce the risk of overheating,
+provided that another stability mechanism is employed to anchor
+the ﬂame in this situation.
+The ﬂameholding mechanism is primarily a function of the sto-
+ichiometry in the recirculation region, which is a balance between
+hydrogen diffusion out of the fuel jet and radial air velocity to-
+ward the fuel jet. In the absence of a coaxial air ﬂow, the diffusion
+of hydrogen out of the fuel jet is such that the ﬂame base is
+established far outside the jet’s shear layer, as shown in Fig. 10a.
+With the addition of a small amount of coaxial air, the ﬂame
+stabilization point moves to the outer edge of the fuel tube as
+shown in Fig. 10b. Adding nitrogen diluent to the coaxial air
+reduces the ﬂame temperature and reaction rate at this location,
+due to reduced oxygen availability, eventually leading to extinc-
+tion of the ﬂame when the reduced temperature and radical pro-
+duction rate can no longer sustain the ﬂame. This is shown in
+Figs. 10c and 10d, where the visible luminosity of the an-
+chored ﬂame, primarily the result of H2O thermal broadband
+emissions 36, diminishes with increasing coaxial air nitrogen
+content. By contrast, the dilution of the fuel stream has a reduced
+impact on the stability of the rim ﬂame comparing Fig. 10c to
+Fig. 10f, and Fig. 10d to Fig. 10g. In this case, hydrogen
+diffuses across the wake region much more quickly than nitrogen,
+minimizing the concentration of the diluent nitrogen at the loca-
+tion of the ﬂame base near the fuel tube’s outer rim, and increas-
+ing its stability characteristics.
+With the increasing nitrogen dilution of the fuel, the rate of the
+differential diffusion of hydrogen out of the fuel jet decreases due
+to a decrease in the species concentration gradient across the wake
+region. In addition, the momentum of the fuel jet increases with
+increasing jet density via dilution and/or jet velocity, thus in-
+creasing its mass entrainment requirements and hence the radial
+inﬂow of air toward the fuel jet. Eventually, the inward air veloc-
+ity exceeds the outward hydrogen diffusion velocity, moving the
+ﬂame base toward a more stable location closer to the fuel jet
+Figs. 10b, 10f, and 10g, thereby enhancing ﬂame stability
+with fuel jet dilution as seen in Fig. 8. Increasing the dilute fuel jet
+velocity leads to the formation of an inefﬁcient split ﬂame well
+before extinction of the rim ﬂame, while increasing the coaxial air
+velocity eventually leads to lifting of the rim ﬂame off of the fuel
+tube Fig. 10h and extinction as the ﬂame base approaches the
+high strain region at the intersection of the jet shear layers.
+The various nuances of the rim ﬂame stability mechanism in
+coaxial air ﬂames are also important in angled LDI-injection
+schemes. CFD is a valuable tool for assessing the feasibility of
+these angled injection schemes without resorting to parametric
+experimental studies of the multitude of possible geometric con-
+ﬁgurations injection angles, hole sizes, hole spacing, and so on.
+Accurately modeling the ﬂowﬁeld and differential diffusion char-
+acteristics in the ﬂameholding recirculation region between the
+fuel and air injection points is essential to the success of such
+CFD models, and it can be veriﬁed with the simpliﬁed coaxial air
+mechanism employed in this study. Attaining a stable, anchored
+ﬂame in CFD models of the coaxial air conﬁguration requires the
+use of a turbulence-chemistry interaction model that models the
+differential diffusion process accurately. While probability distri-
+butio function models do not account for such processes, the EDC
+model does allow for differential diffusion 24. Several 2D, axi-
+symmetric CFD simulations were conducted using the FLUENT
+code, using a Reynolds stress turbulence model, the EDC com-
+bustion model and the H2/O2 mechanism of Li et al. 25. The
+35,000 cell computational domain encompassed the entire experi-
+mental apparatus including the fuel and air inlets and passageways
+and the full combustor can downstream to the exit. The inlets
+were prescribed as mass ﬂow inlets and the exit of the combustor
+as a pressure outlet boundary. The walls of the combustor were set
+at a ﬁxed temperature of 500 K, which was approximately equal
+to the average surface temperature measured in the experiments.
+Stable ﬂame models could typically only be attained by ﬁrst speci-
+fying a high-temperature condition 1500 K at the fuel tube tip to
+maintain ﬂame stability until some degree of convergence was
+attained with the initial velocity and species ﬁelds, after which
+this temperature boundary condition was replaced by an adiabatic
+boundary condition.
+Figure 11 compares the CFD modeling results for fuel- and
+air-side dilution cases with near-ﬁeld photos taken under the same
+conditions at a spatial resolution of 26.5 m and an exposure
+time of 5 s. Radius-dependent line-of-sight averaging effects are
+removed from the ﬂame photos by using an Abel inversion routine
+37, and the contrast is enhanced to yield the radial ﬂame proﬁles
+shown on the right side of Fig. 11. The modeled H2O formation
+rate matches well with the luminous ﬂame photo locations and
+Fig.
+10
+Flame
+base
+photos
+with
+UF=75 m/s
+and
+dA
+=5.00 mm: „a… UA=0 m/s, no dilution; „b… UA=15 m/s, no di-
+lution; „c… UA=15 m/s, 17.4% coaxial air O2; „d… UA=15 m/s,
+14.8% coaxial air O2; „e… UA=0 m/s, fuel N2/H2=1; „f… UA
+=15 m/s, fuel N2/H2=0.5; „g… UA=15 m/s, fuel N2/H2=1; and
+„h… UA=45 m/s, fuel N2/H2=1
+Fig. 11
+Comparison of CFD H2O formation rate with ﬂame lu-
+minosity for fuel and air dilutions using dA=6.35 mm, 5 slm H2,
+N2/H2=0.5, and coax=1, up to x/dF=10
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071504-7
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+intensities, as expected. The effects of air-side dilution versus
+fuel-side dilution also match observations fairly well, showing
+their respective ﬂame base locations at the outer edge of the fuel
+tube rim and center of the fuel tube rim.
+The details of the ﬂame base location are also evident in Fig.
+12, which shows the enhanced stability of the fuel-side dilution
+case in the increased ﬂame temperature within the recirculation
+region. Differential diffusion effects resulting from fuel-side dilu-
+tion can also be seen in the downstream portions of this ﬁgure,
+where higher hydrogen content causes increased ﬂame tempera-
+tures compared with the dilute coaxial air case. Furthermore, the
+air ﬂow and differential diffusion effects on ﬂame stability can
+also be seen in Fig. 13, where a line denoting stoichiometric con-
+ditions H2/O2=2 is superimposed on the velocity ﬁeld in the
+recirculation region. This ﬁgure reveals that the net radial velocity
+in the recirculation region is toward the jet with the higher veloc-
+ity i.e., the fuel jet, as determined previously by water-table 35
+and laser Doppler velocimetry 34 experiments. In addition, the
+high-hydrogen content at the outer edge of the fuel tube in the
+air-dilution case is indicative of a high rate of hydrogen diffusion
+radially out of the fuel jet, in spite of a radial inﬂow of air. The
+dilute fuel case, meanwhile, shows that the increased inward air
+velocity shifts the stoichiometric H2/O2 mixture toward the fuel
+jet.
+4
+Conclusions
+The use of a nitrogen diluent in either the fuel or air streams of
+an LDI-style combustor has been investigated from several view-
+points, for the overall purpose of reducing NOx emissions. The
+use of the diluent for reducing the peak ﬂame temperature, and
+hence the NOx emissions, is maximized with fuel stream dilution,
+as all of the nitrogen must pass through the ﬂame front along with
+the fuel. Likewise, fuel-side dilution also minimizes the ﬂame
+residence time in a simple turbulent jet diffusion ﬂame, thus re-
+ducing NOx emission. Although this is an unrealistic approxima-
+tion of an LDI-style injector, the analysis illustrates the effects of
+dilution on fuel/air mixing processes, particularly the effect of
+nitrogen dilution on the hydrogen jet momentum and penetration,
+which applies in both swirl-based and jet-based LDI-injection
+schemes. For jet-based LDI burners, ﬂame stability issues within
+the recirculation region between the fuel and air injection points,
+and at the intersection between their respective shear layers, plays
+an important role in determining the operating regimes that are
+attainable with either air- or fuel-side dilution. For the coaxial air
+ﬂame considered in this study, the dilution of the fuel stream was
+preferable in that it allowed for higher fuel and air velocities to be
+attained, which serve to further reduce ﬂame residence times and
+NOx emissions. This is largely due to differential diffusion of
+hydrogen out of the hydrogen/nitrogen fuel jet, leading to the
+formation of a very stable, mostly diluent-free ﬂame base in the
+recirculation region between the fuel and air jets. Properly mod-
+eling this ﬂame anchoring behavior is essential to the success of
+CFD codes for investigating more complex angled injection LDI
+schemes, and it has been performed with reasonable success using
+the modeling technique in the current study.
+Acknowledgment
+The support from the Turbines Program of the U.S. Department
+of Energy is gratefully acknowledged, along with the administra-
+tive support of the Oak Ridge Institute for Science and Education.
+A portion of this technical effort was performed in support of the
+National Energy Technology Laboratory’s ongoing research in hy-
+drogen gas turbine combustion under the RDS Contract No. DE-
+AC26-04NT41817.
+Nomenclature
+D  moles of nitrogen diluent per mole of
+hydrogen
+Da  Damköhler number
+dA  coaxial air nozzle inside diameter
+dF  fuel tube inside diameter
+dF,o  fuel tube outside diameter
+EINOx  NOx emission index g NO2/kg H2
+fs  stoichiometric mixture fraction
+Lf  ﬂame length
+T  ﬂame temperature K
+Tad  adiabatic ﬂame temperature K
+tres  ﬂame residence time
+UA  coaxial air exit velocity
+UF  fuel jet exit velocity
+NOx,meas  measured NOx ppm
+NOx,corr  corrected NOx ppm
+O2,meas  measured product gas O2 mole fraction
+coax  coaxial air equivalence ratio
+global  global equivalence ratio
+A  air density
+Fig. 12
+Computed near-ﬁeld ﬂame temperatures. Same condi-
+tions as in Fig. 11.
+Fig. 13
+Computed velocity vectors „max 6 m/s shown… and
+stoichiometric location in the wake region of the fuel tube.
+Same conditions as in Fig. 11.
+071504-8 / Vol. 132, JULY 2010
+Transactions of the ASME
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 9 ---
+
+F  fuel density
+X  molar concentration of species X
+References
+1 Vogt, R. L., 1980, “Low Btu Coal Gas Combustion in High Temperature
+Turbines,” ASME Paper No. 80-GT-170.
+2 Beebe, K. W. and Blanton, J. C., 1985, “Design and Development of a Heavy-
+Duty Industrial Gas Turbine Combustion System for Low-Btu Coal Gas Fuel,”
+ASME Paper No. 85-GT-45.
+3 Becker, B., and Schetter, B., 1993, “Use of LHV Gas in a Gas Turbine,”
+Bioresour. Technol., 46, pp. 55–64.
+4 Kelsall, G. J., Smith, M. A., and Cannon, M. F., 1994, “Low Emission Com-
+bustor Development for an Industrial Gas Turbine to Utilize LCV Fuel Gas,”
+ASME J. Eng. Gas Turbines Power, 116, pp. 559–566.
+5 Battista, R. A., and Dudley, J. C., 1995, “Full-Scale F Technology Combustor
+Testing of Simulated Coal Gas,” DOE Final Report No. DOE-MC/27221-1.
+6 Reiss, F., Grifﬁn, T., and Reyser, K., 2002, “The Alstom GT13E2 Medium
+BTU Gas Turbine,” ASME Paper No. GT-2002-30108.
+7 Ziemann, J., Shum, F., Moore, M., Kluyskens, D., Thomaier, D., Zarzalis, N.,
+and Eberius, H., 1998, “Low-NOx Combustors for Hydrogen Fueled Aero
+Engine,” Int. J. Hydrogen Energy, 234, pp. 281–288.
+8 Tacina, R. R., Wey, C., and Choi, K. J., 2001, “Flame Tube NOx Emissions
+Using a Lean-Direct-Wall-Injection Combustor Concept,” Paper No. AIAA-
+2001-3271.
+9 Tacina, R., Wey, C., Liang, P., and Mansour, A., 2002, “A Low NOx Lean-
+Direct Injection, Multipoint Integrated Module Combustor Concept for Ad-
+vanced Aircraft Gas Turbines,” NASA Report No. TM-2002-211347.
+10 Hernandez, S. R., Wang, Q., McDonell, V., Mansour, A., Steinthorsson, E, and
+Hollon, B., 2008, “Micro-Mixing Fuel Injectors for Low Emissions Hydrogen
+Combustion,” ASME Paper No. GT2008-50854.
+11 Hernandez, S., Wang, Q., Lee, H., McDonell, V., Hollon, B., Mansour, A., and
+Steinthorsson, E., 2008, “Micro-Mixing Fuel Injection for Low Emission
+Combustion of Hydrogen for Gas Turbine Applications,” International Pitts-
+burgh Coal Conference, Pittsburgh, PA.
+12 Dahl, G., and Suttrop, F., 1998, “Engine Control and Low-NOx Combustion
+for Hydrogen Fuelled Aircraft Gas Turbines,” Int. J. Hydrogen Energy, 238,
+pp. 695–704.
+13 Marek, C. J., Smith, T. D., and Kundu, K., 2005, “Low Emission Hydrogen
+Combustors for Gas Turbines Using Lean Direct Injection,” Paper No. AIAA-
+2005-3776.
+14 GE Energy, 2005, “Premixer Design for High Hydrogen Fuels—Final Report,”
+DOE Cooperative Agreement No. DE-FC26-03NT41893.
+15 Todd, D. M., and Battista, R. A., 2000, “Demonstrated Applicability of Hy-
+drogen Fuel for Gas Turbines,” Proceedings of the IChemE “Gasiﬁcation 4 the
+Future” Conference, Noordwijk, The Netherlands.
+16 Chiesa, P., Lozza, G., and Mazzocchi, L., 2005, “Using Hydrogen as Gas
+Turbine Fuel,” ASME J. Eng. Gas Turbines Power, 127, pp. 73–80.
+17 Todd, D. M., 2000, “Gas Turbine Improvements Enhance IGCC Viability,”
+Gasiﬁcation Technologies Conference, San Francisco, CA.
+18 Cook, C. S., Corman, J. C., and Todd, D. M., 1995, “System Evaluation and
+LBTU Fuel Combustion Studies for IGCC Power Generation,” ASME J. Eng.
+Gas Turbines Power, 117, pp. 673–677.
+19 Rokke, P. E., and Hustad, J. E., 2005, “Exhaust Gas Recirculation in Gas
+Turbines for Reduction of CO2 Emissions; Combustion Testing With Focus on
+Stability and Emissions,” Int. J. Thermodyn., 8, pp. 167–173.
+20 Feese, J. J., and Turns, S. R., 1998, “Nitric Oxide Emissions From Laminar
+Diffusion Flames: Effect of Air-Side Versus Fuel-Side Diluent Addition,”
+Combust. Flame, 113, pp. 66–78.
+21 Lefebvre, A. H., 1999, Gas Turbine Combustion, 2nd ed., Taylor and Francis,
+Ann Arbor.
+22 ElKady, A. M., Evulet, A., Brand, A., Ursin, T. P., and Lynghjem, A., 2008,
+“Exhaust Gas Recirculation in DLN F-Class Gas Turbines for Post-
+Combustion CO2 Capture,” ASME Paper No. GT2008-51152.
+23 Morley, C., 2005, “GASEQ: Chemical Equilibria in Perfect Gases,” Version
+0.79, http://www.gaseq.co.uk
+24 Magnussen, B. F., 1981, “On the Structure of Turbulence and a Generalized
+Eddy Dissipation Concept for Chemical Reaction in Turbulent Flow,” Paper
+No. AIAA-1981-42.
+25 Li, J., Zhao, Z., Kazakov, K., and Dryer, F., 2004, “An Updated Comprehen-
+sive Kinetic Model of Hydrogen Combustion,” Int. J. Chem. Kinet., 3610,
+pp. 566–575.
+26 Chen, R.-H., and Driscoll, J. F., 1990, “Nitric Oxide Levels of Jet Diffusion
+Flames: Effects of Coaxial Air and Other Mixing Parameters,” Proc. Combust.
+Inst., 23, pp. 281–288.
+27 Turns, S. R., 1995, “Understanding NOx Formation in Nonpremixed Flames:
+Experiments and Modeling,” Prog. Energy Combust. Sci., 21, pp. 361–385.
+28 Meier, W., Prucker, S., Cao, M.-H., and Stricker, W., 1996, “Characterization
+of Turbulent H2/N2/Air Jet Diffusion Flames by Single-Pulse Spontaneous
+Raman Scattering,” Combust. Sci. Technol., 118, pp. 293–312.
+29 Delichatsios, M. A., 1993, “Transition From Momentum to Buoyancy-
+Controlled Turbulent Jet Diffusion Flames and Flame Height Relationships,”
+Combust. Flame, 92, pp. 349–364.
+30 Driscoll, J. F., Chen, R.-H., and Yoon, Y., 1992, “Nitric Oxide Levels of
+Turbulent Jet Diffusion Flames: Effects of Residence Time and Damköhler
+Number,” Combust. Flame, 88, pp. 37–49.
+31 Gabriel, R., Navedo, J. E., and Chen, R.-H., 2000, “Effects of Fuel Lewis
+Number on Nitric Oxide Emissions of Diluted H2 Turbulent Jet Diffusion
+Flames,” Combust. Flame, 121, pp. 525–534.
+32 Dahm, W. J. A., and Mayman, A. G., 1990, “Blowout Limits of Turbulent Jet
+Diffusion Flames for Arbitrary Source Conditions,” AIAA J., 287, pp. 1157–
+1162.
+33 Chen, J.-Y., and Kollmann, W., 1992, “PDF Modeling and Analysis of Ther-
+mal NO Formation in Turbulent Nonpremixed Hydrogen-Air Jet Flames,”
+Combust. Flame, 88, pp. 397–412.
+34 Takahashi, F., and Schmoll, W. J., 1990, “Lifting Criteria of Jet Diffusion
+Flames,” Sym. Int. Combust., Proc., 23, pp. 677–683.
+35 Vranos, A., Taback, E. D., and Shipman, C. W., 1968, “An Experimental Study
+of the Stability of Hydrogen-Air Diffusion Flames,” Combust. Flame, 12, pp.
+253–260.
+36 Halls, D. J., and Pungor, E., 1969, “An Examination of the Equilibrium Be-
+tween H and OH Radicals and of Related Effects in Turbulent Hydrogen
+Flames as Used in Spectrophotometric Methods of Analysis,” Anal. Chim.
+Acta, 44, pp. 40–50.
+37 Villarreal, R., and Varghese, P. L., 2005, “Frequency-Resolved Absorption
+Tomography With Tunable Diode Lasers,” Appl. Opt., 4431, pp. 6786–
+6795.
+Journal of Engineering for Gas Turbines and Power
+JULY 2010, Vol. 132 / 071504-9
+Downloaded 15 Jan 2011 to 129.137.89.240. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

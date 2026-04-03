@@ -1,0 +1,1119 @@
+
+--- Page 1 ---
+
+G. Babazzi1
+Baker Hughes,
+Via Felice Matteucci 2,
+Florence 50127, Italy
+e-mail: giulia.babazzi@bakerhughes.com
+S. Galeotti
+Department of Industrial Engineering
+of Florence (DIEF),
+University of Florence,
+Via S. Marta 3,
+Florence 50139, Italy
+A. Picchi
+Department of Industrial Engineering
+of Florence (DIEF),
+University of Florence,
+Via S. Marta 3,
+Florence 50139, Italy
+R. Becchi
+Department of Industrial Engineering
+of Florence (DIEF),
+University of Florence,
+Via S. Marta 3,
+Florence 50139, Italy
+M. Cerutti
+Baker Hughes,
+Via Felice Matteucci 2,
+Florence 50127, Italy
+A. Andreini
+Department of Industrial Engineering
+of Florence (DIEF),
+University of Florence,
+Via S. Marta 3,
+Florence 50139, Italy
+Combustion Diagnostics and
+Emissions Measurements of a
+Novel Low NOx Burner for
+Industrial Gas Turbine Operated
+With CO2 Diluted Methane/Air
+Mixtures
+While the employment of Exhaust Gas Recirculation (EGR) is a well-established technique
+in Internal Combustion Engines to limit NOx emissions, its adoption in Gas Turbine engines
+has not yet found a practical application due to its expensive and complex installation that
+doesn’t justify the emissions reduction when compared to already established DLN
+combustion technologies. EGR becomes an interesting option in GT engines considering the
+possibility of increasing the CO2 content of the exhaust gases to improve the efﬁciency of
+Carbon Capture and Storage (CCS) units. However, the decrease in oxygen content of the
+combustion air is extremely challenging in terms of combustion stability and therefore of
+engine operability. In the present work, a low NOx burner was studied at ambient pressure in
+a reactive single burner test rig. The burner was fed with methane and characterized in terms
+of emissions and stability limits at different operating conditions. In addition, the ﬂame
+position and shape were studied through OH* chemiluminescence imaging together with the
+ﬂow ﬁeld thanks to PIV measurements. The effects of CO2 addition on the ﬂame were then
+investigated at different EGR increasing levels, highlighting the impact of the oxygen
+content on the combustion reaction intensity. Variations in emissions and burner stability
+limits in terms of maximum sustainable CO2 content were also studied, to detail the burner
+operating window. Data have been thoroughly analyzed to gather information on the burner
+behavior to support the design of new technical solutions capable of ensuring both proper
+ﬂame stability and low CO and NOx emissions. [DOI: 10.1115/1.4064266]
+Introduction
+The continuous growth in energy demand will push the energy
+production toward more sustainable, ﬂexible and highly efﬁcient
+solutions, driving the greenhouse gases emission abatement and
+limiting the negative effect on climate change.
+Natural gas employment in the energy sector is expected to
+increase thanks to its essential system ﬂexibility [1]. In advanced
+economies, it represents the largest source of electricity and its share
+is going to remain stable over the next decade despite the emerging
+renewable sources. Therefore, increasing the use of Carbon Capture
+and Utilization (CCU) and Carbon Capture and Storage (CCS)
+technologies is of fundamental importance to reduce greenhouse
+gases emissions. In order to reduce the cost of CCS implementation
+and to create an efﬁcient system, the CO2 content at the inlet of the
+carbon capture unit must be maximized through the adoption of high
+percentages of Exhaust Gas Recirculation (EGR). The EGR
+employment as a mean to control the ﬂame temperature and limit
+NOxemissions isa common practicein internal combustionengines.
+However, due to the high costs and complexities related to its
+installation, it hasn’t been considered for real applications to gas
+turbine engines. Indeed, the achievable reduction in NOx emissions
+doesn’t justify the power plant complexity, especially if compared to
+the performance of modern Dry Low NOx (DLN) combustion
+technologies which are usually able to provide close to single digit
+emissions [2]. Thus, the most interesting EGR application to gas
+turbines is related to the achievable increase of CO2 content in the
+exhaust gases which would beneﬁt the CO2 sequestration both in
+terms of costs and efﬁciency. On the other hand, such operating
+1Corresponding author.
+Manuscript received August 28, 2023; ﬁnal manuscript received November 29,
+2023; published online February 8, 2024. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+JULY 2024, Vol. 146 / 071007-1
+Copyright V
+C 2024 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+conditions push conventional combustion systems to the limit
+because of oxygen depletion.
+Over the years, several studies have investigated the possibility of
+combining EGR with lean premixed ﬂames in order to ensure the
+proper ﬂame stability together with low CO/UHC (unburnt hydro-
+carbons) and NOx emissions. In terms of NOx emissions, EGR
+showed promising results. At constant ﬂame temperature and high
+pressures, the EGR NOx reduction potential increases as the amount
+of recirculating gas rises [3]. In addition, compared to standard air
+cases, the NOx emissions reduction is even bigger at increasing
+ﬂame temperatures [4]. The reason behind this behavior is related to
+the driving NOx formation mechanism: EGR NOx potential
+reduction is associated with the Zeldovich NOx formation pathway,
+thus the reduction is effective only if this is the dominant formation
+mechanism, so in high pressures and high temperatures conditions
+[5]. This aspect was additionally investigated by several authors that
+not only conﬁrmed this behavior but also found an inversion in the
+NOx trend for extremely high EGR levels [6]. This NOx trend
+inversion phenomenon was also investigated through numerical
+simulations by Burnes et al. [7], who found a threshold in terms of
+oxygen content of the incoming air above which the NOx emissions
+starts rising again.
+The real limiting factor associated with the EGR employment is
+related to CO emissions [8]. The oxygen depletion caused by an
+increased EGR level drifts the thermodynamic equilibrium toward
+the CO production. Nevertheless, the CO emissions linked to the
+equilibrium conditions are only a theoretical value, which is
+expected to deviate noticeably as the lack of oxygen in the fresh
+mixture increases [3]. Additionally, the increase in CO emissions is
+supposed to be particularly pronounced at low loads engine
+operating conditions, where the lack of oxygen effect overlaps
+with a decrease in pressure. Different strategies have been explored
+in order to extend the combustor operability window: the majority of
+researchers studied the employmentof a small pilotﬂame toincrease
+the ﬂame stability at high EGR content [8,9], while others explored
+the possibility of employing staged combustion [3,4]. The EGR
+impact on the combustion process has been mainly investigated
+employing numerical methods, most of which are usually limited to
+low ﬁdelity approaches such as simple one-dimensional studies
+[10–12] or Reynolds-averaged Navier Stokes (RANS) simulations
+[13–16]. Although Large Eddy Simulations (LES) would be
+preferable in such conditions to provide a detailed understanding
+of the interaction between the turbulent ﬂow ﬁeld and the ﬂame
+characteristics, the available applications are limited to simple
+combustor conﬁgurations due to the modeling high computational
+costs [17–20]. Dedicated experimental investigations are required in
+order to support the prediction of numerical models, and combustion
+optical diagnostics have been successfully employed in this context.
+A limited number of available studies investigated at atmospheric
+pressure the effects of CO2 addition on the ﬂame behavior through
+chemiluminescence measurements, yet considering simple burner
+geometries [21,22].
+The main objective of this work is therefore to contribute to the
+development of new burner concepts, able to efﬁciently operate in
+alternative operating conditions such as exhaust gas recirculation.
+Speciﬁcally, optical diagnostics measurements have been per-
+formed on an industrial burner at ambient pressure conditions to
+investigate the complex behavior of real hardware components. To
+this end, a ﬁrst test campaign is dedicated to the burner
+characterization while the second part is focused on the assessment
+of the actual capabilities of the currently employed burner, designed
+to operate in standard gas turbine cycles.
+After characterizing the ﬂow ﬁeld in both nonreactive and
+reactive conditions, the burner ﬂame structure and position were
+investigated through OH* chemiluminescence measurements. In
+addition, NOx and CO emissions were recorded at the same time to
+characterize the burner performance in terms of pollutant
+emissions. For a complete characterization, the burner was also
+studied from a stability point of view through lean blow out (LBO)
+measurements.
+The measurements will be used to study the involved combustion
+phenomena and the complications related to the combustor
+operability in vitiated air conditions, identifying the limitations of
+the current technologies and testing the burner ability to adapt to
+extreme operating conditions. In addition, the collected information
+represent a good database to be employed for CFD codes validation.
+Test Rig and Experimental Techniques
+Burner Description. The investigated burner is a novel lean
+premixed burner developed by Baker Hughes for industrial gas
+turbine applications. A thorough description of the burner geometry
+and its design can be found in the works of Cerutti et al. [23–25]. The
+burner cross section is illustrated in Fig. 1.
+The burner mainly consists of two different parts:
+ Part 1 of Fig. 1 is the fuel injector, equipped with two
+independent fuel injection circuits
+ Part 2 of Fig. 1 is the premixer, composed by two independent
+air ﬂow passages, each one providing a different amount of
+swirl to the air-fuel mixtures
+Each one of the fuel injection rows is independently fed and
+regulated by a different fuel gas line. According to Fig. 1, a ﬁrst air
+stream AA (Axial Air) enters the burner through an axial swirler and
+mixes with the ﬁrst row of axial fuel injectors AF (Axial Fuel)
+present within the external passage, just upstream the axial swirler,
+creating a premixed ﬂame. The second air stream RA (Radial Air)
+ﬂows through the internal vanes of the radial swirler before mixing
+with the radial fuel stream RF (Radial Fuel) to feed the internal
+premixed ﬂame. The following throat is properly sized to ensure an
+appropriate mixture acceleration before the downstream sudden
+section expansion, which corresponds to the ﬂame front developing
+region. Regardless of the amount of residual ﬂow swirl, the ﬂame
+stabilization mechanism is mainly driven by the inner throat size and
+the law of cross-sectional area increase of the downstream dump
+region. As pointed out from previous investigations [23–25], the
+ﬂame stabilization process is also strongly affected by the amount of
+overall thermal power released in each region through the dedicated
+radial and axial fuel injections.
+Test Rig Configuration. The burner was investigated in the
+reactive test cell of the THT Lab of the University of Florence,
+whose schematic layout is outlined in Fig. 2. Two screw
+compressors deliver a maximum of 1 kg/s of compressed air to the
+test cell at a maximum pressure of 10 barA. A modulating valve is
+also integrated in the system to ensure a constant delivery pressure.
+After the compression, the air ﬂows through various ﬁlters and an air
+dryer (dew point 20 C) in order to eliminate any impurity and
+humidity before entering the test cell. Right after, a 600 kW electric
+heater heats up the air ﬂow at a maximum temperature of 400 C. To
+keep a constant delivery temperature, a proportional integral
+derivative system automatically controls the electric heater,
+modulating its power input.
+The air mass ﬂowrate is controlled through a globe valve
+upstream of the electric heater, while the rig downstream pressure is
+set acting on a high temperature control disk valve. A water jacket
+exhaust duct is placed right after the rig to avoid any interference the
+Fig. 1
+Investigated burner architecture # 2023 Baker Hughes
+Company - All rights reserved
+071007-2 / Vol. 146, JULY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+back-pressure valve might have on the combustion process. The
+water jacket is a 1 m long straight duct with circular cross section
+equipped with water sprayers, used to quench the hot gases and
+control the ﬂow exit temperature.
+The burner has been tested both in standard air conditions and
+CO2 enriched mixtures, to simulate EGR like conditions. Recreating
+real EGR conditions in lab scacle is quite challenging because of the
+associted costs and the volumes involved; the same complications
+are when employing N2 enriched mixtures. Therefore, CO2 enriched
+mixtures are considered a good tradeoff for the design and primary
+investigation phase. The CO2 employed for the tests in vitiated air
+conditions is stored in a pressurized tank with a storage capacity of
+about 6000 l. From the storage tank, the CO2 line directly enters the
+main air ﬂow line upstream the electric heater, in order to deliver to
+the test section an homogeneous mixture, both in terms of
+temperature and composition. The amount of injected CO2 is
+controlled through a dedicated valve and measured by a calibrated
+oriﬁce ﬂowmeter.
+As for the fuel line, the test cell is equipped with three natural gas
+lines that deliver a maximum ﬂowrate of about 90 Nm3/h. The
+natural gas directly coming from the local gas network is pressurized
+from 20 mbar to about 16 bar through a dedicated screw compressor,
+equipped with special ﬁlters to clean the gas from possible
+impurities. A 200 liters tank is also present along the delivery line
+to smooth out any pressure ﬂuctuation. Each fuel line is provided
+with a globe valve to control the ﬂowrate and a shut off valve for
+safety reasons, together with a Pt100 resistance temperature detector
+probe, pressure gauges, and a speciﬁc mass ﬂowmeter.
+The test article is designed to allow optical measurements on the
+ﬂame region and it is characterized by a modular layout to adjust the
+system to different burner concepts. A cross section of the test article
+is shown in Fig. 3(a). It consists of two main parts: the casing, which
+constitutes the enclosure that conﬁnes the air and the reactive
+process ensuring a safe test operation, and the combustor, which is
+the ﬂame enclosure system. The external casing consists of an
+upstream vessel, through which the burner enters the test article, and
+a downstream vessel, equipped with two perpendicular optical
+windows for the ﬂame visualization. The combustor is made of a
+2.5 mm thick cylindrical quartz liner, held in place thanks to a
+blocking system made of four tie rods and four springs that connect
+the dome to the following duct, used to convey the exhaust gases
+toward the test rig exhaust system. The combustor length is
+approximately 2.5 diameters, to ensure a complete ﬂame develop-
+ment for a proper ﬂame visualization. In addition, special effort was
+put in the optical accesses design to ensure a good visibility on the
+dome and burner exit section, as well as the combustor terminal part,
+to investigate any interaction it may arise between the ﬂame and the
+dome surface.
+The ﬂame tube is cooled by forced convection of a fraction of the
+incoming air that ﬂows in the annulus between the liner and the
+conﬁning vessel, not used in the combustion process. The same air is
+also employed for the windows cooling, while the dome plate is
+cooled through a series of inclined effusion holes. Dedicated ﬂow
+checks were performed to estimate the effective areas of both the
+burner and the cooling system, to allow the actual combustion air
+feeding the burner to be evaluated.
+In order to perform tests in reactive conditions, the rig is provided
+with a spark plug to ignite the mixture, located along the ﬂame tube
+downstream the optical liner (Fig. 3(b)).
+Concerning the rig instrumentation, the test article is equipped
+with various thermocouples and static pressure ports to monitor the
+ﬂow conditions. An emission probe is also present, employed to
+analyze the exhaust composition through a HORIBA PG250. The
+probe is made of several radially spaced holes and it is plunged into
+the ﬂame tube to extract the exhaust gases. After being extracted, the
+gases reach a gas analyzer through a thermally insulated 6 mm teﬂon
+pipeline thatkeeps the gas mixture at aconstant temperature of about
+150 C. Before reaching the analyzer, a HORIBA PS200 refrigerator
+is used to remove any trace of water vapor from the gas sample. The
+gas analyzer is properly calibrated right before each test employing a
+rack of calibrated gas mixture tanks.
+An in-house LabVIEW software tool is used for real-time
+monitoring of all the main rig parameters. The acquired data at each
+test point are obtained by averaging the measured values for 30 s,
+once reached the desired stationary conditions. A picture of the test
+rig and the relative instrumentation is showed in Fig. 3(b).
+Particle Image Velocimetry. The PIV investigations were
+carried out employing the Dantec-Dynamics PIV system, where
+the # Dantec-FlowManager software was used to control all the
+instrumentation settings, as well as synchronization, acquisition and
+postprocessing. The laser adopted in this test campaign is the Litron
+LDY303, a Nd:YAG pulsed laser at a wavelength of 527 nm. The
+laser beam is shaped into a thin laser sheet thanks to an optical trail,
+made of a series of lenses. A ﬁnal mirror mounted on an adjustment
+system is used to project the laser sheet into the test rig from the
+Fig. 2
+Combustion test cell sketch
+Fig. 3
+Test article cross section (a) and combustion test rig photo (b) at the THT Lab of the University of Florence
+Journal of Engineering for Gas Turbines and Power
+JULY 2024, Vol. 146 / 071007-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+upper window (Fig. 3(a)) and illuminate the central section of the
+liner, at the burner symmetry plane.
+The images were recorded through a Phantom MIRO M340
+camera, coupled with a Micro-NIKKOR 60 mm f/2.8 lens and a
+bandpass ﬁlter to cut out all the incoming light except for the laser
+light scattered by the seeding particles. A polarizing ﬁlter is also
+placed in front of the bandpass ﬁlter of the camera lens to better
+manage the reﬂections caused by the cylindrical liner shape above
+all. TiO2 particles (submicron mean size) were used to seed the air
+ﬂow directly upstream the burner, using the Lavision Particle
+Blaster 110. Both cold and reactive tests were conducted acquiring
+images at a frequency of 400 Hz and the time delay between the two
+laser pulses was varied between 7 and 9 ls. For each tested
+condition, about 500 pair of images were acquired to assure
+statistical convergence of the results. Background noise was
+eliminated through a dedicated algorithm and the data were then
+postprocessed using an adaptive grid iterative approach. Vectors
+were validated applying peak validation on the image cross-
+correlation and the Universal Outlier Detection algorithm [26].
+OH* Chemiluminescence. Chemiluminescence measurements
+of the OH* radical were employed to detect the reaction zone and its
+position in various operating conditions, as its emission can be
+considered a heat release marker [27–29]. In order to carry out this
+type of measurements, a camera coupled with an image intensiﬁer
+has been used. The same camera used for the PIV measurements, the
+Phantom MIRO M340, was coupled with the Hamamatsu C16031-
+311-Ax image intensiﬁer through a relay lens. In addition, a Nikon
+UV 105 mm f=4:5 lens together with a bandpass ﬁlter (CWL ¼ 310
+þ/ 2 nm; FWHM ¼ 10 þ/ 2 nm) were mounted on the image
+intensiﬁer to be able to capture the OH* transition, which has its
+peak emission intensity in the UV spectrum. OH* chemilumines-
+cence images were acquired at 500 Hz recording about 900 images.
+The instantaneous snapshots were averaged to remove the inﬂuence
+of any unsteady phenomena and analyze the ﬂame steady-state
+structure. In addition, the averaging process smooths out the
+chemiluminescence intensity peaks associated with unsteady
+structures and reduce the measurement noise. Throughout this test
+campaign, the intensiﬁer gain was kept constant while the gate was
+varied between 0.4 and 0.7 ms depending on the ﬂame luminosity (,
+i.e., tested conditions). For the cases acquired with different
+intensiﬁer gate values, each averaged test condition was normalized
+over its maximum intensity value. Thanks to this operation, the
+aforementioned cases were compared in terms of ﬂame shape and
+position and extension of the reaction zone.
+Tested Operating Conditions. The burner was tested in differ-
+ent operating conditions in order to study the ﬂame changes in shape
+and position through combustion diagnostics techniques. The
+operating conditions are determined through the following main
+control parameters:
+ Ti is the combustor inlet temperature, set to 300 C to simulate
+typical gas turbine compressor discharge temperatures
+ Pi is the combustor air inlet pressure. As early mentioned, the
+test campaign was conducted at ambient pressure
+ DP=P is the pressure drop across the combustion chamber,
+calculated as the differential pressure across the combustor
+divided by the combustor inlet pressure. All tests were
+performed at a DP of about 4.5% which was found to provide
+stable low emission operating window with natural gas [23,25]
+ Tflame is the ﬂame temperature, calculated as the adiabatic
+ﬂame temperature assuming a perfect mixing between the
+burner combustion air andthe total amount offuel injected. The
+ﬂame temperature values are scaled with the typical ISO base
+load ﬂame temperature for proprietary reasons
+(Tflame=Tflame,ISO)
+ RF, the fuel split between the radial and the axial fuel lines,
+which is expressed as percentage of the total fuel amount per
+each fuel injection row
+ The air vitiation in close-to EGR conditions is expressed as
+oxygen molar concentration (O2%), reached after the addition
+of a certain amount of CO2 into the main air ﬂow entering the
+test rig (O2 ¼ 21% for standard air).
+Table 1 summarizes the tested operating points.The axial fuel line
+was not fed further to not exceed the 40% RF–60% AF fuel split
+conﬁguration, as it was selected as the most favorable in terms of
+NOx emissions during the burner development process [23–25]. In
+addition, the burner stability limits were investigated both in
+standard and vitiated air conditions.
+Burner Characterisation
+Flow Field Results. The mean ﬂow ﬁeld has been measured on
+the burner symmetry plane with PIV technique in both reactive and
+nonreactive conditions. Figure 4 shows the time averaged velocity
+magnitude of the nonreactive (up) and reactive (down) ﬂow ﬁelds,
+normalized with the maximum velocity value of the reactive case.
+For the reactive test, only the radial fuel line is fed and Tﬂame is equal
+to 0.75, corresponding to case 1 of Table 1. The white solid lines
+highlight the typical combustion chamber ﬂow ﬁeld for a swirl
+stabilized ﬂame, and ﬂow vectors are also reported. In both
+conditions, the swirling motion generated by the swirlers forces
+the ﬂow to spread radially toward the chamber liner wall, creating a
+low velocity outer recirculation zone (ORZ) in the corner between
+the dome and the liner. The sudden expansion of the ﬂow causes an
+Table 1
+Burner operating conditions for the OH* chemilumines-
+cence measurements
+Case
+Tflame
+Fuel split (%)
+O2 (%mol)
+1
+0.75
+100% RF
+21
+2
+0.86
+100% RF
+21
+3
+1
+100% RF
+21
+4
+1
+60% RF–40% AF
+21
+5
+1
+50% RF–50% AF
+21
+6
+1
+40% RF–60% AF
+21
+7
+1
+100% RF
+19.5
+8
+1
+100% RF
+19
+9
+1
+100% RF
+18.5
+10
+1
+50% RF–50% AF
+20
+11
+1
+50% RF–50% AF
+19.5
+12
+1
+50% RF–50% AF
+19
+13
+1
+50% RF–50% AF
+18.5
+14
+1
+40% RF–60% AF
+20
+15
+1
+40% RF–60% AF
+19.5
+16
+1
+40% RF–60% AF
+19
+17
+1
+40% RF–60% AF
+18.5
+Fig. 4
+Normalized meanvelocity contour with a schematic of the
+typical ﬂow ﬁeld and ﬂow vectors in nonreactive conditions (up)
+and reactive conditions (down)
+071007-4 / Vol. 146, JULY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+increase in the vortex size and consequently a pressure rise in the
+vortex core, generating a positive pressure gradient in the central
+region of the combustion chamber. The ﬂow ﬁeld istherefore subject
+to a vortex breakdown, characterized by a negative axial velocity in
+the central region of the combustion chamber [30,31]. As a result,
+the ﬂow develops an inner recirculation zone (IRZ)at the central part
+of the chamber, highlighted by the solid white line of the picture.
+This region is fundamental for the ﬂame stabilization, as it
+continuously supplies heat and activated radicals from the hot
+combustion products toward the fresh mixture. In the area bounded
+by the outer and inner recirculation zone, the ﬂow is accelerated and
+forms a shear layer between the high and low velocity regions
+generating high turbulence to enhance the mixing. The IRZ root and
+its initial interaction with the jets is not visible as it is anchored in the
+burner ﬁnal dump region, close to the burner exit section. Similarly,
+it was not possible to collect information on the IRZ ﬁnal part as it is
+located outside of the camera FoV, especially in reactive condition
+where the extension of the inner recirculation zone gets slightly
+larger.
+Clearly, there is no big difference between nonreactive and reactive
+conditions in terms of ﬂow ﬁeld features. The combustion process, thus
+the increase in temperature, leads to higher velocities. Furthermore, the
+thermal expansion and the lower densities of the reactive conditions
+cause an increase in the extension of the IRZ, especially in the radial
+direction. Also, in the reactive case, the ﬂow entrapped in the inner
+recirculation zone moves back toward the burner with higher velocity
+compared to the nonreactive case. This aspect together with the
+resulting larger extension of the IRZ forces the incoming high velocity
+jet outwards with a steeper angle. Consequently, the ORZ shortens and
+it is pushed closer to the burner wall.
+Nonreactive and reactive ﬂow ﬁeld measurements were also
+performed at higher Tﬂame and with different fuel splits, but the
+results are very similar to those presented above and have been
+omitted for brevity.
+OH* Chemiluminescence Results. The burner ﬂame structure
+and position were investigated through OH* chemiluminescence
+measurements at different operating conditions in terms of ﬂame
+temperature and burner fuel ﬂow split. Figure 5 presents all the time
+averaged OH* maps recorded with standard air (, i.e., without CO2
+addition), corresponding to cases 1–6 of Table 1. Each image is
+normalized with its own maximum value.
+The effect of ﬂame temperature can be studied considering
+images a-b-c,corresponding tocases 1–2–3, where the fuel ﬂowsplit
+was kept constant, feeding only the radial fuel line. The main
+reaction zone can be identiﬁed through the high OH* chemilumi-
+nescence values. The ﬂame temperature is raised by increasing the
+amount of fuel that ﬂows through the radial fuel line, leading to a
+richer mixture. Although the equivalence ratio remained well below
+the stoichiometric value for all the considered cases, the increase of
+the jet penetration forced the OH* peak relocation downstream. In
+particular, as the amount of fuel is increased it is supposed that a
+larger portion of that interacts with the high velocity swirled air,
+determining a heavy lifting effect and modifying the ﬂame
+stabilization region (Fig. 4). As the jet penetration increases, the
+ﬂame stabilizes further downstream the burner exit section
+assuming the lifted shape visible in Fig. 5(c). As a result, the peak
+of chemiluminescence intensity moves accordingly and it gets
+closer to the liner walls. From case 1 to case 3, the shape of the
+reaction zone ﬁrst gets slightly larger and bigger and then changes
+shape, becoming more squeezed and moving away from the burner
+tip.
+To gain a better understanding of the ﬂame anchoring position,
+OH* chemiluminescence map of case 1 is overlapped with PIV
+velocity vectors measured at the same operating conditions, as
+showed in Fig. 6. Since chemiluminescence is a line-of-sight
+technique, the inverse Abel transform [32] has been applied to the
+time averaged OH* map, recreating the intensity distribution on the
+burner symmetry plane. The ﬂame clearly anchors in the inner shear
+layer region where high turbulence is promoted through the
+interaction between the IRZ and the jet ﬂow exiting the burner.
+The effect of the burner fuel split between the axial and the radial
+lines on the ﬂame structure was also investigated. Figures 5(c)–5(f)
+were obtained keeping the ﬂame temperature constant at 1 and
+Fig. 5
+OH* chemiluminescence contours
+Journal of Engineering for Gas Turbines and Power
+JULY 2024, Vol. 146 / 071007-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+progressively decreasing the radial line content from 100% to 40%
+and increasing the axial fuel lineconsequently. Asthe amount of fuel
+ﬂowing through the radial line diminishes, the ﬂame anchors back in
+the central region closer to the burner exit. This behavior endures
+until the last tested fuel ﬂow split, where the amount of fuel through
+the axial fuel line is greater than the radial one. This behavior is
+driven by the fuel jet velocity of the radial line. When the total fuel
+amount ﬂows through the radial line, the fuel velocity is higher than
+the fresh air thus the ﬂame stabilization happens downstream the
+burner exit section, assuming a lifted shape. In Figs. 5(d) and 5(e),
+the fuel stream through the radial line decreases and its exiting
+velocity is low enough for the fuel to get entrapped in the
+recirculation zone created in the dump region of the burner
+(Fig. 1). Indeed, the channel throat after the radial line location
+provide the mixture with the proper acceleration through the
+downstream sudden section expansion, where the ﬂame then
+anchors. However, in the last case the radial line equivalence ratio
+gets leaner and the ﬂame behavior starts shifting back toward a lifted
+conﬁguration. Thus, in Fig. 5(f) the reaction zone lengthens,
+relocating the ﬂame a little downstream. Also, the chemilumines-
+cence intensity peak moves away from the liner wall as the radial
+line fuel starts decreasing and start shifting again toward the liner
+only in the last case. Actually, the ﬂame shape of Figs. 5(c) and 5(f)
+are quite similar: the reaction zone gets shorter as it spreads more
+radially, interacting more with the combustion chamber walls.
+Emissions. Figure 7 show the CO and NOx emissions as a
+function of the normalized ﬂame temperature at constant fuel split
+(cases 1–3). As expected, CO emissions decrease at higher ﬂame
+temperature. Recalling the chemiluminescence maps of Fig. 5, it is
+clearly visible that at leaner conditions the ﬂame gets closer to the
+burner exit section, creating an initial richer zone. In this area, the
+poor fuel-air mixing is responsible for the evident increase in CO
+emissions. At higher ﬂame temperature, even though the ﬂame
+interacts with the liner wall that cools down the mixture blocking the
+reaction progress, the ﬂame anchors in a different position and the
+better mixing contributes to the CO emissions abatement. The trend
+of NOx emissions remains almost ﬂat, assuming almost a constant
+value around 11 ppm for the lowest and highest ﬂame temperature,
+while a slight increase in NOx emissions is visible for the medium
+case, ascribable to the slight reactivity increase found in the OH*
+analysis.
+The emissions trends were also analyzed at various fuel split
+conditions at constant adiabatic ﬂame temperature (cases 3–6).
+Figure 8 illustrates the CO and NOx emissions as a function of the
+radial fuel line split. As it could be expected, the maximum CO
+emissions is found at 100% RF. As it was explained for the trend
+obtained at different adiabatic ﬂame temperatures, looking at the
+chemiluminescence of Figs. 5(c)–5(f) it is possible to see the change
+in shape that the ﬂame experiences from 100% to 40% RF. Moving
+from case 3 to case 4, there is an initial marked drop in CO emissions
+due to an enhanced mixing promoted by the axial stream. A further
+increase in the axial fuel line content still beneﬁts CO emissions but
+at a lesser extent and the trend assumes an asymptotic behavior.
+Similarly, NOx emissions decrease as the AF contribution grows.
+The favorable effect of the better mixing linked to the activation of
+the axial fuel line can be appreciated already from small amount of
+AF content, leading to a reduction in NOx emissions by a factor of 4
+from 100% RF to 60% RF. The trend then stabilizes and reaches a
+minimum at 40% RF. Therefore, a fuel split biased toward the axial
+fuel line reduces the radial line equivalence ratio, which is
+responsible for the majority of the NOx emissions formation.
+However, as the radial line is mainly responsible for the ﬂame
+anchoring and stabilization, a balance must be found to ensure a
+stable combustion at the same time.
+As mentioned before, the radial fuel line contribution was not
+decreased further since from previous investigations an increase in
+NOx emissions is expected at an axial fuel content greater than 60%
+as well as a rise in thermoacoustic instabilities, which exclude this
+region from the burner desirable operating conditions [23–25].
+Lean Blow Out Margin. One of the most important aspects in a
+burner design is its capacity to provide stable combustion. The
+burner stability limits deﬁne its capacity to withstand variations in
+terms of ﬂame temperature without the onset of combustion
+instabilities or loss of ﬂame events. These limits become critical
+Fig. 6
+Abel transformed OH* chemiluminescence intensity
+isolines of Case 1 superposed by the velocity contour with ﬂow
+vectors of the PIV measurement
+Fig. 7
+CO and NOx emissions as a function of the adiabatic ﬂame
+temperature at 100% RF
+Fig. 8
+CO and NOx emissions as a function the amount of fuel
+ﬂowing through the radial fuel line (RF) at constant ﬂame
+temperature (Tflame* 5 1)
+071007-6 / Vol. 146, JULY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+especially at high axial fuel content conditions. The blow out margin
+deﬁnition is fundamental particularly during the gas turbine load
+regulation, as often gas turbines are required to follow the frequent
+variations of the grid power demand in an energy context where the
+energy production share of renewable sources, characterized by an
+irregular availability, is in continuous growth. In addition, wider
+stability limits allow the combustor to operate in leaner conditions,
+reducing thus the adiabatic ﬂame temperature while keeping low
+NOx emission capability.
+Lean blow tests were carried out to determine the burner stability
+limits in different radial-axial split conﬁguration, namely, cases 3–6.
+For each case, starting from stable conditions, the air mass ﬂowrate
+was gradually increased while maintaining the pressure drop across
+the combustion chamber within an acceptable range, until the ﬂame
+extinguishes. The blow out event was detected observing the sudden
+temperature drop from the thermocouples readings, installed in the
+duct close to the liner exit section. For each test point, the blow out
+test was performed three times showing a good repeatability.
+Figure 9 shows the burner stability limits in terms of adiabatic
+ﬂame temperature (Tﬂame) as a function of the radial fuel split (RF
+%). Looking at the two limiting conditions, for the 100% RF case the
+ﬂame remained stable until the adiabatic ﬂame temperature reached
+a value below 0.65. Differently, only a Tﬂame of 0.85 was reached for
+the 40% RF case. Indeed, as the axial line content increases, the blow
+out margin decreases and the burner moves to a more unstable
+condition. As derived from the chemiluminescence measurements,
+the radial line is responsible for the ﬂame stabilization so when its
+contribution diminishes the ﬂame is less stable and the blow out
+margin decreases accordingly. Indeed, going from case 3 to case 6,
+the raw OH* luminosity experience a considerable reduction
+indicating a lower ﬂame reactivity that negatively affects the ﬂame
+stability.
+As seen in the emission section, case 6 which corresponds to the
+minimum investigated RF content is the most promising in terms of
+NOx emissions but on the contrary it is the worst conﬁguration in
+terms of stability limits. The axial line globally provides a better
+mixing achieving a more uniform fuel distribution, which is an
+important aspect in terms of emissions but at the same time it is
+detrimental for the ﬂame stability as richer regions are responsible
+for the ﬂame stabilization. The drop in NOx emissions at around the
+50% RF–50% AF fuel split and the corresponding almost linear
+behavior of the lean blow margin offers a promising opportunity in
+ﬁnding a tradeoff between these two characteristics.
+Effect of CO2 Dilution
+The present study aims at testing the burner adaptability at
+different operating conditions and understands the potential
+modiﬁcation needed to operate in an oxygen depleted environment.
+As explained before, CO2 was added into the main airﬂow to
+simulate EGR conditions. The CO2 content was gradually increased
+to decrease the oxygen available for the combustion process. Four
+different operating conditions in terms of available oxygen
+concentration in the incoming airﬂow were tested, as reported in
+Table 1. In order to derive a truthful comparison on the burner
+behavior, the adiabatic ﬂame temperature was kept constant at all
+conditions adjusting the fuel ﬂow. The air mass ﬂowrate was also
+varied depending on the added CO2 in order to maintain the right
+burner pressure drop.
+Stability Limits. One of the principal issues related to the EGR
+feasibility is the ﬂame stability. Indeed, the addition of CO2 into the
+incoming airﬂow reduces the amount of available oxygen for the
+combustion process, weakening the ﬂame stability.
+Therefore, the ﬂame blow out margin was studied in order to
+derive the maximum allowable CO2 concentration to ensure stable
+combustion in different fuel ﬂow split conﬁgurations. Similarly to
+the procedure adopted for the burner characterization, for each
+tested condition, the fuel ﬂow was kept constant, and the CO2
+content was increased until the ﬂame extinguished. Figure 10 shows
+the burner blow out margins in terms of oxidant oxygen content as a
+function of the fuel ﬂow split, expressed in terms of radial line
+content. As the radial fuel ﬂow diminishes, the minimum oxidant
+oxygen content increases to ensure ﬂame stability. Indeed, as shown
+in the burner characterization both from chemiluminescence
+measurements and stability limits, the radial fuel helps the ﬂame
+anchoring and stabilization process. Thus, at 100% RF, the
+minimum oxygen molar concentration in the oxidant mixture
+reaches the lowest experienced value at about 18%. The oxygen
+molar concentration necessary for a stable combustion increases as
+the axial fuel stream grows, reaching a value of about 18.45% for the
+40% RF - 60% AF fuel split case. Generally, the needed oxygen
+content rises with a strong nonlinear behavior as the radial fuel
+content decreases, with a markedly increase in the needed oxygen
+content around the value of 50% RF.
+This information was used to deﬁne the most interesting
+conﬁgurations to be further analyzed in terms of ﬂame shape
+through OH* chemiluminescence and pollutant emissions meas-
+urements. As pointed out previously, the most unstable condition is
+the one at greatest axial line content and it drives the maximum CO2
+oxidant content tested. Therefore, to ensure stable combustion, a
+18.5% oxygen molar concentration was chosen as lowest allowable
+oxygen oxidant content to be investigated during the burner
+characterization in vitiated air conditions.
+OH* Chemiluminescence Results. Figure 11 presents OH*
+chemiluminescence intensity averaged over the whole measurement
+area for different fuel splits at decreasing oxygen content. The
+intensiﬁer gate was kept constant with the purpose of illustrating the
+Fig. 9
+Lean blow out measurements expressed as correspond-
+ing adiabatic ﬂame temperature as a function the amount of fuel
+ﬂowing through the radial fuel line (RF)
+Fig. 10
+Lean blow out measurements expressed in terms of
+oxidant oxygen content as a function of the amount of fuel
+ﬂowing through the radial fuel line (RF)
+Journal of Engineering for Gas Turbines and Power
+JULY 2024, Vol. 146 / 071007-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+enormous difference in terms of chemiluminescence intensity.
+Indeed, as the available oxygen diminishes, the chemiluminescence
+intensity signiﬁcantly decreases for all fuel splits. An almost linear
+dependence canbe identiﬁedbetween the average OH* intensity and
+the oxygen content. As expected, the limited amount of oxygen
+available for the combustion process reduces dramatically the
+mixture reactivity.
+For a better comparison, in Fig. 12, the normalized chemilumi-
+nescence measurements in standard air condition and vitiated air for
+each tested fuel ﬂow split are reported. Only the 19.5% oxygen
+molar concentration maps are presented for the sake of brevity,
+being a representative example of the oxygen depletion effects on
+the ﬂame behavior.
+This time the maps were normalized each one with its maximum
+to deﬁne more clearly the combustion reaction zone.
+Analyzing the 100% RF fuel ﬂow split, it is clearly visible that the
+ﬂame stabilizes further downstream in the CO2 addition case. This
+implies a lower reactivity that causes a slowdown in the chemical
+reaction process. For the same reason, in terms of shape, the ﬂame
+seems a little longer with no additional major differences. The same
+conclusions can be drawn looking at the central image where the two
+conditions for the 50% RF–50% AF case are reported. Small
+differences can be appreciated in terms of ﬂame shape. With regards
+to the last analyzed split, which was selected as the most promising
+conﬁguration in terms of emissions during the burner characteriza-
+tion, the ﬂame morphology experiences a radical change. The
+combined effect of the axial fuel line increase and the oxygen
+content depletion leads to a slowdown of the reaction process.
+Indeed, the reaction zone becomes more widespread, reaching an
+extension that almost covers the whole quartz combustion chamber.
+In addition to the time-averaged maps of OH* chemilumines-
+cence distribution, some considerations can also be made about the
+ﬂame unsteadiness. Indeed, the standard deviation of the OH*
+intensity over time was normalized for each pixel with the local
+time-averaged value, in order to compare different ﬂow conditions.
+The thus obtained spatial distribution is showed In Fig. 13 for some
+representative cases. Figure 13(a) corresponds to case 2, where only
+the radial fuel line is fed. The area where the ﬂame is stable (low
+normalized standard deviation values) is short and compact, while
+signiﬁcant oscillations are present both in the downstream region
+and at the ﬂame root. Moving to case 5 (Fig. 13(b)), where the axial
+line is also fed, ﬂuctuations are signiﬁcantly reduced, especially in
+the downstream region. The effect of CO2 addition can be analyzed
+looking at Fig. 13(c), which represent the normalized standard
+deviation of case 11. In this case, oscillations are ampliﬁed at the
+base of the ﬂame, while the normalized standard deviation are just
+slightly higher in the downstream region than the corresponding
+case in standard air conditions.
+Emissions. Pollutant emissions were measured as well to assess
+the impact of CO2 addition and the potential emission abatement
+linked to the application of EGR to gas turbine engines. For the sake
+of clarity, only the two extreme fuel line split cases are reported,
+namely, the 100% RF split and the 40% RF–60% AF fuel split case,
+to fully characterize the burner behavior. In this case data have been
+reported as the raw measured value and not corrected at 15% of O2 at
+the exhaust, because the O2 content of the inlet comburent air is
+different for each case, and such comparison could lead to erroneous
+conclusions.
+Figure 14 shows the CO emissions as a function of the oxygen
+molar concentration in the incoming mixture for the 100% RF fuel
+split (cases 7–9) and the 40% RF–60% AF fuel line split (cases
+14–17).Ina similarway,Fig.15reportsthe correctedNOxemissions
+for the corresponding cases. In all cases, the measurements obtained
+in normal air conditions (21% oxygen molar fraction) are reported as
+well for a clearer comparison with the vitiated air cases.
+Starting from CO emissions, as the available oxygen diminishes
+the amount ofthe CO in the exhaust increases. This isone of the main
+drawback of EGR and one of the main limitations in terms of EGR
+applicability, apart from the ﬂame stability. Indeed, the low
+Fig. 11
+Average OH* chemiluminescence intensity for different
+fuel splits at decreasing oxygen content and constant ﬂame
+temperature (Tflame* 5 1)
+Fig. 12
+Comparison between OH* chemiluminescence meas-
+urements at various fuel split in normal andvitiated air conditions
+071007-8 / Vol. 146, JULY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+availability of oxygen slows down the reactivity and the thermody-
+namic equilibrium shifts toward a higher CO production. The
+introduction of the axial fuel line helps to tackle this issue as long as
+the injected CO2 amount is moderate. The CO rapidly increases in
+the 60% AF case at 19.5% oxygen molar concentration due to the
+lower oxidation rate, while in the 100% RF case the CO emissions
+continuously grow.
+An opposite trend can be found analyzing NOx emissions (Fig.
+15). As pointed out also during the analysis of the OH radical
+distribution, the CO2 injection leads to a lower reactivity that in turns
+helps reducing NOx emissions. This favorable effect is particularly
+evident at 100% RF where the NOx emissions were found to be
+particularly high compared to the other tested splits because of the
+poorer mixing. For the 40% RF–60% AF split case, the beneﬁts in
+terms of NOx emissions at decreasing oxygen availability are less
+evident. As pointed out before, the axial fuel line enhances the
+mixing and drives the NOx abatement, overshadowing the effect
+related to the decrease in oxygen content.
+Conclusions
+A novel lean premixed burner for industrial applications
+developed by Baker Hughes has been thoroughly characterized
+with combustion diagnostic techniques, emissions and stability
+limits measurements in order to explore the feasibility of integrating
+Exhaust Gas Recirculation.
+The burner ﬂow ﬁeld has been studied through PIV measurements
+in both reactive and nonreactive conditions, and the typical
+recirculation zones of swirl stabilized ﬂames are clearly identiﬁed.
+Thanks to OH* chemilumenescence measurements, when the solely
+radial line is fed, a shift in the ﬂame position is observed as the ﬂame
+temperature increases: the higher jet penetration moves the ﬂame
+stabilization region further downstream the burner exit section and
+the ﬂame assumes a lifted shape. Similarly, at constant ﬂame
+temperature, changes in the fuel split affect the ﬂame anchoring
+position: at high and low radial content the ﬂame is lifted, while at
+more balanced splits the ﬂame anchors in the recirculation zone
+inside the burner dump region. However, in terms of emissions, both
+CO and NOx beneﬁt from an increase in the axial line content. On the
+contrary, the burner stability limits worsen as the radial line content
+is decreased, being responsible for the ﬂame stabilization process.
+As expected, the progressive introduction of the axial line allows a
+more uniform fuel distribution and a reduction of temperature peaks.
+The burner was then tested in vitiated air conditions, at increasing
+CO2 content. Chemiluminescence intensity drops as the oxygen
+content decreases, indicating a lower ﬂame reactivity. As expected,
+the burner performance in terms of stability worsens as the oxygen
+available for the combustion process decreases. In vitiated air
+conditions, the reaction process is globally slowed down and the
+ﬂame position shifts downstream while maintaining the same shape.
+However, at 40% RF–60% AF fuel split, the combined effect of the
+axial fuel line increase and the oxygen decrease leads to an abrupt
+change in the ﬂame shape: the reaction zone is widespread involving
+almost the entire liner. In terms of emissions, one of the major
+drawback of air vitiation is the increase in CO emissions. As the
+oxidizer oxygen content decreases, the CO amount increases
+accordingly and a beneﬁt from the 40% RF–60% AF fuel split is
+still found. However, around 19% oxygen molar fraction, the
+amount of CO emissions of the aforementioned fuel split almost
+matches the 100% RF case. A similar behavior is found when
+analyzing the NOx emissions trends. On the contrary, the 100% RF
+case strongly beneﬁts from an oxidizer oxygen decrease. Therefore,
+a fuel ﬂow split more biased toward the radial line could help the
+ﬂame stability while not leading to such an increase in terms of
+emissions.
+At the most favorable conditions in terms of NOx emissions in
+standard air conditions, the potential emission abatement of close to
+EGR conditions was addressed in order to deﬁne a baseline for
+further burner development. Although for the baseline only CO2 was
+used instead of a realistic EGR mixture, future development will
+Fig. 13
+Maps of the normalized standard deviation of case 2 (a),
+case 5 (b), and case 11 (c)
+Fig. 14
+CO emissions as a function of the oxygen molar
+concentration for 100% RF and 40% RF - 60% AF fuel split case
+at constant ﬂame temperature (Tflame* 5 1)
+Fig. 15
+NOx emissions as a function of the oxygen molar
+concentration for 100% RF and 40% RF–60% AF fuel split case at
+constant ﬂame temperature (Tflame* 5 1)
+Journal of Engineering for Gas Turbines and Power
+JULY 2024, Vol. 146 / 071007-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+beneﬁt from a deeper investigation on the implications of its
+employment compared to N2 rich mixtures. In particular, the focus
+will be on the impact that the different mixtures have on the ﬂame
+reactivity.
+Finally, the present study remarks the importance of dedicated
+experimental investigations to understand the ﬂame behavior and to
+have a better overview of new burner concept performance in terms
+of emissions and stability limits. Chemiluminescence, being
+relatively simple to implement, bares the potential for a ﬂame
+diagnostics able to drive the burner design from the early phases of
+the design process.
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article
+are obtainable from the corresponding author upon reasonable
+request.
+Nomenclature
+Acronyms
+AA ¼ axial air
+AF ¼ axial fuel
+CCD ¼ charge-coupled device
+CCS ¼ carbon capture and storage
+CCU ¼ carbon capture and utilization
+CFD ¼ computational ﬂuid dynamics
+DLN ¼ dry low NOx
+EGR ¼ exhaust gas recirculation
+FoV ¼ ﬁeld of view
+GT ¼ gas turbine
+IRZ ¼ inner recirculation zone
+ISL ¼ inner shear layer
+LBO ¼ lean blow out
+LES ¼ large eddy simulations
+ORZ ¼ outer recirculation zone
+OSL ¼ outer shear layer
+PIV ¼ particle image velocimetry
+RA ¼ radial air
+RANS ¼ Reynolds-averaged Navier Stokes
+RF ¼ radial fuel
+UHC ¼ unburnt hydrocarbons
+VB ¼ vortex breakdown
+Symbols
+DP=P ¼ combustor pressure drop (%)
+Pi ¼ combustor air inlet pressure (Pa)
+Ti ¼ combustor air inlet temperature (C)
+Tﬂame ¼ ﬂame temperature (C)
+Tﬂame,ISO ¼ ﬂame temperature at ISO base load (C)
+Tflame ¼ normalized ﬂame temperature
+References
+[1] IEA, 2022, “World Energy Outlook 2022,” IEA, Paris, France, Report.
+[2] Lieuwen, T., Chang, M., and Amato, A., 2013, “Stationary Gas Turbine
+Combustion: Technology Needs and Policy Considerations,” Combust. Flame,
+160(8), pp. 1311–1314.
+[3] Guethe, F., de la Cruz Garcıa, M., and Burdet, A., 2009, “Flue Gas Recirculation in
+Gas Turbine: Investigation of Combustion Reactivity and NOx Emission,” ASME
+Paper No. GT2009-59221.
+[4] Burdet, A., Lachaux, T., De La, C., Garcıa, M., and Winkler, D., 2010,
+“Combustion Under Flue Gas Recirculation Conditions in a Gas Turbine Lean
+Premix Burner,” ASME Paper No. GT2010-23396.
+[5] Li, H., ElKady, A. M., and Evulet, A. T., 2009, “Effect of Exhaust Gas
+Recirculation on NOx Formation in Premixed Combustion System,” AIAA Paper
+No. 2009–226.
+[6] Tanaka, Y., Nose, M., Nakao, M., Saitoh, K., Ito, E., and Tsukagoshi, K., 2013,
+“Development of Low NOx Combustion System With EGR for 1700 C-Class Gas
+Turbine,” Mitsubishi Heavy Industries, Report No. 1.
+[7] Burnes, D., Saxena, P., and Dunn, P., 2020, “Study of Using Exhaust Gas
+Recirculation on a Gas Turbine for Carbon Capture,” ASME Paper No.
+GT2020-16080.
+[8] ElKady, A. M., Evulet, A., Brand, A., Ursin, T. P., and Lynghjem, A., 2008,
+“Exhaust Gas Recirculation in DLN F-Class Gas Turbines for Post-Combustion
+CO2 Capture,” ASME Paper No. GT2008-51152.
+[9] Evulet, A. T., ELKady, A. M., Branda, A. R., and Chinn, D., 2009, “On the
+Performance and Operability of GE’s Dry Low NOx Combustors Utilizing
+Exhaust Gas Recirculation for PostCombustion Carbon Capture,” Energy
+Procedia, 1(1), pp. 3809–3816.
+[10] Giorgetti, S., De Paepe, W., Bricteux, L., Parente, A., and Contino, F., 2017,
+“Carbon Capture on a Micro Gas Turbine: Assessment of the Performance,”
+Energy Procedia, 105, pp. 4046–4052.
+[11] Petersen, N. H., Bexten, T., Goßrau, C., and Wirsum, M., 2021, “Analysis of the
+Emission Reduction Potential and Combustion Stability Limits of a Hydrogen-
+Fired Gas Turbine With External Exhaust Gas Recirculation,” ASME Paper No.
+GT2021-58674.
+[12] Park, Y., Choi, M., Kim, D., Lee, J., and Choi, G., 2021, “Performance Analysis of
+Large-Scale Industrial Gas Turbine Considering Stable Combustor Operation
+Using Novel Blended Fuel,” Energy, 236, p. 121408.
+[13] De Santis, A., Ingham, D. B., Ma, L., and Pourkashanian, M., 2016, “CFD
+Analysis of Exhaust Gas Recirculation in a Micro Gas Turbine Combustor for CO2
+Capture,” Fuel, 173, pp. 146–154.
+[14] Cameretti, M. C., Tuccillo, R., and Piazzesi, R., 2013, “Study of an Exhaust Gas
+Recirculation Equipped Micro Gas Turbine Supplied With Bio-Fuels,” Appl.
+Therm. Eng., 59(1–2), pp. 162–173.
+[15] Zhang, S., Li, Y., Wang, S., Zeng, H., Liu, J., Duan, X., and Dong, H., 2020,
+“Experimental and Numerical Study the Effect of EGR Strategies on in-Cylinder
+Flow, Combustion and Emissions Characteristics in a Heavy-Duty Higher CR
+Lean-Burn NGSI Engine Coupled With Detail Combustion Mechanism,” Fuel,
+276, p. 118082.
+[16] Galindo, J., Climent, H., Navarro, R., and Garcıa-Olivas, G., 2021, “Assessment of
+the Numerical and Experimental Methodology to Predict EGR Cylinder-to-
+Cylinder Dispersion and Pollutant Emissions,” Int. J. Engine Res., 22(10), pp.
+3128–3146.
+[17] Gicquel, L. Y., Staffelbach, G., and Poinsot, T., 2012, “Large Eddy Simulations of
+Gaseous Flames in Gas Turbine Combustion Chambers,” Prog. Energy Combust.
+Sci., 38(6), pp. 782–817.
+[18] Hasti, V. R., Lucht, R. P., and Gore, J. P., 2019, “Large Eddy Simulation of
+Hydrogen Piloted CH4/Air Premixed Combustion With CO2 Dilution,” J. Energy
+Inst., 93(3), pp. 1099–1109.
+[19] Nassini, P. C., Pampaloni, D., Meloni, R., and Andreini, A., 2021, “Lean Blow-
+Out Prediction in an Industrial Gas Turbine Combustor Through a LES-Based
+CFD Analysis,” Combust. Flame, 229, p. 111391.
+[20] Jaravel, T., Riber, E., Cuenot, B., and Bulat, G., 2017, “Large Eddy
+Simulation
+of
+an
+Industrial
+Gas
+Turbine
+Combustor
+Using
+Reduced
+Chemistry With Accurate Pollutant Prediction,” Proc. Combust. Inst., 36(3),
+pp. 3817–3825.
+[21] Guyot, D., Guethe, F., Schuermans, B., Lacarelle, A., and Paschereit, C. O., 2010,
+“CH*/OH* Chemiluminescence Response of an Atmospheric Premixed Flame
+Under Varying Operating Conditions,” ASME Paper No. GT2010-23135.
+[22] De Persis, S., Cabot, G., Pillier, L., G€okalp, I., and Boukhalfa, A. M., 2013, “Study
+of Lean Premixed Methane Combustion With CO2 Dilution Under Gas Turbine
+Conditions,” Energy Fuels, 27(2), pp. 1093–1103.
+[23] Cerutti, M., Roma, M., Picchi, A., Becchi, R., and Facchini, B., 2019, “Improving
+Emission and Blow-Out Characteristics of Novel Natural Gas Low NOx Burners
+for Heavy Duty Gas Turbine,” ASME Paper No. GT2019-91235.
+[24] Cerutti, M., Riccio, G.,Andreini, A., Becchi, R., Facchini, B., and Picchi, A.,2019,
+“Experimental and Numerical Investigations of Novel Natural Gas Low NOx
+Burners for Heavy Duty Gas Turbine,” ASME J. Eng. Gas Turbines Power, 141
+(2), p. 021006.
+[25] Cerutti, M., Nassini, P. C., Pampaloni, D., and Andreini, A., 2021, “Experimental
+and Numerical Characterization of a Novel Natural Gas Low NOx Burner in
+Gas Turbine Realistic Environment,” ASME J. Eng. Gas Turbines Power, 143(7),
+p. 071018.
+[26] Dantec Dynamics, 2000, “FlowManager Software and Introduction to PIV
+Instrumentation,” Software User’s Guide, Denmark.
+[27] He, L., Guo, Q., Gong, Y., Wang, F., and Yu, G., 2019, “Investigation of OH*
+Chemiluminescence and Heat Release in Laminar Methane–Oxygen co-Flow
+Diffusion Flames,” Combust. Flame, 201, pp. 12–22.
+[28] Guethe, F., Guyot, D., Singla, G., Noiray, N., and Schuermans, B., 2012,
+“Chemiluminescence as Diagnostic Tool in the Development of Gas Turbines,”
+Appl. Phys. B: Lasers Opt., 107(3), pp. 619–636.
+[29] Sardeshmukh, S., Bedard, M., and Anderson, W., 2017, “The Use of OH* and CH*
+as Heat Release Markers in Combustion Dynamics,” Int. J. Spray Combust. Dyn.,
+9(4), pp. 409–423.
+[30] Terhaar, S., Kr€uger, O., and Paschereit, C. O., 2014, “Flow Field and Flame
+Dynamics of Swirling Methane and Hydrogen Flames at Dry and Steam Diluted
+Conditions,” ASME J. Eng. Gas Turbines Power, 137(4), p. 041503.
+[31] Lefebvre, A. H., and Ballal, D. R., 2010, “Gas Turbine Combustion: Alternative
+Fuels and Emissions,” Gas Turbine Combustion, 3rd ed., CRC press, Boca Raton,
+FL.
+[32] Montgomery Smith, L., Keefer, D. R., and Sudharsanan, S. I., 1988,
+“Abel Inversion Using Transform Techniques,” J. Quant. Spectrosc. Radiat.
+Transfer, 39(5), pp. 367–373.
+071007-10 / Vol. 146, JULY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/7/071007/7243079/gtp_146_07_071007.pdf by University of Cincinnati user on 31 December 2025

@@ -1,0 +1,900 @@
+
+--- Page 1 ---
+
+Full Length Article
+Influence of wall heat loss on emission characteristics of NH3/CH4/air 
+premixed flame in a model gas-turbine combustor
+Jeongje Park a,b, Young Tae Guahk a, Eun Kyung Lee a, Hookyung Lee a, Seong-kyun Im b
+,  
+Min Jung Lee c, Namsu Kim a,*
+a Energy Convergence System Research Department, Korea Institute of Energy Research, Daejeon 34129, Republic of Korea
+b Department of Mechanical Engineering, Korea University, Seoul 02841, Republic of Korea
+c Department of Future Energy Convergence, Seoul National University of Science and Technology, Seoul 01811, Republic of Korea
+A R T I C L E  I N F O
+Keywords:
+Ammonia
+Methane
+Model gas-turbine combustor
+Wall heat loss
+NO emission
+N2O emission
+A B S T R A C T
+This study investigated the effect of wall heat loss on the flame stability and emission characteristics of NH3/ 
+CH4/air premixed flames in a model gas-turbine combustor. Increasing ammonia mole fraction (10 ~ 40 %) 
+expanded the flame stability range at equivalence ratio ϕ ≥0.76, preventing flashbacks and ensuring stable 
+combustion, particularly at low flow rates. For ϕ < 0.76, the stable region was narrower, approaching the blow- 
+off limit. These stable regions exhibited more significant fluctuations at swirl number S = 0.78 than at S = 0.45, 
+and lift-off occurred earlier at the dump plane. Detailed analyses revealed the impact of heat loss on flame 
+behavior and emissions. Notably, local extinction phenomena significantly influenced flame dynamics, resulting 
+in a pronounced increase in the N2O concentration while NO decreased. The chemical reactions responsible for 
+NO and N2O production are highly sensitive to heat loss, particularly under unsteady flame conditions. A 
+chemical reactor network model (CRN) was developed to predict and analyze emission characteristics. Although 
+the model qualitatively captured the measured emission trends of NO and N2O, it exhibited significant dis­
+crepancies, particularly in predicting N2O, and NO was overestimated. This is induced by the incompetence of 
+the model, which does not account for local extinction phenomena, and the limitations of the chemical mech­
+anism used in this study.
+1. Introduction
+The continued use of fossil fuels, which produce greenhouse gases, 
+has considerably accelerated global warming. Therefore, the importance 
+of carbon–neutral fuels like ammonia and hydrogen has become evident 
+in moving toward a carbon-free era. Among them, ammonia, which can 
+be easily stored as a liquid at room temperature under a pressure of 8 bar 
+[1], is a promising hydrogen carrier owing to its high volumetric 
+hydrogen density [2]. However, ammonia exhibits a small lower heating 
+value (LHV), a narrower flammability limit, and a slower laminar flame 
+speed than methane. This poor combustion performance increases the 
+risk of flame blow-off [3,4], and a larger ignition energy is required to 
+ignite the ammonia–air mixture [5]. In addition, ammonia undergoes 
+oxidation more rapidly than nitrogen in the air, producing high NOx 
+levels [6]. N2O, an intermediate species in ammonia combustion, has a 
+Global Warming Potential (GWP) approximately 273 times higher than 
+that of CO2 over 20 years [7]. Therefore, a comprehensive 
+understanding of the ammonia combustion characteristics and its 
+blended fuel is essential for its potential use as a carbon–neutral fuel.
+In a swirl combustor, compared with methane, an ammonia flame 
+can undergo excessive stretching commensurate with the extinction 
+strain rate [8]. Although this could lead to local extinction, impacting 
+flame stability and emissions, recirculation zones contribute to stabi­
+lizing the ammonia flame by increasing the residence time of the re­
+actants. Numerous studies have been conducted on ammonia flame 
+stability [3,9–13]. Hayakawa et al. [9] compared the stability of 
+ammonia flames in swirl burners using cylindrical and rectangular 
+chambers. The stability limits were narrower in the rectangular chamber 
+than in the cylindrical chamber, owing to the interrupted flow structures 
+at the corners. Khateeb et al. [3] demonstrated that the stability limit 
+expanded by up to 50 % of the ammonia fraction at the same Reynolds 
+number and then narrowed. They also found that the swirl number had 
+little impact on flame stability in an ammonia/methane swirl flame. 
+Kurata et al. [14] developed a micro gas-turbine that uses nonpremixed 
+* Corresponding author at: Energy Convergence System Research Department Korea Institute of Energy Research, Daejeon 34129, Republic of Korea.
+E-mail address: nskim@kier.re.kr (N. Kim). 
+Contents lists available at ScienceDirect
+Fuel
+journal homepage: www.elsevier.com/locate/fuel
+https://doi.org/10.1016/j.fuel.2025.136012
+Received 16 November 2023; Received in revised form 4 March 2025; Accepted 16 June 2025  
+Fuel 404 (2026) 136012 
+Available online 23 June 2025 
+0016-2361/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+ammonia/methane/air combustion to generate 31.4 kW of electric 
+power. They observed an increase in unburnt ammonia when the 
+injected ammonia mole fraction exceeded 65 %, whereas the NO levels 
+decreased. This finding was consistent with the results reported by 
+Khateeb et al. [3]; however, the quantity of NO produced remained 
+substantial.
+The primary reaction pathways contributing to NOx formation 
+include the thermal NOx, N2O, HNO, and NHi pathways [15]. The major 
+radicals involved in this pathway are O, H, and OH. Particularly, OH 
+radicals play a significant role in the oxidation of NH2 and NH, leading 
+to NO production [16], and NO and OH exhibit a positive correlation 
+[17]–[18]. Moreover, NO is concentrated in regions with high heat 
+release rates and OH concentrations, and local NO formation is high in 
+the vortex regions [19]. Viswamithra et al. [20], using a chemical 
+reactor network model, demonstrated that NO production is primarily 
+driven by the HNO pathway, while NO consumption is influenced by the 
+N2O and NHi pathways. Thermal NOx emissions were found to be min­
+imal. Zhang et al. [21] also reported that thermal NOx is minor at low 
+ammonia mole fractions, and N2O is highly sensitive to NO and O rad­
+icals through the reaction N2O + O → 2NO.
+Ammonia has a lower adiabatic flame temperature than methane, 
+which reduces the risk of damage to the liner owing to thermal fatigue. 
+However, it may be more susceptible to flame quenching due to the liner 
+cooling in a gas-turbine combustor. In addition, as the flame heat loss 
+increases, NO emissions decrease, while N2O emissions increase 
+[18,22,23]. Zhang et al. [22] found that cooling an ammonia swirl flame 
+from a liner decreased OH radical concentration and shifted NO away 
+from the wall. This resulted in a reduced combustion intensity and ef­
+ficiency due to the decreased heat release rate caused by wall heat loss. 
+Moreover, under fuel-lean conditions, an increase in the cooling flow 
+rate leads to lower NO levels and increases N2O levels. This phenomenon 
+is likely due to the inhibition of O/H radical production by the branching 
+reaction H + O2 ⇌ OH + O [18], which is particularly sensitive to high 
+temperatures. In a study by Okafor et al. [23], under insulated condi­
+tions, NO levels were found to be higher due to lower heat loss compared 
+to the uninsulated condition, whereas N2O levels were higher in the 
+uninsulated condition. In a micro gas-turbine combustor using ammonia 
+fuel [24], a greater quantity of N2O was produced when the liner tem­
+perature was low. Mashruk et al. [25] analyzed emission characteristics 
+with experiments and confirmed the effect of Reynolds number and 
+thermal power with adding ammonia in NH3/H2/Air premixed swirling 
+flames. NO and NO2 decreased with ammonia concentration, but N2O 
+increased at the same thermal power. They also pointed out that the N2O 
+emission increased at high ammonia flames, which results in increased 
+heat loss and greater NH radical production. Meanwhile, the effect of 
+radiation heat loss in a fuel-lean one-dimensional laminar flame simu­
+lation was minor for N2O but decreased for NO [26].
+The main challenges associated with ammonia flames include a 
+narrow flame stabilization range, slow flame speed, and significant NO 
+and N2O emissions. A potential strategy to overcome these limitations 
+and enable the use of ammonia in conventional combustion systems 
+with minimal system modifications is to blend ammonia with a more 
+reactive mixture such as CH4. In a previous study on NH3/H2/Air swirl 
+flames [25], the emission characteristics were thoroughly analyzed with 
+respect to the heat load and Reynolds number. It is known that OH 
+radicals have a significant effect on NO and N2O at low temperatures. In 
+CH4 combustion, OH radicals are primarily produced from H radicals 
+originating predominantly from CH4 [27]. Consequently, we aimed to 
+study the influence of wall temperature and local flame extinction on 
+combustion and emission characteristics, considering thermal power 
+and Reynolds number, in premixed NH3/CH4/air flames in a model gas 
+turbine combustor.
+The remainder of this paper is organized as follows. Section 2 details 
+the experimental setup, conditions, and numerical validation of the 
+chemical reactor network (CRN) model used in the analysis. Section 3.1
+explores the flame stability with both the swirl number and ammonia 
+mole fraction. Section 3.2 discusses the distribution of wall tempera­
+tures, emission characteristics, and the relationship between operating 
+parameters and the heat release rate. Section 3.3 shows the effects of 
+wall heat loss resulting from variations in wall temperature and Rey­
+nolds number through numerical analysis using the CRN model. Finally, 
+Section 4 concludes the study.
+2. Methods
+2.1. Experimental setup and test matrix
+Fig. 1 shows a schematic of the experimental equipment used in this 
+study. The experimental process began with the CH4/air mixture passing 
+through the swirler and being ignited by a spark ignitor, and ammonia 
+was injected according to the experimental conditions. Each gas fraction 
+in the mixture was calculated using Eq. (1), based on the equivalence 
+ratio (ϕ) and ammonia mole fraction (α). 
+{α • NH3 + (1 −α) • CH4} + {0.75 • α + 2 • (1 −α) }/ϕ(O2 + 3.76N2)
+(1) 
+We used 99 % pure methane and ammonia with flow rates regulated by 
+mass flow controllers (SLA5851, Brooks), ensuring a repeatability of 0.2 
+% of the set point. The chamber had four sides of 70 mm × 180 mm 
+quartz windows. The swirl and dump planes were aligned to capture 
+transient characteristics, such as lift-off upstream. Flame visualization 
+was performed using a DSLR camera (D7100, Nikon) and a High-Speed 
+(HS) camera (FASTCAM Mini AX50, Photron). High-speed camera im­
+ages were captured diagonally to enhance the effectiveness of capturing 
+flame-wall interactions. We employed an infrared (IR) camera (T620, 
+FLIR) with a spectral range of 7.5 to 15 μm to measure the wall tem­
+perature. As wavelengths larger than 5 μm cannot transmit through 
+quartz, this allowed us to measure the wall temperature accurately. An 
+IR image is taken at a specific time when the wall temperature has 
+stabilized under experimental conditions. The temperature variation is 
+less than ± 1 K/min, and the accuracy of the IR camera is within ± 2 % 
+of the reading. The heat release rate was quantified by using a photo­
+multiplier tube (PMT) (H11461-02, Hamamatsu) equipped with a 
+bandpass filter (307FS10-25, Andover) centered at 307.1 nm (FWHM =
+10 ± 2 nm), corresponding to OH wavelength near 300 nm. Both the 
+PMT and IR cameras were positioned in front of the chamber.
+Fig. 2 (a) shows the shapes and dimensions of the swirlers used in 
+this study. Two swirlers were employed with swirl blade angles of 30◦
+and 45◦. The swirl number is determined using Eq. (2), resulting in S =
+0.45 and S = 0.78, respectively. D0 is swirl diameter, Di is hub diameter, 
+and θ is swirl angle. 
+S = 2
+3
+[
+1 −(Di/Do)3
+1 −(Di/Do)2
+]
+tanθ
+(2) 
+Fig. 2 (b) shows the gas measurement system. Exhaust gas mea­
+surements were conducted using a specially designed sampling probe to 
+account for the radial distribution of the emissions at the outlet. This 
+probe features hole diameters that increase with the distance from the 
+center [9]. The concentrations of NO and N2O were determined using 
+FTIR (MIDAC), which can measure high emission levels. O2 concentra­
+tions were measured using a gas analyzer (AO 2020, ABB), noted for its 
+linearity deviation of ≤1 % of span. The O2 measurements were 
+intended to validate the theoretically appropriate O2 concentration for 
+the experimental conditions. The exhaust gas, containing NO, N2O, and 
+O2, flows at a rate of about 40.6 cm/s through the FTIR and it was 
+measured exclusively at S = 0.45.
+Fig. 3 illustrates the wall temperature averaging method obtained 
+from an IR temperature image. The average temperature (TAvg,i) for i was 
+calculated using Eq. (3), where N represents the total number of pixels in 
+the j direction. Tij corresponds to the temperature at locations i and j. 
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+2 
+
+
+--- Page 3 ---
+
+TAvg,i =
+∑N
+j=1Tij
+N
+(3) 
+The experimental conditions were determined by the Reynolds number 
+(Re), heat load (Q), and ammonia mole fraction (α). The Reynolds 
+number is calculated from the properties of the mixture and is defined by 
+Eq. (4). 
+Re =
+(ρoUoD
+μo
+)
+(4) 
+ρo is the density of the mixture, Uo is the flow velocity, μo is the viscosity 
+of the mixture and it was calculated by using gas mixing rules [28]. D is 
+the pipe diameter. The flow velocity determined based on the pipe flow 
+Reynolds number before passing through the swirler. Additionally, 
+given that the wall temperature was significantly affected by the heat 
+load, we chose a consistent heat load condition. As shown in Eq. (5), the 
+heat load was calculated based on the lower heating value (LHV) and 
+mass flow rate ( ˙m) of the fuel mixture. 
+Q = LHV • ˙mfuel
+(5) 
+Table 1summarizes the 36 experiments conducted. The experimental 
+conditions are determined as the intersection points of constant Q(U, ϕ) 
+and constant Re(U, ϕ) curves. In theoretical calculations, the variations 
+in Re and Q owing to α ranging from 0 to 0.4 were less than 200 and 0.04 
+kW, respectively. These deviations were ignored, so Q and Re marked as 
+Q and Re. In addition, they were categorized into Groups I, II, and III to 
+compare the flame characteristics based on the Reynolds number under 
+similar equivalence ratios.
+Fig. 1. Schematic of the experimental setup.
+Fig. 2. (a) Schematics of swirler, (b) Emission measurement system used in this study.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+3 
+
+
+--- Page 4 ---
+
+2.2. Numerical modeling
+2.2.1. Chemical reactor network (CRN)
+A CRN model was developed to simulate the combustion process 
+within the model combustor. As shown in Fig. 4, this model incorporates 
+four Perfectly Stirred Reactors (PSR), each representing different zones 
+within the combustor: the flame zone, Central Recirculation Zone 
+(CTRZ), and Corner Recirculation Zone (CRZ). Heat loss through the 
+wall has a notable impact on NO and N2O emissions [22,23]. The heat 
+loss based on the wall temperature captured by an IR camera was 
+incorporated. Model parameters, such as residence time influenced by 
+Re and reactor volume, were derived from additional Reynolds-averaged 
+Navier-Stokes equations (RANS) CFD simulations. The total heat loss 
+through heat transfer to the wall was calculated using Eq. (6). 
+Qloss,total = k
+(
+Tflame −Twall
+)/
+δ
+(6) 
+Here, k is the thermal conductivity of the quartz, δ is the quartz 
+thickness, Tflame is the temperature near the wall and it is obtained from 
+CFD results, and Twall is the peak wall temperature measured through an 
+IR camera. The RANS simulation was conducted using OpenFOAM 
+(reactingFoam). The combustor was discretized into 3D unstructured 
+mesh with 3 × 106 finite volume cells. The equations for the mass, 
+momentum, and energy conservations together with the species trans­
+port equations were solved using a 2nd-order accuracy numerical 
+scheme. The turbulence effect was described by the k-omega SST model, 
+and the well-stirred reactor model was applied for turbulent combus­
+tion. At the inlet, Dirichlet boundary conditions were applied to veloc­
+ity, temperature, and fuel composition based on experimental 
+conditions. The mass flow rate of each reactor was determined by 
+considering the recirculation zones. The reactant composition was based 
+on the experimental conditions of the inlet mixture at 298 K and 1 atm. 
+The CRN calculations were performed using Cantera [29].
+Fig. 5 shows a comparison between the experimental data and the 
+predictions from the CRN for NO and N2O emissions. The standard de­
+viations for the experiments were less than 15 ppm for NO and less than 
+2 ppm for N2O. Various mechanisms were used, including those from 
+Kovaleva et al. [30], Arunthanayothin et al. [31], Konnov et al. [32], 
+Glarborg et al. [33], Okafor et al. [34], and POLIMI [35]. In general, the 
+CRN model predicted higher NO and lower N2O levels than the experi­
+mental data. For Re = 12000 and Re = 13000, N2O levels were close to 
+zero but showed a trend similar to the experimental results at Re =
+14000. Despite these discrepancies, both the model and experimental 
+data demonstrated similar trends under experimental conditions. 
+Considering the uncertainties in predicting NOx and N2O with current 
+state-of-the-art chemistry mechanisms, and given the model’s simplicity 
+[20,21], this CRN model is suitable for identifying important chemical 
+reactions and making qualitative predictions. Among six state-of-the-art 
+NH3/CH4/Air combustion chemistry mechanisms, the Kovaleva mech­
+anism, which comprises 59 species and 354 elementary reactions, yields 
+the best prediction of the measured NO and N2O in our CRN configu­
+ration. Thus, emission characteristics and reaction sensitivity were 
+analyzed using this mechanism.
+3. Results and discussion
+3.1. 1 flame stability and characteristics
+Fig. 6 shows the stable region of flame as a function of ϕ. For ϕ ≥
+0.76, this region expands as α increases, up to 0.4, for both swirl 
+numbers. Khateeb et al. [3] found that the stable region expands in NH3/ 
+CH4/Air swirl flames when the ammonia mole fraction exceeds a certain 
+value, preventing flashbacks. We noticed flame perturbation near the 
+swirler under low flow rate and low ammonia mole fraction conditions, 
+particularly outside the stable region for S = 0.78 (i.e. α = 0.1, ϕ = 0.85). 
+It is attributed to the vortex breakdown at the center, but the flame 
+stabilized at a constant height as the ammonia mole fraction increased at 
+fixed ϕ and U (i.e., α = 0.4). This occurred because of the slower flame 
+speed, weakening the reverse flow upstream. For ϕ < 0.76, the stable 
+region contracted owing to decreased reactivity from added ammonia 
+and increased flow rate, nearing the blowout limit and causing insta­
+bility. The stable region is considerably broader at S = 0.78 than at S =
+0.45, but at S = 0.78, the flame exhibits noticeable vibrations and noise 
+in the unstable region. The acoustic perturbation observed at the flam­
+mability limit is likely akin to the thermoacoustic instability mechanism 
+observed in lean premixed methane combustors [36].
+Fig. 7 illustrates the flame shape captured in the same area as the IR 
+image under the experimental conditions of Q = 9 kW. As the mole 
+fraction of ammonia increased, the white color gradually diminished, 
+and the flame transitioned to orange. This change was due to the intense 
+orange chemiluminescence from excited NH2 and NO2 [37], which 
+became more noticeable as the NH3 concentration increased. For S =
+0.78, as Re increased from 16,000 to 18000, the lift-off (LO) condition 
+shifted to lower α, dropping from 0.3 to 0.1. This change is attributed to 
+the reduced laminar flame speed due to the addition of ammonia. 
+Interestingly, at the same Re, lift-off happens for a lower α at S = 0.78 
+than at S = 0.45, which can be attributed to differences in the strain rate 
+near the dump plane, and LO correlated linearly with the extinction 
+strain rate and the fluid dynamic strain rate at the flame base [38]. The 
+Fig. 3. Wall temperature averaging method.
+Table 1 
+Experimental conditions of ammonia/methane/air premixed combustion.
+No.
+Group
+Q [kW]
+Re
+α
+ϕ
+U [m/s]
+1
+I
+7
+12,000
+0.1, 0.2, 0.3, 0.4
+0.89
+4.95
+2
+8
+14,000
+0.87
+5.79
+3
+9
+16,000
+0.85
+6.62
+4
+II
+7
+13,000
+0.1, 0.2, 0.3, 0.4
+0.81
+5.39
+5
+8
+15,000
+0.8
+6.23
+6
+9
+17,000
+0.79
+7.06
+7
+III
+7
+14,000
+0.1, 0.2, 0.3, 0.4
+0.74
+5.84
+8
+8
+16,000
+0.74
+6.67
+9
+9
+18,000
+0.74
+7.5
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+4 
+
+
+--- Page 5 ---
+
+local normal strain rate (ast) of the flame front was determined using Eq. 
+(7) [39]. 
+ast = ninj
+∂ui
+∂xj
+, n = (n1, n2, n3) =
+∇YP
+|∇YP|
+(7) 
+where ni is the local flame normal, ui is the velocity field, and Yp is 
+progress variable defined as H2O mass fraction. Using the CFD simula­
+tion results at experimental condition 9, we calculated the normal strain 
+rate near the dump plane for both swirl numbers, as shown in Fig. 8. In a 
+previous experimental study on a twin premixed counter flame con­
+ducted by Xiao et al. [40], the estimated extinction strain rate (aExt) 
+under conditions similar to experimental condition 9 was 220.56 s−1 (ϕ 
+≈0.85). At S = 0.78, the distribution of the normal strain rate was wider, 
+and its mean value was more similar to the extinction strain rate than at 
+S = 0.45. The occurrence of lift-off near the dump plane resulting from 
+the difference in swirl numbers can be attributed to the higher likelihood 
+of encountering a strain rate greater than aExt at elevated swirl numbers.
+3.2. Wall temperature and emissions
+The temperature distributions for the two swirl numbers are largely 
+similar, with the only exception being the peak wall temperature (Twall). 
+Fig. 9 shows the Twall for each experimental condition. When both ϕ and 
+Q were increased, Twall also increased, consistent with variations in 
+adiabatic flame temperature because of changes in heat load and reac­
+tant composition. Under the same Q, an increase in Re decreased ϕ, 
+causing Twall to decrease. Twall is slightly higher at S = 0.78 than at S =
+0.45. This can be attributed to the intensified recirculation zone and the 
+contact with the wall. The flames at S = 0.78 directly impacted the wall, 
+leading to an enhancement in the recirculation zone and heat transfer to 
+the wall. Consequently, the flame front was positioned closer to the 
+chamber wall and moved more upstream than at S = 0.45, resulting in a 
+higher peak temperature. Although the temperature variation with α 
+remained minor in Groups I and II, it significantly decreased in Group III. 
+This reduction was attributed to localized extinction on the wall due to 
+reduced flame reactivity and an extended quenching distance, resulting 
+from the addition of ammonia under the low equivalence ratio condi­
+tions of Group III [5].
+Fig. 10 shows the flame images of Groups I, II, and III captured using 
+a high-speed camera at S = 0.45. In Groups I and II, the flame intensities 
+remained relatively constant. However, in Group III, the flame devel­
+oped between 0 and 15 ms, after which the flame area decreased 
+because of local extinction from 15 to 30 ms. In addition, local extinction 
+and reignition occurred periodically, contributing to the lower wall 
+temperature in Group III than in Groups I and II. In Fig. 11, the OH* 
+intensity measured using the PMT is presented as a probability density 
+function. OH* serves as a reliable marker for predicting the heat release 
+Fig. 4. (a) Construction of CRN model from CFD result, (b) CRN model.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+5 
+
+
+--- Page 6 ---
+
+rate [41,42]. However, recent studies incorporating ammonia in the 
+mixture have shown that NH* and NH2* are effective indicators for 
+determining the maximum heat release rate [43,44]. In cases where the 
+mixture contains a lot of ammonia, OH* alone may not accurately 
+represent the heat release location and intensity. Meanwhile, NH* and 
+OH* distributions seem to correlate well [25,45], and the mixture is 
+predominantly methane under the experimental conditions. Therefore, 
+OH* is considered appropriate to measure the change in heat release 
+rate resulting from local extinction. The mean OH* signal decreased 
+with an increase in the ammonia mole fraction, owing to the increased 
+OH radical consumption for ammonia oxidation, which is consistent 
+with previous studies [46]. In Group III at α = 0.4, the distributions 
+exhibited significant fluctuations with larger standard deviations 
+compared to the other groups. This indicates frequent local extinctions 
+under these conditions.
+In the same group, an increase in the Re increased the OH* intensity. 
+The OH radicals are primarily produced from H radicals and O2 mole­
+cules, with H radicals originating predominantly from CH4 [27]. 
+Furthermore, OH radicals are consumed to oxidize NH3 molecules, 
+producing NH2 and NH species. In Group I, OH radicals were the most 
+Fig. 5. Predicted and measured NO and N2O for experimental conditions at Q = 7 kW.
+Fig. 6. Stability region of ammonia–methane–air swirl flames as a function of ϕ for (a) S = 0.78 (b) S = 0.45.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+6 
+
+
+--- Page 7 ---
+
+abundant because of their proximity to stoichiometric conditions, which 
+agrees with previous findings [47]. As the Re increased, the quantities of 
+reactants, such as CH4 and NH3 also increased. However, given the 
+relative deficiency of NH3 for consuming OH radicals, more OH radicals 
+were produced.
+Fig. 12 shows the concentrations of N2O and NO with respect to Twall. 
+In Group I, N2O levels remained relatively constant regardless of α. For 
+Group II, elevated N2O levels were observed only with α = 0.4. In Group 
+III, the N2O gradually increases up to α = 0.3, except a sharp increase 
+occurred at α = 0.4. This variation is attributed to changes in flame 
+reactivity based on α under identical Q, leading to enhanced heat loss 
+and subsequent local extinction. This explains the substantial N2O for­
+mation owing to the absence of H radicals at low temperatures [23]. As 
+shown in Figs. 10 and 11, local extinction at α = 0.4 amplifies flame heat 
+loss and hinders N2O consumption, increasing N2O concentration. 
+Notably, in Group III, the N2O concentrations showed similar trends 
+regardless of Twall, indicating that the wall temperature alone could not 
+account for significant N2O formation. The NO levels increase with α in 
+Groups I and II. However, in Group III, NO exhibited non-monotonic 
+behavior with α. NO levels appear to decrease due to increased heat 
+loss from the wall resulting from local extinction at α = 0.4. This pattern 
+aligns with previous studies [22,23], which suggested that enhanced 
+heat loss tends to lower NO levels while increasing N2O levels. Overall, 
+the NO concentration decreased gradually as Re increased under the 
+same heat load. The decline in NO levels, influenced by the reduced wall 
+temperature and increased Re, is explored further in Section 3.3
+through a numerical analysis.
+Fig. 7. Direct Flame Images for Q = 9 kW.
+Fig. 8. Normal strain rate distributions computed from RANS simulations for 
+two swirl numbers at experimental condition 9 for α = 0.2.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+7 
+
+
+--- Page 8 ---
+
+3.3. Numerical analysis for experimental results
+To analyze the effects of Twall and Re on emissions, numerical ana­
+lyses were performed using a CRN model, as shown in Fig. 13. Overall, 
+the impact of wall temperature on emissions is greater than that of Re 
+under the same heat load. Zhang et al. [22] demonstrated that aug­
+menting wall heat loss in ammonia/air flames leads to decreased NO 
+emissions and increased N2O emissions. Likewise, the increased heat 
+loss results in decreased wall temperature, leading to a reduction in NO 
+emissions. N2O levels were close to zero except when Twall = 800 K. For a 
+fixed Q, a relatively higher wall temperature implies lower heat loss and 
+a more stable flame with higher temperatures. Increasing Re with a 
+decrease in ϕ leads to a relatively unstable flame, and the resulting 
+decrease in flame temperature further enhances N2O production, as 
+depicted in Fig. 10. As shown in Fig. 12, increasing the Re under the 
+same heat load not only shortens the residence time required for 
+adequate NO production but also decreases the production of H radicals 
+because of the lower equivalence ratio. In the same group, NO decreases 
+as the Re increases. This can be attributed to factors such as radiative 
+heat loss and short residence times. Although the radiation heat loss 
+Fig. 9. Peak wall temperature with α for (a) S = 0.78, (b) S = 0.45 at operating points.
+Fig. 10. High speed flame images near the wall for (A) ϕ = 0.89, (B) ϕ = 0.81, (C) ϕ = 0.74 in Q = 7 kW, α = 0.4, S = 0.45.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+8 
+
+
+--- Page 9 ---
+
+decreases as the flow rate increases with advancing fluctuation velocity 
+[48], a greater effect of radiation heat loss due to temperature fluctua­
+tions is expected to reduce NO levels [26,49]. Meanwhile, N2O has a 
+relatively small effect on the existence of the recirculation zone and 
+radiation heat loss [26,50]; therefore, the N2O levels are similar.
+Fig. 14 shows the numerical analysis results with experimental data 
+for all the operating points. In general, the CRN model tends to under­
+estimate N2O emissions, a trend consistent with previous studies [51]. In 
+this study, the freely propagating premixed flame significantly un­
+derestimates N2O, whereas the stagnation flame more accurately 
+captures N2O emissions. These findings suggest that heat loss to the wall 
+is a major source of N2O production, particularly at low fuel–air 
+equivalence ratios. However, accounting for such flame-wall in­
+teractions is challenging within the CRN framework, which relies on PSR 
+and PFR, as it would require modeling microscale transport processes. 
+Additionally, in Groups I and II, the predicted N2O concentration is 
+nearly zero, with a standard deviation of approximately 1.17 ppm. 
+Given that the measurement error for N2O is around 10 %, this low 
+concentration is highly vulnerable to measurement errors, further 
+contributing to the discrepancies between the experimental and 
+Fig. 11. Probability density distributions of OH* intensity for S = 0.45.
+Fig. 12. Measured N2O and NO as a function of Twall for α = 0.1–0.4 at S = 0.45.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+9 
+
+
+--- Page 10 ---
+
+simulated data. However, in Group III at Re = 14000, they exhibited a 
+similar trend to the experimental results. As demonstrated in Fig. 13, it 
+suggests that N2O emissions are sensitive to wall temperature, leading to 
+a sharp increase. Thus, considering the heat transfer between the flame 
+and the wall temperature, it is essential to segment the reactor network 
+model based on flame temperature [52] and carefully define heat loss 
+for each segment. Moreover, as we observed in Fig. 10, the flame-wall 
+interaction of this flame shows continuous local extinction and re- 
+ignition. However, due to the intrinsic limitation of the steady state 
+assumption, this unsteady phenomenon could not be described by the 
+CRN. Under the same heat load, NO decreased as Re increased. 
+Compared with the measurements, the model that considered the resi­
+dence time of the reactants successfully captured the qualitative trends 
+of NO emissions under the same heat load. Although over-predicted, the 
+NO values showed good agreement with the experiments, considering 
+the simplicity of the model and the uncertainties in the chemistry 
+mechanism.
+Figs. 15 and 16 show the reaction sensitivity for N2O and NO, 
+respectively. This graph shows the five reactions with the highest 
+sensitivity. Sensitivity is defined as 
+Sj,i =
+⃒⃒⃒⃒
+∂Yj
+∂ki
+⃒⃒⃒⃒
+(8) 
+where Yj is the mass fraction of N2O or NO, and ki is the pre-exponential 
+factor of reaction i. In Fig. 15, important reactions in the N2O reduction 
+pathway, such as N2O(+M) ⇌ N2 + O(+M), NH + NO ⇌ H + N2O, and 
+H + N2O ⇌ N2 + OH, were identified. Notably, the third-body reaction, 
+Fig. 13. Emission with α for Q = 7 kW, S = 0.45.
+Fig. 14. Predicted N2O and NO as a function of Twall for α = 0.1–0.4 at S = 0.45.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+10 
+
+
+--- Page 11 ---
+
+N2O(+M) ⇌ N2 + O(+M), exhibited the highest sensitivity for all cases, 
+consistent with previous observations [51] of its significance as a major 
+N2O reduction pathway with strong temperature dependence. This re­
+action accounts for the incomplete N2O reduction observed in the NH3/ 
+H2/air flames with wall heat loss. Reactions involving H radicals, 
+particularly N2O + H ⇌ N2 + OH and NH + NO ⇌ H + N2O, played an 
+important role, with their sensitivity magnitudes increasing with Re and 
+α. An increase in H radicals promoted N2O reduction via the reactions 
+N2O + H ⇌ N2 + OH and NH + NO ⇌ H + N2O. Overall, this abrupt 
+increase in sensitivity magnitude is consistent with the dramatic varia­
+tion of N2O emission with high Re and α. By contrast, as shown in 
+Fig. 16, sensitivity analysis of NO indicated subtle variations with 
+changes in Re and α, with sensitivity generally increasing as α increased. 
+The interplay between NO and N2O was evident in the NH + NO ⇌ H +
+N2O reaction, highlighting the trade-off between the two species. Re­
+actions producing HNO (NH + OH ⇌ H + HNO, NH2 + O ⇌ H + HNO) 
+were identified as pivotal contributors to NO production. HNO is an 
+intermediate species in the NH3 oxidation process and is eventually 
+converted into NO through reactions with OH, NH2, and M [53]. The 
+sensitivity analysis results agree with the findings of the previous studies 
+on premixed flames using NH3/air or NH3/H2/air mixtures, indicating 
+that the emission characteristics of NO and N2O in NH3/CH4/air pre­
+mixed flames are predominantly influenced by NH3.
+Fig. 15. Sensitivity analysis for N2O for Q = 7 kW, S = 0.45.
+Fig. 16. Sensitivity analysis for NO for Q = 7 kW, S = 0.45.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+11 
+
+
+--- Page 12 ---
+
+4. Conclusion
+In this study, we investigated the effects of heat loss through 
+combustor walls on the flame stability and emission characteristics of 
+NH3/CH4/air premixed swirl flames in a gas-turbine model. We found 
+that enhancing the ammonia mole fraction expands the flame’s stability 
+regime at lower flow velocities (ϕ ≥0.76) by reducing reactivity and 
+preventing flashback. However, at ϕ < 0.76, higher flow rates and 
+ammonia addition led to flame blowout. At a swirl number (S) of 0.78, 
+the recirculation zones, including both the corner and central regions, 
+were more pronounced compared to those at S = 0.45. Additionally, 
+acoustic perturbations and signs of flame instability began to emerge 
+near the flammability limit. The flame lifted off due to the higher strain 
+rates at the dump plane, which were greater than those observed at S =
+0.45.
+Temperature distribution along the combustor wall, mirroring 
+adiabatic flame temperature trends, is shown to be modulated by the 
+swirl number and the presence of recirculation zones, impacting emis­
+sions. Under reduced reactivity conditions (ϕ = 0.74, α = 0.4), local 
+extinction significantly lowered wall temperatures and caused notice­
+able variations in N2O and NO emissions. N2O levels increased in the 
+presence of local extinction, while NO concentrations dropped 
+considerably.
+In the numerical analysis, wall heat loss had a more pronounced 
+effect on NO and N2O concentrations compared to changes in Reynolds 
+number and equivalence ratio under the same heat load. NO levels were 
+reduced due to shorter residence times and fewer OH radicals, while 
+N2O reaction pathways, particularly N2O(+M) ⇌ N2 + O(+M), showed 
+high sensitivity to heat loss. Numerical simulation shows that accurate 
+prediction of N2O emissions requires a more sophisticated model 
+capable of incorporating unsteady flame dynamics. By contrast, the 
+trend in NO emissions can be explained by variations in wall tempera­
+ture, equivalence ratio, and flow residence time using a chemical reactor 
+network modeling approach.
+CRediT authorship contribution statement
+Jeongje Park: Writing – original draft, Visualization, Validation, 
+Software, Investigation, Formal analysis, Data curation. Young Tae 
+Guahk: Writing – review & editing, Resources, Project administration, 
+Methodology, Funding acquisition, Data curation. Eun Kyung Lee: 
+Resources, Methodology. Hookyung Lee: Writing – review & editing. 
+Seong-kyun Im: Writing – review & editing, Supervision, Methodology, 
+Conceptualization. Min Jung Lee: Writing – review & editing, Super­
+vision. Namsu Kim: Writing – review & editing, Writing – original draft, 
+Project administration, Methodology, Investigation, Formal analysis, 
+Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgement
+This work was supported by the Korea Planning and Evaluation 
+Institute of Industrial Technology(KEIT) grant funded by Ministry of 
+Trade, Industry & Energy(MOTIE) of the Republic of Korea (No. 2022- 
+00155547).
+Data availability
+Data will be made available on request.
+References
+[1] Zamfirescu C, Dincer I. Using ammonia as a sustainable fuel. J Power Sources 2008; 
+185(1):459–65. https://doi.org/10.1016/j.jpowsour.2008.02.097.
+[2] Kobayashi H, Hayakawa A, Somarathne KDKA, Okafor EC. Science and technology 
+of ammonia combustion. Proc Combust Inst 2019;37(1):109–33. https://doi.org/ 
+10.1016/j.proci.2018.09.029.
+[3] Khateeb AA, Guiberti TF, Zhu X, Younes M, Jamal A, Roberts WL. Stability limits 
+and exhaust NO performances of ammonia-methane-air swirl flames. Exp Therm 
+Fluid Sci Jun. 2020;114. https://doi.org/10.1016/j.expthermflusci.2020.110058.
+[4] Zhang M, Wei X, Wang J, Huang Z, Tan H. In: The blow-off and transient 
+characteristics of co-firing ammonia/methane fuels in a swirl combustor. Elsevier 
+Ltd; 2021. p. 5859–68. https://doi.org/10.1016/j.proci.2020.08.056.
+[5] Verkamp FJ, Hardin MC, Williams JR. Ammonia combustion properties and 
+performance in gas-turbine burners. Symp Combust 1967;11(1):985–92. https:// 
+doi.org/10.1016/S0082-0784(67)80225-X.
+[6] Wendt JOL, Sternling CV. Effect of Ammonia in Gaseous Fuels on Nitrogen Oxide 
+Emissions. J Air Pollut Control Assoc 1974;24(11):1055–8. https://doi.org/ 
+10.1080/00022470.1974.10470013.
+[7] IPCC, Global Warming of 1.5◦C. 2022. doi: 10.1017/9781009157940.
+[8] Wei X, Zhang M, An Z, Wang J, Huang Z, Tan H. Large eddy simulation on flame 
+topologies and the blow-off characteristics of ammonia/air flame in a model gas 
+turbine combustor. Fuel Aug. 2021;298. https://doi.org/10.1016/j. 
+fuel.2021.120846.
+[9] Hayakawa A, Arakawa Y, Mimoto R, Somarathne KDKA, Kudo T, Kobayashi H. 
+Experimental investigation of stabilization and emission characteristics of 
+ammonia/air premixed flames in a swirl combustor. Int J Hydrogen Energy May 
+2017;42(19):14010–8. https://doi.org/10.1016/j.ijhydene.2017.01.046.
+[10] Khateeb AA, et al. Stability limits and NO emissions of premixed swirl ammonia-air 
+flames enriched with hydrogen or methane at elevated pressures. Int J Hydrogen 
+Energy Mar. 2021;46(21):11969–81. https://doi.org/10.1016/j. 
+ijhydene.2021.01.036.
+[11] Okafor EC, et al. Liquid ammonia spray combustion in two-stage micro gas turbine 
+combustors at 0.25 MPa; Relevance of combustion enhancement to flame stability 
+and NOx control. Appl Energy Combust Sci 2021;7:Sep. https://doi.org/10.1016/j. 
+jaecs.2021.100038.
+[12] Lee T, Guahk YT, Kim N, Lee H, Lee MJ. Stability and emission characteristics of 
+ammonia-air flames in a lean-lean fuel staging tangential injection combustor. 
+Combust Flame Feb. 2023;248:112593. https://doi.org/10.1016/J. 
+COMBUSTFLAME.2022.112593.
+[13] Elbaz AM, Albalawi AM, Wang S, Roberts WL. Stability and characteristics of NH3/ 
+CH4/air flames in a combustor fired by a double swirl stabilized burner. Proc 
+Combust Inst Jul. 2022. https://doi.org/10.1016/j.proci.2022.06.004.
+[14] Kurata O, et al. Performances and emission characteristics of NH3-air and NH3- 
+CH4-air combustion gas-turbine power generations. Proc Combust Inst 2017;36(3): 
+3351–9. https://doi.org/10.1016/j.proci.2016.07.088.
+[15] Li S, Zhang S, Zhou H, Ren Z. Analysis of air-staged combustion of NH3/CH4 
+mixture with low NOx emission at gas turbine conditions in model combustors. 
+Fuel Feb. 2019;237:50–9. https://doi.org/10.1016/j.fuel.2018.09.131.
+[16] Miller JA, Smooke MD, Green RM, Kee RJ. Kinetic Modeling of the Oxidation of 
+Ammonia in Flames. Combust Sci Technol 1983;34(1–6):149–76. https://doi.org/ 
+10.1080/00102208308923691.
+[17] Zhang M, et al. The regulation effect of methane and hydrogen on the emission 
+characteristics of ammonia/air combustion in a model combustor. Int J Hydrogen 
+Energy 2021;46(40):21013–25. https://doi.org/10.1016/j.ijhydene.2021.03.210.
+[18] Somarathne KDKA, et al. Emission characteristics of turbulent non-premixed 
+ammonia/air and methane/air swirl flames through a rich-lean combustor under 
+various wall thermal boundary conditions at high pressure. Combust Flame 2019; 
+210:247–61. https://doi.org/10.1016/j.combustflame.2019.08.037.
+[19] An Z, et al. Emission prediction and analysis on CH4/NH3/air swirl flames with 
+LES-FGM method. Fuel 2021;304(June):121370. https://doi.org/10.1016/j. 
+fuel.2021.121370.
+[20] Viswamithra V, Gurunadhan M, Menon S. Expanding swirl combustor operability 
+on methane-ammonia-air mixtures using a distributed fuel injection technique and 
+inlet air preheating. Int J Hydrogen Energy Jan. 2023;48(3):1189–201. https://doi. 
+org/10.1016/j.ijhydene.2022.09.243.
+[21] Zhang M, An Z, Wei X, Wang J, Huang Z, Tan H. Emission analysis of the CH4/ 
+NH3/air co-firing fuels in a model combustor. Fuel May 2021;291. https://doi.org/ 
+10.1016/j.fuel.2021.120135.
+[22] Zhang M, et al. Wall heat loss effect on the emission characteristics of ammonia 
+swirling flames in a model gas turbine combustor. Combust Flame 2023;256: 
+112955. https://doi.org/10.2139/ssrn.4126926.
+[23] Okafor EC, et al. Influence of wall heat loss on the emission characteristics of 
+premixed ammonia-air swirling flames interacting with the combustor wall. Proc 
+Combust Inst 2021;38(4):5139–46. https://doi.org/10.1016/j.proci.2020.06.142.
+[24] Kurata O, et al. Development of a wide range-operable, rich-lean low-NOx 
+combustor for NH 3 fuel gas-turbine power generation. Proc Combust Inst 2019;37 
+(4):4587–95. https://doi.org/10.1016/j.proci.2018.09.012.
+[25] Mashruk S, et al. Evolution of N2O production at lean combustion condition in 
+NH3/H2/air premixed swirling flames. Combust Flame 2022;244(X):112299. 
+https://doi.org/10.1016/j.combustflame.2022.112299.
+[26] Nakamura H, Shindo M. Effects of radiation heat loss on laminar premixed 
+ammonia/air flames. Proc Combust Inst 2019;37(2):1741–8. https://doi.org/ 
+10.1016/j.proci.2018.06.138.
+[27] S. Zitouni et al., “AMMONIA BLENDED FUELS – ENERGY SOLUTIONS FOR A 
+GREEN FUTURE To cite this version : HAL Id : hal-03519203,” 2022.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+12 
+
+
+--- Page 13 ---
+
+[28] F. Herning and L. Zipperer, “Calculation of the Viscosity of Technical Gas Mixtures 
+from Viscosity of the individual Gases,” Das Gas- und Wasserfach, vol. 79, pp. 49–54 
+and 69–73, 1936.
+[29] Goodwin DG, Moffat HK, Schoegl I, Speth RL, Weber BW. Cantera: an object- 
+oriented software toolkit for chemical kinetics. Thermodynam., Transport 
+Processes 2023. https://doi.org/10.5281/zenodo.8137090.
+[30] Kovaleva M, et al. Numerical and experimental study of product gas characteristics 
+in premixed ammonia/methane/air laminar flames stabilised in a stagnation flow. 
+Fuel Commun 2022;10:100054. https://doi.org/10.1016/j.jfueco.2022.100054.
+[31] Arunthanayothin S, Stagni A, Song Y, Herbinet O, Faravelli T, Battin-Leclerc F. 
+Ammonia–methane interaction in jet-stirred and flow reactors: an experimental 
+and kinetic modeling study. Proc Combust Inst Jan. 2021;38(1):345–53. https:// 
+doi.org/10.1016/J.PROCI.2020.07.061.
+[32] Konnov AA. Implementation of the NCN pathway of prompt-NO formation in the 
+detailed reaction mechanism. Combust Flame Nov. 2009;156(11):2093–105. 
+https://doi.org/10.1016/j.combustflame.2009.03.016.
+[33] Glarborg P, Miller JA, Ruscic B, Klippenstein SJ. Modeling nitrogen chemistry in 
+combustion. Prog Energy Combust Sci 2018;67:31–68. https://doi.org/10.1016/j. 
+pecs.2018.01.002.
+[34] Okafor EC, et al. Experimental and numerical study of the laminar burning velocity 
+of CH4–NH3–air premixed flames. Combust Flame 2018;187:185–98. https://doi. 
+org/10.1016/j.combustflame.2017.09.002.
+[35] CRECK Modeling Group, “POLIMI,” 2020. http://creckmodeling.chem.polimi.it/.
+[36] Anacleto PM, Fernandes EC, Heitor MV, Shtork SI. Swirl flow structure and flame 
+characteristics in a model lean premixed combustor. Combust Sci Technol 2003; 
+175(8):1369–88. https://doi.org/10.1080/00102200302354.
+[37] S. B. Nourani Najafi, A. V. Mokhov, and H. B. Levinsky, “Investigation of the 
+stability, radiation, and structure of laminar coflow diffusion flames of CH4/NH3 
+mixtures,” Combust. Flame, vol. 244, 2022, doi: 10.1016/j. 
+combustflame.2022.112282.
+[38] An Q, Steinberg AM. The role of strain rate, local extinction, and hydrodynamic 
+instability on transition between attached and lifted swirl flames. Combust Flame 
+2019;199:267–78. https://doi.org/10.1016/j.combustflame.2018.10.029.
+[39] Kemenov KA, Calhoon WH. “A study of strain rate effects for turbulent premixed 
+flames with application to les of a gas turbine combustor model,” Flow. Turbul 
+Combust 2015;94(4):731–65. https://doi.org/10.1007/s10494-015-9594-4.
+[40] Xiao H, Lai S, Valera-Medina A, Li J, Liu J, Fu H. Study on counterflow premixed 
+flames using high concentration ammonia mixed with methane. Fuel 2020;275 
+(February):117902. https://doi.org/10.1016/j.fuel.2020.117902.
+[41] Nikolaou ZM, Swaminathan N. Heat release rate markers for premixed combustion. 
+Combust Flame 2014;161(12):3073–84. https://doi.org/10.1016/j. 
+combustflame.2014.05.019.
+[42] Hu Y, Tan J, Lv L, Li X. Investigations on quantitative measurement of heat release 
+rate using chemiluminescence in premixed methane-air flames. Acta Astronaut 
+2019;164(June):277–86. https://doi.org/10.1016/j.actaastro.2019.07.019.
+[43] Karan A, Dayma G, Chauveau C, Halter F. Insight into the inner structure of 
+stretched premixed ammonia-air flames. Proc Combust Inst 2023;39(2):1743–52. 
+https://doi.org/10.1016/j.proci.2022.07.066.
+[44] Mashruk S, et al. Numerical Analysis on the Evolution of NH2 in Ammonia/ 
+hydrogen Swirling Flames and Detailed Sensitivity Analysis under Elevated 
+Conditions. Combust Sci Technol 2023;195(6):1251–78. https://doi.org/10.1080/ 
+00102202.2021.1990897.
+[45] M. O. Vigueras-Zú˜niga, M. E. Tejeda-Del-cueto, S. Mashruk, M. Kovaleva, C. L. 
+Ord´o˜nez-Romero, and A. Valera-Medina, “Methane/ammonia radical formation 
+during high temperature reactions in swirl burners,” Energies, vol. 14, no. 20, 2021, 
+doi: 10.3390/en14206624.
+[46] Zhu X, Khateeb AA, Roberts WL, Guiberti TF. Chemiluminescence signature of 
+premixed ammonia-methane-air flames. Combust Flame 2021;231:111508. 
+https://doi.org/10.1016/j.combustflame.2021.111508.
+[47] Okafor EC, et al. Control of NOx and other emissions in micro gas turbine 
+combustors fuelled with mixtures of methane and ammonia. Combust Flame Jan. 
+2020;211:406–16. https://doi.org/10.1016/j.combustflame.2019.10.012.
+[48] Kang SH. Direct numerical simulation of the turbulent premixed flame propagation 
+with radiation effects. Int J Heat Mass Transf 2016;102:323–30. https://doi.org/ 
+10.1016/j.ijheatmasstransfer.2016.05.125.
+[49] Coelho PJ. Numerical simulation of the interaction between turbulence and 
+radiation in reactive flows. Prog Energy Combust Sci 2007;33(4):311–83. https:// 
+doi.org/10.1016/j.pecs.2006.11.002.
+[50] J. J´ojka and R. ´Slefarski, “Emission characteristics for swirl methane–air premixed 
+flames with ammonia addition,” Energies, vol. 14, no. 3, 2021, doi: 10.3390/ 
+en14030662.
+[51] Hayakawa A, et al. Experimental and numerical study of product gas and N2O 
+emission characteristics of ammonia/hydrogen/air premixed laminar flames 
+stabilized in a stagnation flow. Proc Combust Inst 2023;39(2):1625–33. https:// 
+doi.org/10.1016/j.proci.2022.08.124.
+[52] Chaturvedi S, Santhosh R, Mashruk S, Yadav R, Valera-Medina A. Prediction of 
+NOx emissions and pathways in premixed ammonia-hydrogen-air combustion 
+using CFD-CRN methodology. J Energy Inst 2023;111(June):101406. https://doi. 
+org/10.1016/j.joei.2023.101406.
+[53] Lindstedt RP, Lockwood FC, Selim MA. Detailed kinetic modelling of chemistry and 
+temperature effects on ammonia oxidation. Combust Sci Technol 1994;99(4–6): 
+253–76. https://doi.org/10.1080/00102209408935436.
+J. Park et al.                                                                                                                                                                                                                                     
+Fuel 404 (2026) 136012 
+13 

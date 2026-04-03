@@ -1,0 +1,1373 @@
+
+--- Page 1 ---
+
+Combustion and Flame 139 (2004) 90–105
+www.elsevier.com/locate/jnlabr/cnf
+Fuel effects on NOx emissions in partially premixed ﬂames
+Sayangdev Naha, Suresh K. Aggarwal ∗
+Department of Mechanical and Industrial Engineering, University of Illinois at Chicago, 2039 ERF, 842 W. Taylor Street,
+Chicago, IL 60607, USA
+Received 8 October 2003; received in revised form 23 April 2004; accepted 23 July 2004
+Available online 11 September 2004
+Abstract
+The requirement to signiﬁcantly reduce NOx and particulate emissions while maintaining combustor perfor-
+mance is one of the main drivers for internal combustion engine research. Partially premixing and using fuel blends
+represent two promising approaches for reducing both the NOx and the particulate emissions from ﬂames. This
+paper reports on the results of a numerical investigation on the effects of using different fuels on NOx emissions in
+counterﬂow partially premixed ﬂames. The fuels investigated include methane, n-heptane, and their blends with
+hydrogen. The methane ﬂame is computed using the GRI-3.0 mechanism, while the n-heptane ﬂame is computed
+by combining the Held et al. oxidation mechanism with the Li and Williams NOx mechanism. Results indicate
+that, with regard to their NOx characteristics, partially premixed ﬂames can be grouped into two distinct regimes,
+namely a double-ﬂame regime, characterized by high levels of partial premixing and/or low strain rates (as) with
+two physically separated reaction zones, and a merged-ﬂame regime, characterized by low levels of partial pre-
+mixing and/or high as with nearly merged reaction zones. In the ﬁrst regime, NOx characteristics of both methane
+and n-heptane ﬂames are strongly affected by changes in equivalence ratio (φ) and strain rate, while in the second
+regime, they exhibit a relatively weak dependence on φ and as. In addition, the n-heptane and methane ﬂames
+established under identical conditions exhibit widely different NOx emission behavior in the ﬁrst regime but qual-
+itatively similar behavior in the second regime. Major differences include (i) signiﬁcantly higher NO level and
+NOx emission index, (ii) much wider double-ﬂame regime with regard to φ and as, (iii) dominance of the prompt
+mechanism over the thermal mechanism in the entire partially premixed regime, and (iv) noticeable reduction in
+NOx emission with hydrogen addition for n-heptane ﬂames compared to methane ﬂames. These differences are
+attributable to the different fuel pyrolysis/oxidation chemistry of the two fuels, as the consumption of n-heptane
+occurs mainly through the C2 path, while that of methane occurs mainly through the C1 path. As a result, the
+amounts of C2H2 and, consequently, of CH radicals formed in n-heptane ﬂames are signiﬁcantly higher than
+those in methane ﬂames and are responsible for the observed differences in NOx characteristics of the two fuels.
+2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+1. Introduction
+Due to their immense practical relevance, NOx
+emissions from various types of ﬂames and com-
+* Corresponding author. Fax: +1-312-413-0447.
+E-mail address: ska@uic.edu (S.K. Aggarwal).
+bustion devices have been extensively investigated.
+Barlow and Carter [1] investigated experimentally the
+effects of temperature and mixture fraction on NOx
+emission in H2 jet ﬂames. Hayhurst and Lawrence
+[2] reported an experimental investigation of NOx
+emission in a ﬂuidized bed combustor during burn-
+ing of coal volatiles. Meunier and Carvalho [3] per-
+0010-2180/$ – see front matter 2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.combustﬂame.2004.07.006
+
+
+--- Page 2 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+91
+formed experimental and numerical investigations
+on NOx emissions from turbulent propane diffusion
+ﬂames. Schlegel et al. [4] reported an experimental–
+numerical study on NOx emissions from catalyti-
+cally stabilized lean premixed methane–air ﬂames.
+Poppe et al. [5] investigated control of NOx emis-
+sions from conﬁned methane–air premixed ﬂames by
+imposing oscillations. Many researchers have also fo-
+cused on the development of appropriate NOx mech-
+anisms for more detailed prediction and investigation
+of NOx emissions from ﬂames. These include the Li
+and Williams mechanism [6], the Warnatz and Klaus
+mechanism [7], the Leeds mechanism [8], and the
+mechanisms discussed by Miller and Bowman [9].
+The NOx reduction strategies based on using fuel
+diluents and fuel blends have also been examined.
+Roberts [10] performed an experimental investigation
+and observed reduction in both NOx emission and
+soot formation using water injection. Rortveit et al.
+[11] investigated the effect of diluents such as NO2,
+CO2, and He on NOx formation in H2–air counter-
+ﬂow ﬂames. Zhao et al. [12] studied the effect of
+OH radical on NOx emission in methane–air diffu-
+sion ﬂame with steam addition. It was noted that, al-
+though steam addition increased OH concentration, it
+reduced CH concentration, which led to subsequent
+reduction in NOx emission.
+Rortveit et al. [13] reported an experimental–
+numerical study of NOx emissions in methane–
+hydrogen mixtures in a counterﬂow conﬁguration.
+Al-Baghdadi [14] examined NOx emissions in spark
+ignition engines using a hydrogen–ethanol mixture as
+fuel and observed a signiﬁcant reduction (about 33%)
+in NOx production when such a fuel mixture was used
+instead of gasoline. This was attributed to lower peak
+temperatures due to the higher heat of vaporization of
+alcohol. Choudhuri and Gollahali [15] studied the ef-
+fect of using a hydrogen–hydrocarbon composite fuel
+in turbulent jet ﬂames. Although increase of hydrogen
+content was shown to decrease CO and soot produc-
+tion, NOx was found to increase.
+Many recent studies dealing with NOx emission
+have focused on partially premixed ﬂames (PPFs)
+[16–23], motivated by the considerations that these
+ﬂames may have superior pollutant emission char-
+acteristics and that the emissions from these ﬂames
+may be minimized by appropriately modifying the
+level of partial premixing. Partially premixed ﬂames
+are formed by mixing air (in less than stoichiomet-
+ric amounts) into the fuel stream prior to the reaction
+zone, where additional air is available for complete
+combustion. These ﬂames have also been studied due
+to their fundamental relevance to ﬂame liftoff and sta-
+bilization, nonpremixed turbulent ﬂames, and spray
+combustion. With regard to their NOx emission char-
+acteristics, Gore and Zhan [16] performed a numeri-
+cal investigation on the effect of partial premixing on
+NOx production in methane–air PPFs and observed
+the existence of an optimum level of partial premixing
+that yielded the lowest NOx emission index. Tanoff et
+al. [17] conducted a numerical–experimental study of
+counterﬂow methane–air PPFs and observed a drastic
+change in NO emission behavior as the ﬂame changed
+from a merged-ﬂame to a double-ﬂame structure as
+the equivalence ratio (φ) was reduced below a certain
+threshold value. Ravikrishna and Laurendeau [18]
+also reported a numerical–experimental investigation
+on the effect of partial premixing on NO emission
+from counterﬂow methane–air ﬂames. They com-
+pared the laser-induced ﬂuorescence measurements of
+NO with predictions using the GRI-2.11 and GRI-
+3.0 mechanisms and noted that the GRI-3.0 mecha-
+nism overpredicted NO concentrations compared to
+the measurements and predictions based on the GRI-
+2.11 mechanism. A similar observation was made by
+Barlow et al. [19] in their numerical–experimental
+study of counterﬂow methane–air PPFs. Dupont and
+Williams [20] examined the dominant NOx formation
+mechanisms in rich methane–air ﬂames. Xue and Ag-
+garwal [21] reported a numerical investigation of the
+NOx emission characteristics of n-heptane counter-
+ﬂow PPFs. Their results also indicated an optimum
+level of partial premixing that yields the lowest NOx
+emission index. In addition, it was observed that the
+NO formation rate in the nonpremixed zone is signiﬁ-
+cantly higher than that in the rich premixed zone. This
+was attributed to the transport of acetylene from the
+rich premixed to the nonpremixed zone and the sig-
+niﬁcantly higher concentrations of O and OH radicals
+in the latter zone.
+The possibility of using fuel blends including fuel
+diluents to obtain superior pollutant emission char-
+acteristics seems to be a promising area of research.
+While previous investigations have focused on NOx
+emissions in a variety of ﬂames and conﬁgurations,
+issues pertaining to the use of fuel diluents and fuel
+blends for reducing NOx emission have not been ex-
+amined in detail. Moreover, to characterize the effects
+of fuel blends on NOx, it is imperative to under-
+stand ﬁrst how the NOx characteristics are affected
+by the use of different fuels under identical condi-
+tions. Motivated by this consideration, the present
+study focused on the comparison of NOx character-
+istics of methane/air and heptane/air PPFs. A detailed
+examination of the dominant pathways and concentra-
+tion proﬁles of key radical species is used to explain
+the qualitative and quantitative differences in NOx
+emission behavior of the two ﬂames at various lev-
+els of partial premixing. In addition, the effect of fuel
+blends on NOx emissions was examined by employ-
+ing methane/hydrogen and heptane/hydrogen blends.
+
+
+--- Page 3 ---
+
+92
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+Fig. 1. Schematic of the counterﬂow ﬂame conﬁguration
+used in the present study.
+2. Objective
+The major objective of this study was to inves-
+tigate the effects of using different fuels on NOx
+emissions in PPFs. To understand the NOx emission
+behavior of fuel blends, it is essential ﬁrst to per-
+form a detailed comparison of the NOx characteristics
+of pure fuels. For this purpose, the methane and n-
+heptane PPFs are simulated. Methane represents per-
+haps the most investigated gaseous fuel, while hep-
+tane is the most representative of liquid fuels. More-
+over, detailed chemistry models for the oxidation of
+these two fuels have been extensively studied and val-
+idated. Thus, these two fuels provide a good starting
+point for studying the fuel effects on pollutant species.
+Flame structures of heptane/air and methane/air
+partially premixed ﬂames are compared to explain
+both the qualitative and the quantitative differences in
+the NOx emission behavior of the two ﬂames. While
+previous studies have investigated the NOx emission
+characteristics of methane and n-heptane ﬂames sep-
+arately, they have not focused on the comparison
+of their ﬂame structures and NOx emission behav-
+ior. In addition, the present study considers a com-
+plete partially premixed regime that includes both the
+double-ﬂame and the merged-ﬂame regimes and ex-
+tends to the diffusion ﬂame limit. It is important to
+consider these two regimes separately since the NOx
+characteristics of methane and n-heptane ﬂames are
+signiﬁcantly different in the two regimes. Previous
+investigations have not focused on this aspect. The
+present study also examines the issue of using fuel
+blends for reducing NOx emissions by employing
+methane/hydrogen and heptane/hydrogen fuel blends.
+A counterﬂow conﬁguration as illustrated in Fig. 1
+has been employed, since it facilitates detailed study
+of the dominant pathways associated with the vari-
+ous NOx mechanisms and the relative contributions
+of the premixed and nonpremixed reaction zones in
+NOx formation and destruction. Moreover, this con-
+ﬁguration makes it easier to separate the effects of
+stoichiometry and transport on the ﬂame structure and
+NOx emissions.
+3. Numerical model and boundary conditions
+Simulations of partially premixed ﬂames are per-
+formed using the OPPDIF code [24] in the Chemkin
+package [25]. The OPPDIF code is written in Fortran
+and used for computing the ﬂow ﬁeld in a counterﬂow
+conﬁguration. The temperature of the fuel stream is
+taken as 400 K to ensure that the n-heptane fuel is
+in the gaseous phase. The air stream temperature is
+300 K. The velocities of the fuel and oxidizer streams
+are chosen to conform to the global strain rate
+(1)
+as = 2|VO|
+L
+
+1 + |VF|√ρF
+|VO|√ρO
+
+and to satisfy the momentum balance
+(2)
+ρOV 2
+O = ρFV 2
+F .
+Using these two equations, the fuel and air stream
+velocities can be computed for a given value of the
+global strain rate as. The plug ﬂow boundary con-
+ditions are used to specify the fuel and air stream
+velocities at the respective boundaries.
+Boundary conditions for the species conservation
+equations require the speciﬁcation of the species mole
+fractions at the two boundaries. For the simulation of
+ﬂames burning pure fuels, the fuel side equivalence
+ratio provides the mole fractions of fuel, O2, and N2
+species at the fuel nozzle, while the assumption of
+standard air composition provides the mole fractions
+of O2 and N2 at the air nozzle. For the simulations
+of ﬂames burning fuel blends, we consider a blend
+containing 1 mole of hydrocarbon (CxHy) fuel and f
+mole (f being the molar ratio of H2 to CxHy in the
+blend) of H2. For PPFs, the fuel stream contains a
+mixture of fuel blend and air according to a speciﬁed
+equivalence ratio (φ). The mole fractions of various
+species at the fuel boundary are then computed using
+the following stoichiometric equation:
+CxHy + f H2 + c(O2 + (79/21)N2)
+(3)
+⇒xCO2 + (f + y/2)H2O + (79/21)N2.
+The mass balance yields c = (x + f/2 + y/4). For
+a given φ, c on the right-hand side is replaced by
+(x +f/2+y/4)/φ. Then the mole fractions of CxHy,
+H2, O2, and N2 at the fuel stream boundary can be
+obtained as
+X(CxHy) = 84φ/N,
+X(H2) = 84f φ/N,
+X(O2) = 21(4x + y + 2f )/N,
+
+
+--- Page 4 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+93
+and
+X(N2) = 79(4x + y + 2f )/N,
+where the total number of moles, N, is given by
+N = 400x + 100y + 200f + 84φ + 84f φ.
+It is important to note that for the pure hydrocar-
+bon fuel case, f = 0, while for nonpremixed ﬂames,
+the fuel stream does not contain any air (c = 0).
+The n-heptane oxidation chemistry is modeled by
+using the Held et al. mechanism [26]. It is combined
+with the NOx chemistry model developed by Li and
+Williams [6], resulting in a full mechanism consist-
+ing of 54 species and 327 elementary reactions. The
+methane–air partially premixed ﬂame is computed us-
+ing the GRI-Mech 3.0 mechanism [27]. For both the
+methane and the n-heptane ﬂames, the transport prop-
+erties are computed using the mixture–average trans-
+port model. The transport properties for n-heptane
+ﬂames were provided by Held et al. [26].
+4. Results and discussion
+4.1. Validation of reaction mechanisms
+Both the methane and the n-heptane reaction
+mechanisms used in the present study have been pre-
+viously validated for different conﬁgurations. The
+GRI-Mech 3.0 mechanism [27] and its earlier ver-
+sions have been validated by many researchers using
+a variety of conﬁgurations. Sung et al. [28] validated
+the GRI-Mech 1.2 mechanism using experimental
+data for perfectly stirred reactors, autoignition and
+shock tube ignition delay times, ignition-extinction
+limits in counterﬂowing systems, and laminar ﬂame
+propagation speeds. More recent studies reported by
+Xue et al. [22] and Barlow et al. [19] provide valida-
+tion of the GRI-Mech 2.11 and 3.0 mechanisms for
+methane–air partially premixed ﬂames in a counter-
+ﬂow geometry. Similarly the n-heptane mechanism
+used in the present study has been validated by Held
+et al. [26] using measurements in ﬂow reactor, shock
+tube, stirred reactor, and freely propagating laminar
+ﬂames. Another validation using a perfectly stirred
+reactor has been reported by Montgomery et al. [29].
+Xue and Aggarwal [21] have provided additional
+validation of the mechanism for the simulation of
+premixed and nonpremixed heptane/air ﬂames using
+measurements of Davis and Law [30] and Seiser et al.
+[31], respectively.
+The NOx mechanisms used in the present study
+have also been validated in previous investigations.
+Li and Williams [6] used the same NOx mechanism
+to examine the effects of various diluents on NOx
+Fig. 2. Comparison of simulated NO mole fraction proﬁle
+with experimental data from Ravikrishna and Laurendeau
+[18] for a methane/air PPF established at as = 20 s−1 and
+φ = 1.6 (a) and φ = 2.0 (b).
+emissions in methane–air PPFs and reported excellent
+agreement between the measured and the predicted
+NOx proﬁles. The validity of using this mechanism
+for NOx emissions in n-heptane ﬂames has been re-
+ported by Xue and Aggarwal [21]. The NOx mech-
+anisms used in GRI-Mech 2.11 and 3.0 have been
+evaluated by Ravikrishna and Laurendeau [18] and
+Barlow et al. [19], who compared the measured and
+predicted NO concentration proﬁles in methane–air
+PPFs. While both mechanisms provided good qualita-
+tive agreement with measurements, the GRI-Mech 3.0
+overpredicted NO concentrations compared to the
+measurements and predictions based on the GRI-
+Mech 2.11. In the context of these two mechanisms,
+it is important to mention that while the nonpremixed
+ﬂame structures predicted using these mechanisms
+are essentially the same, the differences between the
+mechanisms become more signiﬁcant for PPFs. This
+aspect has been examined further in [22].
+In the present study, we report two additional val-
+idations of the reaction mechanisms. For the ﬁrst val-
+idation, we compare the predicted NO concentration
+proﬁles based on the GRI-Mech 2.11 and 3.0 mech-
+anisms with measurements reported in [28]. Fig. 2
+
+
+--- Page 5 ---
+
+94
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+Fig. 3. Comparison of temperature and major species mole
+fraction proﬁles computed using the Held et al. mechanism
+and a more comprehensive mechanism for n-heptane/air
+PPFs established at as = 100 s−1 and φ = 5.0 (a) and
+φ = 2.5 (b).
+presents this comparison for methane–air PPFs estab-
+lished at a global strain rate of as = 20 s−1 and fuel
+side equivalence ratios of φ = 1.6 and 2.0. For both
+of these cases, the NO mole fraction proﬁles based on
+the GRI-Mech 2.11 are in good agreement with mea-
+surements, while those based on the GRI-Mech 3.0
+are overpredicted. These results are consistent with
+those reported by Ravikrishna and Laurendeau [18]
+and Barlow et al. [19]. In both of these studies, the
+GRI-Mech 3.0 overpredicted NO levels compared to
+those based on the GRI-Mech 2.11 and the measure-
+ments.
+The second validation pertains to the Held et al.
+[26] mechanism for predicting the n-heptane partially
+premixed ﬂame structure. Here we compare numeri-
+cal results based on the Held et al. mechanism with
+those based on a more comprehensive mechanism re-
+ported by Ranzi et al. [32]. Fig. 3 shows this compar-
+ison with regard to the temperature and major species
+proﬁles for heptane/air partially premixed ﬂames es-
+tablished at φ = 5.0 and 2.5 with a global strain rate of
+as = 100 s−1. The distance between the two nozzles
+is 1.5 cm and the fuel and air streams are introduced
+at temperatures of 400 and 300 K, respectively. For
+both mechanisms, results for φ = 5.0 indicate a par-
+tially premixed ﬂame in the merged-ﬂame regime, in
+which the two reaction zones are merged, and results
+for φ = 2.5 indicate a partially premixed structure in
+the double-ﬂame regime, characterized by the pres-
+ence of a rich premixed reaction zone on the fuel side
+and a nonpremixed reaction zone on the oxidizer side.
+Overall, there is an excellent agreement between the
+two simulations, providing further validation of the
+Held et al. mechanism.
+4.2. Structure and NOx characteristics of methane
+and n-heptane PPFs
+The grid independence of the computed results
+was achieved by controlling the values of the GRAD
+and CURV parameters and using adaptive regridding
+to resolve the structures of both the premixed and the
+nonpremixed reaction zones. The computed results
+were found to be essentially grid independent when
+the number of grid points was changed from 130 to
+250. The results presented in this paper employed 160
+grid points.
+Having provided grid independence and valida-
+tion of the reaction mechanisms for both the oxidation
+and the NOx chemistry of the two fuels, we now fo-
+cus on the comparison of the NOx characteristics of
+methane and n-heptane partial premixed ﬂames. In
+this context, partially premixed combustion can be
+classiﬁed into two distinct regimes, namely a double-
+ﬂame regime and a merged-ﬂame regime. In the ﬁrst
+regime, a partially premixed ﬂame contains two dis-
+tinct or physically separated reaction zones, while in
+the second regime, the two reaction zones are nearly
+merged. For counterﬂow ﬂames at atmospheric pres-
+sure, these two regimes can be represented with re-
+gard to φ and as. The double-ﬂame regime is char-
+acterized by relatively low φ (high levels of partial
+premixing) and low as values. As φ (or as) is in-
+creased at ﬁxed as (or φ), the two reaction zones move
+closer to each other and eventually merge, indicating a
+transition to the merged-ﬂame regime. A detailed dis-
+cussion on the effects of φ and as on the transition
+has been provided in a previous investigation [33].
+As discussed in [33], increasing φ at constant as es-
+sentially affects the rich premixed zone, which moves
+away from the fuel nozzle or toward the nonpremixed
+zone, while increasing as at constant φ causes the
+nonpremixed zone to move toward the rich premixed
+zone. The ﬂame structure and interactions between
+the reaction zones are different in the two regimes.
+As a result, the NOx characteristics of methane and
+n-heptane ﬂames are found to be signiﬁcantly differ-
+ent in the two regimes. Consequently, it is relevant to
+examine each regime separately.
+
+
+--- Page 6 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+95
+4.3. Comparison of NOx characteristics in the
+double-ﬂame regime
+A direct quantitative comparison of the NOx
+characteristics of methane and n-heptane PPFs un-
+der identical conditions is somewhat limited due to
+their signiﬁcantly different double-ﬂame regimes.
+For counterﬂow ﬂames at atmospheric pressure, this
+regime is represented by a range of φ and as for which
+a PPF contains two distinct or physically separated re-
+action zones. As φ is increased, the range of as for this
+regime becomes narrower, with a similar effect oc-
+curring when as is increased. Previous experimental
+and numerical studies [6,17,22,23] have observed that
+the double-ﬂame regime for counterﬂow methane–air
+ﬂames is approximately given by 1.4 < φ < 2.0 and
+20 < as < 50 s−1. As φ is increased above 2.0 and/or
+as is increased above 50 s−1, the distance between the
+two reaction zones decreases, and the ﬂame structure
+approaches the merged-ﬂame regime. For heptane–air
+counterﬂow ﬂames, previous studies [21,34] indicate
+that the corresponding double-ﬂame regime is given
+by 1.5 < φ < 3.5 and 20 < as < 120 s−1. A compari-
+son of the double-ﬂame regimes for the two fuels thus
+indicates a rather narrow range of φ and as in which
+both the methane and the n-heptane ﬂames exhibit a
+double-ﬂame structure and can be compared with re-
+gard to their NOx characteristics. Consequently, we
+select two cases, with regard to φ and as, to com-
+pare the ﬂame structure and NOx characteristics of
+methane and n-heptane PPFs.
+Figs. 4 and 5 present a comparison of the struc-
+tures of methane/air and n-heptane/air PPFs, both
+established at φ = 1.6, and as = 40 s−1. The fuel
+and air stream temperatures are 400 and 300 K, re-
+spectively, and the distance between the two nozzles
+is 2 cm. Fig. 4 presents the temperature and major
+species mole fraction proﬁles, while Fig. 5 shows the
+proﬁles of temperature and the mole fractions of some
+species relevant to NO formation. The global ﬂame
+structure for the two fuels is similar in the sense that
+for both fuels the ﬂame contains two distinct reaction
+zones, namely a rich premixed reaction zone on the
+fuel side and a nonpremixed reaction zone on the ox-
+idizer side. The premixed reaction zone is character-
+ized by the fuel-rich oxidation chemistry that involves
+the pyrolysis/consumption of fuel, the production of
+“intermediate fuel” species (C2H2, CO, and H2), and
+to a lesser extent production of CO2 and H2O. The
+intermediate fuel species are transported to the non-
+premixed reaction zone, where they are oxidized to
+form CO2 and H2O. Thus, the nonpremixed zone is
+characterized by the oxidation of these intermediate
+fuel species.
+Apart from this global similarity, the structures
+of methane and n-heptane ﬂames exhibit signiﬁcant
+Fig. 4. Temperature and major species mole fraction proﬁles
+for (a) methane/air and (b) n-heptane/air PPFs established at
+as = 40 s−1 and φ = 1.6.
+differences, although they are established under iden-
+tical conditions. One important difference pertains to
+their ﬂame topology, in particular the location of the
+premixed reaction zone and the distance between the
+two reaction zones. The premixed reaction zones for
+the methane and n-heptane ﬂames are located at 0.55
+and 0.2 cm, respectively, while the two corresponding
+nonpremixed reaction zones are located at x ≈1.2.
+Thus, the separation distances between the two reac-
+tion zones are 0.65 and 1.0 cm, respectively, for the
+two cases. This difference can be attributed to the
+fuel-rich or low-temperature oxidation chemistry of
+the two fuels. The pyrolysis/oxidation chemistry of
+methane is known to be slow compared to that of
+higher hydrocarbon fuels (n-heptane in the present
+case), and, consequently, the rich premixed zone for
+the methane ﬂame is located farther downstream from
+the fuel nozzle than that for the n-heptane ﬂame. The
+evidence for the slower pyrolysis/oxidation chemistry
+of methane is provided by its ignition characteristics,
+i.e., the minimum ignition temperature and the igni-
+tion delay time. As reported in [35,36], the autoigni-
+tion temperatures of methane/air and n-heptane/air
+
+
+--- Page 7 ---
+
+96
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+Fig. 5. Temperature and NO and intermediate species mole
+fraction proﬁles for (a) methane/air and (b) n-heptane/air
+PPFs discussed in the context of Fig. 4.
+mixtures at 1 atm are 810 and 477 K, respectively.
+In addition, the shock tube data reported by Horning
+et al. [37] and Hidaka et al. [38] indicate that the ig-
+nition delay times for methane/air and n-heptane/air
+mixtures under similar conditions are 0.8 and 0.16 ms,
+respectively. Due to the differences in ignition char-
+acteristics, which are related to the fuel-rich low-
+temperature oxidation chemistry, the premixed reac-
+tion zone in methane ﬂame is located farther down-
+stream (from the fuel nozzle) than that in n-heptane
+ﬂame, and this leads to a greater separation distance
+between the reaction zones in n-heptane ﬂame. It is
+also worth mentioning that the Held et al. mecha-
+nism, being a high-temperature mechanism, does not
+include the low-temperature chemistry. However, the
+predicted H2O2 and OH proﬁles (not shown) indi-
+cated that the H2O2 mole fraction in the premixed
+reaction zone was signiﬁcantly higher than that in
+the nonpremixed zone, while the OH mole fraction
+was signiﬁcantly higher in the premixed reaction zone
+than in the nonpremixed zone. This implies that the
+intermediate-temperature chemistry involving fuel +
+HO2 producing H2O2, and H2O2 decomposing to
+give OH radicals, plays a role in determining the lo-
+cation of the premixed reaction zone of n-heptane
+PPFs.
+A major difference between the two ﬂames, in the
+context of their NOx characteristics, is exhibited by
+the C2H2 and CH concentration proﬁles presented in
+Fig. 5. As discussed below, the difference in the NOx
+characteristics of methane and n-heptane PPFs can
+be attributed to their ﬂame structures and especially
+to the C2H2 and CH proﬁles. Important observations
+with regard to these differences include the following:
+(1) The peak C2H2 value, which occurs in the pre-
+mixed zone, is about four times higher for n-
+heptane ﬂame than for methane ﬂame (cf. Fig. 5).
+A rate of production analysis (ROPA) was per-
+formed to characterize the fuel consumption be-
+havior in the two ﬂames. It was observed that, for
+the present case, 60% of methane is consumed
+through the C1 path, while 40% is consumed
+through the C2 path. In contrast, for n-heptane
+ﬂame, more than 90% of the fuel is consumed
+through the C2 path, with the remaining being
+consumed through the C1 path. This explains
+why the C2H2 concentration is much higher in
+n-heptane ﬂame than in methane ﬂame. A simi-
+lar difference in C2H2 concentrations is observed
+for other cases investigated in the present study.
+There are two points worth mentioning here.
+First, as discussed in [21], the C1–C2 charac-
+terization has extended to heptane–air chemistry,
+since C3–C6 species are decomposed mainly to
+C3H5, which is converted to C4H6, which is then
+converted to vinyl, acetylene, and C2H3HCO.
+Second, the Held et al. mechanism has been
+shown to overpredict C2H2 concentrations [21,
+37], and this would lead to an overprediction of
+prompt NO for n-heptane ﬂames.
+(2) Due to the high acetylene concentration in n-
+heptane ﬂames, only a fraction of acetylene is
+consumed in the premixed reaction zone, produc-
+ing CH in this zone; as indicated in Fig. 5b, the
+CH peak in the premixed zone coincides with
+the sharp drop in C2H2 mole fraction.1 The re-
+maining C2H2 is transported to the nonpremixed
+reaction zone, producing additional CH there.
+Consequently, the CH proﬁle exhibits two peaks,
+one in the premixed zone and the other in the
+nonpremixed zone. However, most of the prompt
+NO is produced in the nonpremixed zone, even
+though the CH peak in the premixed zone is
+1 Previous investigations of partially premixed ﬂames
+[6,21] have established that C2H2 is the major source of CH
+in these ﬂames. This was further conﬁrmed by performing a
+rate of production analysis in the present study.
+
+
+--- Page 8 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+97
+Fig. 6. Mole fraction proﬁles of the prompt and thermal NO
+for (a) n-heptane/air and (b) methane/air PPFs discussed in
+the context of Fig. 4.
+much higher than that in the nonpremixed zone.
+This is shown clearly in Fig. 6a, which presents
+the mole fraction proﬁles of prompt and thermal
+NO, and it can be attributed to the paucity of O
+and OH radicals in the premixed reaction zone.
+While the presence of CH radicals immediately
+leads to the formation of HCN through the re-
+action CH + N2 ↔HCN + N, the subsequent
+conversion of HCN to NO occurs mainly in the
+nonpremixed zone due to the availability of O
+and OH radicals in that zone. This is clearly indi-
+cated by the mole fraction proﬁles of CH, HCN,
+O, and OH species in Fig. 5b.
+(3) In both n-heptane and methane ﬂames, most of
+the NO is produced in the nonpremixed zone
+(cf. Fig. 6). However, while most of the NO is
+produced through the prompt mechanism in n-
+heptane ﬂame, it is produced mainly through the
+thermal mechanism in methane ﬂame. This rep-
+resents an important difference with regard to the
+NOx characteristics of the two ﬂames and is di-
+rectly related to the signiﬁcantly higher amount
+of C2H2 produced in n-heptane ﬂame. As dis-
+cussed above, for n-heptane ﬂame, a signiﬁcantly
+higher amount of C2H2 is produced in the pre-
+mixed reaction zone and, consequently, trans-
+ported to the nonpremixed zone. This leads to
+a much higher concentration of CH and, con-
+sequently, much higher concentrations of HCN
+and prompt NO in the nonpremixed zone of
+n-heptane ﬂame. This is clearly indicated by
+the comparison of the two ﬂames in Figs. 5
+and 6. Similar behavior was observed for the
+other cases investigated in the double-ﬂame
+regime.
+(4) The ROPA analysis [39] indicated that while
+acetylene is the major source of CH in both the
+n-heptane and the methane ﬂames, the amount
+of CH produced for a given amount of acety-
+lene is much smaller in methane ﬂame than in
+heptane ﬂame. This is directly related to the ox-
+idation chemistries of the two fuels2 and further
+explains why, in the double-ﬂame regime, most
+of the NO is due to the thermal mechanism in
+methane ﬂames and to the prompt mechanism in
+n-heptane ﬂames.
+(5) Another important observation from Figs. 5 and 6
+is the much higher NO level in n-heptane ﬂame
+compared to that in methane ﬂame. For the case
+presented in Figs. 5 and 6, the peak NO value in
+n-heptane ﬂame is about seven times higher than
+that in methane ﬂame and is mainly due to the
+much higher level of prompt NO in n-heptane
+ﬂame. As indicated in Fig. 6, the peak values of
+prompt and thermal NO in n-heptane ﬂame are,
+respectively, about six and two times higher than
+those in methane ﬂame. The higher prompt NO in
+n-heptane ﬂame is due to the signiﬁcantly larger
+amount of acetylene transported to the non-
+premixed reaction zone, while the higher thermal
+NO is due to the higher temperature and higher
+concentrations of O and OH radicals in the non-
+premixed zone. The peak temperatures for the n-
+heptane and methane ﬂames presented in Figs. 5
+and 6 are ≈2180 and 2130 K, while the peak O
+mole fractions are ≈0.0022 and 0.00143, respec-
+tively. It is important to note that the adiabatic
+2 The pathway analysis indicated that a signiﬁcantly
+higher (about two times) amount of C2H2 is converted to
+CH2 for n-heptane ﬂames than for methane ﬂames. More
+importantly, the amount of CH2 converted to CH is an order
+of magnitude higher for n-heptane ﬂames than for methane
+ﬂames. This is due to the fact that, for methane ﬂames, most
+of the CH2 is converted to CO through its reaction with O2,
+while for n-heptane ﬂames, the conversion to CO is rela-
+tively small.
+
+
+--- Page 9 ---
+
+98
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+ﬂame temperatures for n-heptane and methane
+ﬂames are 2484 and 2226 K, respectively.
+(6) In both methane and n-heptane ﬂames, NO con-
+centration in the rich premixed zone is negligible
+compared to that in the nonpremixed zone. This
+is due to the lower temperature and lower con-
+centrations of O and OH radicals in the premixed
+zone. As discussed in [6,21], the presence of
+CH, OH, and O is essential for prompt NO and
+that of OH and O for thermal NO. Moreover,
+the paucity of OH and O radicals in the pre-
+mixed zone makes the reburn mechanism more
+active, which further diminishes the formation of
+prompt NO in this zone. The participation of the
+reburn mechanism is more evident in n-heptane
+ﬂame (cf. Fig. 5b), which shows a decrease in
+the NO mole fraction in the region between the
+two reaction zones. Important reaction pathways
+associated with the prompt, thermal, and reburn
+NO mechanisms in n-heptane ﬂames have been
+discussed previously in [21]. As discussed in the
+cited study, the reburn mechanism involves the
+conversion of NO to HCN and HNCO, mainly
+through reactions NO + CH ⇔HCN + O and
+NO + CH2 ⇔HNCO + H.
+Fig. 7 presents a comparison of the structures of
+methane/air and n-heptane/air PPFs for another set of
+identical conditions, with φ = 2.0 and as = 100 s−1.
+The temperature and species proﬁles for n-heptane
+depict a partially premixed ﬂame in the double-ﬂame
+regime, i.e., containing two distinct reaction zones.
+However, the proﬁles for methane indicate a broad-
+ened ﬂame in the merged-ﬂame regime, as the two
+reaction zones are nearly merged. Similar to the case
+discussed in the context of Figs. 4–6, the NO level
+for this case is also signiﬁcantly higher in n-heptane
+ﬂame than in methane ﬂame. In addition, for both
+fuels, the NO level in the rich premixed zone is neg-
+ligible compared to that in the nonpremixed zone,
+which is also similar to the previous case. However,
+there is one notable difference between the two cases.
+In the previous case (cf. Fig. 6), the prompt mecha-
+nism was the major contributor to total NO for the
+n-heptane ﬂame, while the thermal mechanism was
+the major contributor for the methane ﬂame. How-
+ever, for the case presented in Fig. 7, the prompt
+mechanism becomes the major contributor to total
+NO for both the n-heptane and the methane ﬂames.
+This crossover from thermal NO to prompt NO occurs
+only for methane ﬂames and represents an important
+difference between the NOx characteristics of the two
+fuels. As discussed in the next section, this is related
+to the transition from the double-ﬂame to the merged-
+ﬂame regime.
+Fig. 7. Comparison of methane and n-heptane partially pre-
+mixed ﬂame structures for as = 100 s−1 and φ = 2. Tem-
+perature and species mole fraction proﬁles are shown in (a);
+prompt and thermal NO proﬁles are shown in (b).
+4.4. Comparison of NOx characteristics in the
+merged-ﬂame regime
+The double-ﬂame regime discussed in the preced-
+ing section is characterized by relatively high levels
+of partial premixing and low strain rates. With in-
+creasing φ and/or as, the two reaction zones move
+closer and eventually merge, representing a transition
+to the merged-ﬂame regime. Fig. 8 presents the pro-
+ﬁles of temperature and some species relevant to NO
+formation for methane/air and n-heptane/air PPFs es-
+tablished at conditions corresponding to this regime.
+The global ﬂame structures for the two fuels appear
+to be similar in this regime. Note, however, that the
+methane ﬂame is established at φ = 1.8 and as =
+40 s−1, while the n-heptane ﬂame is established at
+φ = 2.8 and as = 50 s−1. Similar to the cases dis-
+cussed for the double-ﬂame regime, most of the NO
+is produced in the nonpremixed zone for both the
+ﬂames, and the NO level in n-heptane ﬂame is much
+higher than that in methane ﬂame.
+The major difference between the double-ﬂame
+and the merged-ﬂame regimes is due to the relative
+
+
+--- Page 10 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+99
+Fig. 8. Comparison of temperature and species mole fraction
+proﬁles for methane (a) and n-heptane (b) partially premixed
+ﬂames in the merged-ﬂame regime. For methane ﬂame,
+as = 50 s−1 and φ = 2.0; for n-heptane ﬂame, as = 50 s−1
+and φ = 2.8.
+contributions of the prompt and thermal mechanisms
+for the two fuels. This difference is clearly seen by
+comparing the thermal and prompt NO proﬁles for
+the two fuels in the double-ﬂame and merged-ﬂame
+regimes, presented in Figs. 6 and 9, respectively.
+In the double-ﬂame regime depicted in Fig. 6, the
+prompt mechanism is the major contributor to total
+NO in n-heptane ﬂames, while the thermal mecha-
+nism is the major contributor to total NO in methane
+ﬂames. However, in the merged-ﬂame regime de-
+picted in Fig. 9, the prompt mechanism becomes the
+major contributor to total NO in both the n-heptane
+and the methane ﬂames. Thus, for methane ﬂames,
+there is a switch between the relative contributions of
+the thermal and prompt NO during the transition from
+the double-ﬂame to the merged-ﬂame regime. There
+is no such crossover, however, for n-heptane ﬂames,
+as the prompt NO remains the major contributor to the
+total NO in the entire partially premixed regime. This
+represents an important difference in the NOx charac-
+teristics of n-heptane and methane partially premixed
+ﬂames and has not been reported by previous investi-
+gations.
+Fig. 9. Mole fraction proﬁles of the prompt and thermal NO
+in methane and n-heptane/air PPFs discussed in the context
+of Fig. 8.
+Several additional simulations were performed to
+characterize the effects of φ and as on the relative
+contributions of the prompt and thermal mechanisms
+in the two reaction zones and to conﬁrm the crossover
+observed for methane ﬂames. The general observa-
+tions with regard to the relative contributions of the
+prompt and thermal mechanisms and with regard to
+the crossover for methane ﬂames were the same as
+those discussed in the preceding sections.
+4.5. Comparison of NOx characteristics with regard
+to NOx emission index (EINOx)
+The global NOx characteristics of methane and n-
+heptane PPFs can be compared by plotting the NOx
+emission index as a function of fuel-rich equivalence
+ratio and global strain rate. The NOx emission index
+is deﬁned as
+(4)
+EINOx =
+ L
+0 MNOx ˙ωNOx dx
+−
+ L
+0 Mfuel ˙ωfuel dx
+.
+Here, M represents the molecular weight, ˙ω is the
+net production/consumption rate, L is the distance be-
+tween the nozzles, and x is the axial coordinate. The
+emission index is a global parameter that has been
+commonly used to characterize NOx emission from
+different ﬂames [6,16,21].
+Fig. 10 presents the NOx emission index as a func-
+tion of φ for n-heptane and methane PPFs established
+at strain rates of as = 50 and 100 s−1. There are two
+important observations from this ﬁgure. One, EINOx
+is much higher for n-heptane ﬂames than for methane
+ﬂames. While their relative values depend upon φ and
+as, EINOx for n-heptane ﬂames is generally 5 to 10
+times higher than that for methane ﬂames. This is
+consistent with the results presented in the preceding
+
+
+--- Page 11 ---
+
+100
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+Fig. 10. NOx emission index plotted versus φ for methane
+and n-heptane PPFs established at as = 50 and 100 s−1.
+sections and can be attributed to the dominant path-
+ways involving the C1 and C2 species, leading to a
+signiﬁcantly higher amount of acetylene being pro-
+duced in n-heptane ﬂames. Two, with regard to the
+dependence of EINOx on φ in the double-ﬂame and
+merged-ﬂame regimes, in the double-ﬂame regime,
+the EINOx exhibits strong dependence on φ, while
+in the merged-ﬂame regime, the emission index has a
+weak dependence on φ, decreasing slowly to the dif-
+fusion ﬂame limit as φ is increased.
+As noted earlier, the ranges of φ and as for the
+double-ﬂame regime are signiﬁcantly different for the
+two fuels. For n-heptane ﬂames, this regime is ap-
+proximately given by 1.5 < φ < 3.5 and 20 < as <
+120 s−1, while for methane ﬂames, it is given by
+1.4 < φ < 2.0 and 20 < as < 50 s−1. Moreover, as
+as (or φ) increases, the range of φ (or as) for the
+double-ﬂame region becomes narrower for both fu-
+els. For n-heptane ﬂames at as = 50 s−1, this regime
+is given by 1.5 < φ < 3.0. In this regime, as indicated
+in Fig. 10, the EINOx ﬁrst increases and then de-
+creases with φ. In the merged-ﬂame regime (φ > 3.0),
+the EINOx decreases slowly with φ as it approaches
+the diffusion ﬂame limit. A similar behavior is ob-
+served for methane ﬂames at as = 50 s−1, except
+that the double-ﬂame regime is narrower, given by
+1.4 < φ < 2.0, and the EINOx is much lower than
+that for n-heptane ﬂames. The EINOx values in the
+diffusion ﬂame limit are 7.2 and 1.3, respectively,
+for n-heptane and methane ﬂames. The above results
+are consistent with those reported by previous re-
+searchers. For n-heptane ﬂames, a detailed discussion
+on the variation of EINOx with φ has been provided
+by Xue and Aggarwal [21]. As discussed in the cited
+study, for as = 50 s−1, the variation of EINOx with φ
+in the double-ﬂame region is related to the interaction
+of the two reaction zones as the level of the partial
+premixed zone is reduced. For lower φ (φ = 1.5), the
+premixed reaction zone is located far from the non-
+premixed zone. Consequently, there is little transport
+of C2H2 from the premixed zone to the nonpremixed
+zone, and this reduces the prompt NO formation rate
+in the latter zone. This in turn decreases the total NO
+formation rate, since most of the NO in n-heptane
+ﬂames formed due to the prompt mechanism. As φ
+is increased, interactions between the two reaction
+zones are enhanced due to the reduced separation dis-
+tance between them and the transport of C2H2 to the
+nonpremixed zone becomes signiﬁcant. This causes a
+signiﬁcant increase in the prompt NO formation rate
+in the nonpremixed zone. The thermal NO formation
+rate in this zone is also enhanced due to the increased
+radical activity. Consequently, as φ is increased, the
+total NO formation rate increases, which leads to
+higher EINOx. This trend does not continue, however,
+since further increase in φ leads to a transition from
+the double-ﬂame to the merged-ﬂame regime, and
+EINOx then decreases slowly with φ. Our results with
+regard to the variation of EINOx with φ for methane
+PPFs are consistent with those reported in previous
+investigations [6,23,40]. The computed EINOx values
+in the present study agree well with those reported by
+Li and Williams [6]. For example, for a methane ﬂame
+established at φ = 3.0 and as = 50 s−1, the EINOx
+values in our simulation and in [6] are 1.46 and 1.4,
+respectively. There is also good qualitative agreement
+between our results and those reported by Blevins and
+Gore [23] and Nishioka et al. [40], although a quanti-
+tative comparison could not be done due to different
+parameters.
+For the higher-strain case (as = 100 s−1), the
+double-ﬂame regime for n-heptane ﬂames is given by
+1.5 < φ < 2.5, and in this range, the EINOx ﬁrst de-
+creases, reaching a minimum at φ ≈1.75, and then
+increases as φ is increased up to 2.5. For φ > 2.5,
+which corresponds to the merged-ﬂame region, the
+EINOx again decreases slowly to the diffusion ﬂame
+value of 7.93 as φ is increased. For methane ﬂames
+at as = 100 s−1, there is no double-ﬂame region, and,
+consequently, the EINOx decreases slowly to the dif-
+fusion ﬂame limit.
+4.6. Effect of using fuel blends on NOx emissions
+The second part of this paper focuses on the ef-
+fect of adding hydrogen on the NOx characteristics of
+methane and n-heptane ﬂames. For methane ﬂames,
+we employed two different approaches to character-
+ize the effect of hydrogen addition on NOx emission.
+In the ﬁrst approach, which has been used previously
+by Rortveit et al. [13], the peak ﬂame temperature for
+different CH4–H2 blends is kept constant by using ni-
+trogen dilution. The objective is to validate our results
+by comparing them with those from the cited study
+
+
+--- Page 12 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+101
+Fig. 11. NO (a) and CH (b) mole fraction proﬁles for
+nonpremixed ﬂames established with different methane/
+hydrogen blends at a strain rate of 100 s−1. Nitrogen dilution
+is used to maintain the peak ﬂame temperature at 2040 K for
+all the cases.
+and to eliminate the temperature effect on NOx emis-
+sion as the amount of hydrogen addition is increased.
+In the second approach, no nitrogen dilution is used,
+which allows us to characterize the effect of hydrogen
+addition on both the prompt and the thermal NO.
+Fig. 11 presents the NO and CH mole fraction pro-
+ﬁles for nonpremixed ﬂames simulated using CH4–
+H2 blends with nitrogen dilution. The global strain
+rate is 100 s−1 and the distance between the nozzles
+is 1.27 cm. Results are presented for four different
+blends containing 0, 10, 50, and 90% H2 by vol-
+ume. For all four cases, the peak ﬂame temperature
+was maintained at 2040 K using nitrogen dilution.
+Results for the 0% hydrogen case were indistinguish-
+able from those for the 10% hydrogen case and are
+not shown in the ﬁgure. As indicated in Fig. 11a, as
+the H2 concentration is increased, the amount of NO
+formed decreases in a monotonic manner. This is due
+to a reduction in prompt NO, since thermal NO re-
+mains essentially the same as the ﬂame temperature is
+maintained constant. These results are consistent with
+those reported by Rortveit et al. [13]. Further insight
+Fig. 12. Temperature (a) and NO mole fraction (b) proﬁles
+for nonpremixed ﬂames established at as = 100 s−1, using
+different methane/hydrogen blends without nitrogen dilu-
+tion.
+into this behavior is provided by the CH proﬁles pre-
+sented in Fig. 11b. As the amount of H2 in the blend
+is increased, the CH concentration decreases, since
+the amount of methane in the fuel blend decreases,
+which in turn decreases the prompt NO. It is worth
+mentioning, however, that a relatively large amount of
+H2 is needed to bring a noticeable reduction in NOx
+emission. For example, addition of 10% H2 by vol-
+ume (1.4% by mass) has essentially no effect on the
+computed NO proﬁle, while addition of 50% H2 by
+volume (or 11.1% by mass) decreases the peak NO
+value by about 30%.
+Fig. 12 presents the temperature and NO mole
+fraction proﬁles for nonpremixed ﬂames using CH4–
+H2 blends without nitrogen dilution. Results are
+shown for four different blends containing 10, 50, 70,
+and 90% H2 by volume, or 1.4, 11.1, 22.6, and 52.9%
+H2 by mass. Results for the 0% H2 were again in-
+distinguishable from those for 10% H2 and are not
+included in the ﬁgure. As expected, H2 addition in
+the fuel blend increases the ﬂame temperature (cf.
+
+
+--- Page 13 ---
+
+102
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+Fig. 13. Thermal and prompt NO proﬁles for nonpremixed
+ﬂames established using two different methane/hydrogen
+blends containing 50 and 70% H2 by volume.
+Fig. 12a), since the adiabatic ﬂame temperature in-
+creases with hydrogen addition. For the four cases
+depicted in Fig. 12, the peak ﬂame temperatures are
+2027, 2130, 2199, and 2294 K, and the corresponding
+adiabatic ﬂame temperatures are 2324, 2368, 2408,
+and 2484 K, respectively. The ﬂame width also in-
+creases with H2 in the fuel blend, since the effective
+mass diffusivity is enhanced due to hydrogen addi-
+tion. The effect of hydrogen addition on NO emission
+is illustrated in Fig. 12b. Although the peak NO value
+exhibits a nonmonotonic variation with H2 concen-
+tration, as it ﬁrst increases (for H2 up to 50% by
+volume) and then decreases, the important observa-
+tion is that hydrogen addition has a relatively minor
+effect on NOx concentration in methane ﬂames. The
+peak NO varies in a very narrow range as the amount
+of H2 in the blend is increased from 10 to 90% by
+volume. This can be attributed to the fact that the ad-
+dition of H2 decreases the prompt NO, as it lowers the
+CH concentration, but increases the thermal NO due
+to the higher ﬂame temperature. This is conﬁrmed by
+plotting the thermal and prompt NO proﬁles shown in
+Fig. 13. The prompt NO decreases while the thermal
+NO increases as H2 in the blend is increased from 50
+to 70% by volume. Since these two effects essentially
+cancel each other, the hydrogen addition has an incon-
+sequential effect on NOx concentration in methane
+ﬂames.
+Fig. 14 presents the temperature and NO mole
+fraction proﬁles for nonpremixed ﬂames established
+using different n-heptane/hydrogen fuel blends with-
+out nitrogen dilution. For the four cases depicted in
+the ﬁgure, the fuel blend contains 10, 50, 70, and
+90% H2 by volume or 0.22, 1.96, 4.46, and 15.25%
+H2 by mass. It is important to note that for the same
+Fig. 14. Temperature (a) and NO mole fraction (b) pro-
+ﬁles for nonpremixed ﬂames established with different
+n-heptane/H2 blends at as = 100 s−1.
+amount of H2 by volume, the hydrogen mass in a
+n-heptane/hydrogen blend is much smaller than that
+in a methane/hydrogen blend. The temperature pro-
+ﬁles in Fig. 14a indicate that the addition of H2 in the
+fuel blend increases the ﬂame temperature and thick-
+ness. However, the effect is small compared to that
+observed for CH4–H2 blends.
+The NO mole fraction proﬁles presented in
+Fig. 14b indicate that the NOx emission in n-heptane
+ﬂames can be signiﬁcantly reduced using H2 addi-
+tion, which is in contrast to that for methane ﬂames,
+for which the NOx emission is only marginally af-
+fected by H2 addition. For n-heptane ﬂames, as the
+amount of H2 in the blend is increased, it signiﬁ-
+cantly lowers the NO concentration. As noted earlier,
+50 and 70% H2 by volume represent only 1.96 and
+4.46% H2 by mass, implying that a relatively small
+H2 mass can signiﬁcantly reduce NO emission in n-
+heptane ﬂames. This is due to the fact that most of
+the NO in n-heptane ﬂames is formed through the
+prompt mechanism, and the prompt NO is signiﬁ-
+cantly reduced by adding H2 in the blend. This is
+conﬁrmed by the prompt and thermal NO proﬁles
+
+
+--- Page 14 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+103
+Fig. 15. Thermal and prompt NO proﬁles for nonpremixed
+ﬂames established using two different n-heptane/hydrogen
+blends containing 50 and 70% H2 by volume or 1.96 and
+15.25% H2 by mass.
+shown in Fig. 15. As hydrogen mass in the blend is in-
+creased from 1.96 to 4.46%, the prompt NO decreases
+considerably while the thermal NO increases only
+slightly. As indicated in Fig. 15, the addition of hy-
+drogen in the blend leads to a signiﬁcant reduction in
+CH concentration, which causes a signiﬁcant reduc-
+tion in prompt NO. Although the addition of hydrogen
+increases thermal NO due to the increased ﬂame tem-
+perature, its effect on the total NO is negligible, due
+to the dominance of the prompt mechanism. Thus
+an important observation here is that the addition of
+hydrogen can signiﬁcantly reduce NOx emission in n-
+heptane ﬂames but has a negligible effect in methane
+ﬂames.
+5. Conclusions
+In this numerical study we have examined the
+effects of using different fuels on NOx emissions
+in counterﬂow nonpremixed and partially premixed
+ﬂames. The fuels investigated include methane, n-
+heptane, and their blends using hydrogen. Methane
+ﬂames have been computed using the GRI-Mech 3.0
+mechanism, while n-heptane has been computed by
+combining the Held et al. oxidation mechanism with
+the Li and Williams NOx mechanism. While these
+mechanisms have been validated previously in sev-
+eral conﬁgurations, two additional validations for the
+simulation of methane and n-heptane PPFs have been
+provided in the present study. A detailed investigation
+has been conducted to characterize the fuel effects on
+NOx emissions. Important observations are the fol-
+lowing:
+(1) In the context of NOx characteristics, the par-
+tial premixed combustion can be classiﬁed into
+two distinct regimes, namely a double-ﬂame
+regime and a merged-ﬂame regime. In the ﬁrst
+regime, a partially premixed ﬂame contains two
+distinct or physically separated reaction zones,
+namely a rich premixed zone on the fuel side
+and a nonpremixed zone on the oxidizer side.
+In the second regime, these two reaction zones
+are nearly merged. The double-ﬂame regime is
+characterized by relatively high levels of partial
+premixing and low strain rates. With increasing
+φ and/or as, the two reaction zones move closer
+and eventually merge, representing a transition
+to the merged-ﬂame regime. Due to the differ-
+ence in fuel pyrolysis/oxidation chemistry, the
+ranges of φ and as for the double-ﬂame regime
+are signiﬁcantly different for the two fuels. For
+counterﬂow methane ﬂames, this regime is ap-
+proximately given by 1.4 < φ < 2.0 and 20 <
+as < 50 s−1, while for n-heptane ﬂames, it is
+given by 1.5 < φ < 3.5 and 20 < as < 120 s−1.
+(2) In the double-ﬂame regime, NOx characteris-
+tics of both methane and n-heptane ﬂames are
+strongly affected by changes in φ and as, while
+in the merged-ﬂame regime, they exhibit a rel-
+atively weak dependence on φ and as. More-
+over, in the double-ﬂame regime, the methane
+and n-heptane ﬂames established under identical
+conditions exhibit widely different NOx emis-
+sion behavior, while in the merged-ﬂame regime,
+their NOx characteristics are qualitatively sim-
+ilar. These differences are also observed in the
+NOx emission indices for both the methane and
+the n-heptane ﬂames and are related to their re-
+spective fuel oxidation chemistry.
+(3) Under identical conditions, the amount of NO
+produced in n-heptane ﬂames is signiﬁcantly
+higher than that in methane ﬂames, and this is
+directly attributable to the higher concentration
+of acetylene in n-heptane ﬂames. A rate of pro-
+duction analysis indicated that the consumption
+of n-heptane occurs mainly through the C2 path,
+while that of methane occurs mainly through the
+C1 path, with the implication that the amount
+of C2H2 formed in n-heptane ﬂames is signiﬁ-
+cantly higher than that in methane ﬂames. This
+leads to a much higher concentration of CH
+radicals and, consequently, of prompt NO in n-
+heptane ﬂames. The thermal NO is also higher
+in n-heptane ﬂames due to the higher tempera-
+ture and higher O and OH radical concentrations.
+Consequently, the amount of total NO formed in
+n-heptane ﬂames is signiﬁcantly higher than that
+in methane ﬂames.
+
+
+--- Page 15 ---
+
+104
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+(4) For both methane and n-heptane ﬂames, the NO
+level in the nonpremixed reaction zone far ex-
+ceeds that in the premixed reaction zone. This is
+due to the paucity of O and OH radicals and to
+a lesser extent to lower temperature in the pre-
+mixed zone. While CH radicals are produced in
+both the premixed and the nonpremixed reac-
+tion zones and immediately lead to the forma-
+tion of HCN through the reaction CH + N2 ↔
+HCN + N, the subsequent conversion of HCN to
+NO occurs mainly in the nonpremixed zone due
+to the availability of O and OH radicals there.
+Consequently, the prompt NO is much higher in
+this zone than in the premixed zone. The thermal
+NO is also higher in the nonpremixed zone due to
+the higher temperature and radical concentration
+in this zone.
+(5) Another important difference in the NOx char-
+acteristics of the two fuels pertains to the rel-
+ative contributions of the prompt and thermal
+mechanisms in the two regimes. For n-heptane
+ﬂames, the prompt mechanism is the major con-
+tributor to the total NO in both the double-ﬂame
+and the merged-ﬂame regimes. In contrast, for
+methane ﬂames, the thermal mechanism is the
+major contributor to the total NO in the double-
+ﬂame regime, while the prompt mechanism be-
+comes the major contributor in the merged-ﬂame
+regime. This switch between the relative contri-
+butions of the thermal and prompt NO during
+transition from the double-ﬂame to the merged-
+ﬂame regime occurs only in methane ﬂames. It
+is also noteworthy that for n-heptane ﬂames, the
+amount of NO formed due to the prompt mech-
+anism far exceeds that formed due to the ther-
+mal mechanism in the entire partially premixed
+regime, and the difference becomes greater with
+increase in φ and as. This is again attributable
+to the signiﬁcantly higher amount of acetylene
+produced in the premixed zone, which is sub-
+sequently transported to the nonpremixed zone
+in n-heptane ﬂames. In contrast, for methane
+ﬂames, the amount of acetylene transported to
+the nonpremixed zone is relatively small, and the
+relative contributions of the prompt and thermal
+mechanisms are generally comparable.
+(6) NOx characteristics of methane/hydrogen and n-
+heptane/hydrogen blends have also been inves-
+tigated. Results indicate that the addition of hy-
+drogen can signiﬁcantly reduce NOx emission in
+n-heptane ﬂames but has a negligible effect on
+NOx emission in methane ﬂames. This is due to
+the fact that most of the NO in n-heptane ﬂames
+is produced through the prompt mechanism, and
+the prompt NO is signiﬁcantly reduced by H2,
+since the C2H2 and, consequently, the CH con-
+centrations are reduced due to H2 addition. In
+contrast, for methane ﬂames, the decrease in the
+prompt NO due to hydrogen addition is balanced
+by the corresponding increase in the thermal NO,
+and the total NO is essentially unaffected by hy-
+drogen addition.
+Acknowledgments
+This research was supported by the NSF Combus-
+tions and Plasma Systems Program for which Drs.
+Farley Fisher and Thomas Chapman have been the
+Program Directors. We thank Professor F.L. Dryer
+and Dr. T. Held for providing the n-heptane mecha-
+nism, Mr. Hongshe Xue for help with numerical simu-
+lations, and Mr. Paolo Berta for performing n-heptane
+ﬂame simulations using a more comprehensive mech-
+anism. Many stimulating discussions with Professor
+I.K. Puri are gratefully appreciated.
+References
+[1] R.S. Barlow, C.D. Carter, Combust. Flame 104 (1996)
+288–299.
+[2] A.N. Hayhurst, A.D. Lawrence, Combust. Flame 105
+(1996) 341–357.
+[3] M.C. Meunier, M.G. Carvalho, Combust. Flame 112
+(1998) 221–230.
+[4] A. Schlegel, P. Benz, T. Grifﬁn, W. Weisenstein, H.
+Bockhorn, Combust. Flame 105 (1996) 332–340.
+[5] C. Poppe, S. Sivasegaram, J.H. Whitelaw, Combust.
+Flame 113 (1998) 13–26.
+[6] S.C. Li, F.A. Williams, Combust. Flame 118 (1999)
+399–414.
+[7] J. Warnatz, P. Klaus, CEC reaction mechanism for
+methane/air combustion, http://www.ca.sandia.gov/tdf/
+3rdworkshop/chemmech/JW-C2NO98.mec.html.
+[8] Leeds NOx mechanism, http://www.chem.leeds.ac.uk/
+combustion/nox.html.
+[9] J.A. Miller, C.T. Bowman, Prog. Energy Combust.
+Sci. 15 (1989) 287.
+[10] C.E. Roberts, Determination of the effect of wa-
+ter on soot formation, http://www.swri.edu/3pubs/
+IRD1999/03907399.htm.
+[11] G.J. Rortveit, J.E. Hustad, S.C. Li, F.A. Williams, Com-
+bust. Flame 130 (2002) 48–61.
+[12] D. Zhao, H. Yamashita, K. Kitawaga, N. Arai, T. Fu-
+ruhata, Combust. Flame 130 (2002) 352–360.
+[13] G.J. Rortveit, J.E. Hustad, F.A. Williams, NOx forma-
+tion in diluted CH4/H2 counterﬂow diffusion ﬂames,
+in: Proc. of the 6th International Conference on Tech-
+nologies and Combustion for a Clean Environment,
+Porto, Portugal.
+[14] M.A.S. Al-Baghdadi, Renewable Energy 28 (9) (2002)
+1471–1478.
+[15] A.R. Choudhuri, S.R. Gollahali, Int. J. Hydrogen En-
+ergy 28 (4) (2002) 445–454.
+
+
+--- Page 16 ---
+
+S. Naha, S.K. Aggarwal / Combustion and Flame 139 (2004) 90–105
+105
+[16] J.P. Gore, N.J. Zhan, Combust. Flame 105 (1996) 414–
+427.
+[17] M.A. Tanoff, M.D. Smooke, R.J. Osborne, T.M.
+Brown, R.W. Pitz, Proc. Combust. Inst. 26 (1996)
+1121–1128.
+[18] R.V.
+Ravikrishna,
+N.M.
+Laurendeau,
+Combust.
+Flame 122 (2000) 471–482.
+[19] R.S. Barlow, A.N. Karpetis, J.H. Frank, J.Y. Chen,
+Combust. Flame 127 (2001) 2102–2118.
+[20] V. Dupont, A. Williams, Combust. Flame 114 (1998)
+103–118.
+[21] H.S. Xue, S.K. Aggarwal, Combust. Flame 132 (2003)
+723–741.
+[22] H.S. Xue, S.K. Aggarwal, R.J. Osborne, T.M. Brown,
+R.W. Pitz, AIAA J. 40 (6) (2002) 1236–1238.
+[23] L.G. Blevins, J.P. Gore, Combust. Flame 116 (1999)
+546–566.
+[24] A.E. Lutz, R.J. Kee, J.F. Grear, F.M. Rupley, OPPDIF:
+A Fortran program for computing opposed ﬂow diffu-
+sion ﬂames, Sandia National Laboratories Report No.
+SAND96-8243.
+[25] R.J. Kee, F.M. Rupley, J.A. Miller, Chemkin: A Fortran
+chemical kinetics package for the analysis of gas phase
+chemical kinetics, Sandia National Laboratories Report
+No. 89-8009B.
+[26] T.J. Held, A.J. Marchese, F.L. Dryer, Combust. Sci.
+Technol. 123 (1997) 107–146.
+[27] G.P. Smith, D.M. Golden, M. Frenklach, N.W. Mori-
+arty, B. Eiteneer, M. Goldenberg, C.T. Bowman, R.K.
+Hanson, S. Song, W.C. Gardiner Jr., V.V. Lissianski,
+Z. Qin, GRI Mech-3.0, http://www.me.berkeley.edu/
+grimech/.
+[28] C.J. Sung, C.K. Law, J.Y. Chen, Proc. Combust.
+Inst. 27 (1998) 295–304.
+[29] C.J. Montgomery, M.A. Cremer, M.P. Heap, J.Y. Chen,
+C.K. Westbrook, L.Q. Maurice, Reduced chemical
+kinetic mechanisms for hydrocarbon fuels, in: 35th
+AIAA/ASME/SAE/ASEE Joint Propulsion Conference
+and Exhibit, Los Angeles, California, 1999.
+[30] S.G. Davis, C.K. Law, Proc. Combust. Inst. 27 (1998)
+521–527.
+[31] R. Seiser, L. Truett, D. Trees, K. Seshadri, Proc. Com-
+bust. Inst. 27 (1998) 649–657.
+[32] E. Ranzi, M. Dente, G. Bozanno, A. Goldaniga, T. Far-
+avelli, Prog. Energy Combust. Sci. 27 (2001) 99–139.
+[33] H. Xue, S.K. Aggarwal, AIAA J. 39 (2001) 637–648.
+[34] S.C. Li, F.A. Williams, Proc. Combust. Inst. 28 (2000)
+1031.
+[35] Material Safety Data Sheet (MSDS) for methane
+(CH4), Voltaix, Inc., Post Ofﬁce Box 5357, North
+Branch, NJ 08876-5357, USA, 1994 (Revised 1996).
+[36] Material Safety Data Sheet (MSDS) for heptane, Math-
+eson Tri-Gas, Inc., 959 Route 46 East Chemtrec 1-
+800-424-9300, Parsippany, NJ 07054-0624, USA, 1989
+(Revised 2002).
+[37] D.C. Horning, D.F. Davidson, R.K. Hanson, J. Propul.
+Power 18 (2) (2002) 363–371.
+[38] Y. Hidaka, K. Sato, Y. Henmi, H. Tanaka, K. Inami,
+Combust. Flame 118 (1999) 340–358.
+[39] T. Turanyi, Kinalc homepage, http://www.chem.leeds.
+ac.uk/Combustion/kinalc.html.
+[40] M. Nishioka, S. Nakagawa, Y. Ishikawa, T. Takeno,
+Combust. Flame 98 (1994) 127–138.

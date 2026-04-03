@@ -1,0 +1,1407 @@
+
+--- Page 1 ---
+
+Combustion and Flame 137 (2004) 278–294
+www.elsevier.com/locate/jnlabr/cnf
+Large eddy simulation of a model gas turbine combustor
+F. di Mare,a W.P. Jones,a,∗and K.R. Menzies b
+a Department of Mechanical Engineering, Imperial College London, Exhibition Road, London SW7 2AX, UK
+b Combustion Systems Engineering, Rolls-Royce plc., PO Box 3, Filton, Bristol BS34 7QE, UK
+Received 22 July 2002; received in revised form 10 August 2003; accepted 30 January 2004
+Abstract
+Large eddy simulation (LES) has been used to predict temperature and species concentrations in a model can-
+type gas turbine combustor operating in a non-premixed combustion regime. The subgrid scale stresses have been
+modelled adopting the standard Smagorinsky–Lilly model, whilst combustion has been accounted for using a
+conserved scalar approach. The dependence of the thermodynamical status of the mixture on the conserved scalar
+has been described invoking a ﬂamelet assumption, and the shape of the scalar probability density function (pdf)
+assigned to be a β function. The subgrid scalar variance, needed to parameterise the scalar pdf, has been modelled
+according to local equilibrium arguments. The complex ﬂow pattern developing from the interaction of a strongly
+swirling ﬂow in the primary zone with the impinging primary jets has been captured by the present simulations in
+great detail. In particular, it has been observed that an accurate description of the inlet section of the combustor
+plays a fundamental role in the prediction of the fuel placement and, hence, of the temperature distribution in the
+primary region.
+2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+Keywords: Combustion; Turbulence; Large eddy simulation; Gas turbines
+1. Introduction and motivation
+The majority of current methods for calculat-
+ing the properties of turbulent ﬂames and practical
+combustion systems are based on Reynolds or Favre
+averaging of the Navier–Stokes equations (RANS).
+Whilst the approach has often proved useful in the
+past it has met with variable success in reproduc-
+ing many of the important effects present in prac-
+tical combustion systems, particularly in situations
+where large-scale organised and nonstationary tur-
+bulence structures, strong streamline curvature, or
+nongradient transport is present. Large eddy simu-
+lation (LES) represents a potentially powerful and
+promising method for overcoming many of the lim-
+itations of RANS approaches. LES involves a direct
+* Corresponding author. Fax: +44(0) 207 581 54 95.
+E-mail address: w.jones@imperial.ac.uk (W.P. Jones).
+three-dimensional time-dependent computation of the
+large-scale turbulent motions responsible for turbu-
+lent mixing whilst those with scales smaller than the
+computational grid (the subgrid stresses) are mod-
+elled. Recently, more emphasis has been placed on
+applications of LES to combusting ﬂows, the major
+issue being the fact that reactive phenomena occur on
+scales that fall well below the resolution limit of the
+computational mesh and as a consequence modelling
+is required. This difﬁculty has been addressed by sev-
+eral workers with limited success, for example, see
+[1–4]; in these approaches direct closure of the chem-
+ical source term in the species transport equations is
+attempted. More sophisticated techniques have been
+also proposed, including, for example, the application
+of the linear eddy model [5] to LES by Menon et al.
+[6], the extension of the conditional moment closure,
+devised originally in the context of RANS [7], to LES
+by Bushe and Steiner [8], and the solution of mod-
+elled scalar pdf transport equations, introduced by
+0010-2180/$ – see front matter 2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.combustﬂame.2004.01.008
+
+
+--- Page 2 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+279
+Fig. 1. Dependence of species mole fraction, temperature,
+and density on the mixture fraction: laminar ﬂamelet calcu-
+lation (as = 15 s−1).
+Givi and co-workers [9,10] and then successively de-
+veloped in [11–14]. The potentially greater degree of
+accuracy offered by these models is limited by the ex-
+tremely high computational cost of implementation.
+So far this has restricted their use to very simple and
+idealised problems; they do not currently represent a
+solution to practical problems.
+An alternative to the above is a simple laminar
+ﬂamelet conserved scalar approach, which provides
+a reasonable compromise between implementation
+costs and accuracy (Fig. 1). Here it is presumed that
+a single strictly conserved scalar, the mixture frac-
+tion ξ, is sufﬁcient to describe the thermochemical
+state of the ﬂow and this serves to de facto decou-
+ple the modelling of turbulence from that of reactive
+phenomena. The methodology originally developed
+in the context of RANS approaches (e.g., [15]) has
+then been applied to LES in a slightly modiﬁed form
+(see [16–18]). The functional dependence of com-
+position, temperature, and density on ξ can be ob-
+tained either from chemical equilibrium assumptions
+or from laminar ﬂamelet calculations. Although the
+conditions for ﬂamelet combustion may not always be
+satisﬁed, the method yields more realistic predictions
+of species concentrations (particularly in the case
+of CO) for hydrocarbon fuels than the equilibrium
+method and it is therefore to be preferred. The mean
+(ﬁltered) concentrations, temperature, and density can
+be calculated by convolution of these known func-
+tions with the subgrid pdf of the resolved conserved
+scalar. The functional form of the probability density
+function can be conveniently chosen as a β function,
+which is deﬁned in the interval [0,1], as is the mixture
+fraction itself. Other pdf forms have also been used
+(see [19]) such as clipped gaussian and double delta
+functions. Although relying on assumptions that may
+not be always strictly valid, the conserved scalar ap-
+proach is computationally inexpensive, particularly in
+the context of full three-dimensional time-dependent
+computations.
+The application of LES to gas turbine combustors
+is being regarded with increased interest due to its
+potential in capturing features of the ﬂow ﬁeld that
+are currently out of reach of other modelling tech-
+niques. However, the complex geometrical aspects
+of common industrial devices, which drastically in-
+creases the cost of performing good-quality LES, to-
+gether with the issues related to incorporating sufﬁ-
+ciently accurate combustion models still pose a lim-
+itation on the application of LES to practical gas
+turbine combustion chambers. Several authors have
+attempted LESs of gas turbine combustors in simpli-
+ﬁed geometries. Kim et al. [20] calculated the velocity
+and composition ﬁeld in a GE lean premixed dry-low
+NOx LM6000 combustion chamber using a ﬂamelet
+approach to describe the premixed combustion occur-
+ring in the combustor. Although the device retained
+some of the complex characteristics of practical gas
+turbine combustors, ﬁlm cooling was not accounted
+for, nor were additional complications related to the
+presence of dilution jets or changes in the shape of
+the chamber considered. Also, the computed species
+concentration and temperature were not reported, pre-
+sumably because no measurements were available for
+comparison purposes. Mahesh et al. [21] also car-
+ried out LES of a simpliﬁed Pratt & Whitney coax-
+ial combustor, mainly for code validation purposes,
+and Angelberger et al. [22] investigated the effects of
+acoustic instabilities in a premixed dump combustor.
+Although a premixed combustion regime is be-
+coming increasingly popular for industrial gas tur-
+bines, because of their potential for very low NOx
+emissions, combustion in conventional aircraft gas
+turbines occurs predominantly in the non-premixed
+diffusion ﬂame regime. In such devices turbulent mix-
+ing exerts a dominant inﬂuence and better understand-
+
+
+--- Page 3 ---
+
+280
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+ing necessarily requires an accurate prediction of
+the turbulent velocity ﬁeld, including any “unsteady”
+aspects associated, for example, with jet-on-jet im-
+pingement. The present study represents an attempt
+to predict the concentration, temperature, and velocity
+ﬁeld in a practical conﬁguration where the combus-
+tion process develops in the non-premixed regime.
+The conﬁguration selected in the present work is a
+model can-type combustor closely representative of
+that found in the Rolls–Royce Tay engine. The com-
+bustor, described in [23–25], comprises rows of pri-
+mary and dilution ports, a circular to rectangular noz-
+zle, as well as of porous walls, and the resulting ﬂow
+pattern is extremely complex and is well suited to an
+investigation of the capabilities of LES. In the present
+work, the conserved scalar approach has been adopted
+to model the combustion process, both in view of
+the advantages offered by the method over more ex-
+pensive, although more rigorous alternatives, and be-
+cause of its success in previous works [16,17,26].
+The Smagorinsky–Lilly model [27,28] has been used
+to represent the subgrid stresses and ﬂuxes and thus
+close the ﬁltered momentum and conserved scalar
+transport equations. In the following sections the de-
+tails of the mathematical model are described, along
+with the numerical method used to solve the govern-
+ing equations, and results of the computation are then
+compared with measurements.
+1.1. Flow conﬁguration
+The device here investigated is a roughly three-
+fourths-scale model can-type combustion chamber
+representative of the Rolls–Royce Tay gas turbine.
+The model combustor comprises a hemispherical
+head, a cylindrical barrel, and a circular to rectangular
+nozzle. The combustor walls are made of Transply, a
+laminated porous material engineered at Rolls–Royce
+plc. A relatively small swirler with 18 aerodynami-
+cally shaped vanes sits in the head of the combustor,
+and fuel (high-purity propane) is injected into the
+combustion chamber through ten 1.7-mm-diameter
+jets arranged around a 90◦cone located at the cen-
+tre of the swirler. Two rows of primary and dilution
+ports are located in the combustor barrel, with the
+latter staggered by half a pitch with respect to the for-
+mer. The diameter of the dilution jets is twice that
+of the primary ones. The combustor is located in a
+large duct and is effectively “plenum fed” so that the
+primary and dilution jets enter the combustor at ap-
+proximately 90◦to its axis. The combustor geometry
+is described in greater detail in [23,29]. A schematic
+representation of the combustor is shown in Fig. 2.
+In an isothermal experimental study conducted at
+Imperial College, two different swirler conﬁgurations
+were investigated, one featuring 30◦vanes, the other
+Fig. 2. Schematic representation of the model Tay combus-
+tor.
+45◦vanes. The inﬂuence of swirler characteristics on
+the ﬂow ﬁeld inside the combustor was assessed by
+Bicen and Palma [30]. They found that the swirler
+ﬂow characteristics are unaffected by the Reynolds
+number in the range at which the combustor was oper-
+ated. There was also evidence of a stronger stabilising
+effect of the near-solid body rotation to which the
+ﬂuid is subjected in proximity of the combustor axis
+on turbulence when the 45◦swirl was used. The lower
+discharge coefﬁcient Cd found in this case seemed
+to suggest that separation occurred in the vane pas-
+sage, which was also the cause of difference between
+the ﬂow split with the two swirler conﬁgurations. De-
+tailed combusting ﬂow measurements within the com-
+bustor have been taken for a number of different simu-
+lated operating conditions, encompassing take off and
+ground-idle regimes, at nearly atmospheric pressure.
+Temperature was measured by digitally compensated
+small-diameter bare-wire thermocouples while con-
+centrations of UHC, CO2, CO, O2, and H2 were ob-
+tained by sampling through water-cooled probes and
+analysing the samples with a ﬂame ionisation detec-
+tor, a gas chromatograph, and infrared and paramag-
+netic analysers [23].
+In the present study computations were carried out
+for the conﬁguration featuring a 45◦swirler operat-
+ing under the takeoff conditions, for which the initial
+air temperature was 315 K and the air-to-fuel-ratio
+(AFR) 57. This corresponds to volumetric ﬂow rates
+of 0.08 and 0.001 m3 s−1 for air and fuel, respec-
+tively, yielding a bulk velocity equal to 182.2 ms−1
+for the former and 44.1 ms−1 for the latter, based on
+cold ﬂow properties. The Reynolds number based on
+the characteristic dimensions of the swirler is 79,900
+for air. The Reynolds number based on the bulk air
+ﬂow rate and barrel diameter is 79,000. The mass ﬂow
+rates through the Transply walls and dilution and pri-
+mary ports were distributed so that 6.6% of the air
+intake went through the head of the combustor, 13.8%
+
+
+--- Page 4 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+281
+through the barrel’s wall, 5.8% through the nozzle,
+and 13.6 and 53.3% through the primary and dilution
+ports, respectively. A characteristic residence time for
+the combustor can also be deﬁned as the ratio of the
+volume of the combustor to the bulk volumetric ﬂow
+rate of air, resulting in τr = 0.01012 s.
+2. Mathematical model
+In LES a spatial ﬁlter is applied to the equations
+of motion so that motions with scales less than the
+ﬁlter “width” do not have to be resolved by the com-
+putational mesh. The spatial ﬁlter of a function f =
+f (x,t) is deﬁned as its convolution with a ﬁlter func-
+tion, G, according to
+(1)
+¯f (x,t) =
+
+Ω
+G
+
+x −x′;∆(x)
+
+f (x′,t)d3x′,
+where the integration is carried out over the entire
+ﬂow domain, Ω. The ﬁlter function has a width ∆
+which may vary with position. While a number of
+different ﬁlter kernels have been proposed and used,
+e.g., “sharp spectral cutoff” and gaussian and box (or
+top-hat) ﬁlters, in combustion the ﬁlter function must
+satisfy
+(2)
+G(x −x′,∆) > 0.
+Also, in turbulent reacting ﬂows large density vari-
+ations occur that must be properly accounted for
+and this is achieved by the introduction of density-
+weighted ﬁltered quantities, denoted by a tilde and
+deﬁned by ˜f (x,t) ≡ρf/ ¯ρ.
+Application of the density-weighted ﬁlter to the
+equations of motion gives
+(3)
+∂¯ρ
+∂t + ∂¯ρ ˜ui
+∂xi
+= 0,
+∂¯ρ ˜ui
+∂t
++ ∂¯ρ ˜ui ˜uj
+∂xj
+(4)
+= −∂¯p
+∂xi
++
+∂
+∂xj
+
+µ
+ ∂¯ui
+∂xj
++ ∂¯uj
+∂xi
+
+−∂τij
+∂xj
+,
+where τij is the unknown residual or subgrid scale
+stress, deﬁned as
+(5)
+τij = ¯ρ(
+uiuj −˜ui ˜uj).
+To evaluate the viscous terms in Eq. (4) subgrid ﬂuc-
+tuations in the density and the viscosity µ are ne-
+glected. Direct viscous stresses are negligible in the
+high-Reynolds-number ﬂow presently to be consid-
+ered. To close Eq. (4) the standard Smagorinsky–Lilly
+model [27,28] has been adopted:
+(6)
+τij −1
+3τkkδij = 2ρCs∆2∥˜Sij ∥˜Sij .
+Here ∥˜Sij ∥represents the Frobenius norm of the
+Favre ﬁltered rate of strain tensor, ˜Sij . The ﬁlter width
+∆is equated here to the cube root of the local grid
+cell volume. The isotropic part of the viscous and sub-
+grid stresses is adsorbed into the pressure. In writing
+Eq. (4) it is has been assumed that the ﬁlter width
+is invariant in space. However, this is not the case
+in practical applications, where the need for different
+levels of spatial resolution across the solution domain
+requires the use of variable grid spacings and this re-
+sults in a commutation error. This commutation error
+can be shown to be almost entirely dissipative in na-
+ture [31], and in the present work estimates of this
+“dissipation” have been demonstrated [32] to be neg-
+ligible compared with dissipation of the SGS model
+itself.
+2.1. Combustion model
+In principle, the system of governing equations
+could include the transport equations for chemical
+species, according to the assigned reaction mecha-
+nism, and energy. However, this is a difﬁcult and com-
+putationally expensive task not only because of the
+dramatic increase in the number of equations to be
+solved, but also due to the presence of nonlinear ﬁl-
+tered chemical source terms that must be modelled
+(e.g., [26]).
+In situations such as the present, however, the
+fuel and air streams enter the combustion chamber
+in separate streams and heat-releasing reactions may
+be presumed “fast.” With a number of fairly benign
+assumptions—the main ones being that the ﬂow is
+adiabatic, the Prandtl and Schmidt numbers are equal,
+and the pressure is thermodynamically constant—the
+instantaneous major species composition, tempera-
+ture, and density can be related to a strictly con-
+served scalar quantity, the mixture fraction ξ [15,33,
+34]. The mixture fraction can be viewed as a nor-
+malised chemical element mass fraction or enthalpy
+deﬁned so that it takes the value of unity in the fuel
+stream and zero in the air stream. The equation for
+ξ contains no reaction source terms, is affected only
+indirectly by reaction through its inﬂuence on ﬂuid
+density, and is hence strictly conserved. In gas tur-
+bine combustors the Mach number is low, the pres-
+sure is approximately constant, and heat losses to the
+walls are negligible [35], and as a consequence the
+conserved scalar approach is appropriate. The conser-
+vation equation for the Favre ﬁltered mixture fraction
+can then be written [17] as
+∂¯ρ ˜ξ
+∂t
++ ∂¯ρ ˜ui ˜ξ
+∂xi
+(7)
+= ∂
+∂xi
+µ
+σ
+∂˜ξ
+∂xi
+
+−∂¯ρ(
+uiξ −˜ui ˜ξ)
+∂xi
+,
+
+
+--- Page 5 ---
+
+282
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+where σ is the Prandtl/Schmidt number. Eq. (7) con-
+tains the unknown subgrid scalar ﬂux,
+(8)
+J sgs
+i
+= ¯ρ(
+uiξ −˜ui ˜ξ),
+which is modelled using a gradient transport model:
+(9)
+J sgs
+i
+= −µsgs
+σsgs
+∂˜ξ
+∂xi
+.
+There is some uncertainty in the choice of the value of
+the subgrid Prandtl/Schmidt number. If a convective-
+inertial (Obukhov–Corrsin) spectrum is assumed for
+the SGS scalar variance ˜ξ′′2
+sgs, deﬁned as ˜ξ2 −˜ξ2, the
+value for the subgrid Prandtl/Schmidt number can be
+determined by invoking an equilibrium assumption.
+On this basis Schmidt and Schumann [36] proposed
+a value σsgs = 0.42, whereas other authors ([37] for
+instance) used a value of 0.36. In view of this un-
+certainty some workers [38,39] have used a dynamic
+calibration procedure for σsgs similar to that devised
+by Germano et al. [40] for the Smagorinsky model
+parameter. In the present case, however, based on the
+results of [16,17,41], a ﬁxed value equal to 0.7 has
+been adopted.
+The functional dependence of the thermochemical
+variables on the mixture fraction has been obtained
+from a ﬂamelet assumption. In “steady” ﬂamelet ap-
+proaches it has been usual in the past for this func-
+tional dependence to be made dependent also on some
+measure of ﬂame stretch, usually taken to be the
+“scalar” dissipation rate [42,43]. However, even in
+RANS-based methods it appears that the advantage to
+be gained from such an approach is small; away from
+extinction the effects of ﬂame stretch are relatively
+small and the local stretch rate provides insufﬁcient
+information to characterise local extinction phenom-
+ena. Even if this were not the case, the extension of
+the approach to LES is likely to lead to unphysical
+results as the distribution of subgrid “scalar” dissipa-
+tion rate in space is “spotty.” Since in the present case
+there is no experimental evidence of signiﬁcant local
+extinction (from measurements or visual observation)
+a single ﬂamelet at a low strain rate of 15 s−1 has been
+used. This laminar ﬂamelet was constructed through
+computations of laminar counterﬂow ﬂames using the
+following global mechanism [44]:
+(10)
+C3H8 + 3
+2O2 ⇀3CO + 4H2
+(i)
+C3H8 + 3H2O ⇀3CO + 7H2
+(ii)
+H2 + 1
+2O2 ⇌H2O
+(iii)
+CO + H2O ⇌CO2 + H2
+(iv)
+While there are more detailed and realistic reaction
+mechanisms available, the scheme (10) is found to
+yield acceptable results in both premixed and non-
+premixed laminar ﬂames, at least under conditions far
+from extinction, and is deemed sufﬁcient for present
+purposes.
+The relationship between each thermochemical
+variable and the mixture fraction can be expressed as
+a polynomial of degree m in the conserved scalar and
+can be summarised as
+(11)
+ρ = ˇρ(ξ),
+T = ˇT (ξ),
+Yα = ˇYα(ξ).
+In the context of LES, the concept of “ﬁltered den-
+sity function” is introduced (see also [11]), which is
+essentially the probability density function of the ran-
+dom scalar variable ξ. This is deﬁned as
+(12)
+¯P (Ψ ;x,t) =
++∞
+
+−∞
+P
+
+Ψ, ˇξ(x′,t)
+
+G(x −x′,∆)dx′,
+where Ψ is the sample space of ξ, ˇξ represents
+the deterministic value of the conserved scalar, and
+P(Ψ, ˇξ(x′,t)) is a “ﬁne-grained” density function
+[14], deﬁned as
+(13)
+P
+
+Ψ, ˇξ(x,t)
+
+= δ
+	
+Ψ −ˇξ(x,t)
+
+.
+¯P(Ψ ;x,t) exhibits all of the properties of a probabil-
+ity density function provided that the ﬁlter kernel G is
+positive deﬁnite [12,14]. The ﬁltered density function
+is related to the density-weighted probability function
+˜P (Ψ ;x,t) in the following way:
+(14)
+˜P (Ψ ;x,t) = ˇρ ¯P(Ψ ;x,t)
+¯ρ(x,t)
+.
+From this the resolved density and the resolved
+density-weighted thermochemical variables (temper-
+ature and species mass fractions) can be obtained:
+(15)
+¯ρ(x,t) =
+ 1
+
+0
+ˇρ−1(Ψ ) ˜P(Ψ ;x,t)dΨ
+−1
+,
+(16)
+˜Yα(x,t) =
+ 1
+
+0
+ˇYα(Ψ ) ˜P(Ψ ;x,t)dΨ
+
+.
+From Eqs. (15) and (16) it is easy to obtain the re-
+solved unweighted variables, for example,
+(17)
+¯Yα(x,t) = ¯ρ(x,t)
+ 1
+
+0
+ˇYα(Ψ ) ˜P(Ψ ;x,t)
+ˇρ(Ψ )
+dΨ
+
+.
+The functional form of
+˜P (Ψ ;x,t) can be conve-
+niently chosen as a β function [16], which is deﬁned
+in the interval [0,1], as is the mixture fraction itself. If
+the thermochemical variables are expressed as poly-
+nomial functions of ξ then the required integrals can
+
+
+--- Page 6 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+283
+be obtained quasi-analytically,
+(18)
+˜P(Ψ ;x,t) =
+ξr−1(1 −ξ)s−1
+ 1
+0 ξr−1(1 −ξ)s−1dξ
+,
+where r = ˜ξ{˜ξ(1 −˜ξ)/˜ξ′′2
+sgs −1} and s = [(1 −˜ξ)/˜ξ]r.
+In the present work the subgrid scalar variance is
+described by the gradient model
+(19)
+˜ξ′′2
+sgs = Cξ∆2
+ ∂˜ξ
+∂xi
+∂˜ξ
+∂xi
+
+,
+where the constant Cξ is assigned the value 0.1 [17].
+Although the effect of strain on the laminar
+ﬂamelet has been ignored during this study, the re-
+solved conserved scalar ﬁeld has been employed to
+obtain an estimate for the subgrid “scalar” dissipation
+rate χsgs. Following dimensional arguments [32] χsgs
+can be assumed to be
+(20)
+χsgs ∼∥˜Sij ∥˜ξ′′2
+sgs.
+With use of Eq. (20) the following expression for χsgs
+can be obtained:
+(21)
+χsgs = 2Cs∆2∥˜Sij ∥∂˜ξ
+∂xi
+∂˜ξ
+∂xi
+.
+To complete the formulation molecular viscosities
+have been computed as a function of temperature and
+composition using the empirical relationship [45]
+(22)
+µ(T ) =
+ αiµi(T )
+αjφi,j
+,
+where αi is the mole fraction of species i and µi(T )
+its viscosity at temperature T . The term φi,j depends
+on species molar mass and viscosity.
+3. Solution method
+3.1. Numerical method
+The in-house LES code BOFFIN (Boundary Fit-
+ted Flow Integrator) is used to solve the equations
+presented in the preceding sections. The code em-
+ploys cartesian velocity components and a bound-
+ary conforming general curvilinear coordinate sys-
+tem with a colocated variable storage arrangement.
+It is based on a fully implicit low-Mach-number for-
+mulation and is second order accurate in space and
+time. For the momentum equation convection terms
+an energy-conserving discretisation scheme is used.
+All other spatial derivatives are approximated by stan-
+dard second-order central differences, except for the
+convective terms in the ﬁltered mixture fraction equa-
+tion. A centred discretisation of these terms may re-
+sult in overshoots and undershoots in the mixture
+fraction for cell Peclet numbers greater than 2. How-
+ever, the mixture fraction must remain bounded if
+unphysical values of the density, temperature, and
+species concentrations are to be avoided. To avoid
+this a TVD scheme [46] is used to discretise the con-
+vection terms in the mixture fraction transport equa-
+tion. Whilst it is well known that such schemes may
+result in the smearing out of small-scale ﬂow fea-
+tures the approach has been adopted in practically
+all previous applications of LES to combustion (e.g.,
+[17,39]); the use of such a method seems essential
+if bound violations are to be avoided. Time deriva-
+tives are approximated by a three-point backward dif-
+ference scheme with variable time step. A four-step
+second-order time-accurate approximate factorisation
+method is applied to determine the pressure and en-
+sure mass conservation in conjunction with a Rhie and
+Chow [47] pressure smoothing technique to prevent
+even–odd node uncoupling of the pressure and veloc-
+ity ﬁelds. Matrix preconditioned conjugate gradient
+methods are used to solve the systems of algebraic
+equations resulting from the discretisation. A domain
+decomposition technique has been adopted to paral-
+lelise the code and the MPI message passing pro-
+tocol implemented; the levels of parallel efﬁciency
+achieved are in excess of 90%. The code has been
+applied previously to the LES of a wide range of
+ﬂows including plane and round jets in a cross-ﬂow
+[48,49], fully developed channel [31], and pipe [50]
+ﬂows, ﬂow over a swept fence [51], and nonswirling
+and swirling jet ﬂames [17,41]. Further details of the
+method may be found in [31,32,52].
+3.2. Computational parameters
+A curvilinear body-ﬁtted grid [53] has been con-
+structed for the present calculations featuring 1.024×
+106 cells, a section of which is represented in Fig. 3.
+The dilution and primary jets are also shown, indi-
+cated by zero mean mixture fraction isosurfaces. The
+computational mesh generator is based on a Laplace
+equation method and the mesh spacings and the cor-
+responding ﬁlter width thus vary smoothly throughout
+the domain. The minimum and maximum cell expan-
+sion ratios are 0.6 and 1.6 though these extreme values
+correspond to a small number of locations—visible in
+Fig. 3—close to the combustor walls where the mesh
+is also highly skewed. Any inﬂuences that these exert
+have a negligible effect on the main ﬂow ﬁeld.
+The inﬂow boundary conditions at the head of the
+combustor and the treatment of the fuel injector re-
+quire care. Experimental and computational studies
+show that the prediction of the spreading angle of
+the fuel cone and, therefore, of the mixing pattern in
+the primary zone is strongly affected by the assigned
+ﬂow conditions at the swirler exit. In general, the as-
+
+
+--- Page 7 ---
+
+284
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+Fig. 3. Computational mesh. (Bottom) Particular of the ﬁtted
+fuel injector.
+sumption of a uniform velocity distribution across the
+swirler exit is inaccurate [29,54], and ideally account
+should be taken of the ﬂow through individual blade
+passages and their interaction on entering the com-
+bustor. In the present case computation of the ﬂow
+ﬁeld upstream of and inside the swirler was not feasi-
+ble and approximate boundary conditions were thus
+applied at the swirler exit. Two computations were
+carried out to investigate the inﬂuence of the swirler
+inlet conditions. In initial calculations (Case I) the
+conical section of the fuel injector was removed from
+the computation and replaced with a plain wall, where
+the fuel jets were located and uniform velocities (con-
+sistent with mass ﬂow rates and swirl angle) were
+applied at the swirler exit. In a subsequent calculation
+(Case II) the fuel injector and fuel jets were resolved
+and a more detailed representation of the swirler ﬂow
+was adopted [55]. An effective area at the swirler exit
+plane was computed and the radial velocity compo-
+nent was determined from the datum swirler exit area
+and mass ﬂow rate. The tangential velocity was ob-
+tained taking into account the turning efﬁciency of the
+vanes and blockage effects:
+(23)
+w = η
+Wsw
+AseρCd(1 −b) tanα.
+In the present case the vanes are thin and a value of the
+blockage factor equal to 0.1 has been chosen. Based
+on industrial experience, values of 0.92 and 0.75 have
+been assigned to the turning efﬁciency and the dis-
+charge coefﬁcient, Cd. The value of the tangential ve-
+locity obtained from Eq. (23) yields an increased swirl
+angle, consistent with experimental observations [54].
+The proper choice of turbulent conditions at an
+inﬂow may, in certain circumstances, exert crucial in-
+ﬂuence in LES, since the inﬂuence of upstream con-
+ditions can persist downstream [56]. Several meth-
+ods have been adopted in the context of LES to de-
+rive instantaneous boundary values for the velocity
+ﬁeld, amongst which are gaussian forcing [17,32],
+stochastic methods [39], and inverse Fourier trans-
+form [31,57]. The merits and defects of these tech-
+niques are still a subject of debate and it has been
+recognised, especially in free spatially developing
+ﬂows, that the behaviour of higher-order velocity
+correlations is strongly affected by the inner struc-
+ture of the turbulence entering the computational do-
+main [58,59]. However, application of these meth-
+ods to the swirler is not practicable and so an alter-
+nate albeit crude approach is adopted. Turbulence was
+mimicked by adding white noise perturbations, cor-
+responding to a turbulence intensity of 20%, to all
+three mean velocity components. This random signal
+was presumed constant over regions of size compa-
+rable to the integral length and applied at discrete
+time intervals corresponding to the integral time scale.
+The integral length scale was estimated to be half
+of the gap between the swirler vanes, and the time
+scale was evaluated using the rms of the velocity ﬂuc-
+tuations. The procedure thus generates a turbulence
+ﬁeld crudely correlated in space and time. As will
+be shown later this brought some improvements to
+the solution due to the resulting increased transfer
+of momentum in the radial direction. For the dilu-
+tion jets, which are effectively plenum fed, turbulence
+ﬂuctuations were neglected and uniform mean veloc-
+ities were imposed at the jet inlets. Fixed mass ﬂow
+rate inﬂow boundaries were assigned at the lateral
+boundaries to mimic the presence of porous walls,
+and convective outﬂow conditions were applied at the
+exit plane. The wall shear stresses have been calcu-
+lated using approximated boundary conditions based
+on the logarithmic law of the wall to be satisﬁed in the
+mean [48,49,60]. The time step was chosen on the ba-
+sis of accuracy considerations so that the maximum
+Courant number, based on the mean velocity, never
+exceeded 0.1 throughout the computations.
+
+
+--- Page 8 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+285
+The computations corresponding to Cases I and II
+were carried out on a Cray T3E at the University of
+Manchester using 64 processing elements and on a lo-
+cal Beowulf cluster featuring 16 processors. With the
+former of these, a total wall-clock time of 26,432 h
+was necessary to compute approximately two resi-
+dence times, corresponding to 88,944 time steps over
+which statistics have been accumulated; nearly twice
+as much time was required on the Beowulf cluster.
+The simulations were started from an interpolated so-
+lution obtained from a preliminary calculation on a
+coarse mesh, and collection of running averages [17]
+was commenced after the initial ﬁeld had been re-
+moved from the domain (≈are residence time).
+4. Results and discussion
+In this section the results of the computation are
+discussed and compared with the measurements pre-
+sented in [23,29]. Because of the limited optical as-
+sessment, only measurements of mean temperature
+and mean species concentrations are available for val-
+idation purposes. Velocity measurements are avail-
+able only for a water model of the Tay combus-
+tor though this implies a different inﬂow distribution
+through the combustor for the obvious reason that the
+porous walls could not be taken into account. There-
+fore only a qualitative analysis of the velocity ﬁeld is
+presented based on the computed Reynolds averaged
+velocity components and visual observation of the ex-
+perimental conﬁguration.
+Reynolds averages and density-weighted averages
+(Favre averages) have been accumulated over 88,944
+time steps with the former being deﬁned as
+(24)
+
+φ(x)
+
+≈1
+N
+N
+
+n=1
+˜φ(x,tn),
+where φ(x,tn) is the nth sample of the ﬁeld out of a
+total of N samples. A ﬂuctuation about this mean is
+deﬁned as φ′ = ˜φ −⟨φ⟩so that the root mean square
+(rms) of turbulence ﬂuctuations in φ is given by
+(25)
+⟨φ′⟩rms =
+
+1
+N
+N
+
+n=1
+φ′(x,tn)2
+1/2
+.
+The difference between Favre averaged and Reynolds
+averaged quantities amounts to ⟨ρ′φ′⟩/⟨ρ⟩. Results
+from the present computations show that this dif-
+ference is negligible; however, since there is evi-
+dence [23] that probe measurements correspond to
+density-weighted averages it seems more appropriate
+to compare Favre averaged concentrations with the
+measured ones. From both the Reynolds and Favre av-
+eraged temperature and concentration ﬁelds, distribu-
+tion at selected locations in the computational domain
+Fig. 4. Reynolds averaged ﬂow ﬁeld: streamlines in the hor-
+izontal midplane. (Top) Case I. (Bottom) Case II.
+have been obtained as follows. For the generic vari-
+able φ the distributions of ensemble (Favre) averaged
+values, Ps( ¯φ;x), have been calculated according to a
+sampling procedure with no replacement [61], and the
+range of possible values was divided in 50 intervals.
+The standard deﬁnition of variance (or more precisely
+standard deviation) of a discrete distribution was then
+employed to compute conditional rms.
+4.1. Velocity ﬁeld
+The isothermal ﬂow ﬁeld in the Tay combustor
+has been characterised by means of LDA in [29,30]
+and measurements have been also taken in a sim-
+ilar though not identical conﬁguration [62,63]. The
+isothermal ﬂow was investigated in a water model of
+the combustor and the presence of porous wall con-
+sequently could not be represented. The study carried
+out in [63] also showed that differences in the com-
+bustor’s conﬁguration (mainly in the primary zone)
+produced qualitatively different ﬂow patterns.
+Though a computation of the isothermal case was
+beyond the scope of the present study, it is still use-
+ful to consider the qualitative features displayed by
+the velocity ﬁeld in the burning case, as shown by
+the ensemble averaged streamlines in the midhori-
+zontal and vertical planes. In Figs. 4 and 5 the dif-
+ferences between the ﬂow topologies predicted in
+Cases I and II are particularly noticeable. In both in-
+stances it can be observed that the central core vortex
+interacts with previous impinging primary jets, which
+drive the backﬂow in the primary region. A substan-
+tial amount of ﬂuid is then pushed towards the wall,
+feeding a secondary recirculation region. These fea-
+tures are consistent with previous experimental ob-
+servations [23,29]. However, in Case I a smaller vor-
+
+
+--- Page 9 ---
+
+286
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+Fig. 5. Reynolds averaged ﬂow ﬁeld: streamlines in the ver-
+tical midplane. (Top) Case I. (Bottom) Case II.
+tical structure is established above the fuel/air inlet
+which was absent from the experiments. Its formation
+is believed to be associated with the approximate rep-
+resentation of the geometry whereby the 90◦conical
+fuelling device was replaced by a plain wall, thus ap-
+proaching a bluff-body conﬁguration. The presence of
+this additional toroidal vortex sensibly alters the ﬂow
+conﬁguration in the primary zone and, consequently,
+the predicted species and temperature distributions.
+The ﬂow ﬁeld downstream of the primary jets,
+however, is not inﬂuenced by the changes in the
+geometrical description of the fuel injector and the
+swirler exit conditions. In particular in Fig. 6 the im-
+pingement region of the primary jets at the centre of
+the combustor is clearly shown. As observed in the
+experiments of Bicen et al. [29], this determines the
+strength of the backﬂow in the combustor head. The
+rotating core at the centre of the combustor is an arti-
+fact of the averaging process as the location of jet im-
+pingement point varies with time (“ﬂapping jets”). On
+the other hand, the behaviour of the dilution jets is of
+a different nature. In fact, these maintain their individ-
+uality, as Fig. 4 shows, and the ﬂow in the discharge
+region is better described as that of jets in a cross-ﬂow.
+In Fig. 6 it is possible to identify a slight asymmetry
+in the penetration of the jets and this may be associ-
+ated with the circular to rectangular discharge nozzle
+immediately downstream of the dilution ports. Details
+of mixing in the proximity of the nozzle are discussed
+further in the following sections.
+Consideration of the ﬂow visualisation results of
+Bicen et al. [29] and Bicen and Palma [30] sug-
+gests that the computations correctly reproduce the
+main features of the ﬂow ﬁeld. Also, and perhaps
+as expected, the predicted ﬂow ﬁeld obtained from a
+preliminary computation on a coarse mesh (125,000
+cells) did not differ from that produced with the re-
+ﬁned mesh. This suggests that even on the coarse
+mesh most of the turbulent energy has been accounted
+Fig. 6. Reynolds averaged ﬂow ﬁeld, Case I. (Top) Primary
+port cross section. (Bottom) Dilution port cross section.
+for and that a different choice of the SGS model
+would not sensibly affect the predictions. These con-
+siderations are clearly valid only as long as near-wall
+dynamics (e.g., heat transfer at the walls) are not of
+interest.
+4.2. Species concentrations and temperature
+The ﬂow pattern described in the previous section
+can be immediately recognised in the time evolution
+of the temperature ﬁeld (Case I) as shown in the se-
+quence of six images presented in Fig. 7. The hot
+regions in the primary zone and along the sides of the
+combustor, between the primary and dilution jets, re-
+produce faithfully the experimental ﬁndings. In fact,
+no combustion occurs beyond the dilution ports, and
+the ﬂame is clearly stabilised in the recirculation re-
+gion in the head of the combustor and in the wake of
+the primary jets. No reaction processes reach the liner
+
+
+--- Page 10 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+287
+Fig. 7. Instantaneous temperature ﬁeld: horizontal midplane.
+walls, which is isolated by the cooling ﬁlm of air pass-
+ing through the Transply layer that is clearly visible
+in all the pictures. Also evident is the occasional re-
+lease of packets of hot gases that manage to escape
+the primary region and reach the discharge nozzle.
+Flow visualisation studies suggest that these events
+are related to the unsteadiness around the primary
+jets impingement point and that they exert important
+inﬂuence on the temperature distribution at the exit
+plane. This can be qualitatively characterised by the
+pattern (OTDF) and proﬁle (RTDF) factors [64] ex-
+pressed as
+(26)
+OTDF = (Tmax −Tmean)
+(Tmean −Tinlet),
+(27)
+RTDF = (Tmean,radius −Tmean)
+(Tmean −Tinlet)
+.
+The computed pattern factor for Case I is 0.53, a value
+somewhat larger than the measured value of 0.46. The
+computed RTDF was 0.15 at 65% of turbine blade
+height compared with 0.2 at 75% observed in [23].
+The results obtained in Cases I and II were practically
+identical.
+The discrepancy between the computed and mea-
+sured OTDF and RTDF can be explained by an un-
+derprediction of the penetration of the dilution jets in
+the lower part of the barrel. It appears that the large
+acceleration experienced by the ﬂow in the longitu-
+dinal direction excessively inhibits the mixing of the
+hot gases coming from the primary and intermedi-
+ate regions with the cold dilution jets. It is unlikely
+that this can be attributed to the hydrodynamic clo-
+sure and it seems more likely that this is a result of
+the oversimpliﬁed “top hat” speciﬁcation of the veloc-
+ity ﬁeld at the dilution jet inlet. It is probable that the
+pressure distribution within the combustor distorts the
+incoming velocity proﬁle at the dilution ports. A sim-
+ilar effect has been observed in simulations of round
+jets in a cross-ﬂow [31,49].
+Although the instantaneous temperature patterns
+are qualitatively similar in both Cases I and II, com-
+parisons of the density-weighted temperature con-
+tours in the horizontal midplane (Fig. 8) clearly il-
+lustrate the inﬂuence of the swirler inﬂow conditions
+and the fuel injector geometry on the predicted large-
+scale mixing in the primary zone. In Case I, as can be
+inferred from the measured temperature and compo-
+sition proﬁles in the primary zone, insufﬁcient mixing
+of the fuel and swirler air is predicted so that the fuel
+cone closes on itself and the stoichiometric mixture
+
+
+--- Page 11 ---
+
+288
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+Fig. 8. Density-weighted temperature in the primary zone: horizontal midplane. (Left) Case I. (Right) Case II. Colour scale: ﬁve
+levels between pink = 2200 K and blue = 315 K.
+Fig. 9. Locus of stoichiometric density-weighted mixture fraction in the primary zone: horizontal midplane. (Left) Case I. (Right)
+Case II.
+fraction contour lies too close to the fuel injector. The
+situation changes considerably with the more realis-
+tic inﬂow and geometry of Case II where much more
+plausible results are obtained, as is illustrated in Fig. 9
+where the loci of the stoichiometric mixture fraction
+are shown.
+The inﬂuence of the swirler inlet conditions is also
+evident in the mean temperature proﬁle at z = 20 mm
+shown in Fig. 10; and while the results of Case II
+are appreciably closer to the measured proﬁle some
+discrepancies remain. It, however, appears that the
+proﬁles downstream of the primary zone are largely
+unaffected by the conditions at the head of the com-
+bustor. The proﬁles at z = 50, 80, and 130 mm are
+in reasonably good agreement with measured values
+and show that the temperatures in the proximity of the
+wall are kept below 700 K by the presence of the re-
+solved cooling ﬁlm.
+To investigate further the effect of inlet conditions
+a computation was completed with no turbulence ﬂuc-
+tuations imposed on the incoming swirler ﬂow. An
+example of the effects can be seen in Fig. 11, where
+proﬁles of the Reynolds averaged mixture fraction
+(though no data are available for comparisons) are
+shown in the primary zone at z = 20 mm and down-
+stream of the primary dilution jets at z = 50 mm. It
+appears the that the choice of random noise, albeit
+crudely correlated, is not adequate and that a more
+
+
+--- Page 12 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+289
+Fig. 10. Proﬁles of Reynolds and density-weighted averaged temperature in the horizontal midplane. Solid line: Case I, den-
+sity-weighted average; dashed line: Case I, Reynolds average; double-dashed dotted line: Case II, density-weighted average;
+double-dotted dashed line: Case II, Reynolds average. 2: [23].
+Fig. 11. Proﬁles of Reynolds averaged mixture fraction in
+the horizontal midplane. Solid line: Case I; dot-dashed line:
+Case II; dotted line: same as Case II, with zero turbulence
+intensity.
+realistic representation at the swirler exit of turbu-
+lent ﬂuctuations and probably the mean proﬁle also
+is needed.
+A trend consistent with that displayed by the mix-
+ture fraction and temperature can be observed in the
+concentrations of C3H8, CO2, and O2 (Figs. 12–
+15). Although predictions generally improve at z =
+80 mm, it is clear that CO levels are not well rep-
+resented by the current ﬂamelet assumption. On the
+other hand, the temperature and the other species
+seem to be less sensitive to this and are more strongly
+inﬂuenced by transport effects. It seems likely that the
+poor prediction of the mixture fraction ﬁeld magniﬁes
+the shortcoming embedded in the ﬂamelet formalism,
+and that the use of a more detailed reaction mecha-
+nism would have little effect on the prediction of CO
+Fig. 12. Proﬁles of Reynolds and density-weighted aver-
+aged C3H8 mole fraction in the horizontal midplane. Solid
+line: Case I, density-weighted average; dashed line: Case I,
+Reynolds average; double-dashed dotted line: Case II, den-
+sity-weighted average; double-dotted dashed line: Case II,
+Reynolds average. 2: [23].
+concentrations if used in the context of a conserved
+scalar approach. This is likely to be the case even if
+strain effects were to be included in the formalism as
+the values of “scalar” dissipation are low throughout
+much of the combustor.
+If ﬂame stretch effects were to be included then
+this would require the joint pdf of mixture fraction
+and the “scalar” dissipation rate. Such an approach
+was adopted in [39], where an unsteady ﬂamelet for-
+mulation was incorporated into LES of a turbulent dif-
+fusion jet ﬂame (Sandia Flame D), with the “scalar”
+dissipation rate being used to provide a measure of
+ﬂame stretch effects. Although such a model has
+not been applied in this work, an estimate of ⟨χ⟩=
+⟨χsgs⟩+⟨˜χ⟩has been obtained according to the model
+
+
+--- Page 13 ---
+
+290
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+Fig. 13. Proﬁles of Reynolds and density-weighted aver-
+aged CO mole fraction in the horizontal midplane. Solid
+line: Case I, density-weighted average; dashed line: Case I,
+Reynolds average; double-dashed dotted line: Case II, den-
+sity-weighted average; double-dotted dashed line: Case II,
+Reynolds average. 2: [23].
+Fig. 14. Proﬁles of Reynolds and density-weighted aver-
+aged CO2 mole fraction in the horizontal midplane. Solid
+line: Case I, density-weighted average; dashed line: Case I,
+Reynolds average; double-dashed dotted line: Case II, den-
+sity-weighted average; double-dotted dashed line: Case II,
+Reynolds average. 2: [23].
+presented in the previous sections. In Figs. 16 and 17
+contours and scatterplots of ⟨χ⟩in mixture fraction
+space are shown over cross sections of the combustor
+at relevant locations along the axis. It is interesting to
+note that very low values of “scalar” dissipation rate
+prevail throughout the computational domain, becom-
+ing negligible as the secondary region, downstream
+of the primary dilution jets, is approached and that
+values of the mixture fraction span an even narrower
+range around the lean limit. The contours of ⟨χ⟩also
+serve as indicators of the relevant structures present
+in the ﬂow ﬁeld and of the large differences in the
+mixing pattern in the primary zone arising in Cases I
+Fig. 15. Proﬁles of Reynolds and density-weighted aver-
+aged O2 mole fraction in the horizontal midplane. Solid
+line: Case I, density-weighted average; dashed line: Case I,
+Reynolds average; double-dashed dotted line: Case II, den-
+sity-weighted average; double-dotted dashed line: Case II,
+Reynolds average. 2: [23].
+and II. The low levels of “scalar” dissipation evident
+from the computations are consistent with the exper-
+imental observation that negligible local extinction
+phenomena occur in the combustor.
+5. Conclusions
+Results of the large eddy simulation of a model
+can-type gas turbine combustor have been presented.
+The chosen geometry retained all of the features of
+can-type combustion chambers commonly encoun-
+tered in commercial aeroengines, and offered an ex-
+cellent test case to prove the potential of LES to ac-
+curately predict complex, three-dimensional unsteady
+ﬂows. While no velocity measurements are available
+for comparison purposes the computed ﬂow pattern
+is in reasonable agreement with that observed ex-
+perimentally. However, mixing rates in the primary
+zone are shown to be strongly dependent on the in-
+let conditions at the swirler exit. When a uniform
+proﬁle with no turbulence ﬂuctuations was imposed
+with the fuel injector being represented by an annular
+slot, primary zone mixing rates were substantially un-
+derrepresented. As a consequence large discrepancies
+between the calculated and measured proﬁles of tem-
+perature and C3H8 are evident in the primary zone.
+The situation was much improved when more realistic
+inlet conditions were applied though some disagree-
+ment, particularly with respect to the levels of C3H8,
+remains. It is likely that the estimated mean proﬁles
+and simple method of estimating turbulent ﬂuctua-
+tions are not entirely satisfactory and what is probably
+required is for the solution domain to be extended
+
+
+--- Page 14 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+291
+(a)
+(b)
+Fig. 16. Contours and scatterplots of total (⟨χsgs⟩+ ⟨˜χ⟩) scalar dissipation rate: Case I. (a) z = 20 mm, (b) z = 50 mm.
+back through the swirler and upstream of the com-
+bustor.
+The extent of the inﬂuence of the inlet conditions
+in the head of the combustor is limited by the primary
+dilution jets, which impinge on the combustor centre-
+line. Consequently it is likely that the conditions at the
+primary jet, swirler, and fuel inﬂows play little major
+role in the development of the turbulence structure in
+the region downstream of the primary jets. Consistent
+with this, but with the exception of CO, the agreement
+between measured and computed mean temperature
+and composition proﬁles is reasonable downstream
+of the primary zone. Also, the magnitude of the SGS
+stresses seems to suggest that very little sensitivity to
+the SGS closure is displayed by the resolved scales.
+This result is encouraging and suggests that the spa-
+tial resolution is adequate. Evaluation of the compu-
+tational mesh and ﬁlter width variation also suggests
+that commutation- and cell anisotropy-related errors
+are small and have little effect on the predicted veloc-
+ity and scalar ﬁelds.
+Only CO concentrations seem to be particularly
+affected by the description of the combustion process
+described via the ﬂamelet model, whilst temperature
+and other species appear more sensitive to the large-
+scale transport processes. The measured levels of CO
+are substantially higher than those predicted by the
+current ﬂamelet model in the region downstream of
+the primary jets. While the effect of ﬂame stretch is
+to increase CO levels these effects are almost cer-
+tainly negligible in this downstream region. It thus is
+appears unlikely that any steady ﬂamelet/conserved
+scalar model is capable of reproducing these observed
+CO levels. The measured levels of CO are more likely
+to arise because of the reaction quenching effect of the
+cold dilution jets. If this is the case then the “fast” re-
+action assumption inherent in the ﬂamelet/conserved
+scalar model must be relaxed.
+
+
+--- Page 15 ---
+
+292
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+(a)
+(b)
+Fig. 17. Contours and scatterplots of total (⟨χsgs⟩+ ⟨˜χ⟩) scalar dissipation rate: Case II. (a) z = 20 mm, (d) z = 50 mm.
+It could be argued that a single laminar ﬂamelet
+(corresponding to a very low strain rate) is not suf-
+ﬁcient to describe combustion throughout the entire
+domain. However, the distribution of the estimated
+scalar dissipation rate seems to suggest that this pa-
+rameter would play a very limited role and the com-
+puted levels are consistent with the experimental ob-
+servation that no signiﬁcant local extinction occurs in
+the present case. Of course, in general the possibil-
+ity of local extinction/reignition phenomena should
+be taken into account. However, the possibility of
+utilising a “resolved” scalar dissipation rate to de-
+scribe the effects of stretch on laminar ﬂamelets is
+somewhat debatable, since this is likely to yield an
+unphysical intermittent behaviour of the ﬂame, de-
+coupled from transport and reaction processes respon-
+sible for extinction/reignition. The magnitude of the
+estimated SGS stresses and scalar ﬂuxes also seems
+to suggest that the majority of velocity and scalar
+ﬂuctuations have been explicitly accounted for, and
+that the closure adopted for the SGS contributions
+is likely to exert but a little inﬂuence on the predic-
+tions.
+Acknowledgment
+The authors gratefully acknowledge ﬁnancial sup-
+port from EPSRC under Grant GR/L98527.
+References
+[1] U. Schumann, Atmos. Environ. 23 (8) (1989) 1713–
+1727.
+[2] P.A. McMurtry, S. Menon, Proc. Combust. Inst. 24
+(1992) 271–278.
+[3] R.I. Sykes, S.F. Parker, D.S. Henn, W.S. Lewellen,
+J. Appl. Meteorol. 33 (1994) 825–834.
+[4] A.W. Cook, J.J. Riley, Phys. Fluids 6 (8) (1994) 2868–
+2870.
+
+
+--- Page 16 ---
+
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+293
+[5] A.R. Kerstein, Combust. Sci. Technol. 60 (1988) 391–
+421.
+[6] S. Menon, W.H. Calhoon Jr., Proc. Combust. Inst. 26
+(1996) 59–66.
+[7] R.W. Bilger, Phys. Fluids A 5 (1993) 436–444.
+[8] W.K. Bushe, H. Steiner, Phys. Fluids 11 (7) (1999)
+1896–1906.
+[9] P. Givi, Prog. Energy Combust. Sci. 15 (1989) 1–107.
+[10] C.K. Madnia, P. Givi, in: B. Galperin, S. Orszag (Eds.),
+Large Eddy Simulation of Complex Engineering and
+Geophysical Flows, Cambridge Univ. Press, New York,
+1993.
+[11] S.B. Pope, Proc. Combust. Inst. 23 (1990) 591–612.
+[12] P.J. Colucci, F.A. Jaberi, P. Givi, S.B. Pope, Phys. Flu-
+ids 10 (2) (1998) 499–515.
+[13] F. Gao, E.E. O’Brien, Phys. Fluids A 5 (6) (1993)
+1282–1284.
+[14] E.E. O’Brien, in: P. Libby, F. Williams (Eds.), Tur-
+bulent Reacting Flows, Topics in Applied Physics,
+Springer-Verlag, Berlin, 1980, pp. 185–218, Chapter 5.
+[15] W.P. Jones, J.H. Whitelaw, Combust. Flame 48 (1982)
+1–26.
+[16] N. Branley, W.P. Jones, in: 11th Symposium on Turbu-
+lent Shear Flows, Grenoble, France, 1997.
+[17] N. Branley, W.P. Jones, Combust. Flame 127 (1/2)
+(2001) 1914–1934.
+[18] F. di Mare, W.P. Jones, in: ECCOMAS 2001 CFD Con-
+ference, Swansea, Wales, 2001.
+[19] W.P. Jones, in: W. Kollmann (Ed.), Prediction Meth-
+ods for Turbulent Flows, Hemisphere, London, 1980,
+pp. 380–421, VKI Lecture Series 79-2.
+[20] W.-W. Kim, S. Menon, H.C. Mongia, Combust. Sci.
+Technol. 143 (1999) 25–62.
+[21] K. Mahesh, G. Constantinescu, P. Moin, in: Annual Re-
+search Briefs 2000, Centre for Turbulence Research,
+Stanford CA, 2000.
+[22] C. Angelberger, D. Veynante, F. Egolfopoulos, Flow
+Turbulence Combust. 65 (2) (2001) 205–222.
+[23] A.F. Bicen, D.G.N. Tse, J.H. Whitelaw, Combustion
+characteristics of a model can-type combustor, Tech.
+Rep. FS/87/28, Imperial College, London, 1987.
+[24] A.F. Bicen, D.G.N. Tse, J.H. Whitelaw, Combust.
+Flame 80 (1990) 111.
+[25] A.F. Bicen, D.G.N. Tse, J.H. Whitelaw, J. Propulsion
+Power.
+[26] N.
+Branley,
+W.P.
+Jones,
+in:
+ECCOMAS
+2000,
+Barcelona, 2000.
+[27] J. Smagorinsky, Monthly Weather Rev. 91 (1963) 99–
+165.
+[28] D.K. Lilly, in: IBM Sci. Comput. Symp. on Environ-
+mental Sci., Thomas J. Watson Research Center, York-
+town Heights, NY, 1967.
+[29] A.F. Bicen, J.J. McGuirk, J.M.L.M. Palma, Primary-
+zone ﬂow characteristics of an isothermal model com-
+bustor, Tech. Rep. FS/87/27, Imperial College, London,
+1987.
+[30] A.F. Bicen, J.M.L.M. Palma, Flow characteristics
+of swirlers of a model Tay Combustor, Tech. Rep.
+FS/86/36, Imperial College, London, 1986.
+[31] M. Wille, Large eddy simulation of a plane jet in a cross
+ﬂow, PhD thesis, Imperial College, University of Lon-
+don, London, 1997.
+[32] F. di Mare, Large eddy simulation of reacting and non-
+reacting ﬂows in complex geometries, PhD thesis, Im-
+perial College, University of London, London, 2002.
+[33] R.W. Bilger, Prog. Energy Combust. Sci. 1 (1976) 87–
+109.
+[34] R.W. Bilger, in: P. Libby, F. Williams (Eds.), Turbulent
+Reacting Flows, Topics in Applied Physics, Springer-
+Verlag, Berlin, 1980, pp. 65–110, Chapter 3.
+[35] C.H. Priddin, in: A.V. Johansson, P.H. Alfredsson
+(Eds.), Advances in Turbulence 3, Springer-Verlag,
+Berlin/Heidelberg, 1991, pp. 279–299.
+[36] H. Schmidt, U. Schumann, J. Fluid Mech. 200 (1989)
+511–562.
+[37] J.P. Meeder, F.T.M. Nieuwstadt, in: J.P. Chollet,
+P.R. Voke, L. Kleiser (Eds.), Direct and Large Eddy
+Simulation II, Kluwer Academic, Dordrecht, 1997,
+pp. 301–310.
+[38] P. Moin, K. Squires, W. Cabot, S. Lee, Phys. Flu-
+ids A 3 (11) (1991) 2746–2757.
+[39] H. Pitsch, H. Steiner, Phys. Fluids 12 (10) (2000) 2541–
+2554.
+[40] M. Germano, U. Piomelli, W.H. Cabot, Phys. Fluids 23
+(1991) 1760–1765.
+[41] N. Branley, W.P. Jones, in: D. Lawrence, W. Rodi
+(Eds.), Engineering Turbulence Modelling and Mea-
+surements 4, Elsevier, Amsterdam, 1999.
+[42] W.P. Jones, M. Kakhi, in: M.H.F. Culick, J.H. Whitelaw
+(Eds.), Unsteady Combustion,
+Kluwer Academic,
+1996, pp. 411–491.
+[43] N. Peters, Turbulent Combustion, Cambridge Univ.
+Press, London/New York, 2000.
+[44] W.P. Jones, R.P. Lindstedt, Combust. Flame 73 (1988)
+233–249.
+[45] R.H. Perry, D.W. Green, Chemical Engineers’ Hand-
+book, McGraw–Hill, New York, 1993.
+[46] P. Sweby, SIAM J. Numer. Anal. 21 (5) (1984) 995–
+1011.
+[47] C.M. Rhie, W.L. Chow, AIAA J. 31 (1983) 1525–1533.
+[48] W.P. Jones, M. Wille, Int. J. Heat Fluid Flow 37 (1996)
+296–306.
+[49] W.P. Jones, M. Wille, in: G. Bergeles, W. Rodi (Eds.),
+Engineering Turbulence Modelling and Measurements,
+Elsevier, Amsterdam, 1996.
+[50] D. Steinstrasser, Large eddy simulation of fully devel-
+oped pipe ﬂow, Master’s thesis, Diplomarbeit, Imperial
+College, London, 1994.
+[51] L. di Mare, W.P. Jones, Int. J. Heat Fluid Flow 24
+(2003) 606–615.
+[52] N.T. Branley, Large eddy simulation of non-premixed
+turbulent ﬂames, PhD thesis, Imperial College, Univer-
+sity of London, London, 1999.
+[53] K.R. Menzies, Grid adaption for gas turbine combustor
+calculations, PhD thesis, Imperial College, University
+of London, London, 2001.
+[54] D.-H. Sheen, Swirl-stabilised spray ﬂames in an ax-
+isymmetric model combustor, PhD thesis, Imperial
+College, University of London, London, 1993.
+[55] D.S. Crocker, E.J. Fuller, C.E. Smith, J. Eng. Gas Tur-
+bines Power 119 (1997) 527–534.
+[56] T.J. Poinsot, S.K. Lele, J. Comput. Phys. 101 (1992)
+104–129.
+
+
+--- Page 17 ---
+
+294
+F. di Mare et al. / Combustion and Flame 137 (2004) 278–294
+[57] L. di Mare, W.P. Jones, in: ECCOMAS 2001 CFD Con-
+ference, Swansea, Wales, 2001.
+[58] B.J. Boersma, G. Brethouwer, F.T.M. Nieuwstadt,
+Phys. Fluids 10 (4) (1998) 899–909.
+[59] K. Kondo, S. Murakami, A. Mochida, J. Wind Eng. Ind.
+Aerodyn. 67–68 (1997) 51–64.
+[60] F. di Mare, W.P. Jones, in: Proceedings of HPCI Con-
+ference, Plenum, London, 1998.
+[61] E. Kreyszig, Introductory Mathematical Statistics:
+Principles and Methods, Wiley, New York, 1970.
+[62] M.V. Heitor, J.H. Whitelaw, Combust. Flame 64 (1986)
+1–32.
+[63] A.F. Bicen, W.P. Jones, Combust. Sci. Technol. 49
+(1986) 1–15.
+[64] A.H. Lefebvre, Gas Turbine Combustion, McGraw–
+Hill, New York, 1983.

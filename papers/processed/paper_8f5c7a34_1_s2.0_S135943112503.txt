@@ -1,0 +1,1201 @@
+
+--- Page 1 ---
+
+Research Paper
+Effects of fuel staging ratio on combustion stability performance in an 
+industrial radial-staged combustor
+Chengxu Qiu a,b,c, Hui Wang b,d, Jiaqi Liu b,d, Zhongwei Sun b, Peipei Liang b, Yuqi Qian a,b,  
+Jiyuan Chen a,b,c, Xiao Liu c,*
+a Harbin Turbine Company Limited, Harbin, Heilongjiang 150046, China
+b Harbin Electric Power Generation Equipment National Engineering Research Center Company Limited, Harbin, Heilongjiang 150028, China
+c School of Power and Energy, Harbin Engineering University, Harbin 150001, China
+d School of Energy Science and Engineering, Harbin Institute of Technology, Harbin 150006, China
+A R T I C L E  I N F O
+Keywords:
+Gas turbine
+Radial staged combustion
+Fuel staging ratio
+Thermoacoustic oscillation
+A B S T R A C T
+This study addresses the thermoacoustic oscillation issue in a radially staged swirl combustion chamber of an 
+industrial gas turbine. Through a combination of high-temperature/high-pressure experiments and combustion 
+large eddy simulation (LES), the influence of fuel staging ratio on combustion stability was systematically 
+investigated. Experimental results captured oscillation frequencies of 263 Hz, 492 Hz, and 543 Hz during the fuel 
+switching process. Acoustic modal analysis revealed that these frequencies correspond to the acoustic natural 
+frequencies of the diffusion fuel, internal premixed fuel and external premixed fuel channel, respectively. When 
+the combustion chamber thermal load was increased to 100 %, a thermoacoustic oscillation with a dominant 
+frequency of 445 Hz and an amplitude exceeding 15 kPa emerged, accompanied by a sharp increase in the flame 
+tube end face temperature, corresponding to the ignition phenomenon in the corner recirculation zone (CRZ). 
+The mechanism of combustion oscillation generation was clarified through the large eddy simulation numerical 
+method. When the external premixed fuel fraction exceeded 81.8 %, periodic vortex driven ignition in the CRZ 
+led to in phase coupling of pressure and heat release fluctuations at 445 Hz, triggering strong thermoacoustic 
+instability. Through fuel staging optimization, we demonstrated that limiting the outer premixed fuel to 
+81.8–88.2 % while maintaining the internal premixed fraction below 12 % effectively suppresses CRZ driven 
+oscillations. The key novelty of this work lies in identifying fuel system acoustics as a direct source of combustion 
+instability and clarifying the intrinsic thermoacoustic mechanism behind CRZ flashback, providing physics based 
+guidelines for the stable design of advanced staged combustors.
+1. Introduction
+Gas turbines, representing the pinnacle of national industrial capa­
+bility [1], serve as core components of energy and power systems. In 
+light of increasingly stringent international emission regulations [2], 
+lean premixed staged combustion technology has emerged as the pre­
+dominant solution due to its superior low-emission characteristics [3–5]. 
+However, combustion instability remains a critical constraint in 
+advancing lean premixed combustion [6–8]. Thermoacoustic insta­
+bility—an instability in flow dynamics caused by the bidirectional 
+coupling between acoustic waves and unsteady heat release rates [9] is 
+intrinsically linked to unsteady combustion phenomena, and is thus 
+frequently referred to as combustion instability [10]. This instability 
+typically induces hazardous fluctuations in flow dynamics and heat 
+release, potentially leading to structural damage, excessive vibrations, 
+noise, flashback, and overall degradation of the combustion system [11].
+The excitation mechanisms of thermoacoustic oscillations in com­
+bustors exhibit high complexity [12,13]. Under swirl combustion con­
+ditions, thermoacoustic instabilities originate from strong coupling of 
+multiple physical processes [14], including: hydrodynamic instabilities 
+(vortex precession [15], vortex shedding and breakdown [16]), acoustic 
+modal characteristics dictated by combustor geometry [17], acoustic 
+wave reflection at walls [18], entropy wave generation triggered by heat 
+release fluctuations [19].
+While extensive experimental and numerical studies have addressed 
+thermoacoustic oscillations in swirl-stabilized premixed flames [20–23], 
+fuel staging ratios critically influence flame structures and consequently 
+* Corresponding author.
+E-mail address: liuxiao_heu@163.com (X. Liu). 
+Contents lists available at ScienceDirect
+Applied Thermal Engineering
+journal homepage: www.elsevier.com/locate/apthermeng
+https://doi.org/10.1016/j.applthermaleng.2025.129126
+Received 10 September 2025; Received in revised form 4 November 2025; Accepted 11 November 2025  
+Applied Thermal Engineering 284 (2026) 129126 
+Available online 12 November 2025 
+1359-4311/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+combustion stability. Wang [24] experimentally identified four com­
+bustion modes during fuel staging variation at atmospheric pressure. 
+Their analysis under unstable conditions revealed that partial premixing 
+in primary combustion zones intensifies thermoacoustic instability, 
+inducing significant flame structural transitions. Fu [25] studied a triple- 
+staged lean combustor with strongly coupled premixed flames. At high 
+power, limit-cycle oscillations arose more readily, and increasing SR 
+shifted flame structures from M-type to V-type. At low power, flame 
+topology remained unchanged with SR, but higher SR raised heat release 
+and induced thermoacoustic instability. Zhang [26] observed four stable 
+flame configurations in a stratified premixed swirl burner. The study 
+revealed that high swirl intensity, ASR, and SR promoted large- 
+amplitude limit cycles, identifying them as key drivers of strong pres­
+sure and heat release fluctuations.
+Conversely, physical confinement by combustor walls significantly 
+impacts flame structures and instability. Han [27] linked flame macro­
+structure (S, V, L) directly to thermoacoustic behavior. While stratified 
+flames showed superior stability from their heat release phase, V and 
+lifted flames, driven by flame-wall impingement, underwent large- 
+amplitude oscillations at certain SR. Durox [28] conducted funda­
+mental experiments on flames impinging flat plates, revealing self- 
+excited instabilities when premixed flames anchored at burner edges 
+struck adjacent baffles. Sudden flame area reduction upon impingement 
+generated intense acoustic sources, establishing feedback loops. Huang 
+[29] showed that during power ramping, flames flashed back from the 
+CRZ to form compact configurations. The resultant pulsations drove self- 
+sustained oscillations, with minor inlet temperature shifts near stability 
+boundaries triggering abrupt amplitude changes.
+Regarding the thermoacoustic oscillation issue in staged combustion 
+chambers, scholars generally adopt active control [30] and passive 
+control methods [31]. Although active control offers broader adapt­
+ability and greater flexibility in practical applications, its high efficiency 
+in control performance often relies on complex and advanced control 
+algorithms [32]. In contrast, passive control is simpler to implement, 
+such as adjusting fuel supply parameters during combustion [33], 
+applying external physical fields [34,35], and introducing jet interven­
+tion [36], among other methods. Sun [37] demonstrated that transverse 
+staging jets reduced thermoacoustic amplitudes by 58 % and NOx 
+emissions by 48.8 % in unstable premixed combustors. Higher jet mo­
+mentum flux and fluid density enhanced suppression effectiveness, with 
+flame radical distributions confirming attenuated heat release intensity. 
+Behzadi [38] demonstrated that larger bluff body diameters in a swirl 
+premixed combustor enhance flashback resistance and broaden the lean 
+blowout limit at low power, an effect that weakens as power increases. 
+Song [39] revealed that ramp constraints suppress instability by inhib­
+iting vortex shedding, in contrast to sudden expansions, where vortex 
+roll-up and flow disparities amplify oscillations. Hu [40] showed that co- 
+directional swirling jets, especially with argon, most effectively sup­
+pressed thermoacoustic oscillations and reduced NOx. Argon’s 
+superiority was linked to a flame transition from conical to flat, and 
+higher jet flow rates progressively damped oscillations toward stable 
+combustion.
+Despite these advances research on thermoacoustic instability in 
+staged swirl combustion remains predominantly confined to low- 
+temperature/pressure laboratory-scale burners. Critical gaps persist 
+regarding fuel distribution effects on flame structures and stability 
+during load ramping operations and full-load conditions in practical gas 
+turbine combustors. To bridge this knowledge gap, this study conducts 
+full-load high-pressure/high-temperature combustion experiments on 
+an industrial-scale single-can combustor component, integrated with 
+large eddy simulation (LES). This study identifies the impact of fuel 
+staging ratio variations on flame structure and clarifies the mechanism 
+of combustion thermoacoustic oscillations caused by the interaction 
+between the flame and the wall. Ultimately, it explores the operational 
+safety boundary that balances combustion stability and emission per­
+formance, providing engineering and theoretical technical support for 
+the design of actual small and medium-sized gas turbine combustors.
+2. Experimental and numerical simulation methods
+2.1. Actual gas turbine combustion chamber experimental platform
+Fig. 1 depicts the experimental platform, comprising integrated air 
+supply, fuel delivery, exhaust heat recuperation, electric heating, water- 
+cooling, and measurement/control systems. The air system employs 
+twelve serially-connected compressors to achieve high-temperature/ 
+high-pressure operational conditions, while natural gas is supplied 
+from stabilized sources (>5 MPa). Combustion air undergoes dual-stage 
+preheating via electric resistance heaters and exhaust gas recuperation 
+prior to entering the test section. Pressure transducers, thermocouples, 
+and flowmeters are instrumented across diffusion, inner-premixed, and 
+outer-premixed fuel circuits, with supplementary pressure/temperature 
+probes embedded within the combustor casing. Seventy K-type ther­
+mocouples are uniformly distributed along axial/radial directions on the 
+flame tube outer wall for wall temperature monitoring. A motor-driven 
+swing-rake mechanism positioned at the combustor outlet incorporates 
+five temperature measurement points and one multi-port gas sampling 
+probe. Starting from the lateral outlet edge, the rake executes 1◦angular 
+displacements with 10 s dwell intervals for exhaust temperature/emis­
+sions sampling upon reaching steady-state, completing full cross-section 
+profiling through 180◦sector scanning.
+As illustrated in Fig. 2, the radial-staged combustor test section 
+features counterflow cooling where air enters through the combustor 
+inlet, traverses the casing annulus, and cools the flame tube in reverse 
+flow direction. At the head-end, air self-distributes into diffusion, outer 
+premixed, and inner premixed paths without flow partitioning devices. 
+The flame tube employs film-cooling technology, while the transition 
+piece incorporates 30◦inclined effusion cooling holes and an annular 
+Nomenclature
+C
+reaction progress variable
+CP
+specific heat
+f
+mixture fraction
+fs
+characteristic frequency
+H
+total enthalpy
+k
+laminar heat conduction coefficient
+P
+pressure (Pa)
+Pr
+laminar Prandtl number
+Prt
+turbulent Prandtl number
+S
+source term
+Sct
+turbulent Schmidt number
+St
+Strouhal number
+t
+time term
+u
+velocity vector
+Uave
+average velocity
+Y
+mass fraction
+Greeks
+ρ
+density (Kg/m3)
+δ
+thickness of the shear layer
+δij
+Kronecker delta
+μ
+molecular viscosity
+μt
+subgrid-scale (SGS) viscosity
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+2 
+
+
+--- Page 3 ---
+
+array of trailing-edge cooling holes at its tail section, collectively engi­
+neered to satisfy the demanding exit temperature profile specifications 
+for downstream high-pressure turbine operation.
+Fig. 3 details the nozzle assembly and combustion liner configura­
+tion, featuring fuel injection ports on both inner and outer premixed 
+swirler vanes where aerodynamically entrained natural gas mixes with 
+swirling air prior to entering the combustion chamber. The diffusion air 
+path is concentrically arranged within the central fuel circuit. Given the 
+critical role of pressure fluctuation data in this study, high-temperature 
+piezoelectric transducers (Kistler 6021B) were deployed in a flush- 
+mounted configuration penetrating directly into the flame zone at the 
+liner mid-plane position, enabling direct combustion pulsation mea­
+surements at 20 kHz sampling frequency to capture thermoacoustic 
+dynamics.
+2.2. Mathematical model
+Large Eddy Simulation (LES) offers distinct advantages in thermoa­
+coustic instability research, primarily through its superior capability to 
+resolve complex turbulent phenomena. Unlike Reynolds-Averaged 
+Navier-Stokes (RANS) methods, LES directly resolves large-scale flow 
+structures while modeling subgrid-scale turbulence, thereby capturing 
+Fig. 1. Actual gas turbine combustion chamber experimental platform.
+Fig. 2. Actual gas turbine combustion chamber model.
+Fig. 3. Detailed structure of the radial staged swirling nozzle.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+3 
+
+
+--- Page 4 ---
+
+high-frequency vortex dynamics and their interactions with combustion 
+processes with enhanced fidelity. In reacting systems where thermoa­
+coustic instabilities originate from turbulence-combustion interactions, 
+LES provides detailed spatial distributions of vortex structures, velocity 
+fields, and thermal gradients, enabling explicit characterization of 
+acoustic-pressure/heat-source coupling. Crucially under high-pressure/ 
+high-temperature conditions, LES resolves subtle temperature fluctua­
+tions and their phase relationships with acoustic oscillations, yielding 
+physically accurate descriptions of instability mechanisms. The 
+method’s high spatiotemporal resolution further permits precise 
+reconstruction of transient acoustic field evolution and heat release 
+dynamics—essential for analyzing instability transient behavior. 
+Consequently, LES delivers more reliable and refined simulations than 
+conventional approaches, effectively unraveling the triadic interactions 
+among turbulence, combustion, and acoustics [41].
+In Large Eddy Simulation, the fundamental governing equations for 
+thermo-fluid dynamics are expressed through Favre-filtered conserva­
+tion laws of mass, momentum, and energy as follows [42]: 
+∂ρ
+∂t + ∂
+∂xi
+(ρ̃ui) = 0
+(1) 
+∂
+∂t (ρ̃ui) + ∂
+∂xj
+[
+ρ̃ui ̃uj + pδij + ρuʹʹ
+i uʹʹ
+j −̃τij
+]
+= 0
+(2) 
+−ρuʹʹ
+i uʹʹ
+j = μt
+(∂̃ui
+∂xj
++ ∂̃uj
+∂xi
+−2
+3
+∂̃uk
+∂xk
+δij
+)
+−1
+3ρ( ̃
+ukuk −
+̃uk ̃uk)
+(3) 
+̃τij = μ
+(∂̃ui
+∂xj
++ ∂̃uj
+∂xi
+−2
+3
+∂̃uk
+∂xk
+δij
+)
+(4) 
+∂
+∂t
+(
+ρ̃H
+)
++ ∂
+∂xi
+(
+ρ̃ui ̃H
+)
+= ∂
+∂xi
+[( μ
+Pr + μt
+Prt
+) ∂̃H
+∂xi
+]
++ Dp
+Dt
+(5) 
+Here ρ denotes the Favre-filtered density, ̃ui represents the filtered ve­
+locity component in the i direction, p signifies the filtered pressure, ̃H 
+indicates the filtered total enthalpy, δij is Kronecker delta. Pr and Prt 
+correspond to the laminar and turbulent Prandtl numbers fixed at 0.7 
+and 0.85, respectively. The molecular viscosity μ and subgrid-scale 
+(SGS) viscosity μt are modeled through an algebraic wall-modeled LES 
+formulation employing Reynolds-averaged methodology for near-wall 
+flows and the Smagorinsky model for off-wall regions.
+The Flamelet Generated Manifold (FGM) combustion model groun­
+ded in the GRI-Mech 3.0 detailed chemical reaction mechanism is 
+selected [43], whose conceptual framework originates from steady 
+laminar flamelet theory to enable efficient simulation of complex com­
+bustion via low-dimensional projection within multidimensional ther­
+mochemical space. Specifically, the method parameterizes flamelet 
+libraries to map high-fidelity thermochemical data—incorporating 
+detailed reaction kinetics—onto a two-dimensional manifold governed 
+by mixture fraction (f) and reaction progress variable (C). This approach 
+preserves the fidelity of elementary chemical kinetics while substan­
+tially reducing transport equation dimensionality, circumventing direct 
+computation of stiffness-induced source terms, and consequently 
+enhancing computational efficiency by orders of magnitude.
+The construction process of the database involves two critical steps: 
+First, the steady-state one-dimensional premixed flame structures under 
+various equivalence ratios are numerically solved to obtain complete 
+chemical thermodynamic field information. Subsequently, key param­
+eters such as the mass fractions of species, temperature field distribu­
+tions, and chemical source terms under different conditions are 
+structured and stored, ultimately forming a laminar flamelet database 
+with (f, C) as independent control variables. This parametric represen­
+tation enables the efficient reconstruction of multidimensional com­
+bustion processes by querying the pre-generated flamelet database. 
+f = Zi −Zi,o
+Zi,f −Zi,o
+(6) 
+C =
+∑
+kαk
+(
+Yk −Yu
+k
+)
+∑
+kαk
+(
+Yeq
+k −Yu
+k
+) = YC
+Yeq
+C
+(7) 
+Here, Zi denotes the elemental mass fraction of species i, where sub­
+scripts f and o designate fuel-stream and oxidizer-stream conditions 
+respectively, αk represents a model constant, Yk signifies the mass frac­
+tion of the k-th species, while superscripts u and eq indicate unburned 
+reactants and chemical equilibrium states correspondingly. The trans­
+port equations governing mixture fraction (f) and reaction progress 
+variable (C) are expressed as follows: 
+∂(ρf)
+∂t
++ ∇⋅(ρ̃uif) = ∇⋅
+[( k
+Cp
++ μt
+Sct
+)
+Δf
+]
+(8) 
+∂(ρYC)
+∂t
++ ∇⋅(ρ̃uiYC) = ∇⋅
+[( k
+Cp
++ μt
+Sct
+)
+ΔYC
+]
++ SYC
+(9) 
+Here k represents the laminar heat conduction coefficient, and Cp rep­
+resents the specific heat.
+2.3. Mesh generation and its independence verification
+The computational domain replicates the experimental system at 1:1 
+scale (Fig. 1). To ensure the accuracy of the computational model and 
+grid, two validation schemes were selected. The first scheme involves 
+comparing the experimentally measured pressure fluctuation signals 
+with the calculated pressure oscillation values at monitoring points 
+under different grid densities. As shown in Fig. 4, the pressure fluctua­
+tions at the LES monitoring points, located at the same positions as the 
+pressure fluctuation sensors, were compared with the experimental 
+measurements. The grid was refined in the flame region with refinement 
+sizes of 1 mm, 0.8 mm, and 0.6 mm, respectively. It was found that the 
+LES could accurately capture the frequency near 445 Hz. As the grid 
+density increased, the oscillation frequency and amplitude became 
+closer to the experimental values. Balancing computational accuracy 
+and cost, a grid consisting of 45,213,032 cells was selected for this study.
+Instantaneous kinetic energy spectra at shear-layer monitoring 
+points (Fig. 5) reveal successive breakdown of large-scale vortices 
+through an energy cascade process where inertial forces transfer energy 
+to smaller eddies. However, this process does not continue indefinitely. 
+Fig. 4. Validation of grid quality for combustion thermoacoustic oscillations.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+4 
+
+
+--- Page 5 ---
+
+When the scale becomes sufficiently small, molecular diffusion becomes 
+dominant, and non-viscous energy ceases to transfer. The kinetic energy 
+is then dissipated into thermal energy. Kolmogorov’s turbulence distri­
+bution theory is the classical theory that describes this phenomenon 
+[42]. According to this theory, the energy spectrum follows E(n) ∝ n−5/3. 
+E(n) represents the kinetic energy of a unit mass of matter within a unit 
+wavenumber range. The total energy of a unit mass needs to be inte­
+grated with respect to the wavenumber to obtain E(n). For a vortex with 
+a characteristic scale of r, the wavenumber n is defined as n = 2Π/r. If 
+the grid scale reaches the inertial subdomain scale, the energy spectrum 
+distribution of the vortex should follow the Kolmogorov turbulent dis­
+tribution theory. The kinetic energy spectrum in Fig. 5 indicates that the 
+attenuation of turbulent kinetic energy conforms to the 5/3 law of the 
+inertial subdomain.
+2.4. Boundary conditions for experiments and numerical simulations
+During the load-increasing experimental process, no combustion 
+oscillations were observed up to the 70 % power level. However, when 
+the power level was raised to 80 %, thermoacoustic oscillations gradu­
+ally began to emerge. Therefore, both experimental and numerical 
+simulation analyses were primarily focused on power levels above 80 %. 
+The specific air and fuel inlet boundary conditions are provided in 
+Table 1.
+2.5. Model validation
+To validate numerical model accuracy, time-averaged outlet tem­
+peratures from large eddy simulations at 100 % load are compared 
+against experimental data acquired via a swing-rake thermocouple as­
+sembly linearly distributing five measurement points. The rake performs 
+sector scanning across an 18◦arc at the combustor outlet, yielding 90 
+discrete temperature measurements that are spatially interpolated to 
+reconstruct the experimental temperature contour map. In Fig. 6a, the 
+measured outlet distribution exhibits a characteristic C-shaped profile 
+where casing air injection forms peripheral cooling zones to satisfy 
+downstream turbine thermal constraints, while the central region 
+maintains a thermal core. The angular interval (1◦) of the oscillating 
+mechanism and the number of radial measurement points jointly 
+determine the spatial resolution of the experimental cloud image. Any 
+flow structures below this resolution cannot be captured by the exper­
+iment and are smoothed out during the interpolation process. In 
+contrast, large eddy simulation can resolve all vortex structures larger 
+than the grid scale, providing higher effective resolution. The results of 
+large eddy simulation are not perfect either. Their smoothness partly 
+stems from model simplification, as the subgrid models used inevitably 
+introduce numerical dissipation, which suppresses small-scale fluctua­
+tions, thereby making the simulated results slightly smoother than the 
+actual physical field. As shown in Fig. 6b, the maximum RTDF occurs at 
+the 0 mm position, corresponding to the central arc region of the outlet 
+cross-section, indicating the highest temperature non-uniformity at this 
+location. The −30 mm and 30 mm positions represent the average 
+temperature at the combustion chamber outlet edges, which is closer to 
+the overall outlet average temperature, resulting in the lowest RTDF 
+values at these points. During the test, the variation process of OTDF at 
+the exhaust section was recorded across power levels from 0 to 100. At 
+the 30 % power level, the OTDF reached its peak, approaching 0.7, 
+indicating the most uneven temperature distribution at the exhaust 
+section under this power condition. Diffusion combustion is character­
+ized by high local fuel concentration and uneven mixing between high- 
+temperature combustion gases and surrounding air, resulting in higher 
+temperatures at the center of the combustor exit compared to the pe­
+ripheral regions. With further increases in power level, the proportion of 
+fuel in the premix path continues to rise, leading to a more uniform 
+outlet temperature. Numerical results demonstrate close agreement with 
+experimental results.
+Fig. 7(a) validates cold-flow LES predictions by comparing experi­
+mental pressure oscillations at 1125 Hz during non-reacting operation, 
+where numerical monitoring point P14 successfully captures this char­
+acteristic frequency attributed to Kelvin-Helmholtz instability (detailed 
+in subsequent sections). The cold-flow pressure spectrum exhibits low 
+overall amplitudes without dominant patterns in low-frequency bands. 
+Fig. 7(b) further contrasts experimental and LES-derived pressure 
+spectra under intense thermoacoustic oscillation conditions, specifically 
+when corner recirculation zone (CRZ) ignition occurs. Experimental 
+measurements reveal prominent 450 Hz pressure pulsations during CRZ 
+ignition events, which the LES model accurately reproduces this phe­
+nomenon. In the experiment, the combustor walls are subject to complex 
+heat transfer, including convective cooling and radiative heat loss. These 
+effects lower the local gas temperature and density near the walls, 
+altering the local speed of sound and creating acoustic boundary layers 
+that dissipate wave energy. In contrast, the LES model employs an 
+idealized adiabatic wall boundary condition, which neglects these 
+damping effects, leading to less attenuation of the pressure waves and 
+consequently a higher predicted amplitude. This confirms the compu­
+tational model’s capability to faithfully replicate flow dynamics and 
+combustion-induced pressure fluctuations observed experimentally.
+3. Results and discussion
+3.1. Analysis of pressure fluctuation dynamics during combustor load 
+ramping
+Fig. 8 delineates the amplitude-frequency evolution of combustor 
+pressure fluctuations during power ramping. As power increases from 0 
+% to 70 %, dominant spectral peaks emerge near 200 Hz, 600 Hz, and 
+1000 Hz, exhibiting frequency upshifts correlated with rising acoustic 
+velocities due to gas temperature elevation. Notably, in Fig. 8(a), during 
+the start-up stage with diffusion-only fueling, the 263 Hz mode domi­
+nates under globally lean condition, coinciding with high flame 
+Fig. 5. Kinetic energy spectra at shear-layer.
+Table 1 
+Boundary conditions of experiment and numerical simulation.
+Experiment parameter/power level
+80 %
+90 %
+100 %
+Equivalent operating pressure
+0.86
+0.92
+1
+Equivalent air flow rate
+0.91
+0.95
+1
+Equivalent air temperature
+0.97
+0.98
+1
+Proportion of diffused fuel
+54 %
+0 %
+0 %
+Proportion of premixed internal fuel
+14 %
+14 %
+9 %
+Proportion of premixed external fuel
+42 %
+86 %
+91 %
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+5 
+
+
+--- Page 6 ---
+
+instability. Subsequent activation of the inner premixed circuit shifts the 
+dominant frequency to 205 Hz while reducing oscillation amplitu­
+des—attributed to enhanced global flame stability from equivalence 
+ratio enrichment and improved flame-root anchoring. Crucially, 
+distinctive frequencies at 398 Hz (tick-over stage in Fig. 8(b)) and 543 
+Hz (40 % power level in Fig. 8(f)) emerge exclusively during inner/outer 
+premixed fuel staging actuations, necessitating explicit investigation of 
+fuel-circuit modulation effects on combustion oscillations.
+Fig. 9 shows the acoustic natural mode frequency analysis results of 
+the combustion chamber. The first three acoustic mode shapes are more 
+likely to occur in experiments, particularly the acoustic modes corre­
+sponding to 380 Hz and 550 Hz frequencies, which represent the axial 
+through-flow vibration mode of the combustion chamber and the axial 
+vibration mode of the flame tube, respectively. During start-up with 
+diffusion-limited combustion, an oscillation frequency of 187 Hz was 
+observed, matching the fundamental acoustic mode (195 Hz) of the 
+combustor flow cavity. As thermal load and cavity air temperature 
+increased, the oscillation frequency rose to 225 Hz.
+Pressure oscillations in fuel supply systems critically affect combus­
+tion stability, with gas-phase systems being more susceptible to such 
+fluctuations than liquid-fueled systems. These oscillations modulate fuel 
+injection at the nozzle exit, leading to localized heat release fluctuations 
+that can phase-lock with acoustic waves and trigger thermoacoustic 
+instability. As shown in Fig. 10, when internal premixed fuel was 
+introduced, the oscillation frequency of its fuel path (417 Hz) was close 
+to the second-mode frequency of the combustion chamber flow path 
+(380 Hz), and a frequency of 398 Hz was measured during testing. The 
+first-mode frequency of the external premixing path is 527 Hz, near the 
+third acoustic mode of the chamber cavity (590 Hz), which resulted in a 
+543 Hz oscillation under 40 % load conditions.The instability origi­
+nating from the fuel supply path serves as the source of these charac­
+teristic oscillations. When coupled with the intrinsic acoustic modes of 
+the chamber, they produce distinct frequencies during load transitions. 
+These circuit-specific frequencies appear transiently upon fuel circuit 
+activation but diminish as mass flow increases. Initial fuel-filling- 
+induced resonances in the plenum do not cause severe combustion 
+instability, and subsequent flow pressurization via increased mass flux 
+enhances hydrodynamic stability, effectively suppressing fuel-side 
+oscillations.
+Spectral analysis via FFT identifies persistent 1100 Hz pressure os­
+cillations with low amplitudes throughout load ramping, while LES 
+vorticity field analysis reveals that the shear layer originating from the 
+center body exhibits high sensitivity to external excitations [44], 
+capturing periodically shedding vortices from the inner premixed air 
+Fig. 6. Validation of outlet temperature distribution (a) and OTDF and RTDF result (b).
+Fig. 7. Verification of pressure oscillation results (a) without combustion, (b) with combustion.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+6 
+
+
+--- Page 7 ---
+
+Fig. 8. The combustion chamber pressure oscillation during the process from 0% to 70% power level.
+Fig. 9. Acoustic modal analysis of the combustor.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+7 
+
+
+--- Page 8 ---
+
+outlet to the sudden-expansion zone that convect along the shear layer 
+direction until dissipating at the trailing edge. This vortex-sound inter­
+action aligns with shear layer instability theory [45], where the 
+empirical Strouhal number (Sr) provides predictive capability for vortex 
+shedding frequency as defined by: 
+Sr = fsδ
+Uave
+(10) 
+The characteristic frequency (fs) generated in the flow, correspond­
+ing to the vortex shedding frequency, is analyzed. The initial momentum 
+thickness of the shear layer δ, is approximately 1/4 of the vorticity 
+thickness [46], and in this study, δ = 3.25 mm. The free-stream velocity 
+on both sides of the shear layer, Uave is taken as the average velocity of 
+the inner premixed air ring, with a value of 81.7 m/s. For turbulent flow, 
+the most unstable mode of an unforced planar shear layer occurs at a 
+Strouhal number Sr ranging from 0.044 to 0.048 [45]. As shown in 
+Fig. 11, the unstable frequency of the inner premixed shear layer in this 
+experiment is determined to be between 1106 Hz and 1207 Hz. This 
+predicted frequency closely aligns with the experimental and large-eddy 
+simulation results, further confirming that the acoustic oscillations are 
+induced by vortex shedding in the inner premixed shear layer.
+For operation above 80 % load, diffusion fuel is progressively 
+reduced and transferred to the outer premixed circuit to maintain NOx 
+emissions compliance. In Fig. 12(a), diffusion fuel flow peaks at 80 % 
+load where combustor pressure fluctuations remain stable without 
+combustion oscillations. However, during the transition of shifting fuel 
+from diffusion to outer premixed circuits, a spectral peak emerges near 
+410 Hz accompanied by audible whistling. In Fig. 12(b), at 90 % load 
+with diffusion fuel fully discontinued (internal premixed fuel: 14 %; 
+external premixed fuel: 86 %), oscillation amplitudes intensify mark­
+edly. In Fig. 12(c), further increasing to 100 % load (combustor pressure: 
+2 MPa) triggers severe thermoacoustic oscillations exceeding 15 kPa at 
+440 Hz. Phase space reconstruction of pressure signals (Fig. 12(d)–(f)) 
+reveals: disordered trajectories at 80 % load indicating stable combus­
+tion; partially organized trajectories with hollow centers at 90 % load 
+suggesting incipient pressure wave coherence; and highly structured 
+limit-cycle oscillations at 100 % load confirming fully developed insta­
+bility. These oscillations are primarily governed by combustion mode 
+transitions, where fully premixed operation exhibits heightened insta­
+bility risks at 100 % load, necessitating mechanistic elucidation to 
+Fig. 10. Acoustic modal analysis of different fuel pipelines of nozzles.
+Fig. 11. Periodic vortex shedding phenomenon in the internal premixed channel.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+8 
+
+
+--- Page 9 ---
+
+address critical safety concerns.
+3.2. Analysis of the mechanism of combustion-induced thermoacoustic 
+oscillations
+During the experiment, the emergence of thermoacoustic oscillations 
+was accompanied by a rapid temperature increase at the flame tube 
+front face, indicating ignition stabilization within the corner recircula­
+tion zone (CRZ). As illustrated in Fig. 13, as the load increased from 80 % 
+to 100 %, the flame tube wall temperature exhibited pronounced 
+instability. Notably, at section A, temperature fluctuated significantly 
+near the 90 % load condition, suggesting that the CRZ was approaching 
+its lean flammability limit, where flame anchoring becomes transient 
+and locally intermittent. A further load increase induced a sharp 
+temperature rise at section A to 1200 K, accompanied by clear pressure 
+oscillations, which decayed upon reduction of the outer premixed fuel 
+fraction. This temperature surpasses the maximum continuous service 
+temperature for the flame tube’s nickel-based superalloy material 
+(typically 1150 K for long-term application). Sustained operation at 
+1200 K drastically accelerates creep deformation and oxidation/thermal 
+fatigue damage, leading to a severe reduction in component lifespan. 
+Time–frequency analysis of dynamic pressure during outer premixed 
+fuel modulation (Fig. 14) reveals that oscillation frequency is repre­
+sented on the ordinate, with colormap intensity reflecting pulsation 
+amplitude. No significant oscillations occurred when the inner premixed 
+fuel fraction remained below 86 %. Beyond this threshold, however, 
+self-excited oscillations emerged and stabilized at 445 Hz, indicating 
+coupling between heat release and a dominant acoustic mode. A hys­
+teresis behavior was observed: once oscillations were triggered, 
+decreasing the outer premixed fuel fraction to 85 % failed to suppress 
+them; instead, a reduction below 83 % was required to fully quench the 
+instability, suggesting a nonlinear transition between stable and unsta­
+ble combustion states [10].
+Under 100 % load conditions, large-eddy simulation results suc­
+cessfully reproduced the ignition phenomenon observed in the corner 
+recirculation zone during experiments, with physical signals monitored 
+at 18 locations within the combustion region. The pressure signals at 
+these locations exhibited periodic oscillations, with the 445 Hz oscilla­
+tion signal being the most prominent, closely matching the experimental 
+test signals. However, this frequency differed from the inherent acoustic 
+frequency of the combustion chamber, indicating that thermoacoustic 
+oscillations were triggered by combustion instability under the given 
+combustion distribution and aerodynamic parameters. As shown in 
+Fig. 15(a), although pressure and velocity fluctuations at the central air 
+path outlet exhibited the dominant 445 Hz component, neither vorticity 
+nor heat release rate varied significantly at this frequency. Moreover, the 
+absence of phase coherence between pressure and heat release rate 
+fluctuations suggests that this region was not a driving source of the 
+thermoacoustic instability.
+In Fig. 15(b), at point P6 near the inner premixed shear layer, the 
+Fig. 12. Pressure amplitude-frequency characteristics and phase space reconstruction at 80% to 100% power levels.
+Fig. 13. Variation of combustor wall temperature during load increase process.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+9 
+
+
+--- Page 10 ---
+
+dominant 445 Hz mode was accompanied by a 1121 Hz component, 
+attributed to vortex shedding. The entrainment of unburned methane 
+within these vortices led to delayed combustion until the vortex struc­
+tures reached the flame front, causing localized heat release fluctuations 
+at the shedding frequency. However, due to its detuning from the 
+chamber acoustics and weak oscillatory strength, this mechanism did 
+not significantly contribute to system-level instability. At point P12 
+(Fig. 15c), located further downstream in the shear layer, no coherent 
+fluctuations were observed beyond pressure. In contrast, at P18 within 
+the corner recirculation zone (Fig. 15d), pressure, velocity, vorticity, 
+Fig. 14. The pressure oscillation characteristics vary with the proportion of external premixed fuel.
+Fig. 15. The pressure oscillation characteristics vary with the proportion of external premixed fuel.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+10 
+
+
+--- Page 11 ---
+
+and heat release rate all exhibited strong coherence at 445 Hz, identi­
+fying this region as the primary source of the self-excited thermoacoustic 
+oscillation. The frequency of this loop (445 Hz) is inherently determined 
+by the convective time delay of the vortex packets traveling from the 
+impingement point to the CRZ reaction zone, coupled with the charac­
+teristic time of the subsequent heat release. This is the very definition of 
+an ITA mode, where the feedback loop’s period is set by the internal flow 
+and flame dynamics, not by the geometry-defined acoustic boundaries of 
+the system.
+As shown in Fig. 16, the time-averaged spatial temperature distri­
+bution within the flame tube under 100 % thermal load conditions re­
+veals significant discrepancies between the time-averaged results and 
+those obtained from Reynolds-Averaged Navier-Stokes (RANS) simula­
+tions, particularly in the corner recirculation zone. The RANS model 
+failed to reproduce the ignition phenomenon observed in the corner 
+recirculation zone during experiments, which is attributed to high- 
+temperature combustion gases impinging on the wall. Near the con­
+tact region between the swirling shear layer and the flame tube wall (X =
+270 mm), a rollback of high-temperature gases occurs. When the 
+methane concentration and temperature in the corner recirculation zone 
+reach the ignition limit, localized flashback occurs, with the flame 
+propagating further into the corner recirculation zone. In Fig. 17, the 
+local pressure signal at point P18 exhibits clear periodic fluctuations. To 
+elucidate the combustion dynamics in the corner recirculation zone, six 
+time points within the pressure oscillation cycle were selected to 
+investigate the combustion oscillation behavior during the oscillation 
+cycle.
+As illustrated in Fig. 18, the heat release rate, methane mass fraction, 
+OH concentration, and temperature were extracted at the locations 
+corresponding to the pressure signals 1–6 mentioned previously. Anal­
+ysis of the processes at points 1–2 indicates that, due to the confinement 
+of the flame tube boundary, the swirling shear layer impinges on the 
+flame tube wall, leading to the dispersion of gas at the shear layer edge 
+into two vortex groups directed toward the main recirculation zone and 
+the corner recirculation zone. Observations at points b1 and b2 reveal 
+that these vortex groups carry partially unburned methane, which, upon 
+wall impingement, is consumed in two directions, releasing heat. This 
+heat release process generates significant expansion pressure, resulting 
+in pressure values near the peak at points 1 and 2.
+At point 4, the flame flashback from the previous cycle has 
+concluded, and the subsequent cycle’s flashback has not yet initiated, 
+resulting in no significant heat release and a pressure value at the 
+trough. Point 6 corresponds to the onset of a new flashback cycle in the 
+corner recirculation zone, where the vortex group breaks upon wall 
+impingement, igniting the fuel within the corner recirculation zone and 
+causing the pressure to return to near-peak values. This pattern results in 
+periodic heat release and flashback. Due to the complex flow charac­
+teristics in the corner recirculation zone, multiple frequencies of pres­
+sure fluctuations overlap. The wall impingement and vortex breakup at 
+the shear layer edge occur at a specific frequency, determining the 
+Fig. 16. Temperature distribution in the combustor at 100% power level.
+Fig. 17. Sampling points within one pressure oscillation period.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+11 
+
+
+--- Page 12 ---
+
+flashback frequency in the corner recirculation zone, which corresponds 
+to the frequency of the heat release rate. When the phase difference 
+between the heat release rate fluctuations and the pressure fluctuations 
+of the same frequency is less than 90◦, thermoacoustic oscillations at a 
+specific frequency are excited.
+3.3. Methods for expanding the stable operation boundary
+The mechanism of thermoacoustic oscillations, as analyzed previ­
+ously, is attributed to flashback in the corner recirculation zone, and the 
+proposed solution involves suppressing fixed-frequency heat release in 
+this zone. Without modifying the combustor structure, optimizing the 
+fuel staging ratio to prevent flashback in the corner recirculation zone is 
+identified as the most effective approach. The ignition in the corner 
+recirculation zone results from an excessively high methane concen­
+tration, coupled with elevated temperatures and high methane content 
+within the flashback vortex group. The methane concentration in the 
+outer premixed path directly influences these factors, suggesting that 
+reducing the fuel supply in the outer premixed path could effectively 
+mitigate flashback in the corner recirculation zone. To investigate the 
+flashback boundary in this zone, experiments were conducted 
+comparing four operating conditions with outer premixed fuel ratios of 
+91 %, 88.6 %, 86 %, and 82 %, with the fuel distribution for each 
+condition detailed in the accompanying table. As shown in Table 2, cases 
+1–3 involve progressively increasing the inner premixed fuel quantity, 
+while Case 4 incorporates an increased proportion of diffusion fuel.
+As shown in Fig. 19(a), the temperature variation at monitoring 
+point P16 in the corner recirculation zone is presented, with an inlet air 
+temperature of 734 K. Under normal operating conditions, the temper­
+ature in the corner recirculation zone must not exceed 1000 K. During 
+the process of gradually reducing the outer premixed fuel ratio, it was 
+observed that the temperature in the corner recirculation zone signifi­
+cantly decreases only when the outer premixed fuel proportion falls 
+below 86 %, achieving a stable low temperature at 82 %. Fig. 19(b) 
+depicts the temperature distribution at axial positions of 270 mm and 
+300 mm, where the outer premixed path has a relatively high air pro­
+portion. Consequently, reducing the outer premixed fuel quantity while 
+increasing the diffusion and inner premixed fuel quantities leads to an 
+increase in the peak combustion temperature. At an outer premixed fuel 
+ratio of 91 %, the peak combustion temperature reaches 1600 K, 
+resulting in low NOx emissions, though attention must be paid to 
+flashback-induced oscillations in the corner recirculation zone. The axial 
+regions between 400 mm–450 mm and 550 mm–600 mm correspond to 
+the corner recirculation zone, where an outer premixed fuel ratio of 82 
+% ensures no ignition occurs in this zone. At this condition, the peak 
+combustion temperature, located at the center of the flame tube, reaches 
+1900 K, with no occurrence of combustion-induced thermoacoustic 
+oscillations.
+As shown in Fig. 20, the temporal variation of OH concentration 
+under different fuel staging ratios is presented. In Case 1, a pronounced 
+flashback phenomenon is observed in the corner recirculation zone, with 
+the flashback frequency aligning with that of the thermoacoustic oscil­
+lations. Additionally, due to the relatively low inner premixed fuel 
+quantity, the flame root is positioned at a certain distance from the 
+central bluff body, making it susceptible to disturbances from pressure 
+fluctuations within the combustor. In Case 2, the flame root exhibits 
+relative stability, yet flashback persists in the corner recirculation zone. 
+In Case 3, the inner premixed fuel quantity is increased to the safety 
+boundary, resulting in flame attachment to the bluff body, and experi­
+mental observations indicate that when the inner premixed fuel exceeds 
+14 %, ablation occurs on the end face of the central bluff body. In Case 4, 
+an increased diffusion fuel quantity leads to elevated OH concentrations 
+near the diffusion path outlet, with the intense combustion region being 
+more concentrated compared to other conditions, and no flashback is 
+observed in the corner recirculation zone. Balancing the flashback in the 
+corner recirculation zone and the ablation of the central bluff body, Case 
+4 demonstrates the potential to be the optimal operating condition.
+In Fig. 21, the time-averaged methane distribution during the com­
+bustion process for four operating conditions is presented, revealing a 
+significant influence of varying fuel ratios on the combustion zone 
+structure. From Case 1 to Case 4, the methane concentration in the 
+corner recirculation zone progressively increases. Based on prior flow 
+field analysis, two primary vortices are identified within the corner 
+recirculation zone: one resulting from the splitting of the vortex in the 
+Fig. 18. The heat release rate, methane concentration, OH concentration and temperature distribution within one pressure oscillation period.
+Table 2 
+Fuel ratio scheme for suppressing combustion thermoacoustic oscillation.
+Case
+Diffused fuel
+Internal premixed fuel
+External premixed fuel
+1
+0 %
+9 %
+91 %
+2
+0 %
+11.4 %
+88.6 %
+3
+0 %
+14 %
+86 %
+4
+6.6 %
+11.4 %
+82 %
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+12 
+
+
+--- Page 13 ---
+
+swirl shear layer upon wall impingement, and the other located near the 
+combustor liner’s front end face. To ensure effective cooling of the 
+combustor liner, two rows of cooling holes are arranged at the liner’s 
+end face, oriented at a 30◦inclination relative to the horizontal plane 
+rather than perpendicular to the surface. This configuration results in a 
+cooling gas flow direction opposing that of the other vortex, conse­
+quently forming an additional pair of vortices near the combustor liner’s 
+end face. In Fig. 22, analysis of the pressure spectrum at monitoring 
+points in the corner recirculation zone indicates that the flashback re­
+gion at the shear layer edge corresponds to a frequency of 445 Hz, while 
+the frequency around 320 Hz is attributed to the vortices near the 
+combustor liner’s end face. During the reduction of outer premixed fuel, 
+the vortices at the combustor liner’s end face are found to be more 
+resistant to extinction. For Case 3, residual methane is observed at the 
+shear layer edge, indicating a diminished flashback effect at this loca­
+tion, yet the methane concentration near the combustor liner’s end face 
+remains low, suggesting sustained heat release in this region. The figure 
+further shows that, under this condition, the amplitude of the 440 Hz 
+frequency is lower than that of the 320 Hz frequency, indicating that 
+combustion oscillations near the combustor liner’s end face dominate. In 
+Case 4, unconsumed methane in the recirculation zone suggests that 
+flashback in the corner recirculation zone has been suppressed, with no 
+typical thermoacoustic oscillation signals detected in this region.
+The optimization direction of fuel allocation under high thermal load 
+conditions was identified, requiring both the avoidance of thermoa­
+coustic oscillations and compliance with emission standards. In Fig. 23, 
+experimental emission data corresponding to fuel distribution in Case 1 
+to Case 4 indicate that the relatively lower combustion temperature in 
+Case 1 resulted in reduced NOx emissions, however, this condition was 
+accompanied by thermoacoustic oscillations. Due to flashback in the 
+corner recirculation zone, methane combustion was more complete, 
+leading to the lowest CO emissions among all cases. In Case 2, an in­
+crease in the inner premixed fuel fraction raised the central combustion 
+temperature, slightly increasing both NOx and CO emissions. Experi­
+mentally, Case 3 was found to be near the critical state of combustion 
+instability, making the flame highly susceptible to disturbances. In 
+Fig. 19. Temperature variation in the corner recirculation zone (a) and radial temperature distribution in the combustor (b) under different external premixed 
+fuel ratios.
+Fig. 20. The distribution of OH in combustor under different proportions of external premixed fuels.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+13 
+
+
+--- Page 14 ---
+
+contrast, Case 4 exhibited stable combustion with acceptable emission 
+levels.
+As shown in Fig. 24, to delineate the stable operational boundaries 
+under high-temperature and high-pressure conditions, the fraction of 
+outer premixed fuel was varied from 75 % to 91 %, while the inner 
+premixed fuel fraction was capped at a maximum of 12 %. As the outer 
+premixed fuel ratio increased from 75 % to around 80 %, the diffusion 
+fuel fraction was significantly reduced, leading to a rapid decrease in 
+NOx emissions. When the outer premixed fuel fraction reached 81.8 %, 
+the emission criteria were met. Further increasing the outer premixed 
+fuel ratio resulted in additional reduction of NOx, but the overall tem­
+perature in the main combustion zone decreased, causing a gradual in­
+crease in CO emissions and larger combustion oscillation amplitudes. 
+The stability limit was defined based on a pressure fluctuation amplitude 
+threshold set at 0.5 % of the operating pressure; exceeding this value was 
+considered indicative of unstable combustion. When the outer premixed 
+fuel fraction reached 88.2 %, the pressure oscillations exceeded the limit 
+before CO emissions became unacceptable. Thus, for this radially staged 
+combustor, the inner premixed fuel should be limited to 12 %, and the 
+outer premixed fuel ratio should be maintained within 81.8–88.2 % to 
+ensure both pollutant emissions and pressure oscillations remain within 
+acceptable ranges.
+4. Conclusion
+This study investigates the combustion stability of a radially staged 
+single-can combustor under variable operating conditions through high- 
+temperature and high-pressure experiments. Acoustic modal analysis 
+and large eddy simulation (LES) were employed to identify the origins of 
+pressure oscillations across different frequency bands and to clarify the 
+mechanism by which flashback in the corner recirculation zone (CRZ) 
+triggers thermoacoustic instability. Ultimately, a strategy for extending 
+the stable operational range is proposed. The key findings are summa­
+rized as follows: 
+1. During fuel switching processes, oscillation frequencies of 263 Hz, 
+492 Hz, and 543 Hz were captured. Acoustic modal analysis revealed 
+that these frequencies correspond to the natural acoustic modes of 
+Fig. 21. Spatial distribution of methane under different fuel ratio schemes.
+Fig. 22. Pressure amplitude-frequency characteristics of corner recirculation 
+zone under different fuel ratios.
+Fig. 23. Emission characteristics of combustion chambers under different 
+fuel ratios.
+Fig. 24. Combustion stability and emission coupling boundary.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+14 
+
+
+--- Page 15 ---
+
+the diffusion fuel pathway, the inner premixed fuel pathway, and the 
+outer premixed fuel pathway, respectively. As the thermal load 
+increased to 100 %, intense thermoacoustic oscillations with a 
+dominant frequency of 445 Hz and amplitude exceeding 15 kPa were 
+observed, accompanied by a sharp temperature rise at the flame tube 
+end face, indicating ignition occurring in the corner recirculation 
+zone
+2. The mechanism underlying the combustion instability was eluci­
+dated. When the proportion of outer premixed fuel exceeds 81.8 %, 
+the propensity for ignition in the corner recirculation zone signifi­
+cantly increases. Once ignition occurs in the CRZ, the pressure 
+fluctuations associated with vortex motion and the fluctuations in 
+heat release rate exhibit strong phase alignment around 445 Hz, 
+thereby exciting large-amplitude pressure oscillations
+3. By adjusting the fuel distribution between stages, the local fuel 
+concentration and flashback temperature in the corner recirculation 
+zone can be reduced, effectively suppressing periodic heat release 
+fluctuations. The stable operational boundaries of the combustor 
+were identified: The fuel proportion in the inner premixed pathway 
+should not exceed 12 %, while the outer premixed fuel proportion 
+should be maintained within the range of 81.8 % to 88.2 %
+CRediT authorship contribution statement
+Chengxu Qiu: Writing – original draft, Software, Methodology, 
+Investigation, Formal analysis, Data curation, Conceptualization. Hui 
+Wang: Software, Resources, Project administration, Methodology, 
+Investigation, Conceptualization. Jiaqi Liu: Validation, Project admin­
+istration, Methodology, Investigation. Zhongwei Sun: Validation, 
+Software, Methodology, Investigation. Peipei Liang: Validation, 
+Investigation, Formal analysis, Data curation. Yuqi Qian: Software, 
+Formal analysis, Data curation. Jiyuan Chen: Investigation. Xiao Liu: 
+Writing – review & editing, Supervision, Resources, Project adminis­
+tration, Funding acquisition, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgment
+This work is supported by the National Natural Science Foundation 
+of China (No. 52206137).
+Data availability
+Data will be made available on request.
+References
+[1] Y. Yimin, N. Theoklis, J. Soheil, P. Pericles, Gas turbine engine transient 
+performance and heat transfer effect modelling: a comprehensive review, research 
+challenges, and exploring the future, Appl. Therm. Eng. 236 (2024) 121523.
+[2] J. Keyu, L. Chao, L. Suhui, J. Dongxiang, Modeling and optimization of a hybrid 
+renewable energy system integrated with gas turbine and energy storage, Energy. 
+Convers. Manage. 279 (2023).
+[3] Y. Hirofumi, H. Akihiro, O. Ekenechukwu, C. Sophie, K.K. D, et al., CO ptimum 
+primary equivalence ratio for rich-lean two-stage combustion of non-premixed 
+ammonia/methane/air and ammonia/hydrogen/air flames in a swirling flow, Fuel 
+368 (2024).
+[4] J. Ukhwa, K. Kyu Tae, Hybrid rich- and lean-premixed ammonia-hydrogen 
+combustion for mitigation of NOx emissions and thermoacoustic instabilities, 
+Combust. Flame 262 (2024) 113366.
+[5] G. Yu, C. Yongseok, L. Peijin, K. Kyu Tae, Mutual synchronization and flame 
+dynamics in an axially fuel-staged lean-premixed combustion system, Proc. 
+Combust. Inst. 40 (2024) 105197.
+[6] V. Neha, S. Richard, S. Aditya, P. Christian Oliver, K. Lipika, Effects of noise 
+intensity on early warning indicators of thermoacoustic instability: an 
+experimental investigation on a lean-premixed combustion system, Combust. 
+Flame 272 (2025) 113846.
+[7] B. Jadeed, T. Midhat, S. Suresh, B. Ramanarayanan, Thermoacoustic instability 
+considerations for high hydrogen combustion in lean premixed gas turbine 
+combustors: a review, Hydrogen 2 (2021) 33–57.
+[8] J. Saeed, S. Xing, O. Ghader, M. Mohammad Reza, Hydrogen-enriched propane 
+combustion in a lean premixed burner: LES study on flashback, emissions, and 
+combustion instability, Fuel 381 (2025) 133377.
+[9] W. Haiqing, L. Peijin, L. Xiang, L. Larry, Y. Bo, et al., Temporal and spatiotemporal 
+dynamics of the premixed bluff-body-stabilized flame under different combustor 
+lengths, Phys. Fluids 37 (2025).
+[10] J. Longjuan, W. Jinhua, Z. Weijie, L. Deli, H. Guangya, et al., Nonlinear dynamic 
+characteristics of self-excited thermoacoustic instabilities in premixed swirling 
+flames, Exp. Therm. Fluid Sci. 150 (2024) 111033.
+[11] X. Liangliang, Z. Jianyi, W. Guoqing, F. Zhenzhen, T. Xiaojing, et al., Investigation 
+on the intrinsic thermoacoustic instability of a lean-premixed swirl combustor with 
+an acoustic liner, Combust. Flame 38 (2021) 6095–6103.
+[12] H. Liubin, Z. Hao, Experimental characteristics of adding biogas to premixed self- 
+excited oscillating methane swirling flames, J. Energy Inst. 110 (2023) 101334.
+[13] L. Minwoo, K. Kyu Tae, G. Vikrant, L. Larry, System identification and early 
+warning detection of thermoacoustic oscillations in a turbulent combustor using its 
+noise-induced dynamics, Proc. Combust. Inst. 38 (2021) 6025–6033.
+[14] P. Paul, Flow and flame mechanisms for swirl-stabilized combustors, Aerospace 12 
+(2025) 430.
+[15] Z. Bo, S. Mohammad, R. Zhuming, Y. Shangrong, W. Bing, Thermoacoustic 
+instability drivers and mode transitions in a lean premixed methane-air combustor 
+at various swirl intensities, Proc. Combust. Inst. 38 (2021) 6115–6124.
+[16] P. Paul, A. Ragini, Flame-resolved transient simulation with swirler-induced 
+turbulence applied to lean blowoff premixed flame experiment, Combust. Flame 
+226 (2021) 14–30.
+[17] S. Camilo, F. Intrinsic, thermoacoustic instabilities, Prog. Enegy. Combust. 95 
+(2023) 101065.
+[18] L. Jingxuan, W. Dongbin, M. Aimee, Y. Lijun, Analytical solutions of acoustic field 
+in annular combustion chambers with non-uniform cross-sectional surface area and 
+mean flow, J. Sound. Vib 506 (2021).
+[19] H. S M, F. A, K. H, T. F, K. N, Experimental investigation of entropy waves’ 
+evolution for understanding of indirect combustion noise in gas turbine 
+combustors. Energy 195 (2020) 116978.
+[20] Z. Rongjun, P. Deng, J. Chenzhen, Z. Tong, L. Pengpeng, et al., Combustion 
+instability analysis on a partially premixed swirl combustor by thermoacoustic 
+experiments and modeling, Energy 211 (2020) 118884.
+[21] S. Yaxin, L. Yunpeng, C. Ronghui, X. Longchao, Y. Yingwen, Experimental study on 
+thermoacoustic coupled oscillating combustion mechanism of swirl diffusion flame 
+based on phase analysis, Phys. Fluids 37 (2025) 044106.
+[22] W. Gang, L. ZhengLi, G. Yiheng, L. Yuelin, J.C.Z., Characterizing nonlinear 
+interaction between a premixed swirling flame and acoustics: heat-driven acoustic 
+mode switching and triggering, Energy 158 (2018) 546–554.
+[23] C. Yong, A. Lorna, Z. Dan, Modelling of intrinsic thermoacoustic instability of 
+premixed flame in combustors with changes in cross section, Combust. Sci. 
+Technol. 192 (2020) 832–851.
+[24] W. Xinyao, H. Meng, H. Xiao, Z. Chi, S. Chih-Jen, Flame structures and 
+thermoacoustic instabilities of centrally-staged swirl flames operating in different 
+partially-premixed modes, Energy 236 (2021) 121512.
+[25] F. Pengfei, W. Qi, H. Lingyun, L. Jie, M. Hongyu, Interaction among flame 
+structures and thermoacoustic instabilities in a centrally staged combustor, Appl. 
+Therm. Eng. 254 (2024) 123862.
+[26] Z. Zhihao, L. Xiao, G. Yaozhen, Y. Yang, T. Zijia, et al., Experimental study of 
+stratified swirl flame dynamics in a model gas turbine combustor, Energy 211 
+(2020) 118699.
+[27] H. X, L. D, M. AS, S. CJ, H. X, et al., Flame macrostructures and thermoacoustic 
+instabilities in stratified swirling flames, Proc. Combust. Inst. 37 (2019) 
+5377–5384.
+[28] D. D, S. T, C. S. Self-induced instability of a premixed jet flame impinging on a 
+plate, Proc. Combust. Inst. 29 (2002) 69–75.
+[29] H. Y, Y. V, Bifurcation of flame structure in a lean-premixed swirl-stabilized 
+combustor: transition from stable to unstable flame, Combust. Flame 136 (2004) 
+383–389.
+[30] Z. Hongzhi, W. Fanglong, L. Makeximu, Z.M. Donghai, Active control of 
+combustion oscillation with active disturbance rejection control (ADRC) method, 
+J. Sound Vib. 540 (2022) 117245.
+[31] S. Daniel, A. Ajay K, Passive control of noise and instability in a swirl-stabilized 
+combustor with the use of high-strength porous insert, J. Eng. Gas. Turbines Power 
+134 (2012) 1327–1340.
+[32] Z. Yuanhang, W. Chang’An, L. Xuan, D. Yongbo, C. Defu, Study on passive control 
+of the self-excited thermoacoustic oscillations occurring in combustion systems, 
+Combust. Sci. Technol. 195 (2023) 184–211.
+[33] A. Khalid, S.S. ManiA, daptive phase shift control of thermoacoustic combustion 
+instabilities using model-free reinforcement learning, Combust. Flame 257 (2023) 
+113040.
+[34] C. Geng, T. Lihua, M. Brian, Y. Zhibin, Multi-physics coupling in thermoacoustic 
+devices: a review, Renew. Sust. Energ. Rev. 146 (2021) 111170.
+[35] R. Yihua, L. Shuiqing, C. Wei, Z. Yiyang, M. Lin, Low-frequency AC electric field 
+induced thermoacoustic oscillation of a premixed stagnation flame, Combust. 
+Flame 176 (2017) 479–488.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+15 
+
+
+--- Page 16 ---
+
+[36] C. Wei, Y. Kaiqi, R. Yongjie, G. Kangkang, T. Yiheng, et al., Experimental studies on 
+suppressing thermoacoustic oscillations by secondary gas injection in a premixed 
+swirl combustor, Phys. Fluids 36 (2024) 085145.
+[37] S. Rongyue, T. Chengfei, Suppression mechanisms of stratified jet-in-crossflow on 
+thermoacoustic instability and NOx emissions in premixed combustors, Appl. Sci.- 
+Basel 15 (2025) 2819.
+[38] B. Milad, S. Seyed Hamzeh, O. Fathollah, S. Zoheir, Study of the effect of bluff body 
+size on stability limits of a premixed natural gas swirl burner, J. Therm. Anal. Cal. 
+Orm. 147 (2022) 1583–1596.
+[39] S. Heng, L. Yuzhen, H. Xiao, Y. Dong, Z. Chi, et al., The thermoacoustic instability 
+in a stratified swirl burner and its passive control by using a slope confinement, 
+Energy 195 (2020) 116956.
+[40] H. Liubin, Z. Hao, Experimental investigation of combustion instability and NOx 
+emissions control by adjustable swirl jet in lean premixed flames, J. Energy Inst. 
+106 (2023) 101149.
+[41] H. Jen Zen, J. Sandeep, T. Mohsen, B. Gilles, I. Thomas, et al., Assessment of the 
+LES-FGM framework for capturing stable and unstable modes in a hydrogen/ 
+methane fuelled premixed combustor, Combust. Flame 255 (2023) 112904.
+[42] S.B Pope, Turbulent Flows, Cambridge University Press, Cambridge, 2000.
+[43] Z. Weijie, K. Suleyman, W. Jinhua, H. Zuohua, van O. Jeroen, Large eddy 
+simulation of the Cambridge/Sandia stratified flame with flamelet-generated 
+manifolds: effects of non-unity Lewis numbers and stretch, Combust. Flame 227 
+(2021) 106–119.
+[44] P. J, M. DK, Experiments on the instabilities of a swirling jet, Phys. Fluids. 6 (1994) 
+263–276.
+[45] W. JZ, L. XY, D. AG, F. M, W. JM, Post-stall flow control on an airfoil by local 
+unsteady forcing, J. Fluid. Mech. 371 (1998) 21–58.
+[46] C. Ho, Perturbed free shear layers, Annu. Rev. Fluid Mech. 16 (2003) 365–422.
+C. Qiu et al.                                                                                                                                                                                                                                      
+Applied Thermal Engineering 284 (2026) 129126 
+16 

@@ -1,0 +1,1102 @@
+
+--- Page 1 ---
+
+1 
+American Institute of Aeronautics and Astronautics 
+ 
+Proper Orthogonal Decomposition and Fourier Analysis on 
+the Energy Release Rate Dynamics of a Gas Turbine 
+Combustor 
+Fumitaka Ichihashi1, San-Mou Jeng2, Kelly Cohen3 
+University of Cincinnati, Cincinnati, Ohio, 45221 
+The phenomena of combustion dynamics strongly depends on the energy release (flame) 
+dynamics of combustion systems. The temporal Fast Fourier Transform (FFT) and spatial 
+Proper Orthogonal Decomposition (POD) methods were used analyze high speed energy 
+release (chemiluminescene) videos on a natural gas powered gas turbine burner. The 
+considered case has a single dominate acoustical frequency. Both methods provide an insight 
+into the temporal and spatial distribution of energy release rate dynamics associated with 
+the acoustic pressure oscillation. In the FFT analysis, the spatially distributed amplitude and 
+phase angle at the selected acoustic frequency can be secured, and the energy release 
+dynamics (motion) associated with the considered acoustics can be visualized. The trigger 
+mechanism for combustion dynamics was unveiled in the spatial phase angle distribution at 
+the acoustic frequency.  In the POD analysis, the first few modes have been found to contain 
+a significant portion of energy associated with the considered dynamics system.  The first 
+POD mode contains 19% of energy and its associated temporal and spatial feather is very 
+similar to those calculated by the FFT analysis.  The POD mode #2 and #3 contains less 
+energy, 7% and 5% respectively and their temporal behavior is also associated with the 
+acoustical frequency. However, their spatial structures contain higher spatial frequency 
+components compared to that of Mode #1. The unveiled spatial structure by mode #2 and #3 
+cannot be easily discovered from the FFT amplitude and phase information since it was 
+washed out by the higher energy spatial structure from mode #1. A very significant finding 
+in this research is that the POD can be used for reduced order set of modeling which can 
+capture the energy release dynamics by truncating out the “noise.” The POD also represents 
+an effective means of “spatial frequency filtering,” based on the POD related energy 
+distribution, which enables the sharpening of the energy release rate spatial structure 
+information.  
+ 
+ 
+Nomenclature 
+an 
+= waveform, time dependent coefficient; n = 1, 2, 3, … M 
+A(n) 
+= eigenvectors 
+bn 
+= complex number corresponding to amplitude and phase 
+C 
+= correlation matrix 
+f 
+= the acoustic frequency 
+i 
+= 
+1
+−
+ 
+M 
+= total frame number in high speed video 
+Z 
+= high speed video data 
+λn 
+= eigenvalues 
+v 
+= video file image 
+ω 
+= the angular frequency 
+Øn 
+= POD mode shape; n = 1, 2, 3, … M 
+ 
+ 
+1Graduate Student, Department of Aerospace Engineering, Student Member, AIAA 
+2Professor, Department of Aerospace Engineering, Senior Member, AIAA 
+3Associate Professor, Department of Aerospace Engineering, Associate Fellow, AIAA 
+
+
+--- Page 2 ---
+
+2 
+American Institute of Aeronautics and Astronautics 
+ 
+I. Introduction 
+Combustors of gas turbine engines experience phenomenon referred to as "Screech, Howl and Growl," which is high 
+amplitude pressure oscillations due to instability in the combustion process. The phenomena are also referred to as 
+'combustion dynamics.' The cause of this instability is believed to be the coupling of the unsteady heat release in the 
+flame with the natural resonance of an acoustic mode in the combustor duct, related to its geometry and 
+configuration. Severe structural vibration and failure of some engine components may result from resonant 
+frequencies and high amplitudes of the combustion Screech phenomenon. Thus uncontrolled combustion dynamics 
+can greatly limit the operability and performance of an engine. The mechanism causing combustion instabilities in 
+gas turbine combustors are not well understood. Although this topic has been widely studied by scientists and 
+engineers, Mani, [2] Yi, et al [3-5] Cai, et al [6], Ichihashi, et al [7] the added geometric complexities and injector 
+configurations of a practical combustor make their dynamical behavior unpredictable using state-of-the-art 
+approaches.  
+ 
+Combustion instabilities are not clearly defined and currently industry design techniques are largely empirical. To 
+improve our understanding of stability properties in such complex systems, encountered in many industrial 
+applications, the flame structure of an atmospheric swirl-stabilized burner incorporating dilution and cooling air 
+holes and fueled with natural gas fuel was systematically investigated for various inlet temperatures, pressure drop, 
+and air–fuel ratios, Mohammad, et al [8-10]. Chemiluminescence imaging with a high-speed CCD camera and a 
+microphone were used to characterize the combustor behavior. Imaging of the combustion field provided an insight 
+on the flame structure. The acoustic emissions of this combustor sector have been surveyed by a microphone for a 
+wide range of equivalence ratios, air inlet temperatures and air pressure drops. Cai [11] showed that the acoustic 
+power spectrum at different overall equivalence ratios are illustrated in Figure 1. The low amplitude acoustic 
+emission was also found around 650 Hz which is corresponding to the ¼ acoustic resonant wave based on the 
+distance and the combustion product temperature from the dome plane to the combustor exit plan. Two high 
+amplitude low-frequency unstable modes (higher overall equivalence ratio conditions with frequency around 400Hz 
+and a lower overall equivalence ratio conditions with an instability frequency around 280 Hz) were measured.  
+ 
+In this paper, the procedure of two different methodologies: temporal Fast Fourier Transform (FFT) and spatial 
+Proper Orthogonal Decomposition (POD), to analyze high speed videos on energy release dynamics 
+(chemiluminescene) are discussed. The case study was conducted on the fuel-lean combustion dynamics with single 
+dominate acoustical frequency around 280 Hz. The temporal and spatial characteristics of the energy release 
+dynamic revealed by both methods are illustrated and compared. Results and discussions on FFT and POD methods 
+on the energy release rate with dual temporal dominant frequencies will be presented in future technical papers. 
+ 
+A common method used to substantially reduce the order of the model is proper orthogonal decomposition (POD). 
+POD techniques are an efficient means to reduce spatially highly complex flow fields by representing them by a 
+small number of spatial modes and their temporal coefficients. This method is an optimal approach in that it will 
+capture the largest amount of the flow energy in the fewest modes of any decomposition of the flow. (Berkooz et al. 
+[12]). POD computes a small number of orthogonal basis functions that contain as much information as needed to 
+represent the original system dynamics. This is accomplished by selecting a set of bases or modes that contain the 
+“most energy” for a particular flow regime. By projecting the data onto the modes, the ensemble can be 
+approximately reconstructed, and thus POD enables analysis of all necessary data in as few modes as possible. POD 
+thus offers a statistical tool for the construction, from the Navier-Stokes equations, of low-dimensional dynamical 
+models for the interaction of essential structures. A common approach referred to as the method of “snapshots” 
+introduced by Sirovich [13] is employed to generate the basis functions of the POD spatial modes from flow-field 
+information obtained using either experiments or numerical simulations. This approach to the modeling of the global 
+wake behavior behind a circular cylinder was effectively employed by Gillies [14]. Details of POD and its 
+application in fluid dynamics and turbulence can be found in the paper by Berkooz et al. [12] and Cohen et al. [15 -
+18]. In a recent paper, Siegel et al [19] develop an extension to the POD approach, referred to as ‘double proper 
+orthogonal decomposition’ (DPOD), in which shift modes have been added to account for the changes in the flow 
+due to transient forcing.  
+ 
+Blue and green color intensity levels of the high-speed CCD camera video data on natural gas fueled combustion 
+represent chemiluminesence of flame dynamics- energy release dynamics. Each pixel of video data in time domain 
+has its own waveform shapes. Identifying waveforms in each pixel of high speed video data let us differentiate data 
+
+
+--- Page 3 ---
+
+3 
+American Institute of Aeronautics and Astronautics 
+ 
+by color intensity so that a time domain waveform of color intensity is obtained, in other words, frequency behavior 
+and its corresponding region in the combustor can be defined in two dimensional form image. Fast Fourier 
+Transform (FFT) is an ideal method to determine its frequency behavior in image region. These results obtained by 
+the high speed camera correlated with the pressure transducer data. This is one of methods to identify stability 
+characteristic in such complex system.   
+ 
+Proper Orthogonal Decomposition (POD) is a more sophisticated method utilizing the high speed video data that 
+consists of a frame by frame, or snapshot method, to analyze the measured color intensity (heat release rate) 
+properties that are related to the acoustical behavior / combustion dynamics. POD will make it possible for us to 
+create a space and amplitude contour for a specified frequency of interest by defining its mode shape and 
+corresponding time-domain waveform. This will provide detailed analysis of combustor characteristics that are 
+directly related to acoustic phenomena / combustion dynamics. Because we can separate data by frequency and 
+spatially we can visually specify the characteristics of energy release rate in the combustor.  
+ 
+II. Theoretical Notes 
+ 
+Let us consider a function Z(x,y,t) as combustion dynamics captured by high speed video camera. Freedoms in x and 
+y direction represent spatial coordinate, pixel number in video, and t direction is temporal coordinate, frame number.  
+ 
+The Proper Orthogonal Decomposition: 
+ 
+The proper Orthogonal Decomposition is a technique used for separating a signal to spatial and temporal functions. 
+Reconstruction of the original signal via separated functions is also possible. The principal characteristics to be 
+determined by POD are mode shapes, ׎௡ሺݔሻ, and its corresponding waveform, ܽ௡ሺݐሻ, of the high speed video. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+)
+,
+,
+(
+)
+,
+,
+(
+)
+,
+,
+(
+t
+y
+x
+z
+t
+y
+x
+Z
+t
+y
+x
+Z
++
+=
+ 
+ 
+ 
+ 
+(1) 
+ 
+Summation of variable separated form in equation (2) is complete if M approaches to infinity, but a function z(x,y,t) 
+is finite by limiting frame number for our application, therefore exact reconstruction/decomposition is possible. 
+ 
+ 
+ 
+ 
+ 
+ 
+∑
+=
+≈
+M
+n
+n
+n
+y
+x
+t
+a
+t
+y
+x
+z
+1
+)
+,
+(
+)
+(
+)
+,
+,
+(
+φ
+ 
+ 
+ 
+ 
+ 
+(2) 
+ 
+Expression in equation (2) is called Proper Orthogonal Decomposition (POD). We must note that spatial function is 
+orthonormal to each other given by equation (3) where D is the spatial domain to solve equation (2) efficiently. 
+ 
+ 
+ 
+ 
+ 
+⎩
+⎨
+⎧
+=
+=
+∫
+otherwise
+n
+n
+if
+dxdy
+y
+x
+y
+x
+n
+D
+n
+0
+)
+(
+1
+)
+,
+(
+)
+,
+(
+2
+1
+2
+1
+φ
+φ
+                    
+(3) 
+ 
+Spatial function, ׎௡ሺݔሻ, can be found by determining eigenfunctions. This technique is called Method of Snapshots 
+referred by Sirovich [2]. This problem can be solved if the data contain equally spaced time intervals. Indeed, our 
+high speed video data fits criteria. Superscripts, i and j, represents frame number. 
+ 
+ 
+ 
+ 
+ 
+dxdy
+y
+x
+v
+y
+x
+v
+M
+C
+j
+D
+i
+ij
+)
+,
+(
+)
+,
+(
+1
+)
+(
+)
+(
+)
+(
+∫
+=
+  
+M
+j
+i
+,...,
+1
+,
+=
+  
+(4) 
+ 
+M is total frame number of data, and M x M matrix C is constructed by equation (4) using frame by frame high 
+speed video. Relationship of eigenfunctions and eigenvectors is expressed in Equation (5). The magnitude of 
+corresponding eigenvalues to modes represents energy of its POD modes.  
+ 
+ 
+ 
+ 
+ 
+)
+(
+)
+(
+n
+n
+n
+A
+CA
+λ
+=
+ 
+M
+n
+,...,
+1
+=
+ 
+ 
+ 
+ 
+(5) 
+ 
+
+
+--- Page 4 ---
+
+4 
+American Institute of Aeronautics and Astronautics 
+ 
+Substituting the eigenfunctions defined from equation (5) into equation (6), we are able to define spatial function, 
+׎௡ሺݔሻ, which is POD mode shape. Note that eigenfunctions are linear combination of high speed video data. 
+ 
+ 
+ 
+ 
+ 
+ 
+∑
+=
+=
+M
+k
+k
+n
+k
+n
+y
+x
+v
+A
+y
+x
+1
+)
+(
+)
+(
+)
+,
+(
+)
+,
+(
+φ
+ 
+M
+n
+,...,
+1
+=
+ 
+ 
+ 
+(6) 
+ 
+Waveform, ܽ௡ሺݐሻ which is corresponding with POD nth mode shape, is expressed by equation (7). Orthonomality in 
+spatial function, ׎௡ሺݔሻ, in mind, temporal coefficient, ܽ௡ሺݐሻ, that only depends on ׎௡ሺݔሻ is solved. 
+ 
+ 
+ 
+ 
+ 
+dx
+x
+t
+x
+z
+t
+a
+n
+D
+n
+)
+(
+)
+,
+(
+)
+(
+φ
+∫
+=
+ 
+ 
+ 
+ 
+ 
+(7) 
+ 
+The Fourier Transform: 
+ 
+DC component is taken away as shown in equation (1). AC component in Fourier Transform is expressed in 
+equation (8). 
+ 
+ 
+ 
+ 
+∑
+=
+≈
+M
+n
+t
+i
+n
+n
+e
+y
+x
+b
+t
+y
+x
+z
+1
+)
+,
+(
+)
+,
+,
+(
+ω
+ 
+ 
+ 
+ 
+ 
+(8) 
+ 
+ 
+ 
+ 
+ 
+⎩
+⎨
+⎧
+=
+=
+∫
+otherwise
+m
+n
+if
+dt
+e
+e
+D
+t
+i
+t
+i
+m
+n
+0
+)
+(
+1
+ω
+ω
+         
+ 
+           
+ 
+(9) 
+ 
+ 
+Where bn(x,y) is a complex number representing the amplitude and phase angle associated with a specific frequency 
+at a specific spatial location. In Fourier Transformation, temporal function is orthonormal to each other. The form 
+resemble to the equation (3) which expressed orthonormality in spatial function.  
+ 
+ 
+III. The Experimental Approach 
+Experimental rig configuration: 
+ 
+The combustor used in the experiments described in this paper is shown in Figure 2. It is a segment of a single-
+annular combustor from a prototype gas turbine engine. The ducting containing the preheated airflow upstream of 
+the combustor is schematically shown in Figure 2. An AKG D112 microphone was employed in the test cell to 
+monitor the combustion noise radiating from the exhaust termination of the combustor. The microphone is capable 
+of sensing 20Hz to 17,000Hz At one side of the burner, a   quartz window was mounted for flow visualizations. At 
+the other side of the burner, a stainless steel plate, having the same size as the quartz window, was installed with 
+four PCB dynamic pressure transducers. A Phantom V7.3 high-speed CCD video camera was stationed facing to the 
+combustor window to capture the flame dynamics.  Figure 4 shows a flame structure image captured by the high 
+speed video camera when the burner is operated at very high equivalence ratio. 
+ 
+High Speed Video Processing:  
+ 
+Video from the high speed video camera is stored in AVI file format with 800 x 600 resolutions. Video data requires 
+appropriate conversion from AVI file in order to apply the in-house developed POD or FFT tools which is based on 
+National Instrument LabView Version 7.1 software. First, the AVI file format is converted into grayscale image, 
+depending on the user’s choice on the color (RGB) selection, then the pixels of an image are extracted to 2D array of 
+32bits (float) number. The original 800 x 600 pixels are reduced down to 200 x 150 cells by taking average of 4 x 4 
+pixels. The current approach has adequate cells to capture the characteristic of combustion dynamics with 
+significantly less computational sources requirements. This file conversion loop continues until the last frame of 
+
+
+--- Page 5 ---
+
+5 
+American Institute of Aeronautics and Astronautics 
+ 
+AVI video file and 2D array that is converted during the loop is saved in memory, resulting 3D array that has depth 
+for total frame length, showing in Figure 3. The 3D array created here is the function Z(x,y,t) expressed in equation 
+(1) and can be processed by the FFT and POD software. 
+ 
+IV. Results and Discussions 
+ 
+To investigate the connections between acoustic emissions and flame dynamics, the high speed video data for flame 
+energy release rate and acoustic emissions were conducted in a prototype gas turbine combustor sector. A test case, 
+with combustion dynamics at 280Hz, was selected to illustrate the different capabilities of the two considered (POD 
+and FFT) analysis methods. Radiating acoustic wave from the experimental combustor recorded by a microphone is 
+dominated by a single frequency band at 280 Hz as shown in Figure 4. A single frame of high speed video is shown 
+in Figure 5. The time-average mean and rms chemiluminescence intensity from 3000 video frames are shown in 
+Figures 7 and 8. The peak of flame dynamics occurs at the swirling flames inside the combustor dome (red color in 
+Figure 8).   
+ 
+ 
+FFT Analysis: 
+ 
+The temporal FFT spectrum based on the total integrated intensity (sum of all pixel intensity) of each frame was first 
+conducted. The resulted energy release amplitude spectrum, as shown in Figure 8, is similar to the acoustic spectrum 
+in  Figure 4 and is dominated by a single frequency band around 279.5 Hz. This indicates the acoustic emissions and 
+energy release dynamics are closely related. The temporal FFT, which is based on the finite number of video frames 
+(3000), has frequency resolution of 2.2 Hz. The spatially distributed FFT amplitude at three neighboring frequencies 
+around 280 Hz (277.3, 279.5 and 281.7) are shown in Figure 9. The amplitude levels at 277.3 and 281.7 Hz are 
+significantly lower than those at 279.5 Hz indicating extremely narrow band flame oscillations at 279.5 Hz. 
+ 
+The spatially distributed phase angle (radian) contours associated with 279.5 Hz are shown in Figure 10. From 
+Figures 9 and 10, the 279.5 Hz flame dynamics are concentrated in three amplitude local maximums.  Two local 
+maximum spots, (45,100) and (55,25) are near the swirler exit with much higher amplitudes than the third local 
+maximum spot, (80,65), at the centerline downstream. Also, the two spots with high amplitude coincidence of the 
+highest flame dynamics spots of the r.m.s. and mean amplitude contours shown in Figures 7 and 8 indicating the 
+acoustic energy source is the flame front oscillations. The majority of phase angles at the high amplitude regions 
+have value close to 3.14 or -3.14 radian indicating the majority of energy release from the flame are in phase. 
+However, there is local maximum phase angle around 0 radian located at the lower swirler exit area, (55,25); 
+indicating some energy release rate from the flame front is out of phase with the main flame dynamics. Actually, 
+two local extreme spots , (55,25) and (45,100) near the swirler exit has phase angle of 180 degree which provides 
+clues that a small circumferential energy release dynamics may be the triggers for the main combustion dynamics. 
+ 
+Based on the amplitude and phase contours (Figures 9 and 10), we can reconstruct the motions of energy release rate 
+associated with 279.5 Hz acoustics.  Figure 11 illustrates one complete cycle of 279.5 Hz dynamics: 12 plots with 30 
+degree phase angle increment. The physical time step associated with 30 degree phase angle is about 0.3 ms 
+(1/279.5*30/360 second). The illustrated motion is essentially the averaged (279.5 Hz) cyclic motions based on  
+total number of cycles (about 120 cycles in the current study) on the video recordings.  The variations among cycles 
+tend to be washed out in Figure 11. As discussed before, majority of energy release in the whole combustor is in 
+phase: dominated by the same color, either blue (negative values) or brown (positive values), in the individual phase 
+angle plot. However, there are mixed colors (positive and negative values) in the plots with phase angles of 90, 120, 
+270 and 300. The amplitude levels in those four plots are much lesser than that in other phase angles. Furthermore, 
+the spatial structures are similar among these four plots but the color is reversed between plots with 180 phase angle 
+difference. The above observations support physical phenomena of a “small” circumferential energy release 
+dynamics co-exists with a “big” in-phase energy release dynamics at 279.5 Hz.  The wavelength of 279.5 Hz 
+acoustics is significantly longer than the current spatial domain captured by high speed video. If positive feedback 
+exists between acoustics and energy release (thermal acoustic instability), the resulted high amplitude energy release 
+should be in-phase. Again, circumferential energy release dynamics may be the triggers for the main combustion 
+dynamics is concluded. 
+ 
+
+
+--- Page 6 ---
+
+6 
+American Institute of Aeronautics and Astronautics 
+ 
+Figure 12: shows roughly one cycle (279.5 Hz) of original video on dynamics part of energy release rate. Plots are 
+increased by two video frames which is corresponding to 30.5 phase angle at 279.5 Hz. It is extremely hard to 
+visualize the spatial structure associated with 279.5 Hz cyclic behavior. Motion plots, Figure 11, based on FFT 
+amplitudes and phase angles at 279.5 Hz essentially act as the “best” narrow band filter at 279.5 Hz to isolate the 
+motion associated with this frequency.  
+ 
+POD Analysis: 
+ 
+This technique (POD) is optimized so that it will analyze the largest amount of system energy with the least (spatial) 
+modes of any system dynamics decomposition, which is suitable method for describing/modeling a complicated 
+energy release structure. Therefore, using POD will enable us to create a few (spatial) mode shapes which contain 
+the majority of energy of the analyzed dynamic system and the reduced dynamic models can be more easily 
+established. Temporal behavior associated with each mode may contain different frequencies and phase angles, 
+therefore, be able to pin point which the (spatial) mode shapes associate with frequency of interests.  In this effort 
+we will show that POD is an effective spatial filtering tool for the application examined. 
+ 
+The first three spatial mode shapes and its temporal spectra are plotted in Figures 13-15. All modes shown here have 
+different shapes but their corresponding time-domain waveforms have same frequency (279.5 Hz). Samples of time 
+domain waveforms are illustrated in Figure 16, and it is evident that small phase differences exist between modes 
+even though they oscillate in same frequency. Mode energies are calculated while solving equation (5) which is the 
+corresponding eigenvalues to modes. Accumulated energy up to the first 125 modes is shown in Figure 17.  In the 
+current analysis, 3,000 spatial modes and associated energy have been resolved since 3,000 video frames are 
+considered in the POD analysis.  The first 125 modes contains 85% of energy of total 3,000 modes, and the first 
+three modes contains 19%, 7% and 5% of energy, respectively. The evident of POD analysis can use the “minimum” 
+number of spatial modes to represent the dynamic behavior is validated.  
+ 
+In the POD analysis, spatial modes cannot have same frequency without phase shift; otherwise, these spatial modes 
+can be combined into a single spatial mode with higher energy. In the FFT analysis, the phase angles are depending 
+on the spatial locations; different phase angles at different locations. However, in the POD analysis, each spatial 
+mode has one temporal waveform so the whole mode oscillates as a unit modulated with associated temporal 
+waveform. If the waveform is dominated by a single frequency, positively valued regions and negative valued 
+regions in the spatial mode shape will oscillate out-of-phase. 
+   
+The POD mode #1 structure is very similar to the amplitude contour plots by FFT (Figure 9). Three local maximums 
+and minimums, (55,25), (45,100) and (80,65), are in the same locations as the local maximums in the amplitude 
+plots of FFT. Maximums (positive values) and minimums (negative values) spots in the POD, as discussed in the 
+paragraph, has phase difference of 180 degree which is also calculated by the phase angles by FFT in Figure 10. It 
+can be concluded that the POD Mod #1 has extremely similar dynamics, both temporal and spatial behavior, as 
+those isolated by the FFT filtered at 279.5 Hz. The POD analysis also predicts the 18% of dynamic energy is 
+associated with this mode.  
+ 
+POD mode #1 and its corresponding time domain waveform is reconstructed and shown in Figure 18. Plots are 
+increased by two video frames which is corresponding to 30.5 phase angle at 279.5 Hz and the 12 plots present 
+almost a complete cycle. Since the time domain is dominated by a single frequency, the locations of local 
+maximums and minimums are not changed with time or phase angle. This is significantly different from the 
+reconstruction generated by the FFT analysis. Figure 11 shows that the local extremes are moving with phase angle 
+or time since the local amplitude is modulated by difference phase angle and higher spatial frequency structure 
+exists at different phase angle plots. The “continuous” motion and higher frequency structure cannot be captured by 
+a single POD mode with associated time domain waveform. The supplemental information will be provided by the 
+higher POD modes which contains less individual mode energy. 
+ 
+The POD mode #2 and #3 contains more local extremes with shorter separation distance (higher spatial frequency) 
+compared to the POD mode #1. The energy associated with #1 and #2 modes are 9% and 5%, respectively which is 
+significantly less than 18% of Mode #1.  Local extremes contained in the Mode #1 and #2 are shown up at FFT 
+reconstructed plots (Figure 11) at different phase angles but theses extremes has less amplitude compared to the 
+
+
+--- Page 7 ---
+
+7 
+American Institute of Aeronautics and Astronautics 
+ 
+peaks identified by Mode #1. This result also verifies the statement that POD is suitable tool for modeling 
+complicated phenomena such as fluid motion and/or combustion dynamics because it capture/describe high 
+dimensional data by minimum information, at the same time, researchers find characteristics of dynamics 
+phenomena.  
+ 
+V. Conclusions 
+ 
+ 
+In this effort, we have demonstrated two methods, FFT and POD, for analysis of energy release dynamics 
+experimental data based on high speed video. Each method has its distinct advantages and they complement one 
+another. FFT provides the essential temporal characteristic of the resonant frequencies and their relative strengths. 
+POD then can provide additional information concerning the spatial behavior of the coherent structures at these 
+resonant frequencies. This is achieved by the POD which provides several modes at the same frequency having 
+phase differences. A very significant finding in our research is that the POD allows us to use a reduced order set of 
+modes to recreate the combustion dynamics by truncating out the “noise” thereby yielding a pristine perspective. 
+This feature of POD represents an effective means of “spatial filtering” which enables the sharpening of the video 
+data. 
+ 
+ 
+Possible future application with POD: 
+ 
+Utilizing Proper Orthogonal Decomposition method will make it possible for us to create a space and amplitude 
+contour for a specified frequency of interest by defining its mode shape and corresponding waveform, in other 
+words, be able to obtain special and temporal information separately. Earlier study showed that employing this 
+method is useful to understand dynamical behavior in Combustion but required a high-speed CCD camera on a 
+combustor employing a window for the purpose of view in combustion dynamics, therefore,  real time POD on 
+current combustor using high-speed CCD camera or application for a real combustor without a window are 
+impossible. To perform POD analysis, high-speed CCD camera is an essential tool, but it is not an acceptable tool 
+for real time POD, instead, pressure transducers are widely available and be able to mount on combustor as well as 
+quick data analysis is commonly done. If each pixel of high-speed video is replaced with pressure transducers, then 
+POD obtains the same result as the POD performed from high-speed video, but it is again nearly impossible to place 
+significant amount of transducers on a combustor.  
+ 
+The temporal portion of POD, corresponding waveform, directly correlates with pressure information, therefore if 
+the pressure information is available, then reconstruction of POD mode becomes possible, in other words, pressure 
+information could definite POD mode shape by matching up its corresponding temporal portion of POD mode data 
+sets. This is time and cost effective way to estimate POD mode which leads to potential real time POD application. 
+Note that dominant modes in combustor are lower modes, therefore, interests in reconstruction of POD modes are 
+limited in small number, and this is one of reasons why small numbers of pressure transducers are only necessary to 
+perform real time POD. Obtaining enough POD data sets from experimental or lab environment prior to real time 
+POD mode analysis on the particular combustor is crucial. Without priory obtained P.O.D data sets available, it is 
+impossible to estimate POD modes from limited pressure transducer information. 
+ 
+If real time POD is achievable then closed loop health monitoring system, addressing problems by mode shape, etc, 
+is possible under relatively quickly and less effort. This is just one of many possibilities by performing real time 
+POD. 
+ 
+POD is known as suitable tool for not only separating time and space but also low dimensional modeling. Results 
+from POD and FFT methods are directly compared and both methods equally defined its characteristic, dominant 
+frequency (frequencies) as the same from subjected combustion dynamic data. By obtaining POD mode shape and 
+its corresponding waveform, the combustor can be easily modeled. Energies of corresponding POD modes are also 
+defined during process of POD calculation. How many modes required to model combustion dynamic behavior is 
+simply defined by knowing mode energies distribution, which makes complex combustion modeling easier. 
+ 
+ 
+
+
+--- Page 8 ---
+
+8 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 2 Combustor Hardware and Test Arrangement 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 3: 3D array, Z(x,y,t) Created by LabView 
+ 
+ 
+ 
+ 
+Figure 1 Acoustic Spectrum of the Combustor Sector 
+x 
+y 
+t 
+3D array of video data 
+in gray scale 
+
+
+--- Page 9 ---
+
+9 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+Figure 8: r.m.s. of Energy Release 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 5:  A Frame of High Speed Video   
+Figure 4: Acoustic Emission Spectrum 
+ 
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1000
+0
+2000
+4000
+6000
+8000
+10000
+12000
+14000
+16000
+18000
+Frequency in Hz
+Magnitude
+The Wave FFT
+ 
+Figure 7: Mean of Energy Release 
+ 
+Figure 4: Energy Release Spectrum 
+
+
+--- Page 10 ---
+
+10 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 10: Phases Angle (radian) Contours at 279.5 Hz 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 9: Amplitude Contours of Energy Release at 277.3, 279.5, and 281.7 Hz 
+
+
+--- Page 11 ---
+
+11 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 11: One Cycle of Energy Release Motion at 279.5 Hz (12 plots with 30° increments) 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 12 ---
+
+12 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 12: (Approximate) One 279.5 Hz Cycle of Original Video on Fluctuating Energy Release 
+Component (Start with Frame 200 with Frame Increment of 2 or Phase Angle Increment of 30.5 degree) 
+ 
+ 
+ 
+ 
+
+
+--- Page 13 ---
+
+13 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+Figure 13: POD Mode #1 Contours and Associated Temporal Spectrum 
+ 
+ 
+Figure 14: POD Mode #2 Contours and Associated Temporal Spectrum 
+ 
+ 
+ 
+Figure 15: POD Mode #3 Contours and Associated Temporal Spectrum 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 14 ---
+
+14 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+Figure 16 POD Temporal Coefficients as a Function of Time 
+ 
+Figure 17 POD Accumulated Mode Energy 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 15 ---
+
+15 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 16: (Approximate) One 279.5 Hz Cycle of POD Mode #1 Reconstruction (Start with Frame 200 with 
+Frame Increment of 2 or Phase Angle Increment of 30.5 degree) 
+ 
+ 
+ 
+ 
+
+
+--- Page 16 ---
+
+16 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 17: (Approximate) One 279.5 Hz Cycle of POD Mode #2 Reconstruction (Start with Frame 200 with 
+Frame Increment of 2 or Phase Angle Increment of 30.5 degree) 
+ 
+ 
+ 
+ 
+ 
+
+
+--- Page 17 ---
+
+17 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 18: (Approximate) One 279.5 Hz Cycle of POD Mode #2 Reconstruction (Start with Frame 200 with 
+Frame Increment of 2 or Phase Angle Increment of 30.5 degree) 
+ 
+ 
+ 
+ 
+
+
+--- Page 18 ---
+
+18 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 19: (Approximate) One 279.5 Hz Cycle of Sum of First Five POD Reconstruction (Start with Frame 
+200 with Frame Increment of 2 or Phase Angle Increment of 30.5 degree) 
+ 
+ 
+
+
+--- Page 19 ---
+
+19 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+ 
+REFERENCES 
+ 
+[1] Lumley, J.L., 1967 The structure of inhomogeneous turbulent flows. In Atmospheric Turbulence and Radio 
+Wave Propagation (ed. A.M. Yaglom & V.I. Tatarski), pp. 166-178, Moscow: Nauka. 
+ 
+[2] Mani. R. (2007) Issue in combustion noise. Center for Turbulence Research Annual Research Briefs, 2007, 
+pp. 255-264.  
+ 
+[3] Yi, T., Gutmark, E. J. (2008) Online prediction of the onset of combustion instability based on the 
+computation of damping ratios. Journal of Sound and Vibration, Vol. 310, No 1-2, pp. 442-447. 
+ 
+[4] Yi, T., Santavicca, D. A. (2009) Flame Spectra of a Turbulent Liquid-Fueled Swirl-Stabilized Lean-Direct 
+Injection Combustor. Journal of Propulsion and Power, Vol. 25, No 5, pp. 1058-1067. 
+ 
+[5] Yi, T., Santavicca, D. A. "Combustion Instability in a Turbulent Liquid-Fueled Swirl-Stabilized LDI 
+Combustor," 45th AIAA/ASME/SAE/ASEE Joint Propulsion Conference and Exhibit. Denver, Colorado, 2009. 
+ 
+[6] Cai, J., Fu, Y., Elkadi, A., Jeng, S. M., and Mongia, H. "Swirl Cup Modeling Part 6: Effect of Confinement 
+on Flow Characteristics," AIAA paper 2003-0486., 2003. 
+ 
+[7] Ichihashi, F., Cai, J., Kao, Y. H., Syed, A. A., Jeng, S. M. "Combustion Dynamics in a Gas Turbine Single 
+Annular Combustor Sector," ASME TurboExpo. Glasgow, Scotland., 2010. 
+ 
+[8] Mohammad, B. S., Cai, J., Jeng, S. M. "Gas Turbine Single Annular Combustor Sector: Aerodynamics," 48th 
+AIAA Aerospace Science Meeting. Orland, Florida, 2010. 
+ 
+[9] Mohammad, B.S., Jeng, S. M. "Effect of geometry on the Aerodynamics of a prototype Gas Turbine 
+Combustor," ASME TurboExpo. Glasgow, Scotland., 2010. 
+ 
+[10] Mohammad, B.S., Jeng, S. M. "Influence of fuel injection and primary jets on the Aerodynamics of a 
+prototype Gas Turbine Combustor," ASME TurboExpo. Glasgow, Scotland., 2010. 
+ 
+[11] Cai, J., Ichihashi, F., Mohammad, B. S., Tambe, S. B., Kao, Y. H., and Jeng, S. M. "Gas Turbine Single 
+Annular Combustor Sector: Combustion Dynamics," 48th AIAA Aerospace Science Meeting. Orland, Florida, 2010. 
+ 
+       [12] Berkooz, G., Holmes, P., and Lumley, J. (1993). The proper orthogonal decomposition in the analysis of 
+turbulent flows. Annual Review of Fluid Mechanics., 25: 539-575. 
+       [13] Sirovich, L. (1987). Turbulence and the Dynamics of Coherent Structures Part I: Coherent Structures. 
+Quarterly of Applied Mathematics. 45 (3): 561-571. 
+       [14] Gillies, E. A. (1998) Low-dimensional Control of the Circular Cylinder Wake. Journal of Fluid Mechanics. 
+371: 157-178. 
+       [15] Cohen, K., Siegel, S., McLaughlin, T. & Gillies, E. (2003). Feedback control of a cylinder wake low-
+dimensional model. AIAA J. 41: 1389–1391. 
+       [16] Cohen, K., Siegel, S., Wetlesen, D., Cameron, J., and Sick, A. (2004). Effective Sensor Placements for the 
+Estimation of Proper Orthogonal Decomposition Mode Coefficients in von Kármán Vortex Street. Journal of 
+Vibration and Control. 10(12): 1857-1880.  
+      [17] Cohen, K., Siegel S., McLaughlin T., Gillies E., and Myatt, J. (2005). Closed-loop approaches to 
+control of a wake flow modeled by the Ginzburg-Landau equation. Computers and Fluids. 34(8): 927-949. 
+
+
+--- Page 20 ---
+
+20 
+American Institute of Aeronautics and Astronautics 
+ 
+      [18] Cohen, K., Siegel S., and McLaughlin T. (2006). A heuristic approach to effective sensor placement for 
+modeling of a cylinder wake. Computers and Fluids. 35(1): 103-120. 
+      [19] Siegel, S. G., Seidel, J., Fagley, C., Luchtenburg, D. M., Cohen, K., and MacLaughlin, T. (2008). Low-
+dimensional modelling of a transient cylinder wake using double proper orthogonal decomposition. Journal of Fluid 
+Mechanics. 610: 1-42. 
+      [20] Chatterjee, A., (2000) An introduction to the proper orthogonal decomposition. Current Science, Vol. 78, 
+No. 7, pp. 808-817. 
+ 

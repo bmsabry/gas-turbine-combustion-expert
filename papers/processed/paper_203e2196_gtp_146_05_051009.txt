@@ -1,0 +1,922 @@
+
+--- Page 1 ---
+
+Antoine Durocher
+Gas Turbine Laboratory,
+National Research Council Canada,
+Ottawa, ON K1A 0R6, Canada;
+Alternative Fuels Laboratory,
+McGill University,
+Montreal, QC H3A OC3, Canada
+Luming Fan
+Gas Turbine Laboratory,
+National Research Council Canada,
+Ottawa, ON K1A 0R6, Canada
+Benjamin Francolini
+Alternative Fuels Laboratory,
+McGill University,
+Montreal, QC H3A OC3, Canada
+Marc F€uri
+New Technologies Department,
+Siemens Energy Canada Limited,
+Dorval, QC H9P 1A5, Canada
+Gilles Bourque
+Combustion Department,
+Siemens Energy Canada Limited,
+Dorval, QC H9P 1A5, Canada
+Julien Sirois
+Design for Additive Manufacturing Department,
+Siemens Energy Canada Limited,
+Dorval, QC H9P 1A5, Canada
+David May
+New Technologies Department,
+Siemens Energy Canada Limited,
+Dorval, QC H9P 1A5, Canada
+Jeffrey M. Bergthorson
+Alternative Fuels Laboratory,
+McGill University,
+Montreal, QC H3A OC3, Canada
+Sean Yun
+Gas Turbine Laboratory,
+National Research Council Canada,
+Ottawa, ON K1A 0R6, Canada
+Patrizio Vena1
+Gas Turbine Laboratory,
+National Research Council Canada,
+Ottawa, ON K1A 0R6, Canada
+Characterization of a Novel
+Additive Manufacturing Micromix
+Nozzle Burning Methane to
+Hydrogen
+As the energy landscape transitions to low/zero-carbon fuels, gas turbine manufacturers are
+targeting fuel ﬂexible operation with natural gas, syngas, and hydrogen-enriched mixtures.
+Having a single geometry that can support the different fuel blends requested by clients can
+accelerate the transition to cleaner energy generation and mitigate the environmental
+impact of gas turbines. Toward this goal, micromix combustion technology has received
+signiﬁcant interest, and when coupled with additive manufacturing, novel injector
+geometries with unique conﬁgurations may be capable of stabilizing premixed, partially-
+premixed, and diffusion ﬂames using fuel mixtures ranging from pure methane to pure
+hydrogen. In this work, a preliminary investigation of this micromix concept is performed in
+the Atmospheric Combustion Rig at the National Research Council (NRC) Canada. Flame
+stability maps are obtained for fuel lean mixtures of H2/CH4 ranging from 0/100, 70/30, 90/
+10, to 100/0%, by volume. Multiple ﬂame shapes are observed depending on the fuel mixture
+and combustion mode selected. Particle image velocimetry (PIV), OH, and acetone planar
+laser-induced ﬂuorescence (PLIF), and acoustic measurements provide additional insights
+into the combustion process of these novel burners to better understand the stability
+mechanisms. The quality of the fuel–air mixing from the premixed and micromix injectors is
+assessed using acetone as a tracer for the fuel, while simultaneous OH-PLIF measurements
+provide an indication of the postﬂame regions in the ﬂow. Acoustic measurements complete
+the current dataset and provide combustion dynamics maps measuring the normalized
+pressure amplitudes and identifying the dominant frequencies. The preliminary character-
+ization of this additive manufacturing (AM) micromix nozzle shows promising fuel ﬂexibility
+with wide stability margins and low combustion dynamics for this single nozzle burner.
+[DOI: 10.1115/1.4063690]
+Keywords: micromix, fuel ﬂexibility, hydrogen, multi-species PLIF, simultaneous laser
+diagnostics
+Turbomachinery Technical Conference & Exposition, Hynes Convention Center,
+June 26–30, 2023. Turbo Expo 2023.
+1Corresponding author.
+Manuscript received August 10, 2023; ﬁnal manuscript received September 19,
+2023; published online December 11, 2023. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+MAY 2024, Vol. 146 / 051009-1
+Copyright V
+C 2024 by ASME, National Research Council Canada, and Siemens Energy Canada Limited
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+1
+Introduction
+In an effort to reduce the environmental footprint of energy
+production, gas turbine manufacturers have looked for low- and
+zero-carbon alternatives to traditional hydrocarbon fuels. Hydrogen
+has been identiﬁed as one of the most promising carbon-free options
+for its potential of delivering high energy density with no carbon and
+minimal NOx emissions. Unfortunately, the established premixed
+dry-low-NOx technology cannot be applied directly for hydrogen-
+fueled gas turbines in part due to ﬂashback and transient maneuvers
+[1]. In addition, the lean, and ultralean, hydrogen–air mixtures are
+inherently unstable, which can generate signiﬁcant thermoacoustic
+instabilities within a combustion system, and potentially damage the
+hardware [2,3].
+The micromix concept has been developed to answer the
+shortcomings of the premixed technology for fuels with a high-
+hydrogen content [1]. Instead of having the fuel and air mixed
+sufﬁciently upstream of the ﬂame to, ideally, achieve a perfectly
+premixed, uniform mixture out of the injector, the micromix concept
+relies on a nonpremixed, or partially-premixed, conﬁguration. In
+this approach, the hydrogen-enriched fuel is typically injected as a
+jet in crossﬂow through several smaller, distributed oriﬁces and is
+rapidly mixed with the air [4–6]. This conﬁguration provides two
+critical advantages compared to the traditional premixed conﬁgu-
+ration: (1) a signiﬁcantly reduced risk of ﬂashback and (2) low NOx
+emissions due to the smaller miniaturized ﬂames resulting in shorter
+residence times in hot regions of the ﬂow, hence less thermal-NO.
+The micromix technology has been demonstrated for various
+applications and implemented in prototype combustors deployed
+in power plants [1,5,7]. These activities showed the possibility of
+safely stabilizing ﬂames with 100% H2 with acceptable levels of
+pollutant emissions.
+The rapid development of AM supported the progress of
+combustion technology by enabling the manufacturing of novel
+geometries and, especially, complex internal fuel channels not
+accessible to traditional manufacturing processes [8–11]. This has
+effectively expanded the design space and provided new possibil-
+ities on the location of deposition of energy and momentum from the
+fuel throughout the reactant ﬂow. Such freedom in designing novel
+burner geometries is critical for compact micromix systems, where
+the fuel might be injected in nontraditional locations. The impact of
+some of these design parameters, for example, the size, location, or
+number of fuel injection holes, has seldom been studied leading to
+new ﬁelds of research toward the development of micromix systems.
+While the hydrogen economy is achievable in theory, its
+widespread implementation is still decades away [12]. This should
+not deter the interest in the development of micromix technology for
+100% H2 fuel mixtures, but should instead indicate the importance
+of developing fuel-ﬂexible designs that can accommodate
+hydrocarbon–hydrogen fuel blends [6]. The development of fuel-
+ﬂexible micromix technology and its deployment would ensure that
+within a single combustion system, operators would have the
+possibility to sustainably run fuels with increasing hydrogen
+contents. Ideally, such a technology would support current fuel
+mixtures relying almost entirely on hydrocarbons, such as natural
+gas, and allow for pure hydrogen and any blends in between.
+Toward this goal, a preliminary micromix concept is investigated
+in this work. The novel AM designed injector utilizes two-staged
+fuel injection where the primary and secondary stages operate in
+premixed and micromixed modes, respectively. This architecture
+then allows for premixed, partially-premixed, and micromixed
+combustion modes within a single injector geometry depending on
+the fuel ﬂow split between the two stages.
+The current work is the ﬁrst attempt to characterize this novel
+prototype in the Atmospheric Combustion Rig at the NRC Canada.
+Stability and acoustic maps are obtained for lean H2/CH4–air
+mixtures of 0/100, 70/30, 90/10, to 100/0%, by volume, demonstrat-
+ing the capacity of this concept to burn pure methane to pure
+hydrogen fuels. Simultaneous two-dimensional particle image
+velocimetry (2D-PIV), OH and acetone planar laser-induced
+ﬂuorescence (PLIF), and acoustic measurements are acquired.
+These datasets provide insight into the combustion process of these
+novel burners to better understand the stability mechanisms of the
+three different operating modes.
+2
+Methodology
+2.1
+Micromix Combustor. The Atmospheric Combustion Rig
+at the NRC [8,13] is equipped with the micromix injector to perform
+conﬁned single injector experiments as shown in Fig. 1(a). A two-
+staged fuel injection strategy allows for operation in premixed
+(primary only), partially-premixed (primary and secondary), and
+micromixed (secondary only) modes. The injector is designed to
+achieve high swirling ﬂows, as is traditionally expected in typical
+dry-low-NOx technology, and the geometry includes a central
+extrusion, shown in Fig. 1(b), that acts as a bluff body.
+Reactant air enters the base of the burner and ﬂows through
+expanding and honeycomb sections, before passing through the air
+plenum and AM nozzle/injector. Both fuel stages are fed through the
+air plenum directly to the injector with 8 mm nylon tubing, to allow
+for acetone seeding, via bored through Swagelok ﬁttings shown in
+Fig. 1(a). Primary fuel lines connect to the internal primary fuel
+plenum, which injects the primary fuel at the inlet of the injector,
+Fig. 1
+(a) Atmospheric combustion rig for the micromix injector
+with instrumentation. Dimensions are in millimeters. (b) Top view
+of the injector showing the bluff body in the center of the
+geometry.
+051009-2 / Vol. 146, MAY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+upstream of the swirler, resulting in a premixed fuel-air mixture
+passing through the injector body. The secondary fuel line enters the
+base of the burner and connects to the internal secondary fuel
+plenum that injects the fuel at the exit of the injector, near the dump
+plane, as jets in crossﬂow through multiple smaller oriﬁces.
+Reactant CH4, H2, and air ﬂows are controlled using Brooks
+thermal mass ﬂow controllers (SLAS58000 Series), calibrated by
+the supplier. Two sets of mass ﬂow controllers are used in the current
+experiments to operate in optimal ranges for the lower ﬂow rates
+observed close to ﬂashback conditions and in 100% CH4 mixtures,
+and the larger ﬂow rates necessary to achieve blowoff and in high-
+hydrogen content fuel blends. The ﬂow parameters, fuel split, and
+amount of seeding are calculated, controlled, and monitored
+throughout the experiment using an integrated LabVIEW program.
+The fuel split, labeled pilot-fuel ratio (PFR), which is inherited from
+previous pilot technology (for example, [14]), prescribes the fuel
+ratio between the primary (Py) and secondary (Sy) injections, or the
+premixed and micromixed modes, respectively. It is deﬁned using
+the standard volumetric ﬂow rates delivered through each channel
+by
+PFR ¼
+_VSy
+_VPy þ _VSy
+(1)
+where a PFR of 0 corresponds to a fully premixed mode, and a PFR
+of 100 to a pure micromixed mode. Primary and secondary fuel
+mixtures are controlled independently to adjust the fuel split. In
+these experiments, the same fuel mixture is delivered to both the
+primary and secondary plenums to simulate practical on-site
+activities where a single fuel source would be available to the
+operator.
+The air and fuel plenums and the combustion chamber are
+instrumented with pressure ports connected to differential pressure
+transducers (Yokogawa EJX110A and Rosemount C1151DP). They
+are used to perform effective area calculations for the complex
+injector geometry with cold ﬂows and monitor the fuel and air
+momentum throughout the experiments using LabVIEW. Effective
+areas are measured every day to ensure that the injector or fuel
+tubing have not been damaged, especially after evaluating ﬂashback
+conditions, and that the fuel passages are not clogged by the seeded
+particles used for diagnostics.
+Five acoustic pressure transducers (PT, PCB Piezotronics
+pressure sensor, ICP model 112A22) are installed on the rig and
+connected to semi-inﬁnite coils (l ¼ 5 m, outer diameter 1/8 “X
+0.030” wall). Four of them, PT1–PT4, are installed on the
+combustion chamber as shown in Fig. 1, and the ﬁfth is mounted
+on the side of the air plenum. The pressure traces and the frequencies
+obtained from fast Fourier transform (FFT) are monitored through-
+out the experiments and acquired at a sampling rate of 10.24 kHz to
+ensure the acoustic modes, expected to appear in the 600 Hz
+frequencies, are adequately captured. The acoustic data acquisition
+system also records the laser and scientiﬁc camera triggers such that
+the diagnostics can be registered with the acoustic measurements.
+The Atmospheric Combustion Rig is mounted on a three-axis
+traverse to select the imaged ﬁeld of view (FOV) of the ﬂame for
+laser diagnostics. The z-traverse position is therefore adjusted for
+each condition and recorded to calculate the true height above the
+burner reported in this work.
+2.2
+Diagnostic Techniques. The diagnostic setup is shown in
+Fig. 2 for simultaneous acetone PLIF, OH PLIF, and 2D-particle
+image velocimetry (PIV). Details about the experimental setup and
+the laser path forming optics, summarized in this work, can in found
+in An et al. [8]. The second harmonic of the Spectra-Physics Nd:
+YAG laser (Quanta Ray PIV400) pumps a wavelength-tunable dye
+laser (Sirah, Precision Scan) using a solution of rhodamine 6G to
+obtain an ultraviolet (282.94 nm) beam with an average output
+energy of 4 mJ/pulse. The beam is formed into a thin laser sheet,
+approximately 38 mm tall,centered above the burnercenterline axis.
+The same UV laser sheet is used to simultaneously excite acetone
+and OH.
+Acetone and OH PLIF images are acquired using a pair of
+intensiﬁed CCD cameras (PI-MAX 2 Gen II, UV). The acetone
+ﬂuorescence is collected by the camera with a gate time of 500 ns. It
+is equipped with a colored glass longpass ﬁlter (Schott GG395), to
+reject the ﬂuorescence signal from OH and mounted at a 45 deg
+angle to avoid reﬂections in the opposite camera. The camera/lens
+combination results in collection wavelengths of 400–600 nm.
+Acetone is selected as the fuel tracer for its lower molecular weight
+and well-known photophysical properties [15,16]. While there are
+known limitations regarding the accuracy of acetone tracking in
+high hydrogen–content fuel mixtures with signiﬁcantly different
+diffusivity, Rayleigh scattering is not a feasible option for these
+conﬁned experiments performed with simultaneous particle seed-
+ing. To the best knowledge ofthe authors, despiteits shortcomings to
+track hydrogen, acetone remains one of the better options to
+visualize fuel distribution in similar combustion systems [16]. The
+OH ﬂuorescence is captured by the camera with a 450 ns gate time. It
+is equipped with a bandpass ﬁlter (320620 nm) and colored glass
+(Schott UG11) mounted at a 45 deg angle to avoid reﬂections in the
+opposite camera.
+Individual acetone and OH images are spatially registered using a
+perforated plate target. The raw images are corrected for pulse-to-
+pulse laser energy variations, mean dark background intensity, and
+mean laser proﬁle. Spatial calibration is performed with a
+millimetric grid, resulting in a FOV for the LIF measurements that
+covers a 37.5 mm  37.5 mm (width  height) area. A 5  5 median
+ﬁlter is applied to both images to reduce photon shot noise, while
+retaining spatial fuel–air inhomogeneity that might be present,
+especially when acetone is seeded through the secondary fuel
+passage.
+Two-dimensional, two-component PIV is used to measure ﬂow
+velocities instead of stereo-PIV previously used in this rig [8,13]
+sincethecombustion chamberispartiallyblocking theFOVobtained
+in the forward scatter conﬁguration. Alumina particles (1 lm) are
+seeded in the ﬂow and illuminated by dual-pulse, Nd:YAG laser
+Fig. 2
+Experimental conﬁguration used in these experiments. Only the combustion chamber and the upper air plenum
+are shown for simplicity.
+Journal of Engineering for Gas Turbines and Power
+MAY 2024, Vol. 146 / 051009-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+sheet pulse pairs at 532 nm that are coincident with the 283 nm laser
+sheet. The pulse delay between the 532 nm pairs is adjusted for each
+condition to match the bulk inlet velocity. The sCMOS camera
+captures the Mie scattering signal with a projected spatial resolution
+of 34.4 lm/pixel and vector ﬁelds are calculated with Davis 8.4 using
+a 32  32 interrogation window with 50% overlap leading to a vector
+spacing of 0.542 mm. The PLIF and PIV setup are triggered
+synchronously using a LaVision timing unit and image sets are
+acquired at a frequency of 2 Hz. Datasets include 520 images per
+operating condition.
+2.3
+Operating Conditions. Experiments are performed for
+increasing hydrogen content, with mixtures presented in this work
+focusing on high hydrogen fractions. The blends presented in this
+work are composed of H2/CH4 in proportions of 0/100, 70/30, 90/10,
+100/0% by volume. Fuel–air ratios are adjusted for each
+composition to achieve globally lean mixtures with similar adiabatic
+ﬂame temperatures of interest for gas turbine applications. The lean
+equivalence ratios are calculated with a mole-weighted average for
+the binary mixtures. The combustion modes are investigated in
+increments of 10 PFR from the fully premixed to the fully
+micromixed.
+Bulk inlet velocities are gradually decreased/increased for each
+fuel mixture and PFR combinations to evaluate ﬂashback/blowoff.
+For ﬂashback, the inlet velocity is reduced until the ﬂames start
+burning inside the nozzle, or the hardware starts glowing red. In pure
+micromix mode, the ﬂame does not propagate in the injector as per
+the traditional deﬁnition of ﬂashback since the fuel is directly
+injected close to the dump plane, as highlighted by the secondary
+fuel injection zone in Fig. 1(a). Instead, the ﬂame sits closer to the
+injector, increasing the heat transferred to the hardware, which
+might cause damage as indicated by the glowing injector. A wide
+variety of ﬂame shapes are observed during the stability mapping,
+and only a few experimental conditions are actually selected to
+perform advanced diagnostics.
+3
+Results
+3.1
+Flame Stability Maps. The complete stability maps are
+compared in Fig. 3 for the four fuel mixtures (H2/CH4: 0/100, 70/30,
+90/10, 100/0). The velocity axis is truncated at Uin ¼ 80 to highlight
+the differences in ﬂashback limits for the different conﬁgurations.
+Blowoff is achieved at velocities larger than Uin ¼ 80 for the 90 H2/
+10 CH4 mixture. For pure hydrogen, however, blowoff could not be
+achieved for most of the conditions, even with inlet velocities
+approaching 200 m/s. A selection of direct ﬂame images captured
+during the stability mapping is presented in Fig. 4 for PFR 0, 30, 70,
+and 100, only, for brevity. The images are corrected for white
+balancing to ensure that the colors shown are representative of the
+ones observed during the experiments. These few pictures highlight
+the diversity in observed ﬂame shapes and colors. While this is
+difﬁcult to capture with a single picture, high PFR conditions have
+highly tridimensional, nonaxisymmetric ﬂame structures resulting
+from the discrete injection of fuel from the micromix holes.
+For pure methane (0 H2/100 CH4), ﬂames could only be stabilized
+in the fully premixed (PFR 0) mode. Attempts were made to
+gradually increase the fuel split to slowly transition toward partially-
+premixed conditions without success. As expected, it provides the
+most restrictive stability map, but the geometry still produces stable
+ﬂames for a surrogate of current hydrocarbon fuels. In a single
+injector conﬁguration, i.e., without neighboring ﬂames, the
+V-shaped ﬂame is predominant, with sporadic re-attachment on
+the rim of the injector in an M-shape conﬁguration. While the ﬂame
+shapes appear to be either V- or M-shaped for the premixed mode,
+the inﬂuence of the bluff body at the injector centerline axis
+generates a ﬂow ﬁeld that is neither representative of high swirling
+ﬂow nor the wake behind a bluff body, but a combination of both.
+The ﬂame color is mostly blue, as expected for these lean, premixed,
+hydrocarbon ﬂames.
+Focusing on fully premixed mixtures ﬁrst (PFR 0), the ﬂashback
+velocity increases rapidly from 70% to 100% hydrogen content in
+the fuel. The higher reactivity of the fuel results in an increased
+propensity for the ﬂame to propagate upstream into the injector. This
+is expected from the literature and clearly exhibits one of the reasons
+why micromix injectors have received interest as a potential
+alternative to traditional lean, premixed technology to safely burn
+high-hydrogen content fuels [8,17,18].
+As the proportion of fuel injected toward the micromix mode
+increases at larger PFR, similar ﬂahsback limits as pure methane are
+recovered between Uin ¼ 3  6 m/s for PFR 100. While the
+ﬂashback velocity is still larger for the pure hydrogen case, this
+increase is more easily manageable for operations of such an injector
+in retro-ﬁtted combustion systems.
+The partially-premixed and micromixed mode combined with
+high-hydrogen content fuels generally widens the stability margins.
+Narrower limits are interestingly observed for this injector at lower
+PFR (PFR 20–40). This is evident in Fig. 3 for the 70 H2/30 CH4 and
+90 H2/10 CH4 as the blow off velocities rapidly decrease to reach a
+minimum around PFR 30–40, while the ﬂashback velocity is almost
+the same as for the premixed mode. This signiﬁcant reduction in
+velocity, by 75%, creates a thinner waist in the stability maps
+clearly visible in Fig. 3 for the hydrogen-methane blends. This
+behavior is not observed for the pure hydrogen case, as blow off
+could not be achieved for most of the PFR conditions. As the PFR is
+increased from the premixed mode, the core premixed ﬂow becomes
+gradually leaner while the momentum of the micromix fuel injection
+jets remains small. The combination of these two phenomena is
+expected to play an important role in anchoring the ﬂame in the
+partially-premixed, swirling ﬂow. It is still unclear why this region of
+low-to-moderate PFR causes such a reduction in stability margins in
+the single injector conﬁguration, but it is deﬁnitely an area of interest
+to better understand partially-premixed, micromixed ﬂames.
+The impact of micromix fuel injection, and the resulting partially
+and nonpremixed combustion modes, is clearly visible from the
+variation in ﬂame coloring from the sample ﬂame pictures provided
+in Fig. 4. The four pictures for 90 H2/10 CH4 at Uin ¼ 30 m/s show
+the blue from CH* typically found in premixed ﬂames gradually
+showing more green from C*
+2, typically found in rich mixture. For
+different PFR, methane content in the fuels, and secondary mixing
+quality, the ﬂames achieve various combinations of blue, green, and
+turquoise coloring. As hydrocarbons are removed, the hydrogen
+ﬂame becomes almost invisible in the lighted environment of the
+laboratory. In low light, however, the UV chemiluminescence from
+the ﬂame appears as a faint white on the camera with some red and
+near-infrared radiations from water captured in the postﬂame region
+[19].
+Fig. 3
+Stability maps for hydrogen/methane mixtures with 0% H2
+( ), 70% H2 ( ), 90% H2 ( ), and 100% H2 ( ). Flashback (–) and
+blowoff (- -) limits are interpolated between measured velocities
+(symbols). Note that 100% H2 does not blow off for the velocity
+shown. (Color version online.)
+051009-4 / Vol. 146, MAY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+These pictures highlight the wide range of stabilization
+mechanisms found with this injector. Compact and elongated
+M-shaped ﬂames are observed for varying hydrogen content in the
+lower PFR range, while highly three-dimensional structures with
+distinct ﬂames close to the secondary fuel injection holes are found
+in the higher PFR range. These localized ﬂames can be discerned in
+some of the high PFR pictures, where each jet opens up, similarly to
+ﬂower petals. Different conditions provide attached, partially lifted,
+or fully lifted ﬂames, resulting from the wide range of parameters
+studied in this work and the unique swirling and bluff body injector
+used. Noisy cases are also present for the single injector
+conﬁguration as seen from the blurry ﬂame presented for 100 H2/0
+CH4 at PFR 30. While this behavior is interesting to better
+understand the partially-premixed mode, such combinations of
+fuel and PFR do not bode well for multi-injector burners that would
+be used in real gas turbine combustion systems. While the behavior
+might be different at elevated pressures and temperatures in a real
+combustor, understanding the cause of these instabilities and
+improving existing models with atmospheric pressure measure-
+ments should help prediction tools used at engine-relevant
+conditions for this novel geometry.
+3.2
+Flame Characterization—Laser Diagnostics. A selec-
+tion of ﬂames with a constant bulk velocity of Uin ¼ 30 m/s are
+shown in Fig. 5 to demonstrate the laser diagnostics used in this work
+and showcase some of the different ﬂame structures observed in
+Fig. 4. Figures 5(a)–5(c) present the dataset for a 90 H2/10 CH4 fuel
+mixture with PFR of 0, 30, and 70 and Fig. 5(d) shows a 70 H2/30
+CH4 fuel mixture with PFR 70 highlighting the difference in ﬂame
+structure for the same fuel split and inlet velocity. The diagnostics
+presented for each case are labeled with subscripts 1–4 correspond-
+ing to direct imaging, OH PLIF, acetone PLIF, and 2D-PIV,
+respectively. The FOV for the laser diagnostics is shown in Fig. 5(a)
+for comparison with the direct imaging. It covers approximately
+37.5 mm  37.5 mm (width  height) and images the same height
+above the burner for the four cases. The injector location and
+geometry provided at the bottom of Fig. 5 are consistent with the
+axes included in the PIV frames.
+The selected dataset already visually shows marked differences in
+ﬂame structures with M-shaped ﬂames presented in Figs. 5(a) and
+5(b) and ﬂower-shaped ﬂames in Figs. 5(c) and 5(d) for compact and
+elongated cases. The advanced diagnostics complement the visual
+observations by providing instantaneous slices across the burner.
+Since some of these ﬂames are nonaxisymmetric such that the laser
+sheet may intersect different regions of the highly three-dimensional
+general structure of the ﬂame, it is possible to image only parts of a
+single ﬂame branch, or petal, for some high PFR conditions, as
+shown in Fig. 5(c2).
+OH PLIF shows the expected instantaneous M-shaped ﬂames in
+Figs. 5(a2) and 5(b2) for the swirling conﬁguration. These ﬂames are
+stabilized in the inner shear layer of the ﬂow with the ﬂame edges
+propagating upstream in the outer shear layer. The center of the
+ﬂame is attached to the bluff body for the premixed condition. As the
+PFR is increased, the ﬂame becomes more elongated and nonreacted
+jets are observed in instantaneous frames. As the ﬂames stabilize
+closer to the localized secondary fuel injection, the acetone seeded in
+the premixed mode is burned in the ﬂame branches that are outside
+the laser sheet. As the micromix mode becomes dominant in
+Fig. 5(c2), the ﬂame edges are completely lifted.For these conditions
+producing highly nonaxisymmetric ﬂames, a single branch is
+captured in the instantaneous OH LIF, whereas other branches
+would be captured with different laser/burner orientations. It is
+curling back upstream, but is not propagating as far into the outer
+shear layer as in lower PFR conditions. The right side of the ﬂame is
+imaged between secondary fuel injection holes resulting in a lower
+Fig. 4
+Selection of ﬂames observed for four hydrogen-methane fuel mixtures. Filled symbols denote stability limits, i.e.,
+ﬂashback for lower velocity and blowoff for higher velocity. Open symbols correspond to the conditions where ﬂame pictures are
+presented.
+Journal of Engineering for Gas Turbines and Power
+MAY 2024, Vol. 146 / 051009-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+amount of fuel available locally. In Fig. 5(d2), the less reactive fuel
+mixture results in a more elongated ﬂame, where the ﬂame petals do
+not propagate upstream as much as for higher hydrogen content. The
+OH PLIF shows the ﬂame jet and occasionally captures the ﬂame
+edge propagating upstream at the top of the FOV. While the PIV
+ﬁelds appear quite similar at ﬁrst glance for the 90 H2/10 CH4
+mixture, a low velocity core ﬂow is measured for the 70 H2/30 CH4
+case (Fig. 5(d4)) around x=D  0. Further investigation will be
+required to identify transition points and fully explain such
+behaviors.
+Acetone is seeded in the primary fuel plenum (premixed mode)
+for the four cases presented, even for the higher PFR conditions. The
+acetone PLIF images presented in Figs. 5(a3)–5(d3) complement the
+OH PLIF images by estimating the fuel distribution in the ﬂow.
+Overlapped frames conﬁrm that the spatial registration for the two
+cameras is performed adequately. The dataset shows that, although
+the mixture is not perfectly premixed, the fuel–air mixture is fairly
+uniform out of the premixed mode. Difﬁculties with achieving
+constant acetone seeding through the data collection prevent
+quantitative comparison among experimental conditions. Nonethe-
+less, the measurements provide qualitative information on mixed-
+ness within a given condition. For a PFR 0 (Fig. 5(a3)), acetone is
+seeded only in the primary fuel channel and the acetone PLIF is
+enclosed by the OH PLIF. That does not remain the case as the PFR
+is increased and the ﬂame edges are pushed downstream. For
+conditions at PFR 70, ﬂame structures are still observed at the edge
+of the FOV where the fuel can still be oxidized. Imaging
+simultaneously the fuel structures from the primary and secondary
+Fig. 5
+Instantaneous diagnostics for a selection of ﬂames (a)–(d) studied in the Atmospheric Combustion Rig at Uin530 m/s.
+(1) Direct photography performed with Nikon D750 (f/5.6, 1/40 s., ISO-3200). The ﬁeld of view used for laserdiagnostics is identiﬁed
+by the dashed lines. (2) OH PLIF. (3) Acetone PLIF, seeding in the primary fuel stage (premixed). (4) 2D-PIV, coloring corresponds to
+velocity magnitude. The nozzle exit geometry is shown at the bottom and its location is consistent with the y-axis of the PIV ﬁgure.
+051009-6 / Vol. 146, MAY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+plenums would require another tracer whose ﬂuorescence is not
+overlapping with current diagnostics.
+Normalized mean OH- and acetone-PLIF ﬁelds are presented in
+Fig. 6 for the same four cases, with acetone seeded in the primary
+fuel channel. The average ﬁelds support the discussion performed
+with instantaneous PLIF measurements, while highlighting system-
+atic behaviors in the ﬂame shapes that instantaneous measurements
+cannot provide. The premixed case (Fig. 6(a)) shows a relatively
+uniform OH ﬁeld in the radial direction. The premixed mixture
+produces an axisymmetric ﬂame structure that is burning in a typical
+M-shape. In this case, the primary fuel mixture is evenly distributed
+throughout the main core of the injector. Similar primary fuel
+distribution/penetration is observed for the PFR 30 case in Fig. 6(b)
+with the premixed mixture burning slightly more downstream of the
+dump plane. The OH ﬁeld, however, presents a relatively weak
+burning zone along the injector centerline axis. A localized ﬂame
+structure starts to appear as the left side of the mean OH ﬁeld is
+strongly burning in the outer shear layer while there is a wider ﬂame
+brush on the right side, without strong evidence of the ﬂame edge
+propagating upstream.
+The nonaxisymmetric ﬂame structures become more present in
+the mean PLIF ﬁelds as the PFR is increased to 70 in Figs. 6(c) and
+6(d). In both cases, the laser sheet is cutting through a ﬂame branch
+on the left side, while only partially capturing a ﬂame structure on
+the right. For the higher hydrogen content (Fig. 6(c)), a compact
+ﬂame is observed with the left branch curling back toward the nozzle
+exit, without the ﬂame edge consistently reaching sufﬁciently
+upstream to attach to the nozzle rim. At lower hydrogen content for
+the same PFR and inlet velocity conditions (Fig. 6(d)), the PLIF
+FOV only mostly captures a strongly burning jet on the left side of
+the injector. The mixture is not reactive enough to propagate
+upstream in the low velocity regions to form open ﬂame petals as can
+be seen in Figs. 5(c1) and 5(d1). The primary fuel penetration is also
+skewed toward the weak burning side of the injector as the premixed
+mixture would be consumed by the localized ﬂame branch outside
+the laser plane. For these complex, nonaxisymmetric ﬂame
+structures, multiple laser slices performed at different heights above
+the burner and radial positions might be required to fully capture the
+stability mechanisms involved in partially-premixed, stratiﬁed,
+swirling ﬂames.
+3.3
+Mixing Characteristics. Evaluating mixedness from the
+primaryandsecondaryfuelinjectionispossiblewhenacetoneisseeded
+sequentially in the two fuel channels to track where the fuel, hence
+energy, is being deposited. Additionally, acetone PLIF performed by
+seeding the secondary fuel channel provides a better understanding of
+how well the fuel is being dispersed out of the micromix holes through
+the jet in crossﬂow injection. Such a comparison is presented in Fig. 7
+with acetone seeded in the a) primary and b) secondary fuel passages
+for the 70 H2/30 CH4, PFR 70 case presented in Fig. 5(d). The same
+color scale is consistently applied to both ﬁgures to allow fair
+comparison between the LIF images.
+The spatial fuel distributions are signiﬁcantly different depending
+on the injection mode. When the tracer is seeded into the primary
+passage (Fig. 7(a), premixed), a thicker, more uniform fuel
+distribution is observed in the LIF image. The fuel is present in
+the entire volume available between the shear layers. In contrast,
+thinner, stratiﬁed jetsof fuel are observed when the acetone isseeded
+in the secondary plenum (Fig. 7(b), micromixed). The micromixed
+Fig. 6
+Normalized meanOH- and acetone-PLIF ﬁelds for a selectionof ﬂames (a)–(d) studied in the atmospheric combustion rig at
+Uin530 m/s
+Fig. 7
+Acetone seeding in (a) the primary fuel channels
+(premixed) and (b) the secondary channels (micromix) for the
+70 H2/30 CH4, PFR 70 case. The same colorscale is applied to both
+ﬁgures.
+Journal of Engineering for Gas Turbines and Power
+MAY 2024, Vol. 146 / 051009-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+fuel is occupying less than 50% of a radial slice of the primary fuel
+distributed at a given height above the burner. The localized fuel
+injections do not have enough momentum to completely penetrate
+the incoming premixed core ﬂow, but micromixing can still be
+observed in the acetone PLIF images as the initially richer fuel
+pockets are gradually mixed with the incoming premixed mixture.
+The LIF intensity provides a qualitative measurement of local
+equivalence ratio. When acetone is seeded in the premixed channels, a
+fairly homogeneous signal is obtained in Fig. 7(a). As acetone is
+seeded into the micromixed mode, a higher ﬂuorescence signal can be
+captured in the stratiﬁed ﬂow. The micromixed jets in crossﬂow may
+have locally higher fuel concentrations exiting the nozzle, as
+highlighted by the brighter fuel segments in Fig. 7(b), indicating
+local volume with higher equivalence ratios than the targeted global
+lean condition. The intensity gradually decreases as the fuel jets are
+mixing with additional air along the shear layer, but stratiﬁed layers
+are still observed a few nozzle diameters downstream of the nozzle
+exit. These richer pockets should ideally be mixed before passing
+through the ﬂame to avoid creating hot spots, and potentially
+contributing to NOx emissions. Investigations at different ﬂow
+conditionsandhigherfuel-to-airmomentumﬂuxratioswithemissions
+measurements should shed more insight into whether this behavior is
+found at higher hydrogen content, PFR, and inlet velocities where the
+micromix concept is more attractive for engine operations.
+3.4
+Acoustics. The acoustics module can be run independently
+of the laser diagnostics in preliminary investigations, before honing
+onto speciﬁc conditions to perform phase-averaged PLIF measure-
+ments. It provides quantitative real-time information for the
+operators along with the visual input of the ﬂame to track undesired
+ﬂame dynamics that might lead to hardware failure. In this
+conﬁguration, ﬁve pressure traces are acquired and processed with
+fast Fourier transforms to provide information on the frequency
+domain.
+Combustion dynamics maps are acquired for the four fuel
+mixtures and presented for the hydrogen-containing fuels only in
+Fig. 8. These maps are obtained for bulk inlet velocities from the
+ﬂashback velocity up to either the blowoff velocity or 80 m/s.
+Figures 8(a)–8(c) present the normalized pressure amplitudes
+(P0
+1=P), measured using the PT1 located at midheight of the
+combustion chamber, and Figs. 8(d)–8(f) provide spectral insight by
+identifying the dominant frequency of the single-sided amplitude
+spectrum obtained using FFT.
+The strongest normalized pressure amplitudes are found (1) close
+to the blowoff limits and (2) in 90 H2/10 CH4 and 100 H2/0 CH4 for
+combinations of lower PFR (PFR 0–50) and higher inlet velocities
+(Uin ¼ 40  80 m/s). In the ﬁrst case, as the bulk inlet velocity
+approaches the blowoff condition for these high-hydrogen fuel
+mixtures, the ﬂames typically start lifting and reattaching to the
+burner generating large ﬂame motions in the combustor. In the
+second case, the ﬂames remain close to the nozzle exit while
+experiencing large ﬂame motions. This behavior is expected from
+the mostly premixed, lean, high-hydrogen content fuel mixtures that
+are known to be inherently more unstable than lean methane–air
+mixtures. The high probability of developing thermoacoustic
+instabilities that might lead to engine failure is one of the main
+reasons behind the current micromix effort for high-hydrogen
+combustion technology [1]. In these regions with high pressure
+ﬂuctuations, the entire ﬂame is typically oscillating in the combustor
+near the nozzle exit and can even be burning in and out of the injector
+depending on the PFR and Uin combination. One such unstable
+condition is shown in Fig. 4 for pure hydrogen at a PFR 30 and a bulk
+inlet velocity of 60 m/s, which is located approximately in the
+middle of the high ﬂuctuating region in Fig. 8(c). Interestingly, for
+pure hydrogen, the micromix injection signiﬁcantly reduces the
+pressure ﬂuctuations by approximately one order of magnitude
+across the bulk inlet velocities studied. The localized, nonuniform,
+fuel–air mixture appears to be reducing the thermoacoustic coupling
+at higher premixing ratios. This behavior is not observed for the 70
+H2/30 CH4 and 90 H2/10 CH4 cases, in Figs. 8(a) and 8(b),
+respectively. In both cases, increasing the micromix contribution to
+the combustionprocess introduces larger pressure amplitudes forthe
+velocities shown here.
+The single-sided amplitudes obtained with FFT (Figs. 8(d)–8(f))
+show that most of the conditions studied have a dominant frequency
+in the range of 550–650 Hz. Most of the frequency spectra exhibit a
+single strong peak in that range with a few conditions showing more
+complex spectra for particularly noisy, or partially lifted, ﬂames. A
+three-dimensional Helmholtz solver (COMSOL Multiphysics[text
+Fig. 8
+Acoustics maps for 70%, 90%, and 100% H2-methane mixtures. (a)–(c) present normalized pressure amplitudes (P1=P)
+measured using PT1 located at midheight in the combustor. Note the log-scale for the color bar. (d)–(f) present the dominant
+frequency obtained in the frequency spectrum.
+051009-8 / Vol. 146, MAY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+registered] v5.6) was used to obtain resonances of the rig, without
+sources or ﬂow, for a homogenous temperature in the combustor and
+room temperature upstream of the injector. The model includes the
+entire Atmospheric Combustion Rig, from the base of the air
+plenum, an acoustically closed boundary condition (u0 ¼ 0), to the
+combustor outlet where a radiative boundary condition has been set
+(unﬂanged outlet). An acoustic monopole with a conical shape, and
+centered on the combustor axis, is used as a forcing source. The
+monopole frequency is swept from 5 to 4000 Hz and the resulting
+pressure ﬂuctuation amplitudes, measured at the same location as
+the PT1 sensor, are recorded as a function of frequency. The results
+show a single dominant frequency at 600 Hz, which corresponds to
+a full wave through the Atmospheric Combustion Rig, from the air
+inlets to the combustor outlet (one wavelength). Given that this
+wavelength is much larger than the axial length of the combustor and
+that the combustor temperature is kept constant, it is expected that
+most cases presented in Fig. 8 exhibit a similar mode shape with
+frequencies close to 600 Hz.
+A sample of the normalized pressure traces and frequency spectra
+is shown in Fig. 9 for the four cases discussed with the laser
+diagnostics. None of the cases selected are particularly noisy and
+they all exhibit normalized pressure ﬂuctuations between 0.01 and
+0.03, and a dominant frequency close to 600 Hz. A single peak is
+observed in the frequency spectra of Figs. 9(b)–9(d), but other
+frequencies below 500 Hz are appearing for the premixed case
+shown in Fig. 9(a), leading to a bimodal spectrum. For the 90 H2/10
+CH4 mixture, there is a rapid transition in the ﬂame response and
+acoustics properties at velocities slightly larger than 30 m/s. The
+ﬂame becomes unstable and can burn in-and-out of the injector.
+Simultaneously, the normalized pressure ﬂuctuations rapidly
+increase as the dominant frequency shifts to 450 Hz. For the
+acoustics measurements presented in Fig. 9(a), the condition at
+30 m/s appears to still be stable, but on the verge of switching toward
+the lower frequency mode found to be correlated with the unstable
+case in the fully premixed mode. Further investigation with phased-
+matched diagnostics with the acoustic modules should help better
+understand the relationship between ﬂame stability mechanisms and
+the thermoacoustics of this novel injector, especially for cases with
+large pressure amplitudes.
+4
+Conclusion
+This work presents the newly instrumented Atmospheric
+Combustion Rig at the National Research Council Canada. Previous
+experimental capabilities are extended to perform simultaneous 2D-
+PIV, acetone PLIF, and OH PLIF while acquiring acoustic signals
+from multiple pressure ports positioned around the combustion
+chamber.
+The diagnostics are used to perform a preliminary characteriza-
+tion of a fuel-ﬂexible, dual-stage, micromix injector produced with
+additive manufacturing. The development of a burner with premix/
+micromix operation capabilities targets the current and future
+energy demands within a single design that can safely burn fuel
+blends ranging from pure methane to pure hydrogen. Stability maps
+are ﬁrst obtained for fuel blends of 0/100, 70/30, 90/10, 100/0% (H2/
+CH4), by volume. The addition of hydrogen in the fuel greatly
+increases the blowoff limits while signiﬁcantly increasing ﬂashback
+limits for premixed ﬂames. The introduction of fuel through the
+micromix stage allows to recover similar ﬂashback limits as for pure
+methane with the same nozzle geometry. With the wide range of
+parameters investigated, a variety of ﬂame shapes are observed,
+ranging from traditional M- andV-shaped ﬂames found in premixed,
+swirling ﬂows, to distributed ﬂames while operating under the
+micromix mode.
+A selection of results is shown for a constant bulk velocity with
+different hydrogen content and fuel splits between the premixed/
+micromixed modes. OH PLIF, acetone PLIF, and 2D-PIV show
+signiﬁcantly different ﬂame and ﬂow structures indicating that
+operators might not be able to simply change a single parameter and
+expect the same behavior when the injector is placed in an array.
+Further investigations tailored toward the transition points between
+ﬂame shapes are required to better understand the stabilization
+mechanisms involved for partially-premixed and micromixed
+ﬂames. The stability mapping performed in this work will help
+target conditions for advanced diagnostics.
+Combustion dynamics maps are obtained for all the fuel mixtures
+highlighting regions prone tolarge pressure ﬂuctuations. In addition,
+the dominant frequency obtained with fast Fourier transform shows
+that most of the conditions in the single nozzle array correspond to a
+full wave through the Atmospheric Combustion Rig with a
+frequency of 600 Hz. Interestingly, the introduction of micromix
+in the pure hydrogen fuel–air mixture mitigates the normalized
+pressure amplitudes by approximately one order of magnitude,
+conﬁrming the potential of this technology for high-hydrogen
+content fuels. The combination of the acoustics and stability maps
+should infer future experimental campaigns to not only describe the
+stability mechanisms but also improve the understanding of
+thermoacoustics for this novel geometry.
+The amount of information obtained for a single injector through
+the entire suite of diagnostics can be used toiterate prototype designs
+and also compare performance between various promising injectors
+at an early design stage. This should help manufacturers streamline
+Fig. 9
+Acoustic traces and frequency spectra for the four cases presented with laser diagnostics
+Journal of Engineering for Gas Turbines and Power
+MAY 2024, Vol. 146 / 051009-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+the design process by having experimental measurements to validate
+predictions from simulations early on, and mitigate the risks and
+costs of a new development program.
+5
+Permission for Use
+The content of this paper is copyrighted by the National Research
+Council Canada and Siemens Energy Canada Limited and is
+licensed to ASME for publication and distribution only. Any
+inquiries regarding permission to use the content of this paper, in
+whole or in part, for any purpose must be addressed to National
+Research Council Canada and Siemens Energy Canada Limited
+directly.
+Funding Data
+ National Research Council Canada (Award ID: Low-Emission
+Aviation Program; Funder ID: 10.13039/501100000046).
+ Natural Sciences and Engineering Research Council of Canada
+(Award ID: Environment and Climate Change Canada; Funder
+ID: 10.13039/501100000038).
+ Siemens (Award ID: Siemens Energy Canada Limited; Funder
+ID: 10.13039/501100004830).
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article are
+obtainable from the corresponding author upon reasonable request.
+Nomenclature
+Roman Letters
+AM ¼ additive manufacturing
+DP ¼ differential pressure
+F ¼ frequency (Hz)
+FFT ¼ fast-Fourier transform
+FOV ¼ ﬁeld of view
+P ¼ pressure (kPa)
+Py ¼ primary fuel channel
+PFR ¼ pilot-fuel ratio
+PT ¼ pressure transducer
+Sy ¼ secondary fuel channel
+U ¼ normalized velocity
+_V ¼ volumetric ﬂow rate (SLPM)
+Greek Symbol
+/ ¼ equivalence ratio
+References
+[1] Funke, H. H.-W., Beckmann, N., Keinz, J., and Horikawa, A., 2021, “30
+Years of Dry-Low-NOx Micromix Combustor Research for Hydrogen-Rich
+Fuels-An Overview of Past and Present Activities,” ASME J. Eng. Gas
+Turbines Power, 143(7), p. 071002.
+[2] Candel, S., 2002, “Combustion Dynamics and Control: Progress and Challenges,”
+Proc. Combust. Inst., 29(1), pp. 1–28.
+[3] Beita, J., Talibi, M., Sadasivuni, S., and Balachandran, R., 2021, “Thermoacoustic
+Instability Considerations for High Hydrogen Combustion in Lean Premixed Gas
+Turbine Combustors: A Review,” Hydrogen, 2(1), pp. 33–57.
+[4] Funke, H. H.-W., Beckmann, N., and Abanteriba, S., 2019, “An Overview on Dry
+Low NOx Micromix Combustor Development for Hydrogen-Rich Gas Turbine
+Applications,” Int. J. Hydrogen Energy, 44(13), pp. 6978–6990.
+[5] Kroniger, D., Horikawa, A., Funke, H. H.-W., Pfaefﬂe, F., Kishimoto, T., and
+Okada, K., 2021, “Experimental and Numerical Investigation on the Effect of
+Pressure on Micromix Hydrogen Combustion,” ASME Paper No. GT2021-58926.
+[6] Kroniger, D., Horikawa, A., Okada, K., and Ashida, Y., 2022, “Novel Fuel Injector
+Geometry for Enhancing the Fuel Flexibility of a Dry Low NOx MicroMix
+Flame,” ASME Paper No. GT2022-83025.
+[7] Cho, E.-S., Jeong, H., Hwang, J., and Kim, M., 2022, “A Novel 100% Hydrogen Gas
+TurbineCombustorDevelopmentforIndustrialUse,” ASMEPaperNo.GT2022-80619.
+[8] An, Q., Kheirkhah, S., Bergthorson, J., Yun, S., Hwang, J., Lee, W. J., Kim, M. K.,
+Cho, J. H., Kim, H. S., and Vena, P., 2021, “Flame Stabilization Mechanisms and
+Shape Transitions in a 3D Printed, Hydrogen Enriched, Methane/Air Low-Swirl
+Burner,” Int. J. Hydrogen Energy, 46(27), pp. 14764–14779.
+[9] Giuliani, F., Paulitsch, N., Cozzi, D., G€ortler, M., and Andracher, L., 2018, “An
+Assessment on the Beneﬁts of Additive Manufacturing Regarding New Swirler
+Geometries for Gas Turbine Burners,” ASME Paper No. GT2018-75165.
+[10] Moosbrugger, V., Giuliani, F., Paulitsch, N., and Andracher, L., 2019, “Progress in
+Burner Design Using Additive Manufacturing With a Monolithic Approach and
+Added Features,” ASME Paper No. GT2019-90720.
+[11] Rajasegar,R., Mitsingas, C.M., Mayhew, E. K., Liu, Q., Lee, T., and Yoo, J., 2018,
+“Development and Characterization of Additive-Manufactured Mesoscale
+Combustor Array,” J. Energy Eng., 144(3), p. 04018013.
+[12] Bridgeland, R., Chapman, A., McLellan, B., Sofronis, P., and Fujii, Y., 2022,
+“Challenges Toward Achieving a Successful Hydrogen Economy in the US:
+Potential End-Use and Infrastructure Analysis to the Year 2100,” Cleaner Prod.
+Lett., 3, p. 100012.
+[13] Fan, L., Savard, B., Carlyle, S., Nozari, M., Naaman, R., Fond, B., and Vena, P.,
+2023, “Simultaneous stereo-PIV and OHCH2O PLIF Measurements in
+Turbulent Ultra Lean CH4/H2 Swirling Wall-Impinging Flames,” Proc. Combust.
+Inst., 39(2), pp. 2179–2188.
+[14] Lam, K.-K., Geipel, P., and Larfeldt, J., 2015, “Hydrogen Enriched Combustion
+Testing of Siemens Industrial SGT-400 at Atmospheric Conditions,” ASME J.
+Eng. Gas Turbines Power, 137(2), p. 021502.
+[15] Schulz, C., and Sick, V., 2005, “Tracer-LIF Diagnostics: Quantitative Measure-
+ment of Fuel Concentration, Temperature and Fuel/Air Ratio in Practical
+Combustion Systems,” Prog. Energy Combust. Sci., 31(1), pp. 75–121.
+[16] Salazar, V. M., Kaiser, S. A., and Halter, F., 2009, “Optimizing Precision and
+Accuracy of Quantitative PLIF of Acetone as a Tracer for Hydrogen Fuel,” SAE
+Int. J. Fuels Lubr., 2(1), pp. 737–761.
+[17] Tuncer, O., Acharya, S., and Uhm, J., 2009, “Dynamics, NOx and Flashback
+Characteristics of Conﬁned Premixed Hydrogen-Enriched Methane Flames,” Int.
+J. Hydrogen Energy, 34(1), pp. 496–506.
+[18] Syred, N., Abdulsada, M., Grifﬁths, A., O’Doherty, T., and Bowen, P., 2012, “The
+Effect of Hydrogen Containing Fuel Blends Upon Flashback in Swirl Burners,”
+Appl. Energy, 89(1), pp. 106–110.
+[19] Schefer, R. W., Kulatilaka, W. D., Patterson, B. D., and Settersten, T. B., 2009,
+“Visible Emission of Hydrogen Flames,” Combust. Flame, 156(6), pp. 1234–1241.
+051009-10 / Vol. 146, MAY 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/5/051009/7219956/gtp_146_05_051009.pdf by University of Cincinnati user on 31 December 2025

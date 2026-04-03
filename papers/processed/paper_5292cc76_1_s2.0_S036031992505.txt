@@ -1,0 +1,1969 @@
+
+--- Page 1 ---
+
+Effects of velocity ratio and hydrogen/oxygen enrichments on lean blowout 
+and combustion behavior of stratified CH4/H2/O2/CO2 flames in a dual 
+swirl combustor
+Gubran A.Q. Abdulrahman a,b
+, Ahmed Abdelhafez a,b, Mohamed Hamdy a,  
+Medhat A. Nemitallah a,c,*
+, Mohamed A. Habib a,b
+a Interdisciplinary Research Center for Hydrogen Technologies and Carbon Management (IRC-HTCM), King Fahd University of Petroleum & Minerals, Dhahran, 31261, 
+Saudi Arabia
+b Mechanical Engineering Department, King Fahd University of Petroleum & Minerals, Dhahran, 31261, Saudi Arabia
+c Aerospace Engineering Department, King Fahd University of Petroleum & Minerals, Dhahran, 31261, Saudi Arabia
+A R T I C L E  I N F O
+Keywords:
+Dual annular counter-rotating swirl (DACRS)
+Hydrogen enrichment
+Oxy-combustion
+Lean blowout limit
+Stratified combustion
+Gas turbines
+A B S T R A C T
+This work experimentally evaluates how the velocity ratio (Vr = pilot-stream velocity/main-stream velocity), 
+hydrogen enrichment, and oxygen concentration affect lean blowout limits, flame structure, temperature, and 
+emissions in a dual annular counter-rotating swirl (DACRS) combustor. Three velocity ratios (2.27, 3.00, 3.87, 
+with pilot velocity fixed at 6 m/s) were tested alongside hydrogen fuel fractions (HF) of 0–15 % and O2/CO2 
+main-stream oxidizer oxygen fractions (OFm) of 20–34 %. The results show that a lower Vr (stronger main swirl) 
+and higher hydrogen/oxygen enrichments dramatically extend the lean blowout limit, enabling stable com­
+bustion at ultra-lean overall equivalence ratios (ϕm ≈0.35), while also altering the flame shape. With Vr = 2.27, 
+15 % HF, and 34 % OFm, the flame remained compact and attached even at very lean mixtures, and carbon 
+monoxide emissions fell below 5 ppm, indicating near-complete combustion. In contrast, a high Vr and lower 
+enrichments produced an elongated, lift-prone flame and incomplete combustion (CO up to 50–65 ppm). These 
+findings underscore the significance of optimizing swirl intensity and fuel/oxidizer composition in oxy-fuel 
+combustors to achieve enhanced flame stability, ultra-lean operability, and minimal emissions.
+Nomenclature
+A
+Burner throat’s cross-sectional area 
+[
+m2]
+AFT
+Adiabatic flame temperature [K]
+PD
+Combustor power density 
+[
+MW /m3 /bar
+]
+CH4
+Methane
+CD
+Convergence divergence
+CO
+Carbon monoxide
+CO2
+Carbon dioxide
+DACRS
+Dual annular counter-rotating swirl
+Di
+Diameter of inner burner throat = 5 mm
+Do
+Diameter of outer burner throat = 29 mm
+H2
+Hydrogen
+HF
+Hydrogen fraction (H2 percentage -by volume- in the total fuel entering 
+combustor)
+LPM
+Lean premixed
+˙m
+Mass flow rate [kg /s]
+(continued on next column)
+(continued)
+M
+Molecular weight [kg /kmol]
+O2
+Oxygen
+OFm
+Oxygen fraction (O2 percentage -by volume- in the O2/CO2 oxidizer 
+mixture of the main-stream)
+P
+Combustor pressure [1 bar]
+Ru
+Universal gas constant [8.3144 kJ /kmol.K]
+Rem
+Main-stream Reynolds number
+SL
+Laminar flame speed
+ST
+Turbulent flame speed
+V
+Bulk velocity [m /s]
+Vr
+Velocity ratio (pilot/main velocity)
+α
+Vane angle of the swirler
+ϕ
+Equivalence ratio
+η
+Efficiency
+Subscripts:
+g
+global
+(continued on next page)
+* Corresponding author. Interdisciplinary Research Center for Hydrogen Technologies and Carbon Management (IRC-HTCM), King Fahd University of Petroleum & 
+Minerals, Dhahran, 31261, Saudi Arabia.
+E-mail address: medhatahmed@kfupm.edu.sa (M.A. Nemitallah). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2025.152685
+Received 21 May 2025; Received in revised form 26 October 2025; Accepted 18 November 2025  
+International Journal of Hydrogen Energy 197 (2026) 152685 
+Available online 21 November 2025 
+0360-3199/© 2025 Hydrogen Energy Publications LLC. Published by Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and 
+similar technologies. 
+
+
+--- Page 2 ---
+
+(continued)
+p
+pilot
+m
+main
+c
+Combustion
+1. Introduction
+Greenhouse gas (GHG) emissions, primarily carbon and nitrogen 
+oxides, play a pivotal role in global warming and climate change [1,2]. 
+These gases trap heat in the Earth’s atmosphere, leading to a rise in 
+average temperatures, which leads to the greenhouse effect. Rising sea 
+levels, melting polar ice caps, more frequent and severe weather events, 
+and disturbances to ecosystems and biodiversity are all consequences of 
+increased greenhouse gas emissions [3]. These environmental changes 
+pose significant risks to human health, food security, water resources, 
+and economic stability. In response to the escalating climate crisis, the 
+global community has set ambitious targets to reduce emissions. The 
+2015 Paris Agreement is a major endeavour, pledging governments to 
+limit global temperature rise to far below 2 ◦C above pre-industrial 
+levels, with efforts to reduce it to 1.5 ◦C [4]. Achieving these goals re­
+quires a collective push toward decarbonization across sectors, 
+including energy, transportation, and industry. Measures such as tran­
+sitioning to renewable energy sources, improving energy efficiency, and 
+implementing carbon capture technologies are crucial. Reducing emis­
+sions quickly and sustainably is the goal to lessen the effects of climate 
+change and provide a safer, more resilient planet for coming generations 
+[5,6].
+Oxy combustion is a process that uses pure O2 instead of air to burn 
+fuel, leading to cleaner combustion. This method helps decarbonize 
+power production, particularly in gas turbines, by facilitating cost- 
+effective carbon capture and minimizing nitrogen oxides (NOx) forma­
+tion [7]. The achieved high temperatures promote more complete fuel 
+use, supporting the energy sector’s shift toward lower CO2 emissions and 
+sustainable power generation. One of the key advantages of oxy-fuel 
+combustion technology lies in its use of CO2 as a diluent gas. Unlike 
+nitrogen in conventional air combustion, CO2 has a high heat capacity, 
+which helps moderate the flame temperature and improve stability 
+under lean conditions. More importantly, because the exhaust stream in 
+oxy-fuel systems is composed mainly of CO2 and H2O, the CO2 can be 
+readily separated, captured, and recycled back into the combustor. This 
+recycling process not only reduces the cost and complexity of 
+post-combustion carbon capture but also turns CO2 into a useful 
+component of the combustion cycle. In this way, oxy-fuel combustion 
+provides an integrated pathway for lowering net greenhouse gas emis­
+sions while maintaining stable and efficient flame operation. Numerous 
+studies have been conducted to assess and compare the stability and 
+combustion properties of oxy-fuel combustion versus conventional air 
+combustion [8,9]. The findings indicate that maintaining a stable flame 
+in an O2/CO2 environment necessitates a significantly higher oxygen 
+concentration than is needed for stability in traditional air combustion. 
+These results underscore the unique oxygen requirements for ensuring 
+stability in oxy-fuel combustion. Several numerical research on com­
+bustion frequently utilizes computational fluid dynamics methods to 
+simulate and analyze combustion processes, including oxy combustion 
+[10–12]. These CFD models help predict various performance parame­
+ters, such as temperature distribution and emissions profiles, providing 
+detailed insights into the complex interactions within the combustion 
+environment. Beyond natural-gas blends, oxy-fuel combustion has 
+shown 
+strong 
+emission-control 
+benefits 
+for 
+coal, 
+biomass, 
+refinery/waste-derived fuels, and syngas: replacing N2 with recycled 
+CO2/O2 largely suppresses thermal NOx formation and concentrates CO2 
+in the flue stream for efficient capture, while enabling low-CO operation 
+at lean conditions [13].
+Gas turbines for aero and stationary applications commonly use 
+diffusion flame combustors, known for their safety and stability. 
+However, these systems produce high NOx emissions due to the high 
+temperatures in near stoichiometric combustion. Strict emission regu­
+lations are prompting scientists to seek new combustion methods [14,
+15]. Advanced technologies like lean-premixed (LPM) and catalytic 
+combustion are emerging as potential alternatives that could lower 
+emissions compared to traditional approaches [16,17]. A widely used 
+method for reducing both NOx and CO2 emissions involves running 
+combustors under lean premixed or partially premixed conditions with 
+low-carbon fuels [18–20]. This strategy adjusts combustion settings to 
+achieve a lean or partially premixed state, optimizing the process to 
+lower emissions. By using low carbon fuels, the approach effectively 
+minimizes both NOx and CO2, contributing to improved environmental 
+sustainability. Conversely, combustion instability is a major challenge 
+that limits the development of LPM combustors [21]. This instability can 
+cause fluctuations in combustion performance, leading to increased 
+emissions and reduced efficiency. Effectively addressing combustion 
+instability is vital for optimizing LPM combustors and ensuring their 
+reliability and effectiveness in achieving low emissions and high thermal 
+efficiency.
+Hydrogen possesses several advantageous properties that make it an 
+ideal fuel for various energy applications, including transportation [22], 
+aviation [23–26] and industrial sectors [27,28]. As a component of the 
+clean energy industry, hydrogen gas turbines provide substantial 
+financial and environmental benefits that aid in the energy transition. 
+Many experts concur that using hydrogen-enriched natural gas and 
+attempting to modify new technology to enable hydrogen-based power 
+production in gas turbines are the main routes toward low carbon energy 
+[29–33]. However, employing rich hydrogen fuel can lead to significant 
+combustion thermal shocks and cause the turbine inlet flow rate to 
+exceed the flow matching limit [27]. This can negatively impact or 
+restrict the operational performance of gas turbines. Currently, there is 
+no fully reliable data on the use of 100 % hydrogen as a fuel within the 
+existing high-power gas turbine industry [34]. Hydrogen fuel is often 
+portrayed as an environmentally clean energy source due to its ability to 
+produce energy with water as the only byproduct, emitting no direct 
+greenhouse gases. Unlike fossil fuels that release CO2 and pollutants, 
+hydrogen can contribute to cleaner air and reduced environmental 
+impact [35]. Modifying the design of the burner can further support 
+emission reduction. By altering the burner’s structure, fluid flow pat­
+terns, fuel injection methods, and flame stabilization features, it is 
+possible to enhance the combustion process and achieve more efficient 
+mixing of oxidizer and fuel [36]. These improvements can result in more 
+uniform combustion, reducing peak temperatures that typically lead to 
+higher NOx formation. Low swirl combustion, first introduced by Cheng 
+[37] for basic research, has gained prominence as an effective method 
+for the lean premixed combustion. This technique, based on the prin­
+ciples of premixed flame wave propagation, is noted for its ability to 
+produce ultralow NOx emissions. In Low swirl combustion, a unique 
+divergent flow pattern is created downstream of the low swirl injector.
+The dual annular counter rotating swirl (DACRS) burner is a prom­
+ising technology that can extend the lean blowout limits of premixed 
+flames [38]. The interactions and transfer of radicals between the two 
+flames helps for better flame stability. This enhancement not only boosts 
+operational capacity but also reduces emissions [39]. El-Adawy et al. 
+[40] experimentally investigated the flow and flame interactions, sta­
+bility, combustion characteristics, and emissions of oxy-methane 
+(CH4/O2/CO2) stratified flames stabilized by DACRS burner for gas 
+turbine applications. The effects of equivalence ratios and the velocity 
+ratio (Vr) were examined at a fixed oxygen fraction of 34 %. Results 
+showed no flame flashback up to φm = 1.0. Near φp = 1.0, the main 
+flame could maintain very lean conditions (φm = 0.45 at Vr = 3), 
+extending blowout limits. Also, they found that increasing φp from 0.4 to 
+1.0 reduced φm and φg at blowout, while lower φp values led to earlier 
+flame lift-off and extinguishment, highlighting the importance of φp on 
+flame structure. Also, Hamdy et al. [41] conducted an experimental 
+study on stratified oxy-methane flames using the same burner (DACRS). 
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+2 
+
+
+--- Page 3 ---
+
+The experiments featured a fixed velocity ratio and a pilot-stream ve­
+locity of 5 m/s, with a pilot-stream equivalence ratio of 0.9, while 
+varying the oxygen fractions and main-stream equivalence ratios. The 
+findings indicated no flame flashback within the tested operational 
+ranges, including up to φm = 1.0. The pilot-stream conditions allowed 
+the main flame to maintain very lean conditions, extending blowout 
+limits. Increasing the oxygen fraction reduced the main and global 
+equivalence ratios at blowout, while lower oxygen fractions resulted in 
+earlier flame lift-off, demonstrating the significant impact of oxygen 
+fraction on flame behavior. Additionally, extending the blowout limit 
+toward leaner mixtures is achieved by enhanced combustion efficiency, 
+reduced fuel consumption, and lower emissions. Stratified oxy-methane 
+flames stabilized by DACRS burners effectively operate under lean 
+conditions without flame flashback [40,41]. Oxygen fractions, equiva­
+lence ratios, and fuel composition significantly influence their blowout 
+limits. Increasing the pilot-stream’s oxygen fraction and equivalence 
+ratio extends operational stability limits, changing the flame structure 
+from V-shaped at low oxygen fractions to conical at higher fractions 
+[42]. Hydrogen enrichment notably improves flame stability and ex­
+tends lean operability due to enhanced chemical reactivity and heat 
+recirculation, though careful management is necessary to avoid elevated 
+NOx emissions associated with higher flame temperatures [43,44].
+DACRS burners have yet to be experimentally tested with hydrogen- 
+enriched fuels, which represents a critical gap in literature. Prior studies 
+on stratified oxy-methane DACRS flames [40,41] were limited to 
+methane fuel only, without the added complexities and benefits of 
+hydrogen. In the present work, we introduce hydrogen into a DACRS 
+oxy-fuel flame for the first time and systematically explore the combined 
+effects of swirl intensity (velocity ratio), hydrogen blending, and oxygen 
+fraction on flame behavior. This approach provides new insight beyond 
+the scope of earlier studies revealing how hydrogen’s fast kinetics and 
+enhanced reactivity interact with dual swirl flows to extend lean sta­
+bility limits far into ultra-lean regimes. By measuring flame stability, 
+temperature profiles, and emissions under various hydrogen and oxygen 
+levels, this study delivers novel experimental data that fills the knowl­
+edge gap on hydrogen-enriched oxy-combustion. The findings demon­
+strate innovations in flame stabilization strategies (through H2 addition 
+and optimized swirl) that were not achievable in methane-only flames. 
+Overall, this work offers a distinct contribution over prior research by 
+showing how hydrogen enrichment in an oxy-fuel DACRS combustor 
+can push stability and efficiency boundaries, guiding the development of 
+next-generation low-carbon gas turbine combustors.
+2. Experimental setup
+This study conducted combustion experiments using a Dual-Annular 
+Counter-Rotating Swirl (DACRS) burner, as depicted in Fig. 1. The 
+burner consists of two concentric tubes, which form separate plenums 
+for the pilot and main gas streams. The inner tube carries a mixture of H2 
+and CO2, serving as the pilot stream, while the annular space between 
+the inner and outer tubes delivers the main gas stream, composed of a 
+mixture of CH4,O2,and CO2. The inclusion of CO2 in both streams helps 
+regulate flame stability by minimizing its destabilizing effect on the 
+main oxy-methane flame. The destabilizing effect of CO2 on lean pre­
+mixed flames reduces the laminar flame speed and radical concentra­
+tions, makes ignition more difficult and the flame more prone to 
+extinction. In the present DACRS design, however, we intentionally 
+introduce CO2 into both the central pilot and annular main-streams. This 
+mitigates sharp compositional and thermal gradients in the shear layer 
+and preserves stabilizing recirculation zones. These combined effects 
+prevent localized quenching and enhance overall flame anchoring and 
+stability, even under significant dilution. Each tube is approximately 1 m 
+long, ensuring proper mixing of the gases before combustion. To 
+enhance flame stabilization, counter-rotating swirlers are installed at 
+the tube outlets, with the inner swirler featuring eight vanes and the 
+outer swirler having twelve. This swirling motion creates well-mixed, 
+Fig. 1. Experimental layout of the dual annular counter-rotating swirl (DACRS) combustor.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+3 
+
+
+--- Page 4 ---
+
+stable combustion zones. The burner operates with a power output 
+ranging from 4.1 MW/m3/bar at a fuel flow rate of 6 L/min to 6.2 
+MW/m3/bar at 10 L/min, placing it within the typical range for indus­
+trial gas turbines (3.5 to 20 MW/m3/bar) [38]. The ratio of bulk 
+pilot-stream velocity to bulk main-stream velocity is termed here the 
+velocity ratio, Vr, and three values were examined here, namely 2.27, 
+3.00, and 3.87. The pilot flow velocity was set at 6 m/s for all velocity 
+ratios. These specific values of velocity ratio were chosen to ensure 
+stable inlet conditions, prevent unwanted aerodynamic effects, and 
+allow for a reliable evaluation of combustion characteristics. The flame 
+was anchored at the tip of the burner’s inner shroud. Additionally, these 
+operating conditions align with those of practical gas turbine combus­
+tors, making the findings applicable to real-world power generation 
+systems [40]. For the main annulus (hydraulic diameter 29 mm), the 
+main-stream Reynolds number range was Rem ≈4.3 × 103 −4.5 × 103 
+across Vm = 1.55–2.64 m/s (corresponding to Vr = 3.87 −
+2.27). The 
+pilot stream at Vp = 6m/s (5 mm throat) yielded Rem ≈2.6 × 103 −
+3.4 × 103. While these values are below engine-scale Re (owing to at­
+mospheric pressure), the swirl numbers (pilot 1.19; main 1.26) and the 
+combustor power density (4.1 −6.2MWm−3bar−1), which lies within the 
+typical gas-turbine range, ensure strong recirculation and turbulent 
+mixing. Hence, the qualitative stability/emissions trends are expected to 
+carry over to elevated-pressure operation (with larger absolute Re and 
+augmented stability margins).
+By applying a well-established and widely used formula (Equation 
+(1)) [45], the swirl numbers for the pilot and main-streams were 
+determined to be 1.19 and 1.26, respectively. 
+SN = 2
+/
+3
+⎢⎢⎢⎢⎢⎣
+1 −
+(
+Di/Do
+)3
+1 −
+(
+Di/Do
+)2
+⎥⎥⎥⎥⎥⎦tan α
+(1) 
+Where Di, Do, and α denote the inner diameter, outer diameter, and vane 
+angle of each swirler, respectively.
+A quartz tube encloses the burner’s combustion zone, acting as a 
+shield against ambient air while allowing optical access for observation. 
+Precise thermal mass flow controllers (Aalborg, ±0.5 % accuracy) 
+regulate the gas flow rates, ensuring consistency in experimental con­
+ditions. A CANON EOS R5 Digital SLR camera with a 35 mm prime lens 
+was used to capture flame behavior, achieving an image resolution of 
+approximately 30 pixels/mm within the combustion zone. Flue gas 
+emissions were analyzed using a Sauermann E8500 industrial gas 
+analyzer, positioned at the centerline of the quartz tube at 1 inch below 
+its open end for accurate sampling. The analyzer is equipped with 
+electrochemical sensors (O2, CO, NO/NO2, SO2 as available) and an 
+NDIR CO2 channel. The analyzer was operated and maintained ac­
+cording to the manufacturer’s guidance: on each power-up an auto-zero 
+of 180 s was executed in clean, dry air with the sampling hoses 
+disconnected before reconnecting and beginning measurements; an 
+auto-zero was repeated every 45–60 min during testing to control 
+baseline drift; the automatic condensate drain was left at the default 25 
+min interval (shortened to ∼10 min for high-moisture points); and, at 
+shutdown, the analyzer was purged in clean air for several minutes with 
+the probe connected and then for ≥10 min with hoses disconnected to 
+protect the sensors. Internal line and condensation filters were inspected 
+periodically and replaced as needed, and the instrument was factory- 
+recalibrated annually (certificate archived with the dataset). These 
+procedures follow the E8500 quick-reference/operating guidance (auto- 
+zero cycle and frequency, condensate drain, purge, filter maintenance, 
+annual calibration). According to the manufacturer’s specifications, the 
+accuracy of the CO sensor is approximately ±8 ppm for concentrations 
+below 300 ppm, which is well within the range of the values reported in 
+this study. Multiple sampling intervals were recorded for each operating 
+point to ensure stable and repeatable reading.
+The axial temperature distributions were recorded with a high- 
+precision R-type thermocouple (PtRh-13 %/Pt, 1-mm junction), inte­
+grated with a transverse mechanism offering a step resolution of 
+0.00025 inches at defined increments. The thermocouple data acquisi­
+tion was managed through a LabVIEW system, where each recorded data 
+point represents an average of 10,000 steady-state readings, ensuring 
+measurement reliability. To correct radiation losses from the thermo­
+couple junction, temperature corrections were applied using EES (En­
+gineering Equation Solver) software, based on the Blevins and Pitts 
+model [46]. This method compensates for discrepancies by balancing 
+radiative heat loss from the thermocouple bead with convective heat 
+transfer from the surrounding hot gas path, ensuring accurate temper­
+ature readings as indicated in the following procedure: 
+h
+(
+Tg −Tb
+)
+= εbσ
+(
+T4
+b −T4
+∞
+)
+(2) 
+Let Tg, Tb, and T∞ denote, respectively, the actual gas temperature at 
+the bead location, the thermocouple’s indicated (apparent) tempera­
+ture, and the ambient reference temperature (taken as 300 K). The bead 
+emissivity was set to εb = 0.9 [47], and σ is the Stefan-Boltzmann con­
+stant. Convective exchange between the bead and the surrounding hot 
+gas is represented by the heat-transfer coefficient h. To estimate h, the 
+bead is modeled as a sphere in external flow and the Nusselt number, Nu, 
+is obtained from Whitaker’s correlation for forced convection over 
+spheres [48]. 
+Nu = 2 +
+(
+0.4 Re0.5 + 0.06 Re2/3)
+Pr0.4
+(3) 
+Here, Pr is the Prandtl number. The dimensionless groups are related to 
+the measurable quantities by: 
+Nu = h Db
+Kg
+(4) 
+Re = ρgUg Db
+μg
+(5) 
+In these equations, Db denotes the diameter of the thermocouple bead, 
+while ρg, Kg, and μg correspond to the density, thermal conductivity, and 
+viscosity of the hot surrounding gases, respectively. The local velocity 
+near the thermocouple bead Ug is determined by using ANSYS-Fluent 
+simulations, ensuring that velocity estimations accurately reflect 
+experimental burner conditions. To mitigate potential errors, turbulence 
+intensity data from the ANSYS model is utilized to estimate velocity 
+fluctuations, which play a crucial role in convective heat transfer and 
+contribute to measurement uncertainties. These discrepancies introduce 
+additional variability in the thermocouple readings, with the error 
+component accounting for approximately 0.25 % of the total measure­
+ment uncertainty.
+The main-stream is the dominant flame, consisting of CH4, CO2, and 
+O2, while the pilot stream, composed of H2 and CO2, functions as a 
+stabilizing pilot flame. Therefore, the oxygen fraction (OFm) and 
+equivalence ratio (ϕm) examined here are associated with the main- 
+stream. Consequently, ϕm and OFm are determined by below mathe­
+matical formulas. 
+ϕm =
+(
+F
+O
+)
+act,m
+(
+F
+O
+)
+st,m
+=
+˙mmCH4
+˙mmO2 + ˙mmCO2
+×
+1
+(
+F
+O
+)
+st,m
+=
+˙mmCH4
+˙mmO2 + ˙mmCO2
+× 2
+16
+[
+32 + 44
+( 1
+OFm
+−1
+)]
+ϕm =
+˙mmCH4
+˙mmO2 + ˙mmCO2
+×
+[
+4 + 5.5
+( 1
+OFm
+−1
+)]
+(6) 
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+4 
+
+
+--- Page 5 ---
+
+OFm =
+˙mmO2
+32
+˙mmO2
+32 +
+˙mmCO2
+44
+(7) 
+Note that Equation (7) was derived directly from the intrinsic defi­
+nition of oxygen fraction, namely the volumetric percentage of oxygen 
+in the O2/CO2 oxidizer mixture.
+Where ˙mmCO2 , ˙mmCH4 , and ˙mmO2 represent the main-stream mass flow 
+rates of CO2, CH4 and O2 respectively. The combustor HF is expressed as: 
+HF =
+˙mpH2
+2
+˙mmCH4
+16
++
+˙mpH2
+2
+(8) 
+Because the pilot-stream also supplies CO2 diluent 
+( ˙mp,CO2
+)
+, the 
+mixture for the entire combustor differs from the main-stream specifi­
+cation; accordingly, the global oxygen fraction OFg and global equiva­
+lence ratio ϕg are not equal to OFm and ϕm. The resulting global 
+definitions are: 
+OFg =
+˙mmO2
+32
+˙mpCO2
+44 +
+˙mmO2
+32 +
+˙mmCO2
+44
+(9) 
+ϕg =
+(
+F
+O
+)
+act,g
+(
+F
+O
+)
+st,g
+=
+˙mmCH4 + ˙mpH2
+˙mmCO2 + ˙mpCO2 + ˙mmO2
+× (2 + 0.5 γ)
+(
+16 + 22 βg
+)
+8 + γ
+(10) 
+Where γ =
+(
+HF
+1−HF
+)
+, βg =
+(
+1
+OFg −
+1
+)
+, and 
+(
+F
+O
+)
+st,g 
+is derived from: 
+(F
+O
+)
+st,g
+=
+16 + 2 γ
+(2 + 0.5 γ)
+(
+32 + 44 βg
+) =
+8 + γ
+(2 + 0.5 γ)
+(
+16 + 22 βg
+)
+(11) 
+Using the prescribed throat velocities for the main and pilot pas­
+sages, together with the selected HF, OFm, and ϕm, the component mass- 
+flow rates were determined; the resulting formulas are 
+˙mmCH4 = 16
+(PAVa
+RuT
+)
+m
+(
+1 +
+2
+ϕm × OFm
+)−1
+(12) 
+˙mmO2 = 64
+(PAVa
+RuT
+)
+m
+(
+ϕm +
+2
+OFm
+)−1
+(13) 
+˙mmCO2 = 88
+(PAVa
+RuT
+)
+m
+(
+1 −OFm
+2 + ϕm × OFm
+)
+(14) 
+˙mpH2 = 0.125 ˙mmCH4
+(
+HF
+1 −HF
+)
+(15) 
+˙mpCO2 = 44
+[(PAVa
+RuT
+)
+p
+−0.5 ˙mpH2
+]
+(16) 
+Here P denotes the combustor static pressure; Am and Ap are the throat 
+areas of the main and pilot passages; Va is the axial bulk velocity at the 
+throat; Ru is the universal gas constant; and T is the inlet-gas tempera­
+ture (300 K). The pilot stream bulk velocity was held constant at Vp =
+6 m⋅s−1.
+The methane and hydrogen mass-flow rates were then used to 
+evaluate the global power density of the combustor, PDg (units: MW/
+m3/bar), defined as 
+PDg = ˙mmCH4 × HVCH4 + ˙mpH2 × HVH2
+(volume × pressure)combustor
+(17) 
+Here HVCH4 and HVH2 denote the standard heating values for methane 
+and hydrogen, respectively [49]. The quartz-tube combustor provides a 
+control volume of 1.361 × 10−3 m3, and all tests were carried out at 
+near-ambient pressure (1 bar).
+The main-stream Reynolds number (Rem) for the oxy-methane flow 
+was evaluated from the conventional relation: 
+Rem =
+(ρVD
+μ
+)
+m
+(18) 
+Where ρm is the main-stream density, which is calculated from 
+ρm =
+( P
+RuT
+)
+⎡
+⎢⎣
+˙mmCH4 + ˙mmO2 + ˙mmCO2
+˙mmCH4
+16
++
+˙mmO2
+32 +
+˙mmCO2
+44
+⎤
+⎥⎦
+(19) 
+Where Vm denotes the cross-sectional mean velocity of the main-stream. 
+The hydraulic diameter of the main annulus is Dm = 18 mm. The mixture 
+dynamic viscosity, μm is obtained using the mixing rule reported in 
+Ref. [50]. With this rule, the dynamic viscosity evaluated as: 
+μm =
+∑yi μi
+̅̅̅̅̅
+Mi
+√
+∑yi
+̅̅̅̅̅
+Mi
+√
+(20) 
+Where yi, μi, and Mi are, respectively, the mole fraction, pure- 
+component viscosity, and molecular mass of species i in the main- 
+stream (CH4, O2, CO2).
+For the main-stream, the oxy-methane reaction is expressed in terms 
+of its local firing parameters, oxidizer oxygen fraction OFm, and equiv­
+alence ratio ϕm as follows: 
+CH4 +γH2 + 1
+φm
+(
+2+ γ
+2
+)
+[O2 +βm CO2]→
+[
+1+ βm
+φm
+(
+2+ γ
+2
+)]
+CO2 +(2+γ)H2O
++
+( 1
+φm
+−1
+)(
+2+ γ
+2
+)
+O2 
+Where βm =
+(
+1
+OFm −
+1
+)
+.
+Similarly, considering the global firing parameters (OFg and ϕg), the 
+combustion equation can be formulated for the whole combustor as 
+CH4 +γH2 + 1
+φg
+(
+2+ γ
+2
+)[
+O2 +βg CO2
+]
+→
+[
+1+βg
+φg
+(
+2+ γ
+2
+)]
+CO2 +(2+γ)H2O
++
+( 1
+φg
+−1
+)(
+2+ γ
+2
+)
+O2 
+For each operating point, adiabatic flame temperature (AFT) was 
+evaluated by applying standard energy balances to the stated reaction 
+schemes. A complete combustion model (no dissociation) was used, 
+which is appropriate here because the mixtures are lean and the 
+resulting flames are comparatively cool; under these conditions, equi­
+librium dissociation is limited and has a negligible influence on the 
+temperature levels or the trends discussed [51].
+To facilitate a means of evaluating the combustion efficiency (ηc), the 
+effluent concentration of oxygen was measured at 1 inch below the exit 
+of the quartz combustor, and the measured value [O2)meas] was 
+normalized by its theoretical counterpart under the complete- 
+combustion assumption [O2)theo] to define the combustion efficiency as: 
+ηc = O2)theo
+O2)meas
+(21) 
+Where O2)theo =
+(
+1
+φg−1
+)(
+2+γ
+2
+)
+(
+1
+φg−1
+)(
+2+γ
+2
+)
++
+[
+1+
+βg
+φg
+(
+2+γ
+2
+)] =
+(1−φg)
+(
+2+γ
+2
+)
+φg+
+(
+2+γ
+2
+)(
+1
+OFg−φg
+) (22)
+Experimental Procedure.
+The experimental procedure for evaluating combustion stability, 
+temperature profiles, and emissions in the DACRS combustor involved a 
+structured sequence tailored individually for each velocity ratio. 
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+5 
+
+
+--- Page 6 ---
+
+• Initially, the oxidizer streams comprising specified oxygen and car­
+bon dioxide mixtures were pre-adjusted to achieve the targeted main 
+oxygen fraction (OFm). Concurrently, HF in the pilot stream was set 
+and verified before ignition. After ensuring stable ignition and 
+achieving thermal equilibrium (typically within 10–15 min after 
+successful light-off), incremental adjustments were made to attain 
+the desired main-stream equivalence ratio ϕm.
+• For each distinct velocity-ratio scenario, the experimental steps were 
+meticulously recalibrated, with pilot flow velocities kept fixed at 
+approximately 6 m/s, while main-stream velocities varied accord­
+ingly. Precise control of these flow velocities enabled the systematic 
+examination of combustion characteristics under varying velocity 
+ratio across the shear layer between main and pilot streams. Tem­
+perature profiles were measured axially at specific intervals down­
+stream of the burner faceplate along the combustor centerline. 
+Exhaust gas samples for emission analyses of O2 and CO were 
+consistently extracted at a standardized axial distance of 10 inches 
+above the burner faceplate, ensuring comparability across different 
+experimental conditions.
+• Data acquisition included continuous monitoring of temperature, 
+equivalence ratios, flow velocities, and emission concentrations, 
+capturing stable data points after at least 3 min of steady-state 
+combustion conditions. This detailed experimental protocol, 
+tailored to each velocity ratio, facilitated accurate characterization 
+and comprehensive assessment of the DACRS combustor’s perfor­
+mance in terms of stability limits, temperature distribution, and 
+emissions under various HF and OFm conditions. Table 1 summarizes 
+the experimental conditions for different cases.
+3. Results and discussion
+3.1. Combustor stability limits
+The lean blowout stability limit, defined as the minimum equiva­
+lence ratio necessary for stable combustion, is crucial for gas turbine 
+performance and operability. Figs. 2 and 3 present the blowout limits for 
+the DACRS combustor using two different definitions of mixture frac­
+tion: main-stream basis (Fig. 2) with main-stream oxygen fraction (OFm) 
+and main-stream equivalence ratio (ϕm), versus global basis (Fig. 3) with 
+overall oxygen fraction (OFg) and global equivalence ratio (ϕg). In both 
+representations, similar trends are evident: lower velocity ratio, higher 
+oxygen fraction, and higher hydrogen fraction each dramatically extend 
+the lean blowout limit (allowing stable combustion at leaner mixtures).
+Fig. 2 presents the blowout limits for different HFs as a function of 
+the OFm at varying velocity ratios (Vr = 2.27, 3, and 3.87). Each subplot 
+illustrates how the main-stream equivalence ratio (ϕm) changes with 
+increasing OFm for specific HF levels of 0 %, 5 %, 10 %, and 15 %. As 
+indicated in Fig. 2, the velocity ratio Vr strongly affects flame stability by 
+altering swirl strength and recirculation. A lower Vr (i.e. relatively 
+higher main-stream velocity) intensifies the swirl of the main oxy- 
+methane flame, creating stronger recirculation zones that help anchor 
+the flame. This enhanced internal recirculation provides a stable heat 
+source in the flame’s core, increasing resistance to blowout under lean 
+conditions [40]. Consequently, flames with low Vr can sustain com­
+bustion at much leaner mixtures compared to those with higher Vr. In 
+Fig. 2, the lowest Vr = 2.27 consistently achieves the lowest blowout 
+equivalence ratios (e.g. ϕm = 0.35 0 at 34 % OFm and HF 15 %) whereas 
+the highest Vr = 3.87 requires richer mixtures (ϕm = 0.41) to avoid 
+blowout. In other words, decreasing Vr widens the lean blowout limit, 
+improving operability in ultra-lean regimes.
+Increasing the oxygen fraction significantly extends the lean blowout 
+limits. A higher oxygen concentration intensifies the flame by raising the 
+flame temperature and burning velocity, allowing stable combustion at 
+lower fuel equivalence ratios. Experimentally, raising the OF from 25 % 
+to 39 % was shown to lower the global equivalence ratio at blowout from 
+roughly ϕg ≈0.55 down to 0.47 as reported in Ref. [52]. In other words, 
+with more oxygen available, the flame can be sustained at about 15 % 
+leaner overall fuel mixtures before extinguishing. This trend is evident in 
+Fig. 2: as OFm increases along the x-axis (toward 30–34 % OFm), the 
+blowout equivalence ratio drops markedly for all cases. The pilot flame 
+in the dual-swirl configuration plays a key role here, supplying extra 
+radicals and heat to stabilize the lean main flame when oxygen is 
+abundant. At the highest tested OFm level (34 %), the combined 
+pilot-main flame could remain stable at ϕm = 0.4 −0.5 (depending on 
+Vr and HF), highlighting how oxygen enrichment enables ultra-lean 
+operability.
+Enriching the fuel with hydrogen profoundly influences flame sta­
+bility and combustion intensity. Hydrogen has a higher flame speed and 
+a wider flammability range than methane, so even modest HF enhances 
+the reaction kinetics and helps sustain flames at lean conditions. As a 
+result, adding hydrogen extends the lean operability of the combustor. 
+For instance, in Fig. 2 increasing the HF from 0 % to 15 % (Fig. 2a–d) 
+shifts the blowout curves downward: at a given oxygen level, the flame 
+can survive at a lower ϕm when more H2 is present. With 15 % HF, the 
+blowout equivalence ratio at 34 % OFm drops to 0.35 (vs. ~0.50 with 0 
+% HF) for Vr = 2.27, indicating a noticeably leaner blowout limit. This 
+agrees with experimental findings that hydrogen addition can widen the 
+lean flammability limits and bolster flame stability [53]. Physically, 
+hydrogen enhances radical production and burning velocity in the flame 
+front, allowing it to remain anchored and stable even as the methane 
+fraction (and overall fuel energy content) is reduced. Researchers 
+observed that stable, well-anchored flames were achieved across a range 
+of H2/CH4 mixtures, underscoring hydrogen’s role in widening 
+combustor operability under lean, stratified conditions [38]. In other 
+words, hydrogen blending helps delay the onset of blowout when the 
+flame is very lean. At the same time, a higher HF increases the flame’s 
+combustion intensity and heat release rate. Hydrogen-enriched flames 
+burn more vigorously.
+Comparing Figs. 2 and 3, the global blowout curves in Fig. 3 are all 
+shifted to the left relative to the main-stream curves in Fig. 2 due to the 
+influence of pilot stream. Because this stream contains no oxygen (just 
+H2 and CO2), the overall combustor oxygen fraction, OFg, is always 
+lower than its corresponding main-stream value, OFm, for any given 
+condition. Conversely, the global equivalence ratio, ϕg, is higher than its 
+main-stream counterpart, ϕm, because the former accounts for the pilot 
+hydrogen as additional fuel. In other words, a condition appearing lean 
+on a main-stream basis (low ϕm) registers a higher ϕg once the pilot fuel 
+is accounted for. The difference between ϕg and ϕm is zero at HF = 0 % 
+and amplifies as the HF is increased from Fig. 3a to d. This explains the 
+crossover in the curves at higher oxygen fractions in Fig. 3c and d (i.e., at 
+higher HF). It should be noted, however, that the qualitative trends 
+remain the same in all the plots of Figs. 2 and 3, i.e., they show that 
+enriching the oxidizer with oxygen yields leaner blowout limits. For 
+instance, increasing OFm (or OFg) from the lowest tested values (~20 % 
+Table 1 
+Summary of dual annular counter-rotating swirl (DACRS) combustor experi­
+mental conditions.
+Parameter
+Conditions and Values
+Burner type
+Dual Annular Counter-Rotating Swirl (DACRS)
+Pilot stream Composition
+H2 and CO2 (Hydrogen fraction: HF = 0 %–15 % 
+by vol.)
+Main-stream Composition
+CH4, O2, and CO2 (Oxygen fraction: OFm = 20 
+%–34 % by vol.)
+Investigated velocity Ratios (Vr 
+= Vp/Vm)
+2.27, 3.00, 3.87 (Pilot velocity constant at Vp =
+6 m/s)
+Equivalence ratio (ϕm)
+Main-stream ϕm = 0.63 −
+0.73
+Power density
+4.1–6.2 MW/m3/bar
+Measurement locations
+1–10 inches axial distance from burner 
+faceplate
+Swirl number
+Pilot: 1.19; Main: 1.26
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+6 
+
+
+--- Page 7 ---
+
+OFm) to the highest (34 % OFm) consistently pushes the blowout 
+equivalence ratio downward for all cases. At the highest oxygen level, 
+the combined pilot + main flame can remain stable at remarkably low 
+overall fuel fractions. Thus, the global metrics emphasize the pilot’s role: 
+the high-hydrogen pilot extends the lean limit by contributing reactive 
+radicals and heat to stabilize the main flame.
+Fig. 4 illustrates the isolated impact of HF on the blowout limits 
+across individual velocity ratios (Vr = 2.27, 3, and 3.87), com­
+plementing and reinforcing the combined trends previously shown in 
+Figs. 2 and 3. In each subplot, increasing HF from 0 % to 15 % consis­
+tently shifts the blowout curves downward for all velocity ratios, indi­
+cating an extension of the lean operability range with rising hydrogen 
+content. At the lowest velocity ratio (Vr = 2.27, subplot a), the benefit of 
+hydrogen enrichment is most pronounced: the blowout equivalence 
+ratio drops from approximately 0.51 at HF = 0 % and OFm = 34 % to as 
+low as 0.35 at HF = 15 % and OFm = 34 %, showing over 31 % 
+improvement in lean-limit stability. For Vr = 3 (subplot b), similar but 
+slightly attenuated trends are observed; the blowout limit decreases 
+from about 0.51 to 0.37 across the same HF and OFm range. At the 
+highest velocity ratio (Vr = 3.87, subplot c), where outer swirl intensity 
+is weakest, the enhancement from hydrogen addition still holds, but the 
+slopes of the curves are less steep, i.e., ϕm drops from approximately 
+0.51 to 0.41. These findings are the same as Figs. 2 and 3, clearly 
+emphasizing that hydrogen enrichment plays a dominant role in stabi­
+lizing the flame across all swirl intensities, with its effect magnified at 
+lower Vr where recirculation is stronger and more capable of utilizing 
+the increased reactivity of hydrogen.
+In term of Re number effect, the velocity ratio which defined as Vr =
+Vp/Vm with the pilot held at Vp = 6 m/s; thus lower Vr implies higher 
+main-stream velocity and, consequently, a higher main-stream Reynolds 
+number Rem (based on the main annulus). Across the matrix, the lean 
+blowout boundary shifts to leaner ϕm as Rem increases. The trend is 
+consistent with the expected physics: higher Rem strengthens turbulent 
+transport and entrainment into the internal recirculation zone, 
+increasing the convective return of heat and radicals to the flame base 
+and improving local burning rates in the shear layer. In practical terms, 
+the cases with low Vr/high Rem maintain attached, self-sustained reac­
+tion at smaller ϕm, whereas high Vr/low Rem produce earlier blowout as 
+the flame loses anchoring and the core cools. Within the present range 
+the effect is monotonic; any potential high-strain quenching at very 
+large Re was not encountered here.
+3.2. Effects of velocity ratio and hydrogen fraction on flame temperature
+To assess the influence of hydrogen enrichment and velocity ratio on 
+combustion dynamics within the DACRS combustor, temperature dis­
+tributions within the flame plume were recorded under constant main- 
+stream OFm and ϕm. These measurements offer essential experimental 
+insights for refining and validating numerical models tailored to the 
+specific combustor configuration and operating conditions. The axial 
+temperature profiles were obtained along the combustor centerline, 
+beginning 10 inches downstream of the burner faceplate (equivalent to 2 
+inches below the quartz tube exit) and progressing upstream in 1-inch 
+increments until reaching 1 inch above the burner faceplate, a 
+constraint dictated by the thermocouple’s temperature limitations.
+Fig. 5 illustrates the effect of the velocity ratio Vr (2.27, 3, and 3.87) 
+on the axial temperature distribution at constant OFm = 34 % and ϕm =
+0.63 for different hydrogen fractions (HF: 0 %, 5 %, 10 %, and 15 %). 
+The temperature profiles are presented along the axial distance from the 
+burner faceplate up to 10 inches. The velocity ratios represent different 
+turbulence intensities and flow dynamics within the combustor. As 
+observed in Fig. 5, the higher the velocity ratio the lower the peak 
+temperature. Recall that the pilot-stream velocity is kept constant at 6 
+m/s throughout this study, so higher Vr means lower main-stream 
+Fig. 2. Blowout limits of DACRS burner based on main-stream oxygen fraction and main-stream equivalence ratio at different velocity ratios for (a) HF 0 %, (b) HF 5 
+%, (c) HF 10 %, and (d) HF 15 %. (AFT in Kelvin).
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+7 
+
+
+--- Page 8 ---
+
+Fig. 3. Blowout limit of DACRS burner based on global oxygen fraction and global equivalence ratio at different velocity ratios for (a) HF 0 %, (b) HF 5 %, (c) HF 10 
+%, and (d) HF 15 %. (AFT in Kelvin).
+Fig. 4. Influence of hydrogen fraction (HF = 0 %, 5 %, 10 %, 15 %) on the lean blowout limits at different velocity ratios: (a) Vr = 2.27, (b) Vr = 3.00, and (c) Vr 
+= 3.87.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+8 
+
+
+--- Page 9 ---
+
+velocity and, thus, lower flow rates of main-stream CH4, O2, and CO2. 
+Consequently, the global power density of the combustor (PDg) de­
+creases at higher Vr because less CH4 is burned in the main-stream. 
+Reducing PDg results in lower hot-gas-path temperatures as expected 
+and observed in Fig. 5, which applies to all hydrogen fractions. The ef­
+fect of HF, however, manifests itself in the following observations: For 
+miniscule levels of hydrogen enrichment (HF < 10 %), the peak tem­
+perature is hardly affected by HF, but higher levels (15 % HF) reveal the 
+effect of hydrogen on flame temperature, wherein higher peak temper­
+atures are observed in Fig. 5d. The peak temperature also shifts closer to 
+the burner faceplate, indicating a more compact and robust flame with 
+hydrogen enrichment.
+Enriching the fuel with hydrogen fraction has a pronounced effect on 
+flame temperature, stability, and emissions. Hydrogen has a high flame 
+speed and zero-carbon content, so even a modest HF addition can 
+accelerate the combustion and raise flame temperatures. Under identical 
+conditions, adding hydrogen increases the flame temperature (for 
+example, at the same equivalence ratio) and widens the lean blowout 
+limits. In the current experiments, blending 15 % HF into the pilot 
+stream (with OFm enriched to 34 %) pushed the lean blowout ϕm from 
+~0.50 down to 0.35. The hydrogen-enriched flame was not only more 
+resistant to blowout but also considerably hotter: at ϕm = 0.63 , the 
+centerline temperature peaked at 1704 ◦C with 15 % HF, versus only 
+1330 ◦C with 0 % HF. This demonstrates hydrogen’s role in enhancing 
+heat release. Fundamentally, hydrogen’s fast kinetics and higher heating 
+value yield more rapid and complete combustion. The flame becomes 
+more compact and intense as HF increases. Numerical simulations in a 
+DACRS burner showed that with increasing hydrogen fraction, the flame 
+front moves closer to the burner, and the inner recirculation zone (IRZ) 
+shrinks. At 100 % HF, the inner recirculation zone can disappear entirely 
+(only an outer recirculation zone remains), and the flame’s maximum 
+temperature can reach roughly 2350 K (significantly higher than typical 
+methane flames) [38]. Such hydrogen-rich flames are strongly anchored 
+and compact, indicating that most heat release occurs in a tight region 
+near the burner. The axial temperature profile for high-HF cases thus 
+shows an earlier and higher peak, as well as a steeper gradient, since the 
+flame completes combustion faster and closer to the inlet.
+3.3. Emissions attributes
+Hydrogen and oxygen fractions significantly influence flame emis­
+sions by altering flame temperature, reaction kinetics, and combustion 
+efficiency. Specifically, higher HFs enhance flame stability and accel­
+erate chemical reactions, leading to improved combustion complete­
+ness, whereas increased OFm boost flame temperature and oxidation 
+capacity, directly impacting emissions of species such as O2 and CO. 
+Additionally, the velocity ratio plays a crucial role by influencing swirl 
+intensity, internal flow structures, and shear strength between main and 
+pilot streams, thereby affecting the mixing quality and residence time of 
+reactants, and consequently, the combustor’s emission performance. As 
+demonstrated by previous analyses, stratified combustion in the DACRS 
+technology effectively allows for lowering the main-stream equivalence 
+ratio and extending operability limits, thus maintaining favorable 
+environmental performance. In the following figures, combustion effi­
+ciency and CO concentration were measured at an axial location 10 
+inches above the burner faceplate, representing emissions closer to the 
+combustor exit. Fig. 6 presents the combustion efficiency (ηc) of the 
+DACRS burner as a function of three parameters; HF, OFm, ϕm, each 
+examined at three velocity ratios (Vr = 2.27, 3.00, 3.87). Combustion 
+efficiency here is computed by measured exhaust levels of oxygen using 
+Fig. 5. The effect of velocity ratio on axial temperature profile at a constant main-stream OFm of 34 % and constant main-stream equivalence ratio ϕm of 0.63 for 
+different HF: (a) HF 0 % (b) HF 5 % (c) HF 10 % (d) HF 15 %.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+9 
+
+
+--- Page 10 ---
+
+Eqs. (21) and (22), effectively indicating how completely the fuel is 
+oxidized (i.e. what fraction of the available oxygen is consumed in 
+burning the fuel). Each subfigure isolates one parameter’s influence on 
+ηc, comparing trends across the range of Vr.
+Fig. 6a shows how increasing the hydrogen content in the fuel (HF 
+from 5 % up to 15 % H2 by volume) influences combustion efficiency at 
+different velocity ratios. In all cases, adding hydrogen modestly im­
+proves ηc, reflecting more complete combustion of the lean CH4/H2 fuel 
+mixture. Hydrogen’s presence promotes faster chemistry and higher 
+flame speeds, which accelerates fuel oxidation and thus reduces the 
+amount of oxygen left unused in the exhaust. For example, at a repre­
+sentative lean condition (ϕm ≈0.63), increasing HF from 5 % to 15 % 
+was found to decrease the residual O2 in the flue gas by only a few tenths 
+of a percent. This slight drop in leftover O2 corresponds to a small rise in 
+combustion efficiency (by 5 %), confirming that hydrogen enrichment 
+enhances oxygen utilization when the overall fuel/oxidizer ratio is held 
+constant. Such a trend is consistent with literature reporting that 
+hydrogen-enriched flames achieve more complete combustion in lean 
+conditions by accelerating reaction kinetics [38,53,54]. Indeed, various 
+studies have observed significantly lower CO emissions (a proxy for 
+incomplete combustion) as hydrogen is added to methane flames [55], 
+indicating more carbon is fully oxidized to CO2. Thus, even though the 
+gain in ηc per 15 % H2 added is not dramatic (on the order of only a 
+percentage or two in O2 consumption), it is a robust and positive effect 
+observed across all oxidizer environments. The influence of velocity 
+ratio is relatively minor in Fig. 6a, except at the lowest hydrogen levels. 
+At high hydrogen fraction (15 %), all three Vr cases achieve very high 
+combustion efficiencies (approaching complete fuel use), and their ηc 
+values converge (80–91 %). However, at low HF, the curves separate: 
+the highest velocity ratio (Vr = 3.87) shows noticeably lower efficiency 
+compared to Vr = 2.27. In other words, when the main flame is weak 
+(high Vr, meaning a slower, less swirling main flow), it leaves more of 
+the supplied O2 unreacted in the exhaust unless hydrogen is present to 
+boost the flame kinetics. Insufficient H2 at high Vr leads to mediocre fuel 
+oxidation in the main-stream, resulting in poorer oxygen consumption 
+(lower ηc). By contrast, at the lowest velocity ratio (Vr = 2.27, strong 
+main swirl), even a small hydrogen content (5 % HF) burns more 
+completely, thanks to better mixing and a more vigorously recirculating 
+flame that enhances reaction residence time. This explains why the Vr =
+2.27 curve in Fig. 6a starts at a higher efficiency and is less sensitive to 
+H2 addition. Nevertheless, the fact that all curves rise with HF un­
+derscores that hydrogen enrichment improves flame stability and 
+completeness under any swirl setting. Notably, the benefit is most pro­
+nounced for the highest Vr (3.87), where adding H2 transforms an 
+otherwise incomplete combustion case into a nearly complete one.
+Fig. 6b illustrates the impact of the main-stream oxygen fraction 
+(OFm, varied here from 30 % to 34 % O2 in the O2/CO2 oxidizer) on 
+combustion efficiency at the three velocity ratios. Overall, raising the 
+oxygen content in the oxidizer improves combustion efficiency across all 
+Vr. Higher OFm intensifies the combustion process by elevating flame 
+temperature and oxidation rates, which enables a greater portion of the 
+fuel to burn to completion. For instance, increasing O2 availability is 
+known to reduce CO formation (a sign of incomplete combustion) by 
+promoting more complete oxidation of carbon species. In the present 
+results, ηc rises significantly as OFm is increased from the low end (30 % 
+OFm, heavily CO2-diluted oxidizer) to about 34 % OFm. This indicates 
+that a minimum oxygen concentration is required to sustain efficient 
+combustion in the oxy-fuel flame. This aligns with the expectation that 
+oxygen enrichment (within limits) enhances flame stability and 
+completeness by compensating for the diluent CO2 and ensuring 
+Fig. 6. (a) The effect of HF on combustion efficiency (ηc) for different velocity ratios. (b) The impact of OFm on ηc for different velocity ratios. (c) The effect of ϕm on 
+ηc for different velocity ratios. Exhaust emission measurement was taken 10 inches above the burner faceplate.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+10 
+
+
+--- Page 11 ---
+
+sufficient oxidizer for the fuel. In the case of Vr = 3, it is important to 
+note, however, that the effect of OFm% on efficiency is not unbounded. 
+Beyond a certain point, adding more O2 yields diminishing returns 
+because the flame already has more oxygen than needed to oxidize the 
+available fuel. If the equivalence ratio is held fixed, increasing the 
+oxidizer O2 fraction effectively makes the mixture leaner (excess oxy­
+gen), meaning some of that additional O2 will simply pass through 
+unreacted. In other words, once the flame is well-stabilized and all fuel is 
+being consumed, further oxygen enrichment will just increase the sur­
+plus O2 in the products rather than further raise ηc. Numerical simula­
+tions by Hamdy et al. [52]. showed that when OF was increased 
+(dilution CO2 reduced) without adding fuel, the excess O2 in the mixture 
+led to a greater O2 mole fraction persisting in the exhaust gases. The 
+trends in Fig. 6b reflect this balance: ηc improves with oxygen fraction 
+initially (as the flame transitions from O2-starved to O2-sufficient), but at 
+the highest OFm levels the curves are likely begun to plateau. Essentially, 
+combustion efficiency peaks once the oxidizer no longer limits the re­
+action, and extra O2 beyond the stoichiometric requirement remains 
+unused in the flue gas. From a design perspective, this means there is an 
+optimal oxygen percentage for complete combustion, enough to fully 
+burn the fuel, but not so much oxygen goes to waste.
+Another notable aspect of Fig. 6b is that the velocity ratio has small 
+effect on the ηc vs. OFm relationship. All three Vr curves collapse 
+together within the scatter of the data, indicating that oxygen avail­
+ability dominates the combustion completeness regardless of swirl in­
+tensity. When plenty of O2 is provided, even a weaker-swirl flame can 
+achieve near-complete fuel consumption; conversely, if O2 is insuffi­
+cient, even strong swirl cannot compensate for the oxidizer deficiency. 
+The present results show that as long as the flame is stable, oxygen 
+fraction governs the combustion efficiency outcome, largely indepen­
+dent of Vr. This insensitivity is evident in the overlapping trends for Vr 
+= 2.27, 3.0, and 3.87 in Fig. 6b.
+Fig. 6c illustrates combustion efficiency against the main-stream 
+equivalence ratio ϕm (for different Vr), revealing that ϕm is the most 
+dominant factor controlling ηc. As expected, leaner mixtures (lower ϕm, 
+meaning fuel-lean overall) exhibit substantially lower combustion effi­
+ciency, whereas mixtures closer to stoichiometric (higher ϕm) approach 
+complete combustion. At very lean conditions, there is more oxygen 
+present than the fuel can consume, so a considerable fraction of the 
+oxidizer ends up unused in the exhaust. For example, at ϕm = 0.63 (a 
+highly lean case), one observes a significant surplus of O2 in the flue 
+gases. This corresponds to a low combustion efficiency since much of the 
+oxygen (and thus chemical energy potential) is not utilized in oxidizing 
+the fuel. As ϕm increases (i.e. the fuel flow is raised relative to oxygen), 
+the flame consumes a larger portion of the available O2 and ηc rises 
+sharply. The experimental data demonstrate this: holding OFm constant 
+(e.g. 34 % OFm), increasing ϕm from about 0.63 to 0.73 caused the 
+measured O2 in the exhaust to drop. In terms of efficiency, that means a 
+much greater fraction of the oxygen consumed in burning the fuel at 
+ϕm = 0.73 than at 0.63, indicating a more complete combustion as the 
+mixture became less lean. Extrapolating this trend, at or near stoichio­
+metric conditions the flame would be expected to use nearly all the 
+oxygen to convert fuel into H2O and CO2, leaving virtually zero oxygen 
+in the products. In other words, the combustion efficiency would 
+approach 100 % in the limit of ϕm = 1 (barring minor losses due to 
+dissociation or kinetics). This well-established inverse relationship be­
+tween equivalence ratio and excess O2 (or, equivalently, between ϕm and 
+combustion efficiency) is a fundamental characteristic of combustion 
+systems: the leaner the mixture, the more oxidizer remains unused and 
+the lower the combustion efficiency, and vice versa.
+Importantly, Fig. 6c also indicates that the influence of ϕm on effi­
+ciency is essentially independent of the velocity ratio. The data points 
+for Vr = 2.27, 3.00, and 3.87 all collapse onto a single smooth curve, 
+implying that swirl intensity has small effect on oxygen utilization when 
+ϕm is varied. This is because ϕm directly dictates the global fuel/oxygen 
+balance. At a given ϕm, each flame (regardless of Vr) has the same 
+theoretical amount of oxygen available per unit fuel; thus, the fraction of 
+O2 that can be consumed (and the resulting efficiency) is fundamentally 
+set by the mixture ratio, not by aerodynamics. Stronger swirl may 
+improve mixing and flame stability, but it cannot overcome a stoichio­
+metric deficit or surplus of oxygen in terms of overall combustion 
+completeness. For example, at ϕm = 0.63, all cases have abundant 
+excess O2 and low ηc, even though the Vr = 2.27 flame is very well- 
+stabilized; conversely at ϕm = 0.73, all cases achieve much higher ηc, 
+even the high-Vr flame, because more fuel is available to consume the 
+oxygen. The experimental observations confirm this convergence: 
+changing Vr had no discernible effect on exhaust O2 levels at a given 
+equivalence ratio. Thus, equivalence ratio governs the combustion ef­
+ficiency above any flow-driven influences. Ensuring sufficient fuel 
+relative to oxygen (avoiding overly lean operation) is paramount for 
+high ηc, whereas operating too lean will incur efficiency penalties no 
+matter the swirl strength or burner design.
+Fig. 7 illustrates the influence of HF, OFm, ϕm, and Vr on CO emis­
+sions from the DACRS combustor, measured 10 inches downstream of 
+the burner faceplate. Effluent CO concentration is a direct measure of 
+the health of the combustion process and flame strength. It can be clearly 
+seen in Fig. 7a that increasing the hydrogen enrichment (higher HF) 
+generally has no effect on the completeness of combustion and the 
+effluent CO emissions, but only if the main flame is strong enough at 
+lower Vr. If the main flame is, however, too weak at higher Vr, then the 
+HF plays a critical role in stabilizing the main flame and completing the 
+combustion process within it. At Vr = 3.87, CO emissions increase 
+sharply to approximately 50 ppm as the HF is reduced to 5 %. At lower 
+velocity ratios, on the other hand, CO levels are significantly lower (4 
+and 2 ppm, respectively), indicating highly efficient and stable com­
+bustion in the main flame due to enhanced swirl intensity. Similar ob­
+servations have been documented by Abdelhalim et al. [53], 
+highlighting the role of hydrogen enrichment in enhancing combustion 
+completeness and reducing carbon-based emissions.
+Stronger main flames at lower velocity ratios (Vr = 2.27) are also 
+insusceptible to the value of their oxygen fraction OFm in terms of the 
+effluent CO concentration, see Fig. 7b. As mentioned earlier, the OFm has 
+a convoluted impact on the combustion process. A higher OFm increases 
+the strength of the main flame by boosting its oxygen supply and sup­
+pressing the negative impact of dilution CO2. This boosts flame tem­
+perature and CO oxidation, but it also fosters the dissociation of CO2 at 
+higher flame temperatures. Lower OFm, on the other hand, deteriorates 
+the strength of the main flame, reduces its temperature, and magnifies 
+the impact of dilution CO2. The concentration of effluent CO should 
+increase due to poor oxidation at lower temperatures and scarce oxygen 
+supplies, but it should decrease due to diminished CO2 dissociation at 
+lower temperatures. The result of these contradicting effects is that the 
+main flame is immune to changing OFm, but only if it is aerodynamically 
+strong enough at lower Vr. At higher Vr (3 or 3.87), however, the main 
+flame becomes weaker, and reducing the OFm becomes detrimental, as 
+evident by the higher effluent CO concentrations at OFm = 30 %. The 
+effect of poor oxidation at lower temperatures and scarce oxygen sup­
+plies prevails, and the combustion completeness is sacrificed. These 
+findings align well with the experimental findings of El-Adawy et al. [40,
+52], who showed similar reductions in CO emissions with higher oxygen 
+fractions due to intensified combustion kinetics and temperature.
+Fig. 7c illustrates the effect of the equivalence ratio (ϕm = 0.63, 0.68, 
+and 0.73) on CO emissions at three different velocity ratios (Vr = 2.27, 
+3, and 3.87). The equivalence ratio has a significant effect on CO 
+emissions, with a general trend of increasing CO concentrations at richer 
+conditions (higher ϕm values), as expected. This effect of ϕm magnifies at 
+higher velocity ratios (Vr = 3 and 3.87), where the main flame becomes 
+weaker. At the highest Vr of 3.87, CO concentrations remain relatively 
+low and stable, showing only a slight increase from roughly 3 ppm at ϕm 
+= 0.63 to about 6 ppm at ϕm = 0.73. Similarly, at Vr = 3, CO 
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+11 
+
+
+--- Page 12 ---
+
+concentrations increased from around 2 ppm (ϕm = 0.63) to roughly 8 
+ppm (ϕm = 0.73). At the lowest velocity ratio (Vr = 2.27), on the other 
+hand, CO emissions increased from about 4 ppm at ϕm = 0.63 to 
+approximately 25 ppm at ϕm = 0.73.
+The velocity ratio substantially influences CO emissions in DACRS 
+combustors, with lower Vr (strong swirl) conditions generally producing 
+lower CO levels (4–5 ppm) due to enhanced mixing and combustion 
+stability under lean-to-moderate equivalence ratios and sufficient 
+hydrogen and oxygen enrichment. However, at richer mixtures (ϕm =
+0.73), even strong swirl conditions experience noticeable CO emissions 
+(up to about 25 ppm) due to incomplete oxidation and CO2 dissociation. 
+Higher velocity ratios (Vr = 3.87; weaker swirl) result in significantly 
+elevated CO emissions under low hydrogen and oxygen enrichment 
+conditions (50–65 ppm), and higher hydrogen enrichment levels might 
+be needed to aid flame stability and combustion completeness. The 
+analyses thus emphasize the necessity of balancing swirl intensity, 
+hydrogen enrichment, and oxygen fraction to optimize combustion 
+performance and minimize pollutant emissions.
+3.4. Effects of velocity ratio and hydrogen/oxygen fractions on flame 
+macrostructure
+Beyond the stability limits, Vr also influences the flame’s macro- 
+structure (overall flame shape and size). Lower Vr (stronger main- 
+stream swirl) tends to produce a more open, V-shaped flame with a 
+larger expansion angle. This occurs because greater swirl promotes the 
+flame to spread radially (aided by the Coand˘a effect), shortening the jet 
+penetration and keeping the reaction zone attached near the burner exit 
+[40]. A larger expansion angle has been correlated with improved lean 
+blowout performance, as a broadly spreading flame anchors more 
+effectively and is less prone to blowout. By contrast, at higher Vr 
+(weaker swirl), the flame is narrower and farther downstream, with a 
+weaker central recirculation zone. This narrower flame is less stable, and 
+the lean blowout threshold shifts to higher equivalence ratios (i.e. the 
+flame blows out sooner as the mixture is made leaner). In general, a low 
+Vr (2.27) yields a compact flame with robust recirculation stabilization, 
+whereas a high Vr (3.87) leads to a longer, lift-prone flame that blows 
+out at richer conditions. These findings align with experimental obser­
+vations that optimizing swirl (via Vr) is crucial for maintaining flame 
+attachment and avoiding blowout in stratified swirl burners.
+The flame macrostructure in the DACRS combustor exhibits sys­
+tematic changes with velocity ratio, fuel composition, and oxidizer 
+composition. The visual flame images in Figs. 8–10 characterize how the 
+flame’s geometry responds to variations in HF, OFm, and ϕm, respec­
+tively (with other parameters held constant in each case). A well- 
+anchored, compact flame typically indicates efficient mixing and 
+robust combustion, whereas a lifted or elongated flame suggests weaker 
+stabilization, potentially leading to incomplete combustion or blowout. 
+In this experiment, the flame’s appearance transitioned from broad, V- 
+shaped profiles to narrower, cone-shaped profiles depending on the 
+operating regime, consistent with changes in swirl intensity and reaction 
+kinetics. Generally, flames that are broader (wider opening angle) tend 
+to have better anchoring near the burner, while very narrow flames 
+concentrate heat along the centerline and may form hotspots further 
+downstream.
+Fig. 8 isolates the impact of pilot hydrogen enrichment on flame 
+macrostructure by showing flame photographs at four hydrogen frac­
+tions (0 %, 5 %, 10 %, 15 %) for different velocity ratios at fixed OFm =
+34 % and ϕm = 0.63. Several clear trends emerge. Without hydrogen in 
+the pilot (HF = 0 %), the flame relies entirely on methane combustion in 
+the main-stream, and the pilot stream is not only non-fueling but also 
+contains dilution CO2. In this case, the flame appears longer and more 
+prone to lift-off, especially at higher Vr. For example, at HF = 0 % and 
+Vr = 3.87 (weak outer swirl, strong pilot flow), the flame is typically 
+narrow and lifted. The reaction zone is observed farther downstream 
+from the burner exit, indicating that stabilization is marginal. The 
+Fig. 7. (a) The effect of HF% on CO concentration at different velocity ratios. (b) The impact of OFm on CO concentration at different velocity ratios. (c) The effect of 
+equivalence ratio ϕm on the CO concentration for different velocity ratios. Exhaust emission measurement is taken at 10 inches above the burner faceplate.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+12 
+
+
+--- Page 13 ---
+
+absence of hydrogen’s fast chemistry, together with the introduction of 
+CO2 in the central pilot stream, make the reaction kinetics of the oxy- 
+methane sluggish, so the flame front cannot stay attached close to the 
+burner faceplate when the pilot dominates the flow. In contrast, with 
+hydrogen enrichment (HF = 10–15 %), the pilot flame becomes a highly 
+reactive core that anchors the flame. The images show that at HF = 15 
+%, the flame is markedly more compact and attached to the burner 
+across all Vr settings. Hydrogen’s high flame speed and reactivity 
+shorten the ignition delay, so the flame establishes itself very close to the 
+burner faceplate. Moreover, hydrogen-enriched flames are brighter and 
+more intense (owing to higher combustion temperatures), which is 
+evident in the images as higher luminosity at the flame base. Notably, at 
+Vr = 3.87, adding hydrogen (15 % HF) transforms the flame from a thin, 
+elongated shape (at 0 % HF) into a more robust conical flame that stays 
+attached, illustrating hydrogen’s role in compensating for weaker swirl 
+stabilization. At the lower velocity ratio (Vr = 2.27), the base flame was 
+already well-anchored by strong recirculation; adding hydrogen in this 
+case primarily concentrates the flame, making it shorter and broader. 
+The macrostructure thus confirms that hydrogen enrichment 
+strengthens and stabilizes the flame, yielding a more attached flame 
+with a larger diameter near the base. The effect of Vr can also be isolated 
+from Fig. 8 by comparing the three images at HF = 0 %. It can clearly be 
+seen how higher Vr translates into a weaker main flame, owing to its low 
+velocity and weak swirl intensity, as elaborated in previous analyses in 
+the present work.
+Fig. 9 examines how varying the oxygen concentration in the main 
+oxidizer stream influences the flame shape, for a fixed high level of 
+hydrogen enrichment (HF = 15 %) and a fixed main-stream equivalence 
+ratio (ϕm = 0.63). Here, OFm is changed from a low value (OFm = 30 %, 
+heavily CO2-diluted oxidizer) up to a high value (OFm = 34 %, lower CO2 
+dilution), at each of the three velocity ratios. Lower oxygen fraction 
+leads to a colder, slower-burning flame, which appears in Fig. 9 to be 
+broader and more diffuse. Fig. 9 shows a gradual tightening of the flame 
+with increasing OFm: at 30 % the flame presents a broad, open cone that 
+spreads radially, whereas at OFm of 34 % it becomes shorter and more 
+concentrated about the centerline, with a smaller divergence angle and a 
+brighter, attached base. The change is continuous rather than discrete; 
+oxygen enrichment compacts the reaction zone and reduces both 
+opening angle and length, especially when combined with low Vr. At the 
+lowest swirl intensity (high Vr = 3.87): with both weak swirl and low 
+oxygen reactivity, the flame struggles to anchor, appearing long and 
+faint, with a wide cone that almost detaches from the burner. As the OFm 
+is increased, the flame’s character changes noticeably. Higher OFm 
+produces a more compact flame. The additional oxygen accelerates the 
+reaction kinetics and raises the local flame temperature, so the flame 
+does not need to spread as widely to find sufficient oxidizer; instead, it 
+burns more intensely in a narrower region. The photographs for OFm =
+34 % show flames that are concentrated around the burner centerline, 
+with a clear and bright reaction zone. At Vr = 2.27 (strong swirl), 
+increasing OFm makes the already anchored flame even more compact 
+and slightly shorter, as the combustion becomes more vigorous (the 
+flame essentially “tightens up” into a well-defined cone attached to the 
+burner). At Vr = 3.87 (weak swirl), the effect of oxygen is even more 
+crucial: at 30 % OFm, the flame was very unstable and partially lifted, 
+Fig. 8. The effect of HF on flame macrostructure for different velocity ratios Vr at constant OFm of 34 % and ϕm = 0.63.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+13 
+
+
+--- Page 14 ---
+
+but by 34 % OFm, the flame attaches and shortens significantly, indi­
+cating improved stabilization. In essence, oxygen enrichment shrinks the 
+flame length and diameter by intensifying the burn rate, so the lazy V- 
+shaped flame under low-O2 conditions becomes a sharply defined cone 
+under high-O2 conditions. The effect of Vr can again be isolated from 
+Fig. 9 by comparing the three images at OFm = 30 %. It can clearly be 
+seen how higher Vr translates into a weaker main flame, owing to its low 
+velocity and weak swirl intensity, as elaborated in previous analyses in 
+the present work.
+The shift in flame morphology with increasing ϕm reflects the 
+interaction between fuel supply, swirl-induced recirculation, and heat 
+release. At lower ϕm (leaner conditions), the flame is shorter and more 
+transparent, stabilized by strong recirculation and high levels of excess 
+oxygen. As ϕm increases, the additional fuel broadens the reaction zone 
+and lengthens the flame, leading to a more luminous and elongated 
+structure. This transition suggests a redistribution of the flame stabili­
+zation mechanism: from strong recirculation-dominated anchoring at 
+lean conditions to downstream stabilization as fuel loading increases. 
+The observed morphology changes are consistent with the measured rise 
+in CO emissions at higher ϕm, as richer mixtures produce locally 
+incomplete oxidation zones.
+Fig. 10 explores the changes in flame shape when ϕm is varied, at 
+fixed HF = 15 % and fixed OFm = 34 %, for the three velocity ratios. In 
+this figure, ϕm spans from relatively lean (ϕm = 0.63) to a less lean value 
+(ϕm = 0.73), while remaining on the lean side of stoichiometric. The 
+flame images show that increasing ϕm (i.e., adding more fuel to the 
+main-stream) generally makes the flame larger and more elongated, as a 
+longer residence time is needed to burn the extra fuel at higher ϕm. At a 
+lower equivalence ratio (ϕm ≈0.63), the flame appears shorter and more 
+transparent, indicating lower heat release. As ϕm is raised to 0.73 (closer 
+to stoichiometric), the flame becomes longer and brighter, as more fuel 
+energy is available to burn, and the flame front moves downstream. In 
+other words, a richer mixture supplies more fuel than can be burned 
+immediately near the injector, so the combustion zone extends further 
+along the tube before all the fuel is consumed. This trend is visible at all 
+velocity ratios, but it manifests differently depending on Vr. At Vr = 2.27 
+(strong swirl), the flame at ϕm = 0.63 is very well anchored and has a 
+wide base (thanks to the robust recirculation). When ϕm is increased to 
+Fig. 9. The effect of main-stream oxygen fraction (OFm) on flame macrostructure for different velocity ratios at constant HF of 15 % and ϕm = 0.63.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+14 
+
+
+--- Page 15 ---
+
+0.73, the flame remains attached (due to the strong swirl and hydrogen 
+pilot) but becomes thicker and slightly longer, filling more of the com­
+bustion chamber. The higher fuel flow leads to a more intense flame that 
+might start to spill beyond the recirculation zone, resulting in a some­
+what elongated shape. Notably, under these low-Vr conditions, pushing 
+ϕm toward the rich side can lead to less complete combustion (since the 
+flame is very compact, some fuel might escape the pilot reaction zone); 
+indeed, CO emissions were observed to rise from ~4 ppm at ϕm =
+0.63–~25 ppm at ϕm = 0.73 for Vr = 2.27 (see Fig. 7), indicating that 
+the flame, while still stable in shape, begins to suffer from incomplete 
+oxidation at the richer setting. Additionally, the richest flame at Vr =
+2.27 is broad and still attached but shows signs of intensity saturation 
+(very bright base and some flickering), consistent with approaching the 
+limits of complete combustion in that confined recirculation zone.
+In terms of Rem effect, the same Reynolds-number linkage to Vr ex­
+plains the observed changes in flame shape. At low Vr (high Rem) the 
+flame is shorter and more compact, with a smaller opening angle and a 
+bright, stable base tied to the lip recirculation; the recirculation bubble 
+is stronger, the shear layers are thinner, and mixing is rapid enough that 
+the reaction zone remains close to the injector. At high Vr (low Rem) the 
+flame becomes longer and more susceptible to lift-off, with a wider cone 
+and intermittent dimming near the base signatures of weaker entrain­
+ment and slower burnout in the main-stream. These structural differ­
+ences map directly onto the stability trends: the compact, high-Rem 
+flames coincide with improved lean operability and higher combustion 
+efficiency, while the elongated, low-Rem flames mark the onset of 
+incomplete oxidation and reduced stability margins.
+Table 2 summarizes the main findings of the aforementioned ana­
+lyses. Reducing the velocity ratio to 2.27 strengthens main-stream swirl 
+intensity, significantly enhancing flame anchoring, combustion stabil­
+ity, and lean blowout performance (lowest ϕm = 0.35 at OFm = 34 % and 
+HF = 15 %). Conversely, higher velocity ratios (Vr = 3.87) weaken swirl, 
+deteriorate combustion stability, produce narrower flames, and lead to 
+increased CO emissions, particularly at low hydrogen enrichment (up to 
+50 ppm at HF = 5 %). Additionally, the table highlights that increasing 
+hydrogen and oxygen fractions consistently improve flame stability, 
+decrease emissions, and extend stable operation into leaner equivalence 
+ratios. Optimal combustion performance is achieved at Vr = 2.27, HF =
+Fig. 10. The effect of main-stream equivalence ratio (ϕm) on flame macrostructure for different velocity ratios at constant HF of 15 % and OFm of 34 %.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+15 
+
+
+--- Page 16 ---
+
+15 %, OFm = 34 %, and ϕm ranging from 0.63 to 0.68, ensuring minimal 
+emissions, robust flame stability, and high combustion efficiency.
+4. Conclusions
+This work presented an experimental investigation of stratified oxy- 
+hydrogen-methane combustion in a dual annular counter-rotating swirl 
+(DACRS) gas turbine combustor, focusing on how velocity ratio, 
+hydrogen enrichment, and oxygen fraction affect flame stability, tem­
+peratures, and emissions. The key findings are summarized as follows. 
+• Lean Blowout Limits: Increasing the hydrogen fraction and the 
+main-stream oxygen fraction (OFm) significantly extended the lean 
+blowout limit. at Vr = 2.27, and 34 % OFm, the minimum sustainable 
+main-stream equivalence ratio dropped from ϕm = 0.50 (at 0 % HF) 
+to ϕm = 0.346 (at 15 % HF). In global terms, the overall lean blowout 
+limit improved from ϕg = 0.50 to ϕg = 0.361, a ~28 % expansion of 
+the lean operating window. This enhancement is attributed to hy­
+drogen’s high flame speed and reactivity, which stabilizes the flame 
+at ultra-lean mixtures, and to oxygen enrichment, which raises flame 
+temperature and burning rates. The combination of HF and high OFm 
+allowed the flame to remain anchored and burning even when the 
+main mixture was extremely diluted.
+• Swirl Intensity (Velocity Ratio): The velocity ratio emerged as a 
+critical parameter governing flame behavior. Lower Vr (e.g. 2.27, 
+meaning a stronger main swirl) greatly improved flame anchoring 
+and stability, while higher Vr (3.87, weaker swirl) led to elongated, 
+less stable flames. At Vr = 2.27 the internal recirculation zone was 
+stronger, which broadened the high-temperature flame region and 
+helped resist blowout at lean conditions. In contrast, Vr = 3.87 
+produced a narrower flame with a delayed heat-release peak and a 
+greater tendency to lift off. As a result, the optimal operating con­
+dition in this study was at Vr = 2.27 (with high HF and OFm): this 
+yielded the lowest blowout equivalences (ϕm = 0.346) and a very 
+stable, attached flame. At Vr = 3.87, by comparison, the flame blew 
+off at richer mixtures and struggled to remain attached when lean.
+• Flame Temperature and Structure: With hydrogen and oxygen 
+enrichment, flame temperatures increased substantially. For 
+instance, at HF = 15 % and OFm = 34 %, the peak centerline flame 
+temperature reached ~1704 ◦C, compared to ~1330 ◦C with 0 % HF 
+under the same conditions. The higher flame temperatures indicate 
+more complete heat release and were accompanied by a more 
+compact flame shape. High-speed images confirmed that flames with 
+H2 were brighter and more anchored near the burner (often forming 
+a tight conical shape), whereas flames without H2 or with lower O2 
+were more diffuse (open V-shape) and extended further downstream. 
+These observations highlight a synergistic effect: hydrogen’s fast 
+chemistry and added heat release, together with enhanced O2-driven 
+kinetics, produced a strongly anchored, high-intensity flame. 
+Notably, the measured flame temperatures with enrichment 
+approached the theoretical adiabatic flame temperatures, suggesting 
+minimal heat losses in those cases. For context, the theoretical 
+adiabatic flame temperature for the tested global conditions is 
+~2137 ◦C. The measured peak temperatures (1704 ◦C with hydrogen 
+enrichment and 1330 ◦C with methane-only fuel) are lower, as ex­
+pected from heat losses, CO2 dilution, and incomplete equilibrium. 
+The closer agreement of the H2-enriched flame with the adiabatic 
+value confirms its higher combustion efficiency and stronger stabi­
+lization relative to the methane baseline.
+• Emissions and Combustion Efficiency: Under optimal conditions 
+(Vr = 2.27, HF = 15 %, OFm = 34 %, ϕm ≈0.63), the combustor 
+achieved nearly complete combustion, with CO emissions <5 ppm 
+and only a few percent O2 in the exhaust (ηc = 87 %). Even at ultra- 
+lean settings, the H2-enriched flames had very low CO (reflecting 
+efficient oxidation of the fuel). By contrast, at high Vr = 3.87 with 
+lower HF, incomplete combustion was evident that CO emissions 
+rose to 50–65 ppm in those cases and significant O2 (10–15 %) 
+remained unused in the flue. This underscores the importance of 
+optimizing all parameters (swirl, HF, OFm) to avoid partial burning. 
+Hydrogen enrichment proved crucial at high Vr: it cut CO emissions 
+by strengthening the weak flame, whereas without H2 the high-Vr 
+flame left much fuel unburned (high CO). Likewise, sufficient oxy­
+gen levels (32–34OFm%) were needed to fully consume the fuel; and 
+at 30 % OFm, combustion efficiency dropped. Overall, the lowest 
+emissions and highest combustion efficiency coincided with the 
+same conditions that gave the best stability, namely, strong swirl, H2 
+enrichment, and oxygen-rich operation.
+• Limitations of the present work: This study was conducted at at­
+mospheric pressure in a laboratory-scale DACRS combustor and 
+emphasizes macro-scale trends in flame shape, lean stability, tem­
+perature, and emissions/combustion efficiency. Field-resolved di­
+agnostics (e.g., OH* chemiluminescence, OH/CH2O-PLIF, (stereo-) 
+PIV) were not deployed, and detailed reacting-flow CFD validation 
+against measured scalar and velocity fields will be conducted in 
+future works. The CFD model was done only for the temperature 
+correction and. Gas temperatures were obtained from a centerline R- 
+type thermocouple with a radiation correction (Blevins–Pitts with 
+Whitaker’s correlation) but without complementary optical ther­
+mometry. The operating matrix, velocity ratio, hydrogen fraction, 
+oxygen fraction, and equivalence ratio was intentionally bound to 
+isolate key couplings in an oxy-fuel methane/hydrogen flame; 
+therefore, extrapolation beyond these ranges, high-pressure condi­
+tions, or alternative injector geometries should be made with 
+caution. Within these constraints, the results provide consistent, 
+physically grounded trends that are expected to persist at elevated 
+pressure when non-dimensional parameters (e.g., swirl number, 
+Reynolds, Damk¨ohler, Karlovitz) are matched, but quantitative sta­
+bility margins and detailed flame-flow interactions remain to be 
+established under engine-relevant conditions.
+• Recommendation and future outlooks: The trends observed here 
+suggest clear directions for designing better oxy-fuel combustors. 
+Strong swirl flows (lower Vr) are recommended to enhance flame 
+holding and reduce blowout risk. Fuel enrichment with hydrogen (or 
+other high-reactivity fuels) can substantially widen the lean limit and 
+improve combustion completeness, especially in CO2-diluted envi­
+ronments. Oxygen fraction in the oxidizer should be high enough 
+(30–34 % by vol.) to compensate for CO2’s diluent effect. This en­
+sures the flame temperature and burning velocity remain in a range 
+that supports stable combustion. By following these guidelines, it is 
+possible to achieve stable, lean, and clean combustion even without 
+nitrogen. Importantly, since NOx formation is negligible in oxy-fuel 
+combustion, future systems could consider operating at slightly 
+higher global equivalence ratios than conventional air-fired gas 
+turbines, to maximize efficiency and reduce excess O2 in the exhaust. 
+Nonetheless, some degree of lean operation (or CO2 dilution) is still 
+necessary to avoid excessively high flame temperatures. Therefore, 
+Table 2 
+Summary table of the results and findings for different velocity ratios.
+Influence of low Vr 
+(2.27)
+Enhanced main-stream swirl intensity, improved mixing 
+and flame anchoring, higher combustion stability, and 
+lowest blowout limits (ϕm = 0.35 at OFm = 34 %, HF =
+15 %)
+Influence of high Vr 
+(3.87)
+Reduced main-stream swirl strength, weaker mixing, 
+elevated CO emissions (50 ppm) at low HF (5 %), 
+narrower flame structure, and deteriorated blowout 
+equivalence ratios (ϕm ≅0.50)
+Key observations on HF 
+and OFm
+Increasing HF and OFm consistently reduces CO 
+emissions, enhances flame stability, and allows operation 
+at leaner equivalence ratios
+Optimal conditions
+Vr = 2.27, HF = 15 % OFm = 34 %, and ϕm = 0.63 −0.68 
+(Minimal emissions, stable combustion, and highest 
+combustion efficiency observed)
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+16 
+
+
+--- Page 17 ---
+
+the optimal strategy for oxy-fuel combustion involves a balanced 
+approach: using enough oxygen and hydrogen to stabilize a lean 
+flame, employ strong swirl to anchor it, but also avoiding running too 
+close to stoichiometric to maintain manageable temperatures and 
+near-zero CO emissions. Additionally. Future work will extend the 
+present database with field-resolved measurements and validated 
+simulations to close the physics–modeling loop. Priority diagnostics 
+include OH* chemiluminescence for spatially integrated heat-release 
+imaging, OH/CH2O-PLIF for reaction-zone topology and preheat- 
+layer structure, and PIV for velocity, shear, and recirculation quan­
+tification in the inner and outer swirl cores; these methods have 
+proven effective in premixed/swirl flames and are well suited to oxy- 
+fuel environments. Companion high-pressure campaigns will estab­
+lish scaling of stability and efficiency with pressure at matched Mach 
+and swirl. On the modeling side, reacting-flow RANS/LES with 
+detailed or appropriately reduced chemistry for CH4/H2/O2/CO2 
+mixtures will be used to reproduce measured flow and scalar fields 
+and to interrogate recirculation-driven stabilization. Fundamental 
+parameters (laminar flame speed SL, Markstein length, extinction 
+strain) and non-dimensional groups (Damk¨ohler, Karlovitz) will be 
+evaluated to generalize the trends and to connect adiabatic- 
+temperature and flame-speed changes due to oxygen enrichment 
+and CO2 dilution with observed lean blowout and combustion- 
+efficiency behavior. Finally, the specific influence of Reynolds 
+number decoupled from velocity ratio and mixture changes will be 
+examined in future work using pressure-scaled tests and controlled 
+flow-area adjustments at matched swirl number and Mach.
+Overall, this study demonstrates that through strategic modulation 
+of swirl intensity, hydrogen blending, and oxygen enrichment, DACRS 
+combustors can achieve enhanced flame stability, higher thermal effi­
+ciency, and substantially lower pollutant emissions, paving the way 
+toward cleaner and more sustainable combustion technologies.
+CRediT authorship contribution statement
+Gubran A.Q. Abdulrahman: Writing – original draft, Investigation. 
+Ahmed Abdelhafez: Writing – review & editing, Methodology. 
+Mohamed Hamdy: Writing – review & editing, Investigation. Medhat 
+A. Nemitallah: Writing – review & editing, Supervision, Resources, 
+Project administration, Methodology, Funding acquisition, Conceptu­
+alization. Mohamed A. Habib: Writing – review & editing, Supervision, 
+Methodology.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgment
+The authors acknowledge the support received from King Fahd 
+University of Petroleum and Minerals (KFUPM) to perform this work 
+through the Consortium for Hydrogen Future on projects numbers 
+H2FC2309 and H2FC2315. The support received through the Interdis­
+ciplinary Research Center on Hydrogen Technology and Carbon Man­
+agement (IRC-HTCM) on project number INHT2533 is also appreciated.
+References
+[1] Cassia R, Nocioni M, Correa-Aragunde N, Lamattina L. Climate change and the 
+impact of greenhouse gasses: CO2 and NO, friends and foes of plant oxidative 
+stress. Front Plant Sci 2018;9. https://doi.org/10.3389/fpls.2018.00273.
+[2] Cao M, Wang F, Ma S, Geng H, Sun K. Recent advances on greenhouse gas 
+emissions from wetlands: mechanism, global warming potential, and 
+environmental drivers. Environ Pollut 2024;355. https://doi.org/10.1016/j. 
+envpol.2024.124204.
+[3] Nhamo G, Nhamo S. One global deal from Paris 2015: convergence and 
+contestations on the future climate mitigation agenda. S Afr J Int Afr 2016;23: 
+323–46. https://doi.org/10.1080/10220461.2016.1252281.
+[4] Khan AA, College K, Road R, Jogeshwari O, Mumbai W. An analytical study on the 
+impact of global warming : effects on environment. In: Recent Trends in 
+Commerce, Management, Accountancy and Business Economics; 2024. p. 54–66.
+[5] Estupi˜n´an JMT, Alvarez JF. The age of sustainable development. In: Revista 
+Finanzas y Politica Economica; 2016. https://doi.org/10.14718/ 
+revfinanzpolitecon.2016.8.2.1. 8.
+[6] Assessing “Dangerous Climate Change”. Required reduction of carbon emissions to 
+protect young people, future generations and nature. Pollut Atmos 2020:225–306. 
+https://doi.org/10.1201/9781315365633-23.
+[7] Habib MA, Hossain S, Abdelhafez A, Said SA, Nemitallah MA. On the effects of flow 
+swirl on static stability limits and flow/flame characteristics of premixed oxy- 
+methane flames: an experimental study. Combust Sci Technol 2023. https://doi. 
+org/10.1080/00102202.2023.2269301.
+[8] Haque MA, Nemitallah MA, Abdelhafez A, Mokheimer EMA, Habib MA. Analysis of 
+methane, propane, and syngas oxy-flames in a fuel-flex gas turbine combustor for 
+carbon capture. Int J Energy Res 2022;46. https://doi.org/10.1002/er.7745.
+[9] Li B, Shi B, Zhao X, Ma K, Xie D, Zhao D, et al. Oxy-fuel combustion of methane in a 
+swirl tubular flame burner under various oxygen contents: operation limits and 
+combustion instability. Exp Therm Fluid Sci 2018;90. https://doi.org/10.1016/j. 
+expthermflusci.2017.09.001.
+[10] Habib MA, Mokheimer EMA, Sanusi SY, Nemitallah MA. Numerical investigations 
+of combustion and emissions of syngas as compared to methane in a 200 MW 
+package boiler. Energy Convers Manag 2014;83. https://doi.org/10.1016/j. 
+enconman.2014.03.056.
+[11] Al-Abbas AH, Naser J, Dodds D. CFD modelling of air-fired and oxy-fuel 
+combustion of lignite in a 100 KW furnace. Fuel 2011;90. https://doi.org/ 
+10.1016/j.fuel.2011.01.014.
+[12] Araoye AA, Abdelhafez A, Nemitallah MA, Habib MA, Ben-Mansour R. 
+Experimental and numerical investigation of stability and emissions of hydrogen- 
+assisted oxy-methane flames in a multi-hole model gas-turbine burner. Int J 
+Hydrogen Energy 2021;46:20093–106. https://doi.org/10.1016/j. 
+ijhydene.2021.03.135.
+[13] Sher F, Hameed S, Omerbegovi´c NS, Wang B, Hai IU, Rashid T, et al. Bioenergy 
+with carbon capture and storage technology to achieve net zero emissions–A 
+review. Renew Sustain Energy Rev 2025;210. https://doi.org/10.1016/j. 
+rser.2024.115229.
+[14] Correa SM. A review of NOx formation under gas-turbine combustion conditions. 
+Combust Sci Technol 1993;87:329–62. https://doi.org/10.1080/ 
+00102209208947221.
+[15] Normann F, Andersson K, Leckner B, Johnsson F. Emission control of nitrogen 
+oxides in the oxy-fuel process. Prog Energy Combust Sci 2009;35. https://doi.org/ 
+10.1016/j.pecs.2009.04.002.
+[16] Alsaegh ASN. Fundamental characterisation of coherent structures for swirl 
+combustors. 2022.
+[17] Correa SM. Power generation and aeropropulsion gas turbines: from combustion 
+science to combustion technology. In: Symposium (International) on Combustion, 
+vol. 27; 1998. https://doi.org/10.1016/S0082-0784(98)80021-0.
+[18] Nemitallah MA, Azazul Haque MD, Hussain M, Abdelhafez A, Habib MA. Stratified 
+and hydrogen combustion techniques for higher turndown and lower emissions in 
+gas turbines. J Energy Res Technol Transact ASME 2022;144. https://doi.org/ 
+10.1115/1.4052541.
+[19] Pignatelli F, Kim H, Subash AA, Liu X, Szasz RZ, Bai XS, et al. Pilot impact on 
+turbulent premixed methane/air and hydrogen-enriched methane/air flames in a 
+laboratory-scale gas turbine model combustor. Int J Hydrogen Energy 2022;47. 
+https://doi.org/10.1016/j.ijhydene.2022.05.282.
+[20] Wicksall DM, Agrawal AK, Schefer RW, Keller JO. Fuel composition effects on the 
+velocity field in a lean premixed swirl-stabilized combustor. In: American Society 
+of Mechanical Engineers, International Gas Turbine Institute, Turbo Expo 
+(Publication) IGTI; 2003. p. 539–48. https://doi.org/10.1115/GT2003-38712.
+[21] Lieuwen T, McManus K. Introduction: combustion dynamics in lean-premixed 
+prevaporized (LPP) gas turbines. J Propul Power 2003;19. https://doi.org/ 
+10.2514/2.6171.
+[22] Naa Qasem, Abdulrahman GAQ. A recent comprehensive review of fuel cells: 
+history, types, and applications. Int J Energy Res 2024;2024. https://doi.org/ 
+10.1155/2024/7271748.
+[23] Abdulrahman GAQ, Qasem NAA, Imteyaz B, Abdallah AM, Habib MA. A review of 
+aircraft subsonic and supersonic combustors. Aero Sci Technol 2023;132. https:// 
+doi.org/10.1016/j.ast.2022.108067.
+[24] Abdulrahman GAQ, Qasem NAA. Optimizing endurance and power consumption of 
+fixed-wing unmanned aerial vehicles powered by proton-exchange membrane fuel 
+cells. Arabian J Sci Eng 2023. https://doi.org/10.1007/s13369-023-08335-1.
+[25] Abdulrahman GAQ, Qasem NAA, Abdelrahman WG, Abdallah AM. A review of 
+powering unmanned aerial vehicles by clean and renewable energy technologies. 
+Sustain Energy Technol Assessments 2025;73:104150. https://doi.org/10.1016/j. 
+seta.2024.104150.
+[26] Abdulrahman GAQ, Qasem NAA. Assessment, optimization, and utilization 
+mapping of clean and renewable energy technologies for powering unmanned 
+aerial vehicles. Arabian J Sci Eng 2025. https://doi.org/10.1007/s13369-025- 
+10138-5.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+17 
+
+
+--- Page 18 ---
+
+[27] Habib MA, Abdulrahman GAQ, Alquaity ABS, Qasem NAA. Hydrogen combustion, 
+production, and applications: a review. Alex Eng J 2024;100:182–207. https://doi. 
+org/10.1016/j.aej.2024.05.030.
+[28] Nemitallah MA, El-Adawy M, Abdulrahman GAQ, Mansour S, Habib MA, Khalifa A. 
+Hydrogen mobility toward affordable and clean energy production in gas turbines: 
+state-of-the-art and perspectives. Energy Fuels 2025. https://doi.org/10.1021/acs. 
+energyfuels.4c05875.
+[29] Bancalari E, Chan P, Diakunchak IS. Advanced hydrogen gas turbine development 
+program. Proc ASME Turbo Expo 2007;2. https://doi.org/10.1115/GT2007- 
+27869.
+[30] Manigandan S, Praveenkumar TR, Ir Ryu J, Nath Verma T, Pugazhendhi A. Role of 
+hydrogen on aviation sector: a review on hydrogen storage, fuel flexibility, flame 
+stability, and emissions reduction on gas turbines engines. Fuel 2023;352. https:// 
+doi.org/10.1016/j.fuel.2023.129064.
+[31] Pashchenko D. Hydrogen-rich gas as a fuel for the gas turbines: a pathway to lower 
+CO2 emission. Renew Sustain Energy Rev 2023;173. https://doi.org/10.1016/j. 
+rser.2022.113117.
+[32] Abdelhafez A, Abdelhalim A, Abdulrahman GAQ, Haque A, Habib MA, 
+Nemitallah MA. Stability , near flashback combustion dynamics , and NOx 
+emissions of H 2/N 2/air flames in a micromixer-based model gas turbine 
+combustor. Int J Hydrogen Energy 2024;61:102–12. https://doi.org/10.1016/j. 
+ijhydene.2024.02.297.
+[33] Abdulrahman GAQ, Abdelhafez A, El-Adawy M, Nemitallah MA, Habib MA. 
+Enhanced lean blowout and macrostructure characteristics of stratified CH4/H2/ 
+O2/CO2 flames in a dual annular counter-rotating swirl combustor. J Energy 
+Resour Technol, Part A: Sustain Renew Energy 2025:1–24. https://doi.org/ 
+10.1115/1.4069707.
+[34] Burton NA, Padilla RV, Rose A, Habibullah H. Increasing the efficiency of hydrogen 
+production from solar powered water electrolysis. Renew Sustain Energy Rev 2021; 
+135. https://doi.org/10.1016/j.rser.2020.110255.
+[35] Nowotny J, Veziroglu TN. Impact of hydrogen on the environment. Int J Hydrogen 
+Energy 2011;36. https://doi.org/10.1016/j.ijhydene.2011.07.071.
+[36] Yao Q, Zhang Y, Wang X, Tian Z, Hu G, Du W. Investigation of NOx emission under 
+different burner structures with the optimized combustion model. Neurocomputing 
+2022;482. https://doi.org/10.1016/j.neucom.2021.11.051.
+[37] Cheng RK. Velocity and scalar characteristics of premixed turbulent flames 
+stabilized by weak swirl. Combust Flame 1995;101. https://doi.org/10.1016/ 
+0010-2180(94)00196-Y.
+[38] Nemitallah MA, Aljehani SK, Haque MA. Effects of fuel-hydrogen levels on 
+combustion, operability, and emission parameters of CH4/H2/O2/CO2 stratified 
+flames in a dual-swirl gas turbine burner. Eng Appl Comput Fluid Mech 2023;17. 
+https://doi.org/10.1080/19942060.2023.2229406.
+[39] Joshi ND, Epstein MJ, Durlak S, Marakovits S, Sabla PE. Development of a fuel air 
+premixer for aero-derivative dry low emissions combustors. American Society of 
+Mechanical Engineers; 1994.
+[40] El-Adawy M, Hamdy M, Abdelhafez A, Abdelhalim A, Nemitallah MA. Stability and 
+combustion characteristics of dual annular counter-rotating swirl oxy-methane 
+flames: effects of equivalence and velocity ratios. Case Stud Therm Eng 2024;61: 
+104927. https://doi.org/10.1016/j.csite.2024.104927.
+[41] Hamdy M, El-Adawy M, Abdelhalim A, Abdelhafez A, Nemitallah MA. Stability and 
+combustion/emission characteristics of stratified dual-swirl oxy-methane flames: 
+effects of oxygen fraction. J Energy Resour Technol, Part A: Sustainable and 
+Renewable Energy 2025;1. https://doi.org/10.1115/1.4066657.
+[42] Nemitallah MA, Hamzat AK, Ismaila KG. Role of oxidizer mixture composition on 
+stabilizing stratified oxy-flames in dual lean premixed combustors for gas turbines. 
+J Energy Res Technol Transact ASME 2023;145. https://doi.org/10.1115/ 
+1.4055226.
+[43] Araoye AA, Abdelhafez A, Nemitallah MA, Habib MA, Ben-Mansour R, Hussain M. 
+Shape and stability characteristics of hydrogen-enriched natural-gas oxy-flames in 
+a micromixer burner. Combust Sci Technol 2023;195:1887–909. https://doi.org/ 
+10.1080/00102202.2021.2006190.
+[44] Li M, Tong Y, Klingmann J, Thern M. Experimental study of hydrogen addition 
+effects on a swirl-stabilized methane-air flame. Energies 2017;10. https://doi.org/ 
+10.3390/en10111769.
+[45] Günther R. Combustion aerodynamics. Int J Heat Mass Tran 1973;16:528. https:// 
+doi.org/10.1016/0017-9310(73)90082-3.
+[46] Blevins LG, Pitts WM. Modeling of bare and aspirated thermocouples in 
+compartment fires. Fire Saf J 1999;33:239–59. https://doi.org/10.1016/S0379- 
+7112(99)00034-X.
+[47] Brohez S, Delvosalle C, Marlair G. A two-thermocouples probe for radiation 
+corrections of measured temperatures in compartment fires. Fire Saf J 2004;39: 
+399–411. https://doi.org/10.1016/j.firesaf.2004.03.002.
+[48] Whitaker S. Forced convection heat transfer correlations for flow in pipes, past flat 
+plates, single cylinders, single spheres, and for flow in packed beds and tube 
+bundles. AIChE J 1972;18:361–71. https://doi.org/10.1002/aic.690180219.
+[49] Armstrong GT, Jobe TL. Heating values of natural gas and its components. Tech 
+Rep 1982:172.
+[50] Carr NL, Kobayashi R, Burrows DB. Viscosity of hydrocarbon gases under pressure. 
+J Petrol Technol 1954;6. https://doi.org/10.2118/297-g.
+[51] Abdelwahid S, Nemitallah M, Imteyaz B, Abdelhafez A, Habib M. Effects of H2 
+enrichment and inlet velocity on stability limits and shape of CH4/H2-O2/CO2 
+flames in a premixed swirl combustor. Energy Fuels 2018;32. https://doi.org/ 
+10.1021/acs.energyfuels.8b01958.
+[52] Hamdy M, El-Adawy M, Abdelhalim A, Abdelhafez A, Nemitallah MA. On the 
+effects of oxygen fraction on stability and combustion characteristics of dual-swirl 
+oxy-methane flames: an experimental and numerical study. Case Stud Therm Eng 
+2024;64. https://doi.org/10.1016/j.csite.2024.105519.
+[53] Abdelhalim A, Abdelhafez A, Nemitallah MA. Effects of non-premixed H2 injection 
+on the stability, shape, and combustion/emissions characteristics of premixed 
+CH4/air flames: an experimental study. Fuel 2024;365. https://doi.org/10.1016/j. 
+fuel.2024.131213.
+[54] Imteyaz BA, Nemitallah MA, Abdelhafez AA, Habib MA. Combustion behavior and 
+stability map of hydrogen-enriched oxy-methane premixed flames in a model gas 
+turbine combustor. Int J Hydrogen Energy 2018;43:16652–66. https://doi.org/ 
+10.1016/j.ijhydene.2018.07.087.
+[55] Nosek R, Zvada B, ˇDurˇcanský P, ˇCajov´a Kantov´a N, Miˇcko P. Numerical analysis of 
+hydrogen-enriched natural gas on combustion and emission characteristics. 
+Arabian J Sci Eng 2024. https://doi.org/10.1007/s13369-024-09484-7.
+G.A.Q. Abdulrahman et al.                                                                                                                                                                                                                   
+International Journal of Hydrogen Energy 197 (2026) 152685 
+18 

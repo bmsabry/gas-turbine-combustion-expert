@@ -1,0 +1,940 @@
+
+--- Page 1 ---
+
+Combustion and emission characteristics in a gas turbine
+combustor at dierent pressure and swirl conditions
+A. Datta *, 1, S.K. Som
+Department of Mechanical Engineering, Indian Institute of Technology, Kharagpur-721 302, India
+Received 1 March 1998; accepted 3 October 1998
+Abstract
+The practical challenge in research in the ®eld of gas turbine combustion mainly centres around a
+clean emission, a low liner wall temperature, a uniform exit temperature distribution for turbomachinery
+applications along with a fuel economy of the combustion process. An attempt to meet up the challenge
+has been made in the present paper in developing a computational model based on stochastic separated
+¯ow analysis of a typical diusion controlled spray combustion of liquid fuel in a gas turbine combustor
+to study the in¯uences of combustor pressure and inlet swirl on the combustion and emission
+characteristics within the combustor. A standard k±E model with wall function treatment for near wall
+region has been adopted for the solution of conservation equations in gas phase. The initial spray
+parameters are speci®ed by a suitable PDF size distribution and a given spray cone angle. A radiation
+model for the gas phase, based on ®rst order moment method, has been adopted in consideration of the
+gas phase as a grey absorbing±emitting medium. Formation of thermal NOx, as a post combustion
+reaction process, is determined from Zeldovich mechanism.
+It has been recognized that an increase in swirl number reduces the NOx emission level and improves
+the pattern factor at all combustor pressures. However, though at lower pressure an increase in swirl
+number reduces combustion eciency, the trend is exactly the reverse at higher pressure. With increase
+in pressure, pattern factor improves while the combustion eciency falls and the level of NOx emission
+increases. # 1999 Elsevier Science Ltd. All rights reserved.
+Keywords: Gas turbine; Spray combustion; Emission
+Applied Thermal Engineering 19 (1999) 949±967
+1359-4311/99/$ - see front matter # 1999 Elsevier Science Ltd. All rights reserved.
+PII: S1359-4311(98)00102-1
+PERGAMON
+* Corresponding author. Tel.: +91-3222-55221; fax: +91-5222-55303.
+1 On leave from Power Plant Engineering, Department, Jadavpur University.
+
+
+--- Page 2 ---
+
+Nomenclature
+b
+size parameter of Rosin±Rammler function
+B
+transfer number
+cp
+speci®c heat
+Cfs
+mean fuel vapour concentration at the droplet surface
+Cj
+mean concentration of jth species
+d
+droplet diameter
+De
+eective mass diusivity
+Ib(T)
+black body radiation intensity at temperature T
+m
+mass
+mÇfi
+rate of fuel injection
+M
+molecular weight
+Pr
+Prandtl number
+qi
+r
+radiative heat ¯ux in xi direction
+R
+radius of the combustion chamber
+Red
+droplet Reynolds number
+Rein
+inlet Reynolds number at swirler plane (r\rm inUzinD)/m\rm g
+in)
+_S
+gas phase mass source term due to droplets
+_SC
+gas phase species consveration equation source term
+_SE
+gas phase energy source term
+_SMi
+gas phase momentum source term due to droplets
+T
+mean temperature
+Ui
+mean velocity in xi direction
+Uz
+mean axial velocity
+Vi
+velocity in xi direction
+y
+molar concentration of species
+z
+dimensionless axial location
+Greek letters
+ae
+eective thermal diusivity
+g
+stoichiometric ratio
+l
+stoichiometric coecient
+mt
+eddy viscosity
+me
+eective viscosity
+r
+gas phase density
+Superscript
+d
+droplet phase
+g
+gas phase
+Subscript
+f
+fuel vapour
+i
+index of tensor notation
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+950
+
+
+--- Page 3 ---
+
+in
+inlet plane
+ex
+exit plane
+p
+product species
+1. Introduction
+Extensive research works in the area of gas turbine combustion have gone on over the
+last two decades in order to improve the design of both stationary gas turbines for power
+generation and aero-propulsion gas turbines. The principal objectives of these research
+works are to improve the combustion process in order to achieve higher combustion
+eciency with a uniform exit temperature and allowable liner wall temperature distribution
+and to reduce the combustion-generated polluting gases. Problems like acid rain and
+stratospheric ozone layer depletion increase the concern of today's world about the ill-
+eects
+of
+gaseous
+pollutants
+and
+have
+singled
+out
+NOx
+as
+a
+potentially
+hazardous
+component in this regard. Control of NOx emission from the combustion process thus
+becomes an important design criteria in modern gas turbine technology. A host of articles,
+both numerical and experimental in nature are available in literature on gas turbine
+combustion studies. The relevant numerical works [1±5] are based on the analysis of either
+axi-symmetric or asymmetric reacting ¯ow in the combustor and predict mainly the ¯ow
+structure and temperature pro®les in dierent zones within the combustor along with NOx
+concentration at combustor exit at dierent operating conditions of primary and secondary
+air ¯ow and fuel±air distribution. The pertinent experimental works [6±10], on the other
+hand, focus on the in¯uence of some important operating parameters like inlet swirl, air±
+fuel ratio, inlet pressure and temperature on ¯ow and combustion characteristics in the
+combustor using both gaseous and liquid fuel. It has been recognized from the previous
+works that pollutant emission levels from the combustor are particularly sensitive to
+operating parameters like inlet air swirl and combustor pressure [6]. Most of the works
+reported in literature in relation to the eects of both inlet swirl [1, 3, 6] and pressure [5, 6]
+on the combustion process in a gas turbine type combustor were conducted with gaseous
+fuels.
+Numerical
+and
+experimental
+works
+available
+[2, 4]
+in
+relation
+to
+liquid
+fuel
+combustion in a gas turbine, on the other hand, do not provide an explicit information on
+the in¯uences of inlet pressure and swirl on the combustion process. In liquid fuel
+combustion, combustor pressure will have a profound eect on the droplet vapourization
+rate by adjusting the partial pressure of fuel vapour at the droplet surface. The inlet swirl,
+on the other hand, will aect the trajectory of vapourizing droplets in determining the
+droplet penetration in the combustion chamber. Thus both these operating parameters
+in¯uence the vapourization of liquid fuel and the subsequent mixing of fuel vapour with air
+and should have profound eects on the combustion process and the resultant temperature
+and concentration ®elds in the combustor ®red with liquid fuel.
+The
+present
+paper
+describes
+a
+numerical
+model
+of
+two-phase
+gas
+droplet
+¯ow
+in
+consideration of gas phase radiation to predict the in¯uence of inlet swirl and combustor
+pressure on important combustion characteristics, namely combustion eciency, temperature
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+951
+
+
+--- Page 4 ---
+
+distribution and NOx formation caused by various complex processes associated with spray
+combustion in a gas turbine combustor.
+2. Theoretical formulation
+Evaporation and combustion of a continuously injected liquid fuel spray in a stream of air is
+solved in a can-type gas turbine combustor with divergent entry following a particle-source-in-
+cell (PSIC) modelling technique. The size and shape of the combustor (Fig. 1) is considered in
+conformity to the available literature. The air supply to the combustor is split among the
+swirler at entry and through two radial jets in the form of secondary and dilution air. The
+following assumptions are considered in the study:
+(i) The problem is considered to be axi-symmetric. Hence the radial jets are taken to be
+uniform over the periphery.
+(ii) Body forces and buoyancy forces are neglected.
+(iii) Virtual mass force and Basset force on the liquid particles are not considered due to high
+density ratio between the two phases.
+(iv) There is no nucleation, collision, break-up, coagulation and micro-explosion of droplets.
+(v) Droplets do not take part in radiative energy exchange which is solved as a purely gas
+phase phenomena.
+(vi) The fuel is considered to be n-hexane.
+Fig. 1. Physical model of the problem.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+952
+
+
+--- Page 5 ---
+
+2.1. Numerical model
+The mathematical model comprises an Eulerian±Lagrangian formulation for the gas phase
+and droplet phase, respectively, in which the coupling between the two phases is taken care of
+through interactive source terms as described by Faeth [11].
+2.1.1. Gas phase conservation equations
+Following averaged gas phase conservation equations are solved:
+Continuity:
+Dr
+Dt  r @Ui
+@xi
+ _S
+1
+Momentum:
+@
+@t rUi  @
+@xj
+rUiUj  ÿ @p0
+@xi
+ @
+@xj
+meff
+@Ui
+@xj
+ @Uj
+@xi
+
+
+
+
+ _SM
+2
+where,
+p0  p  2
+3 rk  2
+3 meff
+@Uj
+@xj
+3
+and,
+meff  m  mt  m  cmr k2
+E
+4
+Turbulent kinetic energy (k):
+r Dk
+Dt  @
+@xi
+mt
+sk
+@k
+@xi
+
+
+ P ÿ rE
+5
+where, turbulent kinetic energy production rate P is given by
+P  mt
+@Ui
+@xj
+ @Uj
+@xi
+
+ @Ui
+@xj
+ÿ 2
+3
+@Ui
+@xi
+rk  mt
+@Ui
+@xi
+
+
+6
+Turbulent kinetic energy dissipation rate (E):
+r DE
+Dt  @
+@xi
+mt
+sE
+@E
+@xi
+
+
+ c1E
+E
+k P ÿ rc2E
+E2
+k
+7
+Typical constants for standard k±E method are taken as:
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+953
+
+
+--- Page 6 ---
+
+cm  0:09;
+c1E  1:44;
+c2E  1:92;
+sk  1:0;
+sc  1:3
+Individual species conservation
+@
+@t rCj  @
+@xi
+rUiCj  @
+@xi
+rDeff
+@Cj
+@xi
+
+
+ _SC
+8
+The species equation is solved for fuel vapour, oxygen, carbon-dioxide and water vapour,
+while nitrogen concentration is obtained by dierence.
+Energy
+@
+@t rg
+pT  @
+@xi
+rcg
+pUiT  @
+@xi
+rcg
+gaeff
+@T
+@xi
+
+
+ÿ @qr
+i
+@xi
+ _SE
+9
+The energy source term _SE has two componentsÐone is the energy absorbed by the liquid
+drops during their heating-up period calculated from the interphase transport, and the other is
+the energy generated due to chemical reaction.
+The reaction between fuel vapour and oxygen is assumed to be a single step, irreversible,
+global reaction following ®nite rate chemistry:
+C6H14  9:5O2 ÿ46CO2  7H2O
+10
+The reaction rate is obtained from either of the following equations:
+_wk  Kr2 CfCO2
+MfMO2
+exp ÿ E
+RT
+
+
+11
+for kinetic controlled reaction
+_wd  A r
+Mf
+E
+k min Cf; Co2
+g ; cCp
+1  g
+
+
+12
+for turbulent diusion controlled reaction [12]. A and c in Eq. (12) are constants.
+The energy source due to reaction will be,
+DHRMfmin _wk; _wd
+13
+where DHR is the enthalpy of reaction.
+The radiative energy exchange is evaluated assuming the gas phase to be a grey, absorbing±
+emitting medium and solving the radiative transfer equation following the ®rst-order moment
+method [13] which reduces the integro-dierential equation of radiative exchange into a
+dierential equation. The following equation is obtained for qi
+r:
+@qr
+i
+@xi
+ k4pIbT ÿ G
+14
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+954
+
+
+--- Page 7 ---
+
+where the irradiation G is related to qi
+r as
+qr
+i  ÿ 1
+3k
+@G
+@xi
+15
+In the light of the assumption of a grey gas radiation model, the absorption coecient k is
+replaced by Planck's mean absorption coecient kP. The local value of kP is computed as,
+kP  CH2OkPH2OT  CCO2kPCO2T
+16
+The values of kP(T) as a function of temperature for CO2 and H2O are taken from Sparrow
+and Cess [14].
+2.1.2. Generation of droplet phase information
+The fuel spray injected continuously into the combustor is considered to be speci®ed by an
+initial size distribution function along with an initial velocity and temperature same for all
+droplets. The velocity, mass and temperature history of all droplet classes along their
+trajectories are obtained from the respective conservation equations on a Lagrangian frame as
+follows:
+Droplet velocity
+md dVd
+i
+dt  p
+8 C2
+DjVg
+i ÿ Vd
+i jVg
+i ÿ Vd
+i 
+17
+Drag coecient CD is computed following the standard drag law [15].
+The eect of gas phase turbulence on the droplet motion is simulated using a stochastic
+approach. The instantaneous gas phase velocity (V g
+i ) is obtained by computing the ¯uctuating
+velocity component from the turbulent kinetic energy in consideration of isotropic turbulence,
+and using a normally distributed random number z as
+Vg
+i  Ui  z
+
+2k
+3
+r
+18
+Droplet mass
+dmd
+dt  ÿrmbpd2Cfs ÿ Cf
+19
+where, r m is the density of gas phase at the droplet surface.
+Droplet temperature
+mdcd
+p
+dTd
+dt  hpd2T ÿ Td  dmd
+dt DHv
+20
+where, DHv is the enthalpy of vapourization of the liquid fuel at droplet temperature.
+Mass transfer coecient b and heat transfer coecient h in Eqs. (19) and (20) are evaluated
+from the standard correlations
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+955
+
+
+--- Page 8 ---
+
+Sh1  B  2  0:6Re0:5
+d Sc0:33
+21
+Nu1  B  2  0:6Re0:5
+d Pr0:33
+22
+Eqs. (17), (19) and (20) are solved for V i
+d, md and T d with appropriate initial conditions.
+The initial drop size distribution of liquid fuel spray is assumed to follow a realistic Rosin±
+Rammler four parameter distribution function, given as,
+G0di 
+expÿbdn
+i  ÿ expÿbdn
+max i
+expÿbdn
+min i ÿ expÿbdn
+max i
+23
+where G0(di) is the mass fraction of the spray having diameter above din. The dispersion
+parameter n is taken as 3 following Mugele and Evans [16].
+2.1.3. NO formation
+As NO constitutes the largest share of NOx formed in combustion, its formation is
+calculated following the Zeldovich mechanism in a similar manner to that adopted by
+Ramos [1]. Since the initial step of this reaction mechanism involves a very high activation
+energy, it is assumed that the NO formation process is decoupled from the hydrocarbon
+combustion and occurs as a post-combustion reaction process. The NO formation is governed
+by the following equations:
+O  N2  NO  N
+24
+N  O2  NO  O
+25
+A steady-state assumption made for the calculation of N-atoms gives
+dyv
+dt  0
+26
+The O-atom is assumed to be in equilibrium with the O2 molecule as
+M  O2  M  2O
+27
+where M is a third body.
+The rate of formation of NO is calculated as
+dyNO
+dt
+ K1yN2yO ÿ K2yNOyN  K3yNyO2 ÿ K4yNOyO
+28
+where the values of yN and yO are obtained from the assumptions given in Eqs. (26) and (27).
+The speci®c reaction rates K1±K4 for the above reactions are taken from Ramos [1].
+The species conservation equation for NO is solved with its rate of formation as the source
+term to get NO concentration within the combustor as well as at the combustor exit.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+956
+
+
+--- Page 9 ---
+
+3. Method of solution
+3.1. Numerical scheme
+The numerical code consisted of two dierent modulesÐone for gas phase computation and
+the other for calculation of the droplet phase.
+The gas phase conservation equations were solved with appropriate boundary conditions
+following explicit ®nite dierence technique. The conservation equations were ®rst non-
+dimensionalised against reference quantities and then discretized following a staggered grid
+arrangement. The reference length was taken to be the combustor diameter (D), the reference
+velocity to be the axial velocity through the swirler (Uzin), the reference temperature to be the
+ambient temperature (Ta=300 K) and the reference time to be (D/Uzin). The diusion and
+convective terms were discretized by central and hybrid dierencing schemes respectively. The
+coupling between pressure and velocity was accomplished using a MAC-based SOLA
+algorithm [17] . Energy and species conservation equations were solved in a coupled form with
+the continuity and momentum equations to account for the variation in density with
+temperature and concentration. The solution procedure in this module continued till a steady
+state convergence was attained.
+The ordinary dierential equations of the droplet phase were solved by a fourth order
+Runge±Kutta method to generate droplet information required for the gas phase source terms.
+The solution in this module continued until all the representative droplets of the dierent
+classes extinguished in the process of evaporation.
+The two modules were invoked alternately to solve the respective equations until a ®nal
+convergence was arrived at. This was considered to be achieved when the result of any module
+did not alter the result of the other module.
+3.2. Numerical mesh
+A numerical mesh of 85  30 grid nodes was used after several experiments, which
+showed that further re®nement in either direction did not change the result (maximum
+dierence in velocity and other scalar functions in the carrier phase) by more than 2%. The
+grid spacings in axial and radial directions were changed smoothly to minimize the
+deterioration of the formal accuracy of the ®nite dierence scheme due to variable grid
+spacing and in such a way that a higher concentration of nodes occurs near the swirler and
+the radial holes.
+3.3. Operating parameters and boundary conditions
+The total air ¯ow to the combustor was split among the swirler and the two radial
+jets according to a ratio of 5:7:8 following Cameron et al. [10]. An air±fuel ratio of 60 was
+used. Swirl number was calculated assuming a solid body type rotation generated by the
+helicoidal vanes in the swirler. The air entering the combustor was considered to be at
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+957
+
+
+--- Page 10 ---
+
+600 K. The fuel spray is considered to have a sauter mean drop diameter of 52 mm and a
+cone angle of 808.
+A zero axial gradient was prescribed at the outlet for all variables. Standard logarithmic law
+of wall was considered at the solid walls. For radiation calculation, the end planes were
+assumed to be radiatively adiabatic and Marshak boundary condition was applied at the solid
+combustor wall.
+4. Results and discussion
+4.1. Flow and temperature distribution in the combustor
+Figs. 2a and b show the ¯ow ®eld within the combustor under reactive situation for two
+dierent inlet swirl numbers. At a higher swirl number of 0.76 (Fig. 2a) a distinct toroidal
+recirculation is observed at a central region in the primary zone of the combustor. The
+recirculatory ¯ow is shifted slightly o-axis at the downstream near the location of the
+secondary jet injection. However, at a lower swirl number of 0.37 (Fig. 2b) the central
+Fig. 2. Velocity vector plot within the combustion chamber, (a) Rein=52,100, swirl number = 0.76, combustor
+pressure = 100 kPa. (b) Rein = 52,100, swirl number = 0.37, combustor pressure = 100 kPa.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+958
+
+
+--- Page 11 ---
+
+Fig. 3. Comparisons of predicted axial and tangential velocity distributions with Chang and Chen [18] and
+Dellenback [19]. (Ð) Present computation, (r) Chang and Chen, (+) Dallenback.
+Fig. 4. Contours of dimensionless temperature (T/Ta) within the combustion chamber. (a) Rein=52,100, swirl
+number = 0.76, combustor pressure = 100 kPa. (b) Rein=52,100, swirl number = 0.37, combustor pressure = 100
+kPa.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+959
+
+
+--- Page 12 ---
+
+recirculatory zone is absent, while a recirculation is observed around the wall region in the
+primary zone which may be attributed to the expansion that occurs as the ¯ow enters the
+chamber.
+The
+radial
+pressure
+gradient
+for
+higher
+swirl
+number
+overcomes
+this
+wall
+recirculation in the ¯ow.
+A comparison of the axial and tangential velocity distribution predicted by our model, in
+case
+of
+an
+axi-symmetric
+sudden-expansion
+swirling
+¯ow,
+has
+been
+made
+with
+the
+computational work of Chang and Chen [18] and the experimental results of Dellenback [19]
+under the similar situation in order to calibrate the present model for the elliptic ¯ow ®eld.
+Figs. 3a and c show a fair agreement of the predicted axial and tangential velocity pro®les near
+the inlet region (z = 0.75) with the computations of Chang and Chen, and the empirical values
+of Dellenback. However, it is observed from Fig. 3b and d, that the present numerical results
+and the computations of Chang and Chen, being in agreement with each other, do not
+conform
+well
+with
+the
+experimental
+results
+of
+Dellenback
+for
+the
+tangential
+velocity
+distribution at far downstream from the inlet (z = 4.0) and mainly near the axis. This was
+explained by Chang and Chen in the light of under-prediction of the length of central toroidal
+recirculation zone by the standard k±E model. Therefore, the theoretical model predicts a
+relatively lower strength of swirl at the downstream location.
+Figs. 4a and b describe the dimensionless temperature distribution within the combustor
+under a steady reactive condition for the given operating parameters. The high temperature
+contours, depicting the ¯ame, are located in the primary zone from where they spread
+downstream. For a higher swirl number (Fig. 4a) the ¯ame, guided by the typical ¯ow ®eld,
+Fig. 5. Variation of liner wall temperature along the length of the combustor for dierent swirl numbers (combustor
+pressure = 100 kPa).
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+960
+
+
+--- Page 13 ---
+
+Fig. 6. (a) Exit temperature distribution for dierent swirl nmbers (Rein=52,100, combustor pressure = 100 kPa).
+(b) Exit temperature distribution for derent combustor pressure (Rein=52,100, swirl number = 0.76).
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+961
+
+
+--- Page 14 ---
+
+spreads in the radial direction, but shows a lower temperature near the wall. On the other
+hand, for a lower swirl number, the ¯ame, in the absence of the central recirculation zone,
+elongates in the axial direction and at the same time engulfs the region near the wall due to
+the wall recirculation in the primary zone. This causes a higher liner metal temperature for a
+lower inlet swirl. The temperature distribution along the combustor wall (Fig. 5) depicts the
+physical phenomena as well.
+4.2. Exit temperature
+The combustor exit temperature distribution and the corresponding pattern factor have a
+strong impact in a gas turbine plant. Fig. 6a and b show the eects of inlet swirl and
+combustor pressure on the exit temperature distribution, corresponding pattern factor values
+are listed in Table 1 and 2. It is observed under all situations that the exit temperature
+follows the same pattern with a maximum at the axis and the lowest value near the wall,
+which may not be true in the asymmetric combustion chambers with discrete blowing holes
+for actual gas turbines. However, the predicted bulk temperature from our model agrees well
+Table 1
+In¯uence of inlet swirl number on combustion and emission parameters. Inputs: Rein=52,100, mean drop
+diameter = 52 mm, spray cone angle = 808, air±fuel ratio = 60, inlet temperature = 600 K
+Sample
+number
+Inlet
+pressure
+(kPa)
+Swirl
+number
+Combustion
+eciency
+(%)
+Pattern
+factor
+Exit NO
+concentration
+(bulk)
+(ppm)
+1
+100
+0.37
+97.59
+0.710
+72.37
+2
+100
+0.76
+95.34
+0.656
+19.16
+3
+600
+0.37
+87.24
+1.062
+250.8
+4
+600
+0.76
+91.32
+0.888
+203.7
+Table 2
+In¯uence of combustor pressure on combustion and emission parameters. (Inputs as Table 1)
+Sample
+number
+Inlet
+pressure
+(kPa)
+Swirl
+number
+Combustion
+eciency
+(%)
+Pattern
+factor
+Exit NO
+concentration
+(bulk)
+(ppm)
+1
+100
+0.76
+95.34
+0.656
+19.16
+2
+300
+0.76
+93.56
+0.813
+125.2
+3
+600
+0.76
+91.32
+0.888
+203.7
+4
+1000
+0.76
+83.31
+0.923
+310.7
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+962
+
+
+--- Page 15 ---
+
+with the counterpart experimental results by Cameron et al. [10] under a similar situation.
+Fig. 6a shows that inlet swirl number has almost a negligible in¯uence on the exit
+temperature distribution. Combustor pressure, on the other hand, shows a signi®cant eect
+on the exit temperature distribution (Fig. 6b), with pattern factor values increasing with
+pressure. The non-uniformity in the exit temperature distribution with pressure may be
+caused by the fact that the increase in pressure hinders the liquid droplets from spreading
+across the combustor in the radial direction downstream. This will arrest the fuel vapour
+concentration mostly near the axis and will narrow down the high temperature zone in the
+central region attributing a non-uniformity in the exit temperature distribution.
+4.3. Combustion eciency
+Combustion eciency of a combustor is a measure of its ability to burn the fuel completely
+within it and is given by
+Zc  1 ÿ 2p
+ R
+0 rex  Uzex  Cfex  r  dr
+_mfi
+29
+Thus the exit fuel vapour concentration becomes the index of combustion eciency for a
+particular set of operating parameters and ¯ow situation. Fig. 7a±c compares the exit
+distribution of fuel vapour under various operating parameters and Tables 1 and 2 give the
+corresponding Zc values. The most interesting feature observed in this context is that the
+qualitative trend of the in¯uence of inlet swirl number of primary air ¯ow on combustion
+eciency becomes exactly the opposite when the combustor pressure is changed from a lower
+to a higher value. It is found that at a lower pressure of 100 kPa, an increase in inlet swirl
+number reduces the combustion eciency, while the trend is reversed when the pressure is
+increased to 600 kPa. A possible physical explanation of this contrasting phenomenon may be
+put forward as follows: the purpose of imparting swirl to incoming primary air is to cause an
+on-axis recirculatory ¯ow near the upstream region of the primary zone in enhancing the rates
+of droplet vapourization and mixing of fuel vapour in air along with the subsequent
+stabilization of ¯ame, but on the other hand the recirculatory ¯ow ®eld in the inlet region of
+the combustor reduces the penetration of droplets to further downstream in the primary zone
+for a more eective droplet vapourization and burning. The relative role of these two counter-
+weighing eects depend on the range of operating parameters, mainly the inlet pressure and
+mean drop diameter. At lower pressure the adverse eect of reduced droplet penetration due to
+an increase in inlet swirl of primary air plays the dominant role in reducing the combustion
+eciency. However, when the pressure in the combustion chamber is high, the droplet
+penetration is as such low. Hence, the favourable eect of enhanced droplet vapourization and
+mixing of fuel vapour in air on the burning rate due to an increase in inlet air swirl plays the
+prominent role in increasing the combustion eciency.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+963
+
+
+--- Page 16 ---
+
+4.4. Exit NO concentration
+It is observed (Fig. 8a, b) that an decrease in the inlet swirl number increases the bulk NO
+concentration at the exit which is even more pronounced at lower pressure. However, earlier
+literature with gaseous fuel reported contrasting results. Although Kevin Owen et al. [6]
+Fig. 7. Exit fuel vapour distribution for dierent swirl numbers at (a) low combustor pressure (100 kPa), and (b)
+high combustor pressure (600 kPa). (c) Exit fuel vapour distribution for dierent combustor pressures (swirl
+number = 0.76).
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+964
+
+
+--- Page 17 ---
+
+reported a signi®cant increase in NO emission with increasing swirl, the works of Ramos [1]
+and Sokolov et al. [3] showed the opposite trend. The present results are in line with that of
+Ramos and Sokolov et al., which show that a larger recirculation zone at the combustor
+centreline causes lower NO emission (Table 1). Since the formation of thermal NO is
+dependent mostly on the temperature, the NO concentration distribution follows the same
+pattern as that of temperature.
+Fig. 8. Exit NO distribution for dierent swirl numbers at (a) low combustor pressure (100 kPa), and (b) high
+combustor pressure (600 kPa). (c) Exit NO distribution for dierent combustor pressures (swirl numbers = 0.76).
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+965
+
+
+--- Page 18 ---
+
+Combustor pressure is found to have a direct in¯uence on the NO formation (Fig. 8c).
+Recent work of Amin et al. [5] concludes that for gaseous fuel combustion in an axisymmetric
+gas turbine combustor NO concentration is proportional to the 1.5 exponent of pressure.
+Although the combustion mechanism of liquid fuel diusion ¯ame diers from gaseous fuel
+diusion ¯ame, in that the former involves an additional physical process of vapourization of
+liquid fuel before subsequent mixing and combustion, it is most signi®cant to note from our
+numerical experiment that even for liquid fuel the exponent of pressure, on which NO
+concentration depends, varies between 1.2 and 1.7. The reason may be that the kinetics of NO
+formation is very slow due to high activation energy and is almost unin¯uenced by the physical
+processes before combustion.
+The results of the work as discussed in the present section provide the guideline to decide
+upon the operating parameters of a typical gas turbine combustor to have the desired
+performances. For an example, a relatively lower inlet pressure but a higher inlet swirl of
+incoming primary air will result in a better fuel economy, a more uniform exit temperature
+distribution along with a clean emission. The physical mechanisms through which the
+operating parameters are related to the performance characteristics depend mainly on the
+nature of gas phase ¯ow ®eld and its interaction with the dispersed droplet phase as described
+in the present section. This understanding will help in designing a combustion system to meet
+the requirements of a desired performance at given operating conditions.
+5. Conclusion
+A numerical model of liquid fuel spray combustion in a gas turbine combustor has been
+developed to recognize the in¯uence of inlet swirl number and combustion pressure on
+important combustion and emission characteristics as follows:
+. In¯uence of inlet swirl number on combustion eciency shows opposite trends at low and
+high combustion pressure. An increase in swirl number reduces the combustion eciency at
+a combustion pressure of 100 kPa, while it increases the combustion eciency when the
+combustor pressure is 600 kPa. However, with an increase in inlet swirl number, pattern
+factor remains almost unaected while NO formation is reduced at all pressures.
+. An increase in combustor pressure, for a ®xed inlet temperature, results in (i) a reduction in
+combustion eciency, (ii) further non-uniformity in the exit temperature distribution, and
+(iii) an increase in the formation of NO in the combustor. The variation of mean NO at exit
+with pressure is found to have an exponent of around 1.5.
+References
+[1] J.I. Ramos, A numerical study of a swirl stabilized combustor, J. Non-Equilib. Thermodyn. 10 (1985) 263±286.
+[2] H.K. Ma, F.H. Lee, M.W. Wang, Numerical study on heat and mass transfer in a liquid-fueled gas-turbine
+combustor, Int. J. Heat Mass Transfer 36 (13) (1993) 3271±3281.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+966
+
+
+--- Page 19 ---
+
+[3] K.Y.
+Sokolov,
+A.G.
+Tumanovskiy,
+M.N.
+Gutnik,
+A.V.
+Sudarev,
+Y.I.
+Zakharov,
+E.D.
+Winogradov,
+Mathematical modelling of an annular gas turbine combustor, ASME J. Engng Gas Turbine Power 117 (1995)
+94±99.
+[4] A.K. Tolpadi, Calculation of two-phase ¯ow in gas turbine combustor, ASME J. Engng. Gas Turbine Power
+117 (1995) 695±703.
+[5] E.M. Amin, G.E. Andrews, M. Pourkishnian, A. Williams, R.A. Yetter, A computational study of pressure
+eects on pollutant generation in gas turbine combustors, ASME J. Engng. Gas Turbine Power 119 (1997) 76±
+83.
+[6] Owen F. Kevin, L.J. Spadaccini, C.T. Bowman, Pollutant formation and energy release in con®ned turbulent
+diusion ¯ames. Sixteenth Symposium (International) on Combustion. The Combustion Institute, 1977, pp.
+105±117.
+[7] W.P. Jones, H. Toral, Temperature and composition measurement in a research gas-turbine combustion
+chamber, Combust. Sci. Technol. 31 (1983) 249±275.
+[8] M.V. Heitor, J.H. Whitelaw, Velocity, temperature and species characteristics of the ¯ow in a gas turbine com-
+bustor, Combust. Flame 64 (1986) 1±32.
+[9] A.F. Bicen, M. Senda, J.H. Whitelaw, Scalar characteristics of combusting ¯ow in a model annular combustor,
+ASME J. Engng. Gas Turbine Power 111 (1989) 90±96.
+[10] C.D. Cameron, J. Brouwer, C.P. Wood, G.S. Samuelson, A detailed characterization of the velocity and ther-
+mal ®elds in a model can combustor with wall jet injection, ASME J. Engng. Gas Turbine Power 111 (1989)
+31±35.
+[11] G.M. Faeth, Evaporation and combustion of sprays, Prog. Energy Combust. Sci. 9 (1983) 1±76.
+[12] B.F. Magnussen, B.H. Hjertager, On mathematical modelling of turbulent combustion with special emphasis on
+soot formation and combustion. Sixteenth Symposium (International) on Combustion. The Combustion
+Institute, 1977, pp. 719±727.
+[13] M.N. Ozisik, Radiative Heat Transfer. Wiley, NewYork, 1973.
+[14] E.M. Sparrow, R.D. Cess, Radiation Heat Transfer. Hemisphere, Washington, DC, 1978.
+[15] R. Clift, J.R. Grace, M.E. Weber, Bubbles, Drops and Particles. Academic Press, New York, 1978.
+[16] R.A. Mugele, H.D. Evans, Droplet size Distribution in Sprays, Ind. Engng. Chem. 43 (1951) 1317±1324.
+[17] C.W. Hirt, J.L. Cook, Calculating three-dimensional ¯ows around structures and over rough terrain, J.
+Comput. Phys. 10 (1972) 324±341.
+[18] K.C. Chang, C.S. Chen, Development of a hybrid k±E turbulence model for swirling recirculating ¯ows under
+moderate to strong swirl intensities, Int. J. Numer. Meth. Fluids 16 (1993) 421.
+[19] P.A. Dellenback, Heat transfer and velocity measurements in turbulent swirling ¯ow through an abrupt axi-
+symmetric expansion. Ph.D. Thesis. Arizona State University, Tempe, AZ, 1986.
+A. Datta, S.K. Som / Applied Thermal Engineering 19 (1999) 949±967
+967

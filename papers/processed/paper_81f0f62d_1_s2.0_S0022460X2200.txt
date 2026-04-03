@@ -1,0 +1,922 @@
+
+--- Page 1 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+Available online 30 December 2022
+0022-460X/©
+2023
+The
+Authors.
+Published
+by
+Elsevier
+Ltd.
+This
+is
+an
+open
+access
+article
+under
+the
+CC
+BY
+license
+(http://creativecommons.org/licenses/by/4.0/).
+Contents lists available at ScienceDirect
+Journal of Sound and Vibration
+journal homepage: www.elsevier.com/locate/jsvi
+Failure of thermoacoustic instability control due to periodic hot gas
+ingestion in Helmholtz dampers
+Luigi Miniero ∗, Georg A. Mensah, Claire Bourquard, Nicolas Noiray ∗
+CAPS Laboratory, Mechanical and Process Engineering Department, ETH Zürich, 8092 Zurich, Switzerland
+A R T I C L E
+I N F O
+Keywords:
+Thermoacoustic instabilities
+Helmholtz damper
+Hot gas ingestion
+Duffing Van der Pol oscillator
+Intermittency
+A B S T R A C T
+Passive damping devices such as Helmholtz dampers are often employed in gas turbines to
+mitigate thermoacoustic instabilities. The periodic ingestion of the combustion chamber hot
+gas in the resonant cavity of Helmholtz dampers can be a serious issue, if not considered in
+the design phase of these devices. The periodic hot gas ingestion modulates the density in the
+damper neck and thereby the damper’s resonance frequency. This effect, combined with the
+nonlinearities in the acoustic damping caused by the periodical reversal of the flow direction in
+the neck, can prevent the intended control of the thermoacoustic feedback. Despite its relevance
+for gas turbine design, this topic has not received significant attention in literature. This study
+presents experimental and theoretical investigations of that problem. A physics-based model is
+derived with a few empirical parameters, calibrated with data which were collected from an
+experimental setup comprising a tunable Helmholtz damper connected to a combustor operated
+at atmospheric pressure. This model of noise-driven coupled oscillators with nonlinear damping
+and stiffness is capable of reproducing the bistable dynamics observed in the experiments for
+specific ranges of equivalence ratios. The model is then used to draw general conclusions
+about the robustness of dampers with respect to this unwanted phenomenon. In particular,
+the influence of the geometry and flow conditions on the damping and stiffness nonlinearities,
+which both participate to possible failure of the passive control, is described. We show that in
+the case of broadband dampers, the effect of the nonlinear stiffness is weaker than the one of
+damping nonlinearity, and that it can become significant for more narrow-band dampers. The
+results can be used for designing acoustic dampers that are robust with regard to the risk of
+spontaneous loss of thermoacoustic stability due to periodic hot gas ingestion.
+1. Introduction
+Guided from the increasingly stringent pollutant emissions regulations of the last years, the future of the energy sector is oriented
+towards the integration of gas turbines burning sustainable fuels in combination with renewable energy technologies. In fact, the
+volatility of renewable energy production could be compensated by employing the surplus power to produce sustainable fuels that
+could be then burnt on-demand in low-emissions gas turbines [1,2]. For this reason, the attention of gas turbines manufacturers has
+turned to combustors capable of operating with these fuels while reducing pollutant emissions. The goal can be achieved by burning
+fuels in lean premixed combustion. This regime reduces the NOx emissions by lowering the peak temperature in the combustion
+chamber. The major drawback of these systems is their higher tendency to develop thermoacoustic instabilities [3]. They result
+from the coherent interaction between the unsteady heat release and the acoustic pressure field [4] and can damage structural
+∗Corresponding authors.
+E-mail addresses:
+minierol@ethz.ch (L. Miniero), noirayn@ethz.ch (N. Noiray).
+https://doi.org/10.1016/j.jsv.2022.117544
+Received 16 April 2022; Received in revised form 4 November 2022; Accepted 27 December 2022
+
+
+--- Page 2 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+2
+L. Miniero et al.
+Fig. 1. (a) sketch of the combustor where the main components are indicated with arrows. Subfigures (b) and (c) show a closer view of the Helmholtz damper
+with the piston in tuned and detuned position, respectively. (d) shows the top view of the Helmholtz damper. The dimensions are in mm.
+components, reducing the lifetime of the machine significantly. The prediction and suppression of these self-induced oscillations is
+a major difficulty in the design of modern gas turbines and aeroengines combustors and it is often achieved by coupling acoustic
+dampers such as Helmholtz resonators to the combustion chamber, e.g. [5–9].
+A Helmholtz damper is schematically illustrated in Fig. 1. It consists of a back volume, connected to a combustion chamber
+through a neck. A common approach to describe the linear behaviour of these oscillators is through an analogy with a mechanical
+mass–spring–damper oscillator, where the mass of the system represents the incompressible motion of the mass of air in the neck
+of the damper and the spring the compressibility of the air in the back volume [10].
+The Helmholtz resonance frequency, 𝑓d, is then given by:
+𝑓d = 𝜔d
+2𝜋= 𝑐d
+2𝜋
+√
+𝑎
+𝑉d𝑙eff
+,
+(1)
+where 𝑐d denotes the speed of sound in the damper, 𝑎the cross-sectional area of the neck, 𝑉d the back volume of the damper, and
+𝑙eff the effective length of the neck which is the sum of the physical length of the neck and the end-correction at both ends of the
+neck [11].
+The description of the behaviour of a damper in isolation, is however not sufficient to analyse its effect on the system’s
+stability when it is coupled to a chamber. Among the numerous articles dealing with the stability of acoustic modes in systems
+composed of dampers coupled to a cavity, there is notably the work of Fahy and Schofield [12]. They investigated the damping
+enhancement of one eigenmode of a chamber induced by the presence of a well-tuned damper. This linear theory was then extended
+by Cummings [13] for multiple cavity modes.
+Over the last decades, one of the key themes in the community of researchers dealing with thermoacoustics of combustors
+has been the investigation of passive control approaches of the instabilities using dampers [14–17]. In particular, several studies
+have described the effect of placement and different geometrical parameters on the damping effectiveness of Helmholtz resonators.
+Mensah and Moeck [18] proposed a computationally-efficient adjoint-based method to increase the effectiveness of acoustic dampers
+by finding the optimal positioning and tuning on a generic annular combustor model. The influence of the location of Helmholtz
+dampers on the modal dynamics of annular combustion chambers was also investigated by Mazur et al. [19]. Betz et al. [20]
+studied experimentally how the number of quarter wave resonators, their spatial distribution and the amount of purge air affect
+the damping characteristics of an annular lab-scale burner. Yang et al. [21] presented a linear low-order model describing the
+acoustic behaviour of a hot annular duct with a mean flow, accounting for the presence of Helmholtz dampers. Furthermore, they
+introduced a gradient-based optimization method of the longitudinal and axial positions and dimensions of dampers in order to
+obtain the highest damping of acoustic modes in a given frequency range. In addition, Zalluhoglu et al. [22] focused on dampers
+placement on a Rijke tube, Jo et al. [23] on the orifices dimensions and number of cavities and Pan et al. [24] on the presence of
+grazing flow.
+In gas turbine applications, Helmholtz dampers are usually purged with bypass flow coming from the compressor (purge flow) in
+order to avoid the penetration of the hot and corrosive combustion products in the back volume of the damper and to ensure a large
+range of acoustic amplitude for which the damping of the device remains linear. When the amplitude of the acoustic velocity is larger
+than the mean velocity of purge flow in the neck of the damper, hot gas is periodically ingested by the damper neck. The periodic
+reverse flow of hot gas in the neck has two effects. First, it dynamically varies the density in the neck of the damper, affecting the
+resonance frequency. As a consequence, it perturbs the coupling with the combustion chamber by introducing a nonlinearity in the
+reactance of the damper. Second, it influences the acoustic dissipation occurring at the neck due to viscous effects in a nonlinear
+
+
+--- Page 3 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+3
+L. Miniero et al.
+way, i.e. the Helmholtz damper resistance becomes nonlinear with respect to the acoustic amplitude when the latter is large enough
+to induce periodic flow reversal in the neck.
+A naive solution to mitigate the risk of damping failure due to dynamic hot gas ingestion would be to simply increase the purge
+flow velocity in the neck of the damper. However, this has to be done carefully, as it is not beneficial from other key perspectives.
+First of all, there is an optimum mass flow [25] which should not be exceeded, because it would otherwise worsen the linear stability
+of the thermoacoustic system. Second, any increase of the purge mass flow of the damper has a negative effect on the global cycle
+efficiency of the gas turbine, as the compressor air used for this purpose does not contribute to the power generation of the cycle.
+For these reasons, the importance of not oversizing the purge mass flow, combined with the potential severe damages induced by
+the phenomenon, make the correct modelling and prediction of the hot gas ingestion in Helmholtz dampers an important research
+topic. Furthermore, only a few research papers deal with this phenomenon and there is a gap in that regard in the literature. This
+work aims at disentangling the two different types of nonlinearities in order to better design Helmholtz dampers for suppressing
+thermoacoustic instabilities.
+In the next paragraphs, we briefly review important contributions which are relevant to the design of robust and broadband
+Helmholtz dampers for gas turbines applications and which partly address the mechanism involved in the nonlinear dynamics of
+periodic hot gas ingestion events.
+The impedance model of a Helmholtz resonator was originally introduced by Helmholtz [26] and, among many others, was
+further developed by Keller and Zauner [27] and Bellucci et al. [10]. Indeed, the latter reference presents a model of the impedance
+of a Helmholtz resonator which accounts for the purge flow and the nonlinearity induced by the periodic reversal of the flow for
+the case of damper necks that are subject to mean bias flow in isothermal configurations. Subsequent studies further developed
+this model by considering physical constraints pertaining to combustion environment. In particular, Ćosić et al. [28] extended the
+nonlinear damper model of Keller and Zauner [27] to account for the effect of the periodic ingestion of hot gas in the neck of a
+Helmholtz resonator. The density variation was modelled with a time-dependent and spatially-averaged equation. The amount of
+ingested hot gas was related to the acoustic oscillations in the combustion chamber at the damper axial location. When compared
+against experimental results, this nonlinear model allows predictions of the shift of the resonance frequency associated with the
+change of the mean air temperature in the neck induced by periodic hot gas ingestion. Their work focused on the nonlinear
+response of the damper to acoustic forcing. They however did not investigate the coupled dynamics of the system composed by
+the damper and the combustion chamber. Later, Bothien et al. [29] analysed the drift of resonance frequency caused by a neck
+end-correction which depends on the temperature difference between the damper and the combustion chamber for acoustic forcing
+amplitudes that are sufficiently low to not induce periodic flow reversal, i.e. corresponding to a linear regime. They introduced a
+correction factor dependent on the density ratio between the back volume of the damper and the combustion chamber. Wassmer
+et al. [30] subsequently tested this length correction model against experimental data obtained with a Helmholtz damper connected
+to a combustion chamber. They showed that it overall improves the resonance frequency estimates compared to the isothermal
+model when temperature differences are not too large. Yang and Morgans [31] also investigated and modelled the effect of the
+difference of temperature between air in the neck of a Helmholtz resonator and the combustion chamber for acoustic forcing
+amplitudes that are sufficiently low to be in the linear regime. Ćosić et al. [32] built upon [28] and further elucidated the effect of the
+interaction between the purge flow and the hot grazing flow in a Helmholtz damper on the damping efficiency and the resonance
+frequency of the device. In particular, they scrutinized the effect of the acoustic forcing amplitude on the resonance frequency.
+Zahn et al. [33] introduced a numerical method to predict the linear stability limit of an annular combustor when coupled or not
+to quarter waves tubes. The validation of their model against experimental results required a sensitivity analysis to account for the
+damping performance deterioration induced by the damper resonance frequency shift caused by hot gas ingestion. More recently,
+Betz et al. [34] experimentally analysed the relation between the mean temperature in the necks of a Helmholtz resonator with
+multiple necks and the amplitude of the acoustic pressure in an annular combustion chamber. They reported ingestion of hot gas
+in some necks of the resonator, leading to a detuning and, consequently to a reduction of their damping performance.
+The main novelty of the present work is that we model the nonlinear two-way interaction between a Helmholtz damper and
+the thermoacoustic dynamics of a combustor, while previous studies were limited to the one-way nonlinear response of the damper
+to imposed acoustic forcing. Indeed, we investigate experimentally and theoretically the nonlinear dynamics of Helmholtz dampers
+undergoing spontaneous periodic hot gas ingestion due to their interaction with a thermoacoustic mode of the combustion chamber.
+The coupling between the damper and the combustion chamber is modelled following the work of Bourquard and Noiray [25].
+As previously mentioned, they showed analytically and validated experimentally how to optimize the purge massflow of a Helmholtz
+damper to get the best stabilization of a linearly unstable thermoacoustic mode, i.e. tuning the damper such that the coupled system
+damper/combustor is brought to one of its exceptional points. An exceptional point (EP) in the present case of a pair of coupled
+oscillators is a spectral degeneracy obtained by tuning the system parameters: At the EP, not only the pair of eigenvalues, but also
+their associated eigenmodes, coalesce. When moving away from the EP by changing a parameter of the system, at least one of the
+eigenvalues has a larger growth rate, which means that the system is less linearly stable.
+They validated their model against experiments, in which thermoacoustic instabilities were mimicked with electro-acoustic
+instabilities. In a subsequent work [35], they considered the same experimental system, i.e. a purged damper coupled to a self-
+sustained electro-acoustic eigenmode of a chamber and extended their model to account for periodic flow reversals in an isothermal
+configuration. In their work a modal projection was considered and the self-sustained oscillation of the dominant eigenmode was
+modelled with a Van der Pol oscillator [36], which will be done also in the present work. Building upon the knowledge gained from
+the isothermal electro-acoustic experiments and modelling results of [25,35] we will perform thermoacoustic experiments using a
+combustor equipped with a damper purged by a cold flow and derive a low order model of the corresponding nonlinear stochastic
+
+
+--- Page 4 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+4
+L. Miniero et al.
+dynamics. We will show that during the transition from thermoacoustic resonance driven by turbulence-induced stochastic forcing
+to thermoacoustic limit cycle, which occurs when the bifurcation parameter is slowly increased, intermittency can be observed in
+the form of erratic bursts of high acoustic amplitude. Intermittency of thermoacoustic system is the topic of a recent review [37] and
+the interested reader can for example refer to [38] for a study on thermoacoustic intermittency induced by stochastic fluctuations of
+the time delay in the response of a turbulent flame to acoustic forcing. Here we unravel another possible root cause of intermittency:
+the periodic hot gas ingestion in a damper connected to a turbulent combustor.
+The paper is organized as follows. First, in Section 2, the experimental set-up and results will be introduced. The acoustic pressure
+oscillations in the combustion chamber are analysed when the damper is tuned to or detuned from the dominant thermoacoustic
+mode eigenfrequency. In Section 3, the model is presented and then validated against the experimental results in Section 4. Finally,
+the model is employed to study variations of the geometry of the neck and isolate the effect of the hot gas ingestion on the coupled
+system.
+2. Experiments
+Experiments were conducted to investigate the effect of the hot gas ingestion on a damper-combustion chamber system. This
+section outlines the experimental test rig, diagnostics and analyses the observations.
+2.1. Experimental facility
+The experiments are performed on a modular combustion test rig operated at atmospheric conditions (sketched in Fig. 1), similar
+to the one employed in [39]. The combustion chamber is composed by a round quartz tube having a diameter of 100 mm and a
+length of 140 mm followed by 2 square cross-section modules of side 88 mm and of length 250 mm. The transition piece between the
+quartz tube and the modules provides a smooth geometrical transition at constant cross section. The combustor is run in technically
+premixed configuration of natural gas (NG) and air, i.e. the NG is injected through small holes in the burner just downstream of
+the swirler. The NG mass flow ( ̇𝑚NG) is varied between 0.44 and 0.53 g s−1. The adjustable air massflow makes the equivalence
+ratio (𝜙) range between 0.76 and 0.86. The power and equivalence ratio boundaries allowed to observe the transition from stable
+to unstable thermoacoustic conditions.
+The neck of a Helmholtz damper is located 224 mm downstream of the flame. The back volume of the damper can be varied by
+adjusting the position of a piston. The resonance frequency of the device ranges between 150 and 350 Hz. The neck of the damper
+has a length of 40 mm and a cross-sectional diameter of 12 mm. Despite the fact that the damper back volume exhibits a complex
+shape, one can safely consider it as acoustically compact because its largest dimension of 0.35 m when the piston is completely
+recessed is significantly smaller than the wavelength of 1.7 m corresponding to the oscillation frequency of the thermoacoustic
+mode of interest (200 Hz). As shown in Fig. 1, the neck of the damper is a tube which protrudes inside the back volume [40]. The
+damper was designed to allow for the installation of a thermocouple which can slide in the neck and for enabling a piston-based
+adjustment of the back volume. The cold purge air enters the damper through small orifices located in the head of the piston. For the
+purge mass flows considered in this work, the flow at these small orifices is choked, which means that this stiff injection decouples
+acoustically the air feeding line connected to the damper.
+Each combination of NG massflow and 𝜙was run at stationary condition, in order to record long acoustic pressure oscillation
+signals with seven G.R.A.S. 46 BD 1/4′′ CCP microphones (sampling rate 5000 Hz). Three of them were connected upstream of the
+burner (in the combustor plenum), three downstream of the flame (one at the same axial location as the neck of the damper) and
+one in the back volume of the damper. In order to measure the mean temperature in the neck of the damper, a K-type thermocouple
+(sampling rate 60 Hz) is inserted and its tip is positioned at its middle (as sketched in Fig. 1).
+In the first set of experiments, the damper was tuned, by adjusting the piston position, close to the frequency of the dominant
+mode of the combustor, around 𝑓c = 196 Hz. The purge massflow through the neck of the damper was fixed to 0.5 g s−1,
+corresponding to a mean velocity in the neck of 4.2 m s−1 and which is small compared to the air mass flow through the combustor
+that participates in the combustion process (between 9 and 12.5 g s−1). This value was chosen as a trade-off that could allow to
+control the amount of ingested hot gas for the operating conditions considered in this work. In fact, to observe the onset of the hot
+gas ingestion, the mean flow velocity in the neck has to be larger than the acoustic velocity for some operating conditions for which
+there is no hot gas ingestion. In the second set of experiments, the damper was detuned with respect to the dominant thermoacoustic
+mode by changing the piston position. These experiments, for which the resonance frequency of the damper was close to 315 Hz,
+were used as a benchmark to identify the effect of the damper on the coupled system for configurations where the same amount of
+damper purge air was flowing inside the combustion chamber.
+2.2. Experimental results
+The amplitude of the dynamic pressure at different combinations of NG massflows and equivalence ratios are now presented.
+Plots (a) and (b) of Fig. 2 show the RMS of the acoustic pressure for the tuned and detuned damper conditions. The acoustic signal in
+the combustion chamber at the axial location of the damper is reconstructed with the most energetic modes of the proper orthogonal
+decomposition (POD) [41] from the dynamic pressure signals measured with microphones at 6 positions along the combustor. The
+POD postprocessing allows us to isolate the acoustic component of the dynamic pressure: the application of this method to several
+microphones signals eliminates the pseudonoise produced by flow structures in the vicinity of each microphone part, which are not
+
+
+--- Page 5 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+5
+L. Miniero et al.
+Fig. 2. Contourplots representing the acoustic pressure rms in the combustion chamber at the same axial position as the damper. Different NG massflows ( ̇𝑚NG)
+and equivalence ratios (𝜙) were mapped for the configuration with a tuned (a) or detuned (b) damper. The blue and the red dots correspond to the investigated
+line with constant air considered to analyse the transition from linearly stable to unstable thermoacoustic conditions. Plots (c)–(e) compare respectively the rms
+of the acoustic pressure 𝑝rms, the time averaged temperature in the neck 𝑇and the resonance frequency of the damper for the operating conditions at constant
+air massflow 𝑓. The dotted line in (e) indicates the frequency of the dominant peak in the PSD of the microphone signal located in the combustion chamber
+𝑓peak. Examples of these PSDs are shown in Fig. 3 for the operating conditions (i), (ii) and (iii) indicated in (a) and (b).
+(For interpretation of the references
+to colour in this figure legend, the reader is referred to the web version of this article.)
+correlated to relevant acoustic scales, and which are therefore not contributing to these most energetic POD modes. The acoustic
+signal is then filtered around its dominant frequency around 196 Hz using a rectangular window function with a bandwidth of 40 Hz.
+Apart from the damper volume defined by the piston position, the two cases presented in Fig. 2 correspond to identical operating
+conditions. The mapping of the operating conditions was performed by varying the NG massflow between 0.44 and 0.52 g s−1 in
+increments of 0.01 g s−1 and 𝜙from 0.76 to 0.86 in increments of 0.01. When the damper’s resonance frequency is tuned close
+to the frequency of the dominant thermoacoustic mode of the combustor, the rms of the acoustic oscillations in the combustor is
+generally lower than in the detuned case. This observation shows that the tuned damper widens the range of conditions for which
+the system is thermoacoustically stable. Both tuned and detuned configurations show an increase of acoustic pressure amplitude for
+high power and equivalence ratios. The broadening of the linearly stable operating window is ‘‘only’’ a few percent of the nominal
+value of the bifurcation parameter (for example, in Fig. 2c) we see that the rise of the rms level occurs for ̇𝑚NG = 0.49 and ̇𝑚NG = 0.5
+in the detuned and tuned case respectively. It is important to mention that such ‘‘limited’’ effectiveness of the damper in stabilizing
+the system was intentional: on purpose, we limited the damper volume to be able to observe the hot gas ingestion phenomenon on
+the considered range of operating parameters.
+The blue and red lines in (a) and (b) of Fig. 2 show the stationary operating states with constant air massflow ( ̇𝑚air = 10.38 g s−1)
+and NG massflows ( ̇𝑚NG) between 0.46 and 0.53 g s−1 which will be considered in the remaining part of the paper. Plots (c), (d) and
+(e) of Fig. 2 compare the rms of the acoustic pressure, the time averaged temperature in the middle of the neck, and the resonance
+frequency of the damper for these constant air mass flow conditions. The resonance frequency of the damper is obtained from the
+transfer function relating the acoustic pressure in the combustion chamber to the one in the damper. The acoustic pressure in the
+combustion chamber for this transfer function is measured at the neck axial position, while the ones in the damper are recorded
+with a piezosensor located in its back volume. The cross power spectral density between the acoustic pressure in the damper and
+in the combustion chamber is divided by the power spectral density (PSD) of the acoustic pressure in the damper. This enables
+the isolation of the dynamics of the damper from the dynamics of the combustion chamber and extract its resonance frequency, as
+shown in Fig. 3. Fig. 2(e) reports the tuned and detuned damper frequency at the different operating conditions. The black dashed
+line represents the peak frequency of the combustor PSD at each condition when the damper is detuned (𝑓peak). As expected, the
+increase of the temperature in the neck of the damper is connected to a shift of damper resonance frequency away from the average
+𝑓peak when the damper is tuned.
+
+
+--- Page 6 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+6
+L. Miniero et al.
+Fig. 3. Experimental PSD of the timetrace of a microphone placed in the combustion chamber at the damper axial position (a–b) and in the damper volume
+(c–d). (i)–(ii)–(iii) correspond to the three operating conditions highlighted in Fig. 2. (e) and (f) show the experimental transfer function, calculated as the ratio
+between the CPSD chamber–damper and the PSD in the damper (see Eq. (14)). (a)–(c)–(e) refer to the tuned damper, while (b)–(d)–(f) to the detuned case.
+The distance between the two lines in plot (c) clearly shows the effect of the damper on the thermoacoustic stability border.
+The transition from linearly stable to unstable conditions in the tuned damper case is accompanied by a significant increase of the
+temperature in the neck as shown in Fig. 2(d) which is clearly not as strong for the detuned case. In fact, when the dominant mode
+of the combustion chamber forces the damper around its resonance frequency, the acoustic velocity amplitude in the neck becomes
+very large and is responsible of strong periodic ingestion of the hot gas. At these conditions, the resonance frequency of the damper
+changes accordingly, reducing its acoustic energy absorption at the frequency of the thermoacoustic instability. When the damper is
+detuned from the dominant mode of the combustor, the periodic ingestion of the hot gas is reduced because the damper is ‘‘forced’’
+away from its resonance by the thermoacoustic mode, and therefore, the acoustic velocity in the neck is lower. Fig. 3 reports the
+PSDs of the signals recorded in the combustion chamber at the damper axial location (a–b) and in the damper volume (c–d). The
+operating conditions are (i)–(ii)–(iii) of Fig. 2 for the tuned (a–c) or detuned (b–d) damper. The acoustic energy of the PSDs in the
+combustor increase at peak frequency towards higher powers. Finally, (e) and (f) show the gain of the transfer function obtained
+as the ratio between the CPSD chamber–damper and the PSD in the damper volume. These plots isolate the damper response to
+the forcing of the combustion chamber, and capture the resonance frequency of the damper. The peak is shifted towards higher
+frequencies at (iii), when the ingestion of hot gas increases temperature in the neck.
+The evolution of the probability density function (PDF) of the amplitude 𝐴of the Hilbert transform of the acoustic pressure
+signal 𝑃∞as function of the operating condition with constant air mass flow is shown in Fig. 4 (a). The corresponding time traces
+are shown in Fig. 4(b), (c) and (d) for ̇𝑚NG = 0.46, 0.51 and 0.52 g s−1, (i)–(ii)–(iii) of Figs. 2 and 3. Fig. 4(b) shows a linearly
+stable condition at low thermal power. In Fig. 4(c), the amplitude of the acoustic pressure exhibits erratic changes between two
+attractors, as highlighted by the two peaks of the PDF. Finally, Fig. 4(d) shows a linearly unstable case, where the presence of the
+damper is not able to prevent high amplitude thermoacoustic limit cycle in the combustor.
+Let us now focus on the interesting condition of Fig. 4(c). The temperature timetrace measured in the middle of the neck is
+presented superposed to the acoustic pressure timetrace in the damper volume in Fig. 5. The acoustic signal is filtered with a
+bandpass filter around 196 Hz using a 40 Hz wide rectangular window function. For a better comparison with the 60 Hz temperature
+timetrace, the high-frequency oscillations of the amplitude of the pressure signal are smoothened with a moving average with a
+window of 1500 points. It is important to keep in mind that the thermal inertia of the thermocouple induces some delay in its
+response to changes of mean temperature induced by periodic hot gas ingestion. We find an optimum correlation between the
+delayed temperature and the acoustic amplitude for a delay 𝜏= 1.37 s. From Figs. 4(c) and 5, we can infer the following scenario
+for explaining the erratic sudden changes of the acoustic amplitudes. During epochs of low acoustic amplitude, the periodic hot gas
+ingestion does not occur and the damper ‘‘operates’’ in the linear regime, with a resulting linear damping that keeps the coupled
+damper/combustor system linearly stable. Turbulent fluctuations of the heat release rate or hot gas flow in the vicinity of the neck
+can sporadically be sufficiently strong to perturb this marginal stability. Such a stochastic perturbation leads to the onset of self
+amplifying periodic hot gas ingestion events that bring the system to a limit cycle state. The self amplification is due to the alternation
+of the resistance and of the reactance of the damper when it is subject to hot gas ingestion of increasingly amplitude. This scenario
+is modelled and validated in the next section where we show the key importance of (i) the damper response nonlinearity when it
+
+
+--- Page 7 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+7
+L. Miniero et al.
+Fig. 4. Experimentally measured transition from stable to unstable thermoacoustic conditions (red line of Fig. 2). The map shows the PDF (𝑃∞) of the pressure
+oscillations amplitude 𝐴in the combustor at the damper’s location. On the right, the time traces of the pressure oscillations 𝑝and the PDF of their amplitude
+𝐴of the three points highlighted on the map are used to determine their thermoacoustic condition: stable (i), bistable (ii) and unstable (iii).
+Fig. 5. Timetraces of the acoustic pressure in the damper volume superposed to the temperature in the neck at earlier time 𝜏= 1.37 s. The thick blue line
+represents the envelope of the acoustic pressure signal smoothened with a 1500 points window moving average.
+(For interpretation of the references to colour
+in this figure legend, the reader is referred to the web version of this article.)
+is subject to acoustic amplitudes that are sufficiently large to trigger periodic hot gas ingestion and (ii) the stochastic forcing from
+the turbulent reactive flow which enables the intermittent escapes from and returns to the low acoustic amplitude attractors.
+3. Model
+This section introduces a low order model describing the coupled system damper–combustor. In the first subsection, we will
+show that the damper can be described as a Duffing-type oscillator when the phenomenon of the periodic hot gas ingestion is
+considered. Subsequently, it will be coupled to a Van der Pol oscillator which describes the dominant thermoacoustic mode of the
+combustion chamber. The parameters of the ordinary differential equation describing the damper dynamics are calibrated from
+the experimental data. The results presented in the following sections are obtained by running a 60 s Simulink simulation with a
+fixed-step ode5 (Dormand–Prince) solver of the calibrated model. The timestep of the solver is fixed to be 0.001 𝑓−1
+c
+where 𝑓c is
+the resonance frequency of the combustor (fixed at 196 Hz in the model simulations).
+
+
+--- Page 8 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+8
+L. Miniero et al.
+Fig. 6. Forcing 𝐹, velocity oscillations in the neck normalized by their maximum (𝑢(𝑡) + ̄𝑈)∕𝑢max of the damper and mean density in the neck of the damper
+𝜌𝑛. On the right, a sketch of the damper highlights the presence of the hot gas in the neck and the direction of the velocity for three conditions on an acoustic
+cycle (a), (b), (c) and (d). Values used in Eqs. (2) to (5) for generating the timetraces are: 𝜁= 1.5, ̄𝑈= 4.2 m s−1, 𝛺= 1.231 rad s−1, 𝐹= 107 m s−3, 𝑙eff =
+5.2 × 10−2 m, 𝜌d = 1.05 kg m−3, 𝜌c = 0.16 kg m−3, 𝑐d = 366 m s−1, Vd = 1.8 × 10−4 m3, a = 1.13 × 10−2 m2.
+3.1. Model of the damper
+As indicated by Eq. (1), the speed of sound of the gas inside a Helmholtz resonator and its geometry define its resonance
+frequency. A simplified description of this acoustic resonator when it is purged with a mean flow is a nonlinearly damped harmonic
+oscillator:
+̈𝑢+ 𝜁
+𝑙eff
+|𝑈+ 𝑢| ̇𝑢+ 𝛺2
+d(𝑡)𝑢= 𝐹sin(𝛺𝑡),
+(2)
+where 𝑢is the acoustic velocity in the neck as derived in [10,28,35]. Note that by convention the velocity is considered positive
+if directed towards the combustion chamber. In Eq. (2), 𝜁represents the pressure loss coefficient, 𝑙eff is the effective length of the
+neck [11], 𝑈is the mean purge flow velocity in the neck and 𝐹the amplitude of the forcing, proportional to the time derivative of
+the acoustic pressure in front of the damper neck. When the acoustic amplitude exceeds the mean flow velocity 𝑈, periodic reversals
+of the flow occur and the stiffness becomes nonlinear with respect to the acoustic forcing amplitude. The periodic reversals of the
+flow are accompanied with periodic hot gas ingestion (PHGI).
+The mean variation of the density in the neck due to PHGI affects the tuning of the damper according to:
+𝛺d(𝑡) = 𝑐d
+√
+𝑎
+𝑉d𝑙eff
+√𝜌𝑑
+𝜌𝑛(𝑡),
+(3)
+where 𝑐d and 𝜌d are the speed of sound and the air density in the back volume of the damper and where 𝜌n is the mean density in
+the neck, which varies in time in case of PHGI. Eq. (3) is derived from the linearized mass and momentum balance in the neck of a
+Helmholtz damper, with the assumption that the acoustic pressure oscillations are uniform in the damper volume, and by accounting
+for the temporal variation of averaged density in the neck induced by the temperature oscillations.
+When there is no PHGI, i.e. 𝑢(𝑡) < 𝑈, 𝜌n(𝑡) = 𝜌d and this formula simplifies to 𝛺d = 𝜔d given in Eq. (1). For PHGI to happen, the
+acoustic velocity amplitude must exceed the mean flow velocity. In such situation, for each acoustic cycle, there is an interval [𝑡1, 𝑡2]
+during which the neck is partially filled with hot gas (see Fig. 6). The relation between the acoustic velocity 𝑢and the instantaneous
+mean density in the neck of the damper 𝜌𝑛(𝑡) has been first proposed in [28]:
+𝜌𝑛(𝑡) =
+⎧
+⎪
+⎨
+⎪⎩
+𝜌d −(𝜌d −𝜌c
+) 𝛼(𝑡)
+if 𝑡1 < 𝑡< 𝑡2
+𝜌d
+if 𝑡2 < 𝑡< 𝑡1 + 2𝜋
+𝜔
+(4)
+
+
+--- Page 9 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+9
+L. Miniero et al.
+where
+𝛼(𝑡) = 1
+𝑙
+|||||∫
+𝑡
+𝑡1
+(𝑈+ 𝑢)𝑑𝑡
+|||||
+(5)
+and where the density of the gas in the combustion chamber is denoted by 𝜌c. As previously mentioned, the PHGI is limited by two
+events. Firstly, a reversal of the total velocity in the neck, i.e. (𝑢+ 𝑈) becomes negative and the hot gas starts entering the neck.
+Secondly, the complete removal of hot gas, i.e., the moment when the hot gas is completely flushed out of the neck. The time of
+occurrence of 𝑡2 is calculated as the first zero in time of the acoustic displacement after 𝑡1, i.e., ∫𝑡2
+𝑡1 (𝑈+ 𝑢)𝑑𝑡= 0. Further details on
+their derivation can be found in [28].
+The function 𝛼(𝑡) represents the ratio between the acoustic displacement of the idealized interface between the purge air and
+ingested hot gas and the physical length of the neck of the Helmholtz resonator 𝑙. The model is limited to situations where the
+acoustic velocity amplitude in the neck is not sufficiently large to induce hot gas penetration in the back volume, i.e. the maximum
+displacement of the ‘‘interface’’ separating purge air and hot gas is smaller than the neck length.
+The three plots of Fig. 6 show the amplitude of the forcing term, the velocity and mean density oscillations in the neck of the
+damper, obtained from Eqs. (2) to (5). The forcing term is a sine wave with amplitude 𝐹= 107 m s−3 and frequency equal to the
+resonance frequency of the damper 𝛺= 𝜔d. The numerical value of the geometrical parameters, the damper’s resonance frequency
+𝜔d = 1231 rad s−1, the mean velocity in the neck 𝑈= 4.2 m s−1, which were used for producing the time traces of Fig. 4 are
+indicated in the caption of that figure.
+The velocity oscillations in the neck of the damper are asymmetric with respect to the mean velocity during a single cycle. When
+the total velocity (𝑈+ 𝑢) in the neck of the damper is negative, the mean density in the neck decreases (sketch c) of Fig. 6. When
+the velocity in the neck changes its sign, it starts to expel the hot gas again.
+3.2. Duffing–Van der Pol oscillator
+Eq. (2) models the velocity oscillations in the neck of the damper as a harmonic oscillator with nonlinear damping and stiffness.
+The forced oscillations are analysed by selectively suppressing the different nonlinearities. In the analysis, the following 3 equations
+will be considered:
+̈𝑢+ 𝜁
+𝑙eff
+|𝑈+ 𝑢| ̇𝑢+ 𝜔2
+d𝑢= 𝐹sin (𝛺𝑡)
+(nonlinear damping, linear stiffness)
+(6)
+̈𝑢+ 𝜁
+𝑙eff
+|𝑈| ̇𝑢+ 𝛺2
+d(𝑡)𝑢= 𝐹sin (𝛺𝑡)
+(linear damping, nonlinear stiffness)
+(7)
+̈𝑢+ 𝜁
+𝑙eff
+|𝑈| ̇𝑢+ 𝜔2
+d𝑢= 𝐹sin (𝛺𝑡)
+(linear terms only)
+(8)
+Fig. 7 shows the amplitude 𝐵of the acoustic velocity oscillations 𝑢in the damper neck at the forcing frequency 𝛺for different
+forcing amplitudes 𝐹and for different variants of the model given by Eqs. (2), (6), (7) and (8).
+In order to detect the hysteresis, two computations were carried out, first by ramping up the forcing frequency 𝛺, and second
+by ramping it down.
+As expected, the presence of nonlinear damping in Eq. (6) reduces the amplitude of the response around the resonance frequency
+at high forcing amplitude, which can be seen in Fig. 7(b). When only the nonlinear stiffness term caused by the hot gas ingestion is
+considered, i.e. Eq. (7), the behaviour of the damper’s response is similar to the one of a Duffing oscillator. In fact, the maximum
+response is shifted towards a higher frequency and a hysteresis is generated, as shown in Fig. 7(c). When both the nonlinear damping
+and stiffness are considered, i.e. Eq. (2), the response of the damper takes on some features of the previous cases (see Fig. 7(d)).
+In fact, the nonlinearity in the damping term still reduces the amplitude of the response, but this time the maximum response
+amplitude moves towards higher frequencies due to the effect of the nonlinear stiffness term. For the given set of parameters, the
+effect of nonlinear damping is prevailing on the onset of the Duffing-like hysteresis.
+3.3. Model of the coupled system
+The system damper–combustor is modelled as a system of coupled nonlinear oscillators:
+̈𝜂−(2𝜈+ 𝜅𝜂2) ̇𝜂+ 𝜔2
+c𝜂=
+𝜀𝑎𝜌d𝑐2
+d
+𝛹𝑉d
+̇𝑢+ 𝜒(𝑡)
+(9)
+̈𝑢+ 𝜁
+𝑙eff
+|𝑈+ 𝑢| ̇𝑢+ 𝛺2
+d(𝑡)𝑢= −
+𝛹
+𝜌𝑛(𝑡)𝑙eff
+̇𝜂.
+(10)
+The first equation is derived from the model considered and experimentally validated in [36]. It describes the dynamics of the
+dominant thermoacoustic mode oscillating at 𝜔c in the combustion chamber, when it is coupled, via ̇𝑢, to a nonlinear damper
+described by the second equation. These coupled equation have been proposed in [35] for an isothermal Helmholtz damper with
+constant resonance frequency, i.e. for 𝛺d(𝑡) = 𝜔d. In that reference, the model has been validated with an isothermal electroacoustic
+experimental setup. The key novelty of the present work is to include the dynamic detuning of the Helmholtz damper due to the
+
+
+--- Page 10 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+10
+L. Miniero et al.
+Fig. 7. Amplitude of the velocity oscillations in the neck of the damper B normalized by its maximum among the different cases (𝐵norm) obtained when
+Eqs. (2), (6), (7) and (8) are used.
+varying density in its neck induced by PHGI, i.e. for 𝛺d(𝑡) given by Eqs. (3)–(4)–(5). Let us further consider Eq. (9). The amplitude
+of the dominant thermoacoustic mode 𝜂is modelled as a nonlinear stochastic oscillator:
+̈𝜂+ 𝜔2
+c𝜂= 𝑓(𝜂, ̇𝜂) + 𝜒(𝑡).
+(11)
+In Eq. (11), 𝜒is the additive turbulence-induced stochastic forcing and, as in [36], the function 𝑓(𝜂, ̇𝜂) = ̇𝑞−𝛼̇𝜂results from the
+balance between the nonlinear flame response ̇𝑞and the linear acoustic damping 𝛼. The flame response is expanded up to the third
+order, including a cubic saturation term as 𝑞= 𝛽𝜂−𝜅𝜂3∕3. The linear growth rate 𝜈is defined as (𝛽−𝛼)∕2 and defines the linear
+stability of the combustion chamber. When 𝛽> 𝛼the acoustic perturbations will be amplified at the growth rate 𝜈> 0. As a result,
+the self-sustained thermoacoustic oscillations in the combustor are modelled as a Van der Pol oscillator for the acoustic pressure
+driven by additive noise. In Eqs. (9)–(10), the mode amplitude at the damper axial position is defined as 𝛹, and 𝜀represents a
+damping efficiency factor, defined in Eq. (12):
+𝜀= 𝑉d𝛹2
+𝑉c𝛬.
+(12)
+Here, 𝑉c is the volume of the combustor. The coefficient 𝛬represents the norm of the mode:
+𝛬= 1
+𝑉c ∫𝑉c
+|𝜓|2𝑑𝑉,
+(13)
+where 𝜓is the shape of the longitudinal eigenmode involved in this work. In the present 𝛬will be assumed to be 1/2, which is the
+theoretical value for 1 dimensional eigenmodes in a constant cross-sectional duct. This approach assumes the spatial distribution
+of eigenmode to be one dimensional in the combustion chamber, i.e. it corresponds to a longitudinal mode, and neglects the effect
+of density change across the compact flame [9]. In addition, the influence of the damper on the modeshape is neglected due to
+the large volume difference between large (the combustion chamber) and the small (the damper) cavity [25]. In order to ease the
+time marching of the system of coupled ODEs, the additive forcing 𝜒which can be considered as a white noise is modelled as an
+Ornstein–Uhlenbeck (OU) process [42] with correlation time that is very short compared to the acoustic period. It is governed by
+̇𝜒= −𝜒
+𝜏𝜒+ 𝜁𝜒, where 𝜏𝜒is the correlation time of the OU noise and 𝜁𝜒is Gaussian white noise with intensity 𝛤𝜒∕𝜏2
+𝜒. The correlation
+time is fixed to 0.1 ms. Thus, in the frequency range of interest (i.e. 100–500 Hz) the PSD of the OU noise is constant, as for a
+white noise. The equation for the acoustic velocity in the damper neck has a forcing term with the time derivative of the acoustic
+pressure in the combustor in front of the neck of the damper.
+3.4. Identification of the model parameters
+In the following section, the parameters of Eqs. (9)–(10) are calibrated with the experimental measurements described in
+Section 2. The identified parameters will be employed to investigate the ability of the model to reproduce the nonlinear dynamics
+observed in the experiments.
+Several parameters are readily given by the geometry or the operating condition of the experimental configuration. They are
+summarized in Table 1:
+
+
+--- Page 11 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+11
+L. Miniero et al.
+Table 1
+Geometrical parameters of the system damper-combustion chamber.
+𝑉c [m3]
+𝑉d [m3]
+𝑎[m2]
+𝜌d [kg m−3 ]
+𝑐d [m s−1]
+5.2 × 10−3
+1.8 × 10−4
+1.1 × 10−4
+1.05
+354
+3.4.1. Parameters of the damper equation
+The pressure loss coefficient 𝜁and the effective length 𝑙eff can be estimated by fitting the transfer function between acoustic
+pressure in the combustion chamber (input) and the one in the volume of the damper (output). To safely use this fitting approach,
+only data collected for linearly stable conditions must be considered. This is because the transfer function of interest is linear. In
+fact, when the system is thermoacoustically stable, the amplitude of the acoustic pressure in the combustion chamber is low, the
+nonlinear terms in Eq. (10) can be neglected.
+The acoustic signals are measured by a microphone close to the neck of the damper in the combustion chamber and by a
+piezosensor in the back volume of the damper. The experimental transfer function was then calculated as:
+𝐻=
+̂𝑆cd
+̂𝑆cc
+,
+(14)
+where ̂𝑆cd is the cross-power spectral density (CPSD) between the signal in the combustor and in the damper. ̂𝑆cc is the power
+spectral density (PSD) of the acoustic pressure in the combustion chamber. Note that the dominant source of dynamic noise in the
+system is the combustion noise produced by the turbulent fluctuations of the heat release rate in the combustor. Consequently, since
+it is not in the damper, applying the same approach for identifying the parameters of the left hand side of Eq. (9) would not work,
+even though the coupled system is linearly stable.
+The model used for the fit of the transfer function is obtained by linearizing Eqs. (9) and (10) and by using the following equation:
+𝑢= −
+𝑉d
+𝑐2
+d𝜌d𝑎
+̇𝑝d,
+(15)
+where 𝑢represents the velocity oscillations in the neck of the damper, positive when pointing out from the damper and 𝑃d is the
+acoustic pressure in the volume of the damper.
+The linear transfer function linking velocity fluctuations in the neck to acoustic pressure in the combustion chamber is:
+̂𝑢
+𝛹̂𝜂= −
+𝑠
+𝜌d𝑙eff
+𝑠2 + 𝜁
+𝑙eff
+𝑈𝑠+ 𝜔2
+d
+,
+(16)
+where 𝑠= i𝜔is the Laplace variable. Combining the Laplace transform of (15) with (16), we can obtain the linear transfer function
+linking the pressure oscillations in the volume of the damper (𝑃d) and the ones in the combustion chamber at the location of the
+damper:
+̂𝑝d
+𝛹̂𝜂=
+𝑐2
+d𝑎
+𝑉d𝑙eff
+𝑠2 + 𝜁
+𝑙eff
+𝑈𝑠+ 𝜔2
+𝑑
+.
+(17)
+The parameters are then identified by fitting this transfer function model to the experimental one for thermoacoustically stable
+conditions with the Fast Relax Vector Fitting routine, developed by Gustavsen in [43]. The results from this fit are shown in Fig. 8
+in terms of the transfer function gain. As indicated above, this parameter estimation approach cannot be used when the system
+dynamic is nonlinear, and therefore it was only applied for ̇𝑚NG ranging between 0.46 and 0.5 g s−1. Once the estimates of the
+pressure loss coefficient 𝜁are obtained, the effective length of the neck of the damper can be deduced from Eq. (1) knowing the
+ambient temperature and the geometrical shape of the damper. Plot (b) and (c) of Fig. 8 highlight the evolution of 𝑙eff and 𝜁over
+the considered operating conditions. Their small variation allows the use of their mean in the remainder of this study, 0.05 m
+and 2.9, respectively. Moreover, we assume that with these values, the model of Eq. (2) correctly predicts the nonlinear damper
+response when the latter is forced at high amplitude. This assumption has been validated experimentally in [35] for the simpler
+case of periodic flow reversal, which is the isothermal counterpart of the PHGI.
+3.4.2. Parameters of the combustion equation
+The last parameters to be identified are the ones related to the thermoacoustic dynamics of the combustor. These parameters are:
+the growth rate 𝜈and the saturation coefficient 𝜅of the Van der Pol oscillator used to represent the saturation of the flame response
+to high amplitude acoustic feedback, the intensity of the additive noise 𝛤𝜒and the amplitude of the mode at the axial position of
+the damper 𝛹. As it was shown in Section 2.2, the presence of the damper has a strong impact on the nonlinear dynamics of the
+system. This effect precludes the use of the method presented in [44] to identify the linear growth rate of the system. This is because
+obviously, in the present configuration the dynamics cannot be reduced to a single self-sustained oscillator and must also include
+
+
+--- Page 12 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+12
+L. Miniero et al.
+Fig. 8. (a) Gain of the experimental transfer function between the microphone in the combustion chamber at the axial location of the damper and the one in
+the damper volume. The dashed back lines show the results of the fittings. The effective length 𝑙eff and the pressure loss coefficient 𝜁obtained with the fitting
+routine for the different operating conditions are shown in (b) and (c).
+the feedback from the nonlinear damper. More details about the applicability of the method presented in [44] for a single nonlinear
+oscillator are given in [45,46]. Nevertheless, as indicated above, most of the parameters of the coupled oscillator model given in
+Eqs. (9) and (10) have been reliably identified, either because they are defined by the geometry and the operating conditions, or
+because they could be robustly quantified from acoustic time series where the system was operated at thermoacoustically stable
+conditions. The few remaining ones are now calibrated by considering the available observables. First, with the set of microphones,
+the axial distribution of the acoustic mode 𝛹(𝑥) and the mode amplitude 𝜂(𝑡) could be estimated, allowing us to identify 𝛹= 0.7.
+Knowing the amplitude of the limit cycles with detuned damper being of the order of 10 mbar for unstable conditions, the ratio
+𝜈∕𝜅could be guessed. Indeed, with a detuned damper the limit cycle amplitude of the model is
+√
+𝜈∕𝜅. The positive growth rates
+identified in a similar configuration, but for a different operating conditions and without damper [39] were about 10 rad s−1. Testing
+the model with such growth rates did not allow us to reproduce the bistability of Fig. 4c. However, we found that ranging from
+45 to 70 rad s−1 allows us to fully retrieve the observed nonlinear dynamics. By fixing this range, a value of 𝜅= 0.001 1/Pa−1 is
+readily obtained and allows us to obtain the right amplitude in Pa. Finally, it is found that 𝛤𝜒= 4.6 × 1012 Pa s−1 is optimum for
+retrieving both the PDF of the acoustic envelope and the frequency of sporadic amplitude bursts in the vicinity of the bifurcation.
+4. Results
+In this section, the results obtained with the model will be presented and commented. In the first subsection, the dimensions of
+the neck of the damper are the same as in the experiments, in order to compare the model against the experimental results. In the
+second subsection, the diameter of the damper neck is virtually increased, in order to further investigate the nonlinear dynamics of
+the coupled system.
+As a summary, the main assumptions employed in the derivation the model are now listed:
+• The acoustic oscillations are represented by a single dominant mode
+• The nonlinearities of the flame response are approximated with a cubic saturation term
+• Length and diameter of the damper neck and damper volume are compact with respect to the mode wavelength
+• The density variation induced by the hot gas ingestion is modelled as a time-dependent and spatially-averaged equation
+4.1. Comparison of the calibrated model and the experiments
+The system with detuned damper features the typical characteristics of a supercritical Hopf bifurcation when the fuel mass flow
+( ̇𝑚NG) is increased. Moreover, as explained in Section 3.4.2, when the linear growth rate 𝜈in absence of damper is varied between
+40 and 70 rad/s for a fixed nonlinearity constant, the observed stochastic dynamics is very well reproduced by the model. Therefore,
+as a first approximation, this monotonic increase of the linear growth rate as function of the fuel mass flow is considered linear and
+the other parameters of the model are kept constant. It is important to note that such linear evolution is not valid in general. Indeed,
+it is well known that thermoacoustic stability properties of a combustion system evolve non-monotonically with system parameters
+when wide ranges of operating conditions are explored, e.g. [39].
+
+
+--- Page 13 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+13
+L. Miniero et al.
+Fig. 9. Map of the stationary PDF (𝑃∞) of the amplitude of the acoustic pressure 𝐴as function of the linear growth rate 𝜈. The acoustic pressure oscillations
+are normalized by the amplitude of the most probable acoustic amplitude at the largest linear growth rate 𝜈. 𝑃∞is obtained from time domain simulations of
+Eqs. (9) and (10), which are sufficiently long for convergence to a smooth PDF. (b), (c) and (d) show the time traces normalized by the same value and the PDF
+of 𝐴for three significant cases, respectively: linearly stable, bistable and linearly unstable thermoacoustic conditions. It is important to underline the similarity
+between the three PDFs of the simulated time traces and the ones recorded in the experiments (see b–c–d of Fig. 4). The dashed contour in (a) shows 𝑃∞when
+the stiffness nonlinearity is suppressed by assuming 𝛺d = 𝜔d in Eq. (10).
+(For interpretation of the references to colour in this figure legend, the reader is
+referred to the web version of this article.)
+The coloured contourplot of Fig. 9 shows the stationary PDF of the amplitude 𝐴of the Hilbert transform of the acoustic pressure
+in the combustion chamber (𝑃∞). This PDF is obtained by performing time domain simulations of the model given by Eqs. (9) and
+(10) for fixed values of the bifurcation parameter 𝜈and for simulated time that are sufficiently long to obtain smooth and converged
+𝑃∞. Short time intervals from these long simulated periods are presented in Fig. 9 for typical linear growth rates as previously done
+for the experimental results. Comparing Figs. 4 and 9, it is clear that the model reproduces very well the features of the PDF and
+of the time series of the acoustic pressure measured in the combustor.
+In order to get further insights about the relative contributions of the nonlinear damping and nonlinear stiffness of the coupled
+system, other simulations were performed with the constraint of fixing the damper’s resonance frequency, i.e. 𝛺d(𝑡) = 𝜔d. Indeed,
+the dashed lines in Fig. 9 shows the contours of the stationary PDF for a coupled system which does not account for the variation
+of stiffness caused by the hot gas ingestion. This system has otherwise the same parameters identified in the previous sections. The
+density in the neck is considered to be always constant and equal to the one in the back volume of the damper. The comparison
+with the filled contourplot shows that the difference introduced by the oscillations of the mean density in the neck caused by the
+periodic hot gas ingestion does not significantly impact the nonlinear dynamics in the considered damper geometry.
+In fact, the strong damping nonlinearity drowns out the one introduced by the stiffness modulation induced by the PHGI. The
+damper designed for these experiments exhibits a resonance peak which is significantly wider than the peak of the governing
+thermoacoustic mode, which explains the predominance of the nonlinear damping induced by the PHGI upon the nonlinear dynamics
+of the coupled system (see Fig. 8). In the next section, a damper with a smaller damping term will be studied with the model and
+compared to the one employed in the present experiments.
+4.2. Damper neck geometry variation
+The dimensions of the neck of the damper used in the experiments are now modified in the model in order to further study
+the influence of the density modulation in the neck of the damper during periodic hot gas ingestion. In particular, the diameter of
+the cross section of the neck is increased by 20% (from 12 to 14.4 mm). The effective length of the damper is varied accordingly
+(from 52 to 75 mm) in order to keep the resonance frequency constant for the same back volume of the damper. The parameters
+of the two damper necks are summarized in Table 2. They will be referred as Damper 1 (D1) and Damper 2 (D2). D1 corresponds
+to the damper of the experiments. The purge massflow in D2 is assumed to be the same as in D1, therefore the increase of the neck
+cross-sectional area is associated with a reduction of the purge flow velocity. All the other parameters of the coupled system given
+in Eqs. (9) and (10) are identical to the ones of the previous section.
+
+
+--- Page 14 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+14
+L. Miniero et al.
+Fig. 10. (a) Stationary PDF (𝑃∞) of the amplitude of the acoustic pressure 𝐴as function of the linear growth rate 𝜈for damper D2. The acoustic pressure
+oscillations are normalized by the amplitude of the most probable acoustic amplitude at the largest linear growth rate conditions (𝐴). 𝑃∞is obtained from time
+domain simulations of Eqs. (9) and (10), which are sufficiently long for convergence to a smooth PDF. (b), (c) and (d) show the time traces and the PDF of
+three significant cases: linearly stable, bistable and linearly unstable thermoacoustic conditions. The dashed contour in (a) shows 𝑃∞obtained suppressing the
+nonlinearity by assuming 𝛺d = 𝜔d in Eq. (10).
+Table 2
+Comparison of the parameters between the two damper necks.
+Parameters
+Damper 1
+Damper 2
+√
+4𝑎∕𝜋= 𝑑[mm]
+12
+14.4
+𝑙eff [mm]
+52
+75
+𝑈[m s−1]
+4.2
+2.9
+As it was done in the previous section, Fig. 10 compares the contours of the PDF of the acoustic amplitude as function of the
+linear growth rates 𝜈for D2, accounting or not in the model for the nonlinear stiffness due to PHGI.
+The effect of the nonlinear stiffness now heavily affects the shape of 𝑃∞and the position of the bistable region in the bifurcation
+diagram. It is observed that a nonlinear stiffness in the damper equation of the coupled system (10) shifts the bistable zone, which
+is the transition from linearly stable thermoacoustic conditions to thermoacoustic limit cycles, to smaller growth rates. The three
+plots (b), (c) and (d) show three time traces of the pressure oscillations and the normalized stationary PDFs of their amplitudes,
+when accounting for the nonlinear stiffness.
+The forced response of dampers D1 and D2 are now computed. This analysis is motivated by the fact that D2 features a nonlinear
+stiffness that influences the coupled system dynamics to a larger extent than the one of D1. Fig. 11 shows the mean amplitude of the
+acoustic velocity in the neck of the damper for different forcing frequencies 𝛺∕2𝜋when Eqs. (2) and (6) are used for the parameters
+of D1 and D2. As the mean purge mass flow is kept constant between the two cases, the increase of the cross-sectional area of
+the neck D2 is accompanied with a mean purge flow velocity 𝑈reduction in its neck, resulting in a damping decrease. Therefore,
+for a given forcing amplitude 𝐹, the amplitude of the velocity oscillations 𝑢of the forced damper is increased regardless of the
+phenomenon of periodic hot gas ingestion when switching from D1 to D2. At the same time, the reduction of the damping term
+makes the effect of the stiffness nonlinearity induced by the hot gas ingestion more pronounced. In fact, a larger acoustic velocity
+𝑢reduction connected with the introduction of the dynamic detuning (from Eqs. (6) to (2)) is observed for D2 compared to D1 at
+the resonance frequency of the combustion chamber (𝑓c in Fig. 11) at constant forcing amplitude 𝐹.
+As a consequence, the transition of the coupled system from linearly stable to limit cycle thermoacoustic conditions occurs at
+lower growth rates. The nonlinearity of the damping does not drown out the nonlinear stiffness induced by PHGI anymore and its
+effect could be isolated. This result shows the importance of carefully accounting for nonlinear damping and nonlinear stiffness in
+the design phase of a damper.
+The two same colour lines show the solutions of Eq. (2) (full line) and Eq. (6) (dashed line) with a starting point 𝑢= 0.1 m s−1,
+calculated for different forcing frequencies 𝛺∕2𝜋. The black vertical line highlights 𝜔c∕2𝜋, the resonance frequency of the damper.
+
+
+--- Page 15 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+15
+L. Miniero et al.
+Fig. 11. Amplitude of the acoustic velocity in the neck of the damper 𝐵when accounting or not for the nonlinear stiffness caused by the PHGI for dampers
+D1 (a) and D2 (b). The value on the 𝑦axis is normalized by 𝐵norm, the maximum acoustic velocity amplitude among all the presented cases in (a) and (b).
+5. Conclusions
+In this paper, the phenomenon of the hot gas ingestion, which can occur in the neck of a Helmholtz damper used for suppressing
+thermoacoustic instabilities, has been investigated experimentally and reproduced with a low order model. It was shown that the
+bistable region separating linearly stable conditions and thermoacoustic limit cycles in the bifurcation diagram is governed by (i) the
+nonlinear damping and the nonlinear stiffness induced by PHGI and (ii) the intensity of the stochastic forcing of the thermoacoustic
+system from turbulence. The key finding of this work is that the dynamic detuning due to the modulation of the mean density of
+the resonator neck is not necessarily more influential on the nonlinear dynamics than the associated damping nonlinearity. Indeed,
+the respective contribution of nonlinear damping and nonlinear stiffness on the failure of a damper to prevent thermoacoustic
+instabilities strongly depend on the quality factor of the damper.
+This work not only demonstrates the crucial need for considering these nonlinearities during the design of such dampers,
+but also provides a validated low order model that fully reproduces the stochastic nonlinear dynamics of a coupled system
+damper–combustor.
+CRediT authorship contribution statement
+Luigi Miniero: Investigation, Methodology, Validation, Software, Formal analysis, Visualization, Writing – original draft. Georg
+A. Mensah: Software, Validation. Claire Bourquard: Investigation, Methodology. Nicolas Noiray: Conceptualization, Investigation,
+Methodology, Supervision, Formal analysis, Writing – review & editing.
+Declaration of competing interest
+The authors declare that they have no known competing financial interests or personal relationships that could have appeared
+to influence the work reported in this paper.
+Data availability
+Data will be made available on request.
+Acknowledgements
+Financial supports of the Clean Sky 2 Joint Undertaking (JU) under grant agreement LEAFINNOX No. 831804, and of the
+European Research Council under the Consolidator Grant No. 820091 (TORCH) are gratefully acknowledged. The JU receives support
+from the European Union’s Horizon 2020 research and innovation programme and the Clean Sky 2 JU members other than the Union.
+The content of this article reflects only the authors’ view. The Clean Sky 2 Joint Undertaking is not responsible for any use that
+may be made of the information it contains.
+
+
+--- Page 16 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+16
+L. Miniero et al.
+References
+[1] H. Stančin, H. Mikulčić, X. Wang, N. Duić, A review on alternative fuels in future energy system, Renew. Sustain. Energy Rev. 128 (December 2019)
+(2020) http://dx.doi.org/10.1016/j.rser.2020.109927.
+[2] M. Götz, J. Lefebvre, F. Mörs, A. McDaniel Koch, F. Graf, S. Bajohr, R. Reimert, T. Kolb, Renewable power-to-gas: A technological and economic review,
+Renew. Energy 85 (2016) 1371–1390, http://dx.doi.org/10.1016/j.renene.2015.07.066.
+[3] T. Poinsot, Prediction and control of combustion instabilities in real engines, Proc. Combust. Inst. 36 (1) (2017) 1–28, http://dx.doi.org/10.1016/j.proci.
+2016.05.007.
+[4] B. Schuermans, J. Moeck, A. Blondé, B. Dharmaputra, N. Noiray, The Rayleigh integral is always positive in steadily operated combustors, Proc. Combust.
+Inst. (2022).
+[5] D. Zhao, X.Y. Li, A review of acoustic dampers applied to combustion chambers in aerospace industry, Prog. Aerosp. Sci. 74 (2015) 114–130,
+http://dx.doi.org/10.1016/j.paerosci.2014.12.003.
+[6] G.A. Richards, D.L. S., E.H. Robey, Passive control of combustion dynamics in stationary gas turbines, J. Propuls. Power 19 (5) (2003) 795–810,
+http://dx.doi.org/10.2514/2.6195.
+[7] I.D.J. Dupère, A.P. Dowling, The use of Helmholtz resonators in a practical combustor, J. Eng. Gas Turbines Power 127 (2) (2005) 268, http:
+//dx.doi.org/10.1115/1.1806838.
+[8] M.R. Bothien, N. Noiray, B. Schuermans, A novel damping device for broadband attenuation of low-frequency combustion pulsations in gas turbines, J.
+Eng. Gas Turbines Power 136 (4) (2014) http://dx.doi.org/10.1115/1.4025761.
+[9] N. Noiray, B. Schuermans, Theoretical and experimental investigations on damper performance for suppression of thermoacoustic oscillations, J. Sound
+Vib. 331 (12) (2012) 2753–2763, http://dx.doi.org/10.1016/j.jsv.2012.02.005.
+[10] V. Bellucci, P. Flohr, C.O. Paschereit, F. Magni, On the use of Helmholtz resonators for damping acoustic pulsations in industrial gas turbines, J. Eng. Gas
+Turbines Power 126 (2) (2004) 271, http://dx.doi.org/10.1115/1.1473152.
+[11] U. Ingard, On the theory and design of acoustic resonators, J. Acoust. Soc. Am. 25 (6) (1953) 1037–1061, http://dx.doi.org/10.1121/1.1907235.
+[12] F.J. Fahy, C. Schofield, A note on the interaction between a Helmholtz resonator and an acoustic mode of an enclosure, J. Sound Vib. 72 (3) (1980)
+365–378, http://dx.doi.org/10.1016/0022-460X(80)90383-1.
+[13] A. Cummings, The effects of a resonator array on the sound field in a cavity, J. Sound Vib. 154 (1) (1992) 25–44, http://dx.doi.org/10.1016/0022-
+460X(92)90402-J.
+[14] L. Magri, Adjoint methods as design tools in thermoacoustics, Appl. Mech. Rev. 71 (2019) http://dx.doi.org/10.1115/1.4042821.
+[15] M. Schulze, R. Kathan, T. Sattelmayer, Impact of absorber ring position and cavity length on acoustic damping, J. Spacecr. Rockets 52 (3) (2015) 917–927.
+[16] G. Ghirardo, F. Boudy, M.R. Bothien, Amplitude statistics prediction in thermoacoustics, J. Fluid Mech. 844 (2018) 216–246, http://dx.doi.org/10.1017/
+jfm.2018.173.
+[17] C. Laurent, A. Badhe, F. Nicoud, Representing the geometrical complexity of liners and boundaries in low-order modeling for thermoacoustic instabilities,
+J. Comput. Phys. 428 (2021) http://dx.doi.org/10.1016/j.jcp.2020.110077.
+[18] G.A. Mensah, J.P. Moeck, Acoustic damper placement and tuning for annular combustors: An adjoint-based optimization study, J. Eng. Gas Turbines Power
+139 (6) (2017) 061501, http://dx.doi.org/10.1115/1.4035201.
+[19] M. Mazur, H.T. Nygård, J. Dawson, N. Worth, Experimental study of damper position on instabilities in an annular combustor, in: Proceedings of the
+ASME Turbo Expo, Vol. 4A-2018, 2018, http://dx.doi.org/10.1115/GT201875070.
+[20] M. Betz, M. Zahn, C. Hirsch, T. Sattelmayer, Impact of damper placement on the stability margin of an annular combustor test rig, Proceedings of the
+ASME Turbo Expo, Vol. 4A-2019 (2019) 1–11, http://dx.doi.org/10.1115/GT2019-90238.
+[21] D. Yang, F.M. Sogaro, A.S. Morgans, P.J. Schmid, Optimising the acoustic damping of multiple Helmholtz resonators attached to a thin annular duct, J.
+Sound Vib. 444 (2019) 69–84, http://dx.doi.org/10.1016/j.jsv.2018.12.023.
+[22] U. Zalluhoglu, N. Olgac, Analytical and experimental study on passive stabilization of thermoacoustic dynamics in a Rijke tube, J. Dyn. Syst. Meas. Control
+Trans. ASME 140 (2018) http://dx.doi.org/10.1115/1.4037388.
+[23] S. Jo, Y. Choi, H.J. Kim, Evaluation of the damping capacity according to the geometric and the number of resonator with thermal environment using a
+Rijke tube, Aerosp. Sci. Technol. 88 (2019) 1–8, http://dx.doi.org/10.1016/j.ast.2019.02.040.
+[24] W. Pan, X. Xu, J. Li, Y. Guan, Acoustic damping performance of coupled Helmholtz resonators with a sharable perforated sidewall in the presence of
+grazing flow, Aerosp. Sci. Technol. 99 (2020) http://dx.doi.org/10.1016/j.ast.2019.105573.
+[25] C. Bourquard, N. Noiray, Stabilization of acoustic modes using Helmholtz and Quarter-Wave resonators tuned at exceptional points, J. Sound Vib. 445
+(2019) 288–307, http://dx.doi.org/10.1016/j.jsv.2018.12.011.
+[26] H. Helmholtz, Theorie des Luftschalls in Röhren mit offenen enden (theory of air vibrations in pipes with open ends), J. Die Reine Angew. Math. 57 (1)
+(1860).
+[27] J.J. Keller, E. Zauner, On the use of Helmholtz resonators as sound attenuators, ZAMP Z. Angew. Math. Phys. 46 (1995) 297–327, http://dx.doi.org/10.
+1007/BF01003552.
+[28] B. Ćosić, T.G. Reichel, C.O. Paschereit, Acoustic response of a Helmholtz resonator exposed to hot-gas penetration and high amplitude oscillations, J. Eng.
+Gas Turbines Power 134 (10) (2012) 101503, http://dx.doi.org/10.1115/1.4007024.
+[29] M.R. Bothien, D. Wassmer, Impact of density discontinuities on the resonance frequency of Helmholtz resonators, AIAA J. 53 (4) (2015) 877–887,
+http://dx.doi.org/10.2514/1.J053227.
+[30] D. Wassmer, B. Ćosić, C.O. Paschereit, Resonance frequency of helmholtz dampers in the presence of high-temperature grazing flows, in: 20th AIAA/CEAS
+Aeroacoustics Conference, 2014, http://dx.doi.org/10.2514/6.2014-3179.
+[31] D. Yang, A.S. Morgans, Acoustic models for cooled Helmholtz resonators, AIAA J. 55 (9) (2017) 3120–3127, http://dx.doi.org/10.2514/1.J055854.
+
+
+--- Page 17 ---
+
+Journal of Sound and Vibration 548 (2023) 117544
+17
+L. Miniero et al.
+[32] B. Ćosić, D. Wassmer, S. Terhaar, C.O. Paschereit, Acoustic response of Helmholtz dampers in the presence of hot grazing flow, J. Sound Vib. 335 (2015)
+1–18, http://dx.doi.org/10.1016/j.jsv.2014.08.025.
+[33] M. Zahn, M. Betz, M. Schulze, C. Hirsch, T. Sattelmayer, Predicting the influence of damping devices on the stability margin of an annular combustor,
+in: Proceedings of the ASME Turbo Expo, 2017, http://dx.doi.org/10.1115/GT2017-64239.
+[34] M. Betz, M. Zahn, C. Hirsch, T. Sattelmayer, Impact of combustion chamber dynamics on the temperature distribution in a resonator, in: Proceedings of
+the ASME Turbo Expo, Vol. 4A-2019, 2019, http://dx.doi.org/10.1115/GT2019-90239.
+[35] C. Bourquard, N. Noiray, Stability and limit cycles of a nonlinear damper acting on a linearly unstable thermoacoustic mode, J. Eng. Gas Turbines Power
+141 (5) (2019) http://dx.doi.org/10.1115/1.4042080.
+[36] N. Noiray, A. Denisov, A method to identify thermoacoustic growth rates in combustion chambers from dynamic pressure time series, Proc. Combust. Inst.
+36 (3) (2017) 3843–3850, http://dx.doi.org/10.1016/j.proci.2016.06.092.
+[37] R.I. Sujith, V.R. Unni, Complex system approach to investigate and mitigate thermoacoustic instability in turbulent combustors, Phys. Fluids 32 (2020)
+http://dx.doi.org/10.1063/5.0003702.
+[38] G. B., A. Faure-Beaulieu, C. Bourquard, N. Noiray, Low order modelling of thermoacoustic instabilities and intermittency: Flame response delay and
+nonlinearity, Combust. Flame 226 (2021) 396–411, http://dx.doi.org/10.1016/j.combustflame.2020.12.034.
+[39] G. Bonciolini, N. Noiray, Bifurcation dodge: avoidance of a thermoacoustic instability under transient operation, Nonlinear Dynam. 96 (1) (2019) 703–716,
+http://dx.doi.org/10.1007/s11071-019-04815-y, arXiv:1811.10458.
+[40] I. Lee, A. Selamet, K.V. Tallio, Helmholtz resonator with an extended neck, J. Acoust. Soc. Am. 110 (5) (2013) 2671, http://dx.doi.org/10.1121/1.4809009.
+[41] J. Weiss, A tutorial on the proper orthogonal decomposition, American Institute of Aeronautics and Astronautics Inc, AIAA, 2019, pp. 1–21, http:
+//dx.doi.org/10.2514/6.2019-3333,
+[42] G. Bonciolini, E. Boujo, N. Noiray, Output-only parameter identification of a colored-noise-driven Van-der-Pol oscillator: Thermoacoustic instabilities as an
+example, Phys. Rev. E 95 (2017) 62217, http://dx.doi.org/10.1103/PhysRevE.95.062217.
+[43] B. Gustavsen, A. Semlyen, Rational approximation of frequency domain responses by vector fitting, IEEE Trans. Power Deliv. 14 (3) (1999) 1052–1061.
+[44] N. Noiray, B. Schuermans, Deterministic quantities characterizing noise driven Hopf bifurcations in gas turbine combustors, Int. J. Non-Linear Mech. 50
+(2013) 152–163, http://dx.doi.org/10.1016/j.ijnonlinmec.2012.11.008.
+[45] N. Noiray, Linear growth rate estimation from dynamics and statistics of acoustic signal envelope in turbulent combustors, J. Eng. Gas Turbines Power
+139 (2017) http://dx.doi.org/10.1115/1.4034601.
+[46] E. Boujo, C. Bourquard, Y. Xiong, N. Noiray, Processing time-series of randomly forced self-oscillators: the example of beer bottle whistling, J. Sound Vib.
+464 (2020) 114981.

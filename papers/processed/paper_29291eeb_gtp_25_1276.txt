@@ -1,0 +1,894 @@
+
+--- Page 1 ---
+
+Tristan T. Shahin1
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907  
+e-mail: tshahin@purdue.edu
+Alexander J. Hodge
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907
+Benjamin K. Murdock
+School of Mechanical Engineering,  
+Purdue University,  
+West Lafayette, IN 47907
+Keaton C. Koenig
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907
+Ellouise K. Moehring
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907
+Rohan M. Gejji
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907
+Robert P. Lucht
+School of Mechanical Engineering,  
+Purdue University,  
+West Lafayette, IN 47907
+Carson D. Slabaugh
+School of Aeronautics and Astronautics,  
+Purdue University,  
+West Lafayette, IN 47907
+Structure of High-Pressure 
+Premixed Ammonia, Hydrogen, 
+and Methane Flames With 
+100 kHz OH-PLIF Measurements
+The impact of fuel composition on flame dynamics is investigated at 10 bar using 100 kHz 
+hydroxyl planar laser induced fluorescence (OH-PLIF) measurements. The PLIF images are 
+synchronized with high-frequency pressure measurements at distinct locations in the 
+chamber to investigate mechanisms for thermo-acoustic feedback with the flame heat release 
+and resonant acoustic modes of the combustor. Experiments were conducted over a range of 
+fuel compositions spanning a hydrogen fuel fraction (v) of 30% to 90%, and an ammonia 
+decomposition efficiency (g) from 40% to 100%. In predominantly hydrogen-rich fuel 
+mixtures (v, g > 0.8), flame stabilization occurs along the shear layer, and flame holding is 
+observed closer to the burner face. As methane composition increases (v < 0.8), significant 
+flame corrugation and commensurate high heat release rate are observed as chemical 
+kinetic rates and thermodiffusive effects decrease. In these cases, OH radical production and 
+transport between neighboring injector elements are observed. The flame heat release and 
+transport of combustion products in this region occur during the compression phase of the 
+acoustic cycle and are responsible for ignition of fresh reactants. These periodic ignition, 
+heat release, and flame displacement at the resonant acoustic mode frequency of the 
+combustor result in self-excited longitudinal combustion instabilities (p0
+RMS=pCC  1–7%). 
+With significant concentrations of methane and ammonia in the fuel blend (v < 0.9, g < 0.6), 
+the amplitude of this instability increases (p0
+RMS=pCC > 7%), and periodic global extinction 
+and re-ignition of flames are observed with acoustic expansion and compression.  
+[DOI: 10.1115/1.4069450] 
+Keywords: combustion instability, hydrogen combustion, ammonia combustion, high- 
+pressure flames, lean-premixed flames, OH-PLIF 
+1 Introduction
+Concerns of increasing global greenhouse gas emissions have 
+sparked rapid development efforts in carbon-free combustion 
+technology [1]. In stationary power generation, fuels such as 
+hydrogen (H2) and ammonia (NH3) have potential as carbon-free 
+alternatives to natural gas but present unique challenges that inhibit 
+widespread utilization. Hydrogen has established methods for 
+renewable production and possesses the highest gravimetric energy 
+density of any fuel. However, its low volumetric energy density 
+makes it prohibitive for efficient storage, transport, and distribution 
+at an industrial scale. The availability and cost of hydrogen derived 
+from carbon-free sources also remain challenging, especially at the 
+scale necessary to replace natural gas. Hydrogen also presents 
+several operability concerns as a drop-in alternative to natural gas. 
+The flame speed of hydrogen is an order of magnitude greater than 
+that of methane, the primary constituent of natural gas. The large 
+increase in kinetic timescale of hydrogen flames leads to an 
+increased risk of flashback [2]. Ammonia, on the other hand, 
+contains a larger density of hydrogen atoms than liquid hydrogen. 
+Pre-existing facilities for the production, storage, and transport of 
+ammonia can also reduce the economic complexity of the fuel’s 
+large-scale implementation [3]. However, the slow kinetic rates of 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received July 3, 2025; final manuscript received July 15, 2025; published 
+online September 24, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+DECEMBER 2025, Vol. 147 / 121018-1 
+Copyright V
+C 2025 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+pure ammonia combustion limit the operating space of retrofit gas 
+turbine combustors [4]. Moreover, the nitrogen atom present in the 
+fuel introduces unique chemical pathways which can lead to high 
+NOx emissions [5]. Blending of ammonia with hydrogen can 
+mitigate undesirable properties of the individual fuels [6]. Never­
+theless, carbon-free developments in combustor technology must 
+accommodate these fuel blends with natural gas over a wide range of 
+compositions to offset discrepancies in energy demand and fuel 
+availability.
+Lean-premixed combustion is common for low NOx natural gas- 
+fired power generation gas turbine combustors. Successful retrofit­
+ting of these combustors to operate with hydrogen and ammonia fuel 
+blends requires understanding of the physical processes that govern 
+the structure and propagation of the flame. Premixed hydrogen 
+combustion has distinctly different underlying physics governing 
+flame propagation compared to methane [7–10]. One such differ­
+ence is the response to flame stretch, a phenomenon often described 
+by the Markstein length. The Markstein length is a characteristic 
+length scale that quantifies the sensitivity of local flame speed to 
+flame curvature [11]. The Markstein number is a nondimensional 
+parameter defined as the ratio of Markstein length to flame thickness. 
+At lean conditions, Al-Khafaji et al. [12] reported a decrease in 
+Markstein number and subsequent increase in stretch sensitivity 
+with hydrogen addition to methane flames. For ammonia–hydrogen 
+fuel blends, Ichikawa et al. [9] noted a nonmonotonic trend of 
+Markstein length with variation in hydrogen mole fraction. The 
+effect of hydrogen addition in lean ammonia flames is less 
+understood, especially at engine relevant conditions. At elevated 
+pressure, the operability space of these fuel mixtures has been 
+characterized for several injector designs [4,13]. However, these 
+studies are also scarce, and further experimental efforts at high 
+pressure are necessary to resolve the fundamental processes 
+affecting the structure and dynamics of these flames.
+Despite the lack of empirical data, first principles analysis can still 
+provide insight into the effect of hydrogen addition on the 
+propagation of ammonia flames. Incommensurate rates of thermal 
+and mass diffusion (nonunity Lewis number) have a prominent 
+effect on flame stretch sensitivity [14]. When the Lewis number is 
+less than one, typical of hydrogen combustion, mass diffusion 
+occurs at a faster rate than thermal diffusion [15], leading to a 
+thermodiffusive mechanism for intrinsic flame instabilities to 
+develop [16]. In contrast, Lewis numbers closer to unity are typical 
+for methane combustion, and preferential thermodiffusive insta­
+bilities are less likely to occur. In premixed turbulent flames, this 
+effect is believed to greatly increase the flame speed as turbulent 
+intensity enhances wrinkling and leads to the development of 
+smaller-scale structures in the flame [10,17,18]. A recent numerical 
+study by Gaucherand et al. [8] investigated this effect on H2/NH3 
+flames and determined that ammonia addition led to reduced stretch 
+sensitivity for the examined operating conditions.
+Lean-premixed combustors are notably susceptible to combus­
+tion instabilities due to an increased sensitivity of flame thickness, 
+flame speed, and reaction rates to variations in equivalence ratio near 
+the lean blowout limit [19–23]. Thermo-acoustic instabilities result 
+from in-phase coupling of heat release and acoustic pressure 
+fluctuations. Several intermediary coupling mechanisms exist to 
+close the feedback loop between pressure oscillations and heat 
+release. In technically premixed combustors, differences in acoustic 
+impedance between the locations of fuel and air introduction can 
+cause pressure fluctuations to perturb local equivalence ratio and 
+thus heat release [24]. Velocity fluctuations, be it from acoustic 
+disturbances or turbulent eddies, lead to fluctuations in flame area and 
+ensuing heat release. These flame area distortions can result in 
+different timescales of heat release depending on the fuel composi­
+tion. Stretch sensitive flames can see rapid annihilation of flame 
+curvature through kinematic restoration [25]. Over an acoustic period, 
+this acts to broaden the flame heat release in the frequency domain, 
+which can reduce the coherent response to acoustic fluctuations [26].
+Characterization of the underlying physical mechanisms that 
+result in significant changes to flame structure with small changes in 
+fuel composition requires spatiotemporally resolved measurements 
+of heat release. Laser induced fluorescence is a nonintrusive 
+diagnostic capable of detecting key combustion radicals linked to 
+heat release in the flame. Planar laser induced fluorescence of the 
+hydroxyl radical (OH-PLIF) is one such application that has been 
+previously employed in hydrogen flames [27–30]. Lantz et al. [27] 
+performed the diagnostic at 10 Hz in two industrial gas turbine 
+combustors and observed a reduction in flame front perturbations 
+with hydrogen addition to methane. In radially stratified NH3=H2
+flames, Jin and Kim [29] used OH-PLIF in conjunction with 
+OH=NH
+2 chemiluminescence to identify disparate flame structures 
+and timescales. They noted that the interaction between the 
+kinetically slow ammonia flame zones and much faster hydrogen 
+flames prevented the development of coherent flame undulations 
+that can couple with acoustic perturbations. Despite the advantages 
+of OH-PLIF, repetition rate remains a key practical limitation. Care 
+is also necessary in the interpretation of planar measurements in a 
+turbulent three-dimensional flow-field. Investigation of the structure 
+and dynamics of these flames in response to acoustic disturbance 
+requires deployment of the technique at rates capable of resolving 
+the timescales of interest.
+The effect of fuel composition on the structure and propagation of 
+self-excited high-pressure ammonia/hydrogen/methane lean- 
+premixed flames is studied in the current work. The directional 
+sensitivity of combustion dynamics to fuel composition has been 
+characterized in previous work utilizing this combustor [13]. An 
+increase in pressure fluctuation amplitude (p0
+RMS) with natural gas 
+addition was observed. The frequency corresponded to a longitu­
+dinal full-wave (2L) mode of the combustion chamber. In the 
+absence of natural gas, the instabilities were lower in amplitude and 
+largely insensitive to ammonia addition. Ammonia addition with the 
+inclusion of natural gas however resulted in increased p0
+RMS. A mode 
+transition from 1100 Hz to 550 Hz was also observed for sufficient 
+ammonia addition to these fuel mixtures. This frequency corre­
+sponds to the fundamental half-wave (1L) longitudinal mode of the 
+combustion chamber. Changes in turbulent flame structure and its 
+response to acoustic disturbances are characterized with 100 kHz 
+OH-PLIF measurements. The novel application of this diagnostic at 
+this repetition rate, at elevated pressure, and with NH3=H2=CH4 fuel 
+blends facilitates analysis over a broader range of timescales 
+relevant to unsteady heat release. Oscillations at frequencies 
+associated with the longitudinal modes of the combustor are fully 
+resolved. Additionally, further resolution of element to element 
+interaction and small scale flame corrugation reveals how small 
+scale structures respond to global combustor dynamics.
+2 Experiment Description
+2.1 Combustor. A multi-element premixed combustor operat­
+ing at a mean chamber pressure (pCC) of 10.8 bar is used in the 
+study. Figure 1 depicts a schematic of the experiment. The 
+combustor uses heated unvitiated air with a fuel blend of ammonia, 
+methane, hydrogen, and nitrogen. A plenum supplies uniform air to 
+each micromixer element through a choked orifice to isolate the air 
+supply from pressure fluctuations in the combustion chamber. The 
+micromixer is comprised of three segments, one each for ammonia, 
+natural gas, and hydrogen injection. Combustion chamber and 
+micromixer lengths are designed to promote self-excited longitu­
+dinal combustion instabilities in the combustor [20]. The 19 
+micromixer elements are distributed in a uniform hexagonal array. 
+The separation between neighboring elements is twice the 6.22 mm 
+element diameter. A fixed area sonic nozzle located at the end of the 
+combustion chamber pressurizes the combustor. Critical-flow sonic 
+venturi nozzles are close-coupled to the experiment and are used to 
+meter the flowrate of all reactants [31]. Hydrogen and methane are 
+supplied to the experiment from bulk storage at 400 bar. Liquid 
+anhydrous ammonia is pressurized to target conditions in a piston 
+accumulator assembly and vaporized for gaseous supply through a 
+54 kW electrical heater. Typical test durations are 1 s, during which 
+all flow conditions and geometric parameters are maintained within 
+121018-2 / Vol. 147, DECEMBER 2025                                                                                                  
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+an equivalence ratio uncertainty less than 2% of the mean. This 
+duration is sufficient for the acquisition of steady, limit-cycle OH- 
+PLIF and pressure measurements with negligible heat loss effects.
+A parameterized expression of fuel composition is described in 
+the following equation: 
+v g 3
+2 H2 þ 1
+2 N2
+
+
+þ 1 −g
+ð
+ÞNH3
+
+
+þ 1 −v
+ð
+ÞCH4
+(1) 
+The hydrogen fuel used in the experiment is assumed to be 
+derived from ammonia as a hydrogen carrier through a decom­
+position process that yields a three to one molar ratio of hydrogen to 
+nitrogen. The fraction of this mixture in the fuel is denoted by v, 
+where v ¼ 0 corresponds to operation with only CH4 and v ¼ 1 
+corresponds to operation with only H2/N2. The fraction of hydrogen 
+to ammonia is denoted by a decomposition efficiency g. For all test 
+cases reported, the maximum computed v uncertainty is 2.5%, and 
+the maximum computed g uncertainty is 1.1%.
+2.2 Diagnostics. Pressure fluctuations in the combustor were 
+measured using recess mounted water-cooled high-frequency 
+piezoresistive transducers (Kulite WCT312M-35/70BARA) at 
+multiple axial locations in the combustor and sampled at 2.5 MHz 
+[32]. The locations of the pressure transducers in the combustion 
+chamber are marked with C1 and C2 in Fig. 1.
+The OH-PLIF system used in this work is depicted in Fig. 2. The 
+third harmonic (355 nm) from an Nd:YAG burst-mode laser is 
+utilized to pump an optical parametric oscillator (OPO) in a double 
+pass configuration (Spectral Energies QuasiModo, Beavercreak, 
+OH). The OPO cavity is injection seeded with an 850 nm external 
+cavity diode laser (Sacher, Lion, Marburg, Germany) to narrow the 
+609 nm signal line-width. This signal is mixed with the second 
+harmonic output of the burst-mode laser (532 nm) to produce a 
+system output frequency of 284 nm to target the Q2ð8Þ line of the 
+A2Rþð0 ¼ 1Þ  X2Pð00 ¼ 0Þ transition of OH. The system output 
+pulse energy is 1 mJ/pulse.
+The 284 nm beam is collimated to a 42 mm tall sheet using a 
+negative–positive cylindrical lens pair. The sheet is focused into the 
+test section with an additional pair of f ¼ 150 mm cylindrical lenses. 
+OH-PLIF signal is spectrally filtered with a 320/40 nm bandpass 
+filter (Semrock 320/40 Brightline Bandpass) and collected with an 
+f ¼ 100 mm f/2.8 UV grade objective lens (Cerco). Signal amplifi­
+cation and temporal gating is achieved using a dual-stage multi­
+channel plate image intensifier (HiCATT 25 S20). Signal is 
+collected over a 40 ns gate width for each image. Images are 
+recorded on a Phantom TMX-7510 at 100 kHz with a 512  1280 
+pixel resolution. A 43  107 mm field of view is imaged, resulting in 
+a spatial resolution of 83 lm/px. The exposure and gain settings on 
+all cameras and intensifiers are consistent to ensure reliable 
+comparison of the images.
+To characterize the laser sheet profile, a UV beam sampler 
+(Thorlabs BSF20-UV) is located immediately downfield of the first 
+focusing lens and reflects  8% of the incident laser sheet onto an 
+N-BK7 glass diffuser (Thorlabs DG20-600-MD). Fluorescence 
+from the glass is imaged on a Phantom v411 at 100 kHz with a 64 
+512 pixel resolution. A neutral density filter of OD 0.1 is installed on 
+this camera to reduce signal intensity and prevent saturation. Images 
+from the Phantom v411 are recorded simultaneously with the TMX- 
+7510, so that every PLIF image has an accompanying image of the 
+laser sheet. Figure 3(a) illustrates the summed laser intensity over a 
+3.5 ms burst duration. Due to the noticeable decay in laser intensity 
+Fig. 1 Schematic of the combustor with instrumentation probe locations, OH-PLIF field of view, and 
+representative image of flame chemiluminescence. Dashed vertical lines indicate regions of choked flow 
+within the combustor. IN1, IN2, C1, and C2 depict the axial locations of high-frequency (2.5 MHz) pressure 
+measurements.
+Fig. 2 Diagram of the OH-PLIF experimental configuration. CM: cavity mirror; BBO: beta-barium 
+borate crystal; OC: output coupler; SFG: sum frequency generation; BS: beam sampler; and GD: 
+glass diffuser.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+DECEMBER 2025, Vol. 147 / 121018-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+throughout the burst, only images from the first 2 ms of the laser 
+burst are analyzed in the present study. The vertical dashed lines in 
+Fig. 3(a) denote the beginning and end of the representative test 
+case. Pixel columns are summed for each laser sheet image to 
+produce an intensity distribution over the length of the sheet, which 
+is depicted in Fig. 3(b) for a representative sheet image. All profiles 
+from a single 2 ms laser burst are also plotted in Fig. 3(c), where 
+slight variations in profile and intensity can be observed over the 
+burst duration.
+Characterization of spatial and shot-to-shot nonuniformity within 
+the laser sheet profile is shown in Fig. 3. The sheet profile 
+measurements allow for correction of the original images, as PLIF 
+signal scales linearly with laser excitation energy. The 1D intensity 
+profiles are normalized, scaled, and interpolated to match the 
+resolution of the PLIF images. Pixel columns of the PLIF images are 
+then divided by the normalized intensity values. To account for laser 
+pulse energy decay over the imaging duration, individual frames are 
+also divided by their corresponding integrated sheet intensity values, 
+which are normalized by the maximum value for each test. A 
+representative original OH-PLIF image is plotted alongside the 
+corrected image in Fig. 4. The original image in Fig. 4(a) shows low 
+intensity near the burner face, but features in the jet shear layers are 
+restored in the corrected image in Fig. 4(b). Lower intensity regions 
+downstream of the reactant jets are also amplified, yielding a more 
+spatially uniform signal. Although this method of correction is 
+accompanied with a discernible increase in noise, a more faithful 
+interpretation of the images is possible as a result.
+3 Results and Discussion
+A summary of cases examined in this work is provided in Table 1. 
+Three of the cases correspond to H2/CH4 fuel mixtures and are 
+denoted by prefix M. The other cases consist of H2/NH3/CH4 ternary 
+mixtures and are designated with prefix A. Each designation consists 
+of a 2 L dominant case (2) and a 1 L dominant case (3), while case M- 
+1 represents a low p0
+RMS case. A constant air flowrate of 0.454 kg/s 
+(60.005 kg/s) is maintained at an inlet temperature of 758 K (63 K) 
+for all cases. A mean combustion chamber pressure (pCC) of 10.9 bar 
+(60.6 bar) is measured. Equivalence ratios were determined to 
+provide a fixed equilibrium flame temperature (Tad) of 1940 K, to 
+match the turbine inlet temperature of >60% combined cycle 
+efficiency gas turbine combustors [33,34].
+A representative pressure time history from measurements at 
+location C2 is depicted in Fig. 5(a). The 100 ms region of stationary 
+dynamics is indicated by the shaded region and is verified against a 
+series of unit root tests [35,36]. Discrete Fourier transforms of the 
+stationary pressure data are computed, and the spectral power 
+distribution is shown for all conditions in Figs. 5(b) and 5(c). 
+Figure 5(b) corresponds to H2/CH4 fuel mixtures (M). Across these 
+cases, an 1100 Hz mode is observed. Analysis of the natural 
+acoustic frequencies of the combustor is used to verify that this 
+resonance corresponds to the 2 L mode of the combustor [13]. 
+Instability amplitude is observed to increase with methane addition. 
+At v ¼ 0:31, the combustor transitions to a 550 Hz mode, which 
+corresponds to the fundamental 1 L mode of the combustor. The 
+spectral power distribution is also depicted for H2/NH3/CH4 (A) 
+cases in Fig. 5(c). Once again, the 2 L and 1 L modes of the 
+combustor are verified in both cases, with the A-2 case showing 2 L 
+prominence while the A-3 case depicts stronger excitation of the 1 L 
+mode. The observed sensitivity of combustion dynamics to fuel 
+composition, as well as the dominant thermo-acoustic mode 
+transition, highlights the importance of spatiotemporally resolved 
+heat release measurements in the flame. The acquisition of 100 kHz 
+Fig. 3 Time history of OH-PLIF laser pulse energy (a), represen­
+tative laser sheet profile (b), and time evolution of sheet profile (c)
+Fig. 4 Original OH-PLIF image (a) and corresponding image 
+corrected for sheet nonuniformity (b)
+Table 1 Summary of all test conditions 
+_mair
+TIN
+pCC
+Tad
+p0
+rms=pCC
+_mNH3
+_mCH4
+_mH2
+_mN2
+Case
+(kg/s)
+(K)
+(bar)
+(K)
+v
+g
+/
+(%)
+Leeff
+(g/s)
+(g/s)
+(g/s)
+(g/s)
+M-1
+0.455
+759
+11.2
+1934
+0.90
+1.00
+0.54
+0.50
+0.71
+0.0
+3.19
+5.57
+24.88
+M-2
+0.454
+760
+10.4
+1917
+0.41
+1.00
+0.55
+6.64
+0.77
+0.0
+11.5
+1.48
+6.49
+M-3
+0.452
+760
+10.4
+1948
+0.31
+1.00
+0.57
+9.17
+0.81
+0.0
+12.81
+1.08
+5.13
+A-2
+0.455
+757
+10.9
+1931
+0.80
+0.61
+0.57
+3.90
+0.77
+9.89
+5.89
+2.79
+12.15
+A-3
+0.459
+758
+11.0
+1936
+0.80
+0.42
+0.58
+8.15
+0.81
+15.56
+6.09
+1.97
+9.01
+The hydrogen fraction (v) and ammonia decomposition efficiency (g) describe the composition of fuel per the expression 
+v½gðð3=2ÞH2 þ ð1=2ÞN2Þ þ ð1 −gÞNH3 þ ð1 −vÞCH4.
+121018-4 / Vol. 147, DECEMBER 2025                                                                                                  
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+OH PLIF images enables the analysis of changes to pertinent 
+flow–flame interactions with fuel composition.
+3.1 Effect of Methane Addition. Within the flamelet regime, 
+hydrogen enrichment of methane–air flames enhances turbulent 
+burning velocity for consistent turbulence intensity [18,37]. For 
+flames with an effective Lewis number less than unity, the flame 
+front is governed by molecular diffusion, and perturbations lead to 
+increased wrinkling through thermodiffusive instabilities. The 
+increased flame surface area leads to increased turbulent burning 
+velocity. To quantify this effect, a volume weighted effective Lewis 
+number (Leeff) is computed for all g ¼ 1.0 fuel blends between 
+v ¼ 0.3 and v ¼ 1.0 in 0.1 intervals [7]. Results are depicted in Fig. 6. 
+The derivative of Leeff is observed to increase as v decreases, leading 
+to larger changes in turbulent burning velocity and flame stretch 
+sensitivity as hydrogen is substituted for natural gas.
+Instantaneous OH-PLIF images for the M-1 case are shown in 
+Fig. 7(a) alongside synchronized p0 measurements at location C2 in 
+Fig. 7(b). This case corresponds to the most hydrogen prominent fuel 
+mixture of the methane (M) cases. Low amplitude p0 fluctuations are 
+observed. Attenuation of the OH signal is observed in the −y 
+direction for each image, which is a result of laser sheet absorption 
+through the probe volume. Regions of significant OH intensity are 
+compact and localized around the reactant jets, indicating flame 
+Fig. 5 Representative pressure time history (a) and spectral power distribution (b) and (c) from pressure 
+measurements at location C2
+Fig. 6 Variation of effective Lewis number with v
+Fig. 7 Instantaneous OH-PLIF snapshots (a) and corresponding p0 time history (b) depicted for case M-1 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+DECEMBER 2025, Vol. 147 / 121018-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+stabilization within the shear layer (i). The highly reactive fuel 
+mixture produces a thin reaction zone [38], and regions between the 
+jets show a void in OH signal intensity indicating a lack of reactions 
+occurring in these areas. Significant flame wrinkling is observed, 
+resulting in fine scale flame structures surrounding the premixed 
+jets. The scale of turbulent flame structures increases as the flow is 
+advected, with larger features observed at the end of the reactant jets 
+(ii). Unburned pockets of reactant are periodically shed from the 
+ends of the jets, leading to local surface area increase and subsequent 
+burning that is highlighted through regions of higher signal intensity 
+(iii). While fluctuations in the flame surface area result in unsteady 
+heat release, they are largely induced by hydrodynamic fluctuations 
+of the reactant jet. The stretch sensitive fuel composition leads to 
+rapid response of the flame to these disturbances [25]. The heat 
+release fluctuations observed in this case are largely governed by the 
+length-scales and timescales of the cascading turbulent structures 
+present [28]. This wide range of timescales broadens the response of 
+the flame in frequency space [26], resulting in weak coherence to the 
+natural acoustic modes of the combustor.
+A similar set of simultaneous OH-PLIF and p0 measurements are 
+shown for the M-2 case in Fig. 8. In contrast to Fig. 7(b), p0
+fluctuations as large as 10% of the mean chamber pressure are 
+observed. The largest contribution to this amplitude occurs at a 
+frequency consistent with the 2 L acoustic mode of the combustion 
+chamber, which corresponds to a full-wave mode shape. Assuming 
+small acoustic disturbances, low mean flow Mach number, and 
+uniform gas composition, a positive pressure antinode at one end of a 
+closed duct will result in the same antinode at the other end for this 
+mode shape. Thus, p0 measurements at C2 will be closely in-phase 
+with pressure fluctuations in the flame zone. Selection of 
+instantaneous images represented in Fig. 8(a) was determined to 
+highlight different phases of the acoustic cycle. Snapshots are 
+distributed across a single acoustic period with uniform 100 ls 
+spacing for all frames except the first. Strong fluctuations in OH 
+intensity are observed across the acoustic period. Large changes to 
+the length and diameter of the premixed jets are accompanied with 
+significant distortion of the flame front. The first frame occurs at a 
+local minimum in p0 and depicts reactant jets that are elongated from 
+the expansion of the acoustic wave (i). This is followed by rapid 
+burning and a reduction in jet length during the compression phase 
+of the cycle on frames 2 and 3 (ii). The recovery of reactant jets is 
+observed from frame 4 to frame 7 as the expansion phase of the next 
+cycle begins (iii).
+Throughout the cycle, regions of high OH intensity are observed 
+in the regions between reactant jets (iv). The interactions between 
+jets and resulting recirculation zones are able to sustain combustion 
+for this fuel mixture, which provides a source of ignition for 
+incoming reactants. This observation is distinct from the depicted 
+images of the M-1 case. The substitution from hydrogen to methane 
+alters several aspects of flame propagation that coincide with the 
+highlighted differences. The reduced effective Lewis number 
+indicates a reduction in thermodiffusive effects that contribute to 
+local flame speed [12]. The subsequent effect of flame curvature 
+annihilation must also be considered. As flame propagation occurs 
+normal to the surface, the flame front is smoothed through kinematic 
+restoration [39]. The timescale of this restoration and subsequent 
+heat release is sensitive to variations in local flame speed caused by a 
+decrease in hydrogen. By reducing the effects of preferential 
+thermodiffusive instabilities and flame curvature reduction through 
+kinematic restoration, the frequency response of the flame is 
+narrowed [25,26]. Unsteady heat release is thus more coherent with 
+the timescales of acoustic pressure disturbances, and the 2 L mode of 
+the combustor is excited.
+Figure 9 shows a set of OH-PLIF snapshots and coinciding p0
+measurements for case M-3. The amplitude of pressure fluctuations 
+is notably higher for this case than M-2. Unlike the M-2 case, the 
+dominant frequency corresponds to a half-wave mode shape, and 
+pressure fluctuations in the flame zone will have a phase offset near 
+180 deg compared to the measurements at the C2 location [13]. The 
+original C2 measurements are plotted alongside a y-axis reflection 
+(labeled p0
+FOV) in Fig. 9(b) to more closely resemble the expected 
+pressure fluctuations at the flame. Instantaneous images in Fig. 9(a)
+are again selected to span a single acoustic cycle and are distributed 
+equally with 200 ls separation. Global oscillations in OH intensity 
+are once again observed, but with several key distinctions. The 
+expansion of the acoustic cycle, beginning on frame 2, corresponds 
+to a sharp increase in bulk velocity which draws unburned reactants 
+into the combustor. Growth in the extent and diameter of the 
+premixed jets is observed in frame 3 and frame 4, as bulk velocity 
+continues to increase (i). Gradients in OH intensity around the jets 
+also reduce, indicating a reduction in reaction progress rate 
+occurring with the acceleration of the flow. At a local minimum in 
+p0, the fluctuating velocity reaches a maximum. Unburned reactants 
+fill the entire field of view and suppress reactions, leading to flame 
+pinch-off (ii). As velocity decreases during compression, reactants 
+are rapidly consumed and OH intensity increases again. This process 
+Fig. 8 Instantaneous OH-PLIF snapshots (a) and corresponding p0 time history (b) depicted for case M-2 
+121018-6 / Vol. 147, DECEMBER 2025                                                                                                  
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+results in coherent heat release at a frequency resonant with the 
+fundamental 1 L mode of the combustor.
+The distinct pinch-off behavior of the M-3 case is attributed to a 
+further reduction in reactivity and stretch sensitivity compared to the 
+other CH4 cases. As previously noted, the largest change in Leeff
+occurs between the M-2 and M-3 cases in Fig. 6. The increasing 
+sensitivity of Lewis number with methane addition highlights the 
+different flame responses observed as fuel composition varies.
+3.2 Effect of Ammonia Addition. While the observed changes 
+in unsteady heat release can be linked to underlying physical 
+mechanisms governing the propagation of H2/CH4 flames, the effect 
+of ammonia addition in a ternary blend is much less understood. To 
+investigate the impact of ammonia addition, OH-PLIF images are 
+generated for the A-2 and A-3 cases and depicted in Figs. 10 and 11, 
+respectively. The distributions of OH in these cases are notably 
+weaker than those of Figs. 8 and 9, which suggest a more distributed 
+reaction zone with the addition of ammonia. Indeed, ammonia 
+flames are typically characterized by low reactivity and diffuse heat 
+release [29].
+The flame response to the 2 L mode, depicted in Fig. 10(a), shows 
+longitudinal fluctuations of the reactant jets consistent with the 
+compression and expansion phases of the acoustic cycle. Oscil­
+lations are notably less than the M-2 case depicted in Fig. 8(a), which 
+is likely due to the difference in p0
+RMS between the two. Despite this, 
+key differences in flame structure and evolution are observed. The 
+largest gradients in OH signal occur at the ends of the jets and are 
+characterized by regions of significant flame corrugation, as seen in 
+the uppermost jet on frames 3–6 (i). This contrasts the high intensity 
+regions of Fig. 8(a) characterized by rapid burning through increases 
+in flame surface area. The reduction in kinetic rates with the addition 
+Fig. 9 Instantaneous OH-PLIF snapshots (a) and corresponding p0 time history (b) depicted for case M-3 
+Fig. 10 Instantaneous OH-PLIF snapshots (a) and corresponding p0 time history (b) depicted for case A-2 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+DECEMBER 2025, Vol. 147 / 121018-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+of ammonia results in longer timescales for preheat and consump­
+tion of reactants. This increases the flame thickness and thus the 
+length-scales of flame–turbulence interaction.
+Figure 11 portrays several OH-PLIF snapshots with simultaneous 
+p0 measurements for the A-3 case. The global response of the flame is 
+similar to the results seen in Fig. 9(a), but several unique features are 
+noted. During compression on frames 3–5, reactant jets near the 
+walls of the combustor appear shorter than the center jet. A 
+flame–vortex interaction is also observed on frame 5 (i), showing 
+entrainment of reactants and enhanced burning in the surrounding 
+region. The central jet at y ¼ 0, conversely, appears straighter with 
+less large-scale fluctuations in the surrounding flame surface area. It 
+is possible that the symmetry of the central jet leads to a relative 
+balance of flame–flame interactions that results in a reduced impact 
+on the local flame structure.
+4 Conclusions
+The impact of fuel composition on the structure and dynamics of 
+lean-premixed H2/CH4 and H2/NH3/CH4 flames was investigated in 
+a high-pressure multi-element combustor. Time resolved images of 
+the flame response to acoustic disturbances were obtained using 
+100 kHz OH-PLIF along with simultaneous measurements of 
+chamber pressure fluctuations. Two unstable modes of the 
+combustor were studied with and without the inclusion of ammonia, 
+as well as a case of stable operation. The following conclusions are 
+noted:
+(1) The increase in instability magnitude for test cases with 
+methane addition can be correlated to increased corrugation 
+of the flame front and to commensurate heat release 
+fluctuations. Variations in flame speed, stretch sensitivity, 
+and thermodiffusive effects with fuel composition alter the 
+timescales of unsteady heat release, allowing in-phase 
+coupling with the natural acoustic modes of the combustor.
+(2) Unstable cases corresponding to the 2 L mode of the 
+combustor see regions of OH between reactant jets persisting 
+through the expansion phase of the acoustic cycle. In contrast, 
+flame pinch-off, extinction, and re-ignition are seen globally 
+in cases that excite the 1 L mode.
+(3) Ammonia addition results in weaker gradients in OH 
+intensity, which indicates a greater dispersion of reactions 
+and a corresponding increase in flame thickness. The 
+resulting flame structure sees significant corrugation as a 
+result.
+These findings highlight the disparate chemical and mixing 
+timescales of ammonia, hydrogen, and methane combustion and 
+provide understanding of the resulting effects on the structure and 
+dynamics of these flames in turbulent, high-pressure environments. 
+For retrofit gas turbine combustor applications, it is clear that 
+significant consideration of the injector geometry is necessary for 
+fuel flexible operation with these fuels. However, the unique 
+properties of premixed hydrogen flames could be leveraged for 
+flame stability with ammonia and methane in these devices.
+Acknowledgment
+This work was supported by the Department of Energy University 
+Turbine Systems Research (UTSR) program Grant No. DE- 
+FE0032074 (program manager Andrew O’Connell). The high- 
+speed imaging equipment used in this work was purchased with 
+Defense University Research Instrumentation Program Grant Nos. 
+FA9550-16-1-0534 and FA9550-23-1-0403 (program manager: 
+Chiping Li).
+Funding Data
+ Department of Energy University Turbine Systems Research 
+(UTSR) program (Grant No. DE-FE0032074; Funder ID: 
+10.13039/100006120).
+ Defense University Research Instrumentation Program (Grant 
+Nos. FA9550-16-1-0534 and FA9550-23-1-0403).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+Nomenclature
+Leeff ¼ effective Lewis number
+_mair ¼ combustor air mass flow rate, kg/s
+pCC ¼ chamber pressure, bar
+p0
+RMS ¼ root-mean-square of pressure fluctuation, kPa
+TAD ¼ computed equilibrium flame temperature, K
+TIN ¼ inlet air temperature, K
+g ¼ efficiency of ammonia decomposition to hydrogen
+Fig. 11 Instantaneous OH-PLIF snapshots (a) and corresponding p0 time history (b) depicted for case A-3 
+121018-8 / Vol. 147, DECEMBER 2025                                                                                                  
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+/ ¼ equivalence ratio
+v ¼ hydrogen fraction
+References
+0[1] Le, T. T., Sharma, P., Bora, B. J., Tran, V. D., Truong, T. H., Le, H. C., and 
+Nguyen, P. Q. P., 2024, “Fueling the Future: A Comprehensive Review of 
+Hydrogen Energy Systems and Their Challenges,” Int. J. Hydrogen Energy, 54, 
+pp. 791–816.
+0[2] Cappelletti, A., and Martelli, F., 2017, “Investigation of a Pure Hydrogen Fueled 
+Gas Turbine Burner,” Int. J. Hydrogen Energy, 42(15), pp. 10513–10523.
+0[3] Valera-Medina, A., Amer-Hatem, F., Azad, A. K., Dedoussi, I. C., de Joannon, M., 
+Fernandes, R. X., Glarborg, P., et al., 2021, “Review on Ammonia as a Potential 
+Fuel: From Synthesis to Economics,” Energy Fuels, 35(9), pp. 6964–7029.
+0[4] Khateeb, A. A., Guiberti, T. F., Wang, G., Boyette, W. R., Younes, M., Jamal, A., 
+and Roberts, W. L., 2021, “Stability Limits and NO Emissions of Premixed Swirl 
+Ammonia-Air Flames Enriched With Hydrogen or Methane at Elevated 
+Pressures,” Int. J. Hydrogen Energy, 46(21), pp. 11969–11981.
+0[5] Zhu, X., Du, J., Yu, Z., Cheng, Y.-B., and Wang, Y., 2024, “NOx Emission and 
+Control in Ammonia Combustion: State-of-the-Art Review and Future 
+Perspectives,” Energy Fuels, 38(1), pp. 43–60.
+0[6] Mei, B., Zhang, J., Shi, X., Xi, Z., and Li, Y., 2021, “Enhancement of Ammonia 
+Combustion With Partial Fuel Cracking Strategy: Laminar Flame Propagation and 
+Kinetic Modeling Investigation of NH3/H2/N2/Air Mixtures Up to 10 atm,” 
+Combust. Flame, 231, p. 111472.
+0[7] Bouvet, N., Halter, F., Chauveau, C., and Yoon, Y., 2013, “On the Effective Lewis 
+Number Formulations for Lean Hydrogen/Hydrocarbon/Air Mixtures,” Int. J. 
+Hydrogen Energy, 38(14), pp. 5949–5960.
+0[8] Gaucherand, J., Laera, D., Schulze-Netzer, C., and Poinsot, T., 2023, “Intrinsic 
+Instabilities of Hydrogen and Hydrogen/Ammonia Premixed Flames: Influence of 
+Equivalence Ratio, Fuel Composition and Pressure,” Combust. Flame, 256, 
+p. 112986.
+0[9] Ichikawa, A., Hayakawa, A., Kitagawa, Y., Kunkuma Amila Somarathne, K., 
+Kudo, T., and Kobayashi, H., 2015, “Laminar Burning Velocity and Markstein 
+Length of Ammonia/Hydrogen/Air Premixed Flames at Elevated Pressures,” Int. 
+J. Hydrogen Energy, 40(30), pp. 9570–9578.
+[10] Marshall, A., Lundrigan, J., Venkateswaran, P., Seitzman, J., and Lieuwen, T., 
+2017, “Measurements of Stretch Statistics at Flame Leading Points for High 
+Hydrogen Content Fuels,” ASME J. Eng. Gas Turbines Power, 139(11), p. 111503.
+[11] Giannakopoulos, G. K., Matalon, M., Frouzakis, C. E., and Tomboulides, A. G., 
+2015, “The Curvature Markstein Length and the Definition of Flame Displace­
+ment Speed for Stationary Spherical Flames,” Proc. Combust. Inst., 35(1), 
+pp. 737–743.
+[12] Al-Khafaji, M., Yang, J., Tomlin, A. S., Thompson, H. M., de Boer, G., Liu, K., 
+and Morsy, M. E., 2023, “Laminar Burning Velocities and Markstein Numbers for 
+Pure Hydrogen and Methane/Hydrogen/Air Mixtures at Elevated Pressures,” Fuel, 
+354, p. 129331.
+[13] Shahin, T. T., Hodge, A. J., Murdock, B. K., McLean, T. N., Koenig, K. C., Gejji, 
+R. M., Lucht, R. P., and Slabaugh, C. D., 2025, “Dynamics of Hydrogen- 
+Ammonia-Natural Gas Lean-Premixed High-Pressure Flames,” Fuel, 385, 
+p. 134016.
+[14] Sato, J., 1982, “Effects of Lewis Number on Extinction Behavior of Premixed 
+Flames in a Stagnation Flow,” Symp. (Int.) Combust., 19(1), pp. 1541–1548.
+[15] Taamallah, S., Vogiatzaki, K., Alzahrani, F., Mokheimer, E., Habib, M., and 
+Ghoniem, A., 2015, “Fuel Flexibility, Stability and Emissions in Premixed 
+Hydrogen-Rich Gas Turbine Combustion: Technology, Fundamentals, and 
+Numerical Simulations,” Appl. Energy, 154, pp. 1020–1047.
+[16] Lipatnikov, A., and Chomiak, J., 2005, “Molecular Transport Effects on Turbulent 
+Flame Propagation and Structure,” Prog. Energy Combust. Sci., 31(1), pp. 1–73.
+[17] Zhang, M., Wang, J., Xie, Y., Jin, W., Wei, Z., Huang, Z., and Kobayashi, H., 
+2013, “Flame Front Structure and Burning Velocity of Turbulent Premixed CH4/ 
+H2/Air Flames,” Int. J. Hydrogen Energy, 38(26), pp. 11421–11428.
+[18] Zhang, M., Chang, M., Wang, J., and Huang, Z., 2020, “Flame Dynamics Analysis 
+of Highly Hydrogen-Enrichment Premixed Turbulent Combustion,” Int. J. 
+Hydrogen Energy, 45(1), pp. 1072–1083.
+[19] Buschhagen, T., Gejji, R., Philo, J., Tran, L., Bilbao, J. E. P., and Slabaugh, C. D., 
+2019, “Self-Excited Transverse Combustion Instabilities in a High Pressure Lean 
+Premixed Jet Flame,” Proc. Combust. Inst., 37(4), pp. 5181–5188.
+[20] Buschhagen, T., Gejji, R. M., Scalo, C., and Slabaugh, C. D., 2022, “Self-Excited 
+Instability Regimes of a Confined Turbulent Jet Flame at Elevated Pressure,” 
+Phys. Fluids, 34(4), p. 044103.
+[21] Buschhagen, T., Gejji, R., Philo, J., Tran, L., Bilbao, J. E. P., and Slabaugh, C. D., 
+2018, “Experimental Investigation of Self-Excited Combustion Instabilities in a 
+Lean, Premixed, Gas Turbine Combustor at High Pressure,” ASME J. Eng. Gas 
+Turbines Power, 140(11), p. 111503.
+[22] Philo, J. J., Gejji, R. M., and Slabaugh, C. D., 2020, “Injector-Coupled Transverse 
+Instabilities in a Multi-Element Premixed Combustor,” Int. J. Spray Combust. 
+Dyn., 12, p. 1756827720932832.
+[23] Gejji, R. M., Buschhagen, T., and Slabaugh, C. D., 2021, “Occurrence of Rotating 
+Detonation Waves in a Jet-Stabilized Combustor With Premixed Injection,” 
+J. Propul. Power, 37(4), pp. 645–649.
+[24] Lieuwen, T., and Zinn, B. T., 1998, “The Role of Equivalence Ratio Oscillations in 
+Driving Combustion Instabilities in Low NOx Gas Turbines,” Symp. (Int.) 
+Combust., 27(2), pp. 1809–1816.
+[25] Hemchandra, S., Peters, N., and Lieuwen, T., 2011, “Heat Release Response of 
+Acoustically Forced Turbulent Premixed Flames—Role of Kinematic 
+Restoration,” Proc. Combust. Inst., 33(1), pp. 1609–1617.
+[26] O’Connor, J., Hemchandra, S., and Lieuwen, T., 2016, “7—Combustion 
+Instabilities in Lean Premixed Systems,” Lean Combustion, 2nd ed., D. 
+Dunn-Rankin and P. Therkelsen, eds., Academic Press, Boston, pp. 231–259.
+[27] Lantz, A., Collin, R., Alden, M., Lindholm, A., Larfeldt, J., and L€orstad, D., 2015, 
+“Investigation of Hydrogen Enriched Natural Gas Flames in a SGT-700/800 
+Burner Using OH PLIF and Chemiluminescence Imaging,” ASME J. Eng. Gas 
+Turbines Power, 137(3), p. 031505.
+[28] Emadi, M., Karkow, D., Salameh, T., Gohil, A., and Ratner, A., 2012, “Flame 
+Structure Changes Resulting From Hydrogen-Enrichment and Pressurization for 
+Low-Swirl Premixed Methane–Air Flames,” Int. J. Hydrogen Energy, 37(13), 
+pp. 10397–10404.
+[29] Jin, U., and Kim, K. T., 2024, “Hybrid Rich- and Lean-Premixed Ammonia- 
+Hydrogen Combustion for Mitigation of NOx Emissions and Thermoacoustic 
+Instabilities,” Combust. Flame, 262, p. 113366.
+[30] Gu, W., Liu, X., Wang, Z., and Zheng, H., 2024, “Applications of PLIF 
+in Fundamental Research on Turbulent Combustion of Hydrogen and 
+Hydrogen Hybrid Fuels: A Brief Review,” Int. J. Hydrogen Energy, 78, 
+pp. 1240–1274.
+[31] American Society of Mechanical Engineers, 2016, “Measurement of Gas Flow by 
+Means of Critical Flow Venturis and Critical Flow Nozzles,” ASME, New York, 
+Standard No. MFC-7-2016.
+[32] Gejji, R. M., Walters, I. V., Beard, S., Lemcherfi, A., Sardeshmukh, S. V., Heister, 
+S. D., and Slabaugh, C. D., 2018, “Transducer Installation Effects on Pressure 
+Measurements in PGC Devices,” AIAA Paper No. 2018-0158.
+[33] Lammel, O., Sch€utz, H., Schmitz, G., L€uckerath, R., St€ohr, M., Noll, B., Aigner, 
+M., Hase, M., and Krebs, W., 2010, “FLOX Combustion at High Power Density 
+and High Flame Temperatures,” ASME J. Eng. Gas Turbines Power, 132(12), 
+p. 121503.
+[34] Yuri, M., Masada, J., Tsukagoshi, K., Ito, E., and Hada, S., 2013, 
+“Development of 1600 C-Class High-Efficiency Gas Turbine for Power 
+Generation Applying J-Type Technology,” Mitsubishi Heavy Ind. Tech. Rev., 
+50(3), pp. 1–10.
+[35] Dickey, D. A., and Fuller, W. A., 1981, “Likelihood Ratio Statistics for 
+Autoregressive Time Series With a Unit Root,” Econometrica, 49(4), 
+pp. 1057–1072.
+[36] Kwiatkowski, D., Phillips, P. C. B., Schmidt, P., and Shin, Y., 1992, “Testing the 
+Null Hypothesis of Stationarity Against the Alternative of a Unit Root: How Sure 
+Are We That Economic Time Series Have a Unit Root?,” J. Econom., 54(1–3), 
+pp. 159–178.
+[37] Daniele, S., Jansohn, P., Mantzaras, J., and Boulouchos, K., 2011, “Turbulent 
+Flame Speed for Syngas at Gas Turbine Relevant Conditions,” Proc. Combust. 
+Inst., 33(2), pp. 2937–2944.
+[38] Lafay, Y., Renou, B., Cabot, G., and Boukhalfa, M., 2008, “Experimental and 
+Numerical Investigation of the Effect of H2 Enrichment on Laminar Methane–Air 
+Flame Thickness,” Combust. Flame, 153(4), pp. 540–561.
+[39] Shanbhogue, S., Shin, D.-H., Hemchandra, S., Plaks, D., and Lieuwen, T., 
+2009, “Flame-Sheet Dynamics of Bluff-Body Stabilized Flames 
+During Longitudinal Acoustic Forcing,” Proc. Combust. Inst., 32(2), pp. 
+1787–1794.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+DECEMBER 2025, Vol. 147 / 121018-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/147/12/121018/7530910/gtp-25-1276.pdf by University of Cincinnati user on 31 December 2025

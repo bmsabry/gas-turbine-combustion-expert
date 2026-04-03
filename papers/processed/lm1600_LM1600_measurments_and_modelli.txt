@@ -1,0 +1,733 @@
+
+--- Page 1 ---
+
+G. R. Price
+K. K. Botros
+NOVA Research & Technology Centre,
+Calgary, Canada
+G. M. Goldin
+Fluent Inc.,
+Lebanon, NH 03766
+CFD Predictions and Field
+Measurements of NOx Emissions
+From LM1600 Gas Turbine
+During Part Load Operation
+CFD simulations of the combustion process and formation of emissions in an industrial
+GE LM1600 gas turbine have been performed over a range of unit loads. Two combustion
+models were considered here to characterize the combustion process, the chemical equi-
+librium model and the nonequilibrium laminar ﬂamelet model. The ﬂamelet model pre-
+dictions of nitric oxide concentration demonstrated much closer agreement with ﬁeld
+measurements of continuous emission monitoring systems, due to accurate modeling of
+the oxygen radial concentration. The predictions made with this model are within 15
+percent at maximum load and considerably better at lower loads. Field measurements
+also showed that nitric oxide constitutes about 95 percent of the total NOx measured.
+Unburnt hydrocarbons and carbon monoxide emissions are signiﬁcantly overpredicted,
+however, arguably as a result of neglecting their oxidation in the high temperature, fuel-
+lean environment of the turbine and exhaust stack downstream of the combustor.
+@DOI: 10.1115/1.1413769#
+Introduction
+Air pollution control programs in the United States increasingly
+require industry to continuously monitor and report emissions of
+pollutants, speciﬁcally oxides of nitrogen (NOx) and sulfur
+(SOx). These components are generally acknowledged as the ma-
+jor contributors to acid rain, while NOx also contributes along
+with volatile organic compounds to the photochemical generation
+of ground level ozone or smog.
+Current U.S. monitoring requirements are generally biased to-
+wards continuous emissions monitoring systems ~CEMS! based
+on calibrated measurement devices. For example, the regional
+clean air incentives program ~RECLAIM! ~@1#! in southern Cali-
+fornia imposes stringent CEMS and reporting requirements for
+NOx and SOx emissions, particularly for large NOx sources. On a
+federal level, the U.S. Environmental Protection Agency stipulates
+CEMS for installations speciﬁed under the acid rain program
+~@2#!.
+The situation is quite different in Canada, where predictive
+models or one-time site measurements are employed to character-
+ize these emissions as part of the initial licensing application to
+the provincially based environmental regulatory bodies. Continu-
+ous monitoring of emissions is generally not a licensing require-
+ment. Some proactive initiatives have been introduced in recent
+years including the Voluntary Challenge and Registry Program
+~@3#!, which encourages private and public sector organizations
+across Canada to voluntarily limit and disclose their net green-
+house gas emissions. However, further regulatory changes with
+some form of ongoing emission monitoring could be tabled in the
+near future in order to meet Canada’s Kyoto commitment to re-
+duce greenhouse gases to 3 percent below 1990 levels by the year
+2010.
+TransCanada Transmission ~@4#!, which operates numerous in-
+dustrial gas turbines as part of its natural gas transmission pipe-
+line, has sponsored a program of predictive emissions monitoring
+systems ~PEMS! in anticipation of future regulatory changes.
+PEMS are often based on semi-empirical expressions or one-
+dimensional models in an attempt to correlate emission rates to
+operating parameters for a given gas turbine ~@5–7#!. Sufﬁce it to
+say, PEMS offer a very cost-effective means for estimating con-
+tinuous emission levels with minimal operational and mainte-
+nance requirements, i.e., no calibration gases or expensive analyz-
+ers. A good account of the beneﬁts of PEMS over CEMS is given
+by Hung ~@5#!, where a quantitative comparison between the two
+methods is provided.
+As a part of this larger PEMS program, this study focuses on
+the ability of more sophisticated tools such as computational ﬂuid
+dynamics ~CFD! to accurately predict NOx emissions. Clearly, due
+to the complexity and large computational requirements, CFD is
+not feasible for direct application as a PEMS. However, it can be
+used to provide some valuable data that can be implemented in
+PEM models.
+In this paper, CFD predictions of the nitric oxide ~NO! emis-
+sions from a stationary General Electric LM1600 gas turbine en-
+gine are presented. We begin with a brief review of related CFD
+studies of gas turbine ~GT! combustion chambers. This is fol-
+lowed by details of the CFD modeling effort with particular em-
+phasis on the combustion process and NO models along with the
+combustor geometry, grid generation, and prescribed boundary
+conditions. Two popular combustion models were considered in
+the simulations, both based on the mixture fraction probability
+density function ~PDF! approach. The ﬁrst model assumes chemi-
+cal equilibrium, whereas the second laminar ﬂamelet based model
+accounts for nonequilibrium effects. The results of the CFD simu-
+lations are compared with ﬁeld measurements of the unit emis-
+sions taken over a range of part load operating conditions on two
+separate occasions.
+Related CFD Studies
+Many researchers have used CFD simulations to study the fun-
+damental combustion process and heat transfer characteristics in
+gas turbine combustors ~@8–10#!. In fact, aeroengine manufactur-
+ers now commonly apply CFD during the design of new combus-
+tion chambers. Mongia ~@10#! provides an excellent review of
+Contributed by the International Gas Turbine Institute ~IGTI! of THE AMERICAN
+SOCIETY OF MECHANICAL ENGINEERS for publication in the ASME JOURNAL OF
+ENGINEERING FOR GAS TURBINES AND POWER. Paper presented at the Interna-
+tional Gas Turbine and Aeroengine Congress and Exhibition, Munich, Germany, May
+8–11, 2000; Paper 00-GT-350. Manuscript received by IGTI Nov. 1999; ﬁnal revi-
+sion received by ASME Headquarters Feb. 2000. Associate Editor: D. Wisler.
+276 Õ Vol. 124, APRIL 2002
+Copyright © 2002 by ASME
+Transactions of the ASME
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+the application of CFD to gas turbine combustors along with
+some recommendations for future research from an industry
+perspective.
+Some noteworthy CFD related NOx studies include a series of
+papers with detailed experimental and numerical results for a
+propane-ﬁred laboratory-scale can combustor ~@11–14#!. Isother-
+mal ﬂow simulations by Koutmos and McGuirk ~@13#! demon-
+strated that the standard k-« turbulence model was acceptable for
+predicting the velocity ﬁeld despite some deﬁciencies in the jet-
+on-jet impingement region. More recently, Mueller and Knill
+~@14#! compared the effect of two different combustion models;
+namely the eddy dissipation model ~@15#! and the laminar ﬂamelet
+model ~@16#!, on predicted temperature ﬁeld, species concentra-
+tion and NO emissions. Their NOx model was based on the ex-
+tended Zeldovich mechanism to describe thermal NO formation
+along with an empirical expression by De Soete ~@17#! to account
+for the prompt NO formation. They concluded that simple com-
+bustion models like the eddy dissipation model tend to overpredict
+the temperature ﬁeld and NO concentrations, denoted by @NO#,
+due to the lack of intermediate species. Conversely, the ﬂamelet
+model, which better accounts for nonequilibrium effects, was
+much more accurate.
+Further advances in CFD modeling of pollutant formation in
+gas turbine combustors are reported by Barths et al. ~@18#!. These
+authors introduced a series of unsteady ﬂamelets based on a com-
+plex reaction mechanism involving 106 reactions and 14 species
+to describe the thermal, prompt and nitrous oxide contributions to
+NOx formation and account for NOx reburn. For n-hexane fuel,
+the agreement between predicted and measured NO values was
+excellent, within 12 percent. An analysis of the reaction paths
+showed that the thermal NO contributes 67 percent to the total
+production with the remaining 33 percent formed via the prompt
+mechanism. NO was globally consumed by a reburn mechanism
+~22 percent! and the nitrous oxide path ~8 percent!.
+Description of CFD Model
+Numerical simulations of the time-averaged turbulent ﬂow ﬁeld
+in the combustion chamber of the LM1600 were conducted using
+FLUENT 5.1 ~@19#!, a commercial CFD package. Calculations of
+the Reynolds number for the fuel, primary and secondary air in-
+jection indicate the ﬂow conditions are fully turbulent. FLUENT
+solves the incompressible time-averaged governing equations for
+mass and momentum using a conservative control volume formu-
+lation. Closure of the Reynolds stress terms is achieved using the
+standard k-« turbulence model. In spite of its inherent assump-
+tions, i.e., isotropy, the k-« model has been widely utilized in
+combustor simulations and generally yields acceptable results
+~@10,13,14,18#!.
+Mixture Fraction Approach.
+The mixture fraction approach
+was developed to model turbulent nonpremixed ﬂames. The mix-
+ture fraction, commonly denoted by f, is deﬁned as the atomic
+mass fraction that originated from the fuel stream. Under the as-
+sumptions of uniform pressure ~which is valid for low speed
+ﬂames!, and equal turbulent species diffusivities ~which is valid at
+high Reynolds number!, the species equations can be reduced to a
+single equation for f. Since atomic elements are conserved during
+chemical reactions, the mixture fraction equation does not have a
+source term.
+In turbulent combustion, all ﬂow variables at a point ﬂuctuate
+in time due to turbulent eddies. Turbulence is modeled in this
+simulation by Reynolds averaging, which may be considered as a
+time average of the ﬂuctuating quantities at a point. The effects of
+this time varying turbulent ﬁeld on the mixture fraction are ac-
+counted for by using an assumed shape for the PDF. The PDF,
+denoted by P, describes the proportion of time spent at each tur-
+bulent state. Hence, mean quantities, such as the mean tempera-
+ture ~means are denoted by a ‘‘;’’ overbar! are determined by a
+PDF weighted integration over all states,
+T˜ 5E
+0
+1
+T~ f !P~ f !df.
+(1)
+Here, a beta PDF is used, which is speciﬁed by its ﬁrst two mo-
+ments, namely the mean of f and its variance. The CFD code
+solves equations for these ﬁrst two moments, from which the
+mean temperatures and species can be computed according to ~1!!.
+In order to avoid the computational expense of evaluating these
+integrals, they are calculated a priori, tabulated and then interpo-
+lated from the table during the actual CFD simulations.
+Equilibrium Model.
+When chemical reactions are fast rela-
+tive to turbulent mixing, the chemistry may be approximated as
+being in chemical equilibrium. For adiabatic ﬂames, the entire
+temperature and species ﬁelds are completely determined by the
+mixture fraction; nonadiabatic ﬂames also depend on the enthalpy.
+As the residence time in the combustor decreases, however, the
+turbulent mixing time-scales become competitive with the chemi-
+cal reaction time-scales and the chemistry deviates from thermo-
+dynamic equilibrium. The ﬂamelet model relaxes this assumption
+to cases of moderate nonequilibrium.
+Flamelet Model.
+The laminar ﬂamelet model approximates a
+turbulent ﬂame brush as an ensemble of laminar ﬂames. Each
+ﬂamelet is assumed to have the same structure as the stretched
+laminar ﬂame that occurs between opposing fuel and air nozzles.
+For this conﬁguration, the species and temperature in the ﬂame
+can be completely described by two parameters, namely the mix-
+ture fraction, f and the scalar dissipation rate, x. The scalar dissi-
+pation rate is a measure of the strain on the ﬂame, and hence the
+extent that it departs from chemical equilibrium ~@19#!,
+x52DS
+df
+dxD
+2
+.
+(2)
+Individual laminar ﬂamelets can be calculated from equations
+governing individual species transport and an overall energy
+balance,
+r
+]Y j
+]t 5
+1
+2 rx
+]2Y j
+]f 2 1w˙ i2
+1
+2Frx
+1
+Lej
+2
+]Lej
+]f 1
+1
+2 ~12Lej!
+3S
+]rx
+]f 1rx
+cp
+l
+]
+]f
+l
+cpDG
+]Y j
+]f
+(3)
+r
+]T
+]t 5
+1
+2 rx
+]2T
+]f 2 1
+1
+2 rxF
+]cp
+]f 1(
+j
+1
+Lej
+cp j
+]Y j
+]f G
+2
+1
+cp (
+j
+w˙ jh j2
+1
+cpF4sp(
+j
+X ja j~T42Tb
+4!G.
+(4)
+Note that the last term in the energy Eq. ~4! represents heat loss
+from the ﬂamelet due to radiation in the optically thin limit. The
+ﬂamelet Eqs. ~3! and ~4! are solved over the range of scalar dis-
+sipation rates, integrated over the beta PDF according to Eq. ~1!
+and tabulated to relate mean scalar quantities to the mixture frac-
+tion, its variance, and the scalar dissipation rate.
+NOx Model.
+Since NOx occurs in trace quantities, it does not
+inﬂuence the ﬂow ﬁeld, and is accordingly post-processed. In this
+study, only NO is considered. The governing equation for the
+transport of NO is given by
+]
+]t ~rY NO!1
+]
+]xi
+~ruiY NO!5
+]
+]xiS rDeff
+]Y NO
+]xi D 1wNO
+g
+(5)
+where
+ui
+is
+the
+ﬂuid
+velocity
+and
+Deff
+is
+the
+effective
+(turbulent1laminar) diffusivity. The last term in Eq. ~5!, the mean
+NO source term, is computed via Eq. ~1! based on the instanta-
+neous NO reaction rate and an assumed beta PDF. The instanta-
+neous NO reaction rate has contributions from thermal and
+prompt sources. The thermal pathway is modeled by the extended
+Journal of Engineering for Gas Turbines and Power
+APRIL 2002, Vol. 124 Õ 277
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+Zeldovich mechanism with the steady-state assumption for the
+nitrogen radical. The prompt pathway is modeled via the empiri-
+cal De Soete mechanism ~@17#!. Owing to the relatively high tem-
+peratures in the combustor, the thermal pathway is the predomi-
+nant mechanism for NO formation.
+Geometry, Grid Generation, and Boundary Conditions.
+The LM1600 gas turbine installed at the TransCanada compressor
+station is rated for 13.6 MW at standard site conditions. The an-
+nular combustion module consists of 18 fuel injection nozzles
+equally spaced about the periphery. The inherent geometric sym-
+metry of the combustor was exploited by considering a 20-deg
+sector with a single fuel injection nozzle for the computational
+domain and employing periodic boundary conditions. The fuel
+port consists of a tube capped by a conical head with six small
+holes. Primary air enters the combustion chamber through a con-
+centric annulus surrounding the fuel port. The primary air is
+swirled by twelve, 30 deg swirl vanes in the annulus before pass-
+ing through a venturi nozzle and subsequently mixing with the
+natural gas jets. Dilution air is introduced further downstream
+through a series of holes and slots located along the top and bot-
+tom wall of the combustion liner. The combusted gases exit
+through an annular outlet, which leads to the multistaged high-
+pressure turbine. An overview of the 20-deg section of combus-
+tion chamber geometry is shown in Fig. 1. A close up front view
+of the fuel injection nozzle assembly, i.e., fuel injection port, pri-
+mary air swirl vanes and venturi nozzle, is shown in Fig. 2.
+A block-structured grid consisting of about 286,000 hexahedral
+control volumes with body-ﬁtted coordinates was generated for
+the three-dimensional computational geometry. The boundary sur-
+faces were uniquely identiﬁed during this process for later speci-
+ﬁcation of boundary conditions. Second-order upwind differenc-
+ing was employed for the convective terms in the discretized
+conservation equations in order to minimize numerical diffusion
+and achieve reasonably accurate solutions for this mesh size. Al-
+though a comprehensive grid reﬁnement study was not performed,
+tests with coarser and slightly ﬁner meshes showed only minor
+changes in predicted results. Unfortunately, complete grid inde-
+pendence is generally beyond available computing resources for
+most three-dimensional combustion problems.
+The boundary conditions for the CFD simulations include peri-
+odic boundaries to connect the azimuthally rotated side planes, a
+constant pressure outlet, thin walls for the swirl vanes, and ﬁnally
+adiabatic, hydraulically smooth walls for the external surfaces
+such as the combustion liner and venturi nozzle. The mass ﬂow
+rate of fuel, which varies with unit load, was speciﬁed from direct
+measurements with a conventional oriﬁce meter.
+Speciﬁcation of the airﬂow boundary conditions requires some
+additional explanation, however, because the ﬂow rate of air is not
+directly measured by the on-line data acquisition system that
+monitors the engine performance. Single point measurements of
+the exhaust gas velocity with a Pitot tube during the ﬁeld tests did
+not provide reasonable estimates of the airﬂow. Instead, the air
+ﬂow rate was indirectly determined by dividing the reported
+power output by the enthalpy change across the power turbine; the
+enthalpy change being derived from the measured pressure and
+temperature at the unit inlet and outlet. The actual breakdown of
+the total air ﬂow rate into prescribed mass ﬂow rates at the pri-
+mary air inlet and the various secondary air slots and holes, shown
+in Fig. 1, was based on proprietary information supplied by
+General Electric.
+Field Measurements
+Field measurements were taken in order to determine the varia-
+tion of emission levels from an LM1600 at various loads, i.e.,
+engine power output. The tests were performed at the same Tran-
+sCanada compressor station on two occasions, separated by al-
+most one year. The ambient conditions at the site on these dates
+were quite similar: the air temperature for the ﬁrst test ranged
+from 6–9°C compared to 11–13°C for the second test, while the
+barometric pressures remained within 1 percent.
+The levels of NOx, NO, CO, CO2, O2 and moisture in the
+exhaust stack were measured by a CEMS using instruments and
+on-site calibration techniques approved by U.S. EPA. For ex-
+ample, the NOx measurements were made with an approved
+chemiluminescent continuous analyzer. Pertinent engine perfor-
+mance parameters such as the unit power output, fuel ﬂow rate,
+turbine stage pressures and temperatures, and ambient conditions
+at the site were recorded by the data acquisition system at the
+station. Gas samples were also taken in order to determine the
+composition of the fuel gas. The results of the gas analysis are
+summarized below in Table I.
+At each operating point, the unit speed was adjusted to reach
+the desired power output. Then the unit was allowed to stabilize
+before the CEMS measurements were taken over a 20-minute pe-
+Fig. 2
+Close up of the fuel injection port, primary air swirl
+vanes, and venturi nozzle details
+Table 1
+Natural gas composition
+Component
+Field Test #1
+Mole %
+Field Test #2
+Mole %
+CH4
+96.92
+96.75
+C2H6
+0.86
+0.80
+C3H81
+0.30
+0.38
+N2
+1.03
+1.12
+CO2
+0.89
+0.95
+Fig. 1
+Computational domain—20 deg annular secton of
+LM1600 combustion chamber
+278 Õ Vol. 124, APRIL 2002
+Transactions of the ASME
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+riod. The unit load was varied from roughly 40 percent to maxi-
+mum load to give eight operating points on each test date, for a
+total of 16 points.
+Results and Discussion
+CFD simulations were performed at each of the 16 operating
+points corresponding to the ﬁeld measurements. At each operating
+point, multiple laminar ﬂamelet ﬁles were generated to cover the
+range of strain rates in the combustor. Property look-up tables
+were also generated for both combustion models at each operating
+point. This was necessary because the absolute pressure and in-
+coming compressed air temperature vary directly with the air
+compression ratio, which declines with decreasing unit load. Due
+to the extremely high methane content of the fuel gas, ;97 per-
+Fig. 3
+Comparison of predicted „NO… with ﬁrst set of CEMS based ﬁeld
+measurements
+Fig. 4
+Contours of the local Damkohler number on the central plane
+Journal of Engineering for Gas Turbines and Power
+APRIL 2002, Vol. 124 Õ 279
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+Fig. 5
+Contours of static temperature on the central plane
+Fig. 6
+Contours of oxygen radical concentration on the central plane
+280 Õ Vol. 124, APRIL 2002
+Transactions of the ASME
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+Fig. 7
+Comparison of predicted „NO… with second set of CEMS based ﬁeld
+measurements
+Fig. 8
+Comparison of predicted „CO… and „UHC… with second set of CEMS based ﬁeld
+measurements
+Journal of Engineering for Gas Turbines and Power
+APRIL 2002, Vol. 124 Õ 281
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+cent in Table 1, the reduced GRI-MECH 1.22 combustion mecha-
+nism ~@20#! was implemented in the present analysis. This simpli-
+ﬁed methane mechanism considers 104 reactions and 22 species.
+The predicted concentrations of NO from CFD were obtained
+by dividing the integrated volumetric ﬂow rate of NO by the total
+integrated volumetric ﬂow rate over the combustor outlet plane
+for the two different combustion models. The predicted concen-
+trations were subsequently corrected to account for additional
+cooling air that bypasses the combustion chamber. These predic-
+tions are compared with the ﬁrst set of CEMS measurements in
+Fig. 3. Note that NO was also measured during this ﬁrst test along
+with the total NOx to allow direct comparison with the CFD re-
+sults. With the exception of two points in Fig. 3, NO accounts for
+about 95 percent of the total NOx produced. The ﬂamelet model
+results are clearly superior to the chemical equilibrium model,
+which under predicts the NO concentrations by an order of mag-
+nitude. The ﬂamelet model only under predicts the NO concentra-
+tions by 15 percent at full load. Although this discrepancy dimin-
+ishes at part loads, the rate of increase for the measured NO with
+increasing load is somewhat steeper than the predicted trend. The
+overall trend of increasing NO with increasing load is due to the
+higher temperatures in the combustor, which leads to additional
+NO via the thermal mechanism. Note these higher combustor tem-
+peratures result from higher compressed air temperatures and
+lower air-to-fuel ratios as the unit load is increased.
+The inadequacy of the equilibrium based CFD model in this
+situation can be elucidated by considering the deviation from
+chemical equilibrium as measured by the Damkohler number, Da,
+which is deﬁned as the ratio of characteristic turbulent time scale,
+k/«, to chemical time scale, 1/bs . Here bs is the laminar strain
+rate of a methane ﬂame at extinction, bs511,700 s21. Contours of
+the local Damkohler number are plotted on the central plane, i.e.,
+vertical plane dissecting the computational domain, in Fig. 4. Ide-
+ally, this dimensionless parameter should be much greater than
+unity, or in other words the turbulent time scale should be much
+longer than the chemical time scale, for chemical equilibrium to
+be valid. This is clearly not the case in Fig. 4, where 5,Da
+,20 over a majority of the combustion chamber. Hence, there is
+insufﬁcient time for chemical equilibrium to prevail.
+Further insight into this problem is gained by comparing the
+temperature and oxygen radical concentrations for these two com-
+bustion models. In Fig. 5, contours of temperature on the central
+plane show only slight deviations between the two cases, although
+the high temperature region is larger for the ﬂamelet model. The
+primary difference lies in the predicted concentration of oxygen
+radical @O# as shown in Fig. 6. Here, the ﬂamelet model yields
+signiﬁcantly higher @O# than predicted by equilibrium chemistry,
+particularly in the thin ﬂame region near the injection nozzle.
+Higher @O# increase the thermal NO formation rate, which is di-
+rectly proportional to the concentration of oxygen radial as shown
+by Mueller and Knill ~@14#!.
+CFD simulations based on the second set of ﬁeld measurements
+were performed only with the ﬂamelet model. The integrated
+@NO# at the combustor outlet are compared with the average
+CEMS measurements in Fig. 7. Unfortunately, nitric oxide mea-
+surements were unavailable for this set of tests, so the reported
+@NO# in Fig. 7 was estimated at 95 percent of the measured NOx
+based on the results of our previous set of ﬁeld tests. Again,
+ﬂamelet based CFD results slightly underpredict the measured
+trend but it is within 10 percent of the measured NOx and within
+5 percent of the estimated NO. This level of agreement is surpris-
+ingly good and the discrepancy can easily be attributed to addi-
+tional NO formation via residence time during the time the gas
+leaves the combustion chamber and its subsequent expansion in
+the high-pressure turbine stage.
+We also compared the CFD predictions of the unburned hydro-
+carbons ~UHC! and carbon monoxide at the combustor outlet with
+the CEMS ﬁeld measurements for the second set of tests in Fig. 8.
+Clearly the agreement between the predicted and measured values
+of UHC and CO is poor, particular for CO where the predicted
+levels are almost three orders of magnitude higher than the mea-
+surements. The inability of CFD to accurately predict these com-
+ponents was recognized by Nicol et al. ~@21#!.
+Direct measurements of the @CO# and @UHC# at the outlet of a
+laboratory combustor chamber were reasonably well predicted by
+a ﬂamelet-based model in Ref. @14#. Hence, we offer that these
+order of magnitude discrepancies can be explained by the discrep-
+ancy in the locations from which the CFD and measured values
+are derived. From Fig. 9, which shows the CO mole fraction, it
+appears that CO is produced in the fuel rich region of the ﬂame.
+Further downstream in the fuel lean zone where the temperatures
+are higher ~refer to Fig. 5! it is oxidized into CO2. This oxidiza-
+Fig. 9
+Contours of CO mole fraction on the central plane
+282 Õ Vol. 124, APRIL 2002
+Transactions of the ASME
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+tion process is relatively slow and will continue beyond the com-
+bustor, through the downstream turbine and even into the exhaust
+stack, where the pressure is atmospheric and the temperature
+ranges from 420–492°C depending on the unit load. Chemical
+equilibrium calculations show that negligible amounts of CO
+would be present under these conditions and the residence time to
+reach the measurement location on the exhaust stack is on the
+order of several seconds versus milliseconds in the combustor. Of
+course, better mixing could also reduce the UHC and CO emis-
+sions in the actual unit.
+One last comment, the mass ﬂow rate of air is an important
+parameter in the NO predictions but the indirect calculation
+method used to derive it is prone to inaccuracies due to uncertain-
+ties in the temperature measurements across the turbine. This is
+particularly true for an engine with a single turbine because the
+Turbine Inlet Temperature ~TIT! is notoriously difﬁcult to mea-
+sure accurately due to hot/cold streaks in the ﬂow from the com-
+bustion chamber. The LM1600 consists of two separate turbines: a
+high-pressure turbine to drive the air compression and a low-
+pressure turbine for power generation. Fortunately, the tempera-
+ture measurements across the low-pressure turbine are signiﬁ-
+cantly more accurate than the TIT and these are used in the air
+ﬂow calculation. An additional CFD simulation at full load con-
+ditions revealed that a 10 percent increase in the total air ﬂow rate
+reduced the predicted @NO# by 13 percent. This decrease is largely
+due to effect of increased air dilution along with slightly enhanced
+mixing in the combustion chamber. The sensitivity analysis also
+provides a gross estimate of the uncertainty in @NO# associated
+with the inaccuracy in the calculated ﬂow rate of air through the
+combustion chamber.
+Concluding Remarks
+The following conclusions can be drawn from the present
+study:
+1 The predicted @NO# with the ﬂamelet model was in much
+closer agreement with CEMS ﬁeld measurements than the chemi-
+cal equilibrium model. This is likely because it more accurately
+predicts the @O# within the combustor, which is an important fac-
+tor in thermal NO mechanism.
+2 Even with all the extra details and efforts incorporated in the
+ﬂamelet model, the best CFD predictions were shown to be within
+15 percent at maximum load.
+3 The ﬁeld measurements showed that NO constitutes about 95
+percent of the total NOx measured in this type of engine.
+4 UHC and CO emissions were greatly overpredicted, arguably
+as a result of neglecting their post-combustor oxidation in the
+high-temperature fuel-lean environment of the turbine and exhaust
+stack.
+Acknowledgments
+This work was conducted as part of a research program spon-
+sored by TransCanada Pipeline Ltd. ~TCPL! and permission to
+publish it is gratefully acknowledged. We would also like to ac-
+knowledge Entect Environmental Services led by Mrs. Jackie
+Hudson and Conor Paciﬁc Environmental Technologies Inc., par-
+ticularly Mr. Sean Miner and Mr. Francis Lucas, for the CEMS
+measurements. Thanks are also due to Dr. Golam Kibrya and Mr.
+Gene Bayrock, both of TCPL, for their assistance in coordinating
+and monitoring the ﬁeld tests.
+Nomenclature
+a 5 absorption coefﬁcient
+bs 5 laminar ﬂamelet strain rate at extinction
+cp 5 speciﬁc heat
+D 5 diffusion coefﬁcient
+Da 5 Damkohler number, Da5bsk/«
+f 5 mixture fraction
+k 5 turbulent kinetic energy
+Le 5 Lewis number, Le5rcpD/l
+p 5 static pressure
+P 5 probability density function
+T 5 static temperature
+ui 5 velocity components, i51,2,3
+w˙ 5 reaction rate
+X 5 mole fraction
+Y 5 mass fraction
+Greek Symbols
+x 5 scalar dissipation rate
+« 5 turbulence dissipation rate
+l 5 thermal conductivity
+r 5 ﬂuid density
+s 5 Stefan-Boltzmann constant
+Subscripts
+b 5 background conditions
+j 5 current species
+References
+@1# South Coast Air Quality Management District, details of RECLAIM program
+at web site, http://www.aqmd.gov/
+@2# Environment Protection Agency—Acid Rain Program, details at web site,
+http://www.epa.gov/acidrain/
+@3# Voluntary Challenge and Registry Program, details at ofﬁcial web site, http://
+www.vcr-mvr.ca/
+@4# TransCanada
+Transmission
+Ltd,
+details
+at
+ofﬁcial
+web
+site,
+http://
+www.transcanada.com/
+@5# Hung, W. S., 1991, ‘‘A Predictive NOx Monitoring System for Gas Turbines,’’
+ASME Paper No. 91-GT-306.
+@6# Hung, W. S., 1995, ‘‘Predictive Emission Monitoring System ~PEMS!: The
+Established NOx Monitoring System for Industrial Gas Turbines,’’Air & Waste
+Management Association Paper No. 95-MP16A.01.
+@7# Sullivan, D. A., 1997, ‘‘A Simple Gas Turbine Combustor NOx Correlation
+Including the Effect of Vitiated Air,’’ ASME J. Eng. Gas Turbines Power, 119,
+pp. 145–152.
+@8# Tolpadi, A. K., Hu, I. Z., Correa, S. M., and Burrus, D. L., 1997, ‘‘Coupled
+Lagrangian Monte Carlo PDF-CFD Computation of Gas Turbine Combustor
+Flowﬁelds With Finite-Rate Chemistry,’’ ASME J. Eng. Gas Turbines Power,
+119, pp. 519–526.
+@9# Danis, A. M., Burrus, D. L., and Mongia, H. C., 1997, ‘‘Anchored CCD for
+Gas Turbine Combustor Design and Data Correlation,’’ ASME J. Eng. Gas
+Turbines Power, 119, pp. 535–545.
+@10# Mongia, H. C., 1994, ‘‘Combustor Modeling in Design Process: Applications
+and Future Directions,’’ AIAA Paper No. 94-0466.
+@11# Jones, W. P., and Toral, H., 1983, ‘‘Temperature and Composition Measure-
+ments in a Research Gas Turbine Combustion Chamber,’’ Combust. Sci. Tech-
+nol., 31, pp. 249–275.
+@12# Heitor, M. V., and Whitelaw, J. H., 1986, ‘‘Velocity, Temperature and Species
+Characteristics of the Flow in a Gas Turbine Combustor,’’ Combust. Flame,
+64, pp. 1–32.
+@13# Koutmos, P., and McGuirk, J. J., 1991, ‘‘Isothermal Modeling of Gas Turbine
+Combustors: Computational Study,’’ J. Propul. Power, 7, No. 6, pp. 1064–
+1071.
+@14# Mueller, C. M., and Knill, K. J., 1996, ‘‘Numerical Simulation of Emissions in
+a Gas Turbine Combustor,’’ Proceedings of Combustion Canada ‘96, National
+Resources Canada, Environment Canada, and National Research Council
+Canada, Ottawa, Canada.
+@15# Magnussen, B. F., and Hjertager, B. H., 1976, ‘‘On Mathematical Models of
+Turbulent Combustion With Special Emphasis on Soot Formation and Com-
+bustion,’’ 16th Symposium (International) on Combustion, The Combustion
+Institute, Pittsburgh, pp. 719–729.
+@16# Peters, N., 1984, ‘‘Laminar Diffusion Flamelet Models in Non-Premixed Tur-
+bulent Combustion,’’ Prog. Energy Combust. Sci., 10, pp. 319–339.
+@17# De Soete, G. G., 1975, ‘‘Overall Reaction Rates of NO and N2 Formation
+From Fuel Nitrogen’’ 15th Symposium (International) on Combustion, The
+Combustion Institute, Pittsburgh, pp. 1093–1102.
+@18# Barths, H., et al., 1998, ‘‘Simulation of Pollutant Formation in a Gas-Turbine
+Combustor Using Unsteady Flamelets,’’ 27th Symposium (International) on
+Combustion, The Combustion Institute, Pittsburgh, pp. 1841–1847.
+@19# FLUENT™Release 5.1, 1999, Fluent Inc., Lebanon, N.H.
+@20# Kazakov, A., and Frenklach, M., ‘‘A Simpliﬁed 19 Species Methane Oxidation
+Mechanism,’’ please refer to website at http://www.me.berkeley.edu/drm/
+for further details.
+@21# Nicol, D. G., et al., 1999, ‘‘Development of a Five-Step Global Methane
+Oxidation—NO Formation Mechanism for Lean-Premixed Gas Turbine Com-
+bustion,’’ ASME J. Eng. Gas Turbines Power, 121, pp. 272–280.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2002, Vol. 124 Õ 283
+Downloaded 18 Dec 2009 to 129.137.95.89. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

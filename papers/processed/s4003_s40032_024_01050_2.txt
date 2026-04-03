@@ -1,0 +1,610 @@
+
+--- Page 1 ---
+
+Vol.:(0123456789)
+1 3
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745 
+https://doi.org/10.1007/s40032-024-01050-2
+ORIGINAL CONTRIBUTION
+Suppression of Thermo‑acoustic Instability inside a Rijke Tube 
+using an Adaptive Passive Helmholtz Resonator
+Nilaj N. Deshmukh1   · Ajinkya Kulkarni1 · 
+Afzal Ansari1 
+Received: 24 August 2020 / Accepted: 27 April 2024 / Published online: 15 May 2024 
+© The Institution of Engineers (India) 2024
+Abstract  Thermo-acoustic instability (TAI) inside a lean 
+premix combustor is a major hurdle towards operation of 
+gas turbines for both aerospace and land based operations. 
+It arises due to the coupling between heat release fluctuation 
+and pressure fluctuation within the combustor. It is exhibited 
+in longitudinal, radial, tangential and bulk mode. The Rijke 
+Tube (RT) is a canonical example to study this phenomenon 
+on a laboratory scale in which longitudinal modes of TAI 
+are seen. In this work a passive approach of using Helmholtz 
+Resonator (HR) as an acoustic damper is proposed for sup-
+pression of TAI inside the RT. An attempt has been made 
+to suppress TAI corresponding to second mode of instabili-
+ties. To abate different modes using same HR, its tuning 
+is proposed by changing cavity volume with a hinge and 
+use of different neck orifice diameters. The designed HR is 
+fixed at a certain longitudinal position on RT, to suppress 
+TAI of multiple modes. To analyse effectiveness of HR for 
+suppressing TAI, wall pressure is measured with pressure 
+transducer. To acquire data and analyse it, data acquisition 
+system from National Instruments and LabVIEW software 
+is used. The obtained result shows around 16 dB reduction 
+in sound pressure level with HR of 5 mm neck diameter at 
+150° angle of cavity. The designed HR will help to reduce 
+TAI at the design stage.
+Keywords  Thermo-acoustics · Rijke tube · Combustion 
+Instabilities · Helmholtz Resonator
+Abbreviations
+TAI	
+Thermo-acoustic instability
+RT	
+Rijke Tube
+HR	
+Helmholtz Resonator
+QWT	
+Quarter wave tubes
+Hf	
+Helmholtz resonance frequency
+LPG	
+Liquid Petroleum Gas
+APHR	
+Adaptive Passive Helmholtz Resonator
+SPL	
+Sound Pressure Level
+Introduction
+With an intention to reduce pollutants like ­NOx, utilization 
+of lean pre-mix (pre-vaporised) burners in combustors began 
+in the decade of 1980. These pollutants were also respon-
+sible for acid rain. Unlike, the earlier combustors involving 
+diffusion flame, these produce more power and are more 
+efficient. Such combustors are used in gas turbines for both 
+aerospace and land based operations. But the major problem 
+associated with these combustors, is that they are prone to 
+combustion instabilities or TAI (TAI) [1]. Deshmukh and 
+Sharma [2] presented a method for TAI characterization.
+TAI is self-excited resonant oscillation due to coupling 
+between unsteady heat release and acoustic field within 
+the combustor. An unusual humming sound or roar dur-
+ing the operation of a combustor implies it is subjected to 
+TAI. This is undesirable and is accompanied with various 
+adverse effects like excessive vibrations, high noise level, 
+high heat transfer rates, localized burning, possibility of 
+component melting, damage to flame holders and flame 
+flashback [3–5]. Heat release dynamics, duct acoustics 
+and flow dynamics are main elements of TAI. Combustion 
+chambers can be viewed as organ pipes in which acoustic 
+pressure and velocity oscillations can be sustained [6]. The 
+ *	 Nilaj N. Deshmukh 
+	
+nilajd@aero.iitb.ac.in
+1	
+Department of Mechanical Engineering, Fr. C. 
+Rodrigues Institute of Technology, Vashi, Navi Mumbai, 
+Maharashtra 400703, India
+
+
+--- Page 2 ---
+
+732
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+effect of heat source on the boundary of TAI was studied 
+[7]. The acoustic waves generated due to monopole heat 
+source interfere with the reflected ones forming standing 
+waves. These resonant oscillations exhibit pressure varia-
+tions near about 1% of static pressure and couple with heat 
+release forming a positive feedback loop. In extreme cases 
+this static pressure may go high up to 50 bar [1]. Factors 
+like vortex shedding, equivalence ratio fluctuations, phase 
+difference between heat release and pressure fluctuation, 
+liquid fuel atomization with droplet evaporation, location 
+and design of fuel injector, inlet temperature and veloc-
+ity of gases are responsible for occurrence of TAI. Heat 
+release dynamics, duct acoustics and flow dynamics or 
+hydrodynamics are main elements of TAI [8]. Rayleigh 
+found that it mainly depends upon the phase between heat 
+release and pressure fluctuations [9]. To overcome the 
+problem of arbitrary scale and unit while quantifying the 
+Rayleigh Index, Deshmukh and Sharma [10] proposed a 
+coefficient of Rayleigh Index based on normalizing the 
+acquired data.
+Control of TAI can be achieved by various passive and 
+active methods. Passive methods which don’t involve use of 
+power are low-cost with no movable parts and effective at a 
+particular frequency. Active methods are much more com-
+plicated involving use of sensors and actuators. Apart from 
+reducing sound pressure level, these ensure that the overall 
+combustion properties such as emission levels, flame blow 
+out behaviour, and flashback properties are not deteriorated. 
+An external perturbation is introduced to the system via an 
+actuator, which manipulates the acoustic field or the heat 
+dissipation rate. This prevents the onset of TAI or damp-
+ens it. These are effective at low frequency. Deshmukh and 
+Sharma [11] presented simplest open loop active control 
+technique for suppression of TAI using radial micro-jets. 
+The net heat gain with control of TAI increases by 21.6% 
+[12]. Unlike passive control, active control methods are 
+more ‘adaptive’, and have great potential to stabilize com-
+bustors even at off-design conditions. Important passive 
+techniques to abate TAI include use of acoustic dampers 
+like HRs (HR) [13–15], Quarter wave tubes (QWT) [16], 
+perforated liners [17], absorbing material [18] and baffles 
+[19] were investigated.
+A Helmholtz Resonator, an efficient acoustic damper, 
+consists of a cavity with short neck. Mass of fluid in the 
+body on which HR is mounted vibrates within the neck 
+due to pressure gradient with a frequency called Helmholtz 
+Fig.1   Experimental setup for 
+studying TAI inside a RT a 
+Schematic b Photograph
+
+
+--- Page 3 ---
+
+733
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+Fig. 2   a Photograph of APHR with hinge b Pictorial View
+Table 1   cavity face angles corresponding to frequencies
+d
+θ1 for HRF = 400 Hz
+θ2 for 
+HRF = 900 Hz
+3 mm
+60.16
+11.46
+4 mm
+107.15
+21.2
+5 mm
+167.88
+32.66
+Fig. 3   a Captured time domain signal b obtained frequency spectra
+Fig.4   Placement of APHR
+
+
+--- Page 4 ---
+
+734
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+Fig.5   SPL of APHR of neck 
+diameter 3 mm and cavity 
+volume as a V/6 b V/4 c V/3 
+d5V/12 e V/2 f 7 V/12 g 2 V/3 
+and h 3 V/4
+
+
+--- Page 5 ---
+
+735
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+Fig.5   (continued)
+
+
+--- Page 6 ---
+
+736
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+resonance frequency (Hf) and energy is extracted. The fluid 
+within the cavity has compliance as it gets compressed and 
+expanded whereas boundary layer losses within the neck 
+add damping to the system. HR is placed at pressure anti-
+node to extract maximum energy. When Hf matches with 
+the frequency of TAI, there is reduction in Sound Pressure 
+Level (SPL).
+Bedout et al. presented algorithm to control noise using 
+self- tuning HR [20]. Zalluhoglu and Olgac studied effects 
+of the cavity volume, neck length and neck orifice diameter 
+on TAI [21]. To achieve low frequency TAI attenuation and 
+over broad frequency range, it is better to increase the cavity 
+volume or decrease neck length or increase neck diameter 
+[21]. Location of HR and heat source also plays a crucial 
+role in abating TAI [22]. Krebs et al. [23] used two sets of 
+axisymmetric HR of different sizes on annular gas turbine 
+to dampen thermo-acoustic. Selamet and Lee [24], analyzed 
+the effects of extended neck of HR into the cavity. It was 
+found that such an extension acted like a quarter wave reso-
+nator in the cavity. Extension of neck into the cavity lowered 
+the resonance frequency substantially. Furthermore, it was 
+observed that with total extended neck length retained, neck 
+expansion or contraction and porosity also affected transmis-
+sion loss and resonance frequency [14]. The use of sound 
+absorbing lining inside HR was analyzed and it was found 
+that its thickness and density affect the acoustic character-
+istics of the resonator [14]. Keeping density fixed it was 
+seen that increase in thickness lower transmission loss but 
+increased stability envelop. The experimental investigations 
+of an adaptive control for suppressing TAI in RT was carried 
+out by Wei et al. [25].
+Tunable acoustic dampers contain positive points of both 
+active and passive approaches. It can be tuned manually or 
+actively. It overcome major drawback of passive approaches 
+Fig.5   (continued)
+
+
+--- Page 7 ---
+
+737
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+Fig.6   SPL of APHR of neck 
+diameter 4 mm and cavity 
+volume as a V/6 b V/4 c V/3 d 
+5 V/12 e V/2 f 7 V/12 g 2 V/3 
+and h 3 V/4
+
+
+--- Page 8 ---
+
+738
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+which is effective at a particular frequency. If tuned actively, 
+actuation only needs to be on the time scale of the changes 
+in operating condition, which is typically much slower than 
+the time scale of the instability. The required actuator band-
+width is therefore small, representing a major advantage over 
+active control. Tuning of HR can be done by changing cavity 
+Fig.6   (continued)
+
+
+--- Page 9 ---
+
+739
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+volume or neck length or neck area. Seonghwi et al. [26] 
+concluded that pure acoustic approach would be insufficient 
+for the fine tuning of acoustic cavity, and further combus-
+tion tests would also be necessary to optimize the shapes 
+of the cavity. If manually tuned, these are termed as adap-
+tive passive techniques. Nagaya et al. [27] used two rotat-
+ing inner cylinders to achieve changes in the HR neck area. 
+Matsuhisa et al. [28] and Zhao and Li [29] implemented an 
+electro-magnetic shaker and vibrating back-plate to change 
+the volume. Helmholtz resonance frequency (Hf) given by 
+Selamet and Lee [24] as shown in Eq. (1)
+where,
+C = velocity of sound.
+d = diameter of neck orifice.
+(1)
+Hf = C
+2휋
+√
+S
+VLeﬀ
+S = Area of neck orifice.
+Leff = Effective length of neck.
+V = Volume of cavity.
+This paper reports use of adaptive passive HR to supress, 
+TAI of different modes. Tuning of HR is proposed by chang-
+ing cavity volume with a hinge and use of different neck 
+orifice diameters. The designed HR can be fixed at a certain 
+longitudinal position on RT, to suppress TAI of multiple 
+modes. The effectiveness of adaptive passive HR was evalu-
+ated for different neck diameter and volume of HRs. The 
+proposed design of resonator can be used to suppress the 
+TAI inside the combustor as active or passive method.
+Test Setup
+The experimental set up consist of a RT having length 
+700 mm, internal diameter 70 mm and thickness 3 mm and 
+Fig.6   (continued)
+
+
+--- Page 10 ---
+
+740
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+Fig.7   SPL of APHR of neck 
+diameter 5 mm and cavity 
+volume as a V/6 b V/4 c V/3 d 
+5 V/12 eV/2 f 7 V/12 g 2 V/3 
+and h 3 V/4
+
+
+--- Page 11 ---
+
+741
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+is made up of mild steel. A coaxial brass burner of 30 mm 
+diameter, connected to an inlet pipe of diameter 7 mm can 
+move to and fro inside the tube with the help of a traverse. 
+It has a ceramic head with sixty holes. It is connected to 
+a pre-mixer in which air and LPG are mixed in required 
+proportion with the help of vortex flow arrangement. The 
+Fig.7   (continued)
+
+
+--- Page 12 ---
+
+742
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+schematic of the entire setup is shown in Fig. 1a and pho-
+tograph of the entire setup is shown in Fig. 1b. The flow 
+rates of LPG and air to the pre-mixer can be changed with 
+the help of rotameters. The range of air rotameter is 0–10 
+lpm with least count as 0.2 lpm whereas LPG rotameter 
+has range 0–0.5 lpm with least count as 0.025 lpm. The 
+fuel used in the present experiment is commercially avail-
+able Liquid Petroleum Gas (LPG).
+Leff is effective length of the RT which is 742 mm con-
+sidering end correction equal to 0.3D. Due to high tem-
+perature inside, corresponding thermo-acoustic modes are 
+observed slightly higher. A burner attached with earthen 
+head having 61 small pores is made to move inside the 
+RT with the help of a traverse. This is connected to a pre-
+mixer where air and LPG are mixed to maintain air fuel 
+ratio greater than stoichiometric ratio. A premix flame 
+with blue colour is obtained. The instrumentation con-
+sists of data acquisition system from National Instruments 
+model and software. The wall pressure is captured using 
+RS-395977 Honeywell pressure transducer. An excitation 
+of 8 V is provided to this transducer using an external 
+power supply.
+Design of Adaptive Passive Helmholtz Resonator 
+(APHR)
+This study encompasses two aspects: variation of cav-
+ity volume of HR using a hinge arrangement and use of 
+different neck diameters. The APHR is designed in such 
+a way that TAI frequencies in the range of 400 Hz to 
+900 Hz can be dampened. Second and third modes fall in 
+this region. The cavity of this HR is formed between fixed 
+wall attached to the cylinder and movable wall attached 
+to the lid. The movable wall rotates about a central hinge. 
+The volume of cavity is product of cavity face area and 
+constant height of 46 mm. The cavity face area is in the 
+form of a sector of radius 25.75 mm with central angle. 
+Fig.7   (continued)
+
+
+--- Page 13 ---
+
+743
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+This angle can be varied from 0 to 270 degrees. The pho-
+tograph of Adaptive Passive HR and its pictorial view is 
+shown in Fig. 2.
+The height of cavity is less than quarter of wavelengths 
+corresponding to frequencies lying between 400 and 
+900 Hz. Thus it is ensured that no standing wave forma-
+tion takes place within the resonator. Different necks with 
+orifice diameters of 3, 4 and 5 mm having same length 
+of 11 mm are used. To ensure efficient sealing, a layer of 
+1 mm thick leather was applied on movable wall. Sliding 
+parts were applied with a coating of grease. The axis of 
+neck is offset from that of the cavity by 13 mm.
+Table 1 depicts calculation of cavity face angles (θ) 
+corresponding to frequencies 400 Hz and 900 Hz for dif-
+ferent neck orifice diameters. Equation (1) is used to get 
+Fig.8   Variation of sound pres-
+sure level with sector angle of 
+the APHR cavity
+90
+93
+96
+99
+102
+105
+108
+111
+114
+0
+30
+60
+90
+120
+150
+180
+210
+240
+270
+300
+SPL (dB)
+Sector Angle of cavity of APHR (deg)
+Without HR
+ With Neck  diameter = 3 mm
+ With Neck  diameter = 4 mm
+ With Neck  diameter = 5 mm
+Fig.9   Variation of frequency 
+with sector angle of the APHR 
+cavity
+600
+610
+620
+630
+640
+650
+660
+670
+680
+0
+30
+60
+90
+120
+150
+180
+210
+240
+270
+300
+Frequency (Hz)
+Sector Angle of cavity of APHR (deg)
+With 3 mm neck diameter
+With 4 mm neck diameter
+With 5 mm neck diameter
+Without HR
+
+
+--- Page 14 ---
+
+744
+	
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745
+1 3
+these space considerations. The central angle is varied 
+from 60 to 270 degrees in increments of 30 degrees.
+Experimentation
+Extensive study has been carried out to identify location 
+of burner and flow rate of burner on which strong insta-
+bility occurred. Therefore, for air flow rate as 9 lpm, LPG 
+flow rate as 0.2 lpm (A/F ratio as 45 and equivalence ratio 
+as 1.6) and burner position at x/L = 0.06(42 cm) from 
+left end, a thermo-acoustic mode was captured. When 
+spectral analysis of this signal was done, a dominant peak 
+at 608 Hz was observed. This FFT signal was then post 
+processed to get SPL in frequency domain as shown in 
+Fig. 3. The fundamental, second and third classical har-
+monics are of this RT are 272 Hz, 543 Hz and 814 Hz 
+respectively. The frequency 608 Hz is near to 543 Hz and 
+less than 814 Hz. Hence it is clear that acquired FFT 
+signal is second thermo-acoustic mode. To dampen this 
+mode, this APHR was placed at antinode point on the RT 
+as shown in Fig. 4.
+Result and Discussion
+With TAI prevailing within the RT, the cavity volume was 
+increased by rotating movable wall from 60 to 270 degrees 
+with increments of 30 degrees. This procedure was followed 
+for all the three neck diameters. From the acquired data fre-
+quency spectra are plotted as shown in Figs. 5, 6 and 7 for 
+different neck diameter. To check the effectiveness of APHR, 
+the obtained results are compared with background noise 
+and without APHR for different volume. Considering use 
+of APHR with all three neck diameters it was clearly seen 
+that there is reduction in SPL with the use of APHR with a 
+shift in frequency. The spectra clearly show, sound pressure 
+level decrease till effective volume required for suppression 
+and then increases. The availability of additional volume of 
+HR not helping to supress the TAI.
+The peak SPL and corresponding frequencies are cap-
+tured from Figs. 5, 6 and 7. Figures 8 and 9 indicates the 
+sound pressure level variation and peak frequency for dif-
+ferent neck diameter and volume of APHR. Figure 8 shows 
+the effectiveness of APHR increases (with decrease in SPL) 
+when its cavity volume is increased from its (1/6)th part to 
+its half. It is also clear that with use of 5 mm neck orifice 
+diameter, maximum reduction in SPL is achieved which is 
+about 16 dB. Volume corresponds to 150 degrees is more 
+effective as it is closed to effective volume required for sup-
+pression. Nagaya et al. [27] proposed technique was limited 
+to only second mode of instability, whereas the proposed 
+method can be used for suppressing TAI of any mode. From 
+Fig. 9, it is seen that with increase in cavity face angle, peak 
+frequency increases due to availability of excess volume and 
+this is observed for all three diameters. Around 60 Hz fre-
+quency shift were observed as the APHR volume increased 
+from 60 to 270 degrees. The result obtained by Bedout et al. 
+[20] indicates rise in frequency up to certain angle and then 
+decrease.
+Conclusion
+An adaptive passive HR was designed and fabricated which 
+has helped in suppression of second and third mode of TAI. 
+This study helped in deciding the position of the resona-
+tor along the length of the RT for its effective use. It has 
+been observed that the tuning of the resonator by variation 
+of the sector angle results in increase of the cavity volume 
+and hence suppression of sound pressure level (SPL). The 
+second mode of TAI corresponding to frequency of 608 Hz 
+has been captured and a reduction of SPL by 16 dB has been 
+achieved, whereas study carried out by Zhao [14] able to 
+reduce SPL by 5–11 dB. With greater neck diameter size, 
+greater suppression of sound has been achieved as the vol-
+ume of the cavity is changed from (1/6)th of total volume to 
+half. With greater sector angle, increment in peak frequency 
+has been observed for all neck diameters. This type of HR 
+can be accepted as an alternative to conventional resona-
+tors which become bulky due to increase in volume with 
+decrease in frequency. This type of HR design can be use 
+as active control technique, if change in volume regulated 
+through mechanism. Thus help in suppressing the instability 
+of any mode present inside the combustor. The effectiveness 
+of HR can be increased by using porous material.
+Funding  To carry out this work funding was not received from any 
+organization.
+Declarations 
+Competing interests  The authors declare that they have no known 
+competing financial interests or personal relationships that could have 
+appeared to influence the work reported in this paper.
+References
+	 1.	 Y. Huang, V. Yang, Prog. Energy Combust. Sci. 35, 293–364 
+(2009)
+	 2.	 N.N. Deshmukh, S.D. Sharma, J. Inst. Eng. Ser. C 102, 673–681 
+(2021)
+	 3.	 D. Zhao, Z.H. Chow, J. Sound Vib. 332, 3419–3437 (2013)
+	 4.	 N. Deshmukh, A. Ansari, P. Kumar, A.V. George, F.J. Thomas, 
+M.S. George, MethodsX 10, 102123 (2023)
+	 5.	 N.N. Deshmukh, A. Ansari, P. Kumar, A.V. George, F.J. Thomas, 
+M.S. George, JVC/Journal Vib Control 29, 562–570 (2023)
+
+
+--- Page 15 ---
+
+745
+J. Inst. Eng. India Ser. C (June 2024) 105(3):731–745	
+1 3
+	 6.	 M. Fleifil, J.P. Hathout, A.M. Annaswamy, A.F. Ghoniem, Com-
+bust. Sci. Technol. 133, 227–265 (1998)
+	 7.	 N. Deskmukh, R. Jagdale, S. Shah, in: Int. Conf. Theor. Applied, 
+Comput. Exp. Mech. 1–11 (2017)
+	 8.	 A.M. Annaswamy, A.F. Ghoniem, IEEE Control Syst. Mag. 37–54 
+(2002)
+	 9.	 Rayleigh, Nature 18, 319–321 (1878)
+	10.	 N.N. Deshmukh, S.D. Sharma, Measurement 151, 1–7 (2020)
+	11.	 N.N. Deshmukh, S.D. Sharma, J. Energy Inst. 90, 485–495 (2017)
+	12.	 N.N. Deshmukh, S.D. Sharma, J. Spray Combust. 1, 1–17 (2016)
+	13.	 Z. Lu, W. Pan, Y. Guan, J. Low Freq. Noise, Vib. Act. Control 
+1–11 (2018)
+	14.	 H. Zhao, Z. Lu, Y. Guan, Z. Liu, G. Li, J. Liu, C.Z. Ji, Aerosp. Sci. 
+Technol. 77, 228–234 (2018)
+	15.	 N.N. Deshmukh, A. Ansari, S. Degwekar, R. Unnikrishnan, B.T. 
+Paul, in, 4th Bienn. Int. Conf. Nascent Technol. Eng. IEEE 2021, 
+1–5 (2021)
+	16.	 C. Bourquard, N. Noiray, in: Int. Symp. Thermoacoustic Instab. 
+Gas turbines rocket engines, 1–18 (2016)
+	17.	 L. Lei, G. Zhihui, Z. Chengyu, S. Xiaofeng, Chinese J. Aeronaut. 
+23, 623–630 (2010)
+	18.	 A. Selamet, M.B. Xu, N.T. Huff, I. Introduction, J. Acoust. Soc. 
+Am. 117, 725–733 (2005)
+	19.	 A. Frendi, T. Nesman, F. Canabal, 11th AIAA/CEAS Aeroacous-
+tics Conf. (2005) 1–25.
+	20.	 J.M. de Bedout, M.A. Franchek, R.J. Bernhard, L. Mongeau, J. 
+Sound Vib. 202, 109–123 (1997)
+	21.	 U. Zalluhoglu, N. Olgac, IFAC-PapersOnLine 49, 59–64 (2016)
+	22.	 N.N. Deshmukh, B. Kudachi, S. Joy, S. Phansalkar, V. Pillai, T. 
+Thomas, in, Int. Conf. Nascent Technol. Eng IEEE 2019, 1–6 
+(2019)
+	23.	 W. Krebs, G. Walz, S. Hoffmann, S. Ag, in: 5th AIAA/CEAS 
+Aeroacoustics Conf. Exhib., 1084–1094 (1999)
+	24.	 A. Selamet, I. Lee, J. Acoust. Soc. Am. 113, 1975–1985 (2003)
+	25.	 W. Wei, J. Wang, D.H. Li, M. Zhu, H.J. Tang, F.L. Weng, ISA 
+Trans. 52, 450–460 (2013)
+	26.	 S. Jo, Y. Choi, H.J. Kim, Aerosp. Sci. Technol. 88, 1–8 (2019)
+	27.	 K. Nagaya, Y. Hano, A. Suda, J. Acoust. Soc. Am. 110, 289–295 
+(2001)
+	28.	 H. MATSUHISA;, Baosheng REN; Susumu SATO, JSME Int. J. 
+35 (1992) 223–228.
+	29.	 D. Zhao, X.Y. Li, Prog. Aerosp. Sci. 74, 114–130 (2015)
+Publisher’s Note  Springer Nature remains neutral with regard to 
+jurisdictional claims in published maps and institutional affiliations.
+Springer Nature or its licensor (e.g. a society or other partner) holds 
+exclusive rights to this article under a publishing agreement with the 
+author(s) or other rightsholder(s); author self-archiving of the accepted 
+manuscript version of this article is solely governed by the terms of 
+such publishing agreement and applicable law.

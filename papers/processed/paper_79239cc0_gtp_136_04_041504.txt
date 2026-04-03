@@ -1,0 +1,897 @@
+
+--- Page 1 ---
+
+Mirko R. Bothien1
+e-mail: mirko.bothien@power.alstom.com
+Nicolas Noiray
+Bruno Schuermans
+Alstom,
+5401 Baden, Switzerland
+A Novel Damping Device
+for Broadband Attenuation
+of Low-Frequency Combustion
+Pulsations in Gas Turbines
+Damping of thermoacoustically induced pressure pulsations in combustion chambers is a
+major focus of gas turbine operation. Conventional Helmholtz resonators are an excel-
+lent means to attenuate thermoacoustic instabilities in gas turbines. Usually, however,
+the damping optimum is in a narrow frequency band at one operating condition. The
+work presented here deals with a modiﬁcation of the basic Helmholtz resonator design
+overcoming this drawback. It consists of a damper body housing multiple volumes that
+are connected to each other. Adequate adjustment of the governing parameters results in
+a broadband damping characteristic for low frequencies. In this way, changes in operat-
+ing conditions and engine-to-engine variations involving shifts in the combustion pulsa-
+tion frequency can conveniently be addressed. Genetic algorithms and optimization
+strategies are used to derive these parameters in a multidimensional parameter space.
+The novel damper concept is described in more detail and compared with cold-ﬂow
+experiments. In order to validate the performance under realistic conditions, the new
+broadband dampers were implemented in a full-scale test engine. Pulsation amplitudes
+could be reduced by more than 80%. In addition, it is shown that, due to sophisticated
+damper placement in the engine, two unstable modes can be addressed simultaneously.
+Application of the damper concept allowed a considerable increase of the engine operat-
+ing range, thereby reducing NOx emissions by 55%. Predictions obtained with the
+physics-based model excellently agree with experimental results for all tested damper
+geometries, bias ﬂows, excitation amplitudes, and most importantly with the measure-
+ments in the engine. [DOI: 10.1115/1.4025761]
+Introduction
+One of the major challenges in the development process of
+modern gas turbines is the stability of the combustion process. In
+order to achieve best-in-class NOx emissions, the engine is oper-
+ated lean-premixed. In this operation mode, the combustion pro-
+cess is susceptible to self-induced oscillations arising due to the
+interaction of unsteady heat release and acoustic ﬁeld in the com-
+bustion chamber. If the two mechanisms constructively interfere,
+high amplitude pressure and heat release ﬂuctuations might occur,
+which have a detrimental effect on the combustion process. These
+so-called thermoacoustic instabilities restrict the engine operating
+regime and can in the worst case cause structural wear.
+In principle, there are two ways of counteracting this, namely,
+active and passive control methods that aim to disrupt the ther-
+moacoustic feedback cycle, e.g., by dissipation of acoustic energy.
+Due to requirements with respect to robustness, reliability, and
+costs, usually, passive methods are applied in gas turbines [1,2].
+Typical passive damping devices are Helmholtz resonators, the
+most basic form being a volume that is connected to an enclosure
+via a so-called neck. By doing so, a frequency-dependent acoustic
+boundary condition is imposed that can be adjusted such that it
+features low reﬂection, i.e., high absorption, of acoustic energy. A
+very descriptive way to understand the underlying principle is the
+analogy with a spring-mass (volume-neck) system featuring a
+damping term. At the neck, where the acoustic velocity is highest,
+the major part of acoustic energy dissipation occurs. The mass
+oscillating inside the neck causes acoustic energy to be trans-
+formed into vortices shedding from the neck’s edges that are
+ﬁnally dissipated into heat [3–6]. Basic derivations for the damp-
+er’s resonance frequency and absorption behavior can, for
+instance, be found in Refs. [1,7,8].
+An abundant amount of literature on theoretical and modeling
+aspects of Helmholtz resonators as well as lab-scale experiments
+exists. However, publications on application to full-scale land-
+based gas turbines and their performance are scarce; Bellucci
+et al. [1,2] and Bothien et al. [9] being the only ones who (at least
+lately) reported on successful engine results. This lack was also
+mentioned in an extensive review on passive control methods by
+Richards et al. [10]. In contrast to this, application to sector or
+atmospheric annular rigs can be found [11–13]. In Ref. [13], it is
+explicitly stated that although having been successfully tested in
+annular engine-scale test rigs, prior to using Helmholtz resonators
+inside the engine some open challenges have to be addressed. Pan-
+dalai and Mongia [14] show that multiple “damper tubes” (i.e.,
+quarter wave resonators) are installed in their aeroderivative
+engines to abate thermoacoustic pulsations.
+Although common Helmholtz resonators are an excellent
+means to attenuate thermoacoustic pulsations, they are only effec-
+tive in a narrow frequency band. The lower the frequency of inter-
+est, the smaller is the resonator’s frequency bandwidth. Pulsation
+frequencies observed in gas turbines typically are below 500 Hz
+for which this damping range is of the order of a few Hertz.
+Engine-to-engine variations that are, for instance, caused by dif-
+ferent ambient conditions or different fuels, might involve shifts
+in the combustion pulsation frequency. Thus, adaptations of the
+damper hardware might be required for each single case. Conse-
+quently, a narrowband damper usually has its optimum damping
+characteristic only at one operating condition.
+This work deals with a modiﬁcation of the basic Helmholtz res-
+onator design for broadband low-frequency ranges. It consists of a
+1Corresponding author.
+Contributed by the Combustion and Fuels Committee of ASME for publication in
+the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript received
+August 16, 2013; ﬁnal manuscript received August 26, 2013; published online
+December 10, 2013. Editor: David Wisler.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2014, Vol. 136 / 041504-1
+Copyright V
+C 2014 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 2 ---
+
+damper body housing multiple volumes. The single volumes are
+connected to each other by means of secondary necks. By
+adequately adjusting the governing parameters, i.e., neck geome-
+tries, bias ﬂows, and volume ratios, and using a multiparameter
+optimization routine the coupling between the single volumes is
+inﬂuenced so that a broadband damping characteristic for low fre-
+quencies is obtained. Because of this, the resulting frequency
+range of effective damping of one damper can be increased to
+50–150 Hz. Hence, above-mentioned drawbacks are overcome. In
+addition to this, simulations of an engine equipped with a number
+of dampers show that the damping efﬁciency of the presented
+multivolume conﬁguration can be considerably higher than that of
+single-volume dampers with equal dimensions.
+The concept of coupled Helmholtz resonators has been studied
+by other authors as well [11,15,16]. In the works cited, two vol-
+umes are connected to each other. However, application to full-
+scale gas turbines or combustion systems in general has not been
+reported before. In aeroengines, extensive use of acoustic liners is
+made to attenuate the ﬂow-induced noise emitted from the nacelle.
+Although not widely applied in the engine due to various reasons,
+work has been done on so-called two- or multidegree-of-freedom
+liners [17,18] that in essence are serial damper conﬁgurations.
+The work and results reported here emphasize Alstom’s long-
+term strategy with respect to an in-depth understanding of engine
+thermoacoustics and suitable countermeasures against combustion
+pulsations. In Refs. [19,20], a method to assess the damping per-
+formance of generic Helmholtz dampers coupled to an engine was
+introduced. This method is further developed and incorporates an
+accurate model mimicking the acoustic characteristics of a multi-
+volume damper. Recently, we published articles on optimum
+damper placement in annular combustion chambers [21,22] out-
+lining the importance of damper locations on their performance.
+The principles explained therein are also used in this work.
+Finally, the prediction of the onset of a second mode caused by
+the suppression of the dominant one [23] and its importance for
+full-scale gas turbines could be experimentally veriﬁed.
+Acoustic Damper Model
+It is common practice to represent the (thermo-) acoustic
+behavior of combustion systems by making use of network mod-
+els (see Ref. [24] for a literature overview of different approaches
+in the combustion community). At Alstom, the in-house code Ta3
+was developed for this purpose and is, in this paper, used to simu-
+late the acoustic characteristics of the damper. This Matlab/Simu-
+link-based tool describes a system’s (thermo-) acoustics as a
+modular network of subsystems into which the system is divided.
+Usually, Ta3 is used to mimic the thermoacoustics of full-scale
+engines. It consists of a hybrid approach: Numerical, experimen-
+tal, and analytical techniques are combined to describe the real
+system. A brief general description of Ta3 is given in the follow-
+ing paragraph. For an in-depth treatment and explanation of the
+code, the interested reader is referred to Refs. [2,23]. Therein,
+also, comparisons of Ta3 simulations with engine data are shown
+demonstrating the tool’s capabilities to efﬁciently reproduce ther-
+moacoustic coupling in gas turbines.
+The acoustic variables for the single network modules, i.e.,
+acoustic pressure p and particle velocity u, are expanded on a
+modal basis to obtain a state-space representation of the acoustic
+propagation. By doing so the acoustic input-output behavior of a
+subsystem is described. If the geometry of a respective subsystem
+is sufﬁciently simple, its acoustics can be described analytically.
+For complex three-dimensional geometries, ﬁnite element calcula-
+tions (FEM) are used. In this case, the FEM results are converted
+into state-space models that can be connected to other network
+blocks. The acoustic characteristics of the ﬂame are incorporated
+by means of ﬂame transfer functions and source terms that are
+obtained by ﬁtting state-space models to measured data. Depend-
+ing on the size of the modal expansion, the state order of
+the multi-input multi-output subsystems is deﬁned. The different
+modules used to model the thermoacoustic system relate upstream
+and downstream acoustic velocities and pressures. They are con-
+nected to each other by using the Redheffer star product. The
+state-space network approach allows either for time domain simu-
+lations, including nonlinearities, or frequency domain calcula-
+tions. For the latter, an eigenvalue analysis to assess the system
+stability can be performed, which is straightforward due to the
+state-space formulation.
+A key aspect of this modeling approach is that the wave propa-
+gation through a volume of any complexity is represented as a
+multi-input multi-output system between N velocity inputs and N
+pressure outputs. Such a system can conveniently be expressed in
+state-space form as
+@
+@t
+g
+_g
+"
+#
+¼
+0
+I
+X
+0
+"
+# g
+_g
+"
+#
+þ
+0
+WTA
+"
+#
+u
+p
+qc ¼ c½0; W
+g
+_g
+"
+#
+(1)
+where W is a N  K matrix whose K columns contain wkðxnÞ=Kk,
+and wkðxnÞ is the value of the kth mode at location xn on the
+boundary and K2
+k ¼
+Ð
+w2
+kðxÞdx is a normalization factor for the
+modes. The diagonal matrix A contains the area corresponding to
+the m velocity inputs. The K  K diagonal matrix X contains the
+eigenfrequencies of the solid–walled geometry, I and 0 are the
+K  K unit matrix and zero matrix, respectively. The vectors g, p,
+and u are the modal amplitudes, the input velocities um and the
+output pressures pn. The quantities q and c are the medium’s den-
+sity and speed of sound, respectively. In the limit case of K
+approaching inﬁnity, the system of Eq. (1) is an exact solution of
+the wave equation with negligible Mach number. The solution
+converges rapidly, so in practice only a limited number of modes
+K is required in the modal expansion.
+The Mach number in gas turbine combustion applications is
+typically sufﬁciently low to ensure a negligible effect on acoustic
+wave propagation. However, Mach number effects cannot be
+neglected on inlet/exit conditions and at area discontinuities. The
+losses at area discontinuities are especially important when mod-
+eling dampers. In the time domain (denoted by the ðÞ0), the rela-
+tion between the acoustic velocities on both sides of the
+discontinuity (denoted by u0
+1 and u0
+2) and the acoustic pressures
+(denoted by p0
+1 and p0
+2) can be modeled by casting the unsteady
+Bernoulli
+equation
+in
+the
+following
+nonlinear
+state-space
+equation:
+Fig. 1
+Schematic block diagram for the damper model
+041504-2 / Vol. 136, APRIL 2014
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 3 ---
+
+@u0
+1
+@t ¼
+1
+2qfððu þ u0Þju þ u0j  ujujÞ þ p
+0
+1  p
+0
+2
+Lvq
+u0
+2 ¼ A2
+A1
+u0
+1
+(2)
+in which f is a loss coefﬁcient (typically obtained from correla-
+tions found in literature or from experiment); Lv is the virtual
+acoustic length, which takes into account the inertia of the mass
+of air ﬂuctuating at the discontinuity (it can be obtained from cor-
+relations, experiment or from acoustic FEM calculations).
+The more subsystems the model exhibits the higher is its order
+and the longer is the calculation time. This becomes important
+when a multiparameter optimization routine should be used to
+ﬁnd the optimum damper parameters to damp at certain frequen-
+cies or in a broad frequency range. A tradeoff between accuracy
+and model order is necessary. Therefore, once the model of the
+damper is obtained, adequate model reduction techniques as, e.g.,
+balanced truncation [25], are used in order to reduce the number
+of states.
+Figure 1 shows a schematic buildup of the damper model for
+the acoustic wave propagation inside the damper. It consists of an
+upstream boundary condition, N subsystems Si, and the intercon-
+nection to the combustion chamber (CC). Note that only analytical
+blocks are used.
+The arrows connecting the single subsystem represent the prim-
+itive acoustic variables, i.e., acoustic pressure and particle veloc-
+ity. The number of subsystems depends on the complexity of the
+inner damper geometry. For model validation and assessment of
+the damper performance, the acoustic pressures inside the damper
+pHHD and combustion chamber pCC are recorded.
+Comparison of Models and Experiments
+The acoustic properties of various damper variants are meas-
+ured in a cold-ﬂow acoustic test facility. The prime objective of
+these isothermal experiments is to obtain a physics-based damper
+model that covers a sufﬁciently wide range of combinations of the
+governing parameters inﬂuencing the damper’s performance.
+Therefore, the test damper is built up modularly, allowing to indi-
+vidually change all important parameters. This includes different
+geometries and numbers of the ﬁrst and secondary necks, volume
+ratios, and bias ﬂow velocities.
+Figure 2 shows a schematic of the measurement setup. In the
+test rig, woofers provide the acoustic excitation in the required
+frequency and amplitude spectrum. The acoustic ﬁeld inside the
+rig is measured by 1/4 in. Br€uel & Kjær condenser microphones
+located on several axial positions. By means of the multimicro-
+phone method (MMM) [26] the acoustic ﬁeld is decomposed into
+the up- and downstream traveling waves g and f. The Riemann
+invariants f and g are related to the primitive acoustic variables—
+pressure
+p
+and
+particle
+velocity
+u—by
+p=qc ¼ f þ g
+and
+u ¼ f  g. This allows calculation of the reﬂection coefﬁcient R
+at the reference location x0 in the frequency domain
+R ¼ g
+f
+(3)
+By using the MMM to determine the Riemann invariants f and g
+an overdetermined system of equations is solved in a least-squares
+sense. The error between measured and reconstructed acoustic
+pressure can be calculated as is, e.g., done in Ref. [24]. Besides
+noise contributions, possible relevant error sources are the deter-
+mination of the speed of sound and the microphone calibration
+coefﬁcients. The resulting relative error for the results shown here
+is approximately 2%.
+A suitable control routine is applied to prescribe a constant,
+frequency-independent pressure amplitude in front of the damper.
+The latter enables accurate study of nonlinear effects, which might
+be important if the ﬂuctuation inside the damper neck is not small
+compared to the main neck velocity.
+In most of the cases, the space available to install dampers
+inside the engine is limited. Thus, the development objective is to
+realize the optimum performance, both in frequency range and
+damping, within the given limitations.
+Model Accuracy Under Isothermal Conditions. In Fig. 3, the
+measured reﬂection coefﬁcients (dashed with ) are compared to
+model predictions (solid) for three different damper conﬁgura-
+tions. For all curves, the order of the model’s state-space system
+is 6. The difference between the subﬁgures 3(a)–3(c) is the geom-
+etry of the main and secondary necks, including neck diameters,
+lengths, and edge shapes; the overall damping volume remains
+constant. The different colors in each of the subﬁgures represent
+different ratios of the volumes out of which the damper is com-
+posed. It can be seen that the low-order model excellently corre-
+sponds to the measured reﬂection coefﬁcients, both in magnitude
+and phase. The characteristic dent observed at a normalized fre-
+quency of around 1.4 is caused by the fact that the length dimen-
+sion of the damper corresponds to the quarter wave length at this
+frequency.
+Generally, the acoustic response of dampers is strongly affected
+by the pressure loss coefﬁcients and the effective lengths of the
+necks. In a single-volume setup, the former mainly determines the
+damping performance, whereas the latter has a governing inﬂu-
+ence on the damper’s resonance frequency. In a multivolume
+damper, both also strongly inﬂuence the coupling between the sin-
+gle volumes. Although an abundant amount of literature of empir-
+ical correlations exists for both quantities (see, for example,
+[11,27–29]), one will hardly ﬁnd a case for which the used bound-
+ary conditions or geometries exactly match those of the literature
+Fig. 2
+Schematic of measurement setup in cold-ﬂow acoustic test facility
+Journal of Engineering for Gas Turbines and Power
+APRIL 2014, Vol. 136 / 041504-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 4 ---
+
+correlations. Due to this reason, a multiparameter optimization
+routine is applied that ﬁnds the values resulting in the lowest devi-
+ation between modeled and measured reﬂection coefﬁcient for all
+parameter combinations investigated. A genetic algorithm mini-
+mizes the function
+D ¼ Rmeasuredðx; A; PÞ  Rmodelðx; A; P; Lv; fÞ
+(4)
+over the ranges of acoustic frequency x and excitation amplitude
+A of interest. This is done for several different damper geometries
+characterized by the geometrical parameters Pi. Finally, the opti-
+mization algorithm yields values for the end corrections Lv;i and
+pressure loss coefﬁcients fi. The validity of the identiﬁed parame-
+ter values is checked by comparing model predictions to experi-
+mental results that are not used to train the model. In the model,
+only the physical dimensions, the bias ﬂow velocity, and the exci-
+tation amplitude are adjusted as they are in the experiments,
+whereas the identiﬁed parameters for length correction and pres-
+sure loss coefﬁcients remain constant. Note, this does not mean
+that the absolute value for the length correction is constant for all
+conﬁgurations but the identiﬁed dependency of the length correc-
+tion as a function of, e.g., neck diameter, remains the same.
+Depending on the pulsation amplitude inside the rig or engine
+the damper’s response might become nonlinear. If the acoustic ve-
+locity inside the necks is of the order or larger than the main ﬂow
+velocity, nonlinear effects have to be considered. This is
+accounted for in the model. Figure 4 shows the reﬂection coefﬁ-
+cient for different excitation amplitudes. The excitation amplitude
+A0 represents the linear case—the amplitude ratio of ﬂuctuating to
+static pressure inside the rig is approximately 0.025%. Although
+relatively small for the conﬁguration considered here, the model
+(solid) nicely captures the nonlinear effect caused by a 14 times
+higher excitation amplitude that is observed in the experiments
+(dashed with symbols).
+The model is also capable of reproducing the effects of varying
+bias ﬂow velocity. In Fig. 5, results for a variation of 650% are
+shown. Both the resonance frequency and the magnitude of the
+reﬂection coefﬁcient are considerably altered. The model excel-
+lently agrees with the experimental observations. Note that in con-
+trast to single-volume dampers, for multivolume conﬁgurations, a
+change of bias ﬂow velocity also inﬂuences the resonance fre-
+quency. For the former, it only changes the magnitude of the
+reﬂection coefﬁcient.
+The above reported results prove that the physics-based model
+is able to describe the damping characteristic of all measured pa-
+rameter variations. These are chosen to cover the whole range of
+relevant parameter combinations. Hence, this enables performing
+a subsequent optimization to ﬁnd the optimum geometrical dimen-
+sions and bias ﬂow to achieve a certain damping objective. For
+this purpose, the coupled system damper/engine is modeled simi-
+lar to the approach described in Ref. [19] (see also next chapter
+for more details).
+The damping performance is assessed by means of the growth
+rate reduction the dampers induce in one (or more) frequency
+band(s). The genetic optimization routine ﬁnds the parameter con-
+ﬁguration (both for geometry and bias ﬂow) yielding the
+Fig.
+3
+Comparison
+of
+measured
+reﬂection
+coefﬁcients
+(dashed with 3) and model (solid) for different geometries
+(a)–(c); top: magnitude, bottom: phase. From red to blue, the ra-
+tio between most downstream to most upstream volume
+decreases.
+Fig.
+4
+Comparison
+of
+measured
+reﬂection
+coefﬁcients
+(dashed with symbols) and model (solid) for different excitation
+amplitudes; top: magnitude, bottom: phase
+041504-4 / Vol. 136, APRIL 2014
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 5 ---
+
+maximum growth rate reduction. This is exemplarily depicted in
+Fig. 6. It shows the isosurfaces of the growth rate reduction inte-
+grated over the speciﬁed weighting of frequency regions. For visu-
+alization, it is shown as a function of the geometrical parameters
+P1; P2, and P3 only. In reality, the optimization was conducted for
+more parameters. The parameters Pi represent three dimensions
+(e.g., diameter, length of a secondary neck, and volume ratio). In
+order to further visualize the three-dimensional volume enclosed
+by the isosurface, the projections onto each of the Cartesian planes
+are depicted in black. All parameter combinations enclosed by the
+red surfaces represent possible conﬁgurations yielding 95% of the
+maximum achievable growth rate reduction. Accordingly, those
+on the gray isosurface give the parameter combination for which
+the damping capacity is 90% of the maximum. By doing so, the
+sensitivity on each of the parameters can be assessed. In addition,
+in case several “islands” of maximum performance exist, the one
+providing the largest margin is taken. The red lines mark the ﬁnal
+parameter conﬁguration chosen for the engine tests.
+Model Accuracy in Full-Scale Engine. To further validate the
+model of the damper placed in the engine, damper and combustion
+chamber are equipped with pulsation sensors (see Fig. 1). The ra-
+tio of the measured acoustic pressure inside the damper and the
+one in the combustion chamber can be seen in Fig. 7 (solid). It is
+compared to the predictions of the state-space model (dashed),
+which has an order of six. Note that in the engine a density differ-
+ence between ﬂuid inside the damper and the combustion chamber
+exists. This has to be accounted for in the model by scaling the
+neck end corrections with the corresponding density ratios. Model
+predictions and measurements show a striking correspondence,
+thus, proving the validity and accuracy of the method proposed to
+obtain the damper’s performance in the engine. Particularly, the
+phases (bottom) nearly perfectly match, which is most important
+for the prediction of the dampers resonance frequency when
+mounted in the engine. Except for the deviation at a normalized
+frequency of 1.05, the magnitudes match very well up to 1.25.
+The main reason for the larger deviation at higher frequencies is
+the axial distance between both sensors. This is not accounted for
+in the model as it relates the pressure inside the damper to that
+directly at its exit. For frequencies larger than 1.25, this distance
+corresponds nearly to a quarter wave length. Note that no model
+tuning is done a posteriori; the model prediction in Fig. 7 is
+obtained with the model that is validated for cold-ﬂow measure-
+ments and is taken for the damper layout.
+Single- Versus Multivolume Damper
+Figure 8 compares the damping performances of single-volume
+and multivolume dampers. The only difference between the two
+conﬁgurations is that the volume for the former is not subdivided
+into several interconnected volumes. Both setups exhibit the same
+total volume and geometry of the neck between damper and com-
+bustion chamber. For a meaningful assessment, this is important
+since the volume ratio of damper to combustion chamber is a cru-
+cial parameter for the damping performance. The neck geometry
+inﬂuences the broadness of the damper’s frequency bandwidth.
+The engine is modeled as a second order harmonic oscillator; an
+assumption that is valid if only the fundamental mode is consid-
+ered. The acoustic transfer function of the damper is coupled to
+the engine and the least stable mode’s poles of the closed-loop
+system—representing growth rate and oscillation frequency—are
+deduced. For the simulation, it is assumed that 12 dampers are
+evenly distributed around the combustion chamber circumference.
+In Fig. 8, the growth rate of the system without dampers is nor-
+malized to unity. The model is used to vary the normalized
+Fig.
+5
+Comparison
+of
+measured
+reﬂection
+coefﬁcients
+(dashed with symbols) and model (solid) for different bias ﬂow
+velocities; top: magnitude, bottom: phase
+Fig. 6
+Isosurfaces of damping performance versus combina-
+tion of geometry parameters P1, P2, and P3. Red (gray) isosur-
+face: 95% (90%) of maximum growth rate reduction.
+Fig. 7
+Comparison of ratios of acoustic pressures inside HHD
+and combustion chamber for measurement (solid) and sixth
+order model (dashed). Top: magnitude, bottom: phase.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2014, Vol. 136 / 041504-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 6 ---
+
+pulsation frequency of the engine continuously from approxi-
+mately 0.85 (black symbols) to 1.6 (white symbols) in order to
+study the damper performance at off-design frequencies or in case
+more than one mode has to be addressed. In reality, a change in
+pulsation frequency can, for instance, be caused by engine-to-
+engine variations and different operating or ambient conditions.
+As can be seen from the corresponding reﬂection coefﬁcients plot-
+ted in Fig. 9, the normalized resonance frequency of the single-
+volume damper is at 1 (dashed). The solid curve represents the
+reﬂection coefﬁcient for the multivolume damper.
+Figure 8 compares the results for the growth rate reduction
+obtained with the single-volume damper conﬁguration with those
+of the multivolume setup. Application of the former results in a
+split of the poles; the typical result one would expect for two
+coupled second order harmonic oscillators (see, for instance, Refs.
+[30,31]). In case the single-volume damper’s resonance frequency
+is exactly matching the engine pulsation frequency (red symbols),
+the poles are symmetrically shifted to 0.93 and 1.07. Both have a
+negative growth rate; thus, the system is stable. In the example
+shown, the growth rate reduction is a bit higher than for the multi-
+volume conﬁguration. If the engine’s pulsation frequency is
+shifted by 66%, the single-volume dampers are still able to main-
+tain system stability. For larger frequency shifts, however, one of
+the poles gets unstable.
+For the multivolume dampers, two main observations can be
+made. First, no pole splitting occurs. The reason for this can be
+understood by considering the phase of the reﬂection coefﬁcient
+in the bottom graph of Fig. 9. Nearly over the whole range of
+frequencies for which jRj < 0:5, it is close to zero. In terms of
+acoustic impedance2 this corresponds to the case for which its
+imaginary part, its reactance, is zero. A purely real-valued imped-
+ance, i.e., one that only has a resistive part, merely absorbs the
+acoustic energy. In contrast to this, the phase of the single-volume
+damper exhibits a phase jump and at resonance is p. The slope of
+the phase is determined by the provided damping, which is a func-
+tion of fu. Rowley and Williams [31] argue that in any feedback-
+controlled linear system the reduction of system amplitudes
+(growth rates) is accompanied by an increase of growth rates at
+other frequencies. For a narrowband controller tuned to damp the
+uncontrolled system’s frequency this results in the occurrence of
+split poles close to the undamped oscillations. Bellucci [11]
+derived a simple analytical formula to calculate the split poles’
+frequencies. His result is valid for lightly damped resonators but
+could also be extended to the more general case. Due to the real-
+valued impedance of the multivolume damper and its broad damp-
+ing characteristic the system’s growth rate is decreased without a
+marked shift in frequency.
+Secondly, the frequency bandwidth in which the system is ren-
+dered stable is much larger. A shift of the nondimensional fre-
+quency of approx. 15 % to 50% can be coped with. Apart from
+the growth rates at a normalized frequency of 1, where both con-
+ﬁguration result in comparable values, the reduction with the mul-
+tivolume dampers is larger; hence, a system with a higher growth
+rate can be stabilized.
+Clearly, the broadband behavior of the single-volume conﬁgu-
+ration could be enhanced by not adjusting all single dampers to
+the same frequency (obviously with a payoff in damping at this
+frequency). However, this would involve several different damper
+designs—a fact that is clearly not desired for reasons of complex-
+ity. In addition, the relevant pulsation modes important in this
+work are of an annular nature. Depending on the critical mode
+shape and the number of dampers that the engine can be equipped
+with, a minimum number of dampers addressing the same mode
+or frequencies not too far away from each other is required.
+Damper Validation in Engine
+The performance of the multivolume dampers is validated in a
+test engine. In the top frame of Fig. 10, the normalized frequency
+of the limiting mode as a function of two engine operating param-
+eters A and B is shown. As can be seen the frequency increases
+with decreasing A and increasing B (B1<B2<B3).
+In order to decrease emissions, operating parameter A should
+be minimized. The dashed curves are isolines of parameter B at
+which dedicated measurement points are taken (). The area
+shaded in gray in the top frame marks the operating window with-
+out dampers. Although not shown here, below the lowest B curve
+operation is always possible. The larger B, the larger is the mini-
+mum achievable A. Thus, the major damping objective is to sufﬁ-
+ciently increase the operating window along B3.
+Implementing the dampers allows to widely increase the operat-
+ing window of the engine to also cover the red shaded area (Fig.
+10, middle frame). Measurement points with dampers are depicted
+with . Since in the red shaded area no measurement points with-
+out dampers can be taken, the frequency for the respective combi-
+nation of A and B for the case without dampers is expected to be
+on the extrapolations of the B-isolines. As can be seen, the fre-
+quency of the former limiting mode changes by 610 % if the
+averaged frequency is normalized to 1. In the whole operating
+range shown, the dampers are able to reduce the pulsations by at
+least 50% to more than 80%.
+Fig. 9
+Comparison of reﬂection coefﬁcients for single-volume
+(dashed) and multivolume (solid) damper; top: magnitude, bot-
+tom: phase
+Fig. 8
+Normalized growth rate versus normalized frequency
+for system without dampers (), equipped with single-volume
+(), and multivolume (w) dampers
+2The acoustic impedance Z is related to the reﬂection coefﬁcient R by the bilinear
+transform Z=qc ¼ ð1 þ RÞ=ð1  RÞ.
+041504-6 / Vol. 136, APRIL 2014
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 7 ---
+
+The bottom subﬁgure of Fig. 10 shows the reduction of normal-
+ized NOx emissions at B3. Implementation of the multivolume
+dampers results in a reduction of more than 55%.
+Note that for the shown graph the ambient conditions are con-
+stant. Tests at different ambient conditions involve additional
+changes in frequency. Engine tests performed at different ambient
+conditions caused lower pulsation frequencies for which the
+dampers stabilized the system as well.
+The engine can be equipped with a given number of N dampers.
+Their effect on the pulsation spectrum at operating condition A1
+(see Fig. 10) is depicted in Fig. 11(a). Without dampers (black), a
+distinct peak is observed at the frequency of the ﬁrst azimuthal
+mode. With 75% of the available dampers, this peak is attenuated
+by approximately 70% (red) allowing a reduction of the operating
+parameter A by 30% to A2 (Fig. 10). The remaining ones are
+tuned to the second azimuthal mode, the effect being observable
+at a normalized frequency of approximately 2.
+Obviously, further decreasing operating parameter A gives rise
+to the ﬁrst azimuthal mode. However, this mode is not the limiting
+anymore. Now, the amplitude of the third azimuthal mode
+becomes dominant as can be seen in Fig. 11(b) (black). The rea-
+son for this is most probably twofold. First, it indicates that the
+system has more than one unstable eigenvalue. If a system exhib-
+its more than one linearly unstable pole, its limit-cycling state is
+governed by the dominating one. This often is—but not necessar-
+ily has to be—the one with the highest growth rate. Without
+dampers, the ﬁrst azimuthal mode determines the limit-cycle
+oscillations (most probably because it has the higher growth rate).
+Furthermore, the dampers strongly decrease its growth rate so that
+the third azimuthal mode becomes the one governing the limit-
+cycle oscillations. A comparable behavior was already observed
+in Ta3 simulations reported earlier in Ref. [23]. The stabilization
+of the initially unstable mode caused a second one to become
+dominant.
+Depending on the shape of the mode causing high-amplitude
+pulsations the positions of the dampers have to be determined. In
+gas turbines, often azimuthal modes are the critical ones. These
+modes exhibit pressure nodes around the circumference. If damp-
+ers are arranged such that the nodal points of the mode coincide
+with the damper positions, no damping is achieved. In a previous
+publication [21], azimuthal staging concepts of dampers and fuel
+injection in annular systems were studied in detail. It was shown
+that the degree of symmetry of an azimuthal distribution of damp-
+ing devices allows predicting its damping capability. This degree
+of symmetry is deﬁned by the parameter C2n. The smaller this
+value for the considered thermoacoustic mode is, the higher is the
+damping performance. Consequently, for the respective applica-
+tion, the dampers have to be positioned such that the correspond-
+ing C2n value is minimal. Note that in practice there will be
+multiple constraints probably impeding to go for the best calcula-
+tional conﬁguration. Possible constraints are, for instance, the
+restriction to put dampers on certain locations or insufﬁcient space
+resulting in a limited number of dampers.
+Given the engine pulsation behavior at operating condition A2
+(Fig. 11(b) black), consequently, the dampers initially adjusted to
+the second azimuthal mode are readjusted to deal with the third.
+Prior to engine tests, the optimum conﬁguration resulting in the
+lowest C2n values for both modes simultaneously is assessed.
+Figure 12 shows the C2n values for six possible damper distribu-
+tions. In the graph, it is normalized with its theoretical maximum
+Fig. 10
+Normalized frequency of critical mode without damp-
+ers and NOx versus operating parameters A and B. Top: oper-
+ating window of engine without dampers. Middle: enlarged
+operating window by using dampers. Bottom: normalized NOx
+improvement at B3 using dampers.
+Fig. 11
+Averaged spectra of scaled acoustic pressure ^p=^pmax for two different operating conditions
+Journal of Engineering for Gas Turbines and Power
+APRIL 2014, Vol. 136 / 041504-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 8 ---
+
+C2n;max representing the worst case distribution for the respective
+mode and number of dampers considered. For the ﬁrst azimuthal
+mode (dashed with ), there are three different positions (distribu-
+tions 1, 5, 6) resulting in the optimum damping performance. Dis-
+tribution 6 is chosen to address the ﬁrst azimuthal mode in
+damper conﬁguration A. The reason for this is that for this distri-
+bution also the second azimuthal mode is damped best.
+However, if also the third azimuthal mode (solid with ) has to
+be accounted for, distribution 6 is not optimal anymore. For this
+damper arrangement, the dampers addressing the third azimuthal
+mode exhibit an even spacing of 60 deg between each other. As
+expected, this is the worst case distribution because the circumfer-
+ential distance of the mode’s nodes coincide with that of the
+damper locations. Merely considering the ﬁrst azimuthal mode,
+distribution 5 and 6 would also deliver optimum damping. How-
+ever, as can be seen in the graph, the scaled C2n values for the
+third azimuthal mode are the worst—C2n=C2n;max ¼ 1. Decreasing
+the degree of symmetry with respect to this mode, results in a
+decreasing C2n. The best conﬁguration is achieved for distribution
+1 for which C2n=C2n;max is zero for both modes.
+The results shown in Fig. 11(b) (red) are obtained with the
+dampers arranged according to distribution 1. The pulsation am-
+plitude of the third azimuthal mode is reduced by more than 80%.
+Since this operating condition can only be reached with dampers
+addressing the ﬁrst azimuthal mode, no exact quantiﬁcation of its
+amplitude reduction compared to the case without dampers can be
+given. It is deﬁnitely far more than the 70% that are already
+observed for A1 (Fig. 11(a)). Note that the reason for the reduc-
+tion observed at the ﬁrst azimuthal mode is due to tuning the
+damper to slightly higher frequencies.
+Summary and Conclusions
+In this paper, a novel concept for broadband damping of low-
+frequency combustion pulsations in gas turbines is presented. The
+novel device consists of a damper body housing several volumes
+that are connected to each other via secondary necks. This setup
+results in a multi degree-of-freedom system, for which neck geo-
+metries, bias ﬂow, and volume ratios are subject to optimization
+so as to fulﬁll the damping objective. A physics-based model is
+set up that is able to predict the inﬂuence of all governing parame-
+ters on the damping performance. The model excellently matches
+to cold-ﬂow as well as full-scale engine measurements. A compar-
+ison to the performance of traditional single-volume dampers is
+conducted showing the beneﬁt of the new approach.
+The damper’s performance is validated in a full-scale test
+engine. Recent research on azimuthal staging concepts [21] to
+address azimuthal modes is used to optimally position the damp-
+ers. Combustion pulsation amplitudes are reduced by more than
+80%. By doing so, the engine operating regime is widely enlarged,
+ﬁnally, allowing a reduction of NOx emissions by 55%. The
+engine results conﬁrm that the dampers efﬁciently work in a broad
+frequency range. Since the novel damper concept is engine-
+independent multiple applications are possible.
+References
+[1] Bellucci, V., Flohr, P., Paschereit, C. O., and Magni, F., 2004, “On the Use of
+Helmholtz Resonators for Damping Acoustic Pulsations in Industrial Gas
+Turbines,” ASME J. Eng. Gas Turb. Power, 126(2), pp. 271–275.
+[2] Bellucci, V., Schuermans, B., Nowak, D., Flohr, P., and Paschereit, C. O.,
+2005, “Thermoacoustic Modeling of a Gas Turbine Combustor Equipped With
+Acoustic Dampers,” ASME J. Turbomach., 127(2), pp. 372–379.
+[3] Tam, C. K. W., Kurbatskii, K. A., Ahuja, K. K., and, Jr., R. J. G., 2001, “A Nu-
+merical and Experimental Investigation of the Dissipation Mechanisms of Res-
+onant Acoustic Liners,” J. Sound Vib., 245(3), pp. 545–557.
+[4] Eldredge, J. D., and Dowling, A. P., 2003, “The Absorption of Axial Acoustic
+Waves by a Perforated Liner With Bias Flow,” J. Fluid Mech., 485, pp. 307–335.
+[5] Randeberg, R., 2000, “Perforated Panel Absorbers With Viscous Energy Dissi-
+pation Enhanced by Oriﬁce Design,” Ph.D. thesis, Department of Telecommu-
+nications, Norwegian University of Science and Technology, Trondheim,
+Norway, http://ntnu.diva-portal.org/smash/get/diva2:125365/FULLTEXT01
+[6] Zhang, Q., and Bodony, D. J., 2011, “Direct Numerical Simulation of Three
+Dimensional Honeycomb Liner With Circular Apertures,” AIAA Paper No.
+2011–843.
+[7] Alster, M., 1972, “Improved Calculation of Resonant Frequencies of Helmholtz
+Resonators,” J. Sound Vib., 24(1), pp. 63–85.
+[8] Huang, Y., and Yang, V., 2009, “Dynamics and Stability of Lean-Premixed
+Swirl-Stabilized Combustion,” Prog. Energ. Combust., 35(4), pp. 293–364.
+[9] Bothien, M., Pennell, D., Zajadatz, M., and D€obbeling, K., 2013, “On Key Fea-
+tures of the AEV Engine Implementation for Operational Flexibility,” ASME
+Paper No. GT2013-95693.
+[10] Richards, G. A., Straub, D. L., and Robey, E. H., 2003, “Passive Control of
+Combustion Dynamics in Stationary Gas Turbines,” J. Propul. Power, 19(5),
+pp. 795–810.
+[11] Bellucci, V., 2009, “Modeling and Control of Gas Turbine Thermoacoustic
+Pulsations,” Ph.D. thesis, Institut f€ur Str€omungsmechanik und Technische
+Akustik, Technische Universit€at Berlin, Berlin, Germany, http://opus.kobv.de/
+tuberlin/volltexte/2009/2414/
+[12] Gysling, D. L., Copeland, G. S., McCormick, D. C., and Proscia, W. M., 2000,
+“Combustion System Damping Augmentation With Helmholtz Resonators,”
+ASME J. Eng. Gas Turb. Power, 122(2), pp. 269–274.
+[13] Lepers, J., Krebs, W., Prade, B., Flohr, P., Pollarolo, G., and Ferrante, A., 2005,
+“Investigation of Thermoacoustic Stability Limits of an Annular Gas Turbine
+Combustor Test-Rig With and Without Helmholtz Resonators,” ASME Paper
+No. GT2005-68246.
+[14] Pandalai, R. P., and Mongia, H. C., 1998, “Combustion Instability Characteris-
+tics of Industrial Engine Dry Low Emission Combustion Systems,” AIAA Paper
+No. 1998-3379.
+[15] Grifﬁn, S., Lane, S. A., and Huybrechts, S., 2001, “Coupled Helmholtz Resona-
+tors for Acoustic Attenuation,” ASME J. Vib. Acoust., 123, pp. 11–17.
+[16] Xu, M. B., Selamet, A., and Kim, H., 2010, “Dual Helmholtz Resonator,” Appl.
+Acoust., 71, pp. 822–829.
+[17] Jones, M. G., and L. Parrott, T., 2006, “Assessment of Bulk Absorber Properties
+for Multi-Layer Perforates in Porous Honeycomb Liners,” AIAA Paper No.
+2006-2403.
+[18] Bielak, G. W., Premo, J. W., and Hersh, A. S., 1999, “Advanced Turbofan Duct
+Liner Concepts,” NASA/CR-1999-209002.
+[19] Noiray, N., and Schuermans, B., 2009, “Theoretical and Experimental Investi-
+gations on Dampers Performances for Suppression of Thermoacoustic Oscil-
+lations,” 16th International Congress on Sound and Vibration, Krakow, Poland,
+July 5–9.
+[20] Noiray, N., Bothien, M., and Schuermans, B., 2011, “Investigation of Nonlinear
+Mechanisms Driving Combustion Instabilities Using an Electro-Acoustic van
+der Pol Oscillator,” 7th European Nonlinear Oscillations Conference (ENOC
+2011), Rome, July 24–29.
+[21] Noiray, N., Bothien, M. R., and Schuermans, B., 2011, “Investigation of Azi-
+muthal Staging Concepts in Annular Gas Turbines,” Combust. Theor. Model.,
+15(5), pp. 585–606.
+[22] Noiray, N., Bothien, M., and Schuermans, B., 2010, “Analytical and Numerical
+Analysis of Staging Concepts in Annular Gas Turbines,” n3l—International
+Summer School and Workshop on Non-Normal and Nonlinear Effects in Aero-
+and Thermoacoustics, M€unich, Germany, May 17–20.
+[23] Schuermans, B., Bellucci, V., and Paschereit, C. O., 2003, “Thermoacoustic
+Modeling and Control of Multi Burner Combustion Systems,” ASME Paper
+No. GT2003-38688.
+[24] Bothien, M. R., 2008, “Impedance Tuning: A Method for Active Control of the
+Acoustic Boundary Conditions of Combustion Test Rigs,” Ph.D. thesis, Institut
+f€ur Str€omungsmechanik und Technische Akustik, Technische Universit€at Ber-
+lin, Berlin, Germany, http://opus.kobv.de/tuberlin/volltexte/2009/2105/
+[25] Antoulas, A., and Sorensen, D., 2001, “Approximation of Large-Scale Dynami-
+cal Systems: An Overview,” Int. J. Appl. Math. Comp., 11(5), pp. 1093–1121.
+Fig. 12
+C2n values for distributions 1–6 of damper conﬁgura-
+tion B. Solid with 3: third azimuthal mode, dashed with : ﬁrst
+azimuthal mode. The values are scaled with the maximum C2n
+for the respective mode.
+041504-8 / Vol. 136, APRIL 2014
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026
+
+
+--- Page 9 ---
+
+[26] Paschereit, C. O., Schuermans, B., Polifke, W., and Mattson, O., 2002,
+“Measurement of Transfer Matrices and Source Terms of Premixed Flames,”
+ASME J. Eng. Gas Turb. Power, 124(2), pp. 239–247.
+[27] Idelchik, I. E., 1986, Handbook of Hydraulic Resistance, 2nd ed., Hemisphere
+Publishing Corporation, New York.
+[28] Peters, M. C. A. M., Hirschberg, A., Reijnen, A. J., and Wijnands, A. P. J., 1993,
+“Damping and Reﬂection Coefﬁcient Measurements for an Open Pipe at Low
+Mach and Low Helmholtz Numbers,” J. Fluid Mech., 256, pp. 499–534.
+[29] Chanaud, R. C., 1994, “Effects of Geometry on the Resonance Frequency of
+Helmholtz Resonators,” J. Sound Vib., 178(3), pp. 337–348.
+[30] Banaszuk, A., Mehta, P., Jacobson, C., and Khibnik, A., 2006, “Limits of
+Achievable Performance of Controlled Combustion Processes,” IEEE T. Contr.
+Syst. T., 14(5), pp. 881–895.
+[31] Rowley, C. W., and Williams, D. R., 2006, “Dynamics and Control of High-
+Reynolds-Number Flow Over Open Cavities,” Annu. Rev. Fluid Mech., 38, pp.
+251–276.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2014, Vol. 136 / 041504-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/136/4/041504/6810023/gtp_136_04_041504.pdf by guest on 01 January 2026

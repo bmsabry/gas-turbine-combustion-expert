@@ -1,0 +1,990 @@
+
+--- Page 1 ---
+
+Combustion dynamics linked to ﬂame behaviour in a partially
+premixed swirled industrial burner
+Fernando Biagioli *, Felix Gu¨the, Bruno Schuermans
+Alstom, Brown Boveri Strasse 7, Baden CH-5401, Switzerland
+Received 16 November 2007; accepted 17 November 2007
+Abstract
+Previous work [Biagioli, F., Stabilization mechanism of turbulent premixed ﬂames in strongly swirled ﬂows, Combustion, Theory and
+Modelling 10 (3) (2006) 389–412; Guethe, F., Lachner, R., Schuermans, B., Biagioli, F., Geng, W., Inauen, A., Schenker, S., Bombach,
+R., Hubschmid, W., Flame imaging on the ALSTOM EV-burner: thermo acoustic pulsations and CFD-validation, in: AIAA Paper
+2006-437 presented at the 44th AIAA Aerospace Sciences Meeting and Exhibit, Reno, Nevada, January 9–12, 2006] has shown that tur-
+bulent dry low NOx (partially premixed) ﬂames in high swirl conical burners may be subject to a large change of their anchoring location
+at the symmetry axis when a critical value of the bulk equivalence ratio is reached, i.e. they are bi-stable. This ﬂame behavior is linked
+here to combustion pressure dynamics measured in an atmospheric test rig for a prototype version of the Alstom EnVironmental (EV)
+conical burner. The link is made via the solution of the problem of the ‘travelling ﬂameholder’, which shows that the unsteady displace-
+ment of the ﬂame anchoring location implies an unsteady variation of the ﬂame surface area and therefore unsteady heat release. The
+relevance of this source of unsteady heat release—which is diﬀerent from more usual ones due to variations in turbulent burning rate and
+in the sensible enthalpy jump across the ﬂame—to the generation of combustion dynamics in strongly swirled ﬂows is conﬁrmed here by
+the strong positive correlation between the tendency of the ﬂame to be displaced and the measured amplitude of pressure pulsations.
+ 2007 Published by Elsevier Inc.
+Keywords: Turbulent partially premixed combustion; Large eddy simulation; Combustion dynamics
+1. Introduction
+The stabilization of turbulent lean premixed ﬂames in
+industrial burners is usually obtained by the method of vor-
+tex breakdown. This consists in the formation of a central
+recirculation zone (CRZ) which acts as an aerodynamic
+ﬂameholder, when suﬃciently high swirl is given to the ﬂow
+of reactants. Very often the swirl level is adjusted in a way
+that vortex breakdown takes place in the downstream free
+ﬂow (free standing CRZ) without touching any burner
+wall. Stable anchoring of a turbulent ﬂame via a free stand-
+ing CRZ zone is a big challenge in the development of low
+NOx industrial burners, especially considering that, to keep
+NOx emissions below prescribed levels, such anchoring
+must take places with a good degree of fuel/air premixing.
+In the case of an high swirl conical burner with charac-
+teristics like the Alstom EnVironmental (EV) double cone
+burner, it has been shown in [1], via CFD at the level of
+large eddy simulation (LES) and in [2] via ﬂame imaging
+techniques, that the properties of the CRZ generated via
+the vortex breakdown phenomenon have large eﬀect on
+the stabilization behavior of turbulent premixed ﬂames.
+This is a direct consequence of the fact that, in strongly
+non-uniform ﬂows, the position and shape of the ﬂame
+do not depend only on the mean volumetric consumption
+rate of reactants for unit of mean ﬂame cross sectional area
+(the turbulent burning rate Ut) but also on the rate at which
+reactants are fed into the ﬂame. This point of view is con-
+ﬁrmed by the LES analysis performed in [1], which was
+complemented with a simple one-dimensional boundary
+0894-1777/$ - see front matter  2007 Published by Elsevier Inc.
+doi:10.1016/j.expthermﬂusci.2007.11.007
+* Corresponding author. Tel.: +41 056 2058583; fax: +41 056 2057713.
+E-mail address: fernando.biagioli@power.alstom.com (F. Biagioli).
+www.elsevier.com/locate/etfs
+Available online at www.sciencedirect.com
+Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+
+
+--- Page 2 ---
+
+layer type model describing ﬂame anchoring at the burner
+axis. It was shown there that turbulent premixed ﬂames in a
+swirling ﬂow anchor at the symmetry axis in a position
+determined by the mean axial convective velocity, the tur-
+bulent burning rate Ut and, especially, the turbulent radial
+inﬂow of reactants, this last inversely proportional to the
+ﬂame curvature radius at the symmetry axis RF. The ﬂame
+radius of curvature RF was found to be strongly related to
+the distribution of the mean axial velocity in the near axis
+region. it is therefore clear that the position and behavior
+of the ﬂame are determined also by the characteristics
+(especially the radial size) of the CRZ and not only by
+the turbulent burning rate. The results from the analytical
+investigation were conﬁrmed by experimental data.
+A recent experimental investigation [2] has shown addi-
+tional properties of turbulent premixed ﬂames stabilized in
+high swirl conical burners. More in details, it was observed
+that the ﬂame stabilized in these kind of burners are subject
+to a bi-stable behavior when the ﬂame tip reaches (for
+example, with a variation in equivalence ratio) a critical
+position close to the exit of the burner and that a strong
+correlation exists between this bi-stable ﬂame behavior
+and the distribution of the measured combustion pressure
+dynamics.
+An hypothesis on the relation between the ﬂame stabil-
+ization properties and combustion dynamics in strongly
+swirled ﬂows is made here with a simple model describing
+the response of the ﬂame surface area to an unsteady dis-
+placement of the ﬂame anchoring location, as it happens
+close to the critical conditions of ﬂame bi-stability. This
+mechanism is equivalent to the one proposed in [3,4],
+where, for the case of a premixed ﬂame anchored at a
+ﬂameholder ﬁxed in space, the ﬂame surface changes
+unsteadily due to the time dependent variation of the inﬂow
+velocity of reactants. The diﬃculty in the present case is
+however represented by the characterization of the ﬂame
+anchoring properties (which determine the ﬂame anchoring
+location at the axis) in terms of any unsteady perturbation
+like, for example, an acoustically modulated equivalence
+ratio ﬂuctuation. The analytical investigation in [1] has in
+fact shown that, close to the critical conditions separating
+the two stable combustion modes in the conical burner, a
+small variation in equivalence ratio leading to a small dis-
+placement of the ﬂame and a small change in the hot gas
+density can activate a ﬂame–velocity ﬂowﬁeld interaction
+(very likely of baroclinic nature) which can in turn alter
+the ﬂame anchoring properties and then further displace
+the ﬂame. Ideally, the dependency of the ﬂame anchoring
+location from a perturbation should be expressed on the
+basis of detailed understanding of the above ﬂame–velocity
+interaction. Given however the complexity of this problem,
+an alternative method is proposed here. This consists in
+determining the ﬂame position-equivalence ratio depen-
+dency directly from the experimental or CFD data.
+The present work is organized as follows. In Section 2,
+the behavior of turbulent partially premixed ﬂames in the
+conical burner is described from an experimental point of
+view. In Section 3, the ﬂame behavior is studied using
+CFD and a 1D boundary layer type ﬂame model which
+was developed in [1]. Finally, in Section 4, the pulsation
+characteristics of the burner are linked to the ﬂame behav-
+ior via a simple model describing the generation of
+unsteady heat release due to unsteady displacement of the
+ﬂame anchoring location at the symmetry axis.
+2. Experimental investigation of ﬂame behavior in the conical
+burner
+The tests, which are reported in full details in [2], have
+been performed in an atmospheric single burner combus-
+tion test rig at a full-scale industrial burner as described
+earlier [5,6]. Combustor air, which is electrically preheated
+and fed into a plenum chamber, ﬂows from there through
+the burner and the combustion chamber. The combustion
+Nomenclature
+c
+reaction progress variable
+dA
+mean ﬂame area element
+Dt
+turbulent diﬀusion coeﬃcient
+f
+fuel mixture fraction
+lt
+integral length scale of turbulence
+r
+radial coordinate
+R
+radius of combustor
+RF
+ﬂame radius of curvature
+S
+amplitude of ﬂameholder velocity
+sL
+laminar ﬂame speed
+Sr
+Strouhal number
+t
+time
+Tﬂame
+adiabatic ﬂame temperature
+TRef
+reference ﬂame temperature
+Ut
+turbulent burning rate
+u0
+turbulent velocity ﬂuctuation
+U
+reactants inﬂow velocity
+u
+velocity vector
+x
+axial coordinate
+_xF
+ﬂameholder velocity
+Greek letters
+a
+angle between ﬂame and axis
+Dp
+pressure drop across burner
+k
+molecular diﬀusion coeﬃcient
+s
+ﬂame element time lag
+f
+non-dimensional pressure drop across burner
+q
+density
+( )u
+quantity in reactants
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+1345
+
+
+--- Page 3 ---
+
+chamber has a rectangular cross-section with the dimen-
+sions of 283 mm  381 mm  1250 mm. Cooling of the
+combustor section is achieved by a combination of radia-
+tion and water-cooling. The burner geometry is a generic
+conical one based on the Alstom EV-Burner [7]. This bur-
+ner shape (see Fig. 1) is obtained by shifting two halves of a
+cone in opposite directions, orthogonally to the cone axis,
+such that two inlet slots of constant width are produced.
+The incoming stream of reactants is therefore given a
+strong swirl component when ﬂowing through the two inlet
+slots. Due to the high swirl number, a central recirculation
+zone, which acts like a ﬂameholder, is formed at the burner
+axis via the mechanism of vortex breakdown.
+An exhaust probe, located about 550 mm downstream
+of the burner exit, extracts ﬂue gas, which is analysed for
+contents of oxygen O2, carbon dioxide CO2, carbon mon-
+oxide CO, unburned hydrocarbons UHC, and nitric oxides
+NOx (NO and NO2). The gas analysis data (and the tem-
+peratures of combustor inlet air and fuel) as well as the
+measured mass ﬂows allow a determination of the bulk adi-
+abatic ﬂame temperature Tﬂame in the burner. The accuracy
+of the absolute Tﬂame measurement is estimated to be
+approx 25 K. The pressure drop coeﬃcient f is obtained
+from measurement of the pressure diﬀerence (Dp) upstream
+and down stream of the burner non-dimensionalized with
+the dynamic pressure calculated using a bulk average veloc-
+ity in the burner. Flames inside the burner having a higher
+ﬂow resistance lead to higher f values. A microphone is
+placed in the combustion chamber around 180 mm down-
+stream of the burner exit to measure combustion-driven
+pressure ﬂuctuations. Two air-cooled quartz windows of
+ca. 200 mm  200 mm realize optical access to the combus-
+tion chamber and are placed 90 to each other and to the
+mean ﬂow direction. The upstream window edge is located
+20 mm downstream of the burner exit in the combustion
+chamber. To enable a visualization of the pulsations, the
+test rig is excited with loud speakers mounted upstream
+of the combustor [8] forcing the system to follow the natu-
+rally occurring frequency. The laser set-up [9,10] for the
+LIF detection of OH radicals and camera were locked on
+this forcing signal and the phase shift adjusted by manually
+changing the delay constant. The OH-LIF data were
+recorded on a regular grid with approx 0.5 mm spacing.
+The LIF-images are 2D cuts through the combustor along
+the illuminating laser sheet, which is located in the center of
+the combustor. The LIF intensity is sensitive to the concen-
+tration of OH radicals in their electronic ground states,
+which are found in regions of heat release, but also in the
+exhaust gas. Images form chemiluminescence (CL) are also
+presented.
+Fig. 2 shows CL (top) and OH-LIF (bottom) images
+(total mean, averaging over 300–400 images) in the conical
+Fig. 1. Sketch of the Alstom EV burner.
+1346
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+
+
+--- Page 4 ---
+
+burner at four diﬀerent values of the bulk adiabatic ﬂame
+temperature. The experimental axial velocity ﬂowﬁeld from
+a water rig facility is instead shown in Fig. 3. The OH-LIF
+images show that, while the ﬂame at lower adiabatic ﬂame
+temperatures is located outside of the burner in the com-
+bustion chamber, at higher Tﬂame the ﬂame sits rather deep
+inside the burner. The images indicate that the ﬂame can be
+stabilized at two diﬀerent locations: inside or outside of the
+burner. The transition between the ﬂame ‘inside burner’ to
+ﬂame ‘outside burner’ modes takes place within a rather
+small variation in ﬂame temperature at the TRef value,
+i.e. the ﬂame is bi-stable. With exception of close to the
+conditions where the transition takes place, both ﬂame
+positions (inside and outside the burner) seem to be stable
+over a large range of temperatures. Additionally, the ﬂame
+anchored inside the burner is not attached to any solid wall
+of the burner shell, as this would result in a harmful event.
+It is observed that this ﬂame behavior strongly correlate
+with the characteristics of the CRZ produced via vortex
+breakdown. As shown by Fig. 2, in fact, vortex breakdown
+takes place inside the burner with the appearance of a small
+CRZ after which low positive axial velocity is recovered
+and followed by a second CRZ which expands with a large
+radius in the combustor. Other variants of this burner,
+which also show a bi-stable ﬂame behavior, show instead
+a single CRZ that starts very narrow deep into the burner
+and then grows in thickness in the downstream direction
+[1].
+Interestingly, it is found that the pressure pulsations at
+the natural acoustic frequency of the combustor (this at a
+Strouhal number Sr = 0.57) have a trend which strongly
+correlates with the ﬂame behavior. They are in fact rather
+low at those values of Tﬂame where the ﬂame is stable out-
+side and inside the burner but have a peak at the values of
+Tﬂame where the transition between the two ﬂame modes
+takes place. This is shown in Fig. 4 (left), where also the
+pressure drop in the burner is plotted which, increasing
+with the displacement of the ﬂame anchoring location
+inside the burner, is an excellent indicator of ﬂame position
+(see the following section). The strong link between the
+pressure pulsations and the ﬂame behavior becomes clear
+from images at Tﬂame = TRef phase locked to the forcing
+signal (see Fig. 5), where the pressure pulsations amplitude
+versus mean ﬂame temperature attains the maximum value.
+Fig. 2. Flame imaging in the EV burner from chemiluminescence (top) and OH-LIF (bottom).
+Fig. 3. Contours of mean axial velocity in the conical burner from a water
+rig facility.
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+1347
+
+
+--- Page 5 ---
+
+Resolving the phase angle shows that the ﬂame is moving
+between the two positions where the ﬂame can be stable,
+similarly to the eﬀect on the total mean of variations in
+bulk Tﬂame. This behavior is resumed in Fig. 4 (right),
+reporting phase locked values of Tﬂame (these estimated
+from chemiluminescence intensity and due to ﬂuctuations
+in equivalence ratio induced by the external forcing of
+the air mass ﬂow rate) and the position of the leading edge
+of the ﬂame as function of the phase angle. The depen-
+dency of the ﬂame temperature Tﬂame from the chemilumi-
+nescence intensity ICL is calibrated using the totally
+averaged chemiluminescence data.
+3. Analysis of vortex breakdown in industrial burners via
+Large Eddy Simulation
+The problem of vortex breakdown in the conical burner
+is investigated here with the help of CFD. Because
+Reynolds Averaged Navier–Stokes (RANS, k– approach)
+methods have been previously [1] found unable to correctly
+describe the kinematic properties of this kind of ﬂows (with
+strong impact on the accuracy with which the stabilization
+of turbulent premixed ﬂames could be predicted), the
+present investigation is based on large eddy simulation
+(LES) performed using the commercial solver FLUENT
+T-TREF [K]
+norm. pressure pulsations and dζ/dTflame
+Normalized ζ
+-200
+-100
+0
+100
+200
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+0.8
+1
+1.2
+1.4
+Pressure pulsations
+ζ
+dζ / dTflame
+Fig. 4. Left: burner non-dimensional pressure drop f, df/dTﬂame and amplitude of combustion dynamics versus bulk ﬂame temperature. Right: mean
+phase locked position of the ﬂame tip and ﬂame temperature from chemiluminescence plotted versus the ﬂame angle from the case at the bulk adiabatic
+ﬂame temperature T = TRef.
+Fig. 5. Flame imaging in the EV burner from chemiluminescence. Phase locked averging.
+1348
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+
+
+--- Page 6 ---
+
+version 6.1.22. All geometric quantities and velocities are
+non-dimensionalized with the burner diameter D and
+burner bulk velocity U0. The combustor has circular
+cross-section with non-dimensional diameter and length,
+respectively, equal to 2 and 7. The computational domain
+has been meshed with a tetrahedrals mesh of approx. 1.3
+million. The ﬁnite volumes elements inside the burner
+and in the combustor close to the burner exit have an aver-
+age non-dimensional size of 0.025. Turbulent transport is
+modelled with the standard Smagorinsky method. Convec-
+tive terms are discretized with the central diﬀerencing
+scheme for all equation with exception of the fuel mixture
+fraction equation which is discretized with a second-order
+upwind scheme. The partially premixed turbulent premixed
+ﬂame is simulated with the Turbulent Flame Speed model
+from Zimont [11]. This model represents the ﬂame as a
+propagating boundary layer which increases in thickness
+according to the turbulent dispersion law and propagates
+with speed given by the expression:
+U t ¼ Au00:75l0:25
+t
+k0:25s0:5
+L
+ð1Þ
+where the laminar ﬂame speed sL is calculated with the pre-
+mix module of the CHEMKIN II package using GRI3.0
+[12] chemical kinetics at the local value of the mean mixture
+fraction ~f . The mean progress variable transport equation
+of the TFC model is therefore given by
+oðq~cÞ
+ot
+þ r  ðq~u~cÞ ¼ r  ðqDtr~cÞ þ quU tjr~cj
+ð2Þ
+The main outcome of these CFD–LES simulations is in line
+with the results obtained in [1] for a variant of the EV bur-
+ner with higher swirl number. Until a given critical value of
+the adiabatic ﬂame temperature, the turbulent premixed
+ﬂame stabilizes outside the burner with its tip very close
+to the burner exit (see Fig. 6, left). Interestingly, the ﬂame
+completely intersects the CRZ indicated via the white ~u ¼ 0
+contour. It should be observed that the structure of the
+CRZ in front of the ﬂame is in line with the one measured
+in the water rig facility (see Fig. 4, left), i.e. starting small
+and narrow deep inside the burner, then contracting and
+expanding again more downstream. When this critical
+value of the adiabatic ﬂame temperature is just slightly
+exceeded, the ﬂame anchoring location is subject to a large
+displacement into the burner (see Fig. 6, right) at the apex
+of the CRZ. For higher values of the adiabatic ﬂame tem-
+perature, the ﬂame anchoring position does not change
+signiﬁcantly anymore. Fig. 7 (left) shows also that, at the
+critical conditions of the ﬂame displacement into the
+burner, the pressure drop across burner and ﬂame has a
+Fig. 6. Results from LES analysis. Left: mean progress variable isolines and velocity contours at T < TRef. Right: at T > TRef.
+Fig. 7. Left: comparison of the pressure drop across the ﬂame from LES with experimental data. Right: estimation of the mean progress variable
+distribution at the axis from 1D boundary layer method developed in [1] using the velocity distribution measured in a water rig.
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+1349
+
+
+--- Page 7 ---
+
+discontinuity in line with the one measured in the experi-
+ments (note that this ﬁgure refers to a variant of the burner
+which, due to both the higher swirl number and fully
+premixed conditions, is characterized by a more sudden
+transition between the two ﬂame stabilization modes).
+Such bi-stable ﬂame behavior might be interpreted as an
+obvious transfer of the ﬂame anchoring location between
+two consecutive CRZs at the axis separated by a contrac-
+tion which represent a recovery of positive axial velocity.
+The investigation performed in [1] shows however that
+the situation is much more complex than just a jump of
+the ﬂame from one CRZ to the other. In [1], a bound-
+ary layer method was developed to deal the problem of
+ﬂame anchoring at the symmetry axis in strongly swirled
+ﬂows. It was assumed that the velocity ﬂowﬁeld approach-
+ing the ﬂame is like the one measured in a water rig facility
+(non-reacting velocity ﬂowﬁeld). Using a second-order
+Taylor expansion in the radial direction, it was shown that
+the 2D mean progress variable transport equation can be
+written as the following 1D equation (valid along the
+symmetry axis):
+q ~u þ 2
+RF
+Dt
+
+ d~c
+dx ¼ d
+dx qDt
+d~c
+d
+
+
+þ quU t
+d~c
+dx
+
+
+ð3Þ
+This equation shows that the radial turbulent transport
+term ’ Dto2~c=o2r in the 2D progress variable equation writ-
+ten in a cylindrical coordinate system is transformed at the
+axis in the term 2ðDt=RFÞd~c=dx which has a convective form
+and where RF is the ﬂame radius of curvature at the axis.
+The radius RF of the ﬂame at the symmetry axis is obtained
+from a second transport equation (not reported here) for
+the second-order contribution in the Taylor expansion of
+the progress variable ~c in radial direction. In ﬁrst approxi-
+mation the ﬂame radius of curvature is inversely propor-
+tional to the radial variation of the mean axial velocity,
+i.e. the factor o2~u=or2 calculated at the symmetry axis.
+The application of this method using the velocity ﬂow-
+ﬁeld from the water rig shows that the ﬂame cannot enter
+into the burner because there the inﬂow of reactants into
+the ﬂame ~u þ 2Dt=RF would be much higher than how
+much the ﬂame can burn, i.e. than the turbulent burning
+rate Ut. This result is given in Fig. 7 (right) where the cal-
+culated mean progress variable, the terms ~u and ~u þ 2Dt=RF
+along the symmetry axis are plotted. It must be observed
+that, the ﬂame would be accommodated deep into the bur-
+ner if the turbulent burning rate was balanced only with the
+mean axial inﬂow of reactants ð~q~u ¼ quU tÞ. Inside the bur-
+ner however RF would be very small, due to very narrow
+CRZ, which is the reason of the high radial turbulent
+inﬂow 2Dt/RF. For this reason, if the velocity ﬂowﬁeld is
+kept like the non-reacting one, the ﬂame does not move
+inside the burner even with a very high increase in the tur-
+bulent burning rate Ut. This strong resistance of the base-
+line non-reacting velocity ﬂowﬁeld to the ﬂame moving
+inside the burner was conﬁrmed in [1] with LES simula-
+tions where the density ratio across the ﬂame was forced
+to be constant. This indicates that, in the variable density
+simulations where the ﬂame moves rather suddenly into
+the burner (see Fig. 6 and the sudden change in the pres-
+sure drop across the burner in Fig. 7, left) at a critical value
+of the bulk adiabatic ﬂame temperature, a ﬂame–velocity
+interaction must take place which acts on the structure of
+the approaching velocity ﬂowﬁeld (for example, changing
+o2u˜/or2 at the axis). Even if a full study has not been yet
+performed, the indication, also from other investigators
+[13], is that such an interaction consists in the generation
+of baroclinic azimuthal vorticity due to the non-alignment
+of density gradient across the ﬂame and pressure gradient
+in the radial direction due to ﬂow centrifugation. This
+added vorticity of baroclinic nature has the eﬀect of induc-
+ing (according to the Biot–Savart law, see [14]) negative
+axial velocity in the near axis region.
+4. Relation between unsteady displacement of the ﬂame
+anchoring point and combustion pressure dynamics
+It has been shown in the previous section that turbu-
+lent premixed ﬂames stabilized in the high swirling ﬂow
+produced by a conical burner are bi-stable. Below a crit-
+ical value of the bulk equivalence ratio in the burner, the
+ﬂame is stabilized in the combustor with its tip close to
+the exit of the burner and above this critical value the
+ﬂame is anchored with its tip deep into the burner. It
+is observed, via phase averaging of chemiluminescence
+data, that, at the critical conditions, the ﬂame anchoring
+location is characterized by large sensitivity to equiva-
+lence ratio ﬂuctuations. The experiments also show that,
+with increasing mean equivalence ratio in the burner, the
+amplitude of combustion dynamics ﬁrst increases, reach-
+ing a peak slightly before the critical conditions for rapid
+ﬂame accelaration, then decreases, when the ﬂame has
+steadily anchored inside the burner. Finally, it has been
+shown via LES and a simple 1D approach, that the
+strong sensitivity of the ﬂame anchoring location to per-
+turbation in equivalence ratio at the critical conditions
+cannot be explained just in terms of the change in turbu-
+lent burning rate but it must necessarily imply a rather
+complex interaction between ﬂame and aerodynamics of
+the burner which leads to a modiﬁcation of the ﬂow in
+the burner and hence of the local ﬂame anchoring
+properties.
+From a thermo-acoustics point of view, ﬂuctuations in
+acoustic pressure are generated by ﬂuctuations in heat
+release, more directly by ﬂuctuations in the volumetric rate
+of reactants consumption (or, equivalently, in products
+formation). The total volumetric rate of reactants con-
+sumption is given by _V R ¼
+R
+A U t dA where Ut is the turbu-
+lent burning rate, i.e. the volumetric rate of reactants
+consumption for unit of mean ﬂame cross-sectional area
+and dA an inﬁnitesimal element of mean ﬂame area. The
+rate
+of
+heat
+release
+associated
+to
+_V R
+is
+given
+by
+_Q ¼
+R
+A qufH FU t dA, where HF is the fuel caloriﬁc value, f
+the fuel mass fraction, qu the local density of reactants.
+This relation indicates that unsteady heat release can be
+1350
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+
+
+--- Page 8 ---
+
+generated by ﬂuctuations at the ﬂame in: reactant density
+qu, fuel mixture fraction f (or equivalently the equivalence
+ratio /), turbulent burning rate Ut and mean ﬂame surface
+area A. Fluctuations in Ut are usually connected to ﬂuctu-
+ations in the parameters controlling this quantity, i.e. the
+turbulent velocity ﬂuctuation u0 and the fuel mixture frac-
+tion f at the ﬂame. In order to determine the stability of the
+burner–ﬂame–combustor system, ﬂuctuations in mixture
+fraction f at the ﬂame (which also directly aﬀects the heat
+release rate) are put in relation, via a convective time lag,
+with the f ﬂuctuations generated at the position of fuel
+and air injection by variations in acoustic velocity. The
+generation of unsteady heat release based only on these
+mechanisms seems however not suﬃcient to explain the
+combustion dynamics levels observed in the present exper-
+iments. Assuming in fact that acoustic forcing in the
+present experimental tests has the same amplitude at all
+test conditions and assuming that there is not large ampli-
+ﬁcation from the system (due to a combustion instability
+issue), also ﬂuctuations in equivalence ratio, hence in Ut,
+_Q and the combustion dynamics amplitude should be
+constant.
+The problem mentioned above can be solved if the
+contribution to the unsteady heat release originating from
+ﬂuctuations in the mean ﬂame surface area A is also
+accounted for. These ﬂuctuations in A arise from the
+unsteady displacement of the ﬂame anchoring location
+due to a perturbation, displacement which becomes strong
+when the ﬂame reaches a critical position at the burner
+axis. This problem is investigated here in a qualitative
+way, considering the ﬂame ﬂat and inﬁnitesimally thin,
+anchored at the axis in a uniform ﬂow, with an angle to
+the axis determined by the mean ﬂow velocity U and
+the turbulent burning rate Ut. It is assumed that the ﬂame
+anchoring location is subject to an unsteady displacement
+with velocity _xFðtÞ (negative in the downstream direction)
+whose dependency from equivalence ratio ﬂuctuations will
+be clariﬁed later. The turbulent burning rate Ut is
+assumed constant. When the ﬂame moves unsteadily
+between two positions, unsteady heat release is generated
+because of the consumption of the reactants volume
+included between the two positions. We study this prob-
+lem of the ‘‘travelling ﬂameholder” in the frame of refer-
+ence travelling with the ﬂame anchoring location. In this
+frame of reference the eﬀect becomes equivalent to a var-
+iation in the velocity of the incoming reactants into
+uðtÞ ¼ U þ _xFðtÞ, i.e. equivalent to the problem addressed
+in [3] via the use of the so-called G equation which tracks
+a
+propagating
+front
+of
+inﬁnitesimal
+thickness.
+It
+is
+assumed that, at the initial time t = t1, until which the
+ﬂame has been steady with an angle to the axis given
+by mass conservation as a0 = arcsin(Ut/U), the ﬂame
+anchoring point changes its speed from zero to _xF;1 in
+the upstream direction as shown in Fig. 8, top. The ﬂame
+starts reacting from its anchoring location to this pertur-
+bation as follows. In the frame of reference moving with
+the ﬂame anchoring point, the convective velocity of reac-
+tants through the ﬂame becomes U þ _xF;1 such that, start-
+ing from t = t1, the ﬂame leaves the anchoring point with
+an angle a1 ¼ arcsin½U t=ðU þ _xF;1Þ which is smaller than
+the initial angle a0 = arcsin(Ut/U). Those elements of the
+ﬂame which have been released at t < t1 are instead only
+convected downstream at the new velocity which implies
+that they keep the initial angle a0 to the axis. At t = t2
+the ﬂame anchoring location changes again its speed to
+_xF;2 in the downstream direction and the new shape
+assumed by the ﬂame can be estimated also as explained
+above. The shape of the ﬂame changes, at diﬀerent time
+steps, as shown in Fig. 8 (top). The bottom part of the
+ﬁgure shows instead the response of the ﬂame to an har-
+monic variation in the velocity of the anchoring location
+(calculated
+according
+to
+the
+above
+procedure
+as
+a
+x
+0
+0.3
+0.6
+0.9
+0
+0.05
+0.1
+0.15
+t1 < t < t2
+t2 < t < t3
+x
+0
+0.5
+1
+1.5
+0
+0.1
+0.2
+0.3
+t / T = 3.2
+t / T = 5.6
+t/T
+U+xF(t)
+0
+1
+2
+3
+0
+0.5
+1
+1.5
+2
+.
+U+xF(t)
+.
+t3
+t1
+t2
+x
+rF
+rF
+rF
+rF
+0
+0.3
+0.6
+0.9
+0
+0.05
+0.1
+0.15
+0 < t < t1
+t1 < t < t2
+x
+0
+0.5
+1
+1.5
+0
+0.1
+0.2
+0.3
+t / T = 0
+t / T = 3.2
+t/T
+0
+4
+8
+12
+0
+0.5
+1
+1.5
+2
+Fig. 8. Evolution of ﬂame area with displacement of the ﬂame anchoring location. Top: due to a stepwise variation in the velocity of the ﬂame anchoring
+location at the axis. Bottom: due to harmonic variation. Time non-dimensionalized with the bulk residence time in the burner.
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+1351
+
+
+--- Page 9 ---
+
+sequence
+of
+many
+small
+steps
+whose
+amplitude
+is
+distributed harmonically in time).
+For a more generic time variation of the ﬂameholder
+velocity _xFðtÞ, we proceed as follows. According to the
+previous discussion, the angle of the ﬂame element at a
+given radial location r and time t can be calculated as the
+angle which the ﬂame elements had at the time t  s(r),
+when it was released by the ﬂameholder:
+sin aðr; tÞ ¼
+U t
+U þ _xF½t  sðrÞ
+ð4Þ
+where s(r) is the time delay at which the ﬂame element at
+radius r was released by the ﬂameholder. Therefore the an-
+gle of the ﬂame at radius r is the angle of the ﬂame at the
+ﬂame anchoring location calculated with constant Ut and
+the inﬂow velocity at the time the ﬂame element was re-
+leased. Assuming small perturbations, we estimate here this
+time using the mean radial velocity of the ﬂame element
+Utcosa0.
+sðrÞ ¼
+r
+U t cos a0
+ð5Þ
+the area of the ﬂame element at radius r and time t is there-
+fore given by
+dAðr; tÞ ¼
+2prdr
+sin½aðr; tÞ ¼ 2prfU þ _xF½t  sðrÞgdr
+U t
+ð6Þ
+assuming a periodic variation in the velocity of the ﬂame
+anchoring location we have (for t > s(R) with R maximum
+radius):
+_xF½t  sðrÞ ¼ S sin½xðt  r=U tÞ= cos a0
+ð7Þ
+where H is the step function to account for the perturba-
+tion starting at t = t1. The integration of this equation be-
+tween 0 and the maximum radius R yields
+AðtÞ ¼ pR2 U
+U t
+þ 2S cos a0
+x
+R cos x t 
+R
+U t cos a0
+
+
+
+þ1
+x U t cos a0 sin x t 
+R
+U t cos a0
+
+
+ sin xt
+
+
+ð8Þ
+where the ﬁrst term represent the mean ﬂame area and the
+second one the ﬂuctuation in mean area due to the unstea-
+dy displacement of the ﬂame anchoring location. In order
+to close the problem, the amplitude S of the ﬂuctuation
+in ﬂame anchoring location must be expressed in terms of
+the controlling parameters. As already discussed, the rela-
+tion between the ﬂuctuation in equivalence ratio and the
+position of the ﬂame anchoring location is a complex prob-
+lem which involves a not yet fully understood ﬂame–veloc-
+ity interaction mechanism. The dependency of the ﬂame
+anchoring location from the equivalence ratio (or, equiva-
+lently, the adiabatic bulk ﬂame temperature Tﬂame in the
+burner) can be however worked out directly from experi-
+ments or from CFD results. For example, at a qualitative
+level, it can be assumed that the ﬂame position is propor-
+tional to the pressure drop coeﬃcient (xF = kf) and then
+obtain an index of the sensitivity of the ﬂame anchoring
+position at the axis to Tﬂame as dxF/dTﬂame = kdf/dTﬂame.
+This quantity, which is shown in Fig. 4, reaches a peak
+close to the Tﬂame where combustion dynamics also attain
+their peak conﬁrming the idea presented here. We assume
+here that the ﬂame position responds dynamically to the
+variations in equivalence ratio following the steady state
+characteristic behaviour (quasi-steady-state assumption).
+In reality, it can be expected that the mechanism of ﬂame–
+aerodynamics interaction which is responsible for altering
+the ﬂame anchoring conditions and then displacing the
+ﬂame will become eﬀective after a characteristic time delay
+to the incoming equivalence ratio perturbation. It follows
+therefore that the eﬀectiveness of such a mechanism
+decreases with increasing frequency. Given the quasi-steady
+state assumption on the ﬂame response, the ﬂuctuation in
+ﬂame position due to a ﬂuctuation in ﬂame temperature
+around a mean value T flameH can be expressed as
+x0
+F ¼ k
+df
+dT flame
+
+T flameH
+T 0
+flame
+ð9Þ
+The speed _xF at which the ﬂame anchoring location moves
+can be worked out from this relation for an equivalence
+ratio ﬂuctuation with a given frequency f = x/2p. The
+modulation of the equivalence ratio at the ﬂame could
+be, for example, due to the change in acoustic velocity
+(hence in air mass ﬂow rate) at the location where fuel is
+injected. Therefore, given the harmonic ﬂuctuation in adi-
+abatic ﬂame temperature:
+T 0
+flame ¼ DT flame cosðxtÞ
+ð10Þ
+we obtain from (7), (9) and (10):
+S ¼ k
+df
+dT flame
+x
+
+T flameH
+‘DT flame
+ð11Þ
+Introducing this expression into (8) yields the transfer
+function between the ﬂuctuating ﬂame surface area and
+the ﬂuctuations of adiabatic ﬂame temperature in the
+burner. This is a fundamental ingredient in the network
+based analysis [15] of the thermo-acoustics stability of
+combustor devices. This contribution has to be added to
+the classic one given by variations in turbulent burning
+rate.
+5. Conclusions
+It has been shown that ﬂames in high swirled ﬂows
+undergoing vortex breakdown are characterized by com-
+plex stabilization properties. The analysis has been carried
+out in the case of a conical burner with characteristics like
+the Alstom EV one. It is shown that the narrowing of the
+CRZ inside the burner is responsible for bi-stable behavior
+of the ﬂame, very likely driven by ﬂame–velocity ﬂowﬁeld
+interaction. Close to the critical conditions separating the
+two stable positions of the ﬂame (inside and outside the
+burner), the ﬂame anchoring location is strongly sensitive
+1352
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+
+
+--- Page 10 ---
+
+to ﬂow and equivalence ratio perturbation. This generates
+unsteady heat release via the unsteady creation and
+destruction of the ﬂame surface area which accounts for
+the consumption of the reactants included between the
+two stable positions. It is shown that combustion pressure
+dynamics produced via acoustic forcing of the burner at its
+natural acoustic frequency have a very strong relation to
+the unsteady heat release generated in this way. Future
+work should clarify the nature of the ﬂame–velocity inter-
+action at the critical conditions and also address the role
+of the present source of unsteady heat release within the
+problem of combustion instability which has not been con-
+sidered here.
+Acknowledgements
+The authors would like to thank A. Inauen, S. Schenker,
+R. Bombach, N. Tylli and W. Hubschmid from the Paul
+Scherrer
+Institut,
+Combustion
+Diagnostics
+Group
+in
+Switzerland
+for
+contributing
+to
+the
+OH-LIF
+data
+campaign.
+References
+[1] F. Biagioli, Stabilization mechanism of turbulent premixed ﬂames in
+strongly swirled ﬂows, Combustion, Theory and Modelling 10 (3)
+(2006) 389–412.
+[2] F. Guethe, R. Lachner, B. Schuermans, F. Biagioli, W. Geng,
+A. Inauen, S. Schenker, R. Bombach, W. Hubschmid, Flame imaging
+on the ALSTOM EV-burner: thermo acoustic pulsations and CFD-
+validation, in: AIAA Paper 2006-437 presented at the 44th AIAA
+Aerospace Sciences Meeting and Exhibit, Reno, Nevada, January 9–
+12, 2006.
+[3] C. Jianhua, K. Kamiya, I. Kodama, J. Toyama, M. Fleiﬁl, A.M.
+Annaswamy, Z.A. Ghoneim, A.F. Ghoniem, Response of a laminar
+premixed ﬂame to ﬂow oscillations: a kinematic model and thermoa-
+coustic instability results, Combustion and Flame 106 (1996) 487–510.
+[4] T. Lieuwen, Modeling premixed combustion acoustic wave inter-
+actions: a review, Journal of Combustion and Power 19 (2003)
+765–781.
+[5] C.O. Paschereit, E. Gutmark, The Eﬀectiveness of Passive Combus-
+tion Control Methods, ASME Turbo Expo 2004, GT2004-53587.
+[6] B. Schuermans, V. Bellucci, F. Guethe, F. Meili, P. Flohr, C.O.
+Paschereit, A Detailed Analysis of Thermoacoustic Interaction
+Mechanisms in a Turbulent Premixed Flame, ASME Turbo Expo
+2004, GT2004-53831.
+[7] K. Do¨bbeling, J. Hellat, H. Koch, 25 Years of BBC/ABB/Alstom
+Lean Premix Combustion Technologies, ASME Turbo Expo 2005,
+GT2005-68269.
+[8] C.O. Paschereit, E. Gutmark, W. Weisenstein, Physics of Fluids 11
+(1999) 2667–2678.
+[9] M. Reinke, J. Mantzaras, R. Schaeren, R. Bombach, W. Kreutner, A.
+Inauen, Homogeneous ignition in high-pressure combustion of
+methane/air
+over
+platinum:
+comparison
+of
+measurements
+and
+detailed numerical predictions, Proceedings of the Combustion
+Institute 29 (2002) 1021–1029.
+[10] S. Schenker, R. Bombach, W. Hubschmid, A. Inauen, W. Kreutner,
+P. Flohr, K. Haﬀner, C. Motz, C.O. Paschereit, B. Schuermans, M.
+Zajadatz, 2-D LIF measurements of thermo-acoustic phenomena in
+lean premixed ﬂames of a gas turbine combustor, Institute of Physics
+Conference Series 177 (2003) 215–220.
+[11] V.L. Zimont, Gas premixed combustion at high turbulence. Turbu-
+lent ﬂame closure combustion model, Experimental Thermal and
+Fluid Science 21 (2000) 179–186.
+[12] <http://www.me.berkeley.edu/gri_mech/>.
+[13] S. Burmberger, C. Hirsch, T. Sattelmayer, Design rules for the
+velocity ﬁeld of vortex breakdown swirl burners, paper GT2006-
+90495, in: Proceedings of ASME Turbo Expo, Barcelona, Spain,
+2006.
+[14] G.K.
+Batchelor,
+Introduction
+to
+Fluid
+Dynamics,
+Cambridge
+University Press, 1967.
+[15] V. Bellucci, B. Schuermans, D. Nowak, P. Flohr, C.O. Paschereit,
+Thermoacoustic modeling of a gas–turbine combustor equipped
+with acoustic dampers, Journal of Turbomachinery 127 (2) (2005)
+372–379.
+F. Biagioli et al. / Experimental Thermal and Fluid Science 32 (2008) 1344–1353
+1353

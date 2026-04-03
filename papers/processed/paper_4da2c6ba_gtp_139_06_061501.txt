@@ -1,0 +1,1290 @@
+
+--- Page 1 ---
+
+Georg A. Mensah1
+Institut f€ur Str€omungsmechanik und
+Technische Akustik,
+Technische Universit€at Berlin,
+Berlin 10115, Germany
+e-mail: georg.a.mensah@tu-berlin.de
+Jonas P. Moeck
+Institut f€ur Str€omungsmechanik und
+Technische Akustik,
+Technische Universit€at Berlin,
+Berlin 10115, Germany
+Acoustic Damper Placement and
+Tuning for Annular Combustors:
+An Adjoint-Based Optimization
+Study
+Thermoacoustic instabilities pose a major threat to modern gas turbines. The use of
+acoustic dampers, like Helmholtz resonators, has proven useful for the mitigation of such
+instabilities. However, assessing the effect of acoustic dampers on thermoacoustic modes
+in annular combustion chambers remains an intricate task. This results from the implicit
+nature of the thermoacoustic Helmholtz equation associated with the high number of pos-
+sible parameter values for the positioning of the dampers and their impedance design. In
+the present work, the principal challenges of the effective placement and the design of the
+impedance of acoustic dampers in annular chambers are discussed. This includes the
+choice of an appropriate objective function for the optimization, the combinatorial chal-
+lenges when dealing with different possible damper arrangements, and the numerical
+complexities when using the thermoacoustic Helmholtz equation to approach this issue.
+As a key aspect, the paper proposes a new adjoint-based approach to tackle these prob-
+lems. The new algorithm establishes algebraic models that predict the effect of acoustic
+dampers on the growth rates of the thermoacoustic modes. The theory is exempliﬁed on
+the basis of a generic annular combustor model with 12 burners.
+[DOI: 10.1115/1.4035201]
+Introduction
+Thermoacoustic instabilities pose a major threat to modern gas
+turbines. These instabilities have negative effects on the opera-
+tional range of the combustors and may severely damage the
+machines [1]. Both passive and active damping methods may be
+considered to tackle this issue. Usually, passive methods are used
+because they feature high reliability at low costs. Such methods
+are based on the use of acoustic damping devices like Helmholtz
+dampers. It is very difﬁcult to adapt these components after
+machine installation. Thus, the availability of fast and accurate
+mathematical design tools is essential for the development of new
+gas turbines featuring a higher efﬁciency and greater lifetime.
+Large eddy simulations may be considered for the assessment
+of thermoacoustic instabilities [2–4], but their numerical costs are
+too high to be used for design purposes. As an alternative, the
+governing equations can be linearized and transformed to the fre-
+quency domain. Thermoacoustic instabilities can then be modeled
+using a thermoacoustic Helmholtz equation:
+r  ðc2r^pÞ þ x2^p ¼ ixðc  1Þ^q
+(1)
+Here, c denotes the local speed of sound, ^p is the Fourier trans-
+form of the pressure ﬂuctuation; x is the complex frequency of
+oscillation, c is the ratio of speciﬁc heats, and ^q is the Fourier
+transform of the volumetric unsteady heat release rate. To close
+the problem, the heat release rate can be related to the velocity
+ﬂuctuation at a reference point by means of a ﬂame transfer func-
+tion. Finally, this allows the heat release rate to be related to the
+acoustic ﬁeld by a linear differential operator Q.
+ixðc  1Þ^q ¼ Q^p
+(2)
+The linear operator Q evaluates the axial velocity ﬂuctuation at a
+reference position as axial component of the gradient of the pres-
+sure ﬂuctuation. It also accounts for a time lag and the spatial dis-
+tribution of the heat release zone.
+Finally, the Helmholtz equation takes the form of a nonlinear
+eigenvalue problem with eigenvalue x and eigenfunction ^p. For
+convenience, the problem can be written as
+LðxÞ^p ¼ 0
+(3)
+where
+LðxÞ^p :¼ r  ðc2r^pÞ þ x2^p  Q^p
+(4)
+To assess the stability of a mode, the imaginary part of the
+eigenfrequency x must be evaluated. It is possible to obtain x by
+solving the above eigenvalue problem utilizing a discretization
+method. However, the implicit nature of the above eigenvalue
+problem obscures the effect of changes to some model parameters
+on the stability. This means that the equation must be solved again
+for each new parameter set. This is a numerically costly task, as
+already one solution process requires several ﬁxed-point iterations
+involving repeated solutions of large linear eigenvalue problems
+[5].
+This is especially a problem because acoustic damping devices
+are modeled in terms of frequency-dependent impedance bound-
+ary conditions, the behavior of which again depends on several
+design parameters.
+cZðfÞr^p  n þ ix^p ¼ 0
+(5)
+Here, Z denotes the reduced impedance, i.e., the impedance nor-
+malized by the characteristic impedance qc of the considered
+ﬂuid. n refers to the outward pointing unit vector normal to the
+impedance boundary and f is the vector of impedance design
+parameters. For instance, the impedance of a Helmholtz damper is
+affected by its neck length, its volume, the neck cross section, and
+1Corresponding author.
+Contributed by the Combustion and Fuels Committee of ASME for publication in
+the JOURNAL OF ENGINEERING FOR GAS TURBINES AND POWER. Manuscript received
+August 11, 2016; ﬁnal manuscript received September 14, 2016; published online
+January 18, 2017. Editor: David Wisler.
+Journal of Engineering for Gas Turbines and Power
+JUNE 2017, Vol. 139 / 061501-1
+Copyright V
+C 2017 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 2 ---
+
+the gas temperature [6]. In addition, many possible positioning
+patterns have to be considered [7] when other design constraints
+limit the number of damping devices. Altogether, this means that
+ﬁnding the optimum positioning pattern and best possible tuning
+for all applied acoustic dampers is a task involving a high number
+of relevant parameters. Brute force testing of all possible parame-
+ter conﬁgurations is therefore not feasible. This is sometimes
+referred to as the curse of dimensionality.
+Lumped network models are commonly used as a discretization
+method to overcome this issue. Dowling and Stow used this tech-
+nique to study a generic geometry and derive rules for the best
+positioning of acoustic dampers [7]. Bothien et al. combined net-
+work models with a genetic optimization algorithm to optimize a
+new damper design [8]. Recently, Schuermans et al. used the
+same approach for the design of a novel damping–cooling system
+for Alstom’s GT26/GT24 engines [9]. However, the numerical
+efﬁciency of the network models arises from a signiﬁcant geomet-
+rical reduction of the originally three-dimensional geometry to a
+network of one-dimensional surrogate components, if the model is
+not coupled to a spatial discretization method like ﬁnite elements.
+Full domain discretization methods may therefore be consid-
+ered, in order to maintain the geometrical complexity of the actual
+system in the model representation. Camporeale et al. used a ﬁnite
+element method (FEM) to study the effect of multiple Helmholtz
+resonators equipped to an annular combustion chamber [6]. They
+observed that the application of Helmholtz dampers splits the res-
+onant mode into two modes with distinct frequencies. This can be
+attributed to the loss of discrete rotational symmetry. However,
+this approach is numerically too complex to be used as fast design
+tool.
+Adjoint perturbation theory offers an opportunity to overcome
+this problem. It approximates the change in the eigenfrequency
+and the eigenfunction of nonlinear, nonhermitian eigenvalue prob-
+lems due to changes in the involved operators. The following
+problem is considered:
+If x0 and ^p0 is a known eigenpair of the operator family L0,
+how does it change when the family is altered to
+LðxÞ ¼ L0ðxÞ þ eL1ðxÞ
+(6)
+by the perturbation eL1ðxÞ. Power series ans€atze are established
+to facilitate the approximation. This results in explicit expressions
+for both the eigenvalue and the eigenfunction which are much
+faster to evaluate than the implicit eigenvalue problem.
+In the remainder of this paper, it will be discussed how adjoint
+perturbation theory can be utilized to (i) ﬁnd the best feasible
+positioning pattern for a set of acoustic dampers and (ii) perform a
+local optimization within the space of damper parameters. The
+discussion starts with a brief summary of the mathematical funda-
+mentals of the theory and a detailed outline of how adjoint pertur-
+bation theory can be tailored into an optimization algorithm.
+Subsequently, the application of the theory to a generic annular
+combustion chamber model is discussed. The paper closes with
+remarks on how to further improve the presented theory and prop-
+ositions for other applications.
+Adjoint Perturbation Theory
+This section reports the mathematical fundamentals for the opti-
+mization theory. A detailed discussion of the basic concepts is
+beyond the scope of this paper. However, the mentioned referen-
+ces are valuable sources for the interested reader. We refer to the
+theory as adjoint perturbation theory, though other notions are
+widely used. The theory has its roots in quantum mechanics where
+it
+is
+referred
+to
+as
+spectral
+perturbation
+theory
+[10],
+or
+Rayleigh–Schr€odinger perturbation theory [11]. The lack of self-
+adjointness of the thermoacoustic Helmholtz equation makes it
+necessary to include adjoints of the involved operators. The theory
+is then also called adjoint sensitivity analysis [12]. However, this
+notion is used by us for the ﬁrst-order theory only. A nice review
+of adjoint equations with focus on hydrodynamic instabilities can
+be found in Ref. [13].
+The key idea behind adjoint perturbation theory is to establish
+asymptotic power series ans€atze for both the eigenvalue and the
+eigenvector in order to ﬁnd approximations to the solutions of the
+perturbed nonlinear eigenvalue problem (6)
+^p ¼ ^p0 þ
+X
+N
+n¼1
+en^pn ¼
+X
+N
+n¼0
+en^pn
+(7)
+x ¼ x0 þ
+X
+N
+n¼1
+enxn ¼
+X
+N
+n¼0
+enxn
+(8)
+The nonlinearity of the problem requires a Taylor-series expan-
+sion of the operators L0ðxÞ and L1ðxÞ
+L0 x0 þ Dx
+ð
+Þ  L0 x0
+ð
+Þ þ
+X
+N
+m¼1
+1
+m! Dx
+ð
+ÞmLfmg
+0
+x0
+ð
+Þ
+(9)
+L1 x0 þ Dx
+ð
+Þ  L1 x0
+ð
+Þ þ
+X
+N
+m¼1
+1
+m! Dx
+ð
+ÞmLfmg
+1
+x0
+ð
+Þ
+(10)
+Here, the superscript {m} denotes the mth derivative with respect
+to x. Using these series expansions and inserting the ans€atze (7)
+and (8), as well as Eq. (6), into Eq. (3) yields after sorting like
+powers of e and considering the linear independence of these
+powers
+L0ðx0Þ^pk ¼ rk  xkLf1g
+0 ðx0Þ^p0
+(11)
+where
+rk ¼ L1 x0
+ð
+Þ^pk1
+þ
+X
+N
+m¼1
+1
+m!
+X
+jlj ¼ m
+l 6¼ 1k
+m
+l
+
+
+xl
+ Lfmg
+0
+x0
+ð
+Þ^pkjlj þLfmg
+1
+x0
+ð
+Þ^pk1jlj
+
+
+(12)
+Here, l denotes a multiindex of length N;
+m
+l
+
+
+, a multinomial
+coefﬁcient; and , the multiindex having the entries ð1; 2; …; NÞ.
+1k denotes a multiindex where all entries except for the kth entry
+are zero, and at the kth position, it is one. The notation xl
+ abbre-
+viates the product QN
+n¼1 xln
+n ¼ xl1
+1 xl2
+2    xlN
+N . Please note the
+convention that entities with negative subscripts equal the zero
+elements of their respective sets.
+For instance, the equations for order one and two are
+L0ðx0Þ^p1 ¼  L1ðx0Þ^p0
+|ﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄ}
+r1
+x1Lf1g
+0 ðx0Þ^p0
+(13)
+L0ðx0Þ^p2 ¼
+(14)
+
+L1 x0
+ð
+Þ^p1þx1 Lf1g
+0
+x0
+ð
+Þ^p1þLf1g
+1
+x0
+ð
+Þ^p0
+
+
+þ1
+2x2
+1Lf2g
+0
+x0
+ð
+Þ^p0
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+r2
+0
+@
+1
+A
+x2Lf1g
+0
+x0
+ð
+Þ^p0
+(15)
+Equation (11) gives rise to a determination algorithm for the
+corrections of the eigenvalues and eigenfunctions: Provided that
+the eigenfunction and eigenvalue corrections up to order k  1 are
+already known, the only unknowns in this equation are the kth-
+order corrections ^pk and xk, which themselves only occur on the
+061501-2 / Vol. 139, JUNE 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 3 ---
+
+left- and right-hand side, respectively. Taking the inner product of
+the adjoint eigenvector ^p
+†
+0 with the right-hand side yields
+D
+^p
+†
+0
+L0ðx0Þ^pk
+E
+¼
+D
+L
+†
+0ðx0Þ^p
+†
+0
+^pk
+E
+¼ 0
+(16)
+Hence, the inner product with the left-hand side must also vanish
+and a determination equation for xk can be derived from Eq. (11)
+by taking the inner product with ^p
+†
+0. Considering that the eigen-
+functions are possibly D-fold degenerate, this rationale leads to
+the following generalized algebraic eigenvalue problem:
+Xz þ xkYz ¼ 0
+(17)
+where
+½Xba ¼ h^p
+†
+0;bjrk;ai; ½Yba ¼ h^p
+†
+0;bjLf1g
+0 ðx0Þ^p0;ai
+and
+z
+¼ ½z1
+…
+zD.
+This eigenvalue problem should not be confused with the non-
+linear eigenvalue problem given through the Helmholtz equation
+(3). It is an auxiliary D  D eigenvalue problem occurring when
+mode degeneracy is encountered. The D eigenvectors z then deter-
+mine the coefﬁcients for the linear combinations PD
+i¼1 zi^p0;i which
+describe the subspaces to which the degenerate eigenspace
+unfolds. The eigenvalues xk appearing here specify the corre-
+sponding kth-order eigenvalue corrections xk for the power series
+(8). The eigenvalue problem (17) is therefore called the mode
+unfolding problem. The corresponding eigenfunction corrections
+can be found by substituting xk back into Eq. (11). Solvability of
+this equation is guaranteed by virtue of Eq. (16) [14].
+The discrete rotational symmetry of annular combustors is a
+trigger of two-fold mode degeneracy for most of its thermoacous-
+tic modes. The application of dampers may break this symmetry
+and lead to two modes oscillating at different eigenfrequencies
+close to the original degenerate frequency [7,15]. This makes the
+correct computation of the mode unfolding highly relevant for the
+current context.
+The Role of Epsilon
+Some authors consider the perturbation parameter e as rather
+conceptual. It is therefore set to one after the derivation of the
+equations. However, it can be linked to physical parameters [10].
+In this paper, these parameters are the design parameters f for the
+acoustic dampers. This offers the opportunity to interpret the
+power series ans€atze (7) and (8) as functions describing the inﬂu-
+ence of the physical parameters on the mode shape and frequency.
+The accuracy of these functions is limited due to their asymptotic
+nature and hence a method for the estimation of the approximation
+error is needed. This error g is deﬁned as deviation of the correct
+eigenvalue from the eigenvalue prediction:
+gN ¼ x 
+X
+N
+n¼0
+enxn
+(18)
+A common approach for the estimation of this error would be
+assuming that it is of the same order as the ﬁrst neglected term in
+the series. There is no proof that this truncation rule applies in the
+current context, but various examples from the ﬁeld of quantum
+mechanics involving the Schr€odinger equation, which is a wave
+equation as well, are known, see, e.g., Ref. [10]. Moreover, there
+is a variety of mathematical and scientiﬁc examples for perturba-
+tions where the truncation rule applies [16]. We therefore set up a
+numerical study investigating a Rijke tube with a variable imped-
+ance at the outlet. This study will demonstrate that the truncation
+rule applies for the investigation of thermoacoustic modes and
+hence facilitate a fast estimation of the perturbation error. In this
+study, a simple two-dimensional Rijke tube was considered. An n-
+s-model was used to model the ﬂame response. The cold gas tem-
+perature was set to Tu ¼ 300 K while the hot gas temperature was
+set to Tb ¼ 1500 K. The ratio of speciﬁc heats was set to c ¼ 1:4.
+The geometry is depicted in Fig. 1. The interaction index was set
+to n ¼ 0.1 and the time delay to s ¼ 2 ms. The reference point for
+the ﬂame transfer function was located in the middle of the tube
+0.01 m upstream of the ﬂame.
+A ﬁnite element method utilizing triangular linear Lagrange
+elements was employed to discretize the thermoacoustic Helm-
+holtz equation. This led to the following eigenvalue problem:
+K þ x 1
+Z0
+B þ x2M  n exp isx
+ð
+ÞQ
+
+	
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+L0 x
+ð Þ
+p þ
+1
+Z1
+ 1
+Z0
+
+	
+|ﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄ}
+e
+xB
+|{z}
+L1 x
+ð Þ
+p
+¼ 0
+(19)
+Here, K denotes the stiffness matrix, B is the boundary mass
+matrix at the outlet, M is the mass matrix, Q is the discretization
+matrix originating from the heat release operator, and p is the dis-
+cretized pressure ﬂuctuation amplitude. Z0 is the unperturbed
+impedance while Z1 refers to the perturbed impedance. With this
+formulation, the effect on the eigenfrequency when changing the
+impedance from Z0 to Z1 can be computed utilizing adjoint pertur-
+bation theory, with the difference of the admittances being the
+perturbation parameter. In the unperturbed case, the reduced
+admittance at the outlet was set to ð1=Z0Þ ¼ 8  4i. In a ﬁrst test,
+the perturbation was set to  ¼ ð1=Z1Þ  ð1=Z0Þ ¼ 0:8  1:6i. The
+effect of this admittance change on the eigenfrequency was com-
+puted using both a classical solution of the new eigenvalue prob-
+lem and the perturbation theory to calculate the result from the
+unperturbed solution. The eigenvalues for two, four, ﬁve, and
+eight times ampliﬁed perturbations were also computed. Please
+note that the correction terms for these cases can be easily
+obtained by rescaling the correction terms of the original perturba-
+tion with appropriate powers of the ampliﬁcation r:
+x ¼
+X
+N
+n¼1
+ðrÞnxn ¼
+X
+N
+n¼1
+rnnxn
+(20)
+This study allows to asses the accuracy of the perturbation
+method in terms of the error. Figure 2 shows the results of this
+study for the mode which has an unperturbed eigenfrequency of
+x=2p ¼ 225:6 Hz þ 7:2i s1. All computations were conducted
+using MATLAB. The magnitude of the error jgNj and the error of the
+ﬁrst neglected term of the power series for the eigenfrequency
+correction jrNþ1Nþ1xNþ1j are compared.
+The correspondence between the magnitude of the ﬁrst
+neglected term and the error for errors greater than 1010 Hz can
+be clearly seen. The deviation for smaller magnitudes may be
+attributed to the machine precision. However, such accuracy is
+not relevant for practical applications. Seemingly, the error
+decreases for perturbation strength of 1, 2, and 4 when the applied
+perturbation order N is increased. On the contrary, the error does
+not change for a strength of ﬁve and even increases for a perturba-
+tion strength of eight. This may be because the convergence
+radius of the power series might be zero so that the series is diver-
+gent. The convergence radius is actually independent of the per-
+turbation strength. However, the smaller the perturbation strength
+Fig. 1
+Considered test geometry and discretization mesh. The
+black boundaries were assumed to be sound hard while a vari-
+able impedance could be speciﬁed at the outlet (green). The red
+shaded elements highlight the ﬂame volume.
+Journal of Engineering for Gas Turbines and Power
+JUNE 2017, Vol. 139 / 061501-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 4 ---
+
+is, the higher the applied perturbation order must be for this to
+become apparent. Nevertheless, in many cases if N ! 1, then
+gN ! 1. Obviously, an order of N ¼ 25 is not high enough to see
+this effect for all considered perturbation strengths. The fact that
+for small perturbations the error decreases at low perturbation
+orders before reaching a minimum and then increasing to inﬁnity
+is a common feature of perturbation theory. It is known as
+superasymptotics [16].
+Please note the slightly increasing offset between the ﬁrst
+neglected term and the error for increasing perturbation strengths.
+For the current case, the magnitude of the ﬁrst neglected term is
+larger than that of the error when machine precision is not limiting
+the calculation. Further considerations have to clarify whether this
+is a general feature or cases might exist where the ﬁrst neglected
+term slightly underestimates the error. No matter whether the
+deviation overrates the error or not, it will scale with the perturba-
+tion strength. Hence, the offset increases with the perturbation
+strength. Thus, the method may fail to predict the error when the
+perturbation strength becomes very large. However, because the
+the error is also very large this is irrelevant for practical purposes.
+The results indicate that the truncation rule holds true for the
+considered test case. This supports the hypothesis that the trunca-
+tion rule applies for perturbations of the thermoacoustic Helmholtz
+equation. The results also emphasize that the error decreases with
+the perturbation strength. The truncation rule can be utilized to cal-
+culate the strength of a parameter shift such that the error is not
+greater than a speciﬁed tolerance. This is a crucial aspect in view of
+the possible divergence of the applied power series. Most impor-
+tantly, it allows to limit the perturbation strength such that the pre-
+dicted eigenvalue shift is highly accurate, a key idea for the
+iterative optimization algorithm proposed later.
+First-Order Multiparameter Perturbations
+The aforementioned theory is very useful in scenarios where
+the perturbation is known in advance. Then the perturbation can
+be formulated with one perturbation operator L0 and one perturba-
+tion parameter e at a speciﬁc value. As the positioning of multiple
+acoustic dampers involves a large number of relevant parameters,
+a multiparameter perturbation theory is necessary, i.e., a mathe-
+matical tool to approximate solutions of the following perturba-
+tion problem:
+LðxÞ ¼ L0ðxÞ þ
+X
+P
+p¼1
+epLpðxÞ
+(21)
+Here, ep and Lp denote the perturbation parameters and perturba-
+tion operators describing the effect of changes to P independent
+design parameters. This section develops such a theory. For the
+present application, only a ﬁrst-order multiparameter theory is
+needed and as higher-order multiparameter perturbations are a
+complicated matter if mode degeneracy occurs [11, p.116 ff.], the
+discussion is restricted to a ﬁrst-order analysis.
+Again power series ans€atze may be established to tackle this
+issue
+x ¼ x0 þ
+X
+P
+p¼1
+x1;pep
+(22)
+However, in case of mode degeneracy, the sensitivities will not be
+constant but functions of all independent parameters.
+x1;p ¼ x1;pðe1; e2; …; ePÞ
+(23)
+Substituting PP
+p¼1 epLp ¼ L0 and PP
+p¼1 x1;pep ¼ x1, the multi-
+parameter eigenvalue correction formula can be derived from the
+one-parameter correction formula
+D
+^p
+†
+0
+L0ðx0Þ^p0
+E
+þ x1
+D
+^p
+†
+0
+Lð1Þ
+0 ðx0Þ^p0
+E
+¼ 0
+(24)
+In the nondegenerate case, this can be rearranged to
+D
+^p
+†
+0
+
+X
+P
+p¼1
+epLpðx0Þ^p0
+E
+þ
+X
+P
+p¼1
+x1;pep
+D
+^p
+†
+0
+Lð1Þ
+0 ðx0Þ^p0
+E
+¼ 0
+(25)
+X
+P
+p¼1
+ep
+D
+^p
+†
+0
+Lpðx0Þ^p0
+E
+þ x1;p
+D
+^p
+†
+0
+Lð1Þ
+0 ðx0Þ
+E
+¼ 0
+(26)
+Here, the term h^p
+†
+0jLpðx0Þ^p0i þ x1;ph^p
+†
+0jLð1Þ
+0 ðx0Þi is exactly the
+same as if the pth perturbation would be treated as a single pertur-
+bation. Thus, the ﬁrst-order correction is just the superposition of
+the P eigenvalue corrections when those are individually applied.
+This is not surprising in view of a ﬁrst-order theory. However, this
+simple superpositioning rule does not hold true for degenerate
+cases. This is because of the unfolding of the eigenspace. This can
+be seen when inserting the substitutions into the mode unfolding
+problem (17). This yields
+X
+P
+p¼1
+epXpz þ
+X
+P
+p¼1
+epx1;pYz ¼ 0
+(27)
+where ½Xpba ¼ h^p0;bjLpðx0Þ^p0;ai; ½Yba ¼ h^p
+†
+0;bjLð1Þ
+0 ðx0Þ^p0;ai.
+It is possible to factor out PP
+p¼1 ep, but the terms Xpz þ x1;pYz
+deﬁne eigenvalue problems themselves (the mode unfolding prob-
+lems for the respective single parameter perturbations) and super-
+position does in general not hold true for eigenvalue problems.
+A loophole to this problem is provided by the fact that in annu-
+lar combustors, the mode degeneracy, if there is any, is two-fold.
+Therefore, the eigenvalue problem (27) is given by a 2  2-
+system. This system can easily be solved analytically by equating
+Fig. 2
+Comparison of the ﬁrst neglected term rN11N11xN11
+and the corresponding error gN. The ﬁrst neglected term is indi-
+cated by a triangle while the error is marked by an asterisk. The
+different colors cyan, orange, green, blue, and magenta corre-
+spond to the perturbation ampliﬁcation r 5 1; 2; 4; 5; and 8,
+respectively.
+061501-4 / Vol. 139, JUNE 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 5 ---
+
+its determinant to zero. The determinant is given by a quadratic
+polynomial in x1 ¼ PP
+p¼1 epx1;p, namely
+det
+ X
+P
+p¼1
+epXp þ
+X
+P
+p¼1
+epx1;p
+|ﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄ}
+¼x1
+Y
+!
+¼ ax2
+1 þ bx1 þ c
+(28)
+where
+a ¼ ½Y11½Y22  ½Y12½Y21 ¼ detðYÞ
+(29)
+b ¼ ½Y11
+X
+P
+p¼1
+ep½Xp22 þ ½Y22
+X
+P
+p¼1
+ep½Xp11
+½Y21
+X
+P
+p¼1
+ep½Xp12  ½Y12
+X
+P
+p¼1
+ep½Xp21
+(30)
+c ¼
+X
+P
+p¼1
+ep½Xp11
+0
+@
+1
+A
+X
+P
+p¼1
+ep½Xp22
+0
+@
+1
+A
+
+X
+P
+p¼1
+ep½Xp12
+0
+@
+1
+A
+X
+P
+p¼1
+ep½Xp21
+0
+@
+1
+A
+(31)
+The roots of this polynomial determine the ﬁrst-order eigen-
+value corrections; they are
+x1;p6 e1; e2; …; ep
+ð
+Þ ¼ b6
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+b2  4ac
+p
+2a
+(32)
+Altogether, this means that the effect of multiple acoustic
+dampers on the eigenfrequencies can be formulated as explicit
+functions of the perturbation parameters (22). These functions pre-
+dict the eigenvalue shifts at ﬁrst order. Only one solution of the
+implicit unperturbed Helmholtz equation (3) per eigenmode is
+necessary to establish these functions. Even for degenerate modes,
+this is the case. This facilitates a much faster assessment of the
+effect of the various damper parameters.
+The Optimization Algorithm
+Multiparameter perturbation theory provides the key ingredient
+for an optimization algorithm to position and tune acoustic damp-
+ers. Therefore, the problem can be split into two major steps,
+namely positioning and tuning of the dampers. An illustration of
+the scheme is displayed in Fig. 3.
+First, the best positioning is computed. The optimization starts
+with one classical iterative solution of the baseline conﬁguration.
+Solutions of the Helmholtz equation are the computationally most
+expensive operations in this algorithm. Evaluations of the explicit
+multiparameter sensitivity functions (22) are much faster. Thus,
+assessing all considered positioning patterns with respect to an
+objective function f in a brute force sensitivity study is feasible
+when using the base-line solution as input for these asymptotic
+computations. The value of the objective function is a quality
+measure of the desired design goals. The function should assess
+the damping rate of the considered modes and can contain penalty
+terms accounting for design constraints. Because the argument of
+the objective function can be expressed as a direct function chain
+starting with the design parameters fp, continuing with the pertur-
+bation parameters ep, and ending with eigenvalues xðmÞ of the con-
+sidered modes it can be explicitly written as
+f ¼ fðfÞ
+(33)
+The pattern with the best impact to the objective function can then
+be chosen. It deﬁnes a parameter change Dfbestpos.
+In the second step, ﬁne tuning of the applied dampers is con-
+ducted. The parameter perturbation L0 yielding the best possible
+local improvement with respect to the objective function f can be
+found at ﬁrst order using the multiparameter theory. To achieve
+this, again only one expensive solution of the Helmholtz equation
+is required. The results from this solution provide the basis for the
+perturbative optimization. Therefore, the problem must be formu-
+lated as superposition of the individual parameter perturbations
+LðxÞ ¼ L0ðxÞ þ e
+X
+P
+p¼1
+epLpðxÞ
+|ﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄ}
+L0ðxÞ
+(34)
+It can be interpreted as operator change due to a change Df of the
+involved parameters f into a certain direction within the parameter
+Fig. 3
+Schematic illustration of the applied optimization
+algorithm
+Fig. 4
+Illustration of the scaling problem. Cyan lines represent
+isolines of the objective function. The applied scaling consider-
+ably affects the parameter shift.
+Journal of Engineering for Gas Turbines and Power
+JUNE 2017, Vol. 139 / 061501-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 6 ---
+
+space. First-order sensitivity analysis facilitates a fast optimiza-
+tion of the involved parameters such that the slope Df=Df of this
+change is highest with respect to the objective function
+Dfbest ¼ argmax
+jDfj¼1
+DfðDfÞ
+(35)
+A practical problem here is the correct scaling of the parameter
+space. This problem is shortly discussed in the section Scaling the
+Parameter Space. However, once the best perturbation has been
+found, the problem remains a single parameter perturbation. The
+strength e of this perturbation can be chosen such that the error g
+of this ﬁrst-order estimation is below a speciﬁed tolerance h.
+Second-order single-parameter perturbation theory and the trunca-
+tion rule can be used to perform this calculation
+h > jgj  j2x2j
+(36)
+)  <
+ﬃﬃﬃﬃﬃﬃﬃﬃ
+h
+jx2j
+s
+(37)
+Of course, the chosen step size must also account for other param-
+eter constraints, e.g., lower and upper parameter bounds. Iterating
+this procedure leads to successive improvements of the parame-
+ters. This scheme can therefore be characterized as iterative local
+optimization based on directional search with error-related step
+size adaption.
+Scaling the Parameter Space
+The parameters determining the impedance have different phys-
+ical units. Therefore, an appropriate scaling must be applied when
+using the optimization algorithm. This is especially necessary to
+deﬁne directions in the parameter space. The applied scaling con-
+siderably affects the convergence of the algorithm. Figure 4 illus-
+trates the problem for a two-dimensional parameter space.
+The cyan lines represent contour lines of an objective function.
+The best possible point is to be found in the upper right corner.
+When deﬁning directions as vectors pointing on the unit disk (unit
+hyper-sphere for higher dimensions), the applied scaling affects
+the shape of this disk and therefore the determination of the best
+possible direction. In particular, the disk may be distorted to an
+ellipse and the longer semi-axis leads to a possibly overrated
+direction. For instance, in the right case in Fig. 4, the best parame-
+ter change on the disk is not pointing toward the optimum point.
+The problem is well known in the ﬁeld of optimization and
+Fig. 5
+Illustration of the test case geometry and mesh. The
+numbers indicate the sector labels. Each sector is equipped
+with two independent impedance BCs close to the burner outlet
+(yellow and green lines). Cyan lines indicate periodic bounda-
+ries and black lines highlight sound hard boundaries. The red
+elements of the mesh highlight the domain of heat release.
+Fig. 6
+Mode shapes of the three considered modes. The graphics represent the mode (0) (bot-
+tom right), mode (1) (bottom left), and mode (2) (top right). The color shading represents the
+real part of the complex pressure amplitude ^p.
+061501-6 / Vol. 139, JUNE 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 7 ---
+
+rotation and rescaling strategies may be applied to overcome this
+issue; see, for instance, Ref. [17].
+Application to a Generic Annular Combustor Model
+In order to test the algorithm, a two-dimensional annular com-
+bustor model was set up. The model is a simpliﬁcation of the
+geometry proposed by Evesque and Polifke [18]. It neglects the
+radial dimension of the chamber. The geometry and the mesh
+used for the computations are depicted in Fig. 5.
+It features twelve burner tubes connecting a plenum with the
+actual combustion chamber. Each ﬂame response is modeled in
+terms of an n-s-model. The cold gas temperature was set to
+Tu ¼ 300 K and the hot gas temperature to Tb ¼ 1500 K. The inter-
+action index was set to n ¼ 0.1 and the time delay to s ¼ 3 ms. The
+reference points were located on the center axis of the burner
+tubes 0.04 m downstream of the burner outlet. Variable impedance
+boundaries were deﬁned to the left and right of each burner outlet.
+The ratio of speciﬁc heats was set to c ¼ 1:4. In total, this allowed
+to specify 24 independent impedances. For simplicity, a three
+parameter model was used to model the reduced impedances:
+1
+Zi
+¼ f0;i
+i
+x þ f1;i þ f2;iix
+(38)
+The acoustic properties of the chamber thus depend on 72
+parameters.
+The impedance model was proposed by Nicoud et al. in favor of
+its easy integration into an FEM Helmholtz solver [5]. Its physical
+interpretation is therefore limited. We use it to test the algorithm. A
+beneﬁt of the chosen impedance model is that the perturbation
+operators are linear with respect to the change of the model param-
+eters. Thus, the parameter changes Df can be directly used as per-
+turbation parameters. However, physical impedance models can be
+described as rational function with analytic nominator and denomi-
+nator [19]. If such models are used, a linearization has to be applied
+in order to obtain the perturbation parameters.
+Again a ﬁnite element method utilizing triangular linear
+Lagrange elements was used to discretize the problem
+K þ
+X
+24
+z¼1
+x 1
+Z0;z
+Bz
+
+	
+þ x2M  n exp isx
+ð
+ÞQ
+"
+#
+|ﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ{zﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄﬄ}
+L0 x
+ð Þ
+p
+þ
+X
+24
+z¼1
+Df0;zBz þ Df1;zxBz þ Df2;zx2Bz
+h
+i
+¼ 0
+(39)
+Initially, all impedance parameters were set to f0;z ¼ 62:8319
+Hz, f1;z ¼ 4; f2;z ¼ 9:9472 ls. The optimization algorithm was
+used to determine and tune the best damper pattern which equips
+three burner-ﬂame segments with dampers. The minimum damp-
+ing rate of all considered modes was taken as objective function f.
+The step size tolerance was set to h ¼ 0:5 Hz. Three modes were
+considered,
+having
+complex
+eigenfrequencies
+of
+ðxð0Þ=2pÞ
+¼ 315:4 Hz þ 18:5i s1: ðxð1Þ=2pÞ ¼ 350:3 Hz  9:4i s1.
+and
+ðxð2Þ=2pÞ ¼ 546:8 Hz þ 3:1i s1.
+respectively.
+The
+azimuthal
+mode orders of these modes are 0, 1, and 2. Thus, the second and
+third modes are two-fold degenerate. The corresponding mode
+shapes are shown in Fig. 6. 45 different patterns have been tested
+in a brute force sensitivity study. Some of them are redundant due
+to the mirror symmetry of the system. However, when considering
+that rotations do not change the effect of the positioning patterns,
+all relevant conﬁgurations are covered within this study. The
+results are shown in Fig. 7. The predicted shifts of the growth
+rates of the modes (1) and (2) are compared with the growth rates
+obtained when using the classic iterative method to assess the
+problem.
+According to the perturbative approach, the patterns (1,5,9),
+(1,9,11), (1,3,11), and (1,3,5) feature the lowest growth rate.
+When considering that the least damped mode in all considered
+cases is of ﬁrst azimuthal order, this matches exactly the position-
+ing rule given in Ref. [7]. It states that the best conﬁguration to
+Fig. 7
+Comparison of expected (arrows) and actual (stars)
+growth rate shifts of the ﬁrst and second considered modes.
+Orange and green correspond to mode (1); blue and red repre-
+sent the growth rates of mode (2). The triples indicate the
+burner segments equipped with dampers. Taking the rotational
+symmetry of the system into account, all relevant conﬁgura-
+tions are considered. There are several conﬁgurations where
+the estimate is showing the same low growth rate. This is in
+accordance with the positioning rule given in Ref. [7].
+Fig. 8
+Evolution of the minimum damping rate for the ﬁrst 60
+optimization iteration steps. The algorithm successfully stabil-
+izes the considered modes. The non-monotonic development
+may be attributed to poor scaling of the design parameters, a
+weak step size tolerance, or the non-smoothness of the objec-
+tive function.
+Journal of Engineering for Gas Turbines and Power
+JUNE 2017, Vol. 139 / 061501-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 8 ---
+
+position the dampers is to evenly distribute them within a sector
+spanning half the circumferential wavelength of the considered
+mode and rotating any of these dampers by half of this wavelength
+has no effect. When approximating the effect of the dampers as d-
+functions acting in the center of the sectors, these patterns are also
+in accordance with the C2n -criterion given in Ref. [20], as for all
+these patterns C2n ¼ 0 when considering that the least damped
+mode is of azimuthal order 1.
+Note that for the best conﬁgurations, no mode unfolding is pre-
+dicted for the least damped mode even if the patterns do break the
+discrete rotational symmetry. Obviously, mode degeneracy is a
+second-order effect in these cases. This can be seen when consid-
+ering the results from the iterative solver. Though these accurate
+results differ from the perturbative predictions, the same conﬁgu-
+rations were rated as patterns with low growth rate. If the pertur-
+bation to the undamped system introduced by the dampers is too
+strong, the method might fail to predict the correct conﬁgurations.
+A second-order theory together with the truncation rule may be
+used to estimate the respective limit for the perturbation strength.
+Tuning of the damper parameters was conducted for the conﬁg-
+uration where the dampers were applied to the sectors 1, 3, and 5.
+This means that now 18 parameters are considered. The parameter
+space was rescaled at each iteration according to the parameter
+shift of the previous step
+fp;scaled;N ¼
+fp;physical;N
+Dfp;physical;N1
+(40)
+This scaling rule emphasizes those parameters which already had
+a strong inﬂuence to the objective function in the previous step.
+The evolution of the minimum damping rate of the considered
+modes over the ﬁrst 60 optimization iterations is depicted in
+Fig. 8. It is obvious that the algorithm is capable to improve the
+damping rate. In particular, all considered modes are stable after
+the optimization. Some iterations led to a decrease of the mini-
+mum damping rate. This may be because
+ the step size tolerance was too large
+ the applied scaling overrated wrong directions
+ the objective function is non-smooth
+Further investigations have to clarify the particular reasons.
+However, after 45 iterations, no signiﬁcant change of the mini-
+mum damping rate occurs. This could be because a local mini-
+mum has been reached. However, in the 45th iteration step a
+branch of mode (2) becomes the least damped mode and the
+algorithm settings—in particular the applied scaling rule—may
+not be appropriate to adapt to a new mode shape within a few
+iterations.
+Table 1 shows the ﬁnal damper coefﬁcients. Most of the param-
+eters have been changed in the same manner. This may be attrib-
+uted to the chosen scaling rule. However, the parameters
+signiﬁcantly deviate from the initial values.
+Conclusions and Future Work
+An adjoint-based method for the optimum positioning and tun-
+ing of multiple acoustic dampers has been derived. As a key
+aspect, the method utilizes the truncation rule. Application to a
+model problem indicates that this rule is applicable to solutions of
+the thermoacoustic Helmholtz equation. The method also rests on
+a multiparameter formulation of the ﬁrst-order eigenvalue pertur-
+bations. Even if not shown in this paper, it is possible to combine
+the method with the Bloch wave methodology to exploit the dis-
+crete rotational symmetry of the system in order to further acceler-
+ate the computations [21]. To account for physical impedance
+models, linearization of the involved perturbation operators will
+be necessary. This together with a three-dimensional combustor
+model will be the topic of future work in order to validate the
+approach for real combustors.
+The optimization algorithm could also be used to optimize
+other entities than acoustic dampers. For instance, it could be uti-
+lized to ﬁnd the best fuel staging pattern if the effects are available
+as ﬂame response functions. Moreover, the multiparameter formu-
+lation could help calculating uncertainty quantiﬁcations like those
+discussed in Ref. [22]. The main limitations of the framework
+arise from the fact that the multiparameter perturbation is of ﬁrst
+order. Thus, a higher-order perturbation formulation would
+improve the methodology. For instance, it would allow for global
+optimization and larger step sizes. Feeding the results from the
+tuning step back into the positioning step may also lead to
+improvements of the algorithm. A general application for the pre-
+sented perturbation theory could also be the acceleration of the
+iterative algorithms for the solution of the Helmholtz equation.
+Future work will address these topics.
+Acknowledgment
+Our thanks go to Philip E. Buschmann for his support while
+programming the FEM code and his help with the graphics
+preparation.
+References
+[1] Lieuwen, T. C., and Yang, V., eds., 2005, Combustion Instabilities in Gas Tur-
+bine Engines (Progress in Astronautics and Aeronautics), Vol. 210, AIAA, Inc,
+Reston, VA.
+[2] Staffelbach, G., Gicquel, L. Y. M., and Poinsot, T., 2009, “Large Eddy Simula-
+tion of Self-Excited Azimuthal Modes in Annular Combustors,” Proc. Combust.
+Inst., 32(2), pp. 2909–2916.
+[3] Wolf, P., Balakrishnan, R., Staffelbach, G., Gicquel, L. Y. M., and Poinsot, T.,
+2012, “Using LES to Study Reacting Flows and Instabilities in Annular
+Combustion Chambers,” Flow Turbulence Combust., 88(1), pp. 191–206.
+[4] Poinsot, T., 2013, “Simulation Methodologies and Open Questions for Acoustic
+Combustion Instability Studies,” Annual Research Briefs, Center for Turbu-
+lence Research, Stanford University, pp. 179–188.
+[5] Nicoud, F., Benoit, L., Sensiau, C., and Poinsot, T., 2007, “Acoustic Modes in
+Combustors With Complex Impedances and Multidimensional Active Flames,”
+AIAA J., 45(2), pp. 426–441.
+[6] Camporeale, S. M., Fortunato, B., and Mastrovito, M., 2008, “Prediction of
+Thermoacoustic Instability in Combustion Chamber Equipped With Passive
+Dampers,” ASME Paper No. GT-2008-51387.
+[7] Stow, S. R., and Dowling, A. P., 2003, “Modelling of Circumferential
+Modal Coupling due to Helmholtz Resonators,” ASME Paper No. GT2003-
+38168.
+[8] Bothien,
+M.
+R.,
+Noiray,
+N.,
+and
+Schuermans,
+B.,
+2014,
+“A
+Novel
+Damping
+Device
+for
+Broadband
+Attenuation
+of
+Low-Frequency
+Combustion Pulsations in Gas Turbines,” ASME J. Eng. Gas Turbines Power,
+136(4), p. 041504.
+[9] Schuermans, B., Bothien, M., Maurer, M., and Bunkute, B., 2015, “Combined
+Acoustic Damping-Cooling System for Operational Flexibility of GT26/GT24
+Reheat Combustors,” ASME Paper No. GT2015-42287.
+[10] Fernandez, F. M., 2000, Introduction to Perturbation Theory in Quantum
+Mechanics, 1st ed., CRC Press, Boca Raton, FL.
+[11] Kato, T., 1980, “Perturbation Theory for Linear Operators,” Grundlehren
+der Mathematischen Wissenschaften, Vol. 132, Springer-Verlag, Berlin,
+Germany.
+[12] Juniper, M., Magri, L., Bauerheim, M., and Nicoud, F., 2014, “Sensitivity Analysis
+of Thermo-Acoustic Eigenproblems With Adjoint Methods,” Summer Program
+2014, Center for Turbulence Research, Stanford University, pp. 189–198.
+[13] Luchini, P., and Bottaro, A., 2014, “Adjoint Equations in Stability Analysis,”
+Ann. Rev. Fluid Mech., 46(1), pp. 493–517.
+[14] Miller, P. D., 2006, Applied Asymptotic Analysis (Graduate Studies in Mathe-
+matics), Vol. 75, American Mathematical Society, Providence, RI.
+[15] Camporeale, S. M., Forte, A., Fortunato, B., Mastrovito, M., and Ferrante, A.,
+2004, “Numerical Simulation of the Acoustic Pressure Field in an Annular
+Combustion
+Chamber
+With
+Helmholtz
+Resonators,”
+ASME
+Paper
+No.
+GT2004-54139.
+Table 1
+Final damper coefﬁcient after 60 iterations
+Left damper
+Right damper
+Sect.
+f0
+f1
+f2
+f0
+f1
+f2
+1
+541.22 Hz
+5.2636
+4.8264 ms
+541.22 Hz
+5.2632
+2.6505 ms
+3
+541.22 Hz
+5.2630
+6.1987 ms
+541.22 Hz
+5.2636
+4.3310 ms
+5
+541.22 Hz
+5.2630
+1.5764 ms
+541.22 Hz
+5.2632
+4.8214 ms
+061501-8 / Vol. 139, JUNE 2017
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026
+
+
+--- Page 9 ---
+
+[16] Boyd, J. P., 1999, “The Devils Invention: Asymptotic, Superasymptotic and
+Hyperasymptotic Series,” Acta Applicandae Math., 56(1), pp. 1–98.
+[17] Hansen, N., 2006, “The CMA Evolution Strategy: A Comparing Review,”
+StuddFuzz, 192, pp. 75–102.
+[18] Evesque, S., and Polifke, W., 2002, “Low-Order Acoustic Modelling for Annu-
+lar Combustors: Validation and Inclusion of Modal Coupling,” ASME Paper
+No. GT2002-30064.
+[19] Rienstra, S. W., 2006, “Impedance Models in Time Domain Including the
+Extended Helmholtz Resonator Model,” AIAA Paper No. 2627.
+[20] Noiray, N., Bothien, M., and Schuermans, B., 2011, “Investigation of Azi-
+muthal Staging Concepts in Annular Gas Turbines,” Combust. Theory Model.,
+15(5), pp. 585–606.
+[21] Mensah, G. A., and Moeck, J. P., 2015, “Efﬁcient Computation of Thermoa-
+coustic Modes in Annular Combustion Chambers Based on Bloch-Wave The-
+ory,” ASME Paper No. GT2015-43476.
+[22] Ndiaye, A., Bauerheim, M., Moreau, S., and Nicoud, F., 2015, “Uncertainty
+Quantiﬁcation
+of
+Thermoacoustic
+Instabilities
+in
+a
+Swirled
+Stabilized
+Combustor,” ASME Paper No. GT2015-44133.
+Journal of Engineering for Gas Turbines and Power
+JUNE 2017, Vol. 139 / 061501-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/139/6/061501/6173963/gtp_139_06_061501.pdf by University of Cincinnati user on 01 January 2026

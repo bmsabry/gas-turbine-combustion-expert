@@ -1,0 +1,1029 @@
+
+--- Page 1 ---
+
+Simon G€overt1
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+e-mail: simon.goevert@dlr.de
+Johannes Berger
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Jonathan Timo Lipkowicz
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Thomas Soworka
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Christoph Hassa
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Thomas Behrendt
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Bertram Janus
+Combustor Department,
+Institute of Propulsion Technology,
+German Aerospace Center (DLR),
+Cologne 51147, Germany
+Experimental and Numerical
+Investigation of Hydrogen
+Combustion in a Dual-Swirl
+Burner for Aero-Engine
+Applications
+Green hydrogen produced by electrolysis offers a high potential for reducing CO2 emissions
+and thus represents a promising approach for the decarbonization of aviation. However,
+propulsion systems based on direct hydrogen combustion require modiﬁed fuel injectors and
+combustion chambers to account for the particular combustion characteristics of hydrogen.
+Engineering those modiﬁcations requires the acquisition of experimental and numerical
+tools especially suited for this task and in the end validating them in a suitable environment.
+In this context, hydrogen combustion and its numerical simulation are presented with a dual-
+swirl burner in an optically accessible atmospheric combustor as an intermediate step. To
+ensure safe operation and to reduce the risk of ﬂashback, fuel and air are injected
+nonpremixed. Good ﬂame stability and mixing, which leads to potentially low NOx values, is
+achieved by introducing a swirling motion into the ﬂows. In this study, the combustor is
+operated under atmospheric pressure at a globally lean equivalence ratio. Measurements of
+OH* radical chemiluminescence as well as infrared (IR) radiation as marker of the hot water
+vapor distribution have been carried out to identify the ﬂame location and shape. The
+conﬁguration is further analyzed by means of reacting large-eddy-simulations (LES). The
+comparison of the simulation results with the experimental reference data shows that the
+ﬂame lift of height and global ﬂame spread are correctly predicted by the simulation for both
+operating conditions. However, the combustion model does not precisely capture the ﬂame
+stabilization mechanism, leading to a radial offset of the ﬂame front.
+[DOI: 10.1115/1.4065925]
+Keywords: hydrogen combustion, swirl stabilized ﬂames, optical measurements, numerical
+modeling
+1
+Introduction
+In the face of the climate crisis, greenhouse gas emissions must be
+reduced across all sectors. Reducing emissions from aviation is
+particularly challenging because solutions which add weight or
+volume directly reduce system efﬁciency. In this context, direct
+combustion of hydrogen is one of the promising concepts to
+decarbonize aircraft engine propulsion systems. The use of green
+hydrogen produced by electrolysis using renewable energy
+completely eliminates direct carbon dioxide emissions. Although
+hydrogen has a high gravimetric energy density, its volumetric
+energy density is low. This poses signiﬁcant challenges for the
+technical infrastructure and, in particular, the storage of hydrogen on
+board of an aircraft [1]. Despite these unresolved challenges,
+hydrogen offers the potential to replace hydrocarbon fuels,
+particularly for short- and medium-range applications.
+In addition to fuel handling challenges, fundamental combustion
+system adjustments are expected due to the unique properties of
+hydrogen. The combustion characteristics of hydrogen, such as
+stoichiometric ﬂame temperature, ﬂammability limits, and ﬂame
+Turbo Expo June 24–28, 2024. GT2024.
+1Corresponding author.
+Manuscript received June 20, 2024; ﬁnal manuscript received July 3, 2024;
+published online August 16, 2024. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-1
+Copyright V
+C 2024 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+speed, differ signiﬁcantly from those of commonly used hydro-
+carbon fuels [2]. The higher stoichiometric ﬂame temperature of
+hydrogen may result in higher peak temperatures and therefore
+higher nitrogen oxide (NOx) emissions and higher thermal loads,
+although the exit temperature would be similar for the same thermal
+output. Hydrogen’s high reactivity, and therefore higher ﬂame
+speed, results in compact ﬂames and increases the risk of ﬂashback.
+On the other hand, hydrogen has the potential to even reduce NOx
+emissions compared to hydrocarbon fuels [3]. The very wide
+ﬂammability range reduces the risk of ﬂame extinction and allows
+safe operation at conditions far away from stoichiometry. Fur-
+thermore, the compact ﬂames offer the potential to reduce the size of
+the combustion chamber and the residence time in the hot primary
+zone. A side effect of smaller combustion chambers is a reduced
+demand of cooling air due to less heat loaded surfaces.
+Thus, the performance of future hydrogen propulsion systems is
+highly dependent on the speciﬁc design of the combustion system.
+Therefore, the exploration of a limited variety of approaches might
+be needed to arrive at the best solutions. Furthermore, a better
+understanding of the speciﬁc characteristics of hydrogen combus-
+tion and its impact on aero combustor design is needed. In this
+context, hydrogen combustion and its numerical simulation are
+investigated in this work with a dual-swirl burner in an optically
+accessible atmospheric combustor.
+Several decades ago, the use of hydrogen in aircraft engines led to
+a series of investigations [4,5]. These early explorations were
+primarily motivated by the threatened depletion of fossil fuels. With
+the need for decarbonization of the aviation industry, this topic is
+more relevant now than ever. Despite these early works, the use of
+hydrogen in aircraft engines is still a relatively new area of research.
+In comparison, considerable work has been carried out on the use of
+hydrogen and fuel blends (e.g., with natural gas)in ground-based gas
+turbines [6]. The limiting factors for combustion of pure hydrogen in
+typically premixed dry low-NOx combustors are ﬂashback and
+thermoacoustic instabilities. Diffusion burners of industrial gas
+turbines have been operated with pure hydrogen, but typically
+require water injection to keep the NOx emissions within limits. A
+widely investigated approach are so-called micromix combustors
+[7,8]. A multitude of small channels containing jet-in-crossﬂow
+hydrogen injectors are clustered to achieve distributed diffusion
+ﬂames, reducing NOx emissions by limiting residence time in high-
+temperature regions. While this concept has recently been brought
+into a commercial burnerinthe contextof stationary gasturbines [9],
+the feasibility for aircraft engines and the thermoacoustic risks are
+currently under investigation [10,11].
+Considering the various challenges of such new developments,
+adapting existing concepts seems most promising for a rapid
+transition to pure hydrogen combustion in aviation. Conventional
+aero-engine combustion systems rely on swirling ﬂow for ﬂame
+stabilization and separate injection of fuel and air to prevent
+ﬂashback. While previous studies have operated several swirl burner
+conﬁgurations with hydrogen-enriched fuels in the context of
+stationary gas turbines [12,13], a large volume fraction of hydrogen
+is required to signiﬁcantly alter the combustion characteristics.
+However, the available literature on swirl burners running on pure
+hydrogen is still very limited. A premixed conﬁguration has been
+studied experimentally by Reichel et al. [14] and by means of
+numerical simulation [15,16]. To the best of the authors’ knowledge,
+the HYLON conﬁguration, which has been investigated both
+experimentally [17,18] and numerically [19], is the only test case
+in the open literature that combines swirl stabilized combustion of
+pure hydrogen with separate injection of fuel and air.
+The conﬁguration studied in this paper was developed in the
+context of the rich–quench–lean concept. The fuel injector was
+originally designed to simulate kerosene combustion with natural
+gas at atmospheric conditions by producing a gas ﬁlm with mixing
+properties similar to a kerosene ﬁlm. For this study, it was operated
+with pure hydrogen at lean equivalence ratios.
+The investigated test case operates in a partially premixed mode,
+where both premixed and nonpremixed type regimes occur. The
+simulation of such conﬁgurations is particularly challenging for
+numerical tools. Within the framework of tabulated chemistry
+combustion models, hybrid approaches based on both premixed and
+nonpremixed ﬂamelets have been proposed [20,21]. For the
+HYLON burner simulations, Aniello et al. [19] use a ﬁnite rate
+chemistry approach with the dynamic thickened ﬂame (DTF) model
+and disable ﬂame thickening in nonpremixed regions identiﬁed by
+the Takeno ﬂame index [22]. In this paper, the introduced
+conﬁguration is further analyzed using reacting large-eddy-
+simulations (LES) with a standard ﬂamelet-generated manifolds
+(FGM) combustion model based on premixed ﬂamelets in
+combination with the DTF model. This modeling approach has
+been successfully applied to the prediction of a swirling natural gas
+ﬂame [23]. It should be noted that the nonpremixed regime is not
+explicitly considered by either the FGM model or the DTF model,
+which was developed for premixed ﬂames only. However, this work
+aims to test the suitability of this standard combustion modeling
+approach for predicting the combustion mode and ﬂame character-
+istics in a multiregime hydrogen combustion system.
+The paper is organized as follows: The experimental setup is
+presented in Sec. 2, including the combustor test rig, the operating
+conditions, and the optical measurement techniques. The numerical
+modeling approach is described in Sec. 3. Numerical and
+experimental results are presented and analyzed in Sec. 4, followed
+by concluding remarks in Sec. 5.
+2
+Experimental Setup
+This section presents the experimental setup. The burner test rig
+and the operating conditions are described ﬁrst, followed by a
+summary of the measurement techniques used.
+2.1
+Burner Test Rig. The experimental campaign was con-
+ducted in the atmospheric primary zone [24,25] facility of the DLR
+Institute of Propulsion Technology in Cologne, Germany. The
+facility has recently been upgraded for the study of hydrogen
+combustion and can be continuously supplied with up to 1.2 g/s of
+hydrogen. In this test bed, a dual-swirl burner in an optically
+accessible atmospheric combustion chamber is investigated. A
+detailed view of the burner conﬁguration is presented in Fig. 1. The
+combustion chamber cross section is hexagonal with interchange-
+able wall segments. Each wall segment is 55 mm wide and 85 mm
+high. The injector was originally operated with natural gas and is
+used in this study for the combustion of pure hydrogen.
+A sketch of the fuel and air ﬂow paths is shown in Fig. 1(a). The
+preheated primary air enters the test section at the bottom. Most of
+the primary air then passes through a corotating dual-swirler
+conﬁguration. A smaller amount which is by-passing the burner
+through small metering holes is used for convective cooling of the
+heat shield and providing a thin air ﬁlm on the combustor windows.
+The ﬂow path along the inner heat shield wall is equipped with small
+pin ﬁns to enhance the heat transfer from heat shield to cooling air.
+A rotating velocity component is imposed on the burner air by the
+corotating inner and outer radial swirlers. The outer swirler diameter
+is do ¼ 23.7 mm, and the inner swirler diameter is di ¼ 13.7 mm. The
+air swirlers and the burner exit diffusor can be exchanged due to the
+modular design of the burner. A high swirl for the outer and a low
+swirl for the inner air stream combined with a cylindrical diffusor
+were chosen to keep the ﬂame compact. For this ﬁrst hydrogen
+campaign, a design that limits the temperature load on the walls
+seemed advisable. The measured effective area of the installed
+burner is 251.8 mm2.
+Hydrogen at ambient temperature is supplied to the burner via a
+central supply line. It then passes through a series of eight distributed
+channels to a circumferential fuel plenum. From here, the hydrogen
+is directed into the fuel swirler through 16 radial holes of 1 mm
+diameter to ensure circumferential homogeneity. Finally, the
+hydrogen is axially injected into the circumferential shear layer
+between the inner and outer burner air with a corotating velocity
+111013-2 / Vol. 146, NOVEMBER 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+component. The inner and outer diameters of the annular fuel gap are
+di ¼ 14.9 mm and do ¼ 17.9 mm, respectively.
+Additional supply lines provide ambient air to cool the walls and
+windows of the hexagonal combustion chamber. For the four metal
+wall segments, the air is supplied surrounding the burner base plate
+and provides convective cooling from outside the combustion
+chamber. It is partially injected into the secondary zone through
+dilution holes of 9 mm in diameter and partially enters the
+combustion chamber just upstream of the outlet. The two
+combustion windows for measurement access are supplied with
+cooling air through two separate channels: An upstream supply line
+injects air at the bottom of the combustion chamber where it mixes
+with the heat shield cooling air to form a cooling ﬁlm along the
+windows within the combustion chamber. The second channel
+provides additional air to cool the downstream metal wall segment.
+This air is injected into the combustion chamber through the dilution
+holes as well as downstream near the outlet.
+A converging section is attached to the combustion chamber
+outlet to prevent any backﬂow at the outlet.
+2.2
+Operating Conditions. The burner is operated at atmos-
+pheric pressure with a lean equivalence ratio. Two operating
+conditions with different fuel mass ﬂow rates are considered in this
+study, as summarized in Table 1. Keeping all other parameters
+identical between the two operating conditions results in different
+heat outputs and equivalence ratios. The equivalence ratios UPZ
+presented in Table 1 are for the primary zone and consider only the
+burner air.
+The Reynolds number for both operating conditions is similar due
+to the same air mass ﬂow. The Reynolds number based on the air
+mass ﬂow and the outer diameter of the injector is about 55,000.
+The hydrogen and the downstream cooling air are injected at an
+ambient temperature of 291.65 K, while the primary air is preheated
+to 376.2 K. The primary air mass ﬂow rate is 22.17 g/s, and the
+combined cooling air mass ﬂow rate for the four metal wall
+segments is 10.08 g/s. The cooling air mass ﬂow for the two
+windows is 3.96 g/s for the cooling ﬁlm and 2.28 g/s for the
+convective cooling of the downstream metal section.
+2.3
+Measurement Techniques. The two window segments of
+the atmospheric primary zone provide optical access to the primary
+zone. OH* radical chemiluminescence as well as infrared (IR)
+radiation as a marker of the hot water vapor distribution have been
+measured using an ultraviolet (UV) and IR camera, respectively.
+The camera positions and orientations are sketched in Fig. 1(b), with
+the cameras generally oriented perpendicular to the ﬂame. The UV
+camera (PCO Dicam Pro, 1280  1024 pixel with 2  2 binning,
+100 mm UV lens, f/2.8), which records OH* chemiluminescence in
+the spectrum from 305 to 325 nm, is oriented parallel to the heat
+shield and angled slightly inward to capture the burner centerline.
+The infrared camera (Xenics Xeva vSWIR, 320  256 pixel InGaAs
+detector with spectral range 500–1700 nm, f/2) records the spectrum
+through a spectral bandpass ﬁlter with a central wavelength of
+1425 nm and a full width at half maximum of 190 nm, which covers
+relevant water vapor radiation bands. The optical path with windows
+on both combustor sides is chosen to minimize thermal background
+radiation from hot combustor walls. With this setup, approximately
+half the width of the combustion chamber is covered by both
+measurements. Both cameras record 400 individual line-of-sight
+images, which are normalized by exposure time and averaged into a
+single mean image for the presented analysis. The images are
+additionally deconvoluted using the PYABEL package and the basex
+method [26] to obtain center cut views. Rotational symmetry of the
+ﬂame, a prerequisite forthe application of deconvolutionmethods,is
+assumed to be sufﬁciently given due to the hexagonal cross section
+of the combustion chamber.
+The optical line-of-sight measurements are nonintrusive and
+relatively simple. Spontaneous OH* emissions from ﬂames, which
+are caused by excited OH* radicals returning back to a lower energy
+state, are widely used as a marker of the ﬂame shape and position
+[27,28]. The radiation of water vapor, as the main product of
+hydrogen combustion, is expected to increase along the ﬂame.
+However, as shown by Rivie`re and Souﬁani [29], the emitted
+radiation not only depends on the water vapor concentration but also
+Fig. 1
+Burner test rig: (a) longitudinal section with illustration of the different ﬂow paths and
+(b) horizontal cut with illustration of the respective camera angles (the dashed line shows the analysis
+plane used in the results section for OH*)
+Table 1
+Operating conditions
+_mH2 (g/s)
+Pth (kW)
+UPZ
+Dp (%)
+Flame A
+0.498
+59.8
+0.895
+2.991
+Flame B
+0.301
+36.1
+0.543
+2.932
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+temperature and pressure. Hence, the recorded intensity in the
+experiment increases with concentration and temperature. The
+individual effects on the emissivity are very different, and the
+images recorded during the experiment must be interpreted
+accordingly.
+3
+Simulation Setup
+The burner test rig described in Sec. 2.1 is further analyzed by
+means of numerical simulations. In this section, the numerical
+model is summarized, followed by a description of the computa-
+tional domain and boundary conditions.
+3.1
+Numerical Model. Large-eddy-simulations are performed
+with DLR’s in-house computational ﬂuid dynamics (CFD) solver
+TRACE. The simulations are based on the FGM combustion model
+[30]. The chemistry tabulation is performed in a preprocessing step
+based on adiabatic one-dimensional premixed freely propagating
+ﬂames using CANTERA [31]. The hydrogen branch of the San Diego
+chemical mechanism [32] has been used, which consists of 9 species
+and 21 reactions. For direct comparison with the OH* radical
+chemiluminescence measurements, the mechanism has been
+extended with the OH* submechanism of Kathrotia et al. [33].
+The coupling strategy of the isobaric FGM tabulation with the fully
+compressible ﬂow solver is presented in Ref. [23].
+The DTF model [34] is used to resolve the ﬂame front on the LES
+mesh. The modiﬁed [35] power-law ﬂame wrinkling model of
+Charlette et al. [36] is used as efﬁciency function. The intensity of
+the subgrid velocity ﬂuctuations is computed as proposed in Ref.
+[37]. A ﬂame sensor based on the normalized reaction progress
+variable is used to limit the thickening to the ﬂame region [37]. The
+number of grid points to resolve the ﬂame is set to np ¼ 5.
+A unity Lewis number assumption has been made to simplify the
+numerical model. Due to the high Reynolds number, turbulent
+transport is expected to dominate over molecular diffusion, limiting
+the inﬂuence of the Lewis number assumption on the simulation
+results.
+The wall-adapting local eddy-viscosity model [38] is used as the
+turbulent closure for the subgrid Reynolds stresses. The numerical
+discretization is based on a central kinetic energy and entropy
+preserving scheme using the split form of Shima et al. [39] for the
+convective ﬂuxes in combination with Burg’s unstructured
+monotonic upstream-centered scheme for conservation laws
+reconstruction [40] and the limiter function of Venkatakrishnan
+[41]. Upwind ﬂuxes are used for the convection of reactive scalars
+and the internal energy to limit total variation. The
+Jameson–Schmidt–Turkel matrix-valued artiﬁcial dissipation
+model [42,43] is applied to stabilize the solution. Further details
+on the numerical discretization can be found in Ref. [44]. The least-
+squares fully augmented approach described in Ref. [45] is used to
+calculate cell centered gradients, while the derivatives for the
+viscous ﬂuxes are computed based on the face neighboring cell
+gradients with the face-tangent augmentation outlined in Ref. [46].
+A third-order accurate explicit Runge–Kutta method is used for time
+integration.
+3.2
+Simulation Setup. The geometric complexity of the burner
+test rig presented in Sec. 2.1 has been slightly reduced to perform the
+numerical simulations. The derived computational domain with the
+different boundary patches is presented in Fig. 2(a). While the air
+and fuel plenum are included in the computational domain, the
+secondary ﬂow paths of the cooling air are not explicitly resolved by
+the simulation, but are replaced by equivalent boundary conditions.
+Speciﬁcally, the boundary conditions for the simulation are deﬁned
+as follows: The air mass ﬂow throughthe burner (injected at the main
+air inlet in Fig. 2(a)) is calculated from the measured primary air
+mass ﬂow and the burner effective area determined in a preceding
+measurement. The remaining primary air is used for convective
+cooling of the heat shield in the measurements. The ﬂow path along
+the inner heat shield walls is not included in the computational
+domain but the respective mass ﬂow is injected through horizontal
+boundary patches at the side walls of the combustor (heat shield and
+window cooling air inlet patches in Fig. 2(a)). At the window
+segments, additional cooling air is injected upstream of the glass
+windows, and the additional mass ﬂow is added to the respective
+heat shield air boundary patches. The cooling air that is used to cool
+the outer chamber walls is introduced through additional boundary
+patches (dilution air inlet and downstream cooling air inlet patches
+in Fig. 2(a)). The mass ﬂow split between the dilution ports and the
+cooling inlets at the combustion chamber exit is approximated based
+on their area ratio. In general, downstream air injection has little
+effect on the primary zone. The combined mass ﬂows for all four
+metal and two window segments have been recorded during the
+experiments. The mass ﬂow is evenly distributed among the
+different wall segments and prescribed as boundary conditions in
+the simulations. The direction vector at the dilution ports is assumed
+to be 45 deg with respect to the horizontal plane and prescribed at the
+boundary accordingly.
+The mass ﬂow rates and temperatures prescribed at the different
+boundaries are summarized in Table 2. Atmospheric static pressure
+is prescribed at the outlet. While mass ﬂow rate boundary conditions
+are used for cooling air and fuel inlet, nonreﬂecting boundary
+conditions [23,47] are used at the air inlet and the outlet. All solid
+walls are modeled as adiabatic boundaries in combination with the
+wall functions of Reichardt [48].
+The computational domain is discretized using an unstructured
+tetrahedral mesh with about 19.1  106 cells. The mesh is reﬁned in
+the swirler, fuel supply, and ﬂame region as shown in Fig. 2(b). The
+cell size in this region based on the cells’ edge length is 0.5 mm.
+A constant time-step of 1:5  108 s is used. To ensure a
+converged solution, the simulations were run for about 30 ms before
+the statistics were collected, corresponding to four ﬂow times of the
+combustionchamber.Statisticswerethencollectedforanother30 ms.
+4
+Results
+In this section, the ability of the numerical model to predict the
+ﬂame position and shape is ﬁrst evaluated by comparison with the
+measurements. Then, the two operating conditions are further
+analyzed based on the simulation results. Finally, the ﬂame index is
+used to determine the different ﬂame regimes predicted by the
+simulations.
+4.1
+Comparison of Experiments and Simulations. The dis-
+tributions of OH* radicals and hot water vapor radiation in the ﬂame
+are available from the experiments. These measurements are used
+below to validate the numerical simulations.
+4.1.1
+OH* Radical Chemiluminescence. The OH* radical
+distribution can be used as a marker of the ﬂame. It is therefore
+often compared with the heat release rate (HRR), which is easily
+obtained from CFD simulations. In this work, an OH* submechan-
+ism was additionally used to allow a direct comparison with the
+experiments. The mean distribution of normalized HRR and OH*
+obtained from the simulation is shown in Fig. 3 for ﬂame A. To avoid
+any asymmetry inﬂuence, the simulation results are mirrored at the
+burner axis. The distributions for the two variables are almost
+identical, which indicates that both of them can be used as a ﬂame
+marker under the current conditions.
+The primary zone of ﬂames A and B is shown in Fig. 4. The mean
+normalized OH* mass fractions from the simulation results are
+compared to the mean normalized OH* distribution from measure-
+ments to analyze the ﬂame shape and position predicted by the
+simulation. In the top ﬁgures, the Abel deconvoluted OH* are
+compared with the OH* mass fractions extracted on the analysis
+plane shown in Fig. 1(b). To assess the inﬂuence of the Abel
+deconvolution, the unprocessed measurement results are compared
+to line-of-sight integrated simulation results in the bottom ﬁgures.
+Additionally, corresponding proﬁles at different axial heights above
+the burner exit plane are shown in Fig. 5 to allow for a more detailed
+111013-4 / Vol. 146, NOVEMBER 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+comparison. In addition to the normalized OH* mass fractions, the
+simulated normalized HRR proﬁles are also included.
+A lifted ﬂame is observed for both operating conditions and
+correctly predicted by the simulations. In agreement with the
+experiments, the lift off height is slightly larger for the richer ﬂame
+A. The global ﬂame spread is reasonably well predicted by the
+simulations for both operating conditions.
+Two reaction fronts can be identiﬁed for ﬂame A: an inner front at
+the height of the burner exit plane and a lateral ﬂame front further
+downstream. Both ﬂame fronts are also predicted by the simulation,
+although the simulation does not predict an OH* maximum in the
+lateral ﬂame front. The most signiﬁcant difference between
+simulation and experiment is the different radial position of the
+inner ﬂame front. While the ﬂame front in the experiments is radially
+aligned with the inner wall of the fuel injector, the maximum OH* is
+predicted on the central burner axis in the simulation, indicating the
+ﬂame stabilization at this location. In contrast, the experiments show
+no signiﬁcant values on the centerline.
+In agreement with the experimental data, the simulation of ﬂame
+B stabilizes further upstream, and the ﬂame front is located slightly
+inside the diffusor. The lateral ﬂame front observed for ﬂame A
+almost entirely vanished for ﬂame B. While it is also signiﬁcantly
+reduced in the simulation, it is still more pronounced compared to
+the measurements. Similar to ﬂame A, the radial position of the
+ﬂame front differs between simulation and experiments. As already
+observed for ﬂame A, the ﬂame is radially aligned withthe inner wall
+of the fuel injector in the experiments, while it anchors on the central
+burner axis in the simulation.
+The differences in the ﬂame location between simulation and
+experiments indicate that the exact ﬂame stabilization is difﬁcult to
+predict with the combustion model used in this work. The ﬂame front
+in the experiments is radially aligned with the mixing layer between
+inner air swirler and the fuel supply, which indicates a diffusion
+ﬂame regime, that has not been captured by the simulation.
+4.1.2
+Hot Water Vapor Distribution. Infrared radiation as a
+marker of the hot water vapor distribution has been recorded using
+an IR camera. Since no corresponding quantity is directly available
+from the LES, the statistical band model parameters described in
+Ref. [29] are used to compute a lookup table for water vapor
+radiation in the spectral range of the ﬁlter, depending on temperature
+and water vapor mole fraction. The radiation intensity is then
+postprocessed from the simulation results using the lookup table.
+The normalized radiation values of simulation and measurement are
+compared in Fig. 6. As shown in Fig. 1(b), the water vapor radiation
+is measured and analyzed on a different plane compared to the OH*
+radical chemiluminescence.
+For both operating conditions, the maximum hot water vapor
+radiation is observed on the centerline. In general, hot water vapor
+radiation occurs in regions where high H2O concentrations coincide
+with high temperatures and can therefore be used as a marker of the
+postﬂame region. In this respect, the hot water vapor distributions
+conﬁrm the observations from the OH* radical chemiluminescence
+presented in Sec. 4.1.1. While the general agreement between
+Fig. 2
+Computational domain: (a) longitudinal section of the computational domain with highlighted boundary condition
+locations and (b) cell sizes of the computational mesh
+Table 2
+CFD boundary conditions
+Boundary
+_m (g/s)
+T (K)
+Air inlet
+20.87
+376.2
+Fuel inlet
+0.498/0.301
+291.6
+Metal segments
+Heat shield air
+0.217
+376.2
+Dilution air
+1.034
+291.6
+Exit air
+1.486
+291.6
+Window segments
+Heat shield air
+2.198
+320.4
+Dilution air
+0.467
+291.6
+Exit air
+0.671
+291.6
+Fig. 3
+Comparison of mean normalized heat release rate (left)
+and OH* (right) from the CFD simulation for ﬂame A
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+simulations and experiments is fairly good at downstream locations,
+differences can be found close to the burner exit plane due to the
+different radial position of the ﬂame front. Since the ﬂame is radially
+aligned with the fuel injector in the experiments, hot water vapor
+radiation occurs on the central axis already at the burner exit plane.
+In contrast, the simulations predict the ﬂame front at the centerline,
+and consequently the hot water vapor radiation as an indicator of the
+postﬂame region occurs further downstream.
+4.1.3
+Pressure Loss. The pressure loss over the burner has been
+measured in the experiments using a pressure sensor in the plenum
+and in the combustion chamber at a wall downstream of the dilution
+ports. The pressure loss represents the relative differential pressure
+between these two measurement locations. In Table 3, the pressure
+losses from the mean LES ﬁelds are compared to the experimental
+data. The simulation overestimates the pressure losses for both
+operating conditions by 15.9%. Capturing the pressure loss with
+numerical simulations is generally nontrivial and would require
+signiﬁcant mesh reﬁnement in the swirler. However, Aniello et al.
+[19] observed a similar overestimation for a hydrogen swirl burner,
+even with a signiﬁcantly ﬁner mesh. Additional to the uncertainties
+associated with the numerical modeling itself, the pressure loss is
+directly linked to the air mass ﬂow at the inlet boundary condition.
+This mass ﬂow has been derived based on the effective area, which
+has been measured separately under cold conditions. Deviations of
+the selective laser melting manufactured burner and the computer
+aided design model used for the simulation represent an additional
+uncertainty. However, the small difference between the two
+operating conditions (the pressure losses between the two ﬂames
+differ by about 2%) has been correctly reproduced by the simulation.
+Considering the good prediction of the ﬂame lift of height and ﬂame
+spread, the deviations in pressure loss are considered tolerable.
+4.2
+Comparison of Operating Conditions. In this section, the
+simulation results are further analyzed by comparison of the two
+operating conditions. Different mean ﬁelds are presented in Fig. 7
+using the same plane as for the OH* comparison in Sec. 4.1.1. In
+each ﬁgure, ﬂame A is on the left, while ﬂame B is on the right-hand
+side. The plane has been mirrored at the burner axis for ﬂame A to
+avoid any asymmetry inﬂuence.
+In Fig. 7(a), the normalized heat release rate is presented. Zero
+axial velocity isocontours (Ux ¼ 0) indicate the recirculation zones.
+Isocontours of mixture fraction mark stoichiometry (Ust) as well as
+lean (Ulean) and rich (Urich) ﬂammability limits according to the
+chemistry tabulation. Both ﬂames are lifted above the burner due to
+an aerodynamic stabilization. The ﬂame lift off results in an axial
+distance between the hydrogen injector lip and the ﬂame front and
+Fig. 4
+Comparison of mean normalized OH* from simulations (left) and measurements (right): (a) ﬂame A and (b) ﬂame B. Top:
+Abel deconvoluted OH* measurement versus OH* on simulation plane, bottom: unprocessed OH* measurement versus line-of-
+sight integrated OH* from simulation. The dashed lines in the top left ﬁgure indicate the positions for the proﬁles in Fig. 5.
+111013-6 / Vol. 146, NOVEMBER 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+thereby enables some mixing of hydrogen and air prior to
+combustion. Mixing between fuel and air is further enhanced by a
+large difference in axial and radial (not shown) velocities and
+density between fuel and air streams. The mean heat release for the
+globally leaner ﬂame B is almost entirely within the lean branch. For
+ﬂame A, the locally rich region extends signiﬁcantly further
+downstream and covers a substantial part of the heat release region.
+The reduction of the lateral ﬂame front for ﬂame B can be associated
+with the lower equivalence ratio in this region. While it is close to
+stoichiometry for ﬂame A, it is close to the lean ﬂammability limit
+for ﬂame B.
+Despite the higher global equivalence ratio, ﬂame A anchors
+slightly further downstream than ﬂame B. This appears to be related
+to the different relative velocity between the fuel and the inner air
+stream. This can be further analyzed using the axial velocity
+presented in Fig. 7(b). Due to the same air mass ﬂow, the overall ﬂow
+ﬁeld is similar in both conﬁgurations. However, the lower hydrogen
+mass ﬂow rate for ﬂame B leads to a lower fuel velocity and
+consequently a larger velocity difference between fuel and air
+stream. This difference enhances the turbulent transport of the
+hydrogen into the central swirling air jet. Consequently, the lean
+mixture fraction limit in Fig. 7(a) is located further upstream for
+ﬂame B. This is also conﬁrmed by the hydrogen mass fraction
+distribution presented in Fig. 7(d).
+The ﬂow slightly opens up at the combustion chamber entrance
+due to the induced swirl. Thereby, a narrow central recirculation
+Fig. 5
+Proﬁles of mean normalized OH* and HRR from simulations and mean normalized OH* from measurements: (a) ﬂame A
+and(b) ﬂameB. Leftcolumns:Abeldeconvoluted OH* measurement versusOH* on simulationplane, rightcolumns:unprocessed
+OH* measurement versus line-of-sight integrated OH* from simulation.
+Fig. 6
+Comparison of mean normalized water vapor radiation intensity from simulations and experiments: (a) ﬂame A and
+(b) ﬂame B
+Table 3
+Pressure loss Dp (%)
+Experiments
+Simulation
+Flame A
+2.991
+3.467
+Flame B
+2.932
+3.398
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+zone is formed in the diffusor. A less pronounced outer recirculation
+zone is observed in the combustion chamber. While the axial
+velocity is similar in the air swirlers, signiﬁcantly larger values
+occur in the fuel supply of ﬂame A due to the larger hydrogen mass
+ﬂow rate. Further differences can be identiﬁed for the central
+recirculation zone. While the axial extension of the central
+recirculation zone is very similar for both conditions, the radial
+spread is slightly larger for ﬂame B, combined with higher negative
+values. A larger spread, and consequently enhanced central
+recirculation, might be suppressed for ﬂame A by the higher axial
+momentum of the fuel stream.
+The mean temperature is presented in Fig. 7(c). The highest
+temperatures are observed on the burner axis downstream of the
+central recirculation zone. The temperatures are overall lower for
+ﬂame B due to the leaner equivalence ratio and consequently lower
+thermal power. The temperature increase on the burner axis is
+located further upstream for ﬂame B due to the different axial ﬂame
+location as described above. At the upstream corner of the
+Fig. 7
+Comparison of mean ﬁelds for ﬂame A (left) and ﬂame B (right): (a) normalized heat release rate with
+isocontours of zero axial velocity and lean, rich, stoichiometric mixture fraction, (b) axial velocity with
+isocontour of zero axial velocity, (c) temperature, and (d) H2 mass fraction
+111013-8 / Vol. 146, NOVEMBER 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+combustion chamber and the downstream dilution ports, the reduced
+temperature due to the cooling air injection is clearly visible.
+Although not strictly transferable due to the different ﬂame
+stabilization, the velocity ﬁelds predicted by the simulation can be
+used to further analyze the ﬂame stabilization of the experiments.
+When the OH* radical chemiluminescence results are mapped onto
+the velocity ﬁelds from the simulation, the ﬂame stabilizes in the
+shear layer between fuel and air at an axial location where the
+velocity difference between the two ﬂows is sufﬁciently reduced to
+match the turbulent ﬂame speeds reported in Ref. [49]. This again
+indicates the shear layer ﬂame stabilization of aturbulent swirling jet
+diffusion ﬂame.
+4.3
+Flame Regime. The ﬂame regime is further analyzed based
+on the simulation results. The simulations in this paper have been
+performed using a combustion model for partially premixed
+combustion. However, hydrogen and air are injected separately in
+the current conﬁguration. Even though the ﬂame lift off allows for a
+certain mixing between fuel and air prior to combustion, multi-
+regime combustion characteristics are expected.
+The following analysis is based on the Takeno ﬂame index [22],
+which indicates premixed or nonpremixed regimes based on the
+gradients of fuel and air. As the ﬂame regime is only relevant in the
+ﬂame region, the following approach is adopted: The HRR is
+conditioned by the local ﬂame index. It is thereby split into a
+contribution from premixed and nonpremixed combustion regime.
+The time-averaged conditioned HRR ﬁelds are presented in Fig. 8
+along with the total HRR in Fig. 7(a). All ﬁelds are normalized with
+the maximum total HRR. A signiﬁcant contribution of the total HRR
+in the primary zone of the conﬁguration is associated with the
+premixed combustion regime. On the other hand, the HRR
+associated with the nonpremixed regime is about an order of
+magnitude lower. Furthermore, the nonpremixed regime tends to
+occur slightly further downstream. While the general occurrence is
+similar for the two operating conditions, the contribution of the
+nonpremixed regime is further reduced for ﬂame B. This can be
+related to the leaner operating conditions. This indicates an
+increasing importance of the nonpremixed regime with a further
+increase in fuel mass ﬂow and, in particular, rich operation.
+As discussed above, the comparison of the OH* distribution in
+Fig. 4 indicates that the local ﬂame stabilization is not accurately
+captured by the simulation. The different radial position of the ﬂame
+stabilization may indicate difﬁculties of the modeling approach to
+correctly predict the local combustion regime. Since the ﬂame index
+depends directly on the gradients predicted by the combustion
+model, the ﬂame regime prediction should be interpreted carefully.
+5
+Conclusion
+The combustion of pure hydrogen in a dual-swirl burner for aero-
+engine applications has been investigated by experiments and LES.
+Two lean operating conditions with different equivalence ratios and
+thermal power but constant air mass ﬂow are considered.
+First, the capability of the simulation to predict the ﬂame position
+and shape is investigated by comparison of OH* radical chem-
+iluminescence measurements and the LES ﬁelds. Two distinct
+reaction fronts are observed for ﬂame A: an upstream inner front and
+a lateral ﬂame front further downstream, which are both predicted by
+the simulation. For ﬂame B, the intensity of the lateral ﬂame front is
+signiﬁcantly reduced but is slightly more pronounced in the LES
+results. Despite the leaner equivalence ratio, ﬂame B stabilizes
+further upstream in both simulation and experiment. This can be
+explained by the different relative velocities between fuel and air
+stream which enhance the turbulent transport of fuel into the central
+air stream. Due to the low density of hydrogen, changes in the fuel
+mass ﬂow result in signiﬁcant aerodynamic effects.
+While the lift of heights of both ﬂames and the global ﬂame spread
+are reasonably predicted by the simulations, the ﬂame stabilization
+mechanism appears to be different between simulation and experi-
+ment. The combustion model used in this work is designed for the
+partially premixed combustion regime and has been successfully
+used in previous work for technically premixed conﬁgurations.
+Since fuel and air are injected separately in the current conﬁguration,
+multiregime combustion is expected to play a more important role.
+In the experiments, the ﬂame stabilizes in the shear layer between
+the fuel and air stream, resembling the ﬂame stabilization
+mechanism of a turbulent swirling jet diffusion ﬂame. The
+combustion model does not capture this ﬂame stabilization
+mechanism and instead predicts the ﬂame front on the burner
+centerline.
+The analysis of the premixed and nonpremixed regime based on
+the ﬂame index conditioned heat release rate indicates that the
+importance of the nonpremixed regime tends to increase with
+increased fuel mass ﬂow. The ability of the combustion model to
+correctly predict the nonpremixed ﬂame stabilization mechanism
+needs to be improved in order to use CFD as a reliable design tool
+and predict the correct ﬂame behavior for a wide range of operating
+conditions. In addition, as preferential diffusion effects become
+more important inhydrogen ﬂames,a model extensiontoaccount for
+Fig. 8
+Comparison of normalized mean heat release rate for ﬂame A (left) and B (right): (a) premixed regime and
+(b) nonpremixed regime
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+nonunity Lewis number effects could further improve the predictive
+capabilities of the simulation.
+Acknowledgment
+We acknowledge the funding by the DLR’s aeronautics
+directorate through the project ADAPT (“Assessment and Digital-
+ization of Forthcoming Propulsion Technologies”) and the German
+Federal Ministry for Economic Affairs and Climate Action
+(BMWK) through the project WotAn (FKZ 20M2104B).
+Funding Data
+ DLR’s aeronautics directorate through the project ADAPT
+(“Assessment and Digitalization of Forthcoming Propulsion
+Technologies”) (Funder ID: 10.13039/501100002946).
+ German Federal Ministry for Economic Affairs and Climate
+Action (BMWK) through the project WotAn (FKZ
+20M2104B; Funder ID: 10.13039/501100006360).
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article
+are obtainable from the corresponding author upon reasonable
+request.
+Nomenclature
+Roman Letters
+_m ¼ mass ﬂow (g/s)
+Pth ¼ thermal power (kW)
+T ¼ temperature (K)
+Greek Symbols
+Dp ¼ relative pressure loss (%)
+UPZ ¼ primary zone equivalence ratio
+Abbreviations
+CFD ¼ computational ﬂuid dynamics
+DTF ¼ dynamic thickened ﬂame
+FGM ¼ ﬂamelet-generated manifolds
+HRR ¼ heat release rate
+IR ¼ infrared
+LES ¼ large-eddy-simulations
+UV ¼ ultraviolet
+References
+[1] Brewer, G. D., 1991, Hydrogen Aircraft Technology, CRC Press, Boca Raton, FL.
+[2] France, D., 1980, “Combustion Characteristics of Hydrogen,” Int. J. Hydrogen
+Energy, 5(4), pp. 369–374.
+[3] Haglind, F., and Singh, R., 2004, “Design of Aero Gas Turbines Using Hydrogen,”
+ASME J. Eng. Gas Turbines Power, 128(4), pp. 754–764.
+[4] Brewer, G. D., 1980, “Prospects for Hydrogen Aircraft,” SAE Paper No. 800756.
+[5] Sosounov, V., and Orlov, V., 1990, “Experimental Turbofan Using Liquid
+Hydrogen and Liquid Natural Gas as Fuel,” AIAA Paper No. 90-2421.
+[6] Noble, D., Wu, D., Emerson, B., Sheppard, S., Lieuwen, T., and Angello, L., 2021,
+“Assessment of Current Capabilities and Near-Term Availability of Hydrogen-
+Fired Gas Turbines Considering a Low-Carbon Future,” ASME J. Eng. Gas
+Turbines Power, 143(4), p. 041002.
+[7] Agarwal, P., Sun, X., Gauthier, P. Q., and Sethi, V., 2019, “Injector Design Space
+Exploration for an Ultra-Low NOx Hydrogen Micromix Combustion System,”
+ASME Paper No. GT2019-90833.
+[8] Funke, H. H.-W., Beckman, N., Keinz, J., and Horikawa, A., 2021, “30 Years of
+Dry Low NOx Micromix Combustor Research for Hydrogen-Rich Fuels: An
+Overview of Past and Present Activities,” ASME J. Eng. Gas Turbines Power,
+143(7), p. 071002.
+[9] Horikawa, A., Okada, K., Yamaguchi, M., Aoki, S., Wirsum, M., Funke, H. H.-W.,
+and Kusterer, K., 2021, “Combustor Development and Engine Demonstration of
+Micro-Mix Hydrogen Combustion Applied to M1A-17 Gas Turbine,” ASME
+Paper No. GT2021-59666.
+[10] Abbot, D., Giannotta, A., Sun, X., Gauthier, P., and Sethi, V., 2021,
+“Thermoacoustic Behaviour of a Hydrogen Micromix Aviation Gas Turbine
+Combustor Under Typical Flight Conditions,” ASME Paper No. GT2021-59844.
+[11] Sun, X., Abbott, D., Vir Singh, A., Gauthier, P., and Sethi, B., 2021, “Numerical
+Investigation of Potential Cause of Instabilities in a Hydrogen Micromix Injector
+Array,” ASME Paper No. GT2021-59842.
+[12] Chterev, I., and Boxx, I., 2021, “Effect of Hydrogen Enrichment on the Dynamics
+of a Lean Technically Premixed Elevated Pressure Flame,” Combust. Flame, 225,
+pp. 149–159.
+[13] Lam, K.-K., Geipel, P., and Larfeldt, J., 2014, “Hydrogen Enriched Combustion
+Testing of Siemens Industrial SGT-400 at Atmospheric Conditions,” ASME J.
+Eng. Gas Turbines Power, 137(2), p. 021502.
+[14] Reichel, T. G., Goeckeler, K., and Paschereit, O., 2015, “Investigation of Lean
+Premixed Swirl-Stabilized Hydrogen Burner With Axial Air Injection Using OH-
+PLIF Imaging,” ASME J. Eng. Gas Turbines Power, 137(11), p. 111513.
+[15] Mira, D., Lehmkuhl, O., Both, A., Stathopoulos, P., Tanneberger, T., Reichel, T.
+G., Paschereit, C. O., Vazquez, M., and Houzeaux, G., 2020, “Numerical
+Characterization of a Premixed Hydrogen Flame Under Conditions Close to
+Flashback,” Flow, Turbul. Combust., 104(2–3), pp. 479–507.
+[16] Capurso, T., Laera, D., Riber, E., and Cuenot, B., 2023, “NOx Pathways in Lean
+Partially Premixed Swirling H2–Air Turbulent Flame,” Combust. Flame, 248,
+p. 112581.
+[17] Marragou, S., Magnes, H., Poinsot, T., Selle, L., and Schuller, T., 2022,
+“Stabilization Regimes and Pollutant Emissions From a Dual Fuel CH4/H2 and
+Dual Swirl Low NOx Burner,” Int. J. Hydrogen Energy, 47(44), pp. 19275–19288.
+[18] Leroy, M., Mirat, C., Renaud, A., and Vicquelin, R., 2022, “Stabilization of Low-
+NOx Hydrogen Flames on a Dual-Swirl Coaxial Injector,” ASME J. Eng. Gas
+Turbines Power, 145(2), p. 021021.
+[19] Aniello, A., Laera, D., Marragou, S., Magnes, H., Selle, L., Schuller, T., and
+Poinsot, T., 2023, “Experimental and Numerical Investigation of Two Flame
+Stabilization Regimes Observed in a Dual Swirl H2-Air Coaxial Injector,”
+Combust. Flame, 249, p. 112595.
+[20] Knudsen, E., and Pitsch, H., 2009, “A General Flamelet Transformation Useful for
+Distinguishing Between Premixed and Non-Premixed Modes of Combustion,”
+Combust. Flame, 156(3), pp. 678–696.
+[21] Illana, E., Mira, D., and Mura, A., 2021, “An Extended Flame Index Partitioning
+for Partially Premixed Combustion,” Combust. Theory Modell., 25(1),
+pp. 121–157.
+[22] Yamashita, H., Shimada, M., and Takeno, T., 1996, “A Numerical Study on Flame
+Stability at the Transition Point of Jet Diffusion Flames,” Symp. (Int.) Combust.,
+26(1), pp. 27–34.
+[23] G€overt, S., Lipkowicz, J. T., and Janus, B., 2023, “Compressible Large Eddy
+Simulation of Thermoacoustic Instabilities in the PRECCINSTA Combustor
+Using Flamelet Generated Manifolds With Dynamic Thickened Flame Model,”
+ASME J. Eng. Gas Turbines Power, 146(1), p. 011011.
+[24] Behrendt, T., 2003, “Str€omung und Verbrennung in einem neuen D€usenkonzept
+f€ur die magere Vormischverbrennung in Fluggasturbinen,” Ph.D. thesis, Ruhr
+University Bochum, Bochum, Germany.
+[25] Behrendt, T., Hassa, C., Mohamed, A., and Faleni, J.-P., 2008, “In Situ
+Measurement and Validation of Gaseous Species Concentrations of a Gas Turbine
+Model Combustor by Tunable Diode Laser Absorption Spectroscopy (TDLAS),”
+ASME Paper No. GT2008-51258.
+[26] Gibson, S., Hickstein, D. D., Yurchak, R., Ryazanov, M., Das, D., and Shih, G.,
+2022, “PyAbel/PyAbel: v0.8.5,” European Organization for Nuclear Research,
+Geneva, Switzerland, accessed Dec. 19, 2023, https://zenodo.org/records/5888391
+[27] Hardalupas, Y., and Orain, M., 2004, “Local Measurements of the Time-
+Dependent Heat Release Rate and Equivalence Ratio Using Chemiluminescent
+Emission From a Flame,” Combust. Flame, 139(3), pp. 188–207.
+[28] Koomen, J., Dammers,T.,Demougeot, N., Stuttaford, P.,Heinze,J.,Stockhausen,G.,
+and Fleing, C.,2022, “HighPressure Testing WithOptical Diagnostics of a Hydrogen
+Retroﬁt Solution to Eliminate Carbon Emissions,” ASME Paper No. GT2022-82652.
+[29] Rivie`re, P., and Souﬁani, A., 2012, “Updated Band Model Parameters for H2O,
+CO2, CH4 and CO Radiation at High Temperature,” Int. J. Heat Mass Transfer,
+55(13–14), pp. 3349–3358.
+[30] van Oijen, J., and de Goey, L., 2000, “Modelling of Premixed Laminar Flames
+Using Flamelet-Generated Manifolds,” Combust. Sci. Technol., 161(1), pp. 113–137.
+[31] Goodwin, D. G., Moffat, H. K., Schoegl, I., Speth, R. L., and Weber, B. W., 2021,
+“Cantera: An Object-Oriented Software Toolkit for Chemical Kinetics,
+Thermodynamics, and Transport Processes,” Version 2.5.1, European Organiza-
+tion for Nuclear Research, Geneva, Switzerland.
+[32] San Diego Mechanism, 2024, “Chemical-Kinetic Mechanisms for Combustion
+Applications,” San Diego Mechanism, Mechanical and Aerospace Engineering
+(Combustion Research), University of California at San Diego, San Diego, CA,
+accessed July 2, 2023, https://web.eng.ucsd.edu/mae/groups/combustion/mecha-
+nism.html
+[33] Kathrotia, T., Fikri, M., Bozkurt, M., Hartmann, M., Riedel, U., and Schulz, C.,
+2010, “Study of the HþOþM Reaction Forming OH*: Kinetics of OH*
+Chemiluminescence in Hydrogen Combustion Systems,” Combust. Flame,
+157(7), pp. 1261–1273.
+[34] Legier, J. P., Poinsot, T., and Veynante, D., 2000, “Dynamically Thickened Flame
+LES Model for Premixed and Non-Premixed Turbulent Combustion,” Proceed-
+ings of the Summer Program 2000, Stanford, CA, Center for Turbulence Research,
+pp. 157–168.
+[35] Wang, G., Boileau, M., and Veynante, D., 2011, “Implementation of a Dynamic
+Thickened Flame Model for Large Eddy Simulations of Turbulent Premixed
+Combustion,” Combust. Flame, 158(11), pp. 2199–2213.
+[36] Charlette, F., Meneveau, C., and Veynante, D., 2002, “A Power-Law
+Flame Wrinkling Model for LES of Premixed Turbulent Combustion—Part I:
+Non-Dynamic Formulation and Initial Tests,” Combust. Flame, 131(1–2),
+pp. 159–180.
+111013-10 / Vol. 146, NOVEMBER 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 11 ---
+
+[37] Durand, L., and Polifke, W., 2007, “Implementation of the Thickened Flame
+Model for Large Eddy Simulation of Turbulent Premixed Combustion in a
+Commercial Solver,” ASME Paper No. GT2007-28188.
+[38] Nicoud, F., and Ducros, F., 1999, “Subgrid-Scale Stress Modelling Based on the
+Square of the Velocity Gradient Tensor,” Flow, Turbul. Combust., 62(3), pp.
+183–200.
+[39] Shima, N., Kuya, Y., Tamaki, Y., and Kawai, S., 2021, “Preventing Spurious
+Pressure Oscillations in Split Convective Form Discretization for Compressible
+Flows,” J. Comput. Phys., 427, p. 110060.
+[40] Burg, C., 2005, “Higher Order Variable Extrapolation for Unstructured Finite
+Volume RANS Flow Solvers,” AIAA Paper No. 2005-4999.
+[41] Venkatakrishnan, V., 1993, “On the Accuracy of Limiters and Convergence to
+Steady State Solutions,” AIAA Paper No. 93-880.
+[42] Swanson, R. C., and Turkel, E., 1992, “On Central-Difference and Upwind
+Schemes,” J. Comput. Phys., 101(2), pp. 292–306.
+[43] Jameson, A., 2017, “Origins and Further Development of the
+Jameson–Schmidt–Turkel Scheme,” AIAA J., 55(5), pp. 1487–1510.
+[44] Lipkowicz, J. T., G€overt, S., and Janus, B., 2024, “Adaptation of the
+Low Dissipation Low Dispersion Scheme for Reactive Multi Component
+Flows on Unstructured Grids Using Density-Based Solvers,” ASME Paper
+No. GT2024-127496.
+[45] Becker, K. C., and Ashcroft, G., 2014, “A Comparative Study of Gradient
+Reconstruction Methods for Unstructured Meshes With Application to Turbo-
+machinery Flows,” AIAA Paper No. 2014-0069.
+[46] Thomas, J. L., Diskin, B., and Nishikawa, H., 2011, “A Critical Study of
+Agglomerated Multigrid Methods for Diffusion on Highly-Stretched Grids,”
+Comput. Fluids, 41(1), pp. 82–93.
+[47] Kersken, H.-P., Ashcroft, G., Frey, C., Wolfrum, N., and Korte, D.,
+2014,
+“Nonreﬂecting
+Boundary
+Conditions
+for
+Aeroelastic
+Analysis
+in
+Time
+and Frequency Domain 3D RANS Solvers,” ASME Paper
+No.
+GT2014-25499.
+[48] Reichardt, H., 1951, “Vollst€andige Darstellung der turbulenten Geschwindig-
+keitsverteilung in glatten Leitungen,” ZAMM - J. Appl. Math. Mech./Z. Angew.
+Math. Mech., 31(7), pp. 208–219.
+[49] Beerer, D., McDonell, V., Therkelsen, P., and Cheng, R. K., 2013, “Flashback and
+Turbulent Flame Speed Measurements in Hydrogen/Methane Flames Stabilized
+by a Low-Swirl Injector at Elevated Pressures and Temperatures,” ASME J. Eng.
+Gas Turbines Power, 136(3), p. 031502.
+Journal of Engineering for Gas Turbines and Power
+NOVEMBER 2024, Vol. 146 / 111013-11
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/11/111013/7363128/gtp_146_11_111013.pdf by University of Cincinnati user on 31 December 2025

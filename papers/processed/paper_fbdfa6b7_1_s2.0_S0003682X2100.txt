@@ -1,0 +1,1585 @@
+
+--- Page 1 ---
+
+Investigation of thermoacoustic oscillation attenuation by modiﬁed
+Helmholtz dampers with dual frequency bands
+Zhijian Yu a,c, Yang Yang a,b,c,⇑
+a Advanced Gas Turbine Laboratory, Institute of Engineering Thermophysics, Chinese Academy of Sciences, Beijing 100190, China
+b Nanjing Institute of Future Energy System, Institute of Engineering Thermophysics, Chinese Academy of Sciences, Nanjing 210000, China
+c Department of Engineering, University of Chinese Academy of Sciences, Beijing 100190, China
+a r t i c l e
+i n f o
+Article history:
+Received 9 March 2021
+Received in revised form 17 September
+2021
+Accepted 21 September 2021
+Available online 1 October 2021
+Keywords:
+Thermoacoustic instability
+Passive control
+Multi-bandwidth dampers
+Damper impedance model
+Helmholtz solver
+Limit cycle
+a b s t r a c t
+Two modiﬁed Helmholtz dampers with multi-adjustable frequency bands are proposed to overcome the
+drawback of Helmholtz dampers and Quarter-lambda tubes by which multi-irregular eigenfrequencies in
+gas turbine combustors cannot be simultaneously treated via one interface. Theoretical impedance mod-
+els of these dampers are established and experimentally validated in an impedance tube. Enhanced ther-
+moacoustic instability attenuation by modiﬁed dampers is validated in a Rijke tube. A Helmholtz-based
+method is combined with damper impedance models to predict the limit cycle behavior of a Rijke tube
+equipped with dampers. Results indicate that the impedance models can effectively calculate reﬂection
+coefﬁcients of modiﬁed and traditional dampers with cooling purge air. The amount of the secondary
+tube inﬂuences the reﬂection coefﬁcients of modiﬁed dampers. Experimental results indicate that ampli-
+tudes of the overall pressure ﬂuctuation and each order ﬂuctuation at the limit cycle are further attenu-
+ated by modiﬁed dampers compared with those by traditional ones. Larger purge ﬂow rates for dampers
+lead to more pulsation attenuation caused by vortex shedding dissipation. The numerical method can
+predict the eigenfrequencies, velocity ﬂuctuation ratios, and mode shapes at the limit cycle after using
+different types of dampers. When activating modiﬁed dampers, weaker ﬂuctuations are successfully cap-
+tured by this numerical approach.
+ 2021 Elsevier Ltd. All rights reserved.
+1. Introduction
+Thermoacoustic instability is considered one of the major issues
+in developing modern low-emission gas turbine combustors. This
+phenomenon is mainly due to interactions between pressure ﬂuc-
+tuations and heat release pulsations [1]. Numerous thermoacoustic
+suppression strategies have been proposed, including active and
+passive control methods [2]. The active control working in open-
+loop or closed-loop conditions uses mechanical or acoustic actua-
+tors to disrupt thermoacoustic feedback networks [3,4]. Passive
+controls use cavities [5–7] or perforated plates [8] to dissipate
+the ﬂuctuation of energy, with lower costs and more straightfor-
+ward structures. Typical passive damping devices for land-based
+gas turbines are Helmholtz dampers (HD) [9–11] and Quarter-
+lambda (1/4-k) tubes [12,13], whose applications have been well
+reported in many references.
+Helmholtz dampers only work well in a narrow frequency band,
+while 1/4-k tubes have periodic frequency bands, whose nth order
+eigenfrequency is 2n – 1 times the ﬁrst one, indicating the fre-
+quency interval is ﬁxed. Current dampers have some weaknesses
+and cannot handle varying work-load conditions for actual ﬂuctu-
+ations with multiple and irregular eigenfrequencies in modern gas
+turbines. Additionally, longitudinal and azimuthal instabilities
+which possess different frequencies may coexist in annular com-
+bustors [14]. More ports need to be reserved for installing conven-
+tional dampers to alleviate longitudinal and azimuthal modes. The
+Helmholtz damper inserted by two perforated plates has been pro-
+posed to broaden the frequency band and validated in a full-scale
+annular combustor by Alstom [15,16]. The acoustic model of this
+damper is established by ﬁtting experimental results in the previ-
+ous work, but this method is not very easy to be utilized in the
+design stage. The analytic model and sound absorptive properties
+of pure dual perforated plates under bias ﬂow have been detailedly
+investigated in the literature [17]. Recently, it has been reported
+that combustion instabilities in the frequency range 100–800 Hz
+can be stabilized by adding a damper with a reﬂection coefﬁcient
+of less than 0.1 when a ‘‘diode” loudspeaker box is inserted into
+https://doi.org/10.1016/j.apacoust.2021.108433
+0003-682X/ 2021 Elsevier Ltd. All rights reserved.
+⇑Corresponding author at: Advanced Gas Turbine Laboratory, Institute of
+Engineering Thermophysics, Chinese Academy of Sciences, Beijing 100190, China.
+E-mail address: yybelinda@outlook.com (Y. Yang).
+Applied Acoustics 185 (2022) 108433
+Contents lists available at ScienceDirect
+Applied Acoustics
+journal homepage: www.elsevier.com/locate/apacoust
+
+
+--- Page 2 ---
+
+the plenum [18]. This inserted object may make the interior struc-
+ture of combustors more sophisticated. The resonator consisting of
+two Helmholtz resonators connected in series, which has two sep-
+arated eigenfrequencies, has been reported in the mufﬂe area
+[19,20]. Analytical models for both the resonance frequencies and
+the transmission loss are based on a piston-driven method.
+In contrast, their work mainly focuses on acoustic transmission
+loss, which is different from the impedance and absorptive charac-
+teristics in the area of passive control for combustion instabilities
+in combustors. Meanwhile, dampers for combustors need to be
+cooled by purge air from the back panel, which is different from
+static analysis in mufﬂes. Dissipations caused by cooling air may
+be considerable, while those properties are not necessary for muf-
+ﬂe models.
+When combustors are equipped with dampers, numerically
+determining suitable geometric sizes of dampers and optimizing
+positions for installing them is another critical question. A low-
+order network model based on homogeneous acoustic elements
+can be combined with the damper model to investigate the optimal
+design of dampers for combustors [21,22]. Other network codes,
+such as Ta3 [15,23,24], OSCILOS [25,26], etc. are well reported for
+predicting thermoacoustic instabilities in combustors with and
+without dampers. Geometric details, aerodynamic structures, and
+non-uniform distributions of physical parameters in real combus-
+tors are ignored in those codes.
+The Helmholtz method has been developed for remedying the
+above limitations. Eigenfrequencies, growth rates and eigenmodes
+of a speciﬁc combustor can be solved, and corresponding combus-
+tion stabilities can be estimated [27]. Generally, the ﬂame transfer
+function (FTF) representing ﬂame response dynamics needs to be
+embedded into the Helmholtz method. The FTF can be extracted
+from experimental data [28] or numerical results by the system
+identiﬁcation technique [29,30]. Campa et al. [31,32] performed
+the Helmholtz method for an annular combustor. When the ﬂame
+transfer function is extended to a nonlinear ﬂame describing func-
+tion (FDF), the limit cycle of thermoacoustic instabilities in com-
+bustors can be predicted [33–35]. It is based on the assumption
+that when the growth rate is equal to the inherent dissipation of
+the system, pressure oscillation amplitudes reach the limit cycle
+state. This dissipation coefﬁcient can be measured by the fre-
+quency response method [36]. Recently, the Helmholtz solver with
+an experimentally measured ﬂame describing function has been
+employed to numerically investigate the attenuation characteris-
+tics of perforated plates on the combustion instability in a pre-
+mixed combustor [37,38]. Nevertheless, it is scarcely reported
+how to simplify the Helmholtz method to numerically evaluate
+the absorptive properties of passive dampers on thermoacoustic
+instabilities. Experimental and numerical comparisons between
+traditional and modiﬁed dampers are still limited in previous
+studies.
+In this work, two modiﬁed Helmholtz dampers with multi-
+adjustable frequency bands are proposed to overcome the weak-
+ness of traditional dampers. These dampers can simultaneously
+attenuate pressure ﬂuctuations with multiple frequencies through
+on interface, beneﬁcial for combustor reliability and lower costs.
+Purge air is employed for dampers to simulate the cooling condi-
+tion. Theoretical impedance models of modiﬁed dampers are
+established, and validated by the impedance tube apparatus. Dissi-
+pation coefﬁcients caused by cooling air are introduced to these
+impedance models. The inﬂuence of the amount of the secondary
+tube on impedance characteristics is also investigated.
+Moreover, experimental comparisons between modiﬁed and
+traditional dampers on pressure ﬂuctuation attenuations are car-
+ried out in a Rijke tube, generating one or two eigenfrequencies
+at the limit cycle depending on the heater location. With the com-
+bination of corresponding damper impedance models and mea-
+sured damping rates, the Helmholtz method predicts the limit
+cycle properties of a Rijke tube equipped with modiﬁed dampers.
+This numerical approach also evaluates the improved acoustic per-
+formance of modiﬁed dampers.
+2. Experimental
+2.1. Reﬂection coefﬁcient tests
+The transfer function method based on two microphones is
+used to determine the sound reﬂection coefﬁcient of the damper
+in an impedance tube. This impedance tube is designed according
+to the international standard (ISO 10534-2-1998) [39]. The lower
+and upper frequency limits mainly depend on the spacing of
+microphones and the diameter of the tube, respectively.
+The impedance tube shown in Fig. 1 is made of Plexiglas with an
+internal diameter d of 100 mm and a length of 900 mm. A full-
+frequency loudspeaker (Peerless 75F25AL02-08) is ﬁxed at the
+tube inlet. The sweep sine signal generated by a function generator
+is ampliﬁed to drive the loudspeaker. Two 1/4-inch pressure-ﬁeld
+microphones (G.R.A.S. 46BL) are mounted on the side wall with
+an interval x1 – x2 of 0.18 m. The distance x2 between the second
+microphone and the tube outlet is 0.08 m. The test frequency range
+is around 95–858 Hz, according to the ISO standard. All the pres-
+sure signals are simultaneously collected by an acquisition card
+(NI-9230, maximum sampling frequency 12.8 kHz). An absorptive
+enclosure is installed near the loudspeaker to avoid air column res-
+onance. Purge air ﬂows into the back cavity of the damper through
+a small hole to simulate the cooling condition.
+The period of the excitation signal is 1 s, and its frequency is in
+the range 60–1700 Hz. Pressure signals with a duration of 2 s are
+used for the fast Fourier transform (FFT) with a Hanning window,
+and the corresponding frequency resolution is 0.5 Hz. The normal
+reﬂection coefﬁcient R neglecting the mean ﬂow can be calculated
+as follows:
+R ¼ R
+j jei/R ¼ H12  eik x1x2
+ð
+Þ
+eik x1x2
+ð
+Þ  H12
+e2ikx1
+ð1Þ
+k ¼ 2pf
+c0
+ i  1:94  102
+ﬃﬃ
+f
+p
+c0  d
+ð2Þ
+where |R| is the amplitude of the reﬂection coefﬁcient, UR is the
+phase angle, f is the frequency and c0 is the sound velocity. The
+transfer function H12 is deﬁned by the complex ratio S12/S11. S12 is
+the cross spectrum of complex pressure at two microphone posi-
+tions and S11 is the auto spectrum.
+The impedance ratio Z can be calculated as follows:
+Z ¼ ^p
+^u ¼ q0c0
+1 þ R
+1  R
+ð3Þ
+Fig. 1. Schematic of the impedance tube system.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+2
+
+
+--- Page 3 ---
+
+where bp is the complex pressure, bu is the complex velocity and q0 is
+the air density.
+2.2. Rijke tube apparatus
+Passive control tests for dampers are performed in a vertical
+steel Rijke tube (50 mm i.d., 0.9 m length), as shown in Fig. 2. This
+Rijke tube has a much less cross-section diameter than the mini-
+mum wavelength, thus only longitudinal modes are considered.
+Nichrome wires with a length of 2.02 m and a resistance of 8.9 X
+are ﬁxed on a mica plate as the heat source. The diameter of wires
+is 0.6 mm and the thickness of the heat region is 15 mm. The AC
+regulator is supplied to drive wires. Pressure signals are collected
+by two microphones (G.R.A.S 46BL) through the waveguides with
+a semi-inﬁnite technique. Cooling jackets are employed to cool
+the hot stream. The positions of microphones need to be far away
+from the pressure nodes of each mode. The distances from two
+microphones to the tube inlet are 0.75 m and 0.67 m, respectively.
+The K-type thermocouple is ﬁxed at the axial location of 0.49 m.
+The ﬂuctuation will disappear even if a tiny damper is installed
+near the pressure antinode in the Rijke tube, which makes the
+absorptive properties of different dampers hard to be compared.
+Therefore, dampers are mounted at the axial location of 0.78 m.
+All dampers are installed through one interface to alleviate the
+impact of the port quantity.
+3. Numerical methods
+3.1. Damper impedance model
+This work has designed and compared four kinds of dampers,
+including a Helmholtz damper (HD), Quarter-lambda tube, and
+two modiﬁed dampers (MHD-1 and MHD-2). The sketches of these
+dampers are presented in Fig. 3. Purge air enters the cavity of dam-
+pers through a tubule whose end is equipped with a check valve.
+MHD-1 consists of two Helmholtz dampers connected in series
+and MHD-2 is similar to the combination of a Helmholtz damper
+and a wavelength tube. Multiple ﬁlter bandwidths can be simulta-
+neously generated by two parts of the damper. By tuning the geo-
+metric sizes of each component, any given two eigenfrequencies
+can be obtained. L, l2 and L2 are selected as the variables and quan-
+titatively determined to satisfy the design frequencies by a search
+algorithm.
+3.1.1. Helmholtz damper
+The Helmholtz damper consists of a cavity and a neck. Based on
+the plane wave propagation assumption that the focused wave-
+length is more considerable than the damper sizes, the impedance
+model can be deduced from the linear Euler equation [40]. The
+impedance ratio of the cavity Zca can be solved as:
+Zca ¼ q0c2
+0pr2
+ixV
+ð4Þ
+where x = 2pf is the angular frequency and V is the volume of the
+cavity.
+The acoustic reactance ratio of the neck can be calculated by
+Xn ¼ q0xleq
+ð5Þ
+where leq = l + lcor denotes the effective length. lcor = cor16r/(3p) is
+the end correction caused by the radiation impedance, cor is the end
+correction coefﬁcient and 16r/(3p) is the baseline value when the
+end is inserted into an inﬁnite region. The resistance RH includes
+the vortex shedding resistance Re caused by the purge air at the
+neck mouth, and the dissipative loss Rd resulting from viscous stres-
+ses on the wall [40]. The relationship between Re and the ﬂow
+velocity can be described as a nonlinear model [41,42] or a linear
+model [13]. In this work, the linear model is used, and Rd is intro-
+duced as:
+Re ¼ feq0 u
+
+ð6Þ
+Rd ¼ fdq0
+l
+2r
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+vpc0
+leq
+r
+1 þ c  1
+ﬃﬃﬃﬃﬃ
+Pr
+p
+
+
+ð7Þ
+where fe denotes the vortex shedding factor, u is the mean velocity
+through the neck, fd is the wall dissipation coefﬁcient, l is the neck
+length, m denotes the kinetic viscosity, c denotes the speciﬁc heat
+ratio and Pr denotes the Prandtl number. The total impedance ratio
+can be expressed as:
+ZH ¼ ^p
+^u ¼ Re þ Rd þ iXn þ Zca
+ð8Þ
+Thus, the resonance frequency of the HD is [13,40]:
+f ¼ c0r
+2p
+ﬃﬃﬃﬃﬃﬃﬃﬃ
+p
+Vleq
+r
+ð9Þ
+3.1.2. Quarter-lambda tube
+The 1/4-k tube consists of a tube with a rigid end. The reactance
+ratio of the 1/4-k tube is calculated as [40]:
+XQ ¼ 
+q0c0
+tan xleq=c0
+
+
+ð10Þ
+where x is the angular frequency, leq = l + lcor denotes the effective
+length and lcor = cor16r/(3p) is the end correction. The vortex shed-
+ding and wall viscous dissipation resistance can be expressed same
+as the HD’s:
+Re ¼ feq0 u
+
+ð11Þ
+Rd ¼ fdq0
+l
+2r
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+vpc0
+leq
+r
+1 þ c  1
+ﬃﬃﬃﬃﬃ
+Pr
+p
+
+
+ð12Þ
+Fig. 2. Schematic of the Rijke tube.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+3
+
+
+--- Page 4 ---
+
+The impedance ratio is given by
+ZQ ¼ ^p
+^u ¼ Re þ Rd þ iXQ
+ð13Þ
+The resonance frequency f is equal to c0/4leq.
+3.1.3. Modiﬁed dampers
+The modiﬁed dampers consist of several elements arranged in a
+sequential order, as shown in Fig. 3c and 3d. The impedance of
+these dampers can be derived by the recursive method or electrical
+circuit analogy [40,43]. The analogy between electrical system
+variables and acoustical ones has been validated and widely used
+in the mufﬂer study [43]. Here, the pressure ﬂuctuation
+bp
+ 
+replaces voltage and mass velocity q0Sbu
+
+
+replaces current. The
+equivalent circuits of these modiﬁed dampers are shown in
+Fig. 4. The mass velocity is instead of the particle velocity
+bu
+ 
+in
+the impedance to match the mass conversation.
+The neck impedance Zn, cavity impedance Zc, secondary neck
+impedance Zn2 and cavity impedance Zc2 are introduced as:
+Zn ¼
+^p
+q0S^u ¼ Re þ Rd þ iXn
+q0pr2
+ð14Þ
+Zc ¼
+^p
+q0S^u ¼
+Zca
+q0pr2
+ð15Þ
+Zn2 ¼
+^p
+q0S2^u ¼ Re2 þ Rd2 þ iXn2
+q0pr2
+2
+ð16Þ
+Zc2 ¼
+^p
+q0S2^u ¼ Zca2
+q0pr2
+2
+ð17Þ
+Therefore, following equations can be obtained to calculate the
+impedance of modiﬁed dampers. Here, nsn denotes the amount of
+the secondary tube arranged in parallel.
+ZMHD - 1 ¼ Zn þ
+Z1
+c
+þ Zn2=nsn þ Zc2
+ð
+Þ1
+
+1
+ð18Þ
+ZMHD - 2 ¼ Zn þ
+Z1
+c
+þ Zn2=nsn
+ð
+Þ1
+
+1
+ð19Þ
+3.2. Rijke tube modeling
+3.2.1. Heat release rate model
+Heckl’s nonlinear model [44,45] is widely applied to describe a
+hot cylindrical wire’s time-variable heat release ﬂuctuation in gas
+streams. Due to the nonlinearity of this model, the limit cycle in
+the Rijke tube can be predicted. Heckl’s nonlinear model in the
+time domain is introduced as follows:
+q0 tð Þ ¼
+2Lw Tw  T
+
+
+
+ﬃﬃﬃ
+3
+p
+
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+pkcv q
+ dw=2
+q
+
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+u
+
+3 þ u0 t  s
+ð
+Þ
+					
+					
+v
+u
+u
+t
+
+ﬃﬃﬃ
+u
+
+3
+s
+2
+4
+3
+5
+ð20Þ
+where q0ðtÞ is the heat release ﬂuctuation in the time domain, Lw is
+the length of the wire, Tw  T
+
+is the temperature difference, k is the
+heat conductivity of air, cv denotes the speciﬁc heat, dw denotes the
+diameter of the wire, and u
+ is the mean inﬂow velocity and u0de-
+notes the velocity ﬂuctuation. The resistance of wires is commonly
+assumed to depend on their temperature. Thus, the surface temper-
+ature of wire Tw can be estimated as:
+Tw ¼ T0 þ Rw  R0
+aR0
+ð21Þ
+Fig. 3. Sketch of the Helmholtz damper, Quarter-lambda tube and two modiﬁed dampers.
+Fig. 4. Equivalent circuit of modiﬁed dampers.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+4
+
+
+--- Page 5 ---
+
+where R0 is the resistance at room temperature T0, Rw is the resis-
+tance in the hot condition acquired by measuring the current and
+voltage of wires and a denotes the temperature coefﬁcient. s is
+the time delay estimated by Lighthill’s empirical model [46].
+s ¼ 0:2dw
+u
+
+ð22Þ
+Because the Helmholtz equation is solved in the frequency
+domain, the Fourier transform of q0 tð Þ needs to be primarily imple-
+mented. The corresponding transfer function between the heat
+release rate and the inﬂow velocity ﬂuctuation in the frequency
+domain is acquired as:
+^q x
+ð
+Þ
+^u x
+ð
+Þ ¼
+2xLw Tw  T
+
+
+
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+pkcv q
+ dw=2
+q
+ﬃﬃﬃ
+3
+p p^u
+
+Z 2p=x
+0
+ﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃﬃ
+u
+
+3 þ ^u
+j jcosxt
+					
+					
+v
+u
+u
+t
+ cosxtdt
+0
+@
+1
+A  exp ixs
+ð
+Þ
+¼ G ^u= u
+
+
+
+exp ixs
+ð
+Þ
+ð23Þ
+Here, G denotes the amplitude of the transfer function, and xs
+denotes the phase. After simplifying the above equation, it can be
+found that the amplitude is only the function of the velocity ﬂuc-
+tuation, and the time delay and the frequency determine the phase.
+Fig. 5 depicts the evolutions of transfer function amplitudes with
+increasing velocity ﬂuctuation levels for two heating voltages.
+The amplitude derived from the nonlinear model increases at ﬁrst
+and then decreases with increasing velocity ﬂuctuation levels,
+whereas the amplitude from the linear model maintains a constant
+value.
+3.2.2. Helmholtz solver
+When the mean ﬂow velocity is negligible compared with local
+sound speed, the Helmholtz equation can be deduced from the lin-
+ear Euler equation in the presence of heat ﬂuctuations, as shown in
+Eq. (24).
+1
+c
+2
+@2p0
+@t2  q
+ r  1
+q
+ rp0 ¼ c  1
+c
+2
+@q0
+@t
+ð24Þ
+Where p0 and q0 are pressure and the heat release rate ﬂuctuation in
+the time domain. In linear acoustics, ﬂuctuations can be divided
+into mean and perturbation terms. For instance,
+p0 ¼ R ^p x
+ð Þexp ixt
+ð
+Þ
+ð
+Þ ¼ R ^p x
+ð Þexp xit
+ð
+Þexp ixrt
+ð
+Þ
+ð
+Þ
+¼ ^p x
+ð Þexp xit
+ð
+Þcos xrt
+ð
+Þ
+ð25Þ
+where (^) denotes the complex ﬂuctuation value, x is the variable
+matrix and x ¼ xr þ ixi is the complex angular frequency. The real
+part xr = 2pf is the resonant angular frequency, and the imaginary
+part xi means the growth rate of the pressure ﬂuctuation. A nega-
+tive value of xi means the ﬂuctuation amplitude exponentially
+grows with time, and a positive value results in the amplitude
+decaying with time, which indicates that the mode does not exist.
+Based on the above treatment, the Helmholtz equation in the
+frequency domain is shown as follows:
+k2
+c
+2 ^p  q
+ r 
+1
+q
+ r^p
+ 
+!
+¼ c  1
+c
+2
+k^q ;
+k ¼ ix
+ð26Þ
+The radiation impedance at both ends of the tube needs to be
+considered if the end is located in an inﬁnite space. This radiation
+impedance ZR [40] is calculated by
+ZR ¼ ^p
+^u ¼ q0c0
+k
+2
+0r2
+0
+4
+þ i0:6k0r0
+ 
+!
+;
+k0r0 < 0:5
+ð27Þ
+Here, r0 is the tube radius and k0 is the wave number. The rela-
+tionship between velocity and pressure ﬂuctuations can be
+expressed by the linearized momentum equation.
+r^p þ ixq0^u ¼ 0
+ð28Þ
+3.2.3. Numerical solution
+The Helmholtz equation is solved by using a ﬁnite element
+method (FEM). The following eigenvalue equation can be acquired
+by performing the Galerkin ﬁnite element discretization.
+2A
+½
+P þ x B x
+ð
+Þ
+½
+P þ x2 C
+½ P ¼ D x
+ð
+Þ
+½
+P
+ð29Þ
+where P is the pressure eigenmodes vector, [2A] is the stiffness
+matrix, [B] is the matrix of boundary conditions, [C] is the mass
+matrix and [D] denotes the monopole acoustic source. This large-
+scale eigenvalue problem is solved by the commercial software
+COMSOL Multiphysics based on the MUMPS (MUltifrontal Massively
+Parallel Sparse Direct Solver) algorithm.
+The heater zone’s geometric structure, including wires and the
+mica sheet, is detailedly modeled, as shown in Fig. 6a. Tetrahedral
+meshes are generated for ﬁnite element simulations. The heater
+zone and the damper connection zone are reﬁned to distinguish
+acoustic details. The mesh resolution is far smaller than 1/6 of
+the minimum wavelength in the frequency range 0–2000 Hz,
+which indicates that the meshes are ﬁne enough. Around 0.35 mil-
+lion cells are generated for each case and the overall mesh is pre-
+sented in Fig. 6b.
+The simulated results are affected by the temperature distribu-
+tion in the tube. Therefore, the nature convection is simulated in
+ANSYS Fluent 19.0 to obtain the temperature distribution. Around
+Fig. 5. Comparison of transfer function amplitudes calculated by nonlinear and
+linear models.
+Fig. 6. (a) Geometry of the heater zone; (b) overall mesh for ﬁnite element
+simulations.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+5
+
+
+--- Page 6 ---
+
+1.8 million polyhedral cells with three-layer prism meshes near all
+wall boundaries are generated for RANS simulations. The realizable
+k-epsilon turbulence model is employed and the gas density is
+solved by the incompressible idea gas-state equation. The wire sur-
+face uses a heat ﬂux boundary. Pressure inlet and outlet conditions
+are utilized. Then, this CFD-based temperature ﬁeld is interpolated
+into COMSOL software. The temperature ﬁeld extracted from CFD
+and the interpolated result in COMSOL are shown in Fig. 7.
+3.3. Damping rate measurement and limit cycle
+The limit cycle is inﬂuenced by the acoustic damping of the
+Rijke tube. Comparing the growth rate with the damping rate,
+the stability of the system can be determined. The limit cycle con-
+dition is reached when the growth rate equals the damping rate.
+The damping rate can be estimated from the frequency response
+test by imposing an external excitation with a loudspeaker
+[33,36]. The frequency bandwidth Df is deﬁned by the frequency
+difference between lower and upper frequencies at the pressure
+amplitude value of ppeak/
+ﬃﬃﬃ
+2
+p
+. The resonance sharpness reﬂecting
+the damping rate is equal tof 0=Df . For a harmonic ﬂuctuation that
+is reasonable in the linear acoustic analysis, the damping rate b is
+approximately pDf rad/s. Response tests are carried out under cold
+conditions. Considering the difference in the hot condition, an
+extra error bar of ± 5% is added. Sinusoidal sweeping signals rang-
+ing from 20 to 1500 Hz are generated as the excitation and two
+microphones are located at the outlet and the inlet of the Rijke
+tube to collect the sound pressure simultaneously.
+3.4. Mode reconstruction
+Based on the one-dimension plane wave assumption which is
+reasonable in the Rijke tube, the sound pressure ﬂuctuation can
+be comprised of separated downstream and upstream travelling
+components:
+^p1 x
+ð
+Þ
+^p2 x
+ð
+Þ
+
+
+¼
+eixx1= c
+ þ u
+
+ð
+Þ
+eixx1= c
+  u
+
+ð
+Þ
+eixx2= c
+ þ u
+
+ð
+Þ
+eixx2= c
+  u
+
+ð
+Þ
+"
+# ^f x
+ð
+Þ
+^g x
+ð
+Þ
+"
+#
+ð30Þ
+Where ^f and ^g denote constant amplitudes for the upstream
+and downstream travelling waves in the frequency domain. Above
+matrix equation can be solved to determine ^f and ^g. Then complex
+pressure and velocity ﬂuctuations at different axial locations
+behind the heater zone can be calculated by Eq. (31).
+^p x;x
+ð
+Þ ¼ ^f x
+ð
+Þeixx= c
+ þ u
+
+ð
+Þ þ ^g x
+ð
+Þeixx= c
+  u
+
+ð
+Þ
+^u x;x
+ð
+Þ ¼
+^f x
+ð
+Þeixx= c
+ þ u
+
+ð
+Þ  ^g x
+ð
+Þeixx= c
+  u
+
+ð
+Þ
+
+
+= q0c0
+ð
+Þ
+ð31Þ
+4. Results and discussion
+4.1. Acoustic characteristic of dampers
+4.1.1. Geometric parameter
+Four types of dampers with different neck sizes are designed
+and compared in this work, including Helmholtz dampers, 1/4-k
+tubes and modiﬁed dampers. The 1st and the 2nd resonance fre-
+quencies of modiﬁed dampers are designed at around 214 Hz
+and 428 Hz, the same as eigenfrequencies of the Rijke tube with
+85 V heating voltage at the heater location of 0.17 m. The reso-
+nance frequency of traditional dampers is around 214 Hz. The geo-
+metric parameters of the above four kinds of dampers used in this
+work are listed in Table 1. For modiﬁed dampers, there are two
+tubes named the neck and the secondary tube. How to choose
+the size of the secondary tube is based on the consideration of
+maintaining the reﬂection coefﬁcient amplitude at the 1st eigen-
+frequency and minimizing the value at the 2nd eigenfrequency.
+When the neck size is constant, there are several conﬁgurations
+to achieve two requested eigenfrequencies. The geometries of
+these conﬁgurations are also shown in this table for the latter tests.
+4.1.2. Helmholtz damper and Quarter-lambda tube
+Initially, the reﬂection coefﬁcients R of Helmholtz dampers and
+1/4-k tubes were measured in the impedance tube. The modeled
+impedance ratio needs to be multiplied by the area ratio r (r = Stube/
+Sneck) to be quantitatively compared with experimental results. It is
+found that the wall viscous dissipative resistance determines the
+amplitude of the reﬂection and the end correction determines
+the eigenfrequency according to the impedance model. Therefore,
+end correction factors, wall viscous dissipation coefﬁcients, and
+vortex shedding coefﬁcients of analytic impedance models can be
+slightly tuned to ﬁt the experimental curves.
+Fig. 8 compares the measured and modeled reﬂection coefﬁ-
+cients for Helmholtz dampers and Quarter-lambda tubes with dif-
+ferent neck sizes under a purge ﬂow of 0 L/min. The end correction
+factors for Helmholtz dampers with neck sizes r of 6, 2, and 1.5 mm
+are 0.75, 0.3, and 0.4, respectively. Corresponding wall viscous dis-
+sipation coefﬁcients are 1.85, 1.10, and 0.94. The wall viscous dis-
+sipation coefﬁcients for 1/4-k tubes with neck radiuses r of 5, 3.5,
+and 2 mm are 1.65(1.15), 1.2(1.0), and 1(0.75), respectively. The
+values in brackets are applied to the second eigenfrequency. The
+corresponding end correction factors are all equal to 1. Overall,
+the curves calculated by analytic models can well track experimen-
+tal ones. It can be found that the reﬂection coefﬁcient amplitude
+decreases, and the phase shifts from negative to a positive value
+near the eigenfrequency band. Thus, the pressure ﬂuctuation is
+selectively ﬁltered by this acoustic feature. Compared with Helm-
+holtz dampers, 1/4-k tubes have two eigenfrequencies below
+800 Hz and the second frequency is three times as large as the ﬁrst
+one. The reﬂection coefﬁcient amplitude curves of 1/4-k tubes are
+shaper, and the minimal amplitudes are more signiﬁcant than
+Fig. 7. Contour of the temperature distribution under 85 V voltage at xf = 0.22 m
+(left: CFD mesh; middle: temperature ﬁeld from CFD results; right: interpolated
+temperature ﬁled in COMSOL).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+6
+
+
+--- Page 7 ---
+
+those of Helmholtz dampers with the same neck sizes, which
+means Helmholtz dampers possess a better absorptive ability for
+pulsations with a single frequency. According to the manufac-
+turer’s description, there are some phase deviations between
+experimental and analytical values below 180 Hz, which may be
+caused by the loudspeaker used in this work being super-
+positioned below 110 Hz.
+4.1.3. Modiﬁed dampers
+Fig. 9 depicts the reﬂection coefﬁcients of MHD-1 with different
+geometric conﬁgurations without purge air. MHD-1 has two
+designed resonance frequencies (around 214 Hz & 428 Hz), which
+is different from those of the 1/4-k tube (214 Hz & 642 Hz), and the
+phases also shift twice at resonance frequencies. For the same neck
+radius of MHD-1, different amplitude distributions of the reﬂection
+coefﬁcient with two given design resonance frequencies can be
+approached, as shown in Fig. 9a, 9b, and 9c. The same resonance
+frequencies can be acquired for different neck sizes by tuning the
+geometric parameters, as shown in Fig. 9c, 9d, and 9e. MHD-1 with
+neck sizes of 1.5 and 2 mm were prepared for later passive control
+tests. The end correction factors for those dampers with 1.5 and
+2 mm neck sizes are 1, 0.2, and 1, 0.5, respectively. Corresponding
+wall viscous dissipation coefﬁcients are 0.9, 0.85, and 1.85, 1.25.
+Fig. 10 depicts the reﬂection coefﬁcients of MHD-2 with differ-
+ent neck sizes without purge air. MHD-2 also has two resonance
+frequencies (around 214 Hz & 428 Hz), and the phases still shift
+twice. The end correction factors for those dampers with 1.5, 2,
+and 3 mm neck sizes are 0.4, 0.35 and 0.25. Corresponding wall vis-
+cous dissipation coefﬁcients are 0.65, 0.75, 0.6, 1.4, and 1.3, 2.7.
+Theoretical impedance models of modiﬁed dampers proposed
+in this work can track well the experimental curves. Thus those
+validated impedance models can be applied for subsequent numer-
+ical simulations to test the damper passive control performances
+for thermoacoustic instabilities in a Rijke tube.
+The effect of the amount of the secondary tube in modiﬁed
+dampers on reﬂection coefﬁcients is further explored based on
+the validated theoretical impedance models, as presented in
+Fig. 11. The parallel secondary tubes have the same neck size. For
+MHD-1 and MHD-2, the frequency interval between two resonance
+frequencies gradually increases with the increase of the quantity of
+the secondary tube. The absorptive ability of MHD-1 for alleviating
+pulsations is accumulated to the ﬁrst resonance frequency with the
+increasing quantity of the secondary tube. At the same time, that of
+MHD-2 slightly increases at both resonance frequencies, which
+indicates that the performance of MHD-2 can be enhanced by add-
+ing more secondary tubes.
+4.1.4. Effect of the purge ﬂow
+The dampers need to be cooled by purge air in real combustors,
+so it is necessary to investigate the inﬂuence of the purge ﬂow on
+the reﬂection coefﬁcients of dampers. As shown in Fig. 12a, the
+minimal reﬂection amplitude of the Helmholtz damper with a neck
+radius of 3 mm increased from 0.79 to 0.88 when the purge volume
+ﬂow is improved from 0 to 15 L/min. The corresponding minimal
+amplitudes of MHD-1 and MHD-2 with a neck radius of 3 mm
+increases from 0.82 to 0.90 and from 0.79 to 0.83 after injecting
+15 L/min purge air, respectively. The vortex shedding is enhanced
+by a larger purge ﬂow, which enlarges the acoustic resistance term
+Table 1
+Geometric parameter of four types of dampers designed for Rijke tube tests (dimensions in mm).
+Damper
+category
+Neck radius r
+Neck length l
+Cavity radius R
+Cavity length L
+Secondary
+neck radius r2
+Secondary neck
+length l2
+Secondary cavity
+radius R2
+Secondary cavity
+length L2
+HD
+1.5
+35
+15
+18.5
+/
+2
+35
+15
+32
+6
+43
+25
+74
+1/4-k tube
+2
+401
+/
+3.5
+399
+5
+398
+MHD-1
+1.5
+35
+15
+9
+2
+104
+15
+6
+2
+15
+21
+3
+139
+7
+3
+20
+17
+3
+89
+16
+3
+20
+24
+3
+59.5
+18
+3
+20
+22
+3.5
+89.5
+16
+MHD-2
+1.5
+15
+13
+2
+236
+/
+2
+15
+21
+3
+139
+3
+20
+24.5
+4
+247
+(a) Helmholtz damper                         (b) Quarter-lambda tube 
+Fig. 8. Comparison of measured and modeled reﬂection coefﬁcients for Helmholtz dampers and Quarter-lambda tubes with different neck sizes (purge volume ﬂow qv = 0 L/
+min).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+7
+
+
+--- Page 8 ---
+
+of the theoretical impedance model. Thus, larger amplitudes of
+impedance can be approached. The vortex shedding coefﬁcient is
+employed to establish the relationship between the impedance
+and the purge volume ﬂow. The coefﬁcients for Helmholtz dam-
+pers with neck sizes r of 6, 3, 2, and 1.5 mm are 0.14, 0.85, 0.71,
+and 0.70. Corresponding coefﬁcients for 1/4-k tubes with neck
+sizes r of 5, 3.5, and 2 mm are 0.1, 0.7, and 0.9. These coefﬁcients
+for MHD-1 with neck sizes of 1.5 and 2 mm are 0.2, 0.02, and
+0.6, 0.1. Corresponding coefﬁcients for MHD-2 with neck sizes of
+1.5, 2, and 3 mm are 0.8, 0.45, and 0.3, respectively.
+4.2. Limit cycle after employing traditional dampers
+The frequency response tests were carried out under cold con-
+ditions to measure the damping rate of the Rijke tube with dam-
+pers. The frequency response curve shown in Fig. 13 has two
+resonance frequencies (213.5 Hz and 432 Hz) corresponding to
+the eigenfrequencies of the Rijke tube with 85 V heating voltage
+at the heater location value of 0.22 m. The calculated damping
+rates are 7.33 rad/s and 15.64 rad/s for the ﬁrst and the second
+eigenfrequencies.
+(a) r = 3 mm, r2 = 3 mm, l2 = 89 mm          (b) r = 3 mm, r2 = 3 mm, l2 = 61.5 mm 
+(c) r = 3 mm, r2 = 3.5 mm, l2 = 89.5 mm         (d) r = 2 mm, r2 = 3 mm, l2 = 139 mm 
+(e) r = 1.5 mm, r2 = 2 mm, l2 = 104 mm 
+Fig. 9. Reﬂection coefﬁcients of MHD-1 with different geometric conﬁgurations (purge volume ﬂow qv = 0 L/min).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+8
+
+
+--- Page 9 ---
+
+Fig. 14 depicts the spectrum of the pressure ﬂuctuation mea-
+sured by the second microphone before and after being equipped
+with the Helmholtz damper and the 1/4-k tube. The eigenfre-
+quency shifts slightly after installing dampers. The RMS pressure
+amplitude decreased from 260 Pa to 178.8 Pa and 213 Pa after
+being equipped with a Helmholtz damper with neck radiuses of
+2 mm and 1.5 mm. The RMS amplitude is reduced to 197.6 Pa with
+the addition of a 1/4-k tube whose neck radius is 2 mm. The Helm-
+holtz damper has a better potential for attenuating the pressure
+pulsation than the 1/4-k tube with the same neck size, correspond-
+ing to the result from impedance tube tests that the Helmholtz
+damper has a smaller reﬂection coefﬁcient at the ﬁrst eigenfre-
+quency. The limit cycle is difﬁcult to trigger after employing a
+damper with neck radiuses of 4 mm or 6 mm, indicating that a lar-
+ger volume can absorb more pulsations.
+Fig. 15 shows the evolutions of simulated growth rates along
+with the velocity ﬂuctuation ratio before and after equipping with
+the Helmholtz damper and the 1/4-k tube. The growth rate of the
+ﬁrst acoustic mode increases and then decreases with increasing
+velocity ﬂuctuation ratio. When the growth rate is equal to the
+damping rate, the velocity ﬂuctuation ratio and frequency can be
+considered the limit cycle values. The growth rate of the second
+(a) Amplitude                                 (b) Phase 
+Fig. 10. Reﬂection coefﬁcients of MHD-2 with different neck sizes (purge volume ﬂow qv = 0 L/min).
+(a) MHD-1 (r = 3 mm, r2 = 3 mm, l2 = 89 mm)           (b) MHD-2 (r = 3 mm, r2 = 4 mm) 
+Fig. 11. Effect of the amount of the secondary tube on reﬂection coefﬁcients (purge volume ﬂow qv = 0 L/min).
+(a) HD, r = 3 mm 
+(b) MHD
+m
+-1, r = 3 mm
+m, l2 = 89.5 
+, r2 = 3.5 
+mm 
+(c) MHD-2, r = 3 mm, r2 = 4 mm 
+Fig. 12. Effect of the purge volume ﬂow on reﬂection coefﬁcients.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+9
+
+
+--- Page 10 ---
+
+mode is always lower than the damping rate, which indicates the
+second mode decays with time, corresponding to the negligible
+amplitude of the second mode shown in Fig. 14. After using dam-
+pers, growth rate trajectories of the cases move downward, reach-
+ing the damping rate at a smaller ﬂuctuation ratio and resulting in
+a lower limit cycle amplitude. Meanwhile, the growth rate trajec-
+tory of the Rijke tube with a Helmholtz damper is located beneath
+that with a 1/4-k tube. These numerical results are consistent with
+the measured pressure spectrum shown in Fig. 14.
+The calculated and measured limit cycle characteristics of the
+Rijke tube after using dampers with different purge volume ﬂows
+are compared in Fig. 16. Eigenfrequencies and velocity ﬂuctuation
+ratios at the limit cycle are presented in this ﬁgure. The air volume
+ﬂow is in the range 0–25 L/min. Experimental results indicates that
+eigenfrequencies decrease slightly with increasing purge ﬂows.
+The numerical results’ absolute and relative errors increased from
+4.75 Hz to 15.32 Hz and from 2.2% to 7.3%, respectively. As the
+purge volume ﬂow is enhanced from 0 to 20 L/min, experimental
+and numerical velocity ﬂuctuation ratios of the ﬁrst-order mode
+at the limit cycle decrease from 0.60 to 0.41 and from 0.62 to
+0.59 for the Helmholtz damper with a 1.5 mm neck radius. Corre-
+sponding experimental and numerical values for this damper with
+a 2 mm neck size declined from 0.56 to 0.38 and from 0.53 to 0.51,
+respectively. The vortex shedding strengthened by a larger purge
+ﬂow may be the main factor in dissipating pulsation energy and
+attenuating the velocity ﬂuctuation. The maximal error of the
+velocity ﬂuctuation ratio is below 0.2. Considering the simpliﬁca-
+tion of the heat release rate model, predicted ﬂuctuation ampli-
+tudes can be regarded as reliable results since limit cycles have
+been efﬁciently captured.
+The deviation of the velocity ﬂuctuation ratio between mea-
+surement and simulation is enlarged as purge ﬂows increase. The
+Helmholtz method ignoring the background mean ﬂow is challeng-
+ing to simulate vortex shedding at the interface between the Rijke
+tube and the damper under high-velocity back-ﬂow. In addition,
+the damper model only considers the effect of vortex shedding
+on damper impedance. The Helmholtz method is simpliﬁed from
+the linear Euler equation based on the frozen ﬂow. Although the
+linear Euler method, which is time-consuming and costly, can bet-
+ter resolve vortex shedding, the Helmholtz approach can still be
+well utilized for combustor design due to its accuracy and quick
+calculation.
+Pressure and velocity mode shapes from numerical simulations
+are compared with those reconstructed from experimental data to
+further validate the numerical method. The corresponding normal-
+ized ﬁrst-order mode shape after equipping with the Helmholtz
+damper with a 2 mm neck radius is illustrated in Fig. 17. The
+experimental mode shape shows that the pressure ﬂuctuation at
+the end of the tube is not zero, indicating radiation impedance.
+Both pressure and velocity mode shapes can track experimental
+ones
+well,
+although
+the
+antinode
+location
+slightly
+deviates
+between reconstructed and numerical results.
+4.3. Limit cycle after employing modiﬁed dampers
+The second-order ﬂuctuation in the Rijke tube needs to be large
+enough to validate the performance of modiﬁed dampers. So the
+heater locations xf are adjusted to 0.17 m and 0.14 m for the latter
+tests. The 1st and the 2nd eigenfrequencies of the Rijke tube at
+xf = 0.14 m are around 222.5 Hz and 445.0 Hz which are different
+from the design point of former dampers (214 Hz and 428 Hz).
+Therefore, according to impedance models, the dampers used for
+this heater location are slightly retuned to match those eigenfre-
+quencies at xf = 0.14 m. Comparisons of reﬂection coefﬁcients for
+different types of dampers with the same neck radius are pre-
+sented in Fig. 18. Fig. 18a and 18b show the reﬂection coefﬁcients
+Fig. 13. Frequency response test for estimating damping rates.
+Fig. 14. Spectrum of the pressure ﬂuctuation measured by the second microphone
+before and after equipping with the Helmholtz damper and the 1/4-k tube (purge
+volume ﬂow qv = 0 L/min).
+Fig. 15. Evolution of calculated growth rates along with the velocity ﬂuctuation
+ratio before and after equipping with the Helmholtz damper and the 1/4-k tube
+(purge volume ﬂow qv = 0 L/min).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+10
+
+
+--- Page 11 ---
+
+of different dampers for Rijke tube tests at xf = 0.17 m and
+xf = 0.14 m, respectively. The vertical dashed lines represent the
+eigenfrequencies of the Rijke tube. The modiﬁed dampers have a
+resonance frequency near the ﬁrst-order eigenfrequency of the
+Rijke tube and another one near the second-order eigenfrequency
+of the tube. Concerning amplitudes of reﬂection coefﬁcients at
+the ﬁrst-order eigenfrequency of the tube, the amplitudes for
+modiﬁed dampers are still maintaining lower than those for
+conventional dampers, which indicates that the passive control
+ability of new dampers may be enhanced.
+The spectrum of pressure ﬂuctuations in the second micro-
+phone position before and after installing conventional and modi-
+ﬁed dampers is shown in Fig. 19. RMS and peak values of the sound
+pressure in the same position are shown in Fig. 20. It can be found
+from Fig. 19 that modiﬁed dampers can further attenuate both the
+1st and the 2nd pressure pulsations. Both RMS and peak ﬂuctua-
+tions are further weakened after employing improved dampers. A
+maximal amplitude reduction of 37 Pa for the ﬁrst-order mode is
+achieved by MHD-1 compared with that by HD, as shown in
+Fig. 19b. Concerning RMS values, the maximal reduction is about
+23.8 Pa by MHD-1. The pressure ﬂuctuation declines after using a
+modiﬁed damper due to the second-order ﬂuctuation being effec-
+tively ﬁltered. MHD-1 and MHD-2 achieve more pulsation reduc-
+tions consistent with reﬂection coefﬁcient distributions shown in
+Fig. 18.
+The mode shapes along the axial direction are further recon-
+structed to compare the pulsation suppression by different dam-
+pers. The reconstructed ﬁrst and second pressure and velocity
+mode shapes at the heater location of 0.14 m are shown in
+Fig. 21. The ﬁrst pressure mode reaches the maximum at the axial
+location of 0.35 m, while the maximal second pressure ﬂuctuation
+is located at 0.5 m. Without dampers, the pressure ﬂuctuations
+maintain the most signiﬁcant values along with the axial location.
+After coupling with the Helmholtz damper and the 1/4-k tube, both
+the ﬁrst and the second modes in the entire region are further
+attenuated by modiﬁed dampers. Compared with the Helmholtz
+damper, a maximal reduction of 71.5 Pa is achieved by MHD-2
+for the ﬁrst-order pressure mode. For the second-order pressure
+mode, this value is 19.4 Pa. Modiﬁed dampers selectively ﬁlter
+(a) neck radius r = 1.5 mm                  (b) neck radius r = 2 mm 
+Fig. 16. Comparison of calculated and measured eigenfrequencies and velocity ﬂuctuation ratios at the limit cycle after using dampers with different purge volume ﬂows.
+Fig. 17. Normalized ﬁrst-order mode shape after equipping with the Helmholtz
+damper with a 2 mm neck radius (purge volume ﬂow qv = 10 L/min; top: velocity
+mode; bottom: pressure mode).
+    (a) Dampers for tests at xf = 0.17 m          (b) Retuned dampers for tests at xf = 0.14 m 
+Fig. 18. Comparison of reﬂection coefﬁcients for different types of dampers with a same neck radius (purge volume ﬂow qv = 10 L/min).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+11
+
+
+--- Page 12 ---
+
+(a) xf = 0.17 m                             (b) xf = 0.14 m 
+Fig. 19. Spectrum of pressure ﬂuctuations in the second microphone position before and after equipping with different types of dampers (purge volume ﬂow qv = 10 L/min).
+(a) xf = 0.17 m                           (b) xf = 0.14 m 
+Fig. 20. RMS and peak values of the sound pressure in the second microphone position before and after installing different types of dampers.
+Fig. 21. The ﬁrst- and the second-order mode shapes reconstructed from experimental data before and after using different types of dampers (heater location xf = 0.14 m,
+purge volume ﬂow qv = 10 L/min).
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+12
+
+
+--- Page 13 ---
+
+the bipolar ﬂuctuation in the Rijke tube with two speciﬁc fre-
+quency bands through one interface.
+After installing the original and modiﬁed dampers, the simu-
+lated limit cycle results are compared with those of the experimen-
+tal ones. The evolution of the simulated growth rates along with
+the velocity ﬂuctuation ratio at the heater location of 0.14 m and
+qv = 10 L/min are presented in Fig. 22. The comparison of calculated
+and experimental velocity ﬂuctuation levels at the limit cycle is
+shown in Table. 2. It can be found that both the ﬁrst- and
+second-order velocity ﬂuctuation levels from simulations for the
+1/4-k tube at the limit cycle hold the largest values among these
+dampers, corresponding to the experimental mode shapes shown
+in Fig. 21. Strangely, the Rijke tube with a Helmholtz damper has
+the lowest velocity ﬂuctuation ratio of the ﬁrst-order mode. The
+numerical method works better in calculating the 2nd velocity
+ﬂuctuation level, proved by the result that pulsations are further
+attenuated by new dampers through one interface, as shown in
+Fig. 22b and Table 2. The simulated second velocity ﬂuctuations
+vanish after using modiﬁed dampers in all cases, indicating that
+the numerical method overestimated oscillation attenuations by
+modiﬁed dampers in the 2nd mode. Regarding the numerically
+predicted error, the absolute deviations of the ﬁrst velocity ﬂuctu-
+ation ratio for HD, the 1/4-k tube, MHD-1, and MHD-2 are 0.024,
+0.006, 0.193, and 0.249, and the ones of the 2nd velocity ﬂuctua-
+tion level for these dampers are 0.365, 0.286, 0.157, and 0.136,
+respectively. Predicted discrepancies may result from the nonlin-
+ear heat release model’s approximate second-order ﬂuctuation
+and a ﬁrst-order one of the ﬁrst derivative. Nevertheless, this
+Helmholtz approach can successfully predict the enhanced ﬂuctu-
+ation suppression by modiﬁed dampers on the second-order ﬂuc-
+tuation
+of
+thermoacoustic
+instabilities.
+Generally,
+simulated
+amplitudes at the limit cycle are proportional to amplitudes of
+measured reﬂection coefﬁcients at the eigenfrequencies.
+Given that simulated eigenfrequencies, the deviations between
+simulations and measurements for the 1st and the 2nd modes are a
+few Hertz, as presented in Table 3. Eigenfrequencies at the limit
+cycle after using modiﬁed dampers can be accurately captured
+by numerical simulations.
+5. Conclusion
+Two modiﬁed Helmholtz dampers with dual-adjustable fre-
+quency bands are proposed in this work. Enhanced thermoacoustic
+instability attenuation by modiﬁed dampers via one installing
+interface is experimentally and numerically validated. The theoret-
+ical impedance models can effectively calculate the reﬂection coef-
+ﬁcients of the Helmholtz damper, the 1/4-k tube, and modiﬁed
+dampers with purge air. However, according to impedance tube
+tests, end corrections, viscous wall dissipations, and vortex shed-
+ding coefﬁcients need to be slightly tuned in advance. Here, the
+vortex shedding factor is used to establish the relationship
+between the impedance and the purge volume ﬂow. A more signif-
+icant purge ﬂow rate leads to a larger reﬂection coefﬁcient ampli-
+tude
+due
+to
+the
+intensiﬁed
+vortex
+shedding.
+Geometric
+conﬁgurations of modiﬁed dampers designed at any given reso-
+nance frequencies can be determined by performing a searching
+code on damper impedance models. Both resonance frequencies
+and reﬂection coefﬁcient amplitudes of modiﬁed dampers are
+inﬂuenced by the amount of the secondary tube.
+Experimental results from Rijke tube tests indicate that the
+amplitudes of the overall pressure ﬂuctuation and each order ﬂuc-
+tuation at the limit cycle decrease after being equipped with the
+Helmholtz damper and the 1/4-k tube, and further decline after
+using modiﬁed dampers possessing speciﬁc dual frequency bands.
+The ﬁrst and second-order velocity/pressure mode shapes recon-
+structed from experimental data at the limit cycle maintain lower
+values employing modiﬁed dampers than traditional ones.
+(a) The first order mode                     (b) The second order mode 
+Fig. 22. Evolution of simulated growth rates along with the velocity ﬂuctuation ratio before and after installing different dampers at the heater location of 0.14 m (purge
+volume ﬂow qv = 10 L/min).
+Table 2
+Comparison of numerical and measured velocity ﬂuctuation levels at the limit cycle of
+the Rijke tube equipped with and without different types of dampers at xf = 0.14 m,
+qv = 10 L/min.
+Case
+Velocity ﬂuctuation level
+1st
+2nd
+Exp.
+Num.
+Exp.
+Num.
+Without dampers
+0.83
+0.84  0.90
+0.22
+0.51  0.54
+HD
+0.63
+0.63  0.68
+0.18
+0.46  0.49
+1/4-k tube
+0.79
+0.76  0.82
+0.22
+0.44  0.47
+MHD-1
+0.49
+0.66  0.70
+0.12
+0
+MHD-2
+0.44
+0.66  0.71
+0.14
+0
+Table 3
+Comparison of numerical and measured eigenfrequencies at the limit cycle of the
+Rijke tube equipped with and without different types of dampers at xf = 0.14 m,
+qv = 10 L/min.
+Case
+1st frequency (Hz)
+2nd frequency (Hz)
+Exp.
+Num.
+Exp.
+Num.
+Without dampers
+222.6
+223.0  223.9
+445.4
+455.5  456.3
+HD
+224.1
+226.5  227.6
+448.1
+456.5  457.5
+1/4-k tube
+224.8
+224.0  225.0
+449.8
+456.8  457.8
+MHD-1
+221.6
+224.7  225.7
+442.4
+/
+MHD-2
+223.1
+225.6  226.6
+445.4
+/
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+13
+
+
+--- Page 14 ---
+
+Eigenfrequencies, velocity ﬂuctuation ratios, and mode shapes
+after using conventional and modiﬁed dampers can be predicted
+by the numerical method, where damper impedance models are
+embedded into the Helmholtz solver. Pulsation reductions for the
+1st and the 2nd modes by modiﬁed dampers are underestimated
+and overestimated by the numerical method, respectively. This
+may result from the weak nonlinearity of the simpliﬁed heat
+release model. Nevertheless, this Helmholtz approach can efﬁ-
+ciently capture the enhanced suppression of thermoacoustic insta-
+bilities by modiﬁed dampers. The accuracy of predicted results is
+affected by the vortex shedding caused by the purge ﬂow, resulting
+from the fact that the Helmholtz method is based on the frozen
+ﬂow hypothesis. Considering the tolerable accuracy and low costs,
+this method can still be available for damper design.
+CRediT authorship contribution statement
+Zhijian Yu: Conceptualization, Methodology, Software, Writing
+– original draft. Yang Yang: Project administration, Funding acqui-
+sition, Writing - review & editing.
+Declaration of Competing Interest
+The authors declare that they have no known competing ﬁnan-
+cial interests or personal relationships that could have appeared
+to inﬂuence the work reported in this paper.
+Acknowledgments
+This work was supported by the Chinese Academy of Sciences
+(CAS) Pioneer Hundred Talent Program [grant number Type-B
+Y9291282U1].
+References
+[1] Huang Y, Yang V. Dynamics and stability of lean-premixed swirl-stabilized
+combustion. Prog Energy Combust Sci 2009;35(4):293–364.
+[2] Zhao D, Li XY. A review of acoustic dampers applied to combustion chambers
+in aerospace industry. Prog Aerosp Sci 2015;74:114–30.
+[3] Schuermans B, Bellucci V, Paschereit CO. Thermoacoustic modeling and control
+of multi burner combustion systems. In: Proceedings of ASME Turbo Expo
+2003: Power for Land, Sea, and Air, Georgia, USA, 2003. GT200338688.
+[4] Zhang Z, Zhao D, Han N, Wang S, Li J. Control of combustion instability with a
+tunable Helmholtz resonator. Aerosp Sci Technol 2015;41:55–62.
+[5] Poinsot T. Prediction and control of combustion instabilities in real engines.
+Proc Combust Inst 2017;36(1):1–28.
+[6] Corá R, Martins CA, Lacava PT. Acoustic instabilities control using Helmholtz
+resonators. Appl Acoust 2014;77:1–10.
+[7] Richards GA, Straub DL, Robey EH. Passive Control of Combustion Dynamics in
+Stationary Gas Turbines. J Propul Power 2003;19(5):795–810.
+[8] Zhao D, Sun Y, Ni S, Ji C, Sun D. Experimental and theoretical studies of
+aeroacoustics damping performance of a bias-ﬂow perforated oriﬁce. Appl
+Acoust 2019;145:328–38.
+[9] Zhao D, Morgans AS. Tuned passive control of combustion instabilities using
+multiple Helmholtz resonators. J Sound Vib 2009;320(4-5):744–57.
+[10] Bellucci V, Schuermans B, Nowak D, Flohr P, Paschereit CO. Thermoacoustic
+modeling of a gas turbine combustor equipped with acoustic dampers. J
+Turbomach 2005;127:372–9.
+[11] Noiray N, Schuermans B. Theoretical and experimental investigations on
+damper performance for suppression of thermoacoustic oscillations. J Sound
+Vib 2012;331:275363.
+[12] Zahn M, Schulze M, Hirsch C, Sattelmayer T. Impact of quarter wave tube
+arrangement on damping of azimuthal modes. In: Proceedings of ASME Turbo
+Expo 2016: Turbomachinery Technical Conference and Exposition, Seoul,
+South Korea, 2016. GT201656450.
+[13] Bourquard C, Noiray N. Stabilization of acoustic modes using Helmholtz and
+Quarter-Wave
+resonators
+tuned
+at
+exceptional
+points.
+J
+Sound
+Vib
+2019;445:288–307.
+[14] O’Connor J, Acharya V, Lieuwen T. Transverse combustion instabilities:
+Acoustic, ﬂuid mechanic, and ﬂame processes. Prog Energy Combust Sci
+2015;49:1–39.
+[15] Bothien MR, Pennell DA, Zajadatz M, Döbbeling K. On key features of the AEV
+burner engine implementation for operational ﬂexibility. In: Proceedings of
+ASME Turbo Expo 2013: Turbine Technical Conference and Exposition, Texas,
+USA, 2013. GT201395693.
+[16] Bothien MR, Noiray N, Schuermans B. A novel damping device for broadband
+attenuation of low-frequency combustion pulsations in gas turbines. J Eng Gas
+Turbine Power 2014;136(4):041504. https://doi.org/10.1115/1.4025761.
+[17] Zhou H, Meng S, Tao C, Liu Z. Low-frequency sound absorptive properties of
+dual perforated plates under bias ﬂow. Appl Acoust 2019;146:420–8.
+[18] Kojourimanesh M, Kornilov V, Arteaga IL, de Goey P. Thermo-acoustic ﬂame
+instability criteria based on upstream reﬂection coefﬁcients. Combust Flame
+2021;225:435–43.
+[19] Xu MB, Selamet A, Kim H. Dual Helmholtz resonator. Appl Acoust 2010;71
+(9):822–9.
+[20] Cai C, Mak CM. Acoustic performance of different Helmholtz resonator array
+conﬁgurations. Appl Acoust 2018;130:204–9.
+[21] Lepers J, Krebs W, Prade B, Flohr P, Pollarolo G, Ferrante A. Investigation of
+thermoacoustic stability limits of an annular gas turbine combustor test-rig
+with and without Helmholtz resonators. In: Proceedings of ASME Turbo Expo
+2005: Power for Land, Sea and Air, Nevada, USA, 2005. GT200568246.
+[22] Yoon M. Thermoacoustics and combustion instability analysis for multi-
+burner combustors. J Sound Vib 2020;483:115774.
+[23] Yang Y, Noiray N, Scarpato A, Schulz O, Düsing KM, Bothien M. Numerical
+Analysis of the Dynamic Flame Response in Alstom Reheat Combustion
+Systems. In: Proceedings of ASME Turbo Expo 2015: Turbine Technical
+Conference and Exposition, Montréal, Canada, 2015. GT201542622.
+[24] Bothien MR. Analysis of azimuthal thermo-acoustic modes in annular gas
+turbine combustion chambers. J Eng Gas Turbine Power 2015;137:061505.
+[25] Yang D, Laera D, Morgans AS. A systematic study of nonlinear coupling of
+thermoacoustic modes in annular combustors. J Sound Vib 2019;456:137–61.
+[26] Yang D, Sogaro FM, Morgans AS, Schmid PJ. Optimising the acoustic damping
+of multiple Helmholtz resonators attached to a thin annular duct. J Sound Vib
+2019;444:69–84.
+[27] Meindl M, Albayrak A, Polifke W. A state-space formulation of a discontinuous
+Galerkin
+method
+for
+thermoacoustic
+stability
+analysis.
+J
+Sound
+Vib
+2020;481:115431. https://doi.org/10.1016/j.jsv.2020.115431.
+[28] Schuermans B. Thermoacoustic modeling of a gas turbine using transfer
+functions measured under full engine pressure. J Eng Gas Turbine Power
+2010;132:111503.
+[29] Polifke W, Poncet A, Paschereit CO, Döbbeling K. Reconstruction of acoustic
+transfer matrices by instationary computational ﬂuid dynamics. J Sound Vib
+2001;245(3):483–510.
+[30] Polifke W. Modeling and analysis of premixed ﬂame dynamics by means of
+distributed time delays. Prog Energy Combust Sci 2020;79:100845. https://doi.
+org/10.1016/j.pecs.2020.100845.
+[31] Campa G, Camporeale SM. Prediction of the thermoacoustic combustion
+instabilities in practical annular combustors. J Eng Gas Turbine Power
+2014;136:091504.
+[32] Camporeale SM. A ﬁnite element method for three-dimensional analysis of
+thermo-acoustic
+combustion
+instability.
+J
+Eng
+Gas
+Turbine
+Power
+2011;133:011506.
+[33] Silva CF, Nicoud F, Schuller T, Durox D, Candel S. Combining a Helmholtz solver
+with the ﬂame describing function to assess combustion instability in a
+premixed swirled combustor. Combust Flame 2013;160(9):1743–54.
+[34] Oh S, Kim J, Kim Y. FDF-based combustion instability analysis for evolution of
+mode shapes and eigenfrequency in the multiple ﬂame burner. Appl Therm
+Eng 2017;124:695–706.
+[35] Laera D, Camporeale SM. A weakly nonlinear approach based on a distributed
+ﬂame describing function to study the combustion dynamics of a full-scale
+lean-premixed swirled burner. J Eng Gas Turbine Power 2017;139:091501.
+[36] Laera D, Prieur K, Durox D, Schuller T, Camporeale SM, Candel S. Impact of heat
+release distribution on the spinning modes of an annular combustor with
+multiple matrix burners. J Eng Gas Turbine Power 2017;139:091501.
+[37] Oh S, Shin Y, Kim Y. Stabilization effects of perforated plates on the
+combustion instability in a lean premixed combustor. Appl Therm Eng
+2016;107:508–15.
+[38] Kwon M, Oh S, Kim Y. Numerical analysis for attenuation effects of perforated
+plates on thermoacoustic instability in the multiple ﬂame combustor. Appl
+Therm Eng 2018;132:321–32.
+[39] ISO 10534-2. Acoustics-determination sound absorption coefﬁcient and
+impedance in impedance tubes. 2. Transfer function method. Geneva:
+International Standards Organization; 1998.
+[40] Morse PM, Ingard KU. Theoretical acoustics. New Jersey: Princeton University
+Press; 1986.
+[41] Bourquard C, Noiray N. Stability and limit cycles of a nonlinear damper acting
+on a linearly unstable thermoacoustic mode. J Eng Gas Turbine Power
+2019;141:051012.
+[42] Bellucci V. On the use of helmholtz resonators for damping acoustic pulsations
+in industrial gas turbines. In: Proceedings of ASME Turbo expo 2001, New
+Orleans, USA, 2001. 2001GT0039.
+[43] Munjal ML. Acoustics of ducts and mufﬂers. 2nd ed. New Jersey: John Wiley &
+Sons Ltd; 2014.
+[44] Heckl MA. Active control of the noise from a rijke tube. J Sound Vib 1988;124
+(1):117–33.
+[45] Balasubramanian K, Sujith RI. Thermoacoustic instability in a Rijke tube: Non-
+normality and nonlinearity. Phys Fluids 2008;20(4):044103. https://doi.org/
+10.1063/1.2895634.
+[46] Lighthill MJ. The response of laminar skin friction and heat transfer to
+ﬂuctuations in the stream velocity. Proc R Soc Lond Ser A 1954;224:1–23.
+Z. Yu and Y. Yang
+Applied Acoustics 185 (2022) 108433
+14

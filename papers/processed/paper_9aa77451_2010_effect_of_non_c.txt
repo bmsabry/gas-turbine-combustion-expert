@@ -1,0 +1,1002 @@
+
+--- Page 1 ---
+
+Christian H. Beck
+e-mail: christian.beck@its.uka.de
+Rainer Koch
+Hans-Jörg Bauer
+Institut für Thermische Strömungsmaschinen,
+Universität Karlsruhe (TH),
+76128 Karlsruhe, Germany
+Investigation of the Effect of
+Incomplete Droplet
+Prevaporization on NOx
+Emissions in LDI Combustion
+Systems
+The inﬂuence of incomplete liquid fuel prevaporization on the emissions of nitric oxides
+in a swirl stabilized model gas turbine combustor is investigated experimentally and
+numerically. The design of the model combustor enables the variation of the degree of
+prevaporization. This is achieved by using two liquid fuel injectors. One injector is
+located far upstream of the combustor and generates a fully prevaporized and premixed
+air fuel mixture. The second injector is located at the combustor inlet. Consequently, the
+liquid fuel mass ﬂow split between the two injectors determines the fraction of nonpre-
+vaporized fuel present in the reaction zone. The NO/NO2 measurements were performed
+with a chemoluminescence analyzer. In accordance to the ﬁndings of other researchers,
+the present experimental study revealed that the inﬂuence of prevaporization on nitric
+oxide emissions is of signiﬁcance for practical applications. The experimental studies
+were accompanied by numerical studies of partially prevaporized lean combustion in an
+abstracted conﬁguration. The purpose of this numerical study is to gain a detailed un-
+derstanding of the inﬂuence of droplet slip on droplet ﬂame position and peak tempera-
+ture. The droplet slip velocity was found to have a signiﬁcant impact on the peak tem-
+perature of the droplet ﬂame and, therefore, NO formation rates within the droplet ﬂame.
+The combustion system used for the experimental investigation was characterized regard-
+ing droplet slip velocities with an extended laser Doppler anemometry technique. The
+comparison between numerical and experimental results shows that the droplet slip ve-
+locities in the macroscopic reaction zone are within the transition range from an envelope
+to a wake ﬂame. It is concluded that small-scale mixing effects play a signiﬁcant role in
+the
+formation
+of
+nitric
+oxides
+in
+spray
+combustion
+systems
+with
+incomplete
+prevaporization. DOI: 10.1115/1.2906185
+Introduction
+As of today, the reduction of aero-gas-turbine emissions has
+become the main driving force for the development of new com-
+bustor concepts. The predominant idea is to achieve a reduction of
+NOx emissions by minimizing the temporal and spatial inhomo-
+geneities of the temperature in the reaction zone. In lean ﬂames,
+temperature ﬂuctuations increase NO formation because of the
+nonlinear dependence of the NO formation on temperature.
+Theoretically, a lean perfectly premixed and prevaporized com-
+bustion system does offer a signiﬁcant NOx emission reduction
+potential 1. However, the high combustor pressure levels of
+modern aeroengines make complete prevaporizing and premixing
+practically impossible due to the fast onset of autoignition at these
+conditions 2,3.
+The lean direct injection LDI concept is characterized by a
+global lean equivalence ratio and incomplete prevaporization of
+the liquid fuel. While complete prevaporization is not achieved,
+large-scale mixture inhomogeneities are avoided. However, the
+presence of liquid fuel droplets in the macroscopic reaction zone
+can create mixture inhomogeneities on a microscopic length scale,
+if a near stoichiometric burning envelope ﬂame is established
+around individual droplets.
+The ﬁrst question to be addressed in the present work is to what
+extent the NOx emissions are affected by the fraction of liquid
+fuel present in the macroscopic reaction zone. This question was
+previously investigated by other authors 4,5. In the ﬁrst study, a
+two-injector system was used where the degree of prevaporization
+is adjusted like in the rig used in the present study. The liquid fuel
+mass fraction  was varied between 0.30 at =0.6; 0.72.
+The operating pressure was 0.3 MPa and the preheat temperature
+was 600–700 K. The author reports a piecewise linear depen-
+dence of NOx emissions on . At higher equivalence ratios, the
+inﬂuence of prevaporization on emissions was found to decrease.
+The second study was performed at atmospheric pressure with
+air preheat temperatures of 323–376 K. The degree of prevapor-
+ization was varied by adjusting the premixing duct length and the
+preheat temperature. The degree of prevaporization was evaluated
+from phase Doppler PDA liquid phase ﬂux measurements. For
+ﬂame stabilization, an electrically heated wire ring was used. The
+generally very low preheat temperature causes low adiabatic ﬂame
+temperatures at lean conditions. The authors report a piecewise
+linear dependence of emissions on  for 0.5. For 0.51,
+emissions were found not to vary with the degree of prevaporiza-
+tion.
+The main difference between the experimental setups of the
+previous studies and the present one is the type of ﬂame stabili-
+zation. In the present study, a generic swirl-stabilized burner is
+used. The stabilization mechanism is expected to have a signiﬁ-
+cant impact on the ﬂame structure. In addition, the droplet slip is
+fundamentally different in a swirl-stabilized ﬂame, where gas
+Manuscript received November 9, 2007; ﬁnal manuscript received November 12,
+2007. published online June 13, 2008. Review conducted by Dilip R. Ballal.
+Journal of Engineering for Gas Turbines and Power
+SEPTEMBER 2008, Vol. 130 / 051504-1
+Copyright © 2008 by ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 2 ---
+
+phase velocities signiﬁcantly change along the droplet trajectories
+compared to a pipe ﬂow. Therefore, the setup used in the present
+study can be expected to represent the characteristics of a gas
+turbine combustor to a greater extent than previous studies.
+In the second part of the paper, a detailed analysis of the NO
+formation in lean ﬂames with partial droplet prevaporization is
+presented. The linear dependence of NOx emissions on the degree
+of prevaporization suggests that the variation of the degree of
+prevaporization may be abstracted as the superposition of two
+ﬂame types: droplet ﬂame and premixed ﬂame. The ﬂame type
+causing high emissions is the individual burning droplet. In order
+to gain a better understanding of the prevailing NO formation
+mechanism, the emission formation of a single droplet ﬂame will
+be numerically studied. It is known that signiﬁcant droplet slip
+velocities can cause the stoichiometric envelope ﬂame to extin-
+guish and a wake ﬂame to establish. The inﬂuence of this ﬂame
+type transition on the NO formation of a single droplet ﬂame will
+be discussed.
+First experimental studies on droplet ﬂame extinction were per-
+formed by Spalding 6. Recently, Pope 7 presented a correlation
+based on these early experiments and new numerical results. The
+numerical results are based on a setup quite similar to the one
+used here. The authors report a nonlinear relation between droplet
+diameter and extinction velocity. Furthermore, the extinction ve-
+locity was found to exponentially vary with ambient gas tempera-
+ture. In general, the study presented by Pope 7 focuses on the
+point at which extinction of the envelope ﬂame at the forward
+stagnation point occurs. Investigations using similar numerical
+setups were performed by Raghavan et al. 8 and Jiang et al. 9.
+Both studies focus on the ﬂame type transition caused by the
+variation of droplet slip velocity. In all available numerical studies
+on droplet ﬂame extinction, chemical reaction is modeled with a
+single step global reactions. In the present study, the detailed
+mechanism from Held et al. 10 is used for several reasons. First,
+the position of the droplet wake ﬂame is mainly determined by the
+chemical time scales. Since the droplet ﬂame position was found
+to have a signiﬁcant effect on emissions, detailed modeling of the
+chemical processes is of importance. Second, the formation of
+nitric oxides is to be modeled. Again, a detailed mechanism from
+Hewson 11 is used since the accuracy of simpliﬁed NO forma-
+tion rate expressions is limited.
+The ﬁnal experimental investigation presented in this paper will
+discuss the range of droplet slip velocities found in typical swirl-
+stabilized combustion systems. By using the results from the nu-
+merical investigation, the droplet ﬂame type, which is present in
+the macroscopic reaction zone of typical swirl-stabilized ﬂames,
+will be deduced.
+Experimental Investigation
+Concept and Design of the Experimental Setup. The com-
+bustion system used in this study is speciﬁcally designed to allow
+the variation of droplet prevaporization. The setup contains two
+liquid fuel injectors see Fig. 1. One injector is positioned far
+upstream while the second injector is placed in the proximity of
+the reaction zone. The upstream injector is used to generate a
+prevaporized and perfectly premixed fuel air mixture, while the
+downstream injector is used to directly inject droplets into the
+ﬂame. By varying the fuel mass ﬂow split between the upstream
+and the downstream injector, the fraction of nonprevaporized fuel
+present in the reaction zone can be adjusted.
+The fraction of liquid fuel present in the ﬂame front is to be
+determined from fuel mass ﬂow measurements. Therefore, it is
+necessary that the droplets injected by the downstream injector do
+not signiﬁcantly vaporize before they reach the macroscopic reac-
+tion zone. This is ensured by injecting the liquid fuel at a tem-
+perature of only Tf=263 K. An accompanying numerical study
+conﬁrmed that an injection temperature of 263 K is sufﬁcient to
+minimize droplet mass loss due to vaporization for the droplet size
+distribution, fuel, air temperature, and residence time of this com-
+bustor. Flame stabilization is achieved by generating a vortex
+breakdown.
+Operating Conditions. In the experimental setup, all oxidizer
+and fuel mass ﬂows are measured using calibrated sensors. The
+combustor inlet temperature Tmix1 is controlled as well as the
+liquid fuel temperature inside the injector. The pressure level be-
+hind the combustor exit is atmospheric. An overview of the oper-
+ating conditions relevant for this paper is given in Table 1.
+The combustion system is fed with preheated air. A preheat
+temperature of Tmix2=473 K was chosen. This temperature is a
+compromise between minimizing liquid fuel prevaporization from
+the downstream injector and achieving realistic adiabatic ﬂame
+temperatures 1650–1850 K at lean conditions 0.6. The
+preheat temperature is deﬁned here as the temperature of the un-
+burnt mixture under the premise that all fuel is vaporized and
+mixed Tmix2. The combustor inlet temperature Tmix1 is calculated
+from this virtual temperature by Eq. 1, in which the temperature
+change due to heating and vaporization of the nonprevaporized
+fuel mass ﬂow is accounted for. If Tmix2 remains constant, the
+adiabatic ﬂame temperature is independent of the degree of pre-
+vaporization  and the liquid fuel temperature. For Tmix2=473 K
+and =0.5, Tmix1 linearly varies between 473 KTmix1497 K
+for 01. The enthalpy of fuel and oxidizer used in Eq. 1 is
+Fig. 1
+Schematic of the rig; detail of the burner and combus-
+tion chamber
+Table 1
+Operating conditions
+Quantity
+Value
+Comment
+
+0.5, …, 0.6
+
+0, …, 0.8
+Liquid fuel fraction
+Tmix2
+473 K
+Tf
+263 K
+Measured in atomizer
+m˙ Ox
+14.9 g/s
+Total oxidizer mass ﬂow
+m˙ core
+0.7 g/s
+Swirl generator bypass mass
+ﬂow
+m˙ atom
+0.1, ... ,0.25 g/s
+Downstream atomizer air
+mass ﬂow
+Fuel
+Heptane
+s
+0.46
+Swirl number at the combustor
+inlet
+051504-2 / Vol. 130, SEPTEMBER 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 3 ---
+
+calculated as a function of temperature. The thermodynamic data
+provided with the reaction mechanism 10 are used.
+hair + Y fhfTmix 2 = 1 −Y fhlg + hfTf + hair + Y fhfTmix 1
+1
+Experimental Investigation of Mixture Characteristics. For
+the injection of liquid fuel, two air assist atomizers are used. The
+upstream injector was chosen based on the requirement to gener-
+ate a ﬁne spray suitable for fast prevaporization and premixing.
+The mixing length is approximately 1 m with a mean residence
+time of 200 ms. The performance of the premixing system was
+evaluated in a previous study 12 and was found to deliver a very
+homogeneous mixture =0.008. A traverse mounted gas sam-
+pling system and a ﬂame ionization detector were used for the
+characterization of mixture homogeneity. The measurements were
+performed 0.4 m downstream of the upstream injector, implying
+that the standard deviation at the combustor inlet is lower than the
+value reported above.
+For the downstream injector, the key requirements are that the
+spray characteristics are independent of liquid mass ﬂow, and that
+the liquid fuel equivalence ratio in the macroscopic reaction zone
+is as homogeneous as possible. Since these requirements cannot
+be ideally met, the impact of the deviation from ideal conditions
+regarding the effects investigated in this study is assessed.
+The downstream injector was characterized at reacting condi-
+tions with a standard phase Doppler anemometry system setup for
+a scattering angle of 74 deg. The simultaneous characterization of
+liquid and gas phase ﬂow was achieved by using the recorded
+particle diameter as phase discrimination criterion ddisc=3 m.
+Since the data rate of small fuel droplets is very low, spherical
+glass particles with d3 m and a refractive index of n1.5
+were added by a “Palas RGB 1000” particle dispenser. A seeding
+volume ﬂow was chosen, which is 0.5% of the liquid fuel vol-
+ume ﬂow. At the chosen scattering angle, the PDA technique is
+relatively insensitive to particle refractive index 13. The differ-
+ence between the expected refractive index of the fuel droplets
+n=1.4 and the gas tracer particles causes a sizing error 3%.
+This sizing error for tracer particles is considered insigniﬁcant for
+the purpose of phase discrimination. The data were sampled at
+x/db=0.33 downstream of the combustor inlet. The radial range
+covered is 0r/db0.66. This location is at the beginning of the
+macroscopic reaction zone see Fig. 8.
+The
+radial
+distribution
+of
+liquid
+fuel
+equivalence
+ratio
+l= fll/cggz was obtained from the PDA measurements see
+Fig. 2. The data are shown for an operating condition with 50%
+prevaporization and =0.55 at three atomizer air pressure levels.
+For all atomizer pressure levels, the liquid fuel equivalence ratio
+is rich near the center axis. The high liquid fuel equivalence ratio
+in this region is due to the low gas phase velocity near the center
+axis see Fig. 9.
+In order to assess the importance of the rich region near the
+center axis, the mixture mass ﬂow weighted cumulative distribu-
+tion function for the mean liquid fuel equivalence ratio was de-
+rived. Mixture mass ﬂow weighting is used since the local mixture
+mass ﬂow represents the importance of a region for the overall
+characteristics of the combustion system. The cumulative distri-
+bution function CDF of the liquid fuel equivalence ratio is
+shown in Fig. 3. The distribution of the liquid fuel equivalence
+ratio is relatively narrow in all three cases. Approximately 10% of
+the mixture mass ﬂow has a liquid fuel equivalence ratio higher
+than the mean value.
+The inhomogeneity of liquid fuel placement could bias the de-
+pendence of NOx emissions on the degree of prevaporization by
+formation of large-scale temperature inhomogeneities. Since it is
+not clear to what extent the inhomogeneity of liquid fuel place-
+ment affects the overall NOx emissions of the combustor, a prac-
+tical test regarding the sensitivity of NO formation on liquid fuel
+placement was performed. The variation of the atomizing air pres-
+sure has a signiﬁcant effect on the liquid fuel equivalence ratio in
+the proximity of the burner axis see Fig. 2. However, the overall
+NO emissions of the combustion system change by less than 2.5%
+when a variation of atomizer air pressure is performed see Table
+2. It is concluded that the effect of inhomogeneities in liquid fuel
+placement, as they are present in the experimental setup, is more
+than two orders of magnitudes smaller than the effect of the de-
+gree of prevaporization on emissions see Fig. 4. For the emis-
+sion measurements presented later, an atomizer air pressure level
+of patom=12 kPa was chosen. The low sensitivity of NOx emis-
+sions regarding liquid fuel placement can be explained by mul-
+tiple effects.
+1. The mass ﬂow in the region where the inhomogeneities of
+liquid fuel equivalence ratio are present burner axis is
+small.
+2. The length of the droplet trajectories within the macroscopic
+reaction zone is of the order of the linear diameter. Further-
+more, the droplets in the macroscopic reaction zone do not
+reach momentum equilibrium see Fig. 9. Therefore, the
+heat release caused by nonprevaporized fuel is distributed
+over a large volume. Consequently, the inhomogeneous dis-
+tribution of liquid fuel at the beginning of the reaction zone
+does not necessarily imply the existence of a macroscopic
+0
+1
+2
+3
+4
+5
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+φl [−]
+r/db [−]
+8kPa
+12kPa
+16kPa
+Fig. 2
+Radial distribution of liquid fuel equivalence ratio for
+three atomizer air pressure levels, =0.55, =0.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+0
+0.2
+0.4
+0.6
+0.8
+1
+φl [−]
+P [−]
+8kPa
+12kPa
+16kPa
+Fig. 3
+CDF of liquid fuel equivalence ratio for three atomizer
+air pressure levels, =0.55, =0.5
+Table 2
+Effect of variation of fuel placement on emissions, 
+=0.55, =0.5
+Case
+patom kPa
+EINO g/kg
+D¯ 32 m
+1
+8
+0.53
+52
+2
+12
+0.52
+45
+3
+16
+0.52
+37
+Journal of Engineering for Gas Turbines and Power
+SEPTEMBER 2008, Vol. 130 / 051504-3
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 4 ---
+
+temperature inhomogeneity and, thus, high NO formation
+rates.
+3. In the present experimental conﬁguration, the gaseous fuel
+equivalence ratio is not affected by inhomogeneities of the
+liquid fuel placement, since liquid fuel prevaporization from
+the downstream injector is minimized by cooling the liquid
+fuel. An inhomogeneity of the gaseous fuel distribution
+would cause a macroscopic hot spot and high NO formation
+rates. Therefore, the impact of liquid fuel placement in the
+experiment is fundamentally different from real combustors,
+where the liquid fuel placement has a major impact on gas-
+eous fuel distribution.
+An additional source of uncertainty is the dependence of spray
+properties on the injector liquid mass ﬂow. PDA measurements
+demonstrated a sensitivity of the liquid mass ﬂow weighted Sauter
+diameter on the atomizer fuel mass ﬂow. For a variation of the
+liquid fuel mass fraction between 0.10.8, the mean Sauter
+diameter varied within 40 mD3249 m. Considering the
+low sensitivity of NO emissions regarding mean droplet diameter
+see Table 2, the variation of the mean droplet diameter with the
+liquid fuel mass fraction is not of signiﬁcance for the emission
+measurements to be presented later.
+Experimental Investigation of the Inﬂuence of Prevaporiza-
+tion on NOx Emissions. The experimental setup previously de-
+scribed was used to investigate the inﬂuence of incomplete pre-
+vaporization on the NOx emissions. The variation of  was
+performed for two equivalence ratios =0.5 and 0.6. The adia-
+batic ﬂame temperatures corresponding to these equivalence ratios
+are T=1650 K and 1837 K. The NO/NOx measurements were
+performed with a chemoluminescence analyzer. Since the mea-
+sured NO2 concentrations were virtually zero for all operating
+conditions, only the NO concentration will be reported.
+For both overall equivalence ratios, a signiﬁcant inﬂuence of
+the liquid fuel fraction  on overall NO emissions is observed
+Fig. 4. The relation between NO emissions and the liquid fuel
+mass fraction is almost linear for both equivalence ratios. This
+linear dependence of NO emissions on  can be explained by the
+superposition of two ﬂame types: premixed combustion and drop-
+let burning. Lean premixed ﬂames cause very low emissions of
+nitric oxides see Fig. 4, =0 while droplet ﬂames, which may
+burn at a near stoichiometric equivalence ratio, can cause signiﬁ-
+cant formation of nitric oxides.
+Numerical Investigation
+Introduction. The experimental results presented in the previ-
+ous section show that the presence of nonprevaporized droplets in
+the macroscopic reaction zone has a signiﬁcant effect on overall
+combustor NOx emissions. While the experimental setup allows
+the variation of global parameters, detailed measurements are ex-
+tremely difﬁcult to perform and analyze since the quantities of
+interest show signiﬁcant ﬂuctuations in time and space due to
+turbulence. Therefore, spray combustion was also numerically
+studied. The primary objective of the numerical study is to iden-
+tify and understand the effects governing the NO formation in
+partially prevaporized spray ﬂames. An abstracted structure of
+such a ﬂame is shown in Fig. 5.
+In the case of a high degree of prevaporization, there will be a
+stable premixed ﬂame front, which is traversed by droplets. If the
+degree of prevaporization is reduced, the premixed ﬂame front
+will extinguish. Then, an alternative ﬂame structure will be
+formed. This ﬂame structure will still be characterized by an equi-
+librium of upstream heat transport, which initiates chemical reac-
+tion that in turn will cause downstream heat release. A detailed
+discussion of plausible ﬂame structures is given by Borghi 14.
+For a perfectly prevaporized mixture, the temperature of the
+premixed ﬂame front will be at its maximum value. In contrast,
+the global NOx emissions for this case are at a minimum see
+Fig. 4. If the degree of prevaporization is reduced, the tempera-
+ture of the premixed ﬂame front will decrease and cause the re-
+gion to become less important to overall NO formation. Therefore,
+the focus of the numerical investigation is on the processes in the
+proximity of the droplet during droplet burning, which is likely to
+predominantly contribute to overall emissions.
+It is known that the droplet slip velocity inﬂuences the burning
+mode of an individual burning droplet 6. Two characteristic
+ﬂame types can be observed: An envelope ﬂame, which encloses
+the droplet and burns as a diffusion ﬂame at near stoichiometric
+conditions. At higher slip velocities, the envelope ﬂame extin-
+guishes at the forward stagnation point and a wake ﬂame is estab-
+lished. Since this transition from one ﬂame type to another is
+expected to be accompanied by changes of the peak ﬂame tem-
+perature, NO formation will also be affected by the ﬂame type
+transition.
+For the reasons previously discussed, the effect of droplet slip
+velocity on ﬂame type transition and NO formation was numeri-
+cally investigated. The results of the numerical simulation will be
+discussed considering the droplet slip velocities measured in the
+presented burner.
+Concept of the Numerical Simulation. For the numerical
+simulation, a conﬁguration representing a partially prevaporized
+ﬂame burning in a constant area duct with isotropic droplet spac-
+ing is considered Fig. 5. For a given equivalence ratio, degree of
+prevaporization, oxidizer, and fuel temperature, the local tempera-
+ture and mixture composition at Position 2, which is the beginning
+of the computational domain, are calculated. This is done under
+the assumption that all prevaporized fuel is burnt in the premixed
+ﬂame and that the mixture has reached chemical equilibrium.
+From the ratio of the gas and droplet velocity, the local liquid and
+gas phase density, the overall equivalence ratio, and the degree of
+prevaporization, the dimensionless droplet spacing l/d can be de-
+termined from Eq. 2. The fuel mass fraction Yf is calculated
+from the global equivalence ratio.
+0
+0.2
+0.4
+0.6
+0.8
+0
+0.2
+0.4
+0.6
+0.8
+1
+α [−]
+EINO [g/kg]
+φ=0.5
+φ=0.6
+Fig. 4
+Inﬂuence of liquid fuel mass fraction on overall NO
+emissions
+atomization
+prevaporization
+droplet burning
+premixed flame
+0
+1
+2
+3
+cg
+cd
+comp. domain
+Fig. 5
+Abstracted ﬂame structure of partially prevaporized
+combustion
+051504-4 / Vol. 130, SEPTEMBER 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 5 ---
+
+l/d =
+1 −Y f	f
+cd
+cg
+6Y fg 
+1/3
+2
+For conditions covered by the experimental investigation, the
+dimensionless spacing varies between 40l/d75. According to
+Annamalai and Ryan 15, the interaction between burning drop-
+lets is small to negligible for this droplet spacing range. Interac-
+tion between burning droplets is referred to as group combustion.
+Various regimes exist, which are generally characterized by the
+presence of high gaseous fuel concentrations outside ﬂammability
+limits surrounding a group of droplets in the reaction zone 15. In
+lean spray ﬂames with homogeneous fuel placement, such a con-
+dition is unlikely to exist since a homogeneous fuel placement
+implies that the local equivalence ratio is identical to the overall
+equivalence ratio. Therefore, nonprevaporized droplets will indi-
+vidually burn in LDI combustion systems. Consequently, the
+simulation does include just one individual droplet. The computa-
+tional domain is a 2D rectangle, assuming rotational symmetry.
+The computational domain covers −20x/d100 in the stream-
+wise direction and 0r/d37.5 in the radial direction relative to
+the droplet center. The domain is initialized with the temperature
+and mixture composition present at the inlet. An initial droplet
+temperature of 300 K was chosen. The droplet ﬂame establishes
+itself due to autoignition. This initial condition is more realistic
+than initializing an envelope ﬂame 16.
+Numerical Modeling. In the present setup, the liquid phase
+inside the droplet as well as the gas phase is fully discretized.
+Hence, the modeling of vaporization and interphase heat transfer
+requires an interface condition. For modeling of hydrocarbon oxi-
+dation, a detailed mechanism for n-heptane is used 10. Addition-
+ally, a detailed chemical mechanism developed by Hewson 11 is
+used to model nitric oxide formation. In the gas phase region,
+transport equations for momentum, enthalpy, and species mass
+fractions are solved. The derivation of the transport equation is
+discussed in detail by Warnatz et al. 17. In the liquid phase
+region, only the enthalpy equation is solved.
+For the modeling of heat conduction and concentration
+driven species diffusion, mixture averaged coefﬁcients are used.
+The thermal conductivity 
+¯ is calculated from the mixture aver-
+aged dynamic viscosity assuming a Prandtl number Pr=0.7 with
+
+¯ =¯ c¯p/Pr. The diffusion coefﬁcient D¯
+is calculated from
+D¯ =¯ /¯Sc with Sc=0.7.
+The interface condition is based on the assumption of phase
+equilibrium at the droplet surface. The vapor pressure required for
+the coupling of the species transport equation of the fuel was
+calculated from the Antoine equation Eq. 3. The resulting local
+evaporation ﬂux is needed to set the interface condition for energy
+and mass conservation Eq. 4. The latent heat of vaporization
+required for the energy interface condition is calculated as a func-
+tion of temperature Eq. 5. The conservation of mass at the
+interface is technically implemented by locally deforming the grid
+Eq. 6. For spatial discretization, the central differencing
+scheme was employed. For time stepping, the Crank–Nicolson
+scheme was used.
+Y f,s = Mf
+M¯ exp	A −	
+B
+Tg,s + C
+
+3
+cf,s,g =
+−D¯	
+Yf
+r
+s
+1 −Y f,s
+4
+
+f,l
+dT
+dr = f,gcf,shl,gTs,l
+5
+cf,s,gs,gYs,f = cf,s,lf,s,l
+6
+Results. A variation of the droplet slip velocity was performed
+for one operating condition characterized by the preheat tempera-
+ture Tmix2=673 K, liquid fuel fraction =0.1, global equivalence
+ratio =0.5, and pamb=0.1 MPa. For these boundary conditions,
+the temperature downstream of the premixed ﬂame and at the
+beginning of the computational domain is 1805 K. The initial
+droplet diameter is d=50 m. The droplet slip velocity was varied
+between 1 m/scslip20 m/s, which corresponds to a droplet
+Reynolds number of 0.18ReD3.6.
+Since the simulation is transient, a time for comparison of the
+nonintegral quantities needs to be chosen. For the operating
+conditions considered here, the droplet ﬂames have reached a
+stable burning mode after t=85, ... ,350 s, depending on the
+ﬂame type. The comparison was performed at a simulation time
+t=500 s.
+For the investigation of the inﬂuence of the slip velocity on NO
+formation, the ratio of the NO formation rate integrated over the
+domain volume Eq. 7 and the vaporization fuel mass ﬂow of
+the droplet is used to quantify NO formation. In a global context,
+this is referred to as the emission index EINO.
+m˙ NO = MNO 
+i=1
+m
+ziRidV
+7
+In Fig. 6, the simulated effect of droplet slip on NO formation
+in the droplet ﬂame is shown. For the range of droplet slip veloci-
+ties considered, a variation of NO formation of almost two orders
+of magnitude was found. The relation between emissions and slip
+velocity exhibits a nonlinear transition in the slip velocity range of
+2 m/scslip5 m/s. An explanation of this behavior can be ob-
+tained from a comparison of the ﬂame structure.
+The predicted temperature ﬁeld for three different droplet slip
+velocities is shown in Fig. 7. The temperature ﬁeld around the
+droplet is signiﬁcantly affected by droplet slip. Toward higher slip
+velocities, it is becoming more homogeneous, while a decrease in
+peak temperature is observed. Additionally, the region of the tem-
+perature peak moves further away from the droplet.
+From detailed analysis of the temperature and CH radical mass
+fraction ﬁelds, it was concluded that the mass fraction peak of the
+CH radical correlates quite well with the location of the heat re-
+lease Fig. 7. For the smallest slip velocity of 2 m/s, an envelope
+ﬂame is observed. However, the temperature and CH mass frac-
+tion at the forward stagnation point are lower than in the wake
+region. In the case of a slip velocity of 5 m/s, no signiﬁcant heat
+release is observed in the upstream region of the droplet as the
+local temperature does not exceed the inlet temperature. There-
+fore, the extinction of the droplet ﬂame at the forward stagnation
+Fig. 6
+Dimensionless NO formation rate of single droplet
+ﬂames
+Journal of Engineering for Gas Turbines and Power
+SEPTEMBER 2008, Vol. 130 / 051504-5
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 6 ---
+
+point must occur for a slip velocity of 2, ... ,5 m/s. If the slip
+velocity is further increased, the ﬂame position moves further
+downstream. The transition between the two droplet ﬂame types
+explains the nonlinearity in the relation between droplet slip and
+NO formation, as shown in Fig. 6.
+Considering the results of the numerical investigation, the effect
+of droplet slip on NO formation in a droplet ﬂame can be ex-
+plained by the following mechanism.
+1. The ﬂame position is determined by a chemical time scale
+and a convective time scale. An increase of the slip velocity
+results in a decrease of the convective time scale and, con-
+sequently, the distance between droplet and ﬂame increases.
+2. The distance between droplet and ﬂame exerts a signiﬁcant
+inﬂuence on the equivalence ratio of the droplet ﬂame. In the
+case of a large distance, mixing is improved, resulting in a
+lower equivalence ratio of the droplet ﬂame.
+3. The equivalence ratio at the position of the droplet ﬂame
+determines the ﬂame temperature. Due to the nonlinear de-
+pendence of NO formation on temperature, the equivalence
+ratio has a signiﬁcant impact on NO formation in the ﬂame.
+In the present analysis, radiative heat transfer was not consid-
+ered. Radiative heat transfer can reduce the peak temperature of
+the droplet ﬂame. Furthermore, the vaporization rate of the droplet
+can be increased if the droplet absorbs radiation. The effect of
+thermal radiation is, however, not expected to qualitatively alter
+the effect of slip velocity on NO formation in droplet ﬂames.
+Experimental Investigation of Droplet Slip Velocities
+In the previous section, it was shown that the droplet slip ve-
+locity has a strong impact on the microscopic droplet ﬂame shape
+as well as local peak temperature, which in turn signiﬁcantly af-
+fects NO formation. In the experimental investigation, it was
+found that the presence of liquid fuel in the macroscopic reaction
+zone has a signiﬁcant effect on overall emissions. In order to show
+which magnitude of droplet slip velocities and, consequently,
+droplet ﬂame type can be expected in a swirl-stabilized burner, the
+droplet slip velocity was measured in the generic burner. As a
+prerequisite, the location of the macroscopic reaction zone had to
+be identiﬁed. Then, the mean gas phase and droplet velocities
+were acquired in this region.
+Identiﬁcation of the Macroscopic Reaction Zone. In order to
+determine the mean slip velocities of the burning droplets, ﬁrst the
+region where there is a high probability of the presence of burning
+droplets needs to be identiﬁed. The recording of time averaged
+chemiluminescence intensity and subsequent deconvolution is a
+technique well suited to obtain this information. For the deconvo-
+lution, the Abel transformation is used.
+In the deconvoluted chemiluminescence recordings, two sepa-
+rate regions are visible where signiﬁcant chemiluminescence in-
+tensities are observed see Fig. 8. The main ﬂame burns in the
+shear layer between fresh mixture and recirculated mixture. The
+second region is located near the center axis in the inner recircu-
+lation zone. The extent of the inner recirculation zone and the
+position of the shear layer is characterized by the contour plot of
+the axial gas phase velocity shown in Fig. 9.
+Measurement of Droplet Slip in the Reaction Zone. For the
+determination of droplet slip velocities, the disperse phase as well
+as the gas phase velocities were simultaneously measured. An
+LDA setup in combination with a phase discrimination technique
+is used. Phase discrimination is performed by particle diameter.
+The particle diameter is obtained from the recorded scattering
+intensity. A discrimination diameter of d=2 m was chosen. The
+effect of Gaussian laser intensity distribution in the measurement
+volume on the scattering intensity is reduced by rejecting par-
+ticles, which do not traverse the near center region of the mea-
+surement volume. This is achieved by calculating the particle tra-
+jectory length within the measurement volume and deﬁning a
+boundary value lbound=0.8dprobevol. The results of the extended
+LDA technique are in good agreement with disperse phase veloc-
+Fig. 7
+Effect of slip velocity on temperature and CH mass fraction
+0.5
+1
+1.5
+2
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+x/db
+r/db
+a.u. [ ]
+0
+1
+2
+3
+4
+main flame
+inner recirculation
+zone
+Fig. 8
+Chemiluminescence intensity, time averaged and de-
+convoluted, band pass ﬁltered for CH* emission around
+431 nm; =0.5, =0.5
+051504-6 / Vol. 130, SEPTEMBER 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 7 ---
+
+ity measurements obtained with the PDA technique. The extended
+LDA technique was preferred over the PDA technique for these
+measurements since the optical access window available for LDA
+was less susceptible to degradation by tracer particles.
+The mean value of the axial and tangential velocity component
+was obtained for both phases. The resulting droplet slip velocity is
+shown in Fig. 9. The highest droplet slip velocities of 12 m/s
+cslip16 m/s are observed near the center axis, where the inner
+recirculation zone is located. Further outside, there exists a region
+with lower slip velocities of 2 m/scslip5 m/s. This is the re-
+gion of the main heat release. Thus, two regions characterized by
+different droplet combustion modes can be discriminated.
+1. The inner recirculation zone, where high droplet slip veloci-
+ties prevail. According to the numerical study previously
+presented Fig. 7 at high slip velocities, a wake ﬂame burn-
+ing behind the droplet is expected to exist. The wake ﬂame
+is characterized by low ﬂame temperatures and, thus, a mi-
+nor contribution to the overall NOx emissions.
+2. The main ﬂame, where low droplet slip velocities are ob-
+served. In this region, the numerical simulation predicts the
+existence of both envelope and wake ﬂames since the slip
+velocities are within the range of the ﬂame type transition.
+As a consequence, the droplet ﬂame temperature is higher,
+which results in higher NO formation rates.
+Summary
+The experimental study shows that the degree of prevaporiza-
+tion has a signiﬁcant impact on the NOx emissions of a swirl-
+stabilized model gas turbine combustor. Thus, the reduction of
+nonprevaporized fuel in the reaction zone does offer a signiﬁcant
+NOx emission reduction potential for LDI combustion systems.
+With increasing overall equivalence ratio, the emission reduction
+potential decreases. The effect of the degree of prevaporization on
+the NOx emissions is a consequence of the presence of droplets in
+the macroscopic reaction zone. The droplet density in the reaction
+zone is in the range in which individual droplet burning is ex-
+pected. The absence of group combustion phenomena is a general
+feature of LDI combustion systems with homogeneous fuel place-
+ment.
+An almost linear relation between the degree of prevaporization
+and the overall nitric oxide emissions was found. The linearity
+suggests that a superposition of two NO formation mechanisms
+exists. While nitric oxide formation in lean premixed ﬂames is
+minimal, a near stoichiometric droplet ﬂame can be a signiﬁcant
+source of nitric oxides. Therefore, the amount of nonprevaporized
+fuel which is burnt in droplet ﬂames is directly proportional to the
+overall NOx emissions.
+As a major result of the present study, an alternative method for
+the NOx emission reduction in LDI combustion systems was iden-
+tiﬁed. NO formation can be minimized for a given degree of pre-
+vaporization by maximizing the droplet slip velocity in the mac-
+roscopic reaction zone. The effect of the droplet slip velocity on
+NOx emissions is governed by the following mechanism: An in-
+crease in droplet slip velocity will increase the droplet/ﬂame dis-
+tance, and due to an increase of the mixing length, the mixture
+fraction at the ﬂame position is reduced. Consequently, the peak
+temperature as well as the NO formation rates are lowered.
+The mean droplet slip velocities in the swirl-stabilized model
+combustor investigated in the present study were measured. In the
+main reaction zone, relatively low droplet slip velocities were
+measured, which are within the transition range between envelope
+and wake ﬂame. In the inner recirculation zone, relatively high
+slip velocities were measured, suggesting the presence of wake
+ﬂames. Thus, it is concluded that major contributions to the NOx
+emissions under nonprevaporized conditions stem from droplets
+burning in the main reaction zone.
+The ﬁnal conclusion of the present study is that a reliable pre-
+diction of the NOx emissions of LDI combustors must include a
+submodel that accounts for single droplet burning and the nitric
+oxides formed within these droplet ﬂames.
+Acknowledgment
+The authors gratefully acknowledge the ﬁnancial support for
+this project by the European community within the framework of
+the research program TLC “Towards Lean Combustion” Contract
+No. AST4-CT-2005-012326.
+Nomenclature
+Latin Letters
+c  velocity magnitude m/s
+D  diffusion coefﬁcient m2/s
+d  diameter m
+D32  Sauter mean diameter SMD m
+f  ﬂux m3/m2 s
+h  total enthalpy J/kg K
+l  droplet spacing m
+M  molar mass kg/mol
+axial gas velocity [m/s]
+x/db
+r/db
+0.5
+1
+1.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+10
+5
+0
+5
+10
+15
+20
+25
+droplet slip velocity [m/s]
+x/db
+r/db
+0.5
+1
+1.5
+0
+0.2
+0.4
+0.6
+0.8
+1
+1.2
+1.4
+1.6
+2
+4
+6
+8
+10
+12
+14
+16
+Fig. 9
+Axial gas phase velocity and droplet slip velocity magnitude, =0.5, 
+=0.5, thick black line: cax=0 m/s
+Journal of Engineering for Gas Turbines and Power
+SEPTEMBER 2008, Vol. 130 / 051504-7
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm
+
+
+--- Page 8 ---
+
+m˙  mass ﬂow kg/s
+R  species source term kg/s
+s  swirl number
+T  temperature K
+u  velocity component m/s
+X  molar fraction
+Y  mass fraction
+z  stoichiometric factor
+Greek Letters
+  ratio of liquid to total fuel mass
+  equivalence ratio
+
+  thermal conductivity W/m K
+  density kg/m3
+Subscripts
+ax  axial
+b  burner
+f  fuel
+g  gas phase
+l  liquid phase
+mix1  condition after mixing of prevaporized fuel
+fraction
+mix 2  virtual condition after complete vaporization
+ox  oxidizer
+r  radial
+s  droplet surface
+References
+1 Bauer, H.-J., 2004, “New Low Emission Strategies and Combustor Designs for
+Civil Aeroengine Applications,” Prog. Comput. Fluid Dyn., 4, pp. 130–142.
+2 Aggarwal, S. K., 1998, “A Review of Spray Ignition Phenomena, Present
+Status and Future Research,” Prog. Energy Combust. Sci., 24, pp. 565–600.
+3 Cano-Wolff, M., Meisl, J., Koch, R., and Wittig, S., 1998, “The Inﬂuence of
+Evaporation on the Autoignition-Delay of n-Heptane Air Mixtures Under Gas
+Turbine Conditions,” 27th International Symposium on Combustion, pp. 2025–
+2031.
+4 Cooper, L. P., 1980, “Effect of the Degree of Prevaporization Upon Emissions
+for a Premixed Partially Vaporized Combustion System,” NASA Technical
+Paper No. 1582.
+5 Baessler, S., Moesl, K. G., and Sattelmayer, T., 2006, “NOx Emissions of a
+Premixed Partially Vaporized Kerosene Spray Flame,” ASME Paper No.
+GT2006-90248.
+6 Spalding, D. B., 1953, “The Combustion of Liquid Fuels,” Fourth Interna-
+tional Symposium on Combustion, pp. 847–864.
+7 Pope, D. N., and Gogos, G., 2005, “Numerical Simulation of Fuel Droplet
+Extinction Due to Forced Convection,” Combust. Flame, 142, pp. 89–106.
+8 Raghavan, V., Babu, V., Sundararajan, T., and Natarajan, R., 2005, “Flame
+Shapes and Burning Rates of Spherical Fuel Particles in a Mixed Convective
+Environment,” Int. J. Heat Mass Transfer, 48, pp. 5354–5370.
+9 Jiang, T. L., Chen, W. S., Tsai, M. J., and Chiu, H. H., 1995, “A Numerical
+Investigation of Multiple Flame Conﬁgurations in Convective Droplet Gasiﬁ-
+cation,” Combust. Flame, 103, pp. 221–238.
+10 Held, T. J., Marchese, A. J., and Dryer, F. L., 1997, “A Semi-Empirical Reac-
+tion Mechanism for n-Heptane Oxidation and Pyrolysis,” Combust. Flame,
+123, pp. 107–146.
+11 Hewson, J. C., 1997, “Pollutant Emissions From Nonpremixed Hydrocarbon
+Flames,” University of California.
+12 Schaefer, O., 2005, “Experimentelle und Numerische Analyse des Flammen-
+rueckschlags bei der Mageren Vormischverbrennung,” ITS, University of
+Karlsruhe.
+13 Maier, G., and Wittig, S., 1999, “Fuel preparation and Emission Characteris-
+tics of a Pressure Loaded LPP Combustor,” AIAA Paper No. 99-3774.
+14 Borghi, R., 1996, “Background on Droplets and Sprays,” Lecture Series-von
+Karman Institute, Vol. 2, pp. 1–39.
+15 Annamalai, K., and Ryan, W., 1992, “Interactive Processes in Gasiﬁcation and
+Combustion. Part 1: Liquid Drop Arrays and Clouds,” Prog. Energy Combust.
+Sci., 18, pp. 221–295.
+16 Chiu, H. H., 1996, “Multiple-State Phenomena and Hysteresis of a Combust-
+ing Isolated Droplet,” Atomization Sprays, 6, pp. 1–26.
+17 Warnatz, J., Maas, U., and Dibble, R. W., 2001, Combustion, Springer, New
+York.
+051504-8 / Vol. 130, SEPTEMBER 2008
+Transactions of the ASME
+Downloaded 15 Mar 2010 to 129.137.90.23. Redistribution subject to ASME license or copyright; see http://www.asme.org/terms/Terms_Use.cfm

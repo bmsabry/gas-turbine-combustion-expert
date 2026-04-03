@@ -1,0 +1,858 @@
+
+--- Page 1 ---
+
+On NOx Emissions from Turbulent Propane Diffusion Flames 
+Ph. MEUNIER, M. COSTA, and M. G. CARVALHO* 
+Instituto Superior T&'nico, Mechanical Engineering Department. At'enida Rocisco Pats. 
+1096 Lisbon Codex. Portugal 
+This paper presents an investigation on NO~ emissions from turbulent propane diffusion flames. The study 
+includes both experimental measurements and numerical 2D simulations and aims to provide a better 
+understanding of the dominant physical effects associated with the NO~ prt~luction in turbulent diffusion 
+flames. Measurements of NO~ emission indices (EINO~), performed in unconfined and vertical lifted flames, 
+have been analysed numerically. In this analysis, the effects of flame radiation, flame extinction by stretch 
+and residence time have been studied by means of a mathematical model including a subroutine of the 
+relevant NO chemistry. The numerically calculated values of EINO~, which are in good agreement with the 
+experimental data, are found to be proportional to the residence time of the reaction products in the 
+high-temperature reaction ztme. The similar EINO, trends with geometrical or fluid mechanical paramete~ 
+obtained without taking flame radiation or flame extinction into account reveals that the residence time is 
+the dominant physical parameter asst~ciatcd with NO, scaling for the present flames. ¢) 1998 by The 
+Combustion Institute 
+INTRODUCTION 
+The damages caused by the emissions of nitro- 
+gen oxides (NO r) to the environment and 
+health have led industrialised countries to 
+adopt strict legislation t,~ reduce these emis- 
+sions from the dominant combustion sources. 
+Intensive efforts have therefore been devoted 
+to the understanding of the NO~ formation 
+mechanism and to the development of tech- 
+nologies for their reduction. Nowadays. many 
+of the complex reaction paths for the forma- 
+tion and the destruction of nitrogen species in 
+hydrocarbon combustion are known and the 
+rate parameters of most elementary reactions 
+are established [e.g., 1, 2]. The main unre- 
+solved question remains that of the interaction 
+between turbulence and NO X chemistry. Tur- 
+b,lent jet diffusion flames have usually been 
+chosen as the starting point to understand the 
+complex chemical and fluid mechanical pro- 
+cesses as well as their interactions eccurring in 
+industrial devices. Most of the experimental 
+studies in axisymmetric jet flames have been 
+concerned with the scaling of NO~ emission 
+indices (EINOx) with the jet primary variables: 
+the jet exit velocity, the nozzle diameter, the 
+fuel composition and the jet exit Reynolds or 
+Froude numbers [e.g., 3-12]. The main objec- 
+*Corresponding author (Tel. +35 I- 1-8417378: Fax: +351- 
+1-8475545). 
+COMBUSTION AND FLAME 112:221-230 (1998) 
+© 1998 by The Combustion Institute 
+Published by Elsevier Science Inc. 
+tive of these EINOx measurements was to evi, 
+dence the main physical effects associated with 
+the production of NO~ in turbulent diffusion 
+flames rather than to propo~ an engineering 
+correlation. In addition, simple scalings have 
+also been proposed from theoretical considera- 
+tions [5, 9]. A complete review of the previous 
+related studies may be found in [12]. From 
+experimental and theoretical arguments, five 
+principal effects have been proposed as the 
+main factors controlling the NO.r scalings in 
+hydrocarbon gaseous combustion. They are the 
+flame volume [9, 11], the relative importance of 
+the various NO chemical routes [9, 11], the 
+superequilibrium radical concentrations and 
+subequilibrium temperature [5, 10], the flame 
+strain [7, 10, 11] and the flame radiation [4, 5, 
+6, 8]. Despite all these parameters being linked, 
+they have not been yet considered together in 
+a detailed numerical analysis. 
+In a recent experimental and numerical study 
+[13], we showed that the Fenimore (or prompt 
+NO) mechanism is the dominant route for the 
+NO formation in turbulent propane diffusion 
+flames, confirming previous results obtained in 
+laminar flames [14]. It was also observed that 
+the relations between NO and hydrocarbon 
+radicals, recycling NO to HCN which, in turn, 
+can be converted in N 2 or other nitrogen con- 
+taining species, play an important role in the 
+global NO reduction. Recently, Hewson and 
+Bollig [15] presented further evidence of the 
+importance of the prompt and reburn chem- 
+~110-2180/98/$19.00 
+Pll S0010-218~97)00117-X 
+
+
+--- Page 2 ---
+
+222 
+Ph. MEUNIER ET AL. 
+istry for hydrocarbon diffusion flames. In this 
+paper, we present both EINO x measurements 
+and numerical 2D computations in order to 
+enhance the understanding between turbu- 
+lence and NOx chemistry in turbulent diffusion 
+propane flames. Based on the balance equa- 
+tions for mass, momentum and energy, and on 
+transport equations for the relevant scalar 
+properties for turbulence and combustion, the 
+mathematical model uses the stretched lami- 
+nar flamelet model, which allows both chemi- 
+cal reaction mechanism and flame extinction 
+due to flame strain to be taken into account. In 
+addition, the influence of flame radiation on 
+gas temperature is taken into account by incor- 
+porating a radiation term into the energy equa- 
+tion. The NO concentration fields are calcu- 
+lated using a subroutine of relevant NO chem- 
+istry. This includes both thermal- and prompt- 
+NO reactions, those between NO and fuel rad- 
+icals recycling NO to HCN, and subsequent 
+reactions to form NO or N2. 
+EXPERIMENTAL METHOD 
+An overview of the test section is shown in 
+Fig. 1. The burner consisted of a straight tube 
+through which the fuel jet was injected verti- 
+cally into still air. Three different sized nozzles 
+of 2.05, 3.25, and 4.15 mm i.d. were employed. 
+Commercial propane (99.8% purity), stored in 
+standard bottles, was used. The fuel flow was 
+controlled with a pressure regulator and a valve 
+while the flow rate was measured using a cali- 
+brated rotameter. The flames were surrounded 
+by a fine mesh wire screen constructed of 
+movable 1 m × 2.4 m panels to minimise room 
+disturbances. In the present experimental set- 
+up no measures were employed to attach the 
+flame to the nozzle so that the measurements 
+were performed on lifted flames, with lift-off 
+heights up to 5 cm. This means that a correc- 
+tion for the NO x contribution from pilots or 
+other stabilising methods, which have been 
+shown to give significant contributions to NOx 
+emissions [8], was not required. Lifted flames 
+entrain air prior to the flame stabilisation point, 
+but this premixing does not change the overall 
+character of the present diffusion flame [16]. 
+The sampling of combustion gases from the 
+post-flame region for the measurement of CO 2 
+and NO x was achieved using a water-cooled 
+stainless steel probe. It comprised a centrally 
+located 2 mm i.d. tube through which quenched 
+samples were evacuated, surrounded by two 
+concentric tubes for probe cooling. A schematie 
+of the gas analysis system is also shown in 
+Fig. 1. The gas sample was drawn through the 
+probe and part of the system by a 100% oil-free 
+diaphragm pump. A condenser removed the 
+main particulate burden and condensate. A 
+drier and filter removed any residual particles 
+and moisture so that a constant supply of dean 
+dry combustion gases was delivered to each 
+analyser through a manifold to give species 
+concentration on a dry basis. The analytical 
+instrumentation included non dispersive in- 
+frared gas analysers for NO~ (Horiba Model 
+CMA-331A) and CO_, (Horiba Model CFA- 
+311A) measurements. The NO x analyser was 
+calibrated with mixtures of 4 and 38,5 ppm NO 
+in nitrogen and the CO 2 analyser was cali- 
+brated with mixtures of 1, 2, and 5.98% CO 2 in 
+nitrogen. Zero and span calibrations were per- 
+formed before and after each measurement 
+session. In the postflame region, probe effects 
+were likely to be negligible and errors arose 
+mainly from quenching of chemical reactions, 
+sample handling and analysis. Our best esti- 
+mates have indicated uncertainties of less than 
+10% for both CO, and NO~ concentrations. 
+The EINO~, which represents the grams of 
+NO x produced per kilogram of fuel burned, 
+was calculated from simultaneous local mea- 
+surements of NO x and CO 2 concentrations in 
+the postflame region. Assuming that all the 
+carbon in the fuel is converted into CO 2 the 
+EINOx can be obtained from [6]: 
+3[NO x ]MWNo, 1000 
+EINOx(g/kg) = 
+[C02 ]MWc~H ~ 
+(1) 
+where MW is the molecular weight, the brack- 
+ets refer to mole fraction and the factor 3 
+accounts for the formation of three moles of 
+CO 2 from one mole of c3n 8. Note that, re- 
+gardless of air dilution, the EINOx is constant 
+both axially and radially in the postflame re- 
+gion [6]. 
+The radiant heat flux was measured using a 
+purged water-cooled radiometer (HY-Cal 
+Model R-2040). The radiometer has a 140 ° 
+
+
+--- Page 3 ---
+
+ON NO x EMISSIONS FROM TURBULENT DIFFUSION FLAMES 
+223 
+Water 
+'° 
+water ~ 
+' 
+t I 
+t 
+Enclosure| 
+,. ~,o? 
+~j 
+/ 
+Rotameter 
+U 
+Propane 
+Fig. 1. Experimental 
+set-up. 
+field of view and measures the total radiant 
+flux in the wavelength range of 0.5 to 15 #m. 
+The accuracy of the radiation flux measure- 
+ments depended mainly on the care taken dur- 
+ing the calibration. In this study, calibrations 
+carried out before and after each measure- 
+ment showed differences of less than +5% 
+which gives an indication of the uncertainty of 
+the measurements. The radiometer was lo- 
+cated at a radial position of R = L//2 (L/ is 
+the visible flame height) the axial position be- 
+ing half of the visible flame height. The latter 
+location, to which corresponds approximately 
+the maximum radiant flux, has been found 
+appropriate to estimate the radiant fraction 
+from a single near-flux measurement as [8]: 
+q,47rR 2 
+x, 
+rhfAHc ' 
+(2) 
+where qr is the measured radiant heat flux 
+(W/m-'), th[ is the fuel mass flow rate, and 
+A H,. is the heat of combustion. 
+The sample probe and the radiometer were 
+mounted on a 3D computer controlled traverse 
+mechanism which allowed for axial and radial 
+movements. The analog outputs of the analy- 
+sers and of the radiometer were transmitted 
+via A/D boards to a PC where the signals 
+were processed and the mean values com- 
+puted. 
+MATHEMATICAL MODEL 
+Main Flow and Combustion Equations 
+The mathematical model is based on a 
+density-averaged form of the balance equa- 
+tions for mass, momentum and energy, and 
+relevant scalar quantities describing turbu- 
+
+
+--- Page 4 ---
+
+224 
+Ph. MEUNIER ET AL. 
+lence and combustion. The set of equations is 
+closed by the k-e turbulence model using stan- 
+dard coefficients and no axisymmetric jet 
+spreading correction. Buoyancy effects are 
+taken into account in the momentum equation 
+only. Combustion is modelled using the 
+stretched laminar flamelet model and the as- 
+sumed PDF method. The present flamelet ap- 
+proach considers a flamelet library consisting 
+of two scalar profiles: one corresponds to 
+undisturbed flamelet burning and the other to 
+nonreactive mixing [17]. This means that the 
+local structure in the turbulent flame is as- 
+sumed to be determined by a combination of 
+an unstretched laminar diffusion flame and the 
+inert-mixing between fuel and oxidiser streams. 
+The latter occurs when the local stretch pa- 
+rameter, which is represented by the strain 
+rate of the smallest eddies, exceeds a quench- 
+ing limit [18]. The quenching value for the 
+strain rate was taken equal to 565 s -I [18] 
+while the coefficient relating the strain rate 
+value with the k-e values was 0.16. For both 
+flamelet burning and inert-mixing scaler pro- 
+files, the species mass fractions are related to 
+the value of the mixture fraction. A linear 
+variation of the species mass fractions with the 
+mixture fraction is adopted for the inert-mixing 
+profile. The relationship between the mixture 
+fraction and the species mass fractions for the 
+flamelet burning profile is obtained from com- 
+putations of an unstretehed 
+non-premixed 
+propane flame [19]. The chemical mechanism 
+considered involves the oxidation of propane 
+into CO and H 2 by a single step. The subse- 
+quent CO and H2 oxidation is represented by 
+a scheme of 12 elementary reactions. The 
+chemical species considered in this mechanism 
+are C3H 8, 02, N 2, CO2, CO, H20, OH, H 2, 
+O, and H. For the PDF calculation, the mix- 
+ture fraction and the strain rate are assumed 
+to be statistically independent. The strain rate 
+distribution is assumed to be a quasi-Gaussian 
+function [18] while a conditional clipped 
+Gaussian function is chosen for the mixture 
+fraction distribution [20]. The gas temperature 
+is calculated from the enthalpy using well 
+known thermodynamic concepts. A piecewise 
+linear relationship between the instantaneous 
+values of enthalpy and mixture fraction is as- 
+sumed to keep the conserved scalar approach. 
+It should be noted that the influence of radia- 
+tion heat transfer on temperature predictions 
+has been considered by incorporating a radia- 
+tion term into the energy equation. This term 
+is evaluated using the discrete transfer method 
+[21] and considering CO 2, H~O and soot as 
+participating species. Charts of gas total emit- 
+tance, extended to account for soot particles, 
+have been used [22]. A transport equation is 
+solved for the soot mass fraction with a single 
+step process being chosen for the soot forma- 
+tion rate [23] and the soot oxidation rate [24]. 
+Nitric Oxide Calculations 
+The NO concentration fields are calculated by 
+solving a transport equation for the Favre- 
+averaged NO and HCN mass fractions. The 
+mean NO and HCN mass formation rates are 
+calculated using the PDF method. The nitro- 
+gen reaction scheme used in this work com- 
+prises 27 reactions accounting for both the 
+thermal- and the prompt-NO mechanisms as 
+well as NO to HCN recycling and conversion 
+of HCN to NO and N, [2]. In the present 
+study, the distinction bet(veen tCH, and 3CH, 
+considered in [2] was not made. The reaction 
+between HCCO + NO [1] was added. Original 
+constants were kept. Steady-state relationships 
+are used for obtaining the instantaneous con- 
+centrations of the other nitrogen containing 
+species and fuel radicals involved in the NO 
+chemistry. The concentration of fuel hydrocar- 
+bon radicals is obtained from the flamelet 
+model data (C3Hs, 02 .... ) using a simplified 
+propane reaction mechanism [13, 25]. In this 
+scheme, C2H 2 and ca 3 are assumed to be 
+formed from propane, roughly at the rate of 
+the reaction [9]: 
+C3H 8 + H ~ C3H 7 + H 2, 
+(3) 
+which may be followed by the faster reactions: 
+C3H 7 -~ C2H 4 + CH 3, 
+(4) 
+C2H 4 + H -~ C2H 3 + H2, 
+(5) 
+C2H 3 ~ C2H 2 + H, 
+(6) 
+
+
+--- Page 5 ---
+
+ON NO x EMISSIONS FROM TURBULENT DIFFUSION FLAMES 
+225 
+to yield the overall process: 
+C3H 8 + 2H ---, C2H 2 + CH 3 + 2H 2 + H. 
+(7) 
+CH and CH 2 are assumed to be consumed 
+through reactions with virtually all species (ex- 
+cept with N 2 for both CH and CH 2 and C- 
+containing species for CH2) at rates that are 
+roughly the same so that one writes [9]: 
+CH + M' --, products, 
+(8) 
+CH 2 + M" ~ products, 
+(9) 
+where M' denotes any molecule other than N 2 
+and M" any molecule not containing N or C 
+atoms. 
+Numerical Solution 
+The numerical solution was accomplished us- 
+ing a finite-volume technique, a fully elliptic 
+solver and a staggered grid [26]. The main flow 
+and combustion equations as well as the NO 
+and HCN transport equations were integrated 
+over each control volume and discretised usip.g 
+a finite-difference scheme. The central differ- 
+ence discretisation scheme was employed ex- 
+cept for the convective terms which were dis- 
+cretised using the hybrid central difference/ 
+upwind scheme. Coupling between the pres- 
+sure and velocity fields was handled by the 
+SIMPLE algorithm and the sets of discretised 
+algebraic equations were solved by the Gauss- 
+Seidel line-by-line iterative procedure. A 42 x 
+42 node grid covering a calculation domain of 
+0.5 m x 1.5 m was used. A grid refinement was 
+tested without improving the agreement be- 
+tween predictions and measurements. 
+RESULTS AND DISCUSSION 
+Figure 2 presents both measurements and pre- 
+dictions of EINOx as a function of the jet 
+velocity (u 0) for the three different nozzle di- 
+ameters (do). In this figure, the data in terms 
+of measured CO 2 and NO x concentrations was 
+as follows: 1% < CO 2 .<_ 5% and 8 pprn< 
+NO~ < 25 ppm. The jet exit Reynolds and 
+Experiments 
+Predictions 
+0 
+do=4.15 mm 
+• 
+0 
+do : 3.25 mm 
+• 
+a 
+do : 2.05 mm 
+I 
+i 
+o 
+20 
+JET VELOCITY (m/s) 
+Fig. 2. Comparison between predicted and measured EINO r 
+
+
+--- Page 6 ---
+
+226 
+Ph. MEUNIER ET AL. 
+Froude numbers ranged from 5720 to 19,000 
+and from 940 to 62,190, respectively. The pre- 
+dicted EINOx values were obtained by inte- 
+grating the net NO mass formation rate per 
+unit volume over the flame volume divided by 
+the fuel mass flow rate at the nozzle exit as 
+follows: 
+f, PNo dV 
+EINOx = 
+dO " 
+(10) 
+7Tp0 U 0 T 
+The good agreement between the numerical 
+and experimental values was expected since 
+both the combustion aerodynamics and the 
+NO post-processor models have been previ- 
+ously tested against detailed in-flame data col- 
+lected for the present flames [13, 16, 25]. The 
+decreasing trend of EINO x with the jet velocity 
+is surprising since the opposite trend has usu- 
+ally been observed and reported by other au- 
+thors [4, 6-10]. In these previous related works, 
+the EINO,. increases with u0 at the higher 
+velocities, but in some cases, the EINO x de- 
+creases first before rising [7, 8, 9]. The differ- 
+ence in the trends between the present study 
+and the others may therefore be explained by 
+the different velocity ranges (see below). 
+The numerical calculations indicate that the 
+variation of EINOx with the jet velocity is 
+mainly due to that of the ratio VNo/(Truod~/4) 
+as illustrated in Fig. 3. In this ratio, VNo repre- 
+sents the flame volume in which the net NO 
+mass formation rate is non-negligible, i.e.. vol- 
+ume in which more than 99.9% of NO is 
+produced. It can be noted that this ratio is 
+proportional to that proposed in [8] to express 
+the time required for a stoiehiometric mixture 
+of hot products to pass through the flame 
+volume: 
+P/-fs 
+(ll) 
+tr 
+u.d 2 3p0' 
+where fs is the fuel mass fraction of the stoi- 
+chiometric mixture and pf is the flame density. 
+Replacing Vf by VNO in Eq. 11 the numerical 
+analysis reveals that the residence time of the 
+reaction products in the high-temperature re- 
+action zone, and not the flame volume, is the 
+6o 1 
+4O 
+,o 
+• 
+do = 4.15 mm 
+d. = 3.25 mm 
+• 
+do = 2.05 mm 
+tb 
+' 
+I 
+' 
+20 
+JET VELOCITY (m/s) 
+Fig. 3. Variation of predicted VNo/(rruod2/4) with the jet exit velocity. 
+
+
+--- Page 7 ---
+
+ON NO~ EMISSIONS FROM TURBULENT DIFFUSION FLAMES 
+227 
+dominant physical effect associated with NO 
+production in turbulent diffusion flames. 
+Figure 4 shows the variation of the radiant 
+fraction data with the jet velocity for the same 
+test conditions as those for the EINOx data. It 
+can be observed that the radiant fraction is 
+approximately constant until u,~ = 20 m/s and 
+then decreases. This trend was also observed 
+by other authors [6, 8, 12]--see Fig. 4--who 
+have suggested that the decrease in the radiant 
+fraction could increase the flame temperature 
+and thus could cause an increase in the NO, 
+production. This is, however, not observed with 
+the present EINO, data (Fig. 2). A possible 
+explanation for the reduced EINO~ with in- 
+creasing velocity observed in Fig. 2 is the de- 
+crease of the residence time of the reaction 
+products in the reaction zone, despite a possi- 
+ble temperature rising. To evidence the influ- 
+ence of flame radiation on NO~ production, 
+numerical calculations have also been per- 
+formed without taking into account the flame 
+radiation heat transfer. It was concluded that 
+the EINO~ results obtained either with or 
+without the radiat:3n model presented a simi- 
+lar trend with the jet velocity. The difference 
+lies in the absolute calculated values--about 
+211% higher without the radiation model. 
+Therefore, if flame radiation is an important 
+parameter controlling NO x emissions, it does 
+not appear to be relevant to male EINO~ data 
+with geometrical or fluid mechanical parame- 
+ters. This is probably due to the fact that 
+radiation affects mainly the flame temperature 
+peak but not the residence time, which is the 
+most important parameter associated with NO., 
+scaling in the present flames. 
+Numerical tests were also performed consid- 
+ering only the unstretched laminar diffusion 
+flame as the unique flamelet profile. The re- 
+sults were found similar to those obtained with 
+the stretched model. This is because, on one 
+hand, the inert-mixing between the fuel and 
+the oxidiser only occurs in the vicinity of the 
+burner--the lift-off height of the flames con- 
+sidered do not exceed a few percent of the 
+flame height--and, on the other hand, NO is 
+mainly formed in the far field. Furthermore, 
+the good agreement between experimental and 
+numerical EINO, data while not taking strain 
+0.4 
+0.3 
+F- 
+o < 
+i.- 
+0.2 
+z 
+0.1 
+0.0 
+• 
+• 
+• 
+o 
+ee 
+• 
+$ 
+O 
+do : 4.15 mm 
+do = 3.25 mm 
+I-J do = 2.05 turn 
+• 
+Data of Turns and Myhr (1991) 
+• 
+Predictions of the present data 
+i 
+i 
+i 
+I 
+i 
+i 
+i 
+0 
+20 
+JET VELOCITY (m/s) 
+Fig. 4. Variation of the radiant fraction with the jet exit velocity. 
+40 
+
+
+--- Page 8 ---
+
+228 
+Ph. MEUNIER ET AL. 
+variations on the NO production rate into ac- 
+count suggests that non-equilibrium effects are 
+not important for NOx scaling for the present 
+propane flames. 
+Figure 5 represents the variation of the 
+EINOx, normalised by the convective time scale 
+(do/uo), with the jet Froude number (Fr). The 
+present measurements are compared with pre- 
+vious related results [9] obtained under similar 
+test conditions, i.e., lifted turbulent propane 
+diffusion flames. As can be observed in Fig. 2, 
+both the present and the previous data indi- 
+cate that the jet Froude number is the relevant 
+fluid mechanical parameter to scale with 
+EINO x. The straight line in this figure repre- 
+sents the theoretical correlation proposed by 
+Rokke et al. [9], which have not taken strain 
+rates variations into account: 
+EINO x po-~o } = 44 Fr 3/5. 
+(12) 
+Figure 6 shows the EINO~, divided by the 
+convective time scale, as a function of the jet 
+Reynolds number (Re). The scaling of NO x 
+with the Reynolds number, at a fixed Froude 
+number, is illustrated by the straight line which 
+shows that an increase in the Reynolds number 
+results in a decrease in the normalised EINOx. 
+This result is consistent with previous findings 
+[3, 7, 8]. The relevance of the Reynolds num- 
+ber is, however, not observed in the data for 
+different jet diameters as they do not fit in a 
+single curve (see Fig. 6). 
+CONCLUSIONS 
+The results of an investigation on the emis- 
+sions of NO x from turbulent diffusion propane 
+flames have been presented. The main objec- 
+tive of the present study was to provide a 
+better understanding of the physical effects 
+associated with the NO x production in such 
+flames. To this end, the EINO x experimental 
+data have been scaled with the main geometri- 
+cal and fluid mechanical parameters and com- 
+pared to its numerically calculated values. 
+These were obtained using a 2D code with a 
+LOG10 
+5 
+Present study 
+_ _J4~- 
+0 
+d, = 4.15 mm 
+O 
+do = 3.25 mm 
+~
+"
+ 
+m 
+4 
+rl 
+do = 2.05 mm 
+A
+~
+ 
+"{'~1"{'~ 
+Rokke et al. 119921 
+°-x 
+Jr" ~ ' "  
+-0- do: 10.0 mm 
+m 
+j .  
+X 
+d.o : 15.0 mm 
+2 
+yj~ 
+~ 
+do = 17.0 mm 
+~,~ 
+"~ 
+y 
+do = 20.5 mm 
+( 
+do = 30.0 mm 
+f 
+Correlation 
+Rokke et al. (1992) 
+v 
+do = 50.0 mm 
+1 
+g 
+u |l.uu 
+I 
+i 
+Iguu.q 
+i 
+|uu.H 
+I 
+| 
+m wH.,ll 
+, 
+|||uum 
+I 
+i 
+gw|,. 
+0 
+1 
+2 
+3 
+4 
+5 
+6 
+JET FROUDE NUMBER 
+LOG10 
+Fig. 5. Variation of the EINO x normalized by the convective time, with the jet 
+Froude number. 
+
+
+--- Page 9 ---
+
+ON NO, EMISSIONS FROM TURBULENT DIFFUSION FLAMES 
+229 
+o 
+4 
+LOGIO 
+5 
+0 
+do = 4.15 mm 
+O 
+do = 3.25 mm 
+i"i 
+do = 2.05 mm 
+0 0 
+0 
+0 
+, 
+, 
+i 
+' 
+' 
+' 
+' ' l  
+' 
+' 
+' 
+' 
+' 
+' 
+|' 
+3 
+4 
+5 
+JET REYNOLDS NUMBER 
+LOGIO 
+Fig. 6,. Variation of the EINO~. normalized by the convective time, with the jet 
+Reynolds number. 
+subroutine 
+for relevant nitrogen chemistry 
+which included both thermal- and prompt-NO 
+formation as well as NO to HCN recycling and 
+conversion of HCN to NO and N 2. In this 
+code, the effects of flame extinction and flame 
+radiation have been taken into account by the 
+stretched laminar flamelet model and the dis- 
+crete transfer model, respectively. 
+The numerically calculated values of EINO x 
+are found in good agreement with the experi- 
+mental data and are proportional to the resi- 
+dence time of the reaction products in the 
+high-temperature reaction zone. According to 
+the present model, the inclusion of a radiation 
+model or of a quenching criteria has little 
+effect on the EINO x trend with geometrical or 
+fluid mechanical parameters. The numerical 
+analysis suggests that the residence time of the 
+reaction products in the high-temperature re- 
+action zone is the main physical effect asso- 
+ciated with the NOx scaling and that non- 
+equilibrium effects are not important for NOx 
+scaling in the present propane flames. Finally, 
+the measurements, confirm that the Froude 
+number is the relevant fluid mechanical pa- 
+rameter to correlate the EINO x which, for a 
+constant Froude number, decreases with an 
+increase in the jet Reynolds number. 
+This work was partialO supported by the Mobil- 
+it)/Program of the Commission of the European 
+Communities, Grant No. JOU2-923010. The au- 
+thors would like to thank the help of Mr. Jorge 
+Coelho in the preparation of the figures. 
+REFERENCES 
+!. Miller, J. A. and Bowman, C. T., Prog. Enersy Corn- 
+bust. $ci. 15:287 (1989). 
+2. Glarborg, P., Lilleheie, N. I., Byggstoyl, S., Mag- 
+nussen, B. F., IGplinen, P., and Huppa, M., Twenty- 
+Fourth Symposium (International) on Combustion, The 
+Combustion Institute, 1992, p. 889. 
+3. Bilger, R. W. and Beck, R. E., Fifteenth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, 1975, p. 541. 
+4. Buriko, Y. Y. and Kuznetsov, V. R., C~. 
+sion Shock Waves, 14:296 (1978). 
+
+
+--- Page 10 ---
+
+230 
+Ph. MEUNIER 
+ET AL. 
+5. Peters, N. and Donnelhack, S., Eighteenth Symposium 
+(hztemational) on Combustion, The Combustion In- 
+stitute, 1981, p. 33. 
+6. Turns, S. R. and Lovett, J. A., Combust. Sci. Tech. 
+66:2? 3 (1989). 
+7. Chen, R. Y. and Driscoll, J. F., Twenty-Third Sympo- 
+sium (International) on Combustion, The Combustion 
+Institute, 1991, p. 281. 
+8. Turns, S. R. and Myhr, F. H., Combust. Flame 87:319 
+(1991). 
+9. 
+Rokke, N. A., Hustad. J. E., Sonju, O. K., and 
+Williams, F., A., TwenO,-Fourth Symposium (Interna- 
+tional) on Combustion, The Combustion Institute, 
+1992, p. 385. 
+10. Driscoll, J. F., Chen, R. H., and Yoon, Y., Combust. 
+Flame 88:37 (1992). 
+11. Rokke, N. A., Hustad, J. E., and Sonju, O. K., Corn- 
+bust. Flame 97:88 (1994). 
+12. Turns, S. R., Prog. Energy Combast. Sci. 21:361 (1995). 
+13. Meunier, Ph., Costa, M., and Carvalho, M. G., Sub- 
+mitted for publication (1996). 
+14. Drake, M. C. and Blint, J. R., Combust. Flame 83:!85 
+(1991). 
+15. l-lewson, J. C. and Bollig, M., "Reduced mechanisms 
+for NO~ emissions from hydrocarbon diffusion 
+flames." Presented at the Twen~-Sixth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, 1996. 
+!6. 
+Meunier, Ph., Costa. M. and Carvalho, M. G., The 
+Eighth International Symposium on Transport Phenom- 
+ena in Combustion, San Francisco, CA, 1995, p. 486. 
+17. Liew, S. K., Bray, K. N. C. and Moss, J. B., Combust. 
+Flame 56:199 (1984). 
+18. Sanders, J. P. H. and Lamers, A. P.._~. G., Combust. 
+Flame 96:22 (1994). 
+19. Liew, S. K., Bray, K. N. C. and Moss, J. B., Report 
+TP-84-81, School of Mechanical Engineering, Cran- 
+field Institute of Technology, U.K., 1984. 
+20. 
+Kent, J. H. and Bilger, R. W., SLrteenth Symposium 
+(International) on Combustion, The Combustion In- 
+stitute, 1976, p. 1643. 
+21. 
+Lockwood, F. C. and Shah, N. G., Eighteenth Sympo- 
+sium (bzternational) on Combustion, The Combustion 
+Institute, 1981, p. 1405. 
+22. Truelove, J. S., Report HL76/3448/KE, AERE Har- 
+~ell, U.K., 1976. 
+23. 
+Khan, 1. H., and Grooves, G., in Heai Transfer in 
+Flames (N. Afgan and J. M. Beer, Eds.), 1974, p. 391. 
+24. 
+Magnussen, B. and Hjertager, B. H.. Sixteenth Sympo- 
+sium (International) on Combustion, The Combustion 
+Institute, 1976, p. 719. 
+25. 
+Meunier, Ph., PhD Thesis, Universit~ Catholique de 
+Louvain, Belgium, 1996. 
+26. 
+Patankar, S. V., NumericaIHeat Transfer 4:409 (1981). 
+Receiz'ed 12 July 1996; accepted 20 January 1997 

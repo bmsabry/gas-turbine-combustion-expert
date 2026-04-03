@@ -1,0 +1,1145 @@
+
+--- Page 1 ---
+
+Tom Tanneberger1
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+M€uller-Breslau-Str.8,
+Berlin 10623, Germany
+e-mail: Tom.Tanneberger@tu-berlin.de
+Johannes Mundstock
+Euro-K GmbH,
+Burger Chaussee 25,
+Berlin 03044, Germany
+Christoph Rex
+Euro-K GmbH,
+Burger Chaussee 25,
+Berlin 03044, Germany
+Sebastian R€osch
+Euro-K GmbH,
+Burger Chaussee 25,
+Berlin 03044, Germany
+Christian Oliver Paschereit
+Chair of Fluid Dynamics,
+Technische Universit€at Berlin,
+M€uller-Breslau-Str.8,
+Berlin 10623, Germany
+Development of a Hydrogen Micro
+Gas Turbine Combustor:
+Atmospheric Pressure Testing
+The vision of a carbon-neutral world implies the shift from fossil to clean fuels for
+combustion-driven processes and machines like gas turbines. Green hydrogen isa promising
+alternative to substitute natural gas and other fossil fuels. In the H2mGT project, funded by
+the German BMWK, a microgas turbine (mGT) burner with 100% hydrogen ﬁring is
+developed and validated. The project is collaboration between Technische Universit€at
+Berlin (TUB) and the manufacturer Euro-K GmbH. The project consists of three phases: (1).
+Atmospheric pressure tests with a fused silica combustion chamber; (2). Atmospheric
+pressure tests with counterﬂow-cooled steel combustion chamber and secondary air
+injection; (3). Validation of the burner in the micro gas turbine at elevated pressure levels.
+This paper will present the results of Phase 1. The hydrogen burner is based on a swirl-
+stabilized burner of TUB and was scaled to match the requirements of the mGT with its
+130 kW thermal power. The burner design features multiple geometrical parameters to
+enable the optimization of the ﬂame towards low NOx emissions. Therefore, a variable swirl
+intensity, additional axial momentum of air in the mixing tube, a movable center-body and
+different fuel injection locations are implemented. Phase 1 investigates the parameter space
+in terms of ﬂame stability, operational range, and parameter impact on ﬂame shape and
+emissions. Therefore, temperature, pressure, and emission measurements as well as OH*
+imaging are carried out. It is found that the ﬂame can be operated over a large range of
+equivalence ratios and preheating temperatures up to 500 8C for many parameter settings.
+However, at some conﬁgurations, ﬂashback into the mixing tube is triggered. As expected,
+the NOx emissions are mainly inﬂuenced by the equivalence ratio, the fuel distribution, and
+the swirl intensity. Single-digit emissions are reached up to an equivalence ratio of 0.4 at
+atmospheric pressure conditions. Furthermore, at low air mass ﬂow, the burner can be
+operated at 100% natural gas or 100% hydrogen without any geometry changes. The fuel
+switch, thereby, does not change the NOx emissions signiﬁcantly if reasonable normalization
+is used. [DOI: 10.1115/1.4063708]
+Keywords: micro gas turbine, combustion, hydrogen, emissions
+1
+Introduction
+The current developments inthe global climate crisis make a rapid
+shift away from fossil fuels inevitable. Nevertheless, combustion
+engines—especially gas turbines—will continue to be an essential
+part of our energy supply thanks to their ﬂexibility and reliability,
+but fossil fuels need to be replaced. A CO2-free alternative is green
+hydrogen produced from renewable energies. The joint H2mGT
+project of the TUB and the micro gas turbine manufacturer Euro-K
+GmbH aims to develop a hydrogen (H2) combustor for a micro gas
+turbine.
+The topic of H2 combustion has now also arrived in the gas turbine
+industry. Almost all major manufacturers, such as Siemens [1–7],
+GE [8–10], Mitsubishi Heavy Industries [11–13], Ansaldo Energia
+[14–16], Solar Turbines [17] and PSM [18], are developing various
+combustion systems for syngas and H2-enriched natural gas. In
+general, increased NOx emissions and problems with ﬂame stability
+are reported, so the H2 content in the fuel remains limited. Very few
+gas turbines are suitable for 100% H2 so far. One was commissioned
+in 2010 in Fusina, Italy (modiﬁed GE10.1 with 12 MW), another
+with 1 MW was tested by Kawasaki Heavy Industries in 2018 in
+Kobe, Japan [19]. A recent overview about the developments in the
+industry is given by the ETN Global’s Hydrogen Gas Turbines
+report [20].
+On the lab-scale level, the ﬂame stability and the emissions of
+mixtures with 45%vol H2 in natural gas have been investigated by
+Schefer et al. [21,22]. H2 enrichment increases the risk of ﬂashback
+but improves the lean blow-off limit, enhancing the ﬂammability
+range. They found reductions in CO concentration with H2 addition,
+without adversely affecting the NOx emissions. Hussain et al. [23]
+measured a drastic increase in NOx levels for H2 addition of 30%vol
+in methane and ethylene ﬂames. However, the H2 was injected
+separately and further downstream than the main fuel, which leads to
+a much higher stratiﬁcation. The ﬂashback propensity was studied
+by Beerer et al. [24], Page et al. [25], and Syred et al. [26]. They also
+Turbomachinery Technical Conference & Exposition, Hynes Convention Center,
+June 26–30, 2023. Turbo Expo 2023.
+1Corresponding author.
+Manuscript received August 21, 2023; ﬁnal manuscript received September 22,
+2023; published online December 8, 2023. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-1
+Copyright V
+C 2024 by ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+measured turbulent ﬂame speeds at elevated pressures and temper-
+atures. In general, numerous studies showed that fuels with high H2
+contents reveal higher ﬂashback propensity as well as increased NOx
+emissions [27–29].
+A perfect platform to test H2 combustion on a machine level is the
+mGT since the necessary investment, the operating pressure, and the
+exhaust gas temperatures are much lower than for heavy-duty gas
+turbines. In addition, mGTs usually offer good accessibility to the
+combustion chamber. They provide an alternative to gas piston
+engines in the small and medium combined heat and power segment.
+They are very ﬂexible and emit signiﬁcantly less pollutants than
+piston engines [30]. Modern mGT combustion chamber systems
+achieve NOx emissions of 15 ppm, while current lean-burn engines
+in the medium power class with oxidation catalyst emit NOx values
+of 125–250 ppm. The German Aerospace Center (DLR) [30]
+predicts a large potential for efﬁciency improvements and a rising
+share on the combined heat and power market for mGTs. In fact,
+there is a recent research interest in mGTs. However, most of the
+studies are done numerically. A review of such studies with respect
+to different mGT-based energy systems is given by Reale and
+Sannino [31]. On the experimental side, mGT combustors have been
+investigated for a variety of unconventional fuels thanks to their fuel
+ﬂexibility. Liu et al. [32] studied the inﬂuence of different biofuels in
+an mGT combustor and found that the NOx emissions increase with
+the fuel’s Wobbe Index. Furthermore, the fuel injection method has
+a signiﬁcant inﬂuence on the pollutant emissions. Okafor et al. [33]
+measured a strong rise of NOx emissions for ammonia-enriched
+methane with single-stage combustion. In a small mGT (1–3 kWel),
+du Toit et al. [34] measured emissions of H2/CH4/CO2 fuel blends.
+Adding 15%vol H2 to CH4 showed no signiﬁcant effect on the NOx
+emissions, while a 20=65=15%vol mix reduced it by almost 50%.
+The study also reports the inﬂuence of the fuel switch on the mGT
+operation and auxiliaries. On a larger mGT (Capstone C30,
+30 kWel), de-Santoli et al. [35] tested H2 addition in natural gas up
+to 10%vol. In this study, the H2 was used to compensate the engine
+derating due to increased inlet temperature in the summertime. A
+slight increase of the NOx is reported for the H2 enrichment. The
+authors also discuss the problem of the correct normalization of the
+emissions measured. As a result, they chose speciﬁc emissions
+instead of volumetric ones to evaluate the environmental impact of
+the mGT. In the current study, the normalization issue is discussed in
+the last section. The UCI Combustion Laboratory retroﬁtted a
+Capstone C60 mGT [36,37] for the operation with H2. Despite
+adjustments to the fuel injection, the tests showed signiﬁcantly
+increased NOx emissions. The integrated combustion chamber of
+this machine allows only a few changes in this respect. In contrast, a
+silo with a single can combustor is used in the current project, which
+features better accessibility. Devriese et al. [38] also found high NOx
+emissions for a mGT burner with H2 ﬁring in numerical studies.
+Cappelletti et al. [39] numerically studied the burner of a T100
+mGT (100 kWel) and found that the original design is not suitable for
+100% H2, as the risk of ﬂame ﬂashbacks is too high. The issue of
+ﬂashback was also addressed by Pappa et al. [40]. They showed by
+LES that ﬂashback occurred already at 10%mass H2 enrichment in an
+unmodiﬁed T100 mGT combustor. As a countermeasure, humidi-
+ﬁed air (10%mass) was used to lower the reaction rate and, hence,
+prevent ﬂashback. The concept of wet combustion was also
+previously studied at a similar burner as in the current study. The
+results show a strong reduction in NOx emissions even at large H2
+contents and elevated pressure [41].
+In summary, there are many challenges in the combustion of H2.
+On the one hand, H2 has a lower volumetric energy density (Table 3),
+which requires a higher fuel ﬂow. On the other hand, H2 has a high
+gravimetric energy density and a signiﬁcantly higher reactivity
+compared to natural gas, which might increase the ﬂame
+temperature and speed. The former can have a negative impact on
+NOx emissions, while the latter makes it difﬁcult to stabilize a
+premixed ﬂame. In particular, the question of whether and to what
+extent H2 increases NOx emissions seems to be contradictory in the
+literature. These challenges are to be tackled in the present project
+with a swirl-stabilized dry low NOx burner with axial air injection.
+The TUB has investigated a similar burner in numerous projects
+with H2 and enriched natural gas and was able to achieve very good
+results regarding the prevention of ﬂame ﬂashbacks and the
+minimization of NOx emissions [42–49]. The intended burner
+design is presented in detail in the ﬁrst section.
+The H2mGT project is divided into three phases. First, the base
+combustor is scaled and redesigned according to the requirements of
+the mGT. It is then tested in an atmospheric combustion test rig with
+a fused silica combustion chamber using OH* ﬂame recording and
+emission analysis. In phase two, the transparent chamber is replaced
+by a steel ﬂame tube with counterﬂow cooling and secondary air
+injection. Using this setup, the burner is optimized in the test rig
+regarding emissions and stable operation. After this phase is
+completed, the burner is adjusted for the integration in the mGT at
+Euro-K’s test facility. Here, the pressure is increased and the new
+burner is validated under nominal operating conditions. The current
+paper presents the results of the project’s ﬁrst phase regarding
+stability range, ﬂame shapes, and emissions. It additionally
+discusses the aspects of natural gas/hydrogen mixtures and ﬂash-
+back recovery.
+2
+Burner and Test Rig Design
+The burner designed for this project is based on a generic swirl-
+stabilized burner, which was already extensively studied at TUB
+[42–49]. It was scaled to the thermal power of the micro gas turbine
+by maintaining similar volumetric ﬂows in the burner. Geometrical
+parameters in the burner design are supposed to allow for an
+optimization of the operation range and NOx emissions.
+Figure 1 showsa schematic of the burnerinPhase 1.The incoming
+air is preheated up to 500 C and fed to the plenum via four inlets. In
+the plenum, the air ﬂow splits between a tangential (via the swirler)
+and an axial ﬂow to the mixing tube (left orange arrows in Fig. 1). As
+they are fed by the same plenum, the splitting ratio is solely
+determined by the pressure loss of each ﬂow path. Both ﬂows, the
+axial and the swirled, merge again in the mixing tube (Dmt ¼ 31 mm)
+and enter the combustion chamber (Dcc ¼ 100 mm, Lcc ¼ 180 mm)
+further downstream. A third but much smaller ﬂow of air is added to
+the mixing tube through a ring of holes to lean out the boundary
+layer.
+The fuel can be injected through three different injection points
+(blue arrows in Fig. 1): (1). 16 nozzles (DH2 ¼ 1:4 mm) at the bottom
+of the mixing tube, which is regarded as technically premixed, (2).
+an axial nozzle (Dp ¼ 3 mm) fuel lance (Dcb ¼ 6 mm) in the mixing
+tube as central injector, (3). eight pilot nozzles (Dp2 ¼ 1 mm) at the
+burner front plate around the mixing tube exit. The latter are
+supplied by a cavity behind the burner plate and can also be used
+with air for active or passive cooling ofthe plate. The front plate pilot
+is intended as emergency backup for ﬂashback recovery. The idea of
+the central injection via the fuel lance is that the H2 fraction proﬁle in
+the mixing tube can be altered.
+The burner features four parameters to alter the ﬂow ﬁeld and fuel
+distribution. These parameters are depicted in Fig. 1 and can be
+adjusted manually from outside without disassembling the burner.
+Hence, the design points in an optimization can be set during the
+operation of the burner, which allows for the evaluation of much
+more conﬁgurations. The parameters are
+ S—swirler blockage in mm,
+ A—axial injection restriction in # of blocked channels,
+ L—length of the center body in mm, and
+ P—share of fuel mass ﬂow through fuel lance nozzle in %.
+The swirler consists of eight tangential slots (Ls ¼ 27 mm), which
+can be blocked partially (S). The axial air injection ﬂows from a
+small preplenum through an annulus around the center body into the
+mixing tube. The preplenum is fed by eight radial channels from
+the main plenum. These channels can be separately blocked (A). The
+fuel lance is movable in the axial direction (L) and can be positioned
+between 0 mm and 90 mm, the latter corresponding to the end of the
+041013-2 / Vol. 146, APRIL 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+mixing tube. The variation of this position has two effects. On the
+one hand, it changes the ﬂow ﬁeld in the mixing tube and
+the combustion chamber, because the lance body creates a wake
+in the ﬂow. On the other hand, the point of the central fuel injection
+can be moved downstream leading to a stronger impact on the fuel
+distribution in the combustion chamber. Up to 50% of the fuel mass
+ﬂow can be redistributed to the fuel lance (P). Both fuel injectors are
+supplied from a H2 bundle via two individual mass ﬂow controllers.
+In Phase 1 of the project, the setup features a fused silica
+combustion chamber to gain optical access to the ﬂame. The ﬂame
+shapes are recorded in terms of the line-of-sight OH intensity by an
+intensiﬁed CCD camera with 310=610 nm bandpass ﬁlter. The
+ﬂame is ignited by a small natural gas ignition ﬂame in the front
+plate, which will be replaced by a spark plug in the next phase of the
+project. Four thermocouples at the end of the combustion chamber
+measure the exhaust temperature at different radii, before the hot gas
+stream enters a water-cooled exhaust tube, releasing the gas into an
+open extraction unit. A small portion of the hot gas is sampled
+downstream of the combustion chamber by a one-hole probe. A gas
+analysis unit measures the NOx content (61 ppm) for emission
+evaluation.
+3
+Measurement Settings
+The micro gas turbine has a thermal power of 127 kW and a
+nominal air mass ﬂow of 1280 kg/h. However, these values must be
+scaled down since the tests are conducted at atmospheric pressure.
+The thermal power was ﬁxed to 36 kW for most of the experiments.
+In the mGT, the total air mass ﬂow at baseload conditions is ﬁxed by
+the output of the compressor, but the air is split into primary and
+secondary air. Only the primary air ﬂows through the burner, while
+the secondary air is injected to the combustion chamber downstream
+of the ﬂame. By changing the splitting ratio (e.g., changing the hole
+pattern in the combustion chamber wall), the local equivalence ratio
+of the ﬂame can be varied. As there is no secondary air injection in
+the Phase 1 experiments, the total air ﬂow _mair runs through the
+burner. Hence, _mair is varied to ﬁnd an optimal primary equivalence
+ratio for the operation of the burner. The bounds are set to / ¼ 0:2
+and 0.6 to avoid blow off and high NOx emissions, respectively. The
+air is preheated to 500 C in the plenum to match the conditions of
+the recuperated mGT. The fuel is supplied at room temperature.
+However, the fuel heats up while ﬂowing through the hot plenum.
+The actual fuel temperature of the premixed nozzles is measured by
+a thermocouple at the location of the H2 label in Fig. 1 and is shown
+exemplarily in Fig. 2. The operating conditions are summed up in
+Table 1.
+Themassﬂowsandtemperaturesofatypicalmeasurementseriesare
+showninFigs.2and3.Pleasenotethatat/ ¼ 0:2 and _mair ¼ 180kg/h,
+the preheating temperature of 500 C cannot be reached due to the
+limited power of the electric air heater. At high exhaust temperatures,
+the thermocouples start glowing. Hence, the exhaust temperatures had
+been corrected for the radiative heat loss using a model proposed by
+Prıkopsky [50]. The adiabatic ﬂame temperature is calculated from the
+chemical equilibrium of the mixture using Gri-Mech 3.0.
+Figure 4 shows that the exhaust gas temperature proﬁles at the end
+of the combustion chamber are very uniform, except close to the
+wall. The required turbine inlet temperature of the machine is around
+840
+C, which is lower than the measured temperatures. However,
+the tests were conducted without secondary air that cools down the
+exhaust. Please note that the secondary air ﬂow would increase with
+the equivalence ratio because the primary air is reduced (see Fig. 2).
+4
+Flow Field
+The ﬂow in the burner and the combustion chamber was studied
+by water tunnel particle image velocimetry and Reynolds-averaged
+Navier–Stokes (RANS) simulations (see Ref. [46] for methods).
+Some insights can be found in Tanneberger et al. [51] and a sample
+ﬂow ﬁeld is depicted by the axial velocity in Fig. 5.
+Fig. 2
+Adiabatic ﬂame, exhaust, air plenum and H2 injection
+temperature of a measurement series
+Fig. 1
+Schematic of the burner with fused silica combustion chamber
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-3
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+As the ﬂow in the mixing tube is swirling, it induces a velocity
+deﬁcit (VD) at the centerline of the mixing tube as seen in Fig. 6,
+which can increase the risk of ﬂashback. At the area jump from the
+mixing tube to the combustion chamber, the swirled ﬂow undergoes
+vortex breakdown and forms an inner recirculation zone (RZ) with
+negative axial velocity. The RZ is indicated by the black stagnation
+line in Figs. 5 and 7. Between the RZ and the outer recirculation
+zone, there is a high velocity jet transporting the fresh air/fuel
+mixture and generating strong shear layers (SL). These SL are
+intended to stabilize the ﬂame.
+The blockage of the swirler (S) increases the swirl intensity in the
+mixing tube and, therefore, leads to the upstream shift of the RZ
+shown in Fig. 7. Moreover, the VD is ampliﬁed by the enlarged swirl
+intensity. The latter effect can be partly compensated by increasing
+the axial air injection as shown by the ﬂow proﬁles in Fig. 6. Opening
+the axial air injection channels (A) reduces the VD and leads to a
+small downstream shift of the RZ’s stagnation point.
+The fuel lance (L) has an additional effect on the VD due to its
+wake. If it is placed far downstream in the mixing tube, its wake can
+couple with the RZ such that the stagnation point shifts into the
+mixing tube. The wake effect can be compensated by activating the
+fuel ﬂow through the central injector (P).
+In general, the P injection allows for a variation of the fuel
+distribution at the exit of the mixing tube. Left side of Fig. 8 shows
+that the fuel is distributed homogeneously over the diameter of the
+mixing tube if no central fuel injection is applied (P ¼ 0%). At high
+injection rates (P  30%), the concentration proﬁle shifts to a
+parabolic shape with a maximum in the center. The right side of
+Fig. 8 shows that the fuel concentration maximum shifts outside to
+the shear layers, if the fuel lance is introduced further into the mixing
+tube. This shift is driven by the ﬂow ﬁeld changes (RZ, VD)
+described before. At P ¼ 0%, this effect is rather small but it is
+ampliﬁed by increasing P. Please note that these concentrations have
+been measured in a water tunnel, not in the combustion test rig.
+Therefore, they give only qualitative insights into the mixing ﬁeld
+and do not allow the calculation of local equivalence ratios. The
+water tunnel tests were carried out analogously to Reichel et al. [45]
+Table 1
+Operating conditions of the laboratory tests
+Property
+Symbol
+Value
+Unit
+Thermal power
+Pth
+36
+kW
+H2 mass ﬂow
+_mH2
+1.08
+kg/h
+Air mass ﬂow
+_mair
+52.7–184.6
+kg/h
+Equivalence ratio
+/
+0.2–0.6
+H2 temperature
+TH2,in
+20
+C
+Air temperature
+Tair
+500
+C
+Fig. 3
+Air and H2 mass ﬂows of a measurement series
+Fig. 4
+Exhaust temperature proﬁles of a measurement series
+Fig. 5
+RANS ﬂow ﬁeld (axial velocity and stagnation line) of the
+burner and combustion chamber. The frame on the combustion
+chamber shows the location of the following OH* images.
+Fig. 6
+Flow proﬁles in the mixing tube from RANS simulations
+Fig. 7
+RANS ﬂow ﬁeld (axial velocity and stagnation line) of the
+mixing tube and the combustion chamber for to different swirler
+blockage
+041013-4 / Vol. 146, APRIL 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+with constant momentum ratios. Please refer to this publication for a
+description of the setup and a justiﬁcation for the procedure.
+5
+Flame Shape and Stability Range
+To conduct the optimization process in Phase 2 of the project, a
+map of stable operation points must be provided. Therefore, ﬂame
+shapes have been recorded for a large number of parameter
+variations.
+In the case of a stable ﬂame, the technically premixed H2/air
+mixture burns in V or M shape downstream of the mixing tube as
+shown in Fig. 9 (l.). However, geometry changes can alter the ﬂow
+ﬁeld in the aforementioned ways, which may trigger ﬂashback as
+seen in the right image. Then, the ﬂame propagates upstream into the
+mixing tube. The ﬂame stabilizes itself in the wake of the center
+body and keeps burning as a jet ﬂame in the mixing tube and the
+combustion chamber. In this case, the fuel valve is closed to avoid
+damage to the burner.
+Figure 10 shows the operational range of the ﬂame depending on
+three of the parameters. The different markers symbolize increasing
+levels of fuel share via the fuel lance (P). Hence, points with all ﬁve
+markers feature stability for a variety of fuel distributions and are
+very robust against ﬂashback. The main driver of instability is the
+positioning of the fuel lance (L). For L <¼ 10 mm all ﬂames are
+stable, while for higher L, the stability declines with increasing swirl
+intensity as shown by the dashed line in Fig. 10. Next to the ﬂow ﬁeld
+changes (VD and RZ), L varies the fuel distribution as seen in Fig. 8
+and thus the local equivalence ratio and ﬂame speeds. However,
+these changes in the concentration ﬁeld are smaller than for a
+variation of P. Since the receptivity of ﬂashback is still higher for L
+than for P, it can be concluded that the ﬂashback is dominantly
+triggered by hydrodynamic effects.
+Some points close to the stability line show an interesting
+behavior. They are marginally stable for P ¼ 0% and P  40%. In
+between these stable bounds, the ﬂame undergoes ﬂashback. On the
+one side, shifting fuel to the central injection increases the local
+equivalence ratio near the centerline in the mixing tube. Thus, the
+ﬂame speed increases and the ﬂame propagates upstream along the
+VD. On the other side, if the fuel ﬂow from the fuel lance is large
+enough, the VD is reduced by the axial fuel momentum and the ﬂame
+is pushed back into the combustion chamber.
+By applying a very low swirl intensity (S¼ 5 mm), it is possible to
+move the lance (P ¼ 0%) until the end of the mixing tube without
+triggering ﬂashback. However, the ﬂames in these conﬁgurations are
+not very robust and a variation of P has not been tested for L  50 mm.
+Moreover, placing the fuel lance at the end increases its thermal load
+because the ﬂame burns in the shear layers of the fuel lance (see
+Fig. 11(d) r.). Thus, conﬁgurations with L> 70mm should be avoided.
+The inﬂuence of the restriction of the axial air injection (A) is not
+shown in Fig. 10. Closing channels generally decrease the stability
+of the ﬂame because the VD is ampliﬁed. However, the actual point
+of ﬂashback depends strongly on the swirl intensity and fuel lance
+position. For example, six of the eight channels can be closed (A ¼ 6)
+at S ¼ 10 mm and L ¼ 10 mm before ﬂashback appears.
+The utilization of the burner in the micro gas turbine does not only
+require static but also dynamic stability. During the experiments, the
+sound pressure levels had been monitored by a microphone in the
+exhaust tube. There are no indications of thermoacoustic insta-
+bilities under normal conditions at any of the tested parameter
+settings.
+6
+Parameter Study
+This section presents an overview of the parameter’s inﬂuence on
+the ﬂame. The optimization in the subsequent phase of the project
+will be done with a constant splitting ratio between primary and
+secondary air,e.g.,a nearly constantequivalence ratio. In order toset
+the equivalence ratio properly for the optimization, its inﬂuence on
+the ﬂame is studied in the following paragraph.
+The equivalence ratio is varied as described in Sec. 3 with a
+constant thermal power. It inﬂuences the ﬂame in two ways,
+chemically and hydrodynamically. Increasing the equivalence ratio
+raises the adiabatic ﬂame temperature (Fig. 2) and the laminar ﬂame
+speed signiﬁcantly. While the ﬁrst increases the NOx emissions
+(Fig. 12), thesecondmightenhancetheﬂame propagation against the
+main ﬂow leading to an upstream shift of the ﬂame or ﬂashback in the
+worst case. The hydrodynamic effect, on the other hand, is based on
+the increased ratio of axial fuel momentum to circumferential air
+momentum at high equivalence ratios, which stabilizes the ﬂow in
+themixingtube.Reicheletal.[44]showedatasimilarburnerthatthis
+effect can lead to a higher robustness against ﬂashback at high
+equivalence ratios than at low ones, which seems counterintuitive at
+ﬁrst. The actual inﬂuence of the equivalence ratio on the ﬂame in the
+current burner is shown in Fig. 11(a) by the deconvoluted (inverse
+Abel transformed) OH* intensity images. It can be seen that the
+Fig. 8
+Fuel distribution 10 mm downstream of the mixing tube
+exit measured in a water tunnel (solid L 5 0 mm, dashed
+L 5 50 mm)
+Fig. 9
+OH* intensity (line-of-sight) of a stable ﬂame (l.) (/50:4,
+S 5 10 mm, A 5 0, L 5 10 mm, and P 5 0%) and ﬂashback (r.)
+Fig. 10
+Stable operating points for variations of the parameters
+S, L, and P at /50:4 and A 5 0
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-5
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+hydrodynamic effect is slightly dominant regarding the ﬂame
+position in this case because the ﬂame root on the centerline is
+pusheddownstream withtheincreasing equivalence ratio.Hence,the
+richer ﬂames are not more prone to ﬂashback than the lean ones. A
+second effect can be observed in the outer shear layers. The ﬂame
+transitions from V to M shape [52] because the signiﬁcantly lower air
+mass ﬂow (Fig. 3) generates much lower strain rates in the SL.
+Furthermore, the ﬂame becomes more compact from / ¼ 0:5 to 0.7
+due to a combination of the lower ﬂow velocities and the increased
+ﬂame speed.
+Figure 11(b) shows the inﬂuence of the swirl intensity on the
+ﬂame shape at a constant equivalence ratio. For moderate swirl
+intensities, the ﬂame stabilizes inside the combustion chamber.
+Between S ¼ 5 mm and S ¼ 10 mm it, transitions from V to M shape
+without changing the ﬂame root position. Further increasing the
+swirl enhances the VD in the mixing tube and shifts the RZ upstream
+(Fig. 7), which enables the ﬂame to propagate upstream as well. At
+S ¼ 20 mm, the ﬂame root lies completely inside the mixing tube.
+The ﬂame is still stable but has a low robustness against ﬂashback as
+shown in Fig. 10.
+Fig. 11
+Parameter study of deconvoluted OH* intensities with variations of (a) the equivalence ratio at constant thermal
+power, (b) the swirler blockage S, (c) the axial air restriction A, (d) the center body position L, and (e) the share of central fuel
+injection P
+041013-6 / Vol. 146, APRIL 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+The effect of restricting the axial air injection (A) on the ﬂame
+shape is similar to increasing the swirl intensity because the VD is
+enhanced as well (Fig. 11(c)). However, since the swirl is nearly
+constant for all images, the OH* intensity at A ¼ 6 appears more
+narrow than for the high swirl ﬂame.
+The variation of the fuel lance position shows two different
+behaviors. The low-swirl V shape ﬂame, depicted in Fig. 11(d), has
+the highest stability against ﬂashback for a variation of L, as stated
+before in Sec. 5. Up to L ¼ 50 mm, the ﬂame shape and position stays
+nearly constant, but the intensity distribution is shifted from the
+center to the SL. This effect can be contributed to the change in the
+fuel concentration proﬁle shown in Fig. 8. At L > 50 mm, the center
+of the ﬂow begins to lean out because the fuel is no longer
+sufﬁciently mixed into the wake of the lance (at P ¼ 0). As the fuel
+lance approaches the end of the mixing tube, the characteristic shape
+of a swirl-stabilized ﬂame disappears. Instead, the ﬂame burns in the
+shear layers of the wake ﬂow with a very narrow V-shape. The ﬂow
+does not appear to undergo vortex breakdown anymore due to the
+heat-driven expansion of the ﬂuid. In the case of higher swirl
+intensity (S  10 mm), the M-shaped ﬂame is affected in a similar
+manner as for the restriction of the axial air injection in Fig. 11(c)
+because the wake of the fuel lance also ampliﬁes the VD. As a
+consequence, the ﬂame exhibits ﬂashback if the lance position
+exceeds a certain value depending on the swirl intensity (Fig. 10).
+Increasing the central fuel injection (P) shifts the H2 distribution
+toward the centerline as shown in Fig. 8. Hence, the local
+equivalence ratio rises in the middle and declines near the walls of
+the mixing tube. The ﬂame transitions from M- to V-shape and the
+OH* intensity at the ﬂame root increases signiﬁcantly.
+All of the varied parameters in this section have a clear impact on
+the ﬂame topology. Hence, they qualify to be used as design
+parameters in the planned optimization process. Moreover,
+constraints for the parameter space can be derived from the recorded
+ﬂame shapes and the stability map in Fig. 10. A second important
+aspect is the inﬂuence of the parameters on the emissions, which will
+be discussed in Sec. 7.
+7
+Emissions
+The strongest impact on the NOx emissions has naturally the
+variation of the equivalence ratio as depicted in Fig. 12. The
+emissions rise for all curves due to the increasing ﬂame temperature.
+For some design points, single digit NOx can be reached up to
+/ ¼ 0:4.
+Figure 12 presents also the inﬂuence of the swirl parameter S,
+which reveals a monotonic behavior as increased swirl intensity
+reduces the NOx emissions signiﬁcantly. On the one hand, the ﬂame
+is very compact at low swirl, while it is stretched with increasing
+swirl intensity (Fig. 11(b)), which improves heat release distribution
+and could reduce NOx. On the other hand, the higher swirl intensity
+increases the turbulence in the mixing tube and leads to a more
+homogeneous air/fuel mixture in both the spatial and temporal
+domain. This effect was measured for a similar burner by Reichel
+et al. [45] and reduces local and temporary hot spots in the ﬂame.
+Since the NOx emissions rise exponentially with the ﬂame
+temperature, such hot spot related ﬂuctuations cause increased
+NOx production. The combination of these effects halves the NOx
+values from S ¼ 5 mm to S ¼ 19 mm, which is a remarkable
+reduction. In the extreme case at S ¼ 19 mm, Fig. 11(b) shows
+very high stretching of the ﬂame. The high strain rate could possibly
+lead to local quenching, which would also reduce the NOx
+emissions. However, the exhaust H2 concentrations and temper-
+atures show no signs of incomplete combustion in this case.
+The effect of the fuel distribution is further investigated by
+shifting H2 to the fuel lance, i.e., increasing P, and, hence, artiﬁcially
+impairing the fuel/air homogeneity. Figure 13 shows the inﬂuence of
+a single parameter on the emissions while the other parameters are
+held constant. Shifting the fuel to the central injection (P) increases
+the local equivalence ratio in the center of the ﬂow. As expected, the
+emissions increase accordingly. Interestingly, for P  20% the
+curve starts to saturate. Even though, the fuel distribution (Fig. 8)
+and ﬂame shape (Fig. 13) are still changing, the maximum ﬂame
+temperature seems not to rise much further. Please note that the fuel
+lance is placed at L ¼ 10 mm for this curve, which means that the
+point of central injection is 20 mm downstream of the premixing
+nozzles and 80 mm upstream of the combustion chamber. Hence, the
+ﬂame can still be regarded as technically premixed rather than
+diffusive.
+The variation of the lance position (L) has no effect on the
+emissions as long as P ¼ 0%. Restricting the axial air injection (A)
+has also a low inﬂuence on the emissions up to the point close to
+ﬂashback. At A ¼ 6 the NOx increase slightly. This is caused by a
+strong narrowing and, hence, concentration of the ﬂame (Fig. 11(c)).
+Even though both parameters show a low inﬂuence on the emissions
+individually, they might combine with other parameters as they still
+alter the ﬂame and should be included in the later optimization
+nonetheless.
+Please note that the absolute values of Figs. 12 and 13 cannot be
+compared directly with each other because they were measured in
+two campaigns with slightly different setups (e.g., passive/no
+cooling). Nevertheless, both plots are consistent individually, which
+justiﬁes the statements made.
+Another aspect of the optimization must be the pressure loss of the
+burner because by integrating the combustor into the mGT, its
+pressure loss is limited to the capabilities of compressor and turbine.
+Therefore, the pressure in the plenum was monitored in difference to
+the ambient pressure for all emission measurement points. Figure 14
+depicts the relationship between both quantities for different burner
+Fig. 12
+NOx emissions for different swirl intensities and A 5 0,
+L 5 10 mm, and P 5 0% with standard normalization (Eq. (1))
+Fig. 13
+NOx emissions dependence of the axial air restriction
+(A), the lance position (L) and the central fuel injection (P). The
+parameter variation in % relates to the full parameter spaces:
+A5½0, 8, L5½0, 90 mm and P5½0, 100%. The series were meas-
+ured at /50:48 and plotted with standard normalization.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-7
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+conﬁgurations and equivalence ratios. It reveals a pareto front,
+which is based on the main inﬂuence parameters / and S. As shown
+before, the emissions rise with increasing / and decreasing swirl
+intensity. At the same time, the pressure loss decreases with rising /
+because the equivalence ratio is controlled via the air mass ﬂow. The
+lower mass ﬂow through the burner results in less pressure loss. The
+swirl intensity is controlled by blocking the swirl generator slots.
+Hence, the effective passage surface is reduced and the higher
+velocity increases the pressure loss. In the optimization, / won’t be a
+free parameter because it is determined by the splitting ratio of
+primary and secondary air. For S on the other hand, the impact on the
+pressure loss must be regarded either in the form of a constraint or a
+multi-objective optimization.
+8
+Fuel Mixtures
+For the initial tests at machine level, it might be necessary to start
+with natural gasand increase the H2content gradually, incase full H2
+burning causes ﬂashbacks or other unexpected events. Therefore,
+the burner is tested in the test rig with natural gas as well. The H2 and
+natural gas (Table 2) are mixed in the supply line to the burner with
+respect to a constant thermal power level as it is shown in Fig. 15.
+Furthermore, the air mass ﬂow is ﬁxed for each measurement series,
+which also means that the exhaust temperature stays approximately
+constant. With this procedure, the burner allows switching the fuel
+from 100% natural gas to 100% H2. However, since the burner was
+designed for the properties of H2, the stability range of the natural
+gas ﬂame is reduced signiﬁcantly from _mair,max > 200 kg/h to 
+100 kg/h due to ﬂame blow off.
+Figure 16 presents the OH* intensity of ﬂames featuring different
+H2 contents in natural gas. The pure natural gas ﬂame reveals a very
+long V-shape almost touching the combustion chamber walls. With
+rising H2 content, the ﬂame becomes more compact due to the
+increased reactivity. Finally, the ﬂame turns into M-shape as seen in
+Sec. 6, Fig. 11.
+The evolution of the NOx emissions during this transition is of
+particular interest. As discussed in the introduction, the addition of
+H2 togas turbines is often seen toincrease NOx emission. Please note
+that the equivalence ratio of each series is not constant because the
+stoichiometry of the fuel changes with the H2 mass fraction. Instead,
+the air mass ﬂow and the exhaust temperature are kept constant. The
+total mass ﬂow of the exhaust reduces only by 2  2:5% and the
+volume ﬂow increases by 1  1:5% for H2 compared to natural gas.
+Hence, the properties relevant for the turbine are all nearly constant
+for this comparison.
+Figure 17 shows a slight rise of the NOx emissions with the H2
+content indeed. However, this rise cannot be seen in the raw data, but
+is imposed by the standard normalization to dry exhaust gas with
+15% oxygen content. This normalization is tailored to the regular
+combustion of natural gas or methane and is intended to compensate
+variations of the global equivalence ratio. Thereby it assumes an
+otherwise relatively constant composition of the exhaust gas. This is
+not the case for a fuel switch. The substitution of natural gas by H2
+Fig. 14
+NOx emissions over pressure loss for various burner
+conﬁgurations and equivalence ratios
+Table 2
+Composition of the natural gas
+Gas
+Mole fraction
+Methane
+CH4
+89.42
+Nitrogen
+N2
+1.55
+Carbon dioxide
+CO2
+1.50
+Ethane
+C2H6
+5.83
+Propane
+C3H8
+1.28
+Butane
+C4H10
+0.33
+Rest
+C5þ
+0.09
+Fig. 15
+Thermal power of the fuel mixtures with the H2 (dashed)
+and natural gas (dash-dotted) share at three different air mass
+ﬂows and exhaust temperatures
+Fig. 16
+Deconvoluted OH* intensity of premixed ﬂames ( _mair593 kg/h) blending from natural gas to H2 in mass fraction. Please
+note that the colorbars were individually adjusted for better visibility.
+041013-8 / Vol. 146, APRIL 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+leads to a higher water and oxygen content because the exhaust does
+not contain CO2 and H2 needs less oxygen for similar heat release. In
+the standard normalization, these elevated concentrations cause a
+higher correction coefﬁcient
+cs ¼
+1
+1  XH2O
+0:21  XO2,ref
+0:21  XO2
+(1)
+with XO2,ref ¼ 0:15. Douglas et al. [53] stated in a white paper that
+this artiﬁcial increase equals about 37% for pure H2 compared with
+methane, even though the same mass NOx is produced. This
+difference can also be seen in Fig. 17 between the solid and the
+dashed lines. The latter use a normalization method proposed by
+Garan et al. [54], which takes the whole exhaust gas composition
+into account
+ca ¼
+1
+1  XH2O
+0:21  XO2,ref
+0:21  XO2
+a þ 1  0:21
+aref þ 1  0:21
+b0
+b0
+ref
+(2)
+with the fuel-speciﬁc parameters
+a ¼
+nf
+C þ nf
+S þ nf
+N2
+nf
+H  nf
+CL
+
+
+=4  nf
+O2  nf
+N2
+(3)
+and
+b0 ¼
+b
+LHV ¼
+nf
+H  nf
+CL
+
+
+=4  nf
+O2  nf
+N2
+LHV
+:
+(4)
+Here, each nf
+i represents the amount of element or species i within
+each fuel molecule. We chose methane as reference gas such that
+aref ¼ bref ¼ 1 (see Table 3). This normalization method almost
+completely compensates the incline of the NOx emissions when
+increasing the H2 content (Fig. 17). The overall differences now fall
+in the order of the measurement uncertainty of 61 ppm. This result
+indicates that there is no signiﬁcant inﬂuence of the H2 enrichment
+on the NOx emissions, which should be further investigated in the
+future.
+9
+Flashback Recovery
+The parameter study in Sec. 5 showed a large stable operation
+window for the burner, which should allow safe operation in the
+mGT. However, the ﬂame properties, e.g., the ﬂame speed, change
+during the ramp-up of the static pressure (to 3.6 bara). The risk of
+ﬂashbacks can be particularly high during certain transient
+conditions such as startup or load changes.
+The burner features eight additional fuel nozzles at the burner
+front plate that can be used as an inherently stable pilot ﬂame. The
+individual diffusion ﬂames from each nozzle can be seen clearly in
+Fig. 18 (r.), which shows the OH* intensity of the ﬂame at 100%
+pilot. As soon as ﬂashback is detected, the H2 can be shifted to the
+pilot. The burner can be brought back to stable conditions before the
+fuel is shifted to the premixed mode again. This procedure has been
+tested successfully in the test rig by triggering ﬂashback via the fuel
+lance position.
+The front plate pilot should only be used shortly for ﬂashback
+recovery as the NOxemissions are much higher than with premixing.
+Figure 19 presents a comparison between the full (technically)
+premixed mode, the fuel lance and the front plate pilot. As discussed
+before in Fig. 13, the emission rise for shifting H2 to the fuel lance
+saturates at P ¼ 40%. The emissions of the front plate pilot, on the
+other hand, increase continuously. However, the NOx curve of this
+ﬂame increases much slower than the one with the fuel lance until
+70% pilot share. This is surprising since the injection via the front
+plate is pure H2 that ignites immediately, while the injection via the
+fuel lance is done approximately 80 mm upstream of the ﬂame.
+Hence, the fuel homogeneity should be better using the fuel lance,
+but the emissions are still higher for low and medium P.
+The OH* recordings of the front plate pilot at 10–40% show a
+superposition of the premixed ﬂame and a short pilot ﬂame (Fig. 18
+Fig. 17
+NOx of H2/natural gas mixtures at three different air mass
+ﬂows and exhaust temperatures with standard (solid, Eq. (1)) and
+alternative normalization (dashed, Eq. (2))
+Table 3
+Fuel properties
+Property
+H2
+Natural gas
+CH4 ref
+Unit
+LHV mass
+119.97
+46.5
+50.01
+MJ/kg
+LHV volume
+10.78
+37.51
+35.8
+MJ/m3
+Molar mass
+2.016
+—
+16.04
+g/mol
+Wobbe index
+40.90
+47.52
+48.17
+MJ/m3
+a
+0
+—
+1
+b
+0.5
+—
+1
+Fig. 18
+Line-of-sight OH* intensity of a diffusion H2 ﬂame with
+30% (l.) and 100% (r.) front plate injection
+Fig. 19
+Evolution of the NOx emissions (with standard normal-
+ization) when switching from premixed to front plate pilot or fuel
+lance (L 5 10 mm) at /50:4
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-9
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+l.). Afterwards, the premixed ﬂame is not visible anymore like in the
+right image of Fig. 18. An explanation for the slow increase of the
+NOx emissions during the transition from premixed to the front plate
+pilot might be found in a different H2 combustion technology. Funke
+et al. [55] present an overview on micromix combustors, which
+utilize miniaturized diffusion ﬂames to mitigate the ﬂashback risk of
+H2. It is reported that these ﬂames, even though they do not have a
+premixing section, feature low NOx emission levels due to the
+reduced residence time in the ﬂame region [55]. A similar effect
+might be present here as long as the H2 mass ﬂow through the front
+plate nozzles is low. From 60% onward, the pilot ﬂames get
+signiﬁcantly longer and the emissions increase more rapidly. At full
+piloting, the diffusion ﬂames emit more NOx than the partially
+premixed ﬂame from the fuel lance.
+10
+Conclusion
+The paper presents the results of the ﬁrst phase of the H2mGT
+project, which aims to develop and validate a hydrogen burner for a
+micro gas turbine. It is shown that the burner can be stably operated
+for multiple parameter settings with 100% hydrogen fueling. The
+inﬂuence of four geometric parameters on the ﬂame shape is
+presented. At certain design points, ﬂashback is triggered by an
+ampliﬁcation of the velocity deﬁcit on the centerline of the mixing
+tube. This ampliﬁcation is caused by the position of the fuel lance
+and its wake, the restriction of axial air injection, and increased swirl
+intensity. At the same time, high swirl intensity lowers the emissions
+and indeed single digit NOx can be reached (up to / ¼ 0:4 at
+atmospheric pressure). Next to the equivalence ratio, the emissions
+are mainly inﬂuenced by the fuel injection strategy and the swirl
+intensity in the mixing tube. Switching the fuel from natural gas to
+hydrogen at constant geometry alters the ﬂame shape but does not
+lead to a signiﬁcant increase in emissions. However, the standard
+volumetric normalization to 15% O2 artiﬁcially overemphasizes the
+NOx by almost 40%. This normalization is often used in
+governmental regulations, e.g., the German TA Luft, and penalizes
+the usage of hydrogen. Hence, such regulations should be adjusted in
+the future.
+In the next phase of the project, the burner is equipped with a
+counterﬂow cooled steel combustion chamber and secondary air
+injection. Using this setup, an optimization toward low emissions
+and high ﬂame stability is performed. The results from the ﬁrst phase
+are used to deﬁne the parameter space of the optimization. The
+variation of parameters showed a certain correlation between the
+emissions and the burner pressure loss. As the possible pressure loss
+of the burner in the mGT is limited by the compressor and turbine
+capabilities, it needs to be constrained in the optimization.
+Funding Data
+ German Federal Ministry for Economic Affairs (Award No.
+03EE5039B; Funder ID: 10.13039/501100006360).
+Data Availability Statement
+The datasets generated and supporting the ﬁndings of this article
+are obtainable from the corresponding author upon reasonable
+request.
+References
+[1] Bradley, T., and Marra, J., 2012, “Advanced Hydrogen Turbine Development
+Update,” ASME Paper No. GT2012-68169.
+[2] Kundu, A., Klingmann, J., Subash, A. A., and Collin, R., 2017, “Fuel Flexibility of
+a Multi-Staged Prototype Gas Turbine Burner,” ASME Paper No. GT2017-64782.
+[3] Lam, K.-K., Geipel, P., and Larfeldt, J., 2015, “Hydrogen Enriched Combustion
+Testing of Siemens Industrial SGT-400 at Atmospheric Conditions,” ASME J.
+Eng. Gas Turbines Power, 137(2), p. 021502.
+[4] Lam, K.-K., and Parsania, N., 2016, “Hydrogen Enriched Combustion Testing of
+Siemens SGT-400 at High Pressure Conditions,” ASME Paper No. GT2016-
+57470.
+[5] Lantz, A., Collin, R., Alden, M., Lindholm, A., Larfeldt, J., and L€orstad, D., 2015,
+“Investigation of Hydrogen Enriched Natural Gas Flames in a SGT-700/800
+Burner Using OH PLIF and Chemiluminescence Imaging,” ASME J. Eng. Gas
+Turbines Power, 137(3), p. 031505.
+[6] Larfeldt, J., Andersson, M., Larsson, A., and Mo€ell, D., 2017, “Hydrogen Co-
+Firing in Siemens Low Nox Industrial Gas Turbines,” POWER-GEN, Europe,
+Cologne, Germany, Las Vegas, NV, Dec. 5–7.
+[7] Wu, J., Brown, P., Diakunchak, I., Gulati, A., Lenze, M., and Koestlin, B., 2007,
+“Advanced Gas Turbine Combustion System Development for High Hydrogen
+Fuels,” ASME Paper No. GT2007-28337.
+[8] Cerutti, M., Cocchi, S., Modi, R., Sigali, S., and Bruti, G., 2014, “Hydrogen Fueled
+Dry Low NOx Gas Turbine Combustor Conceptual Design,” ASME Paper No.
+GT2014-26136.
+[9] Lacy, B., Ziminsky, W., Lipinski, J., Varatharajan, B., Yilmaz, E., and Brumberg,
+J., 2008, “Low Emissions Combustion System Development for the GE Energy
+High Hydrogen Turbine Program,” ASME Paper No. GT2008-50823.
+[10] York, W. D., Ziminsky, W. S., and Yilmaz, E., 2013, “Development and Testing of
+a Low NOx Hydrogen Combustion System for Heavy-Duty Gas Turbines,”ASME
+J. Eng. Gas Turbines Power, 135(2), p. 022001.
+[11] Asai, T., Dodo, S., Karishuku, M., Yagi, N., Akiyama, Y., and Hayashi, A., 2015,
+“Performance of Multiple-Injection Dry low-NOx Combustors on Hydrogen-Rich
+Syngas Fuel in an IGCC Pilot Plant,” ASME J. Eng. Gas Turbines Power, 137(9),
+p. 091504.
+[12] Inoue, K., Miyamoto, K., Domen, S., Tamura, I., Kawakami, T., and Tanimura, S.,
+2018, “Development of Hydrogen and Natural Gas Co-Firing Gas Turbine,”
+Mitsubishi Heavy Ind. Tech. Rev., 55(2), p. 1.
+[13] Nose, M., Kawakami, T., Araki, H., Senba, N., and Tanimura, S., 2018,
+“Hydrogen-Fired Gas and Turbine Targeting and Realization of and CO2-Free
+Society,” Mitsubishi Heavy Indu. Tech. Rev., 55(4), pp. 1–7.
+[14] Pennell, D. A., Bothien, M. R., Ciani, A., Granet, V., Singla, G., Thorpe, S.,
+Wickstroem, A., Oumejjoud, K., and Yaquinto, M., 2017, “An Introduction to the
+Ansaldo GT36 Constant Pressure Sequential Combustor,” ASME Paper No.
+GT2017-64790.
+[15] Bothien, M. R., Ciani, A., Wood, J. P., and Fruechtel, G., 2019, “Toward
+Decarbonized Power Generation With Gas Turbines by Using Sequential
+Combustion for Burning Hydrogen,” ASME J. Eng. Gas Turbines Power, 141
+(12), p. 121013.
+[16] Ciani, A., Bothien, M., Bunkute, B., Wood, J., and Fr€uchtel, G., 2019, “Superior
+Fuel and Operational Flexibility of Sequential Combustion in Ansaldo Energia
+Gas Turbines,” J. Global Power Propul. Soc., 3, pp. 630–638.
+[17] Alavandi, S. K., Etemad, S., and Baird, B. D., 2013, “Low Single Digit NOx
+Emissions Catalytic Combustor for Advanced Hydrogen Turbines for Clean Coal
+Power Systems,” ASME Paper No. GT2012-68128.
+[18] Bullard, T., Steinbrenner, A., Stuttaford, P., Jansen, D., and de Bruijne, T., 2018,
+“Improvement of Premixed Gas Turbine Combustion System Fuel Flexibility
+With Increased Hydrogen Consumption in a Renewable Market Place,” ASME
+Paper No. GT2018-75553.
+[19] Tekin, N., Ashikaga, M., Horikawa, A., and Funke, H., 2018, “Enhancement of
+Fuel Flexibility of Industrial Gas Turbines by Development of Innovative
+Hydrogen Combustion Systems,” Gas Energy, 2, pp. 18–23.
+[20] ETN, 2020, “Hydrogen Gas Turbines - The Path Towards a Zero-Carbon Gas
+Turbine,” European Turbine Network (ETN Global), Report.
+[21] Schefer, R., Wicksall, D., and Agrawal, A., 2002, “Combustion of Hydrogen-
+Enriched Methane in a Lean Premixed Swirl-Stabilized Burner,” Proc. Combust.
+Inst., 29(1), pp. 843–851.
+[22] Schefer, R., 2003, “Hydrogen Enrichment for Improved Lean Flame Stability,”
+Int. J. Hydrogen Energy, 28(10), pp. 1131–1141.
+[23] Hussain, T., Talibi, M., and Balachandran, R., 2019, “Investigating the Effect of
+Local Addition of Hydrogen to Acoustically Excited Ethylene and Methane
+Flames,” Int. J. Hydrogen Energy, 44(21), pp. 11168–11184.
+[24] Beerer, D., McDonell, V., Therkelsen, P., and Cheng, R. K., 2014, “Flashback and
+Turbulent Flame Speed Measurements in Hydrogen/Methane Flames Stabilized
+by a Low-Swirl Injector at Elevated Pressures and Temperatures,” ASME J. Eng.
+Gas Turbines Power, 136(3), p. 031502.
+[25] Page, D., Shaffer, B., and McDonell, V., 2013, “Establishing Operating Limits in a
+Commercial Lean Premixed Combustor Operating on Synthesis Gas Pertaining to
+Flashback and Blowout,” ASME Paper No. GT2012-69355.
+[26] Syred, N., Abdulsada, M., Grifﬁths, A., O’Doherty, T., and Bowen, P., 2012, “The
+Effect of Hydrogen Containing Fuel Blends Upon Flashback in Swirl Burners,”
+Appl. Energy, 89(1), pp. 106–110.
+[27] Emadi, M., Karkow, D., Salameh, T., Gohil, A., and Ratner, A., 2012, “Flame
+Structure Changes Resulting From Hydrogen-Enrichment and Pressurization for
+Low-Swirl Premixed Methane–Air Flames,” Int. J. Hydrogen Energy, 37(13), pp.
+10397–10404.
+[28] Lin, Y.-C., 2014, “Characteristics of Turbulent Lean-Premixed Combustion for
+Hydrogen-Rich Fuel Gases,” Ph.D. thesis, ETH Zurich, Z€urich, Switzerland.
+[29] Strakey, P., Sidwell, T., and Ontko, J., 2007, “Investigation of the Effects of
+Hydrogen Addition on Lean Extinction in a Swirl Stabilized Combustor,” Proc.
+Combust. Inst., 31(2), pp. 3173–3180.
+[30] Lingst€adt, T., Seliger, H., Reh, S., and Huber, A., 2018, “Technologiebericht 2.2b
+Dezentrale Kraftwerke (Motoren Und Turbinen),” Technologien F€ur Die
+Energiewende. teilbericht 2 an Das Bundesministerium F€ur Wirtschaft Und
+Energie (Bmwi), Wuppertal Institut, ISI, IZES.
+[31] Reale, F., and Sannino, R., 2022, “Numerical Modeling of Energy Systems Based
+on Micro Gas Turbine: A Review,” Energies, 15(3), p. 900.
+[32] Liu, A., Yang, Y.,Chen, L., Zeng, W., and Wang, C., 2020, “Experimental Study of
+Biogas Combustion and Emissions for a Micro Gas Turbine,” Fuel, 267, p. 117312.
+041013-10 / Vol. 146, APRIL 2024
+Transactions of the ASME
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 11 ---
+
+[33] Okafor, E. C., Somarathne, K. A., Ratthanan, R., Hayakawa, A., Kudo, T., Kurata,
+O., Iki, N., Tsujimura, T., Furutani, H., and Kobayashi, H., 2020, “Control of NOx
+and Other Emissions in Micro Gas Turbine Combustors Fuelled With Mixtures of
+Methane and Ammonia,” Combust. Flame, 211, pp. 406–416.
+[34] Du Toit, M., Engelbrecht, N., Oelofse, S. P., and Bessarabov, D., 2020,
+“Performance Evaluation and Emissions Reduction of a Micro Gas Turbine Via
+the Co-Combustion of h2/CH4/CO2 Fuel Blends,” Sustainable Energy Technol.
+Assess., 39, p. 100718.
+[35] de Santoli, L., Basso, G. L., Barati, S., D’Ambra, S., and Fasolilli, C., 2020,
+“Seasonal Energy and Environmental Characterization of a Micro Gas Turbine
+Fueled With h2 ng Blends,” Energy, 193, p. 116678.
+[36] Therkelsen, P., Mauzey, J., McDonell, V., and Samuelsen, S., 2008, “Evaluation
+of a Low Emission Gas Turbine Operated on Hydrogen,” ASME Paper No.
+GT2006-90725.
+[37] Therkelsen, P., Werts, T., McDonell, V., and Samuelsen, S., 2009, “Analysis of
+NOx Formation in a Hydrogen-Fueled Gas Turbine Engine,” ASME J. Eng. Gas
+Turbines Power, 131(3), p. 031507.
+[38] Devriese, C., Penninx, G., de Ruiter, G., Bastiaans, R., and Paepe, W., 2020, “The
+CFD Design and Optimisation of a 100 kW Hydrogen Fuelled mGT,” ASME
+Paper No. GT2020-14473.
+[39] Cappelletti, A., Martelli, F., Bianchi, E., and Trifoni, E., 2014, “Numerical
+Redesign of 100 kw MGT Combustor for 100% h2 Fueling,” Energy Procedia, 45,
+pp. 1412–1421.
+[40] Pappa, A., Bricteux, L., Benard, P., and Paepe, W. D., 2021, “Can Water Dilution
+Avoid Flashback on a Hydrogen-Enriched Micro-Gas Turbine Combustion?—A
+Large Eddy Simulations Study,” ASME J. Eng. Gas Turbines Power, 143(4), p.
+041008.
+[41] Stathopoulos, P., Kuhn, P., Wendler, J., Tanneberger, T., Terhaar, S., Paschereit,
+C. O., Schmalhofer, C., Griebel, P., and Aigner, M., 2017, “Emissions of a Wet
+Premixed Flame of Natural Gas and a Mixture With Hydrogen at High Pressure,”
+ASME J. Eng. Gas Turbines Power, 139(4), p. 041507.
+[42] Reichel, T. G., Terhaar, S., and Paschereit, C. O., 2015, “Increasing Flashback
+Resistance in Lean Premixed Swirl-Stabilized Hydrogen Combustion by Axial Air
+Injection,” ASME J. Eng. Gas Turbines Power, 137(7), p. 071503.
+[43] Reichel, T. G., Goeckeler, K., and Paschereit, C. O., 2015, “Investigation of
+Lean Premixed Swirl-Stabilized Hydrogen Burner With Axial Air Injection
+Using OH-PLIF Imaging,” ASME J. Eng. Gas Turbines Power, 137(11),
+p. 111513.
+[44] Reichel, T. G., and Paschereit, C. O., 2017, “Interaction Mechanisms of Fuel
+Momentum With Flashback Limits in Lean-Premixed Combustion of Hydrogen,”
+Int. J. Hydrogen Energy, 42(7), pp. 4518–4529.
+[45] Reichel, T. G., Terhaar, S., and Paschereit, C. O., 2018, “Flashback Resistance and
+Fuel–Air Mixing in Lean Premixed Hydrogen Combustion,” J. Propul. Power,
+34(3), pp. 690–701.
+[46] Tanneberger, T., Reichel, T. G., Kr€uger, O., Terhaar, S., and Paschereit, C. O.,
+2015, “Numerical Investigation of the Flow Field and Mixing in a Swirl-Stabilized
+Burner With a Non-Swirling Axial Jet,” ASME Paper No. GT2015-43382.
+[47] Mira, D., Lehmkuhl, O., Stathopoulos, P., Tanneberger, T., Reichel, T. G.,
+Paschereit, C. O., Vazquez, M., and Houzeaux, G., 2018, “Numerical
+Investigation of a Lean Premixed Swirl-Stabilized Hydrogen Combustor and
+Operational Conditions Close to Flashback,” ASME Paper No. GT2018-76229.
+[48] Mira, D., Lehmkuhl, O., Both, A., Stathopoulos, P., Tanneberger, T., Reichel, T.
+G., Paschereit, C. O., Vazquez, M., and Houzeaux, G., 2020, “Numerical
+Characterization of a Premixed Hydrogen Flame Under Conditions Close to
+Flashback,” Flow, Turbul. Combust., 104(2–3), pp. 479–507.
+[49] D., Mira, A., Both, O., Lehmkuhl, B., S., Gomez Gonzalez, J., Forck, T.,
+Tanneberger, P., Stathopoulos., and C. O., Paschereit, 2021, “High-Fidelity
+Simulations of the Mixing and Combustion of a Technically Premixed Hydrogen
+Flame,” 10th European Combustion Meeting, Online, Apr. 14–15, pp. 1104–1109.
+[50] Prikopsky, K., 2007, “Characterization of Continuous Diffusion Flames in
+Supercritical Water,” Ph.D. thesis, ETH Zurich, Z€urich, Switzerland.
+[51] Tanneberger, T., Stathopoulos, P., R€osch, S., Rex, C., and Mundstock, J., 2021,
+“Entwicklung Einer Mikrogasturbine F€ur 100% Wasserstoff,” Proceedings of 30.
+Deutscher Flammentag, Hannover-Garbsen, Online, Sept. 28–29.
+[52] Guiberti, T. F., Durox, D., Zimmer, L., and Schuller, T., 2015, “Analysis of
+Topology Transitions of Swirl Flames Interacting With the Combustor Side
+Wall,” Combust. Flame, 162(11), pp. 4342–4357.
+[53] Douglas, C. M., Emerson, B. L., Lieuwen, T. C., Martz, T., Steele, R., and Noble,
+B., 2022, Nox Emissions From Hydrogen-Methane Fuel Blends, Georgia Tech
+Library, Atlanta, GA.
+[54] Garan, N., Dybe, S., Paschereit, C. O., and Djordjevic, N., 2022, “Consistent
+Emission Correction Factors Applicable to Novel Energy Carriers and Conversion
+Concepts,” Fuel, 341, p. 127658.
+[55] Funke, H.-W., Beckmann, N., and Abanteriba, S., 2019, “An Overview on Dry
+Low NOx Micromix Combustor Development for Hydrogen-Rich Gas Turbine
+Applications,” Int. J. Hydrogen Energy, 44(13), pp. 6978–6990.
+Journal of Engineering for Gas Turbines and Power
+APRIL 2024, Vol. 146 / 041013-11
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/146/4/041013/7147419/gtp_146_04_041013.pdf by University of Cincinnati user on 31 December 2025

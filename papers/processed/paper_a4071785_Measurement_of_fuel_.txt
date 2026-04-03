@@ -1,0 +1,1665 @@
+
+--- Page 1 ---
+
+Meas. Sci. Technol. 11 (2000) 870–886. Printed in the UK
+PII: S0957-0233(00)11401-8
+Measurement of fuel mixing and
+transport processes in gas turbine
+combustion
+V G McDonell and G S Samuelsen
+University Gas Turbine Laboratory, University of California, Irvine, CA 92697-3550, USA
+E-mail: gss@uci.edu
+Received 28 January 2000, in ﬁnal form 30 March 2000, accepted for publication
+13 April 2000
+Abstract. The measurement techniques for delineating fuel–air mixing and transport in gas
+turbine combustion, as well as examples of representative results, are provided in this
+overview. The summary is broken into applications for gaseous fuels and liquid fuels since
+many diagnostics which are speciﬁc to the phase of the fuel have been developed. Many
+possible methods for assessing the general mixing have been developed, but not all have been
+applied to practical systems either under scaled or under actual conditions. With respect to
+gaseous mixing processes, planar laser-induced ﬂuorescence (PLIF) based on acetone is now
+starting to be successfully applied to actual systems and conditions. In spray-ﬁred systems,
+the need to discriminate between phases leads to considerable complication in delineating
+fuel–air mixing. Methods that focus on the discrete phase have successfully provided details
+relative to the droplets. These include phase Doppler interferometry (PDI), which is
+becoming ubiquitous in application to practical devices and under practical conditions. PDI
+is typically being applied to quantify droplet sizes, although the volume ﬂux, which is
+relevant to fuel–air mixing, in practical systems is also being reported. In addition, PLIF
+strategies that focus upon the behaviour of the droplets are now being developed. However,
+PLIF strategies that can discriminate between phases either in the fuel or with respect to the
+liquid fuel and combustion air are also being developed. In terms of characterizing the vector
+ﬁelds associated with the mixing process, laser anemometry (LA), although it is tedious to
+apply, has proven reliable even in the presence of droplets. Newer methods such as DPIV and
+FRS have seen only limited application in practical systems but appear promising. In terms of
+scalar ﬁelds, LIF and PLIF have also been applied successfully to these systems, and
+examples of the measurements of concentrations of various radical species such as OH are
+found throughout the literature.
+Keywords: fuel–air mixing, aerodynamic ﬂowﬁeld, velocity, concentration, laser-induced
+ﬂuorescence, ﬂame ionization detector, CCD camera, photomultiplier tube, imaging, sample
+probe, particle image velocimetry, planar laser-induced ﬂuorescence, gas turbine combustion,
+combustion diagnostics, spray combustion, natural gas combustion
+1. Introduction
+The motivation for understanding the dynamic and coupled
+phenomena associated with gas turbine combustion is driven
+by a need to improve the overall operability of combustion
+devices while reducing the amount of pollutants produced
+and improving efﬁciency. The complex nature of gas turbine
+combustion is associated with the large number of processes
+occurring. See, for example, ﬁgure 1 for a typical swirl-
+stabilized reaction occurring within the combustor.
+Gas turbine combustion is utilized today to provide
+both ground-based power generation and propulsion for aero
+applications. In the case of power generation, gas turbines
+are fuelled either with gaseous fuel or with liquid fuels. In
+the cases in which control of emissions is of great concern,
+gaseous fuels are required and natural gas is typically utilized.
+However, in cases in which economic requirements lead
+to the use of liquid fuels, a fuel that is readily available
+and relatively inexpensive is utilized. In this case common
+fuels such as diesel and naptha are used. For ground-based
+systems, improvements in efﬁciency translate directly into
+cost savings as well as a reduction in emission of CO2, which
+has implications relative to global warming.
+For practical reasons, aero engines rely exclusively upon
+liquid fuels. Because of safety concerns the speciﬁcations of
+these fuels are well documented. In commercial engines,
+Jet-A is utilized throughout the world, whereas JP-8 is the
+current fuel of choice for military applications. Because the
+fuel type is ﬁxed, the requirements for the combustion system
+do not vary as much as they do for ground-based systems.
+From a safety standpoint, the failure of aero engines cannot
+betolerated. Hence, themaintainabilityanddurabilityofaero
+0957-0233/00/070870+17$30.00
+© 2000 IOP Publishing Ltd
+
+
+--- Page 2 ---
+
+Fuel mixing and transport in gas turbines
+Figure 1. Basic processes in a simple cycle gas turbine engine and associated phenomena occurring within the combustor.
+engines is a critical issue, together with factors concerning
+emissions and fuel economy. Fuel economy translates into
+savings in the cost of the fuel as well as into the reduction
+in the emission of CO2.
+The increasing prevalence of
+taxation associated with emissions also drives the economic
+considerations related to performance regarding emissions
+and fuel economy.
+Both for gas-ﬁred and for liquid-ﬁred gas turbines, the
+performance of the combustor is perhaps the most critical
+aspect of the engine. The method of combustion dictates the
+amount of pollutants formed and ultimately emitted by the
+engine. The combustion system is subject to thermal strain
+due to temperature gradients and heat transfer issues. As a
+result, it can be a limiting factor in terms of the durability
+and reliability of these devices. In addition, the combustion
+system dictates the temperature proﬁle of the gases entering
+the turbine. Hot streaks and changes in temperature proﬁle
+associated with degraded combustion performance and/or
+components can affect turbine components and the reliability
+and durability of these parts. In each of these cases, the fuel
+injection and mixing behaviour are key factors determining
+performance.
+As designers struggle to reduce emissions and improve
+efﬁciency while at the same time increasing reliability
+and durability, understanding the basic processes occurring
+within
+the
+combustion
+system
+becomes
+increasingly
+important. This is in part due to the cost of design, but also to
+the improvements that have already been made in combustion
+system design over the past 25 years. Eking out additional
+improvements without contributing to the exorbitant cost
+associated with employing trial and error strategies requires
+experience coupled with a detailed understanding of the
+basic processes. The use of constantly evolving numerical
+and experimental tools to provide the necessary insight
+is promising.
+Recent advances that have been made in
+the development of experimental tools have resulted in
+additional insight into the basic physics occurring in complex
+combustion systems. In some cases, non-reacting ﬂowﬁelds
+are interrogated in addition to reacting cases in an effort
+to reduce the complexity of interpreting the combustor
+ﬂowﬁeld. Such measurements are required in order to detail
+the physics of the phenomena occurring as well as to validate
+models proposed for comprehensive numerical predictions.
+To organize the paper, the fuel injection and transport
+measurement issues in gas turbine combustion are divided
+into three elements: (i) injection and mixing of gaseous fuels,
+(ii) injection and mixing of liquid fuels and (iii) transport
+and combustion.
+The synergism amongst these elements
+cannot be overlooked.
+For example, in the continuous
+combustion process, the transport of the ignited mixture
+promotesvaporizationthatinturnaffectstheunmixedness. A
+synergism amongst the elements also produces fundamental
+boundaries such as ‘lean and rich extinction limits’.
+In
+addition to examining each element, the interaction amongst
+the various elements is presented. Hence, the purpose of this
+paper is to present an overview of the current measurement
+strategies that are used to elucidate details of the fuel injection
+and transport phenomena in gas turbine combustors, such
+as that shown in ﬁgure 1. Examples of these measurement
+techniques are provided and speciﬁc references that provide
+additional detail regarding the methods are cited.
+2. Fuel injection and mixing
+Perhaps the most critical aspect of the combustion process
+is the introduction of fuel into the device and its subsequent
+mixing with air in the device. In this section, a distinction
+between gaseous and liquid fuels is made since many of the
+measurement methodologies and strategies differ according
+to the phase of the fuel. In the case of liquid fuels, additional
+871
+
+
+--- Page 3 ---
+
+V G McDonell and G S Samuelsen
+Figure 2. The trade-off of stability and pollutant emissions.
+steps of atomization and vaporization are required prior to
+mixing. The presence of the discrete phase thus requires the
+additional understanding of transport-related processes.
+Various methods are utilized to mix the fuel and air
+depending upon the application. In advanced combustion
+concepts, careful premixing of the fuel and air prior to
+combustion is required in order to ensure that homogeneous
+reaction temperatures are obtained.
+This is true both for
+catalytic and for non-catalytic combustion strategies.
+In
+non-catalytic applications, the goal is to reduce local peak
+temperatures in the reaction zone, thereby reducing the
+formation of thermal NOx. However, with ‘perfect mixing’
+comes a decrease in stability, which can lead to constraints
+relativetooperability. Figure2illustratesthetypicaltrade-off
+amongst production of NOx, production of CO and stability
+for non-catalytic systems.
+As a result of the trade-off between stability and
+emissions, optimum performance will be attained not with
+ideal mixing, but rather with an intelligent strategy of fuel
+placement and mixing.
+As a result, the characterization
+of the local fuel–air ratio upstream of the reaction and
+the relationship of the fuel–air ratio to the combustion
+performance are of great interest.
+The mixing of the fuel prior to its entry into the reaction
+region is also crucial for achieving high performance in
+catalytic systems. Having a homogeneous fuel–air mixture
+in these cases is important for maintaining a uniform
+temperature throughout the catalyst bed and preventing
+overheating the reactor, which can occur in cases with locally
+rich pockets of fuel.
+In this section, examples both for gaseous and for liquid
+fuel injection scenarios will be provided.
+2.1. Gaseous fuels
+Gaseous fuels are utilized in gas turbines for stationary power
+generation for industry, utilities and independent power
+producers. Natural gas is the most commonly used gaseous
+fuel, although the inherent robustness of the gas turbine
+allows consideration of other gaseous fuels including those
+obtained from biomass and other renewable sources. Owing
+to the differing heat content and ignition delay properties of
+these fuels, the fuel injection and mixing techniques must
+be tailored to some extent on the fuel composition.
+The
+varying properties associated with these fuels also highlight
+the need to understand fuel preparation and mixing processes.
+Methods that provide a direct measure of the local fuel–
+air ratio are desired. It is also desired to characterize the
+behaviours of actual fuels rather than simulants since scaling
+is difﬁcult to establish.
+Various measurement techniques
+can be utilized to characterize the local fuel–air ratio both
+in a steady state and in a time-dependent manner. Some of
+these methods are non-intrusive, whereas others are intrusive.
+The following discussion is divided into ‘tracer-based’ and
+‘non-tracer based’ methods that are either intrusive or non-
+intrusive.
+2.1.1. Intrusive non-tracer based methods.
+In intrusive,
+non-tracer-based methods, the descriptor implies that the fuel
+is not altered, doped with or replaced by a simulant that
+has desirable measurement or operational characteristics. In
+other words, the combustion system is operated exactly as
+it would be, with the gaseous fuels that are used in practice.
+Theintrusivedescriptorimpliesthataphysicaldevicemustbe
+inserted into the ﬂowﬁeld. These non-tracer-based methods
+requirethatamethodfordirectlymeasuringtheconcentration
+of natural gas (or some other gaseous fuel) be available.
+Measurements with intrusive probes have been made
+in reacting and non-reacting systems for many years. As
+a result, several excellent reviews of various applications
+in homogeneous combustion are available in the literature
+(Bowman 1977, Bilger 1977).
+Although much attention
+and effort has been devoted to the accurate measurement of
+gaseous products of combustion by intrusive probes (Nguyen
+et al 1995, Zabielski et al 1981, Samuelsen and Benson
+1977), extractive sampling through these probes can be used
+to obtain information related to the mixing of gaseous fuels
+prior to combustion. For example, it might be desirable to
+assess the local fuel–air ratio both under reacting and under
+non-reacting conditions in order to assess fuel–air mixing. In
+advanced engines (e.g. dry low NOx, catalytic), preparation
+of the fuel–air mixture prior to combustion is crucial for its
+performance. Asmallprobecanbeinsertedintotheﬂowﬁeld,
+extract a sample of the gas and convey it to an analyser
+872
+
+
+--- Page 4 ---
+
+Fuel mixing and transport in gas turbines
+which can then determine the relative amount of fuel at a
+given position in the ﬂow. This can be accomplished using
+any fuel that can be measured by standard detectors (e.g. a
+ﬂame ionization detector) and in a high temperature, elevated
+pressure environment.
+In a ﬂowﬁeld without recirculation, it is possible to
+sample in an ‘iso-kinetic’ manner to help reduce probe
+perturbation effects. By sampling iso-kinetically, the probe
+opening brings in a mass ﬂow of material that would have
+been contained in the volume occupied by the physical
+probe, thus minimizing the distortion of the streamlines in
+the vicinity of the probe.
+This may be possible in well-
+behaved ﬂows that might exist within a premixing duct, for
+example.
+However, in the complex elliptical ﬂow that is
+typical of gas turbine domes, it is difﬁcult to avoid perturbing
+the ﬂow†. For many complex systems, however, an extractive
+probe measurement can provide useful information. Purists
+may prefer to utilize non-intrusive methods if possible
+(as discussed in section 2.1.2), but limited optical access
+and uncertainties in the skill of operators performing the
+measurements often limit the application of non-intrusive
+methods.
+Figure 3 shows an example of a fuel injection system
+set-up and an associated measurement of fuel concentration
+within the measurement plane. In this study, the injector
+hardware can be conﬁgured to inject from the locations
+shown by the bent arrows in ﬁgure 3 (either wall jet or
+centrebody).
+The results shown in ﬁgure 3 demonstrate
+the type of information that can be obtained by extractive
+probe measurements. The results shown in ﬁgure 3(b) were
+obtained using a grid of 90 points distributed throughout the
+measurement plane of interest, which was, in this case, at a
+location 3 mm downstream of the centrebody face. Because
+recirculation occurs, the sampling is not iso-kinetic.
+In this particular case, the combustion performance was
+found to be a function of the proportions of the injection split
+betweenthetwocircuits, oneinjectingradiallyoutwardsfrom
+six centrebody jets (% CB) and one injecting radially inwards
+from six wall jets (% WJ). Figure 4 illustrates the difference
+between the fuel distributions observed for injection from the
+centrebody and from the wall. In this case, a well-mixed fuel
+distribution was obtained with the 50% CB condition (see
+ﬁgure 4(b)). As more fuel is injected from the centrebody,
+higher concentrations of fuel appear near the centreline. The
+asymmetry noted in the plots can be attributed to the relative
+alignment of the fuel jets (six in total) and the swirler vanes
+(four in total).
+As a result, the orientation between the
+fuel distribution and swirler vanes cycles every 180◦with
+respect to the centre.
+The results in ﬁgure 4 reﬂect this
+characteristic with symmetrical behaviour observed across
+the halves of the ﬂowﬁeld. As a result, despite the intrusive
+nature, useful information can be obtained in a relatively
+quick fashion. Although this information is obtained using
+intrusive methods, the results provide insight into the details
+of the fuel distribution as a function of the injector operation.
+† ‘In mathematically elliptic ﬂows,
+such as recirculation regions,
+disturbances from the probe always will propagate upstream.
+Although
+the problem is obvious, it does not appear to have been addressed in the
+literature, not even to the extent of saying that visual observations indicated
+no effect! Of course up to now we have been pleased to have any sort of
+measurements in such regions.’ (Bilger 1977).
+It is also possible to utilize intrusive probes to provide
+time varying information relative to the gas concentration.
+One strategy involves absorption of energy by the fuel. The
+Lambert–Beer law describes this absorption theoretically:
+I
+I0
+= e−αCL
+(1)
+where I is the intensity of energy after passing through an
+absorbing media, I0 is the intensity of energy prior to passing
+through the medium, α is the absorption coefﬁcient of the
+medium, C is the concentration of the medium and L is the
+pathlength.
+For hydrocarbons, a strong absorption band is present
+at wavelengths of 3.3–3.5 µm.
+Fortuitously, relatively
+inexpensive lasers that operate at a wavelength of 3.39 µm
+are available.
+Since most hydrocarbons absorb energy
+at this wavelength, to determine the concentration of a
+speciﬁc gas (or blend of individual gases, such as natural
+gas), a calibration procedure must be conducted in order
+to isolate the absorption coefﬁcient.
+The absorption
+coefﬁcient of the hydrocarbon gas(es) of interest can be
+determined by a procedure that involves ﬂowing speciﬁed
+concentrations through a cell with a known pathlength,
+and monitoring the attenuation of light passing through
+the cell as a function of concentration.
+As a result, by
+passing a 3.39 µm wavelength laser beam through the
+ﬂowﬁeld containing gas and measuring the attenuation,
+the concentration of hydrocarbon fuel within the beam
+pathlength can be determined. This strategy has been further
+reﬁned spatially by using an intrusive probe with a relatively
+short pathlength (Mongia et al 1996).
+The accuracy of
+this measurement depends upon having accurate knowledge
+of the pathlength and the absorption coefﬁcient.
+The
+pathlength is established by knowing the distance between
+the windows. However, the absorption coefﬁcient, which
+depends on the ambient temperature as well as the molecular
+structure, must be determined by calibration. As a result,
+in a ﬂow with temperature gradients (e.g. with elevated inlet
+temperatures), the uncertainty in the absorption coefﬁcient
+may be signiﬁcant, depending upon the fuel utilized. The
+frequency response of this system is limited only by the
+electronics and therefore can be utilized to evaluate high
+frequency ﬂuctuations in concentration. Extracting a sample
+and running it through a cell through which the 3.39 µm
+laser beam is passed can render this system more rugged.
+If the overall volume of the sampling system can be made
+small enough, a reasonable level of frequency response can
+be achieved (e.g. approaching 1 kHz).
+Hot-ﬁlm strategies can also be used in conjunction with
+intrusive probes. Intrusive probes that implement hot-ﬁlm
+methods include a probe manufactured by TSI (Model 1440)
+that utilizes a constant temperature anemometer to maintain
+the temperature of a hot ﬁlm. In such a device, the heat
+transfer between a thermal sensor and the environment is
+measured. This heat transfer depends on the temperature,
+static pressure, velocity and thermal properties of the gas.
+A sonic oriﬁce can be utilized to ensure that the velocity
+is constant.
+In this case, as long as the temperature is
+accounted for (or is constant), the probe measures the ratio
+of the speciﬁc heats of two gases. Hence, the hot-ﬁlm probe
+873
+
+
+--- Page 5 ---
+
+V G McDonell and G S Samuelsen
+Figure 3. Fuel distribution (% HC) measurement using an extractive probe (700 K inlet temperature): (a) the injector conﬁguration and
+measurement plane and (b) an example result, 0% centrebody,  = 0.47.
+Figure 4. Fuel distribution (% HC) versus the percentage of fuel injected from the centrebody for  = 0.47: (a) 0%, (b) 50% and (c) 100%.
+can be utilized to measure the mixture ratio of two gases.
+To enhance the signal strength, it is beneﬁcial to measure
+gases with a large variation in speciﬁc heat. In the fuel–
+air-mixing problem, for example, the ratio of the speciﬁc
+heats of methane and air is 2.2. In contrast, the speciﬁc heat
+ratio for hydrogen and air is 14.1 and that for helium and
+air is 5.2. The sensitivity of the hot-ﬁlm strategy will thus
+be limited in the case of natural gas compared with a fuel
+replicant. The frequency response of this probe is rated up to
+100kHzand, withsufﬁcientcoolingoftheprobe, thisstrategy
+can also be applied to a high temperature environment.
+However, because it cannot distinguish between temperature
+and concentration changes, the hot-ﬁlm probe cannot resolve
+fuel–air ratios in situations with temperature gradients in time
+and/or space.
+2.1.2. Intrusive tracer-based methods.
+As an alternative
+to measuring the fuel directly using intrusive methods, it is
+also possible to dope the fuel stream with a tracer that can
+be measured by a sensor that would otherwise have been
+insensitive to the presence of fuel. The use of tracers such
+as inert gases and molecules with photo-physical properties
+that are well suited for optical methods will be addressed in
+section 2.1.4.
+Few examples regarding the application of intrusive
+probes to measure tracers that track fuel–air mixing are
+available in the literature.
+The reasons are probably
+associated with the inherent desire to progress towards
+non-intrusive methods, as well as the introduction of
+complications that using a tracer produces by requiring
+an additional set of assumptions.
+Although most of this
+discussion focuses on tracer-based, non-intrusive methods,
+examples of intrusive tracer-based methods do exist.
+In
+particular, an intrusive probe not unlike that of Mongia et al
+(1996) has been developed with the purpose of providing
+an excitation wavelength and collecting the ﬂuorescence
+signal from a point (Lee and Santavicca 1997).
+In this
+case, acetone is seeded into the fuel stream to provide
+a convenient marker (this is discussed in more detail in
+section 2.1.4). With suitable calibration, this method obtains
+spatially and temporally resolved measurements of fuel tracer
+concentration, which can be further related to the local
+equivalence ratio.
+Although no results for an actual gas
+turbine combustor have been published, the strategy may
+have merit in practice.
+An extractive probe that monitors the concentration of
+an inert gas species has been applied successfully to study
+mixing problems in gas turbines and, in particular, the jet
+874
+
+
+--- Page 6 ---
+
+Fuel mixing and transport in gas turbines
+mixing aspects of these devices (Thayer and Corlett 1971,
+Rastogi and Whitelaw 1973, Khan and Whitelaw 1980).
+These methods rely upon the unreactive nature of helium,
+which acts as a passive scalar and can be readily measured
+using available analysers.
+2.1.3.
+Non-intrusive non-tracer-based methods.
+Al-
+though intrusive methods can provide information relative to
+the mixing of fuel and air, non-intrusive methods for obtain-
+ing the same measurements are also available. Non-intrusive
+methods are more attractive due to their ability to extract mea-
+surements without actually contacting or disrupting the ﬂow-
+ﬁeld. The other potentially attractive aspect of non-intrusive
+methods is the ability to capture information in multiple di-
+mensions (i.e. in a plane).
+With the advent of laser-based diagnostics over the past
+30 years, much effort has gone into the development and
+application of non-intrusive laser-based methods. Several
+excellent reviews which provide an overview of the various
+issues and experiences associated with these diagnostics are
+available (Eckbreth 1988, Chigier 1991).
+Several laser-based strategies are available for applica-
+tion to quantiﬁcation of fuel–air mixing in gas-ﬁred gas tur-
+bine combustors. In practical gas turbine related systems,
+non-intrusive methods that assess fuel–air mixing must in-
+volve the characterization of natural gas or air. For natural
+gas, it is possible to utilize laser Rayleigh scattering, which
+is an elastic scattering process (i.e. the scattering occurs at
+the same wavelength as that of the incident beam). Detailed
+discussion of the theory behind Rayleigh scattering is avail-
+able elsewhere in the reviews identiﬁed in the previous para-
+graph. The key issues with respect to practical applications,
+however, can be illustrated with a simple application. Con-
+sider for the moment an isothermal case involving a mixture
+of natural gas and air. In this case, the Rayleigh signal can
+be expressed in a simple manner as
+IR = K(χaσa + χbσb)
+(2)
+where K is a constant, χa is the mole fraction of air, χb
+is the mole fraction of natural gas, σa is the scattering cross
+section for air and σb is the scattering cross section for natural
+gas.
+In this case, it is clear that a large differential cross
+section will result in the highest signal level. For natural
+gas, in which methane is the largest constituent, a scattering
+cross section of about 19 × 10−28 cm−2 is found (Muller-
+Dethlefs and Weinberg 1978), which is about 2.3 times
+larger than that of air.
+As a result, the sensitivity of the
+method for measurement of natural gas does not provide a
+large dynamic range of measurement. As with the hot-ﬁlm
+strategy discussed in section 2.1.2 above, a system relying on
+Rayleigh scattering would beneﬁt from a tracer (e.g. propane,
+whichhasacrosssectionthatisabout15timeslargerthanthat
+of air). Nonetheless, if the temperature of the system is ﬁxed,
+the variation in signal will be attributable to the variation
+in the fuel concentration. This principle has been applied
+to the case of mixing fuel and air (e.g. Graham et al 1974,
+Escoda and Long 1983, Pitts and Kashiwagi 1984). However,
+Rayleigh scattering does have its limits for application
+to complex practical devices.
+In particular, background
+scattering from particles or surfaces and luminosity from
+various sources lead to serious challenges with noise. As
+a result, Rayleigh scattering has not been widely applied to
+natural gas ﬁred systems despite its beneﬁt of not requiring
+a tracer.
+The absorption strategy outlined in section 2.1.1 can
+also be used to assess the fuel distribution. The elements
+required for implementing this procedure imply the use of
+windowsandline-of-sighttransmissionofabeamthroughthe
+ﬂow. Though the results from this method are not spatially
+resolved, the adequacy of the method can be determined from
+the application and the physical geometry of the device. For
+example, if the performance of a system over a period of
+time needs to be assessed, changes in the behaviour of the
+absorption can be monitored.
+Spatial resolution can be attained from absorption
+measurements using tomographic strategies (Chen and
+Goulard 1976, Santoro et al 1981), but these require
+fairly extensive optical access in order to make the
+necessary multi-angular measurements.
+Furthermore, the
+use of tomography essentially eliminates any possibility of
+measuring temporally resolved information.
+Nonetheless,
+absorption methodologies can yield useful information
+regarding the distribution of natural gas, without using a
+tracer.
+2.1.4.
+Non-intrusive tracer-based methods.
+Since the
+photophysical properties of natural gas limit application of
+optical methods, the vast majority of recent work in the area
+of measuring the mixing of fuel and air has relied upon
+seeding with a tracer or on replacing the fuel by a tracer
+in an effort to (i) increase the signal strength and (ii) reduce
+the noise associated with elastic scattering processes. As
+a result of the second issue, methods that result in a signal
+wavelength that is shifted from the original laser wavelength
+are preferred. Examples include laser-induced ﬂuorescence
+and spontaneous laser Raman scattering.
+Many excellent
+review papers and books are available on these methods
+and the reader is referred to these offerings for details and
+discussions of their applications (Eckbreth 1988, Chigier
+1991, Daily 1997).
+For fuel–air mixing, several successful methods have
+been employed both for point and for planar measurements.
+Point measurements can utilize the same basic set-up as
+that for laser Rayleigh scattering, with the exception of the
+use of ﬁlters to isolate the red-shifted ﬂuorescence from the
+elastic scattering. As a result, point measurements can be
+accomplished with a relatively straightforward set-up and
+with minimal optical access. The use of point-wise detectors
+also allows one to obtain high signal strength with relatively
+low-powered continuous lasers and allows the measurement
+of time series information which can be used to elicit the time
+varying mixing behaviour of the system.
+To obtain planar information in highly turbulent
+ﬂows, high-powered pulsed lasers are typically utilized in
+conjunction with highly sensitive area detectors to capture
+strong signal levels. As a result, the cost and complexity of
+the diagnostic becomes an issue. Though planar methods do
+provide a large amount of information, the qualitative nature
+875
+
+
+--- Page 7 ---
+
+V G McDonell and G S Samuelsen
+of such measurements often prohibits the acquisition of what
+might be termed ‘comprehensive’ information. Regardless
+of this issue, a remarkable number of tracer methods for the
+characterization of mixing has evolved. Some examples are
+provided in the following.
+Some examples in the literature make use of scattering
+of light from ﬁne particles to study mixing (Shaughnessy
+and Morton 1977, Long et al 1981, Clemens and Mungal
+1991, Gullett et al 1993, Eaton et al 1996). In these cases,
+either small particles are seeded into the ﬂow or particles are
+formed through a process occurring in the ﬂow (e.g. titanium
+dioxide can be formed by reaction of titanium tetrachloride
+and water vapour).
+In the case of solid particles, it is
+often a challenge to introduce particles in a very steady and
+homogeneous manner. In addition, bias can be introduced
+due to temporal variation in the seeding density. Despite
+theseissues, successfulresultshavebeenobtainedusingbasic
+scattering.
+Gaseous species are easier to disperse into the ﬂow
+than are solid particles. Nitrogen dioxide has been utilized
+for point measurements of mixing in a model gas turbine
+combustor. The methodology, which has been discussed in
+detail (Gulati and Warren 1994), is applied to quantify not
+only spatial variations in mixing but also temporal variations,
+which are then correlated to the combustion performance
+(Fric 1993).
+Although NO2 has excellent photophysical
+properties for the study of mixing, its highly toxic nature
+may preclude its use in general applications.
+Iodine has also been utilized for the measurement of
+mixing. Hiller and Hanson (1990) have reviewed the details
+of its use and historical applications in detail. Iodine has been
+utilized for the study of jet mixing applications (Hartﬁeld
+et al 1989) and has also been utilized to measure a variety of
+other ﬂowﬁeld properties (Donohue and McDaniel 1996).
+Its use for gas turbine mixing applications has not been
+widespread.
+Part of the problem may be associated with
+the seeding strategies (sublimation) and with the corrosive
+nature of iodine. In addition, more convenient approaches
+have become popular.
+Biacetyl has also been utilized for mixing studies (Yip
+et al 1988, van Cruyningen et al 1990). Not unlike iodine,
+however, widespread use of biacetyl ﬂuorescence has not yet
+occurred, according to a review of the literature.
+Perhaps the most widely used tracer for mixing studies
+is acetone. A detailed discussion of the principles and issues
+associated with use of acetone is provided by Lozano et al
+(1992). Acetone is excited over a wide range of wavelengths
+which allows relatively common lasers to be utilized (e.g.
+frequency quadrupled Nd : YAG lasers operating at 266 nm
+or excimer lasers operating at 308 nm). Relative to mixing
+studies for gas turbines, research has also been conducted to
+examine the photophysics of acetone at various temperatures
+and pressures (Grossmann et al 1996, Yuen et al 1997,
+Thurber et al 1998).
+These studies provide information
+that allows acetone PLIF to be utilized under conditions of
+elevated temperature and pressure. Recent work has utilized
+acetone PLIF to make measurements in practical devices in
+order to advance their design and/or operation (Stufﬂebeam
+et al 1999, Frazier et al 1998).
+An example is shown in ﬁgure 5 for the same model
+combustor hardware as that with which the measurements
+(a)
+(b)
+Figure 5. Instantaneous acetone PLIF images for the model
+combustor illustrated in ﬁgure 3(a): (a) without background
+treatment and (b) after background treatment.
+illustrated in ﬁgure 3 were obtained. In this case a frequency
+quadrupled Nd : YAG laser (266 nm) was utilized to stimulate
+the acetone which was introduced through the fuel circuits.
+In ﬁgure 5(a), the distinct ring of bright light is due to
+the ﬂuorescence of the quartz tube conﬁning the ﬂowﬁeld.
+The lobe-like structure in the middle is produced by the
+ﬂuorescence of acetone.
+By subtracting the background,
+the ﬂuorescence associated with the ‘fuel’ is observed.
+Although this example is intended to be qualitative, the
+general structures are similar to those seen in ﬁgure 3(b).
+With the advent of tracer-based methods, additional
+factors need to be considered.
+In complex systems with
+windows and other optical issues, strong mixing and
+associated dilution, signal strength is at a premium. In order
+to maximize signal levels, the tracer may, in fact, become a
+replacement. When another constituent is utilized to trace the
+fuel distribution, the scaling of the mixing becomes an issue.
+In many cases, advanced lean premixed concepts for gaseous
+fuel utilize discrete jet injection for the fuel. In jet mixing
+problems, the momentum ratio of the fuel stream and the
+stream into which the fuel is injected is a critical parameter
+(Patrick 1965). As an example, if the geometry illustrated
+in ﬁgure 3(a) utilized acetone instead of natural gas in order
+to study mixing behaviour, the jet penetration would vary.
+Figure 6 compares the results of using acetone matched with
+either the mass ﬂowrate of natural gas or the velocity of the
+fuel jet. Alternatively, one could match the momentum ﬂux
+ratio to obtain the same penetration, but this would result
+in a mismatch of Reynolds number, which is also important
+in the near-ﬁeld mixing characteristics. As shown by the
+differences between the penetration curves in ﬁgure 6, the
+use of tracers requires considerable care.
+For pure mixing applications, techniques such as Raman
+scattering can also be utilized; however, the signal strength
+is signiﬁcantly lower than that of ﬂuorescence or even
+Rayleigh scattering and, as a result, Raman scattering has
+not seen widespread use in mixing studies. Indeed, Raman
+scattering tends to be limited to applications in which
+practical geometries and situations do not complicate signal
+interpretation (Eckbreth 1988).
+2.2. Liquid fuels
+When liquid fuels are utilized, additional complexities are
+added to the overall process.
+Whereas gaseous fuels
+876
+
+
+--- Page 8 ---
+
+Fuel mixing and transport in gas turbines
+Figure 6. A comparison of calculated jet penetrations for natural gas and pure acetone for a radial injection system. The equivalence ratio
+for natural gas and air is 0.42 using the geometry in ﬁgure 2(a).
+require time to mix and react, liquid fuels require the
+additional steps of atomization and vaporization. In addition,
+the heterogeneous system creates additional challenges
+and opportunities for performing measurements within the
+system. Liquid fuels are introduced into the combustor by a
+variety of mechanisms. Direct injection via an atomizer is
+the most common strategy. However, advanced concepts are
+relying upon partial or complete prevaporization of the fuel
+prior to its entry into the combustion chamber.
+For assessing the mixing of the fuel and air, the
+measurement of the spatial (and/or temporal) distribution
+of mass is required.
+In the case of sprays, however, the
+presence of two phases for the fuel brings to attention the
+question of what should be measured. Ideally a method for
+measuring the fractions of vapour and liquid phases can be
+employed, although this will not be necessary in some cases.
+In a prevaporized system, for example, it is possible to utilize
+methods similar to those utilized for gaseous fuels, assuming
+that no droplets are present. However, in the case in which
+droplets are being examined, other methods for quantifying
+and also examining the evolving behaviour of the droplets
+are available. The approaches for examining fuel behaviour
+in the case of the two-phase ﬂowﬁeld are summarized in this
+section.
+2.2.1.
+Patternation.
+Manufacturers of fuel injectors
+commonly conduct ‘patternation’ of sprays to ensure quality
+control, symmetry and the spray angle.
+Traditionally,
+these measurements have been conducted in the absence
+of reaction and also in the absence of the complex
+aerodynamics produced by the air ﬂow required for
+combustion. Nonetheless, these measurements are typically
+required by the end user in order to ensure that the spray
+injector is performing as expected. These requirements are
+well founded in that intuition and experimental evidence
+have indicated that the spray pattern clearly inﬂuences the
+combustion performance (McDonell et al 1996).
+Mechanical devices have traditionally been utilized to
+measure the distribution of the spray in the ﬂow.
+These
+devices may consist of a series of collection areas that are
+suddenly exposed to the spray and used to collect liquid
+over a ﬁxed time. The volume (or mass) collected in each
+area can then be evaluated to assess the symmetry, spray
+angle and overall shape of the spray. These collection tubes
+have evolved into fairly sophisticated devices (McVey et al
+1987). Mechanical devices have also been utilized to study
+spray patterns at elevated pressure (Cohen and Rosfjord
+1991). Excellent examples that demonstrate the utility of
+advanced mechanical patternators for assessing the inﬂuence
+of hardware on spray behaviour are available in the literature
+(Cohen and Rosfjord 1993).
+In addition to the use of mechanical devices, optical
+methods have also been applied in the area of spray
+patternation. In particular, laser-induced ﬂuorescence has
+been applied to provide semi-quantitative mass distributions
+of the sprays.
+The methodology for application to liquid
+sprays is based on the same strategy as that for gas ﬂows.
+Work in this area was pioneered by Melton (1983), who,
+in addition to applying this strategy to the liquid spray,
+added the ability to distinguish between the gaseous and
+liquid phases of the spray (Melton and Verdieck 1984).
+This was accomplished by using ‘exciplex ﬂuorescence’,
+in which the photophysical properties associated with
+speciﬁc combinations of molecules produce laser-induced
+ﬂuorescence from the vapour phase that undergoes a lesser
+red shift than does that from the liquid. This method has been
+applied most commonly to automotive sprays and examples
+are found typically under the auspices of the SAE. A listing
+of work conducted until the early 1990s is available (Melton
+1993), but few examples are to be found in the archived
+literature, and no example which utilized exciplex methods
+forgasturbinescouldbeidentiﬁed. Onereasonforthelimited
+application of exciplex strategies in gas turbine applications
+is the role oxygen molecules play in the relative signal (i.e. the
+877
+
+
+--- Page 9 ---
+
+V G McDonell and G S Samuelsen
+Figure 7. The relationship between the total integrated intensity and the droplet volume for optically thin monodisperse droplets (adapted
+from McDonell et al (1995)): (a) single droplet ﬂuorescence intensity contours and (b) droplet volume versus the integrated intensity.
+signal is quenched in the presence of oxygen). As a result, it is
+difﬁcult to apply exciplex ﬂuorescence techniques to general
+gas turbine systems. Recent work has taken advantage of
+the quenching to assess local fuel–air ratios in an oxygenated
+environment (Fr¨oba et al 1998) and perhaps this will lead to
+additional studies in gas turbine applications. The chemical
+combination required to simulate the ‘fuel’ (including toxic
+substances such as benzene), however, may lead to similar
+practical limitations to, for example, those on the use of NO2.
+The early work by Melton led to additional work which
+examined the ﬂuorescence of the liquid fuel only. As with
+the mechanical patternator, the basic liquid ﬂuorescence
+technique provides information about the spatial distribution
+of the fuel. In early studies, the challenge of identifying
+complex chemical compounds and concerns regarding safety
+associated with use of exciplexes were overcome by the use of
+dyes and solvents which were compatible with a typical ‘open
+air’ test stand that might be utilized for the characterization
+of a fuel spray.
+Some early examples include studies by
+McDonell et al (1996) and Chung et al (1997). In both of
+these cases, a ﬂuorescein dye was doped into methanol and
+the spray was excited with an Ar+ continuous wave laser. The
+doping process for such methods, however, must be carefully
+controlled. If the absorption of the laser light is so great
+that it cannot excite the molecules throughout the droplet,
+the subsequent ﬂuorescence will not be proportional to the
+volume and the resulting image will not provide information
+about the mass distribution. Figure 7(a) illustrates the desired
+behaviour relative to the ﬂuorescence intensity. In this case,
+the laser sheet is introduced from the bottom of the page. The
+droplet ﬂuorescence is shown in the contours. The far side
+of the drop has a local maximum, which corresponds to the
+focusing of the laser light by the droplet curvature. Despite
+the non-uniformity of the ﬂuorescence emission from the
+droplet, the relationship between the total integrated intensity
+(i.e. the sum of the intensities from the image shown in
+ﬁgure 7(a)) and volume is linear for this case of optically
+thin droplets (ﬁgure 7(b)).
+In a system in which the dye can be introduced into
+the solvent, this problem can be overcome easily. However,
+it would be very beneﬁcial from a practical perspective if
+the addition of dyes or other chemical compounds could be
+avoided.
+For many practical distillate fuels, there are compounds
+within the fuels which ﬂuoresce when they are excited by
+short wavelengths of light.
+This behaviour is typical of
+many aromatic compounds, whose absorption occurs in the
+ultraviolet range.
+As a result, solid state lasers with UV
+wavelengths (e.g. frequency tripled or quadrupled Nd : YAG
+lasers) can be utilized. However, as with the use of dyes,
+care must be taken to assess the relative absorption in order
+to ensure that the system is optically thin so that the image
+will be a direct measure of the fuel mass distribution. Good
+examples that illustrate a non-mass-related image are found
+in Bazile and Stepowski (1995) and Le Gal et al (1999), in
+which images of droplets that are optically thick are shown
+in a manner similar to ﬁgure 7(a). In these cases, the laser
+light may penetrate only into the ﬁrst few micrometres of the
+droplet surface before being completely absorbed!
+Examples of planar liquid laser-induced ﬂuorescence
+(PLLIF) applied to map out the fuel distribution for gas
+turbine applications are now available in the literature
+(McDonell et al 1996, Locke et al 1998, Ateshkadi et al
+1998).
+In the case of McDonell et al (1996), a direct
+correlation between the statistical interpretation of the
+spray distribution and the combustion performance is made.
+This result reafﬁrms the utility of inferring fuel–air mixing
+behaviour from the measurement of the spray distribution. In
+the case of Ateshkadi et al (1998), the results obtained using
+PLLIF to determine the fuel distribution were correlated
+to several aspects of combustion performance, including
+stability and emissions.
+Hence, the ability to assess the
+uniformity of the fuel distribution via the spray droplets
+does provide an indicator of how fuel-air mixing relates to
+combustion performance.
+878
+
+
+--- Page 10 ---
+
+Fuel mixing and transport in gas turbines
+Figure 8. A comparison of the volume ﬂux (cm3 cm−2 s−1) from PDI and the intensity concentration (grey level) from PLLIF for two
+combustor injectors/swirler conﬁgurations at axial distance Z = 50 mm from the injector exit plane (adapted from McDonell et al (1996):
+(a) conﬁguration 1: PDI; (b) conﬁguration 1, PLLIF; (c) conﬁguration 2, PDI; and (d) conﬁguration 2, PLLIF.
+In each of these cases, no consideration was given to
+the issue of laser attenuation, which can lead to perceived
+asymmetry. Since the excitation light source is scattered by
+droplets as it enters the spray, droplets on the far side of the
+spray relative to the laser sheet will receive less incident light
+and therefore generate less ﬂuorescence. Several methods
+that have been developed to help address this problem are
+beginning to appear (Talley et al 1995). Examples of using
+PLLIF to detect fuel in reacting sprays are also to be found
+in the literature, although many assumptions which make
+it nearly impossible to obtain quantitative results in these
+situations are made (Locke et al 1998, Allen et al 1995).
+2.2.2.
+Phase Doppler interferometry.
+Phase Doppler
+interferometry (PDI) provides extensive information about
+the behaviour of sprays from point-speciﬁc, simultaneous
+measurements of droplet size and velocity (Bachalo and
+Houser 1984). The PDI measurements provide information
+on the liquid volume (from the droplet size) and the time
+between arrivals of droplets.
+In addition, with some
+estimation of the laser beam sampling volume, an estimation
+of the liquid mass ﬂux can be made (Qiu and Sommerfeld
+1992). This method has been applied extensively world wide
+and is commonly utilized for detailed spray measurements.
+Discussions regarding the measurement issues associated
+with this method are available elsewhere (Bachalo and
+Houser 1984, McDonell and Samuelsen 1995a).
+PDI is not ideally suited for the study of spatial fuel–air
+mixing in that, since it is a point measurement, the mapping of
+information over a plane can be tedious. However, the added
+information on droplet size and velocity may well make
+the extra effort worthwhile, depending upon the application.
+Indeed, the study of transport of the fuel requires knowledge
+of the droplet sizes and velocities.
+For an assessment of
+fuel–air mixing, PDI can be utilized in a manner similar to
+PLLIF. Figure 8 shows an example of results obtained for
+two combustor fuel injection systems. In this case, the PDI
+and PLLIF results reveal similar overall features of the spray
+mass distribution. This comparison also helps to reafﬁrm the
+utility of the PLLIF results.
+879
+
+
+--- Page 11 ---
+
+V G McDonell and G S Samuelsen
+2.2.3. Droplet sizing.
+Although the droplet size is not a
+direct indicator of fuel–air mixing, it is a critical parameter
+associated with any liquid fuel system. The droplet size will
+play a key role in the vaporization process and may lead to
+fundamental constraints on the geometry of hardware being
+developed for the express purpose of mixing. In addition, in
+the case of droplet transport, the droplet size must be known
+in order to determine how the droplet will be convected by
+the continuous phase. Hence, some discussion on droplet
+size is provided here, even though it is not a direct measure
+of mixing.
+As mentioned above (section 2.22), PDI is a well-
+established method for the measurement of droplet size and
+velocity. Although it was described in the previous section in
+the context of fuel volume ﬂux measurements, PDI is used to
+directly measure the droplet size.
+In addition to point measurements of droplet size, planar
+methods are now starting to be developed and applied.
+The basis for the use of planar methods is a combination
+of scattering (proportional to the droplet surface area) and
+ﬂuorescence (proportional to the droplet volume if certain
+criteria are satisﬁed).
+The ratio of the ﬂuorescence to
+scattering, therefore, should be proportional to the Sauter
+meandiameter(orD32)†. Theperformanceofthediagnostics
+that provide D32 distributions across a plane has been
+demonstrated only very recently (Sankar et al 1999, Locke
+et al 1998, Le Gal et al 1999).
+An example is shown
+in ﬁgure 9 for an air-assisted plain-jet atomizer measured
+10 mm below the injector exit plane.
+In this case, the
+ratio of ﬂuorescence to scattering is presented together
+with discrete circles, which reﬂect the D32 (concentration
+weighted) measured via PDI. The results are shown for three
+drops in atomizing air pressure (of 2, 4 and 6%).
+It is
+well established that, as the atomizing drop in air pressure
+(and hence the mass ﬂow) increases, the droplet sizes will
+decrease. This is reﬂected both in the PDI and in planar
+methods for size measurement.
+The strategy for using planar methods for measuring
+droplet size appears well founded and their application has
+been demonstrated for basic sprays as well as for a complex
+ﬂow application (Locke et al 1998).
+The results for the
+basic sprays appear quite consistent and promising.
+The
+resultsforthecomplexreactingspraysappearmuchlessclear.
+Indeed, the difﬁculties raised with respect to temperature
+dependencies and multi-component fuels must be further
+evaluated before planar droplet sizing methods can be applied
+in general to complex sprays.
+2.2.4.
+Phase discrimination.
+As mentioned above, the
+measurement of fuel–air mixing in fuel sprays is complicated
+by the potential need to discriminate the vapour phase from
+the droplet phase. The assessment of vapour is important
+because the mixture of vapour and air is the mixture that
+actually combusts. As a result, the ability to determine the
+local fuel–air ratio on the basis of the measurements of the
+vaporized fuel and air is greatly desired.
+Intrusive methods have been developed speciﬁcally to
+address the discrimination of phases.
+The most recent
+† Given by D32 =
+ niD3
+i
+ niD2
+i .
+application discussed in the literature appears to be that of
+Dodge and Moses (1984).
+In this case, an aerodynamic
+separation strategy is utilized to sample vapour within a spray
+using an extractive probe in a manner similar to that described
+in section 2.1.1. Although the results appeared satisfactory in
+that study and the few examples that preceded it, widespread
+use of these probes has not appeared in the more recent
+literature.
+Another strategy for measuring the vapour concentration
+in the presence of droplets is the use of light extinction.
+By using absorption lines at 3.39 µm for hydrocarbons
+in conjunction with a non-absorbing wavelength (e.g.
+0.6328 µm) the vapour concentration along a line of sight
+can be deduced. Since the droplets scatter both wavelengths,
+but only the 3.39 µm wavelength is absorbed by vapour,
+the relative transmission of the two wavelengths yields the
+amount of extinction due to the presence of the vapour.
+This approach was developed by Chraplyvy (1981) and
+further analysed and extended by Adachi et al (1991) and
+Drallmeier and Peters (1991). In each case, deconvolution of
+the measurements was applied to retrieve spatially resolved
+information. Suzuki et al (1994) did some additional work
+using this differential absorption strategy, whereby additional
+tomographic techniques were employed to recover spatially
+resolved information for non-axisymmetrical sprays.
+Planar methods for measuring vapour in the presence
+of droplets have already been described in section 2.2.1
+in the discussion of exciplex ﬂuorescence.
+Non-exciplex
+strategies have also been utilized.
+In particular, Bazile
+and Stepowski (1995) utilized a combination of scattering
+and ﬂuorescence in conjunction with fairly elaborate image
+processing to characterize the vapour and liquid phases in
+an acetone spray.
+In this case, the signals from isolated
+droplets could be evaluated. This would seem to limit the
+strategy to dilute sprays. Bazile and Stepowski (1994) also
+utilized a combination of Raman scattering and laser induced
+ﬂuorescence to evaluate the relative concentrations of vapour
+and liquid.
+The key strategy involved the assumption
+that the Raman signal would be proportional to the total
+liquid volume whereas the ﬂuorescence, with the dye–solvent
+system utilized, would be proportional to the original volume.
+This technique assumed that the dye would not vaporize with
+the fuel, but rather would remain dissolved in the liquid in
+its original quantity, thereby maintaining the total number of
+dye molecules independently of vaporization.
+In addition to phase discrimination associated with the
+fuel, it is also possible to discriminate between the fuel
+(regardless of phase) and the continuous phase. This has
+been done for reacting ﬂows (Allen et al 1995) for which, in
+addition to the imaging of the fuel concentration, the imaging
+of other species (e.g. OH) can be used to deduce the relative
+location of the fuel and the reaction zone.
+Another possibility, which is of interest regarding the
+injection of liquid fuel, is the relative behaviours of the liquid
+fuel and the atomizing air.
+This is of interest in that the
+ﬁdelity of the droplet behaviour with the aerodynamics can
+be evaluated.
+Figure 10 shows an example for the same
+plain-jet air-blast atomizer as that considered in the results
+shown in ﬁgure 9. In ﬁgure 10, a careful combination of
+ﬁlters allows the isolation of the atomizing air seeded with
+880
+
+
+--- Page 12 ---
+
+Fuel mixing and transport in gas turbines
+Figure 9. A comparison of the ratio of ﬂuorescence and scattering images with PDI-measured D32 values for various atomizing drops in air
+pressure (adapted from Leong et al (2000)).
+Figure 10. A comparison of the liquid mass distribution (top row) and the atomizing air concentration (lower row) for plain-jet-air-assisted
+atomizer (diameters of circles in the top row correspond to PDI proﬁles of liquid volume concentrations) (adapted from Leong et al (2000).
+Figure 11. A comparison of the gas phase velocity, turbulent kinetic energy, velocity and population of two droplet size classes for a
+production gas turbine engine dome assembly: (a) gas phase, (b) particles of 11–20 µm diameter and (c) particles of 76–90 µm diameter.
+881
+
+
+--- Page 13 ---
+
+V G McDonell and G S Samuelsen
+acetone and the hydrocarbon liquid fuel excited at the same
+wavelength. In ﬁgure 10, the mass distribution of liquid is
+shown 10 mm downstream of the injector in the top row
+of images for three atomizing drops in air pressure (of 2, 4
+and 6%). The air is introduced from two opposite, discrete
+injection ports (corresponding to left-hand and right-hand
+sides of the images), which causes the two-lobed structure
+revealed by the PLLIF. Overlaid upon the images are discrete
+circles.
+The diameter of the circles corresponds to the
+volume concentration measured by PDI. The correspondence
+between PDI and PLLIF is again quite consistent (recall
+ﬁgure 8). In the lower row of images in ﬁgure 10 are the
+corresponding PLIF images associated with the atomizing
+air. In this case, the acetone ﬂuorescence is being utilized to
+deduce where the bulk of the atomizing air is going and to
+establish the comparative dispersion of the droplets and the
+air.
+It is noteworthy that the methods for discriminating
+phases have not been utilized to obtain measurements in
+highly complex practical devices. Indeed, many assumptions
+about interference, noise and signal proportionality are
+required in order to make the results even semi-quantitative.
+As a result, it is likely that these methods will not be
+utilized in a widespread manner outside research oriented
+facilities. Although this is not necessarily a shortcoming, the
+application of these methods and strategies on a regular basis
+in a production type of environment without experienced
+personnel will be very challenging and requires considerably
+more development effort.
+3. Flowﬁeld transport
+The assessment of the transport of the fuel–air mixture
+requires knowledge of the aerodynamics of the combustion
+chamber. In the case of gaseous fuels, the transport following
+injection will be tied to the physical properties such as
+the turbulent Schmidt number.
+In these cases, detailed
+knowledge of the continuous phase ﬂowﬁeld allows the
+interpretation of the direction and velocity at which the fuel
+is being transported. In the case of liquid fuels, the transport
+is more complex. This is associated with the relative strength
+of the droplet momentum and body forces (e.g. droplet drag)
+which depend upon the size of the droplet and the velocity
+of the droplet relative to the continuous phase. These issues
+are discussed in detail elsewhere (Sirignano 1993, McDonell
+and Samuelsen 1995b, Faeth et al 1995).
+Regardless of whether the fuel is present in the form
+of droplets or gas, an understanding of the transport issues
+requires the delineation of the ﬂowﬁeld characteristics. As
+a result, a discussion of approaches used to accomplish this
+is provided here. In general, the need to delineate the ﬂow
+vector and scalar ﬁelds is evident.
+3.1. Vector ﬁelds
+The measurement of the velocity ﬁeld in complex combustion
+systems has evolved from point measurements (i.e. laser
+anemometry) to planar measurements (i.e. particle image
+velocimetry and Doppler global velocimetry).
+Multiple
+components of the velocity can be measured using either
+method.
+3.1.1.
+Laser anemometry.
+Laser anemometry is a
+very well-established technique in which two laser beams
+of the same frequency are crossed in space to form an
+interferometric sample volume (Yeh and Cummins 1964).
+Fine particles are ‘seeded’ into the ﬂowﬁeld and, when
+they scatter light from the region in which the beams
+cross, the light is collected using sensitive detectors and
+the signal generated is subsequently analysed for frequency
+characteristics which are then related to the velocity. The
+technique is ubiquitous in its application to complex ﬂows, so
+the reader is directed elsewhere for its history and evolution
+(Durst et al 1976, Thomson and Stevenson 1979, Chigier
+1991).
+The use of laser anemometry in complex ﬂows was
+extended to sprays in 1984 with the advent of PDI, which
+was discussed previously in section 2.2.2. An illustration of
+thetypeofresultsthatcanbeobtainedisshowninﬁgure11, in
+which the detailed ﬂowﬁeld and spray behaviour downstream
+of a production gas turbine combustor dome are shown. In
+this example, the combustor is liquid ﬁred.
+As a result,
+PDI has been applied in parallel with LA to delineate the
+droplet behaviour. Figure11(a) shows the gas phase mean
+axial velocity vectors in the r–Z plane with contours of the
+gas phase turbulent kinetic energy. Figure11(b) and (c) show
+the mean velocity vectors in the r–Z plane and contours of
+the population of droplets for an 11–20 µm-diameter range
+and a 76–90 µm-diameter range, respectively. Several key
+points are illustrated by the results.
+First, the gas phase
+featuresastrongon-axisrecirculationzone, whichisbounded
+by regions of strong turbulence.
+The ﬂow generated by
+the mixer actually impinges on the combustor wall, which
+results in an acceleration of the ﬂow in the downstream
+direction at the wall. The combustor dome also generates
+a corner recirculation zone.
+These features give a clear
+impression of the actual ﬂowﬁeld that this production device
+provides. In the case of gaseous fuel, it would be possible
+to apply a technique like acetone PLIF to mark the path of
+the fuel and to observe the degree of its mixing (Frazier
+et al 1998). In the liquid ﬁred example shown in ﬁgure 11,
+PDI is utilized to delineate the droplet behaviour.
+Two
+size classes are shown for comparison. The ﬁne droplets
+tend to follow the gas phase associated with the relatively
+small mass of these droplets.
+Also, the PDI illustrates
+where these drops are found (i.e. the largest population of
+droplets is found at a location corresponding to the region of
+most intense mixing in the gas phase). The larger droplets
+penetrate the gas phase ﬂowﬁeld and behave ballistically
+in impinging on the wall. Figure 11 illustrates the type of
+detailed results made possible by LA and its extension, PDI,
+and conﬁrms the power of these methods for illustrating the
+ﬂowﬁelds and transport of material within the combustion
+chamber.
+3.1.2.
+Particle image velocimetry.
+Particle image
+velocimetry (PIV) evolved from a desire to rapidly obtain the
+type of information shown in ﬁgure 11. In addition, the point
+measurements provided by LA, despite providing substantial
+information from a statistical point of view (i.e. distribution
+means, the standard deviation, skewness, etc), cannot resolve
+the large structures present in the ﬂow. The development
+882
+
+
+--- Page 14 ---
+
+Fuel mixing and transport in gas turbines
+Figure 12. Examples of DPIV results from a swirl-stabilized combustor compared with CFD modelling simulations at two axial locations:
+(a) x/D = 0.75 and (b) x/D = 2.83.
+of PIV began in the late 1970s, with the work of Grousson
+and Mallick (1977), Simpkins and Dudderar (1978), Barker
+and Fourney (1977) and others, and has been extensively
+researched since (Meynart 1983, Grant and Smith 1988,
+Keane and Adrian 1990, Willert and Gharib 1991, Mungal
+et al 1995, Adrian 1996).
+PIV is a diagnostic technique
+that measures instantaneous ﬂow-ﬁeld velocities over a two-
+dimensional plane.
+This is accomplished by recording,
+during successive periods, the positions of small particulate
+markers suspended in the ﬂuid during successive periods.
+These small particles are illuminated for a short period (to
+freeze the motion of the ﬂow) by using a high-energy light
+source such as a pulsed laser. A set of images (generally
+two) is recorded using a succession of light pulses.
+The
+light scattered from the particles is recorded and analysed.
+Whereas early PIV methods relied upon ﬁlm, the advent
+of high resolution digital cameras in the early 1980s has
+allowed a digital version of PIV (digital particle image
+velocimetry (DPIV)) to be developed. This has the potential
+for widespread use in a variety of commercialized systems.
+Only recently have the cost/performance issues related to
+immense data storage requirements, camera resolution and
+laser light sources been resolved in order to facilitate its
+application to complex ﬂows found in combustors.
+Recent developments in PIV include stereo methods,
+which allow three velocity components to be measured
+instead of only two (Soloff et al 1997). Although this requires
+the use of multiple cameras, the past ﬁve years have seen
+developments in digital cameras that allow cost-effective
+strategies to be developed.
+To illustrate the potential of DPIV, ﬁgure 12 presents
+comparisons of DPIV measurements with CFD calculations
+(FLUENT UNS) in a swirl-stabilized combustor at two axial
+locations (Shaffar 1997).
+The measurements in this case
+were made in a circular quartz tube and therefore required
+considerable treatment of the DPIV images in order to
+account for distortion near the walls. The results illustrate
+the ability of the method to measure proﬁles provided by LA
+that are obtained within a matter of minutes rather than hours.
+3.1.3.
+Other ﬁeld velocity measurements.
+Other
+planar methods for the measurement of velocity have been
+developed during the 1990s.
+These methods generally
+involve a set-up not unlike that for DPIV or stereo DPIV.
+883
+
+
+--- Page 15 ---
+
+V G McDonell and G S Samuelsen
+The difference between these newer methods and PIV is the
+use of the spectral shift of the imaged light, which can then
+be utilized to deduce the velocity. Most of the applications
+in which these other methods have been utilized involve very
+high-speed ﬂows (e.g. >100 m s−1). In some cases, particles
+are seeded into the ﬂow and the relative frequency shift of
+the scattered light is determined by using a molecular ﬁlter
+that transmits as a function of the frequency of the light
+in a carefully calibrated fashion (Devlin et al 1971).
+An
+example of a method in which seeding is utilized is Doppler
+global velocimetry (DGV) (Meyers and Komine 1991, Elliott
+et al 1994, Roehle 1997). Roehle (1997) shows examples in
+which DGV has been applied using an argon-ion laser and
+an iodine ﬁlter to characterize the three-dimensional velocity
+ﬁeld generated by a gas turbine fuel injector not unlike that
+shown in ﬁgure 11. For ﬂowﬁeld velocities that are not as
+extreme as those found in many other applications, the results
+from DGV look quite promising.
+Efforts have also been directed at strategies in which
+seeding is not required. In this case, a laser is again utilized,
+but it is used to excite molecules that are already present in
+the ﬂowﬁeld rather than relying upon scattering from foreign
+particles. Examples include RELIEF (Miles et al 1989, Pitz
+et al 1996) and ﬁltered Rayleigh scattering (FRS) (Forkey
+et al 1996). An overview of the history and evolution of
+these methods is provided in Forkey et al 1998).
+For the application to gas turbine combustion, in
+which total velocities typically are below 100 m s−1, laser
+anemometry is well established. DPIV for reacting ﬂows in
+general has not been demonstrated extensively, and requires
+fairly high powered lasers to get reasonable signal-to-noise
+ratios, even in complex non-reacting ﬂows. DGV may be
+possible for reacting systems, but has not been investigated
+extensively.
+The recirculating ﬂows found in gas turbine
+combustors lead to regions of near zero velocity components
+and thus may pose questions regarding accuracy for DGV.
+3.2. Scalar ﬁelds
+In addition to vector ﬁelds, additional insight into mixing
+behaviour may also be gained by the measurement of scalar
+ﬁelds including species and temperature. The measurement
+of species may be achieved using the same approaches as
+those employed in measuring fuel mixing behaviour, namely
+laser-induced ﬂuorescence both in point and in planar forms.
+These methods have been discussed brieﬂy here and in detail
+elsewhere within this issue (Laurendeau 2000).
+The measurement of temperature may be of interest
+relative to mixing and heat release. This can also be done
+using ﬂuorescence methods.
+Other strategies including
+coherent anti-Stokes Raman spectroscopy (CARS) can also
+be applied (Eckbreth 1988).
+4. Summary
+An overview of measurement practices for the delineation of
+fuel–air mixing and transport in gas turbine combustion has
+been provided. The summary is divided into applications for
+gaseous fuels and liquid fuels since most of the diagnostics
+developed are speciﬁc to the phase of the fuel.
+Many
+possible methods for assessing the general mixing have been
+developed, but not all have been applied to practical systems
+either under scaled or under actual conditions. For gaseous
+mixing processes, acetone PLIF appears to be ﬁnding general
+acceptance and application in actual systems. Spray-ﬁred
+systems have seen the proliferating application of PDI in
+practical devices and under practical conditions, while planar
+laser-induced ﬂuorescence approaches are beginning to be
+implemented in more applications. In terms of delineating
+the vector ﬁelds associated with the process of mixing, laser
+anemometry, although it is tedious to apply, has proven
+reliable. Newer methods such as DPIV and FRS have seen
+only limited application in practical systems. In terms of
+scalar ﬁelds, LIF has successfully been applied to practical
+systems.
+References
+Adachi M, McDonell V G and Samuelsen G S 1991 Non-intrusive
+measurement of gaseous species in reacting and non-reacting
+sprays Combust. Sci. Technol. 75 179–94
+Adrian R J 1996 Bibliography of particle image velocimetry using
+imaging methods: 1917–1995 Theoretical and Applied
+Mechanics Report 817, UILU-ENG-96-6004 University of
+Illinois at Urbana-Champaign
+Allen M G, McManus K R, Sonnenfroh D M and Paul P H 1995
+Planar-laser-induced-ﬂuorescence imaging measurements of
+OH and hydrocarbon fuel fragments in high-pressure
+spray-ﬂame combustion Appl. Opt. 34 6287–300
+Ateshkadi A, McDonell V G and Samuelsen G S 1998 Effect of
+hardware geometry on gas and drop behaviour in a radial
+mixer spray 27th Symp. (Int.) on Combustion (Pittsburgh:
+The Combustion Institute) pp 1985–92
+Bachalo W D and Houser M J 1984 Phase Doppler spray analyzer
+for simultaneous measurements of drop size and velocity
+distributions Opt. Engng 23 583–90
+Barker D B and Fourney M E 1977 Measuring ﬂuid velocities with
+speckle patterns Opt. Lett. 1 135–7
+Bazile R and Stepowski D 1994 Measurements of the vaporization
+dynamics in the development zone of a burning spray by
+planar laser induced ﬂuorescence and Raman scattering Exp.
+Fluids 16 171–80
+Bazile R and Stepowski D 1995 Measurements of vapourized and
+liquid fuel concentration ﬁelds in a burning spray jet of
+acetone using planar laser induced ﬂuorescence Exp. Fluids.
+20 1–9
+Bilger R W 1977 Probe measurements in turbulent combustion
+Experimental Diagnostics in Gas Phase Combustion Systems
+ed B T Zinn (New York: AIAA)
+Bowman C T 1977 Probe measurements in ﬂames Experimental
+Diagnostics in Gas Phase Combustion Systems ed B T Zinn
+(New York: AIAA)
+Chen F P and Goulard R 1976 Retrieval of arbitrary concentration
+and temperature ﬁelds by multiangular scanning techniques
+J. Quant. Spectrosc. Radiat. Transfer 16 819
+Chigier N A 1991 Combustion Measurements (New York:
+Hemisphere)
+Chung I P, Dunn-Rankin D and Ganji A 1997 Characterization of
+a spray from an ultrasonically modulated nozzle Atomization
+Sprays 7 295–315
+Chraplyvy A R 1981 Non-intrusive measurements of vapour
+concentration inside sprays Appl. Opt. 20 2620–4
+Clemens N T and Mungal M G 1991 A planar Mie scattering
+technique for visualizing supersonic mixing ﬂows Exp.
+Fluids. 11 175–85
+Cohen J M and Rosfjord T J 1991 Spray patternation at high
+pressure J. Propulsion Power 7 481–7
+——1993 Inﬂuences on the sprays formed by high-shear fuel
+nozzle swirler assemblies J. Propulsion Power 9 16–27
+884
+
+
+--- Page 16 ---
+
+Fuel mixing and transport in gas turbines
+Daily J D 1997 Laser induced ﬂuorescence spectroscopy in ﬂames
+Prog. Energy Combust. Sci. 23 133–99
+Devlin G E, Davis J L, Chase L and Geschwind S 1971
+Absorption of unshifted scattered light by a molecular I2
+ﬁlter in Brillouin and Raman scattering Appl. Phys. Lett. 19
+138
+Dodge L G and Moses C A 1984 Diagnostics for fuel sprays as
+applied to emulsiﬁed fuels 20th Symp. (Int.) on Combustion
+(Pittsburgh: The Combustion Institute) pp 1239–47
+Donohue J M, McDaniel J C 1996 Computer-controlled
+multiparameter ﬂowﬁeld measurements using planar
+laser-induced iodine ﬂuorescence AIAA J. 34 1604–11
+Drallmeier J A and Peters J E 1991 Experimental investigation of
+fuel spray vapor phase characterization Atomization Sprays 1
+63–88
+Durst F, Melling A and Whitelaw J H 1976 Principles and
+Practices of Laser Anemometry (New York: Academic).
+Eaton A R, Frey S F, Cusano D M, Plesniak M W and Sojka P E
+1996 Development of full-ﬁeld planar Mie scattering
+technique for evaluating swirling mixers Exp. Fluids. 21
+325–30
+Eckbreth A C 1988 Laser Diagnostics for Combustion
+Temperature and Species (Cambridge, MA: Abacus)
+Elliott G S, Samimy M and Arnette S A 1994 A molecular ﬁlter
+based velocimetry technique for high speed ﬂows Exp.
+Fluids. 18 107
+Escoda M C and Long M B 1983 Rayleigh scattering
+measurements of the gas concentration ﬁeld in turbulent jets
+AIAA J. 21 81–4
+Faeth G M, Hsiang L P and Wu P K 1995 Structure and breakup
+properties of sprays Int. J. Multiphase Flow 21 (suppl)
+99–127
+Forkey J N, Lempert W R and Miles R B 1996 Demonstration and
+characterization of ﬁltered Rayleigh scattering for planar
+velocity measurements AIAA J. 34 442
+——1998 Accuracy limits for planar measurements of ﬂow ﬁeld
+velocity, temperature, and pressure using ﬁltered Rayleigh
+scattering Exp. Fluids. 24 151–62
+Frazier T R, Foglesong R E, Coverdill R E, Peters J E and
+Lucht R P 1998 An experimental investigation of fuel/air
+mixing in an optically accessible axial premixer 34th
+AIAA/ASME/SAE/ASEE Joint Propulsion Conf. & Exhibit.,
+Cleveland, OH, July
+Fric T F 1993 Effects of fuel–air unmixedness on NOx emissions
+J. Propulsion Power 9 708–13
+Fr¨oba A P, Rabenstein R, M¨unch K-U and Leipertz A 1998
+Mixture of triethylamine (TEA) and benzene as a new
+seeding material for the quantitative two-dimensional
+laser-induced ﬂuorescence imaging of vapour and liquid fuel
+inside SI engines Combust. Flame 112 199–209
+Graham S C, Grant A J and Jones J M 1974 Transient molecular
+concentration measurements in turbulent ﬂows AIAA J. 12
+1140–2
+Grant I and Smith G H 1988 Modern developments in particle
+image velocimetry Opt. Lasers Engng 9 245–64
+Grossmann F, Monkhouse P B, Ridder M, Sick V and Wolfrum J
+1996 Temperature and pressure dependences of the
+laser-induced ﬂuorescence of gas-phase acetone and
+3-pentanone Appl. Phys. B 62 249–53
+Grousson R and Mallick S 1977 Study of ﬂow patterns in a ﬂuid
+by scattered light Appl. Opt. 16 2334–6
+Gulati A and Warren R E 1994 NO2-based laser-induced
+ﬂuorescence technique to measure cold-ﬂow mixing J.
+Propulsion Power 10 54–61
+Gullett B K Groff P W and Stefanski L A 1993 Mixing quant-
+iﬁcation by visual imaging analysis Exp. Fluids. 15 443–51
+Hartﬁeld R J, Abbitt J D and McDaniel J C 1989 Injectant mole
+fraction imaging in compressible mixing ﬂows using planar
+laser-induced iodine ﬂuorescence Opt. Lett. 14 850–2
+Hiller B and Hanson R K 1990 Properties of the iodine molecule
+relevant to laser induced ﬂuorescence experiments in gas
+ﬂows Exp. Fluids. 10 1–11
+Keane R D and Adrian R J 1990 Optimization of particle image
+velocimeters. Part I: double pulsed systems Meas. Sci.
+Technol. 1 1202–15
+Khan Z A and Whitelaw J H 1980 Vector and scalar characteristics
+of opposing jets discharging normally into a cross-stream Int.
+J. Heat Mass Transfer. 23 1673–80
+Laurendeau N M 2000 Review of laser induced ﬂuorescence
+methods Meas. Sci. Technol.
+Le Gal P, Farrugia N and Greenhalgh D A 1999 Laser sheet
+dropsizing of dense sprays Opt. Laser Technol. 31 75–83
+Lee J G and Santavicca D A 1997 Fiber-optic probe for
+laser-induced ﬂuorescence measurements of the fuel–air
+distribution in gas-turbine combustors J. Propulsion Power
+13 384–7
+Leong M Y, McDonell V G and Samuelsen G S 2000 Visualization
+of an airblast-atomized spray jet using laser induced
+ﬂuorescence and scattering methods Atomization Sprays
+submitted
+Locke R J, Hicks Y R, Anderson R C and Zaller M M 1998
+Optical fuel injector patternation measurements in advanced
+liquid-fueled, high pressure, gas turbine combustors
+Combust. Sci. Technol. 138 297–311
+Long M B, Chu B T and Chang R K 1981 Instantaneous
+two-dimensional gas concentration measurements by light
+scattering AIAA J. 19 1151–7
+Lozano A, Yip B and Hanson R K 1992 Acetone—a tracer for
+concentration measurements in gaseous ﬂows by planar
+laser-induced ﬂuorescence Exp. Fluids 13 369–76
+McDonell V G and Samuelsen G S 1995a Intra- and
+inter-laboratory experiments to evaluate the performance of
+phase Doppler interferometry Recent Advances in Spray
+Combustion ed K K Kuo (New York: AIAA) pp 57–106
+——1995b Assessing the physics of spray behaviour in complex
+combustion systems Recent Advances in Spray Combustion
+ed K K Kuo (New York: AIAA) pp 159–85
+McDonell V G, Arellano L, Lee S W and Samuelsen G S 1996
+Effect of hardware alignment on fuel distribution and
+combustion performance for a production engine fuel
+injection assembly 26th Symp. (Int.) on Combustion
+(Pittsburgh: The Combustion Institute) p 2725–32
+McDonell V G, Lee S W and Samuelsen G S 1995 Interpretation
+of spray behaviour in complex aerodynamic ﬂows using
+phase Doppler interferometry and planar liquid laser induced
+ﬂuorescence Proc. SPIE 2546 530–8
+McVey J B, Russell S and Kennedy J B 1987 High resolution
+patternator for the characterization of fuel sprays J.
+Propulsion Power 3 202–9
+Melton L A 1983 Spectrally separated ﬂuorescence emissions for
+diesel fuel droplets and vapor Appl. Opt. 22 2224
+——1993 Planar liquid and gas visualization Ber. Bunsenges.
+Phys. Chem. 97 1560–7
+Melton L A and Verdieck J 1984 Vapour/liquid visualization in
+fuel sprays 20th Symp. (Int.) on Combustion (Pittsburgh: The
+Combustion Institute) p 1283
+Meyers J F and Komine H 1991 Doppler global velocimetry: a
+new way to look at velocity Laser Anemometry, Advances
+and Applications ed A Dybbs and B Ghorashi (Cleveland,
+OH: American Society of Mechanical Engineering)
+Meynart R 1983 Instantaneous velocity ﬁeld measurements in
+unsteady ﬂow by speckle velocimetry Appl. Opt. 22 535–40.
+Miles R B, Connors J, Markovitz E, Howard P and Roth G 1989
+Instantaneous supersonic velocity proﬁles in an
+underexpanded sonic air jet by oxygen ﬂow tagging Phys.
+Fluids A 1 389
+Mongia R, Tomita E, Hsu F, Talbot L and Dibble R 1996 Optical
+probe for in-situ measurements of air-to-fuel ratio in low
+emissions engines AIAA Paper 96-0174
+Muller-Dethlefs K and Weinberg F A 1978 Burning velocity
+measurement based on laser Rayleigh scattering 17th Symp.
+(Int.) on Combustion (Pittsburgh: The Combustion Institute)
+p 985–92
+Mungal M G, Lourenco L M and Krothapalli A 1995 Instantaneous
+885
+
+
+--- Page 17 ---
+
+V G McDonell and G S Samuelsen
+velocity measurements in laminar and turbulent premixed
+ﬂames using on-line PIV Combust. Sci. Technol. 106 239–65
+Nguyen Q V, Edgar B L, Dibble R W and Gulati A 1995
+Experimental and numerical comparison of extractive and
+in-situ laser measurements of non-equilibrium carbon
+monoxide in lean-premixed natural gas combustion Combust.
+Flame 100 395–406
+Patrick M A 1965 Shefﬁeld Univ. Fuel Soc. J. 16 46–61
+Pitts W M and Kashiwagi T 1984 The application of laser induced
+Rayleigh light scattering to the study of turbulent mixing
+J. Fluid Mech. 141 3910–429
+Pitz R W, Brown T M, Nandula S P, Skaggs P A, DeBarber P A,
+Brown M S and Segall J 1996 Unseeded velocity
+measurement by ozone tagging velocimetry Opt. Lett. 21
+755–7
+Qiu H-H and Sommerfeld M 1992 A reliable method for
+determining the measurement volume size and particle mass
+ﬂuxes using phase Doppler anemometry Exp. Fluids. 13
+393–404
+Roehle I 1997 Three-dimensional Doppler global velocimetry in
+the ﬂow of a fuel spray nozzle and the wake region of a car
+Flow Meas. Instrum. 7 287–94
+Rastogi A K and Whitelaw J H 1973 The effectiveness of
+three-dimensional ﬁlm cooling slots—I. Measurements Int. J.
+Heat Mass Transfer. 16 1665–81
+Samuelsen G S and Benson R C 1979 Chemical transformations of
+nitrogen oxides while sampling combustion products
+Nitrogenous Air Pollutants ed D Grosjean (Ann Arbor, MI:
+Ann Arbor Science) pp 65–82
+Sankar S V, Maher K E, Robart D M and Bachalo W D 1999
+Rapid characterization of fuel atomizers using an optical
+patternator J. Engng Gas Turbines Power 121 409–14
+Santoro R J, Semerjian H G, Emmerman P J and Goulard R 1981
+Optical tomography of ﬂow ﬁeld diagnostics Int. J. Heat
+Mass Transfer 24 1139
+Shaffar S W 1997 The integration of computational ﬂuid dynamics
+and experimental methods PhD Dissertation University of
+California, Irvine
+Shaughnessy E J and Morton J B 1977 Laser light scattering
+measurement in a turbulent jet J. Fluid Mech. 30 129–48
+Simpkins P G and Dudderar T D 1978 Laser speckle measurements
+of transient B´enard ﬂow J. Fluid Mech. 89 665–71
+Siringano W A 1993 Fluid dynamics of sprays—1992 Freeman
+Scholar Lecture J. Fluids Engng 115 345–78
+Soloff S M, Adrian R J and Liu Z C 1997 Distortion compensation
+for generalized stereoscopic particle image velocimetry
+Meas. Sci. Technol. 8 1441–54
+Stufﬂebeam J H, Kendrick D W, Sowa W A and Snyder T 1999
+Quantifying fuel air unmixedness in premixing nozzles using
+an acetone ﬂuorescence technique 1999 ASME IGTI Conf.
+Indianapolis, IN, June
+Suzuki M, Nishida K and Hiroyasu H 1994 Imaging of drop and
+vapour clouds in an evaporating fuel spray by ultraviolet and
+visible lasers Particle Particle Syst. Characterization 11
+241–9
+Talley D G, Thamban A T S, McDonell V G and Samuelsen G S
+1995 Laser sheet visualization of spray structure Recent
+Advances in Spray Combustion ed K K Kuo (New York:
+AIAA) pp 113–41
+Thayer W J and Corlett R C 1971 Gas dynamic and transport
+phenomena in the two-dimensional jet interaction ﬂowﬁeld
+AIAA J. 10 488
+Thompson H D and Stevenson W H 1979 Laser Velocimetry and
+Particle Sizing (New York: Hemisphere)
+Thurber M C, Grisch F, Kirby B J, Votsmeier M and Hanson R K
+1998 Measurements and modelling of acetone laser-induced
+ﬂuorescence with implications for temperature-imaging
+diagnostics Appl. Opt. 37 4963–4678
+Thurber M C and Hanson R K 1999 Pressure and composition
+dependences of acetone laser-induced ﬂuorescence with
+excitation at 248, 266, and 308 nm Appl. Phys. B 3 229–40
+Willert C E and Gharib M 1991 Digital particle image
+velocimetry Exp. Fluids 10 181–93
+van Cruyningen I, Lozano A and Hanson R K 1990 Quantitative
+imaging of concentration by planar laser induced
+ﬂuorescence Exp. Fluids. 10 1–10
+Yeh Y and Cummins H Z 1964 Localized ﬂuid ﬂow measurements
+with an He–Ne laser spectrometer Appl. Phys. Lett. 4 176
+Yip B, Schmitt R L and Long M B 1988 Instantaneous
+three-dimensional concentration measurements in turbulent
+jets and ﬂames Opt. Lett. 13 96–8
+Yuen L S, Peters J E and Lucht R P 1997 Pressure dependence of
+laser-induced ﬂuorescence from acetone Appl. Opt. 36
+3271–7
+Zabielski M F, Dodge L G, Colket M B and Seery D J 1981 The
+optical and probe measurement of NO: a comparative study
+18th Symp. (Int.) on Combustion (Pittsburgh: The
+Combustion Institute) pp 1591–8
+886

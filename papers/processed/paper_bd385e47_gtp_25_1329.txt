@@ -1,0 +1,1068 @@
+
+--- Page 1 ---
+
+S. Galeotti1
+DIEF—Department of Industrial  
+Engineering of Florence,  
+University of Florence,  
+Via S. Marta 3,  
+Firenze 50139, Italy  
+e-mail: sofia.galeotti@unifi.it
+A. Picchi
+DIEF—Department of Industrial  
+Engineering of Florence,  
+University of Florence,  
+Via S. Marta 3,  
+Firenze 50139, Italy  
+e-mail: alessio.picchi@unifi.it
+R. Becchi
+DIEF—Department of Industrial  
+Engineering of Florence,  
+University of Florence,  
+Via S. Marta 3,  
+Firenze 50139, Italy  
+e-mail: riccardo.becchi@unifi.it
+R. Meloni
+Baker Hughes,  
+Via Felice Matteucci 2,  
+Firenze 50127, Italy  
+e-mail: roberto.meloni@bakerhughes.com
+G. Babazzi
+Baker Hughes,  
+Via Felice Matteucci 2,  
+Firenze 50127, Italy  
+e-mail: giulia.babazzi@bakerhughes.com
+A. Andreini
+DIEF—Department of Industrial  
+Engineering of Florence,  
+University of Florence,  
+Via S. Marta 3,  
+Firenze 50139, Italy  
+e-mail: antonio.andreini@unifi.it
+Impact of Fuel Injection System 
+on the Performance of an 
+Industrial Burner With Hydrogen 
+Piloting Operated With Simulated 
+Exhaust Gas Recirculation
+Exhaust gas recirculation (EGR) can be exploited to increase the CO2 content at the exhaust 
+of gas turbines (GTs), in order to improve the efficiency of carbon capture systems. The lower 
+oxygen level leads to challenging conditions for the combustion process, resulting in high 
+CO and unburned hydrocarbon emissions and the possible onset of thermoacoustic 
+instabilities. To mitigate these effects and expand the combustor’s operational range, pilot 
+flames can be employed to stabilize the combustion process, with localized hydrogen 
+injections further enhancing reactivity. In this demanding and complex environment created 
+by EGR, fuel injection strategy is crucial in the flame stabilization mechanism, and many 
+design parameters come into play. The present work illustrates the results of an extensive 
+screening performed in a single-cup atmospheric test rig at the THT Lab of the University of 
+Florence, with EGR conditions simulated with CO2 addition in the combustion air. In 
+particular, six different configurations of a dry low NOx industrial burner have been tested, 
+varying the arrangement and geometry of the pilot jets, and the premix fuel injection mode. 
+Burners’ performance has been compared in terms of CO emissions, lean blow-out (LBO) 
+limits, and dynamic behavior, and OH* chemiluminescence imaging has also been employed 
+to investigate the flame structure. The results point out that, for the investigated 
+configuration, the occurrence of thermoacoustic instabilities is, together with CO emissions, 
+the main limiting factor, but benefits have been observed with hydrogen addition, and 
+promising configurations will be further tested in engine-like conditions.  
+[DOI: 10.1115/1.4069776] 
+Introduction
+Exhaust gas recirculation (EGR) is widely used in internal 
+combustion engines as a strategy to reduce NOx emissions [1]. The 
+adoption in gas turbine (GT) systems on the other hand has been 
+limited because of the high costs and complexity involved, which 
+are not easily justified when compared to the performance of 
+existing emission control systems, such as dry low NOx technol­
+ogies. EGR becomes relevant in gas turbines frameworks when 
+considered as a mean to enhance CO2 concentrations in exhaust 
+gases, for integration with carbon capture and storage (CCS) 
+systems. Indeed, higher CO2 concentrations increase the efficiency 
+of carbon capture process [2], but typically low levels are 
+encountered in GT exhaust because of lean conditions and 
+secondary air dilution. The implementation of EGR allows to 
+mitigate this limitation [3,4], improving the performance of the 
+coupled GT–CCS system.
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received July 9, 2025; final manuscript received August 26, 2025; 
+published online November 17, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-1 
+Copyright V
+C 2026 by ASME and Baker Hughes
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+Early investigations into EGR’s impact at engine conditions 
+revealed positive effects for NOx reduction [5–7], while lower 
+oxygen levels in the recirculated oxidizer create challenging 
+conditions for the combustion process, leading to increased 
+emissions of CO and unburned hydrocarbons, which restrict the 
+extent to which EGR can be applied [5,8–10]. Investigations with 
+optical diagnostics revealed that CO2 significantly affects flame 
+structure and temperature [11] and CO2 dilution reduces the smallest 
+scales of flame wrinkling in turbulent methane–air flames, leading to 
+lower turbulent burning velocities [12]. More recently, Rodriguez 
+Camacho et al. [13] used CH* chemiluminescence to show that 
+diluents with different compositions have impacts on dynamic flame 
+response, particularly at extremely low oxygen levels.
+To address the challenges posed by these adverse effects, various 
+solutions can be implemented to enhance the combustor operation 
+under such demanding conditions. In the present study, an 
+innovative approach introduced is the addition of a small amount 
+of hydrogen with the pilot line. Studies by Oztarlik et al. [14] and 
+Barbosa et al. [15] demonstrated that small hydrogen injections can 
+stabilize thermoacoustically unstable flames and reduce oscilla­
+tions, albeit with increased NOx and, in some cases, CO emissions. 
+Research by Shanbhogue et al. [16] further revealed how hydrogen 
+blending alters flame dynamics by increasing the extinction strain 
+rate, which impacts both flame holding and stability margins. Cheng 
+et al. [17] confirmed that low-swirl injectors can handle significant 
+hydrogen fractions without major system modifications, making 
+hydrogen a viable solution for stabilizing flames in EGR conditions. 
+Hydrogen applications within EGR systems can be found for 
+internal combustion engines applications [18], while this approach 
+remains largely unexplored for gas turbines. The most recent work 
+of Rodriguez Camacho et al. [19] represents one of the first studies in 
+this context focusing on the effect on the flame dynamic behavior.
+This work is part of a wider research context, inside the European 
+Project TRANSITION (fuTure hydRogen Assisted gas turbiNeS for 
+effective carbon capTure IntegratiON) with the final goal of 
+enhancing burner performance under challenging conditions 
+involved by high EGR rates in gas turbines systems. In particular, 
+an experimental campaign was conducted on an industrial burner in 
+an atmospheric single-sector reactive test rig. This phase of the 
+research can be considered the first stage of a design improvement to 
+be placed inside a more general work frame, with test at atmospheric 
+pressure allowing an extensive preliminary screening for exploring 
+different solutions to improve flame stability. For replicating the 
+lower oxygen level caused by EGR at lab scale, combustion air has 
+been diluted with CO2, resulting in overall more challenging 
+conditions for flame stability than real EGR because of the high CO2 
+in the oxidizer [20]. This approach was chosen as it is convenient for 
+storage purposes, while maintaining the main goal of comparing 
+different solutions for enhancing burner performance under 
+consistent conditions. The first stage of the investigation [21] 
+presented a detailed characterization of the baseline burner 
+configuration fueled only with natural gas (NG). In addition to 
+studying behavior under conventional conditions, the effects of 
+EGR were investigated, showing that as oxygen levels decrease, the 
+flame becomes more widespread and shifts downstream. Higher CO 
+emissions and thermoacoustic instabilities are recorded, limiting the 
+performance under EGR conditions. The use of pilot hydrogen 
+flames was explored in Ref. [20] to improve flame stability in order 
+to limit the detrimental consequences of EGR. Hydrogen addition, 
+whether blended with natural gas or injected as a pure stream, proved 
+to be effective in mitigating these issues, reducing CO emissions, 
+and improving the burner’s dynamic behavior, both with and 
+without EGR.
+The present work represents a further step to enhance the 
+performance of GT burners under the conditions generated by high 
+EGR rates. In particular, various fuel injection solutions were tested 
+for both the premix and pilot lines, as fuel distribution in the primary 
+zone of the combustor plays a key role in stabilizing the flame. After 
+a summary of the experimental setup employed for the investigation 
+and the tested conditions, the performance of the new burner 
+configurations will be analyzed in terms of stability limits, 
+emissions, and dynamic behavior, both with standard air as oxidizer 
+and in EGR conditions. The effect of different fuel injection 
+strategies on these parameters will be analyzed with the support of 
+OH* chemiluminescence imaging, which allows to see variations in 
+the reaction zone structure, offering a detailed analysis of the effect 
+of the different geometric feature. Finally, a summary of the 
+performance of all the tested configurations will be presented.
+Experimental Apparatus
+Test Rig and Measurements. The experimental campaign took 
+place at the THT Lab of the University of Florence, employing an 
+optical reactive test rig with single-sector tubular chamber. A 
+detailed description of the facility and the adopted test rig is 
+available in Ref. [22]. Figure 1 reports a schematic of the facility, 
+together with a picture of the reactive test rig. Briefly, dried 
+compressed air is fed to the test rig by two screw compressors, with 
+an electric heater preheating the airflow. CO2 is injected in the 
+combustion air upstream of the electric heater to lower the inlet 
+oxygen content and reproduce EGR conditions. Downstream of the 
+test section, a water jacket exhaust duct is installed, equipped with 
+four water sprayers to quench the flue gases before the stack.
+The test rig is fed by two natural gas lines, taken from the local gas 
+network and compressed to 16 bars, while hydrogen is produced on 
+demand with an electrolyzer, which can deliver up to 14,000 Nlt/h of 
+hydrogen at 8 bar.
+A cross section of the test rig is presented in Fig. 2(a), showing the 
+tubular chamber enclosed in an outer vessel. The burner is installed 
+on the upstream vessel, connected to the fuel lines with a dedicated 
+flange. The outer downstream vessel is equipped with two 
+perpendicular quartz windows to allow optical access on the flame. 
+The combustion chamber consists of a 2.5 mm thick cylindrical 
+quartz liner, held by rods and connected with a downstream metal 
+duct which directs flue gases to the test rig’s exhaust system. Liner’s 
+outer walls are cooled by forced convection, using a portion of 
+incoming air that flows through the annular space between the liner 
+and the confining vessel, bypassing the combustion process. The 
+dome plate, different from the actual GT configuration, is equipped 
+with effusion cooling holes, introducing cooling air into the 
+combustion chamber to the burner main-flow. Ignition is achieved 
+via a spark plug positioned along the flame tube downstream of the 
+optical liner.
+Regarding the measurement techniques, OH* chemilumines­
+cence imaging was employed to visualize the flame structure, 
+implemented with a Phantom MIRO M340 camera coupled with the 
+Hamamatsu C16031-311-Ax image intensifier. A bandpass filter 
+(k ¼ 310 6 5 nm) was mounted on a Nikon UV 105 mm f/4.5 lens to 
+capture the OH* transition, and images were acquired at 1000 Hz 
+with 0.5 ms intensifier gate. Camera field of view (FoV) for OH* 
+chemiluminescence imaging is highlighted in Fig. 2(a), together 
+with the coordinate system centered on the burner outlet.
+CO and NOx levels are measured with a HORIBA PG350 gas 
+analyzer, after the exhaust is extracted from the flame tube about 
+350 mm from the burner exit, brought with heated pipeline kept at 
+150 C and dried before the analysis by a HORIBA PSS-5H 
+refrigerator. Because of the wide variation in operating conditions in 
+terms of fuel and oxidant composition, emission measurements are 
+expressed as raw ppm measured by the gas analyzer on dry flue gas, 
+with the same approach adopted in Ref. [8].
+A high frequency pressure sensor (PCB) is used to detect the onset 
+of thermoacoustic instabilities measuring pressure oscillations 
+inside the combustion chamber (faq ¼ 12.8 kHz). It is installed 
+downstream of the optical liner, at the same axial location as the 
+emission probe. Pressure oscillations are characterized by their root 
+mean square value, denoted as P0
+RMS.
+Investigated Burner Configurations. The burner concept 
+investigated in this work is a well-established design employed by 
+Baker Hughes for industrial gas turbine applications. Based on an 
+041018-2 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+aeroderivative design, it offers versatility to operate stably under 
+varying conditions [23], by minimizing the risks of flashback and 
+auto-ignition while maintaining a compact combustor size. 
+Turbulence is generated by two counter-rotating axial swirlers, 
+with the burner architecture reported in the schematic of Fig. 2(b). 
+Flowfield measurements performed in past test campaigns enlight­
+ened how this layout generates a jet-flame, without inner 
+recirculation zone [20]. Indeed, the low swirl number of the 
+counter-rotating swirler configuration is not sufficient to cause 
+vortex breakdown to occur inside the combustion chamber, and only 
+the external recirculation zone is present.
+The burner features three independent fuel lines, in order to 
+control pollutant emissions and at the same time ensure a stable 
+combustion process also at partial load [24]. Premix line (PMX) 
+injects the fuel at the tip of one of the two swirlers in a jet cross 
+flow configuration. Strong mixing is ensured thanks to the intense 
+turbulence created by the shear layer generated between the two 
+swirlers in the converging nozzle, which accelerates the flow 
+before entering the combustion chamber. Pilot line (PLT) injects 
+the fuel directly into the combustor chamber through circum­
+ferentially equally spaced holes, giving rise to a diffusive flame 
+front, helping the flame stabilization, and allowing safe and stable 
+operation with different engine loads [25]. Center-body line (CB) 
+injects the fuel along the burner axis in coflow with the incoming 
+combustion air. Injection point is located upstream of the burner 
+outlet, therefore ensuring a certain degree of premixing, although 
+less than that achieved with the premix line. When it is not fed 
+with fuel, the center-body is cooled by a small amount of purge air 
+channeled through a hole along the burner axis. PMX and CB 
+lines have been fed only with natural gas, while PLT holes can 
+inject a fuel mixture going from pure natural gas to pure 
+hydrogen. Fuel blending is realized upstream of the burner inlet, 
+in correspondence with the flange connecting the burner to the 
+test rig.
+Different injection systems for both premix and pilot fuel have 
+been tested, with a total of seven configurations, summarized in 
+Table 1. The baseline configuration, which has been thoroughly 
+characterized in previous works, is indicated as B0. In particular, the 
+present study investigated the effect of different parameters:
+ The pilot jet exit velocity was changed by varying the holes exit 
+area (B1 and B4).
+ Different jet orientations were tested varying the holes 
+inclination / (see Fig. 2(b)) (B1, B4, and B6).
+ The number of pilot holes was varied from N to 2N to reduce jet 
+penetration (B2).
+ The premix fuel injection location was moved from the inner 
+swirler (all new layouts).
+Operating Conditions. Reactive tests have been performed at 
+ambient pressure, and the lower oxygen level in the oxidizer caused 
+by EGR has been reproduced by adding CO2 to the combustion air. 
+EGR condition is represented by the inlet oxygen mass fraction YO2, 
+which is a key similarity parameter between real EGR and simulated 
+conditions. Even though CO2 dilution is much more convenient than 
+using nitrogen mixtures for the oxidizer to simulate EGR, tests with 
+EGR-like conditions are still demanding in terms of gas con­
+sumption. Indeed, only a single EGR level has been tested, 
+sufficiently high to push the burners to operate close to the stability 
+limit, corresponding to YO2 ¼ 16:6%. This condition is referred to as 
+“EGR” in the results discussion.
+For each configuration, the total thermal power was computed to 
+match the same adiabatic flame temperature in standard conditions 
+with only natural gas, in order to have a fairly comparison. This was 
+done to compensate small variations in the burner effective areas due 
+to the 3D printing process, leading to slightly different oxidizer mass 
+flow rate with the same pressure drop. Except for lean blow-out 
+(LBO) tests, total thermal power (TPTOT) has been kept constant for 
+each configuration to such reference value (TPREF), in order to 
+Fig. 1 Combustion test cell plant (a) and picture of the reactive test rig (b) at the THT Lab of the University of Florence 
+Fig. 2 Cross section of the reactive test rig (a) and investigated burner schematic (b) 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+compare different conditions because of the dual fuel configuration. 
+For the same reason, fuel splits are defined with thermal power. 
+PMX% is the thermal fraction of the premix line (always fully 
+natural gas) over the total one. Split changes between the two fuel 
+lines have been carried out to identify the most promising 
+operational window for each configuration. TP(H2) is the fraction 
+of hydrogen thermal power over the total one, which includes both 
+the premix and pilot contributions regardless of the fuel. The 
+hydrogen fraction was maintained below 10% of the total thermal 
+power, a value identified as an effective tradeoff. This limit ensures a 
+balance between enhancing combustion stability and maximizing 
+CO2 content in the exhaust, aligning with the final goal of improving 
+the efficiency of CCS integration [20].
+The burner pressure drop has been kept at a reference value during 
+the whole measurement campaign. Slight variations were measured 
+for the test with simulated EGR, as the total mass flow rate of the 
+oxidant was kept constant, while the composition of the mixture and 
+thus the molecular weight varied. The inlet temperature of the 
+oxidizer Tinlet was held constant at 300 C. Summarizing, the 
+investigated operating conditions are reported in Table 2.
+Results and Discussion
+The results start with the steady flame structure of the different 
+burner configurations, since it helps to interpret and understand the 
+following findings. Then, the burners’ performance is presented, 
+first under standard conditions without EGR, and second with 
+simulated EGR, achieved by adding CO2 to the combustion air. In 
+particular, stability limits, pollutant emissions, and dynamic 
+behavior will be presented, in order to investigate the effect of 
+different fuel injection modes on the burner behavior. In the last part 
+of the results, a summary of the main performance parameters is 
+offered, with the purpose to highlight the major outcomes of this 
+comparison.
+Steady Flame Structure. The effect on the flame structure of 
+different fuel injection modes has been investigated with OH* 
+chemiluminescence. Time-averaged normalized OH* images are 
+presented in Fig. 3 for different operating conditions: the first 
+column reports the fully diffusive case with only natural gas, while 
+the second and third columns refer to 50%PMX and [TP(H2) ¼ 5%] 
+with standard air as oxidizer and in simulated EGR conditions, 
+respectively.
+In the fully diffusive case (0%PMX), the reaction zone is lifted, 
+with different extent for each configuration. In such conditions, 
+some layouts give rise to a nonsymmetrical reaction zone (B1–B2 
+and B4), probably due to small geometrical differences in the holes 
+exit, altering the jets velocity. At higher premix, the influence of the 
+single pilot jets is reduced, and the flame returns approximately 
+symmetrical. In all cases with higher premixing and doping the pilot 
+jets with a small amount of hydrogen, the reaction zone comes closer 
+to the burner exit and becomes more compact, both shorter and with 
+reduced radial extension. The effect of simulated EGR (third column 
+of Fig. 3) is consistent for all the tested configurations, with the 
+reaction zone that shifts downstream and becomes widespread, as 
+observed in previous works from the authors [20–22]. In this 
+condition, the diffuse flame structure is similar among all the burner 
+configurations, but some differences, especially at the flame base, 
+can be enlightened. The extension of the region with high OH* 
+values is similar, but the overall position varies. In particular, 
+configuration B1 shows the flame located very close to the burner 
+exit, while B5-PMX positions the flame further downstream 
+compared to the other layouts. Additionally, in some cases (B0 
+and B4), a more pronounced curvature at the flame base is visible, 
+anchoring near the pilot jets closer to the burner exit.
+Results Without Exhaust Gas Recirculation (Standard Air as 
+Oxidizer). A key factor in burner design is its ability to maintain 
+stable combustion, which becomes even more critical in the 
+perspective of operation with high EGR rates. With this purpose, 
+LBO tests have been performed in order to explore the stability 
+limits of the different burner configurations, for two fuel splits. In 
+each case, starting from stable conditions, the fuel mass flow rate 
+was gradually decreased while keeping constant the pressure drop 
+across the combustion chamber and therefore the air mass flow rate, 
+until the flame extinguished. The blow-out event was identified by 
+looking at the pressure oscillations detected with the high frequency 
+pressor sensor, which drop sharply when blow out is reached. The 
+procedure was repeated three times for each case, showing great 
+repeatability of the results.
+Results are reported in terms of fraction of the reference thermal 
+power at blow out in Fig. 4. Following the expected behavior with 
+lower premix fraction, LBO margin increases, as pilot jets are 
+primarily responsible in the flame stabilization process. As 
+expected, all the new configurations show improved LBO resistance 
+with respect to the baseline case, except for B4, which has straight 
+pilot jets with higher exit velocity (half total outlet area). Looking at 
+the chemiluminescence images of Fig. 3, with standard air B4 layout 
+presents the flame significantly lifted (cases (j) and (k)), especially 
+for the fully diffusive case, and stabilizes at higher distance from the 
+burner outlet with respect to the other configurations. Straight pilot 
+fuel jets intercept the main flow in a region where the premixed jet 
+has high velocity, and the higher fuel jet velocity further lifts off the 
+flame. This does not help in terms of combustion stability, as the 
+flame is subjected to higher strain. As a consequence, flame loss is 
+approached earlier, resulting in the worst LBO margin among the 
+investigated configurations. The leanest condition is instead reached 
+with B1 layout, with outward swirled holes and increased total pilot 
+exit area, therefore reduced jet velocity. This causes part of the pilot 
+fuel to remain entrapped in the outer recirculation zone and react 
+with the dome effusion cooling air, as it can be seen in Figs. 3(d) and 
+3(e). When the fuel mass flow rate is decreased to approach LBO, jet 
+velocity is further reduced, and the flame stabilizes attached to the 
+dome in the low velocity area of the outer recirculation zone, where 
+reaction is able to sustain also in globally very lean conditions. As a 
+drawback, for this configuration, high temperatures were recorded in 
+stable conditions (TPREF). Figure 5 shows the temperature measured 
+on the dome cold side, with a thermocouple installed near the liner 
+walls, as reported in the schematic. In general, all the configurations 
+show a decreasing trend with higher premix fraction, because the 
+flame closes toward the burner axis, therefore reducing the thermal 
+load at higher radius where the thermocouple is located. B4 
+configuration with higher jet velocity shows the lowest thermal load 
+Table 1 Investigated burner configurations 
+PLT
+PMX
+N
+D
+/
+(-)
+(mm)
+Direction
+( deg)
+Position
+CB
+B0
+N
+D
+Outward
+/REF
+Inner swirler
+—
+B1
+N
+1.2D
+Outward, swirled
+/REF
+Outer swirler
+—
+B2
+2N
+0.7D
+Outward
+/REF
+Outer swirler
+—
+B4
+N
+0.7D
+Straight
+0
+Outer swirler
+—
+B5-PMX
+N
+D
+Outward
+/REF
+Outer swirler
+—
+B5-CB
+N
+D
+Outward
+/REF
+—
+YES
+B6
+N
+D
+2  Outward
+2/REF
+Outer swirler
+—
+Table 2 Tested operating conditions 
+Tinlet
+300
+(C)
+DP=P
+4.2
+(%)
+TPTOT
+TPREF
+(kW)
+PMX%
+095
+(%)
+TP(H2) %
+0–5–10
+(%)
+YO2
+23.2–16.6
+(%mass)
+041018-4 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+Fig. 3 Normalized OH* chemiluminescence images 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+on the dome, as the flame is more lifted, with negative consequences 
+on combustion stability, confirmed by LBO measurements. The 
+highest temperatures are recorded for B1 configuration, particularly 
+when the premix fraction exceeds a certain threshold. In fact, by 
+reducing the pilot fraction and thus the pilot jet velocity, jet 
+penetration is diminished, similarly to what occurs when reducing 
+the fuel flow to approach LBO conditions, and pilot fuel reacts with 
+the dome cooling air. Further increasing the premix does not lead to 
+an increase in the measured temperature, probably because the small 
+differences in the holes exit cause a nonsymmetrical distribution of 
+the reaction zone, as it can be observed in Fig. 3(e), and only a single 
+thermocouple is present. Overall, no damages or alterations were 
+detected, neither on the burner outlet nor on the dome. At engine 
+conditions, such behavior would be emphasized, but managing this 
+effect would require a dedicated design of the cooling system, with 
+possible drawbacks on other design aspects.
+For all the new configurations, premix fuel is injected at the tip of 
+the outer swirler (except B5-CB), while for the baseline case 
+injection point is located in the inner swirler. B5 configuration has 
+outwardly oriented pilot jets, similar to the baseline layout. Injecting 
+the premix fuel in the outer swirler promotes the interaction with the 
+pilot flames, giving rise to a more compact reaction zone with 
+respect to the baseline case, as visible in Fig. 3(n). This has positive 
+effects on the LBO margin, as shown by the significant gain in this 
+aspect comparing the baseline case with B5-PMX. The same pilot 
+layout has been tested also injecting the fuel with the center-body 
+along the burner axis, in configuration B5-CB. In this configuration, 
+premixed fuel is injected along the axis, closer to when it is injected 
+on the internal swirler in terms of position, but lower mixture 
+uniformity is achieved due to shorter premixing length. Also, in this 
+case, the flame results more compact than the baseline case (see 
+Fig. 3(q)), and the lower premixing level promotes locally richer 
+condition which helps in stabilizing the flame. Indeed, the LBO 
+margin is improved with respect to the baseline configuration, 
+slightly lower than B5-PMX as the interaction between premix and 
+pilot fuel is decreased.
+Considering only the effect of the pilot holes orientation with 
+premix fuel injected in the outer swirler, LBO margin is slightly 
+improved for B6 with respect to B5-PMX. For B6 layout, with 
+double outward angle of the pilot jets, enhanced interaction between 
+pilot fuel and outer recirculation zone is present, as proved by the 
+smears of OH* intensity at the flame base in this area for 50%PMX 
+and [TP(H2) ¼ 5%] (Fig. 3(t)). Indeed, improved resistance to blow 
+out is recorded because of the greater recirculation of activated 
+radicals at the flame base, supporting flame stabilization.
+The effect of increasing the number of pilot jets was studied with 
+configuration B2, with nominally the same jets exit velocity of the 
+baseline. The double number of jets should reduce the jet penetration 
+and improve the mixing process. LBO resistance is better than the 
+baseline, but it is almost the same as the B5-PMX, which has same 
+premix system. Therefore, the specific effect of the pilot holes 
+number is limited, and the main difference in terms of blow-out 
+margin comes from the enhanced interaction between pilot and 
+premix fuel that is established with the injection of the premix fuel in 
+the outer swirler.
+Overall, new configurations with premix fuel injected in the outer 
+swirler generally show improved LBO margins due to enhanced 
+interaction between pilot flames and the premix zone, resulting in 
+more compact reaction zones. The B1 layout with reduced jet 
+velocity achieved the leanest conditions, but this configuration led to 
+other disadvantages in terms of flame position and dome heat load, 
+as highlighted above. B5-PMX and B6 offered significant stability 
+gains through better recirculation at the flame base with outwardly 
+oriented pilot jets, while increasing the holes number (B2) showed 
+limited additional benefit compared to improved premix–pilot 
+interaction.
+While the new configurations demonstrated improved lean blow- 
+out resistance compared to the baseline, this comes at the expense of 
+worsened dynamic behavior. Enhanced interactions between pilot 
+and premix fuel reactions, while beneficial for LBO margin, can 
+amplify pressure oscillations and exacerbate thermoacoustic 
+instabilities, potentially limiting overall performance. For the 
+baseline configuration, the outbreak of thermoacoustic instabilities 
+was observed at high premix splits, and Fig. 6 summarizes this 
+aspect for all the investigated burner layouts. Results are reported in 
+in terms premix fraction stably achievable. Tests are performed at 
+Fig. 4 LBO limits for different burner configurations with 
+100%NG and standard air as oxidizer
+Fig. 5 Temperature measured on the dome cold side for 
+100%NG and TPREF
+Fig. 6 Premix fraction stably achievable for different burner 
+configurations with standard air as oxidizer
+041018-6 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+constant total thermal power, with pure hydrogen injected with the 
+pilot line (TP(H2) ¼ TPPLT), and gradually increasing the premix 
+fraction until an amplitude threshold of pressure oscillations is 
+reached. For the baseline case with only natural gas, pressure 
+oscillations increase sharply when the premix fraction overcomes 
+80%PMX, and hydrogen injection allows to shift this limit to 90%, 
+therefore widening the burner operating window [20]. For the B5- 
+CB case, premix fraction has to be kept under 60%PMX because of 
+facility limitations in the fuel upstream pressure, and this aspect 
+could not be investigated. With respect to the baseline case, this 
+aspect is worsened for all the new configurations, with oscillation 
+rising for lower values of the premix fraction. Injecting hydrogen 
+with the pilot line widens the stable region, with slightly different 
+extent depending on the configuration. As the premix system is 
+different for the new burner layouts (B1–B6), these results indicate 
+that injecting the fuel in the outer swirler leads to better resistance to 
+lean blow out due to the increased interaction with the pilots and the 
+external recirculation zone, but at the same time the flame is more 
+sensitive to local equivalence ratio fluctuations at high premix 
+fractions. In general, it is worth noticing that the configurations with 
+worst LBO limits (B0 and B4) show instead the capability to stably 
+reach higher premix fractions, and the effect of hydrogen addition is 
+more beneficial for such configurations. A possible interpretation of 
+this behavior could be linked with the flame lift off. Indeed, 
+detaching the flame base from the burner outlet increases the strain 
+to which the flame is subjected therefore worsening flame stability, 
+but at the same time helps in dampening fluctuations of the local 
+flow, with the lift off height acting as a buffer, with positive effects 
+on the dynamic behavior.
+Concluding the burner characterization without EGR, Fig. 7
+shows CO and NOx emissions measured for the different layouts 
+varying the premix thermal power split, with only natural gas.
+As expected, NOx levels decrease linearly with growing premix 
+fraction for all the burner configurations. Diffusive pilot flames are 
+mainly responsible for NOx production due to local quasi- 
+stoichiometric conditions, which, on the other hand, are crucial in 
+the stabilization process. Comparing the results of B0, B5-PMX, and 
+B5-CB, which have similar pilot holes and different premixing 
+strategies, NOx levels are almost the same for all the tested fuel split. 
+This means that all these premixing strategies are effective, thanks to 
+the airflow high velocity and strong turbulence created by the swirlers, 
+and differences are limited. B4 layout shows the lowest NOx levels, 
+further reinforcing the concept that faster and less open pilot jets mix 
+better with the oxidizer. Indeed, by detaching the flame from the 
+nozzle outlet, lifted flames provide a high premixing level in the 
+reaction zone, with beneficial effect on NOx emissions, especially at 
+low premix fraction. Results of B1 layout, with reduced jet velocity, 
+also confirm this behavior, as NOx values are higher than the other 
+configurations, overall indicating poor mixing, confirmed also by 
+very high CO emissions at low premix (not included in the scale of 
+Fig. 7(a) in order to better compare the other configurations). The 
+dependency of CO emission on the premix fraction is reduced, but all 
+the burner configurations exhibit the same nonmonotonic trend. CO 
+levels are substantially lower for the B5-PMX case, because of the 
+higher interaction between outwardly oriented pilot jets and premix 
+fuel injected in the outer swirler. Focusing on the effect of pilot 
+orientation, B6 shows slightly higher values for both CO and NOx 
+levels with respect to B5-PMX, with decreasing difference as the 
+premix fraction increases. This again could be linked with the mixing 
+process, which is improved as the pilot jets interact more with the 
+oxidizer main flow. Therefore, with more open pilot jets (B6), a lower 
+level of premixing is achieved, but increasing the premix fraction this 
+effect is reduced. Overall, new configurations show lower CO levels, 
+with promising results for the application with EGR, as this aspect is 
+one of the main issues in such conditions.
+This performance screening has highlighted how injection of the 
+premix fuel in the outer swirler generally improves CO emissions 
+and lean blow-out resistance, but at the cost of increased dynamic 
+Fig. 7 Pollutant emissions measured with standard air as oxidizer and 100%NG 
+Fig. 8 Transient behavior with simulated EGR for B2 
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+instability, with some differences arising from the varying pilot jet 
+configurations.
+Simulated Exhaust Gas Recirculation Conditions. Moving to 
+EGR conditions, the different burner layouts have been compared in 
+terms of NOx and, more importantly, CO emissions. Indeed, with 
+EGR, NOx levels are already low as a consequence of the reduced 
+reactivity and the widespread reaction zone, while CO emissions 
+critically rise. Furthermore, for the baseline configuration, thermoa­
+coustic instabilities have been detected when the oxidizer 
+composition varies, with a nonmonotonic dependence on the inlet 
+oxygen content and a positive effect of hydrogen injection. This 
+aspect was investigated also for the new layouts, as showed in Fig. 8, 
+presenting as an example the behavior of B2 configuration. In 
+particular, the amplitude of pressure oscillations inside the 
+combustion chamber is reported (last plot) as the operating 
+conditions vary in terms of inlet oxygen level, premix fraction, 
+and hydrogen content. The red rectangles highlight the conditions 
+with simulated EGR, following the decrease in the oxygen inlet 
+content reported in the first plot.
+With simulated EGR, no thermoacoustic instabilities are 
+observed with PMX up to 50% (Fig. 8, point A). However, at 
+higher premix fraction (70% PMX and TP(H2) ¼ 5%, Fig. 8, 
+point B), reducing the inlet oxygen content initially lowers the 
+amplitude of pressure oscillations caused by high premixing. When 
+the oxygen content is further reduced, the amplitude first reaches a 
+peak before dropping significantly, indicating that intermediate 
+conditions are critical at this level of premixing. As the oxygen level 
+increases returning to standard conditions, the oscillations rise again 
+but eventually disappear as the premix fraction decreases. To 
+minimize the exposure of the quartz liner to intense oscillations, the 
+transient was kept rapid, and tests at higher premix levels were not 
+conducted. Similar behaviors have also been observed for other 
+configurations, but they are not reported here for the sake of brevity. 
+In general, higher premix fractions are always more unstable, and 
+the configurations that show more stable behavior without EGR 
+maintain lower oscillation amplitude also with lower oxygen levels.
+Regarding emission performance, Fig. 9 reports CO and NOx 
+values recorded at YO2 ¼ 16:6% with constant hydrogen fraction of 
+5%. It is difficult to identify a general trend with the premix level for 
+CO, while NOx remains decreasing with higher premix fraction. The 
+beneficial effect of EGR on NOx emissions overcomes the 
+differences between the different layouts, and all the tested 
+configurations show similar values, which are very low.
+High CO emissions are instead one of the main drawbacks of 
+EGR, and indeed represent the major performance parameter for 
+evaluating the burner capabilities. Contrary to what it was observed 
+for NOx, the influence of the fuel injection mode on CO emissions is 
+considerable, and some configurations have improved performance. 
+In particular, all the new configurations show lower CO levels than 
+the baseline, except B1 at low premix, which shows high CO values 
+also without EGR at low PMX. The most promising layouts are 
+B5-PMX, B2, and B6, which are able to stay under 500 ppm, which 
+also in standard conditions showed lower CO values (see Fig. 7(a)). 
+All these configurations have outwardly oriented pilot jets and 
+premix fuel injected in the outer swirler. Increasing the number of 
+holes or enhancing the outward orientation of the pilot jets does not 
+improve CO emissions; instead, both changes result in a slight 
+increase. Looking at the steady flame structure (Figs. 3(i), 3(o), and 
+3(u)) in this condition, differences are negligible and the reaction 
+zone is similar. Some differences are instead visible for B1 
+configuration, with the lower pilot jet velocity that makes the 
+reaction zone able to stay more attached to the burner also in EGR 
+conditions. The overall length is also reduced with respect to the 
+other configurations (see Fig. 3(f)). As observed in standard 
+conditions, for this configuration also with EGR, CO emissions 
+strongly vary with the premix fraction, with the highest and lowest 
+recorded values. The very high CO levels at low premix are probably 
+linked to the problematic behavior encountered with the fuel 
+reacting with the dome cooling air. However, looking at the results at 
+higher premix levels, a lower jet velocity could help reduce CO 
+emissions and should be investigated more in detail.
+The effect of the hydrogen amount has also been evaluated, even 
+though the leeway on this parameter is limited because it is desired to 
+keep the CO2 content in the exhaust high. Two different levels were 
+tested, equal to 5% and 10% of the total thermal power, keeping the 
+premix fraction constant at 50%PMX, with the results reported in 
+Fig. 10. Increasing the hydrogen fraction has a beneficial effect on 
+CO emissions, which decrease for all the tested configurations. The 
+gain is quite relevant in all cases, and since the effect of reduced 
+carbon content when increasing the hydrogen fraction is negligible, 
+this highlights how higher hydrogen amounts improve CO 
+emissions, while remaining low to limit the reduction of CO2 in 
+the exhaust. NOx values are also reported for completeness, which 
+do not show a significant effect of the hydrogen amount. For the 
+baseline configuration, a slight decrease is recorded as hydrogen 
+increases, while for the other configurations values are very similar. 
+It is important to emphasize that all recorded values are single digits, 
+thanks to the beneficial effect of EGR.
+Layout B4 was conceived with the purpose to contrast a behavior 
+observed with the baseline configuration, where with pure hydrogen 
+jets at very high premix fraction two separate reaction zone arise, 
+and the premixed natural gas flame front detaches from the hydrogen 
+Fig. 9 Pollutant emissions measured with 50%PMX–YO2516:6% and TP(H2)55% 
+041018-8 / Vol. 148, APRIL 2026                                                                                                              
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+pilots, as shown in Fig. 11. EGR conditions further separate the two 
+reaction zones, with the pilot jets that continue to burn well attached 
+to the burner outlet and the natural gas flame shifting downstream 
+and becoming more widespread. Straight pilot jets with higher 
+velocity adopted in the B4 configuration aimed to enhance the 
+interaction between hydrogen pilots and premixed natural gas in 
+order to reduce CO emissions. OH* images of Fig. 11 show that the 
+two reaction zones remain separated in this condition also for B4 
+configuration, without a significant improvement on this aspect with 
+respect to the baseline case. Indeed, CO emissions are about the 
+same in this condition, as reported in Fig. 12. Faster hydrogen jets 
+are not sufficient to increase the interaction between the two 
+separated flame fronts, and this behavior is mainly driven by the high 
+core velocity of the main-flow jet, which causes the premixed 
+natural gas reaction zone to stabilize very far from the burner exit. 
+NOx values are also reported, with negligible differences between 
+the two configurations. At this very high level of premix, the 
+recorded values are extremely low, even with standard air as 
+oxidizer, and the beneficial effect of EGR is limited. For the baseline 
+configuration, a slight decrease is recorded as hydrogen increases, 
+while for the other configurations values are very similar.
+Performance Summary. All the data presented in this work 
+constitute an extensive dataset characterizing the performance of the 
+tested configurations. To provide a final synthesis, the variation of 
+key performance parameters for each configuration was evaluated 
+relative to the baseline case. This study aims to maintain a general 
+approach, focusing on different factors and their correlation with the 
+injection system geometry, and providing valuable insights into 
+flame behavior under both standard and EGR conditions. A single 
+performance indicator could streamline comparison and configura­
+tion selection, but defining a comprehensive weighting function for 
+all parameters is challenging due to varying operational contexts and 
+falls out of the scope of this research. Specifically, to summarize the 
+performance of the different burner configurations, the following 
+metrics were analyzed:
+ LBO Air: LBO margin without EGR at 50%PMX
+ P00 NG Air: Stable premix limit achievable with natural gas and 
+air as oxidizer
+Fig. 10 Pollutant emissions measured with 50%PMX–YO2 5 16.6% 
+Fig. 11 Normalized OH* chemiluminescence images at 90%PMX 
+and [TP(H2) 5 10%] w/o EGR: comparison of B0 and B4
+Fig. 12 Pollutant emissions for B0 and B4 at 90%PMX and TP 
+(H2Þ510%
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+ P00 H2 Air: Stable premix limit achievable with 100%H2 pilots 
+and air as oxidizer
+ NOx Air: NOx emissions with natural gas and air as oxidizer
+ CO Air: CO emissions under standard conditions with natural 
+gas and air as oxidizer
+ NOx EGR: NOx emissions with simulated EGR conditions
+ CO EGR: CO emissions with simulated EGR conditions
+Regarding emissions, values with and without EGR were 
+measured at different fuel splits and averaged for each configuration. 
+The tested split levels are similar across the various configurations, 
+and averaging the values should not significantly affect the results. 
+The dynamic behavior under EGR conditions is challenging to 
+quantify due to the wide variation in operating conditions and thus 
+has not been captured with a single metric. The variation of these 
+parameters with respect to the baseline case has been scaled with the 
+maximum variation of each quantity, to allow a better visualization 
+of the differences, and to be able to present different aspects in a 
+single plot. These parameters were defined based on the specific 
+conditions investigated and the type of analysis performed, and 
+serve primarily to offer a general indication of each configuration’s 
+behavior relative to the baseline case. Among the parameters 
+analyzed, CO emissions under EGR conditions can be considered 
+the most critical for the final targets of this research, with LBO limits 
+also holding valuable meaning. NOx emissions under EGR 
+conditions are of limited importance, as they are already very low 
+in such conditions across all configurations. Conversely, NOx and 
+CO levels measured with standard air as the oxidizer hold greater 
+relevance for burner operation in conventional applications.
+Figure 13 summarizes the results for all the new layouts, allowing 
+to identify the most critical and the most promising aspects for each 
+configuration, and providing valuable insight into where optimiza­
+tion efforts might be most effective. As noted earlier, it is observed 
+that configurations with better lean blowout margins tend to exhibit 
+worse dynamic stability.
+Overall, some configurations demonstrate promising results, 
+outperforming others. Among these, B5-PMX layout appears to be 
+the most effective solution investigated, featuring premix fuel 
+injected into the outer swirler and axisymmetric pilot jets oriented 
+outward at the same angle as the baseline. The B2 configuration also 
+shows potential, with an improved pilot fuel distribution due to the 
+increased number of holes. However, both configurations exhibit 
+significantly worse dynamic stability limits compared to the baseline, 
+an issue that will need to be addressed in future developments.
+Conclusions
+The present study explored the performance of different config­
+urations of a dry low NOx industrial burner under both standard 
+conditions and simulated EGR. Tests were performed at atmospheric 
+pressure with natural gas, eventually doped with hydrogen on the pilot 
+line to mitigate the challenges posed by reduced oxygen levels. A total 
+of seven burner configurations including the baseline were tested, 
+varying the fuel injection strategies for both pilot jets and premixing 
+system, to evaluate their impact on key performance metrics such as 
+emissions, stability limits, and dynamic behavior. The significant 
+variation in operating conditions due to the unconventional 
+application of EGR in gas turbines and the dual-fuel configuration, 
+combined with the challenges of testing real hardware components, 
+makes the burner behavior extremely complex.
+The results highlight the critical role of the external 
+recirculation zone in influencing flame behavior, particularly in 
+the absence of an inner recirculation zone due to low swirl from 
+the counter-rotating swirler configuration. When fuel is retained in 
+this zone thanks to higher external orientation of the pilot jets or 
+lower jet velocity, blowout resistance improves, but the flame also 
+becomes more susceptible to thermoacoustic instabilities. 
+Decreasing the pilot jet velocity brings benefits for the LBO 
+margin but for the investigated configuration problems were found 
+in normal operation. Moving the premix fuel injection point in the 
+outer swirler also positively affects CO emissions and lean blow- 
+out margin because of the enhanced interaction between premix 
+and pilot fuel, again at the cost of lower dynamic stability. In EGR 
+conditions, high CO emissions are the main limiting factor, and 
+positive results have been encountered for the new configurations 
+with respect to the baseline, with a significant reduction of 
+measured CO levels. The dynamic behavior is also conditioned by 
+EGR, representing another aspect to be addressed during the 
+design and optimization processes in order to ensure the 
+reliability, efficiency, and stability in real gas turbine applications.
+Fig. 13 Performance summary for each burner configuration 
+041018-10 / Vol. 148, APRIL 2026                                                                                                           
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 11 ---
+
+In conclusion, the present study remarks the importance of 
+dedicated experimental investigations to understand the flame 
+behavior and stabilization mechanisms, with the final purpose of 
+enhancing the performance of modern combustion systems under 
+unconventional and demanding operating conditions. The collected 
+results allowed for an understanding of the influence of control 
+parameters and how they can be leveraged, highlighting the positive 
+effects of hydrogen addition and the impact of fuel injection 
+methods. In addition, the extensive data gathered during this work 
+could be valuable for validating numerical models, particularly 
+when analyzing unstable phenomena such as lean blowout or 
+nonconventional conditions involving oxidant mixtures with 
+reduced oxygen levels. Indeed, the combustion regimes resulting 
+from the dual fuel operation into an oxygen depleted environment 
+are particularly challenging to predict, and numerical models can 
+greatly benefit from dedicated experimental investigations with 
+optical diagnostics.
+Within the Transition project framework, a restricted number of 
+the presented burner configurations will be subjected to testing at 
+high pressure, along with new designs optimized through numerical 
+analysis utilizing the data gathered in this study. This next phase of 
+the project involves an increase in the complexity of the 
+experimental setup, aiming to a more accurate representation of 
+the conditions experienced in real combustion systems, further 
+contributing to the development of more efficient and reliable 
+combustion technologies able to operate with high EGR rates.
+Funding Data
+ European Union’s Horizon Europe Research and Innovation 
+program (Grant Agreement No. 101069665).
+Data Availability Statement
+The authors attest that all data for this study are included in the 
+paper.
+Nomenclature
+BH ¼ Baker Hughes
+CB ¼ center-body fuel line
+CCS ¼ carbon capture and storage
+D ¼ pilot holes diameter (mm)
+EGR ¼ exhaust gas recirculation
+faq ¼ acquisition frequency (Hz)
+FoV ¼ field of view
+GT ¼ gas turbine
+LBO ¼ lean blow out
+N ¼ pilot holes number
+NG ¼ natural gas
+OX ¼ oxidizer
+P0
+RMS ¼ root mean square of pressure oscillation (mbar)
+PLT ¼ pilot fuel line
+PMX ¼ premix fuel line
+PMX% ¼ premix fuel thermal power fraction (%)
+Tflame ¼ adiabatic flame temperature (C)
+Tinlet ¼ inlet temperature (C)
+TPREF ¼ reference thermal power (kW)
+TPTOT ¼ total thermal power (kW)
+TP(H2) % ¼ hydrogen thermal power fraction (%)
+x ¼ axial coordinate (mm)
+y ¼ radial coordinate (mm)
+YO2 ¼ inlet oxygen mass fraction (%mass)
+DP=P ¼ combustor pressure drop (%)
+k ¼ wavelength (nm)
+/ ¼ pilot orientation angle (deg)
+References
+0[1] Zheng, M., Reader, G. T., and Hawley, J., 2004, “Diesel Engine Exhaust Gas 
+Recirculation––A Review on Advanced and Novel Concepts,” Energy Convers. 
+Manage., 45(6), pp. 883–900.
+0[2] Li, H., Ditaranto, M., and Berstad, D., 2011, “Technologies for Increasing CO2 
+Concentration in Exhaust Gas From Natural Gas-Fired Power Production With 
+Post-Combustion, Amine-Based CO2 Capture,” Energy, 36(2), pp. 1124–1133.
+0[3] Vantaggiato, E., Riboldi, L., Anantharaman, R., Carcasci, C., Andreini, A., 
+Roussanaly, S., and Ditaranto, M., 2024, “Understanding the Potential and the 
+Challenges of a NGCC Integrated With Hydrogen-Assisted EGR and CO2 
+Capture,” ASME Paper No. GT2024-125639.
+0[4] Burnes, D., Saxena, P., and Dunn, P., 2020, “Study of Using Exhaust Gas 
+Recirculation on a Gas Turbine for Carbon Capture,” ASME Paper No. GT2020- 
+16080.
+0[5] Elkady, A. M., Evulet, A., Brand, A., Peter Ursin, T., and Lynghjem, A., 2008, 
+“Exhaust Gas Recirculation in DLN F-Class Gas Turbines for Post-Combustion 
+CO2 Capture,” ASME Paper No. GT2008-51152.
+0[6] Li, H., Elkady, A., and Evulet, A., 2009, “Effect of Exhaust Gas Recirculation on 
+NOx Formation in Premixed Combustion System,” AIAA Paper No. 2009-226.
+0[7] Røkke, P., and Hustad, J., 2005, “Exhaust Gas Recirculation in Gas Turbines for 
+Reduction of CO2 Emissions; Combustion Testing With Focus on Stability and 
+Emissions,” Int. J. Thermodyn., 8(4), pp. 167–173.
+0[8] Burdet, A., Lachaux, T., de la Cruz Garcia, M., and Winkler, D., 2010, 
+“Combustion Under Flue Gas Recirculation Conditions in a Gas Turbine Lean 
+Premix Burner,” ASME Paper No. GT2010-23396.
+0[9] Guethe, F., Stankovic, D., Genin, F., Syed, K., and Winkler, D., 2011, “Flue Gas 
+Recirculation of the Alstom Sequential Gas Turbine Combustor Tested at High 
+Pressure,” ASME Paper No. GT2011-45379.
+[10] Evulet, A. T., Elkady, A. M., Branda, A. R., and Chinn, D., 2009, “On the 
+Performance and Operability of GE’s Dry Low NOx Combustors Utilizing 
+Exhaust Gas Recirculation for Post-Combustion Carbon Capture,” Energy 
+Procedia, 1(1), pp. 3809–3816.
+[11] Kitagawa, K., Konishi, N., Arai, N., and Gupta, A. K., 2003, “Temporally 
+Resolved Two-Dimensional Spectroscopic Study on the Effect of Highly 
+Preheated and Low Oxygen Concentration Air on Combustion,” ASME J. Eng. 
+Gas Turbines Power, 125(1), pp. 326–331.
+[12] Kobayashi, H., Hagiwara, H., Kaneko, H., and Ogami, Y., 2007, “Effects of CO2 
+Dilution on Turbulent Premixed Flames at High Pressure and High Temperature,” 
+Proc. Combust. Inst., 31(1), pp. 1451–1458.
+[13] Rodriguez Camacho, J., Akiki, M., Blust, J., and O’Connor, J., 2024, “Effect of 
+Inert Species on the Static and Dynamic Stability of a Piloted, Swirl-Stabilized 
+Flame,” ASME J. Eng. Gas Turbines Power, 146(6), p. 061021.
+[14] Oztarlik, G., Selle, L., Poinsot, T., and Schuller, T., 2020, “Suppression of 
+Instabilities of Swirled Premixed Flames With Minimal Secondary Hydrogen 
+Injection,” Combust. Flame, 214, pp. 266–276.
+[15] Barbosa, S., de La Cruz Garcia, M., Ducruix, S., Labegorre, B., and Lacas, F., 
+2007, “Control of Combustion Instabilities by Local Injection of Hydrogen,” Proc. 
+Combust. Inst., 31(2), pp. 3207–3214.
+[16] Shanbhogue, S. J., Sanusi, Y. S., Taamallah, S., Habib, M. A., Mokheimer, E. M. 
+A., and Ghoniem, A. F., 2016, “Flame Macrostructures, Combustion Instability 
+and Extinction Strain Scaling in Swirl-Stabilized Premixed CH4/H2 Combustion,” 
+Combust. Flame, 163, pp. 494–507.
+[17] Cheng, R., Littlejohn, D., Strakey, P., and Sidwell, T., 2009, “Laboratory 
+Investigations of a Low-Swirl Injector With H2 and CH4 at Gas Turbine 
+Conditions,” Proc. Combust. Inst., 32(2), pp. 3001–3009.
+[18] Du, Y., Yu, X., Liu, L., Li, R., Zuo, X., and Sun, Y., 2017, “Effect of Addition of 
+Hydrogen and Exhaust Gas Recirculation on Characteristics of Hydrogen 
+Gasoline Engine,” Int. J. Hydrogen Energy, 42(12), pp. 8288–8298.
+[19] Rodriguez Camacho, J., Le, D., Blust, J., and O’Connor, J., 2024, “Impact of 
+Diluents on Flame Stability With Blends of Natural Gas and Hydrogen,” ASME J. 
+Eng. Gas Turbines Power, 147(1), p. 011017.
+[20] Galeotti, S., Picchi, A., Becchi, R., Lemmi, G., Meloni, R., Babazzi, G., Giannini, 
+N., Facchini, B., and Andreini, A., 2024, “Experimental Study on Stability 
+Enhancement of a Natural Gas GT Burner With Hydrogen Flame Piloting Operated 
+With Simulated Exhaust Gas Recirculation,” ASME Paper No. GT2024-128732.
+[21] Galeotti, S., Picchi, A., Becchi, R., Meloni, R., Babazzi, G., Romano, C., and 
+Andreini, A., 2024, “Experimental Characterization of an Industrial Burner 
+Operated With Simulated EGR,” Appl. Therm. Eng., 246, p. 122943.
+[22] Babazzi, G., Galeotti, S., Picchi, A., Becchi, R., Cerutti, M., and Andreini, A., 
+2024, “Combustion Diagnostics and Emissions Measurements of a Novel Low 
+NOx Burner for Industrial Gas Turbine Operated With CO2 Diluted Methane/Air 
+Mixtures,” ASME J. Eng. Gas Turbines Power, 146(7), p. 071007.
+[23] Joshi, N. D., Epstein, M. J., Durlak, S., Marakovits, S., and Sabla, P. E., 1994, 
+“Development of a Fuel Air Premixer for Aero-Derivative Dry Low Emissions 
+Combustors,” ASME Paper No. 94-GT-253.
+[24] Innocenti, A., Andreini, A., Facchini, B., Cerutti, M., Ceccherini, G., and Riccio, 
+G., 2016, “Design Improvement Survey for NOx Emissions Reduction of a Heavy- 
+Duty Gas Turbine Partially Premixed Fuel Nozzle Operating With Natural Gas: 
+Numerical Assessment,” ASME J. Eng. Gas Turbines Power, 138(1), p. 011501.
+[25] Andreini, A., Facchini, B., Innocenti, A., and Cerutti, M., 2014, “Numerical 
+Analysis of a Low NOx Partially Premixed Burner for Industrial Gas Turbine 
+Applications,” Energy Procedia, 45, pp. 1382–1391.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+APRIL 2026, Vol. 148 / 041018-11 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/4/041018/7537413/gtp-25-1329.pdf by University of Cincinnati user on 31 December 2025

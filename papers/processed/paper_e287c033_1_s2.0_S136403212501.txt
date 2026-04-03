@@ -1,0 +1,2551 @@
+
+--- Page 1 ---
+
+Driving clean and sustainable power systems with syngas combustion: From 
+fundamentals to applications
+Xiaoxiang Shi a
+, Tianyou Lian a, Dmitriy Sharaborin b, Jianguo Zhang a, Songling Liu a,  
+Wei Li a, Zhanjun Cheng c,*, Vladimir Dulin b,**, Dmitriy Markovich b, Yuyang Li a,***
+a School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai, 200240, PR China
+b Kutateladze Institute of Thermophysics, Novosibirsk, 630090, Russia
+c School of Environmental Science and Engineering, Tianjin University, Tianjin, 300072, PR China
+A R T I C L E  I N F O
+Keywords:
+Syngas
+Fundamental combustion experiments
+Kinetic models
+Combustion diagnostics
+Turbulent combustion
+Combustion applications
+Combined heat and power
+A B S T R A C T
+Syngas, a hydrogen-rich fuel derived from coal and biomass gasification, offers a promising pathway towards 
+sustainable energy systems by reducing emissions, enabling carbon capture, and integrating with advanced 
+power plants such as gas turbines (GTs), internal combustion engines (ICEs) and industrial furnaces and boilers. 
+This review comprehensively examines syngas combustion from basic principles to industrial applications, 
+addressing critical gaps between fundamental research and practical implementation. Experimental and 
+modeling studies of combustion characteristics, covering fundamental aspects (e.g., ignition delay times, laminar 
+burning velocities and kinetic mechanisms) and turbulent combustion phenomena (such as turbulent burning 
+velocities, flame structures and preferential diffusion) are systematically reviewed to clarify the effects of syngas 
+compositions, particularly H2/CO ratios and diluents, along with operating conditions on syngas combustion 
+processes. This work further evaluates syngas utilization in GTs, ICEs, industrial furnaces and boilers, empha­
+sizing innovative strategies like flameless combustion, dual-fuel operation and homogeneous charge compression 
+ignition to reduce NOx emissions and enhance stability. Major challenges such as flashback risk, thermoacoustic 
+instabilities and NOx emissions related to syngas variability are discussed. In addition, this work emphasizes the 
+importance of combustion control strategies, hybrid power configurations (e.g., IGCC), and system-level as­
+sessments (e.g., TEA and LCA) in optimizing syngas-fueled combined heat and power systems. By integrating 
+multidisciplinary insights, this review highlights the potential of adaptive combustion technologies and syngas/ 
+ammonia cofiring to accelerate the transition to carbon-neutral energy.
+1. Background and motivation
+Coal remains the primary energy source for power generation in 
+China, and this trend is expected to continue in the near future [1]. 
+However, the extensive utilization of coal has resulted in significant 
+environmental impacts, including degraded air quality, strained water 
+resources and disrupted ecosystems. Moreover, coal combustion con­
+tributes over 80 % of CO2 emissions from the power sector, raising 
+global warming concerns [2]. Thus, the development of efficient, 
+low-emission coal-based power generation technologies is imperative. 
+Among these technologies, “clean coal” solutions, particularly IGCC 
+systems, have attracted extensive attention. IGCC utilizes gasified coal 
+as fuel, known as synthesis gas or syngas, offering cleaner power gener­
+ation with substantially lower emissions compared to traditional 
+coal-fired systems. Furthermore, IGCC provides a cost-effective pathway 
+for CCS, supporting decarbonization efforts [3].
+In parallel, interest is significantly growing in biomass-derived syn­
+gas, which is produced from forest residues, agricultural waste and other 
+biomass sources, and can achieve near net-zero CO2 emissions. The 
+global energy potential of biomass is estimated at 200–500 EJ/year [4], 
+with bioenergy projected to contribute 100–300 EJ/year, or roughly 25 
+%–33 % of the global energy mix, by 2050 [5]. With abundant bioenergy 
+reserves, China possesses significant potential for utilizing biomass as a 
+renewable feedstock. Biomass gasification produces syngas as a valuable 
+gaseous product and char as a solid byproduct [6]. In addition, coal and 
+* Corresponding author.
+** Corresponding author.
+*** Corresponding author.
+E-mail addresses: zjcheng@tju.edu.cn (Z. Cheng), vmd@itp.nsc.ru (V. Dulin), yuygli@sjtu.edu.cn (Y. Li). 
+Contents lists available at ScienceDirect
+Renewable and Sustainable Energy Reviews
+journal homepage: www.elsevier.com/locate/rser
+https://doi.org/10.1016/j.rser.2025.116425
+Received 2 May 2025; Received in revised form 30 August 2025; Accepted 21 October 2025  
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+Available online 27 October 2025 
+1364-0321/© 2025 Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+biomass co-gasification has emerged as a promising and low-cost tech­
+nology for upgrading the existing energy infrastructure in China toward 
+sustainability.
+Syngas is derived from coal, biomass and hydrocarbons via ther­
+mochemical and emerging technologies. Conventional gasification 
+processes typically involve partial oxidation and water-gas shift re­
+actions, whereas non-catalytic methods require high temperatures 
+(500–650 ◦C) to decompose feedstocks [7,8]. Catalytic gasification, 
+employing alkali metals (Na, K, Ca), enhances H2 yield and reduces tar 
+through electron-transfer or oxygen-transfer mechanisms [9–11]. 
+Co-gasification of coal and biomass further improves carbon conversion 
+and reduces emissions by promoting synergistic interactions [12,13]. 
+Emerging methods include pCatalytic and eCatalytic CO2 reduction 
+processes. Photocatalytic systems, such as CdS/W2N3 heterostructures, 
+enable tunable CO/H2 ratios under visible light irradiation [14–18]. 
+Electrocatalytic systems, using bimetallic catalysts like Cu/Ni(OH)2, 
+optimize syngas selectivity through electrochemical pathways [19–21]. 
+SCWG operates above 374 ◦C and 22.1 MPa, exploiting the reactivity of 
+water to produce H2-rich syngas with minimal tar, aided by K2CO3 
+catalysts [22–24]. Plasma gasification utilizes high-energy arcs for 
+near-complete feedstock conversion but faces energy-intensity chal­
+lenges [25,26]. Advances in catalytic stability, material science, and 
+real-time process monitoring are critical for scalable, eco-friendly syn­
+gas production.
+A major challenge in syngas utilization is the considerable variability 
+in its composition, which depends on the type of feedstock, synthesis 
+method, and operating conditions. [27]. For IGCC powerplants, syngas 
+is typically produced through entrained flow, fixed-bed and 
+fluidized-bed gasifiers. Unlike natural gas (mainly CH4), coal- and 
+biomass-derived syngas contains a complex mixture of CO and H2 as 
+major components, along with trace amounts of CH4, CO2 and N2. The 
+specific syngas composition varies with the type of feedstock and gasi­
+fication conditions [28]. For instance, different feedstocks such as coal, 
+lignite, peat and biomass exhibit H/C ratios ranging from 0 to 1.8 and 
+O/C ratios ranging from 0 to 1.0, resulting in different LHVs for the 
+produced syngas [29]. Syngas produced through air gasification typi­
+cally has an LHV of about 5.0 MJ/Nm3, whereas oxygen gasification can 
+produce syngas with an LHV of up to 12.0 MJ/Nm3. Additionally, the 
+CO/H2 ratio can vary widely, ranging from 4:1 to 1:2. These composi­
+tional variations require specialized burner design, particularly for 
+H2-rich mixtures that may lead to flashback and combustion instability 
+issues [30].
+In addition to combustion stability, the distinct physicochemical 
+properties of syngas significantly affect pollutant formation, especially 
+nitrogen oxides (NOx) [31]. For example, coal-derived syngas often 
+generates higher NOx emissions than natural gas under conventional 
+combustion conditions [30], which highlights the need for tailored 
+combustion strategies. Major GT OEMs, including General Electric, 
+Siemens, and Mitsubishi Hitachi Power Systems, have already imple­
+mented several commercial syngas IGCC powerplants. However, further 
+optimization of syngas combustion remains pivotal for scalability [32]. 
+Beyond power generation, coal- and biomass-derived syngas also serves 
+as a precursor for H2 production and synthesis fuels, often referred to as 
+“e-fuels”. Its integration with industrial and micro GTs, ICEs and in­
+dustrial furnaces and boilers further highlights its versatility in 
+advanced energy systems [33,34].
+As illustrated and summarized in Fig. 1, syngas represents a prom­
+ising energy carrier for driving clean and sustainable power systems 
+through the conversion of coal and biomass into cleaner gaseous fuels, 
+which can be directly utilized in GTs, ICEs, and industrial furnaces and 
+boilers. Syngas CHP systems, such as IGCC and SOFC-based hybrid en­
+ergy systems [35], offer pathways to significantly improve overall 
+thermal efficiency. In addition, CCS as well as carbon recycling through 
+photosynthesis and carbon reduction through eCatalytic or pCatalytic 
+processes, have great potential for achieving deep CO2 reduction. 
+Nevertheless, substantial research needs exist in syngas combustion 
+from fundamentals to applications, largely due to the significant vari­
+ability in syngas properties depending on feedstocks and synthesis 
+methods. Moreover, comprehensive system-level assessments, including 
+TEA and LCA, help evaluate the sustainability and feasibility of 
+syngas-fueled CHP solutions.
+While most previous reviews have focused on syngas production 
+technologies [29,36–41] or basic combustion properties [31], this re­
+view provides a broader and more integrated perspective, emphasizing 
+the role of syngas as a key fuel in advanced hybrid energy systems aimed 
+at high efficiency, low emissions and long-term sustainability. 
+Nomenclature
+BF
+Bunsen Flame
+BIGCC
+Biomass Integrated Gasification Combined Cycle
+CCS
+Carbon Capture and Geological Storage
+CFD
+Computational Fluid Dynamics
+CHP
+Combined Heat and Power
+CI
+Compression Ignition
+CSN
+Contoured Slot-type Nozzle burner
+CTF
+Counterflow Twin-Flame
+DNS
+Direct Numerical Simulation
+EDC
+Eddy Dissipation Concept
+EDM
+Eddy Dissipation Model
+EHDC
+Externally Heated Diverging Channel
+eCatalytic electrocatalytic
+FGM
+Flamelet Generated Manifold
+GHG
+Greenhouse Gas
+GT
+Gas Turbine
+GWP
+Global Warming Potential
+HCCI
+Homogeneous Charge Compression Ignition
+HFB
+Heat Flux Burner
+HRR
+Heat Release Rate
+ICE
+Internal Combustion Engine
+IDT
+Ignition Delay Time
+IGCC
+Integrated Gasification Combined Cycle
+LBV
+Laminar Burning Velocity
+LCA
+Life Cycle Assessment
+LES
+Large Eddy Simulation
+LHV
+Low Heating Value
+NTP
+Normal Temperature and Pressure
+OEM
+Original Equipment Manufacturer
+pCatalytic Photocatalytic
+PDE
+Preferential Diffusion Effects
+PIV
+Particle Image Velocimetry
+PLIF
+Planar Laser Induced Fluorescence
+PREMIER Premixed Mixture Ignition in the End-gas Region
+RCCI
+Reactivity-Controlled Compression Ignition
+RCM
+Rapid Compression Machine
+SCWG
+Supercritical Water Gasification
+SI
+Spark Ignition
+SLF
+Steady Laminar Flamelet
+SOFC
+Solid Oxide Fuel Cell
+SPF
+Spherically Propagating Flame
+ST
+Shock Tube
+TCI
+Turbulence-Chemistry Interactions
+TEA
+Technical-Economic Analysis
+TRL
+Technology Readiness Level
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+2 
+
+
+--- Page 3 ---
+
+Specifically, this work explores the entire spectrum of syngas combus­
+tion from fundamental mechanisms to practical system-level applica­
+tions, which is organized into three main sections. Section 2 discusses 
+the fundamental combustion characteristics and reaction kinetics of 
+syngas under varying conditions. Section 3 reviews recent experimental 
+and numerical investigations on turbulent syngas flames, including 
+advanced laser diagnostics and CFD simulations. Section 4 evaluates the 
+use of syngas in practical systems such as GTs, ICEs, industrial furnaces, 
+and CHP systems. This comprehensive review aims to guide future 
+research and inform the development of syngas-based low-carbon en­
+ergy technologies.
+2. Fundamental combustion research
+Understanding the fundamental combustion characteristics of syngas 
+is crucial for its efficient application in ICEs, GTs, furnaces and boilers. 
+Initial studies by Lee et al. [42] reviewed the LBVs and IDTs of syngas 
+mixtures; this work further explores the latest studies on the funda­
+mental combustion characteristics of pure syngas (H2/CO) and its blends 
+with other gaseous fuels like CH4 or NH3, focusing on IDTs and LBVs. 
+Additionally, it highlights advancements in kinetic models, emphasizing 
+key elementary reactions, to improve combustion predictions and sup­
+port the development of clean energy systems.
+2.1. Fundamental combustion characteristics of syngas
+2.1.1. Measurements of LBVs and IDTs
+IDT and LBV are key parameters for evaluating fuel reactivity related 
+to its fundamental combustion characteristics, which affect flame sta­
+bility phenomena like blow-off and extinction. Accurate characteriza­
+tion of these parameters is essential for designing reliable and efficient 
+combustion devices like boilers and GTs [43]. The IDT and LBV mea­
+surements of syngas and syngas/gaseous fuel mixtures can also provide 
+insights into exothermicity, diffusivity and reactivity, and aid in the 
+validation of kinetic models [44], which have been extensively studied 
+under a wide range of pressure (Pu), temperature (Tu) and equivalence 
+ratios (ϕ), as summarized in Table 1.
+Experimental characterization of IDTs for syngas and syngas/ 
+gaseous fuel mixtures has employed ST and RCM [45–62], while LBVs 
+have been determined by BF, SPF, CSN, CTF, HFB and EHDC [84,
+91–102]. Fig. 2 summarizes the operating condition ranges, with IDTs 
+measured under pressure up to 30 MPa, and LBVs tested at Pu ≤5.0 MPa 
+and Tu ≤700 K, respectively. However, LBV measurement remains very 
+limited at high-pressure, normal temperature as well as normal pressure, 
+high-temperature conditions, leaving a data gap in the upper-right re­
+gion of Fig. 2(b). Additionally, the LBVs of syngas/ammonia mixtures 
+are primarily measured at near-NTP conditions, highlighting the need 
+for further experiments at elevated pressures and temperatures.
+Discrepancies among different data sources remain another issue 
+that requires attention. Fig. 3 compares LBVs for 50 %H2/50 %CO/air 
+mixtures at NTP conditions (Pu = 1 atm, Tu = 298–303 K) and ϕ =
+0.4–5.0. These values were obtained using multiple experimental 
+methods, including SPF, BF, HFB and CTF. While the scatter in measured 
+LBVs is relatively small on the lean side, it increases significantly under 
+rich conditions, attributed to enhanced flame instability, localized heat 
+losses and increased sensitivity to experimental conditions, such as 
+buoyancy effects and local strain-induced variations.
+2.1.2. Key factors influencing LBVs and IDTs
+Several factors influence the IDTs and LBVs of syngas, including 
+pressure, temperature, H2/CO ratio, diluents, and blending with other 
+gaseous fuels. Fig. 4 summarizes the effects of these parameters as re­
+ported in various studies. Overall, higher temperatures and H2/CO ratios 
+enhance fuel reactivity of syngas, leading to decreased IDTs and 
+increased LBVs, while elevated pressure and diluents ( H2O, N2, and 
+CO2) tend to suppress reactivity. NH3 blending has little influence on 
+IDTs but generally reduces LBVs, with the magnitude of the variations 
+depending on syngas composition. These complex and sometimes 
+Fig. 1. Schematic illustration of syngas-fueled power systems: Pathways to sustainability and identified research gaps.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+3 
+
+
+--- Page 4 ---
+
+competing interactions highlight the challenges in optimizing syngas 
+combustion.
+Pressure effects. The dependence of IDTs on pressure, as studied by 
+K´eromn`es et al. [49] for a (50 %H2/50 %CO)/O2/Ar mixture at ϕ = 0.5, 
+shows a crossover behavior. As shown in Fig. 5, at temperature below 
+1250 K, IDTs are larger at 16 atm than at 4 atm, while the opposite trend 
+occurs above 1250 K. This is attributed to the competition between the 
+chain-branching reaction H + O2 = O + OH dominant at high temper­
+atures, and the pressure-dependent termination reaction H + O2 (+M) 
+= HO2 (+M) dominant at low temperatures and high pressures. In 
+contrast, LBVs consistently decrease with increasing pressure, as 
+confirmed across multiple studies, due to reduced overall reaction rates 
+[50,64,65,70,81].
+Temperature effects. Initial temperature strongly affects flame 
+propagation. For example, Fig. 6 shows that LBVs of 50 %H2/50 %CO/ 
+air mixtures increase with initial temperature ranging from 300 K to 
+700 K, in good agreement with kinetic model predictions [73,74,78,81]. 
+These findings reveal that both ignition and flame propagation behavior 
+are affected by coupled thermal and chemical effects.
+H2/CO ratio effects. Fuel composition also plays an important role. 
+Increased CO content results in larger IDTs, highlighting higher reac­
+tivity of H2 compared to CO. This is attributed to reduced H-atom 
+availability and increased activation energy with more CO. Similarly, 
+LBVs increase with H2/CO ratios due to faster H2 chemistry, though 
+notable discrepancies between experimental and simulated results are 
+reported at high H2/CO ratios [50,64–66,68,70,72,81,88].
+Diluent effects. The roles of CO2, H2O, and N2 dilution have been 
+Table 1 
+Research on IDT and LBV measurements of syngas and syngas/gaseous fuel 
+mixtures (2006–2025).
+No.
+Research 
+targets
+Fuel 
+mixtures
+Methods
+Operating 
+conditions
+References
+1
+IDTs of syngas 
+across a wide 
+range of Pu and 
+Tu
+H2/CO
+RCM, ST
+0.1–7 MPa, 
+849–2220 K
+[45–50]
+2
+IDTs of syngas 
+with H2O, CO2 
+or/and N2 
+dilution
+H2/CO/ 
+H2O, 
+H2/CO/ 
+CO2, 
+H2/CO/ 
+CO2/N2
+ST
+0.1–30 MPa, 
+870–1500 K
+[51–59]
+3
+IDTs of syngas 
+blending with 
+methane
+H2/CO/ 
+CH4/CO2, 
+H2/CO/ 
+CH4/CO2/ 
+H2O
+ST, RCM
+0.15–8 MPa, 
+900–2030 K
+[60–62]
+4
+IDTs of syngas 
+blending with 
+ammonia
+H2/CO/ 
+NH3/CO2/ 
+H2O
+ST
+0.15–3 MPa, 
+990–2030 K
+[60]
+5
+LBVs of syngas 
+across a wide 
+range of Pu and 
+Tu
+H2/CO
+SPF, BF, 
+HFB
+0.05–4 MPa, 
+298–443 K
+[50,
+63–73]
+6
+LBVs of syngas 
+with H2O, CO2 
+or/and N2 
+dilution
+H2/CO/ 
+CO2, 
+H2/CO/ 
+H2O, 
+H2/CO/ 
+N2, 
+H2/CO/ 
+CO2/N2
+BF, SPF, 
+CTF, CSN, 
+EHDC, HFB, 
+BF
+0.1–5 MPa, 
+298–700 K
+[74–92]
+7
+LBVs of syngas 
+blending with 
+methane
+H2/CO/ 
+CH4, 
+H2/CO/ 
+CH4/CO2, 
+H2/CO/ 
+CH4/N2, 
+H2/CO/ 
+CH4/N2/ 
+CO2
+SPF, HFB, 
+EHDC, BF
+0.1–1.1 
+MPa, 
+298–650 K
+[84,
+91–98]
+8
+LBVs of syngas 
+blending with 
+ammonia
+H2/CO/ 
+NH3
+HFB, SPF
+0.1–1 MPa, 
+298 K
+[99–102]
+Fig. 2. Illustrated operating condition range of IDT and LBV measurements for 
+syngas (solid squares), syngas/diluents (dash-dot squares), syngas/methane (dash 
+squares) and syngas/ammonia (symbols) mixtures from the literature listed 
+in Table 1.
+Fig. 3. Measured LBVs of syngas (1:1 H2/CO)/air mixtures at NTP conditions 
+from the latest studies.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+4 
+
+
+--- Page 5 ---
+
+examined for both IDTs [51–59] and LBVs [74–92]. At high pressures 
+(~10 MPa), CO2 dilution shows minimal effect on IDTs compared with 
+Ar [56]. In contrast, the impact of H2O dilution on IDT varies with 
+operating conditions [42,52,60,61]. For LBVs, N2 dilution significantly 
+reduces them and shifts the peak toward leaner equivalence ratios due to 
+increased heat capacity [80,82,85,86,88,89,94]. CO2 dilution decreases 
+LBVs even more strongly than N2 because of its higher heat capacity 
+[74–76,85–92,94–98]. H2O dilution has both thermal and chemical ef­
+fects on LBVs; at high H2/CO ratios, thermal effects dominate and reduce 
+LBVs, while at low H2/CO ratios, chemical effects dominate and promote 
+laminar flame propagation [77–79].
+Fuel blending effects. Cofiring syngas with other gaseous fuels like 
+CH4 and NH3 significantly affects the IDTs and LBVs, which depends on 
+blending ratio and pressure. For syngas/CH4 mixtures, as shown in Fig. 7
+(a), CH4 addition has a negligible effect on IDTs at low pressure (Pu =
+1.6 atm) except at low temperatures (<1230 K), where IDT increases 
+slightly. At higher pressure (Pu = 32 atm), CH4 inhibits ignition at 
+temperatures above 1220 K by reducing H and OH radicals, behaving 
+similarly to CO [42]. For LBVs, increasing CH4 fraction consistently 
+reduces flame speed, especially under fuel-rich conditions, where 
+physical dilution effects outweigh chemical enhancement [84]. For 
+syngas/NH3 mixtures, NH3 addition shows minimal effect on IDTs at 
+high pressures across all tested temperatures, as shown in Fig. 7(b). At 
+low 
+pressures, 
+NH3 
+addition 
+slightly 
+decreases 
+IDTs 
+under 
+low-temperature conditions by contributing to the radical pool after 
+ignition onset [42]. In terms of LBVs, NH3 blending generally decreases 
+the LBVs, though the effects depend strongly on syngas composition 
+[99–102]. When CO is dominant, a slight increase in LBV may occur 
+before declining with further NH3 addition, due to a shift towards dry 
+CO combustion chemistry and the relatively low reactivity of NH3 [100].
+2.2. Reaction kinetics in syngas combustion
+2.2.1. Elementary reactions
+Syngas combustion mechanisms are primarily composed of the H2 
+and the CO sub-mechanisms. The reactivity of H2 is mainly controlled by 
+the chain-branching reaction R1 and the pressure-dependent chain-in­
+hibition reaction R2. R1 is critical for H2 combustion and other fuel 
+oxidations at high temperatures (≥1000 K, depending on pressure) and 
+has been extensively studied [103–105]. The “crossover” behavior of 
+IDTs shown in Fig. 5 highlights the importance of these two reactions. 
+Determining the rate constants of these reactions across a wide range of 
+pressures and temperatures is thus crucial to predicting the fundamental 
+combustion characteristics of syngas. 
+H + O2 = OH + H
+(R1) 
+H + O2(+M) = HO2(+M)
+(R2) 
+The CO mechanism involves several key reactions (R3-R5), which 
+are essential for syngas and hydrocarbon fuel oxidations. 
+CO + OH = CO2 + H
+(R3) 
+CO + HO2 = CO2 + OH
+(R4) 
+HCO + O2 = CO + HO2
+(R5) 
+Fig. 4. Schematic diagram of the effects of various influencing factors on the 
+IDTs and LBVs of syngas.
+Fig. 5. IDTs of a syngas (50 %H2/50 %CO)/O2/Ar mixture at ϕ = 0.5 and 
+various pressures. (Reproduced with permission from Elsevier [49].).
+Fig. 6. Measured and simulated LBVs of 50 %H2/50 %CO/air mixtures at Pu =
+1 atm, Tu = 300–700 K and ϕ = 0.4–3.0. Symbols denote the measured LBV 
+data in literature as follows: Natarajan et al. [74] and Singh et al. [78]. Lines 
+denote the simulated results using the model presented in Ref. [31]. (Repro­
+duced with permission from Elsevier [31].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+5 
+
+
+--- Page 6 ---
+
+Reaction CO + OH = CO2 + H (R3) represents the oxidation of 
+carbon monoxide (CO) by the hydroxyl radical (OH), which is an 
+important reaction for the combustion of all hydrocarbon fuels and a key 
+step in CO conversion in atmospheric chemistry. Studies have refined 
+the rate constants through experiments and theoretical calculations, 
+highlighting improved consistency across methods and updates in 
+thermodynamic parameters. Wooldridge et al. [106] measured the rate 
+constant for R3 using the ST, and Joshi and Wang [107] performed 
+theoretical calculations at the CCSD(T)/cc-pvTZ level. Recent work by 
+Wang et al. [108] improved rate constant determination for R3 based on 
+simultaneous measurements of OH and CO time-histories in Ar-diluted 
+CH2O/O2 oxidation, showing better agreement with previous studies, 
+as shown in Fig. 8. Their results are consistent with the respective error 
+bars, with minor differences attributed to updates in the formation 
+enthalpy of OH.
+Reaction CO + HO2 = CO2 + OH (R4) is particularly significant 
+under high-pressure conditions. Various theoretical studies [65,
+109–111] and experimental measurements [112–114] have been con­
+ducted on R4. For instance, Allen et al. [109] used ab initio CISD cal­
+culations based on unrestricted Hartree-Fock optimized geometries, 
+while Sun et al. [65] employed MP2(full)/6-31G(d,p) geometry opti­
+mization and transition state theory. A comparison of rate constants is 
+presented in Fig. 9, where the results from Li et al. [111] show good 
+agreement with those from You et al. [110] and Sun et al. [65], though 
+lower than experimental data [112–114] by a factor of 3–211.
+Reaction HCO + O2 = CO + HO2 (R5) plays an important role at 
+lower temperatures and lean conditions. The rate constant of R5 exhibits 
+a clear temperature dependence, with several experimental and theo­
+retical studies [115–120] conducted on it. The results are compared in 
+Fig. 10, showing a weak positive temperature dependence. Notably, the 
+GRI-Mech. 3.0 model [121] underestimates the temperature depen­
+dence, while Hsu et al. [117] found larger discrepancies at higher 
+temperatures (≥1500 K).
+2.2.2. Kinetic modeling
+Several kinetic models have been developed to simulate syngas 
+combustion, with some specifically for syngas [49,65,69,122–126] and 
+others for hydrocarbons and oxygenates [121,127–129] incorporating 
+syngas as a sub-mechanism. Notable models include the GRI 3.0 model 
+[121], USC Mech II model [128], San Diego model [127] and NUIG 
+model [129]. In addition to those general models, several kinetic models 
+have been tailored for syngas combustion, as summarized in Table 2. 
+Other kinetic models, such as one by K´eromn`es et al. [49] with 15 
+species and 49 reactions, were specifically validated under 
+high-pressure conditions (up to 70 atm), while Goswami et al. [69] 
+updated the syngas kinetic model to address the stringent requirements 
+of combustion systems like GTs. A comparative analysis by Jithin et al. 
+[31] of the performance of those kinetic models [121,122,124–126,128] 
+for LBVs of 50 %H2/50 %CO/air mixtures indicates accurate predictions 
+Fig. 7. Measured IDTs of syngas/CH4 mixtures (grey symbols: Mathieu et al. [60]; black and open symbols: Gersen et al. [62]). (Reproduced with permission from 
+Elsevier [42].)
+Fig. 8. Comparisons of rate constants for R3. (Reproduced with permission 
+from ACS [108].).
+Fig. 9. Comparisons of rate constants for R4 [111].
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+6 
+
+
+--- Page 7 ---
+
+on the lean side but consistent over-predictions under fuel-rich 
+conditions.
+To get insights into the combustion chemistry of biomass-derived 
+syngas (primarily containing CO, H2, CH4, N2 and CO2), Zhang et al. 
+[130] developed a kinetic model for CH4/CO mixtures by incorporating 
+the latest progress in elementary reactions. The kinetic model was then 
+rigorously validated against experimentally measured LBVs. As shown 
+in Fig. 11, the inclusion of trimolecular reactions (R6-R9) significantly 
+improves the predictive accuracy for syngas LBVs, demonstrating the 
+critical role of R6-R9 in syngas combustion chemistry. Notably, the 
+observed decrease in syngas LBVs with the incorporation of R6-R9 in the 
+kinetic model is attributed to the loss of an H atom, a key chain carrier 
+with high thermal diffusivity and chemical reactivity, which governs 
+flame propagation kinetics and directly affects LBV predictions [130]. 
+H + O2 + H = H2 + O2
+(R6) 
+H + O2 + H = OH + OH
+(R7) 
+H + O2 + O = OH + O2
+(R8) 
+H + O2 + OH = H2O + O2
+(R9) 
+Furthermore, Mei et al. [100] developed a kinetic model for 
+NH3/syngas mixtures by integrating NH3 and syngas sub-mechanisms 
+with consideration of C-N cross-reactions. The model shows good 
+agreements between simulated and measured LBVs of NH3/syngas/air 
+mixtures at various pressures, as shown in Fig. 12(a and b). Kinetic 
+analysis revealed that syngas addition shifts the dominant reaction 
+pathways from NH3 to syngas chemistry. A modified fictitious diluent 
+gas method separated the chemical and thermal effects, showing 
+chemical effect primarily drives enhanced laminar flame propagation, as 
+shown in Fig. 12(c). While NH3/syngas flames feature similar reaction 
+networks with pure NH3, lean and rich conditions favor different path­
+ways. Syngas addition promotes the termolecular reaction H + O2 (+M) 
+= HO2 (+M), enhancing the pressure dependency compared to pure NH3 
+flames.
+3. Combustion diagnostics and turbulent combustion research
+This section focuses on experimental and numerical investigations 
+into turbulent flames of syngas, as well as syngas/low-carbon fuel 
+blends. Advanced laser diagnostics and CFD tools are extensively uti­
+lized in these studies.
+3.1. Optical measurements of turbulent flames
+3.1.1. Conical flames
+Conical flames stabilized in BF burners are widely employed to 
+evaluate the laminar flame speed (SL) and turbulent flame speed (ST) for 
+syngas/air mixtures [68,131–134] based on optical measurements of 
+flame topologies. Fig. 13 compares time-averaged PIV and OH-PLIF 
+images for methane/air and syngas/air flames [135]. Methane flames 
+exhibit a straight conical shape, whereas syngas flames feature a 
+smoother top due to flame front wrinkling. Further investigations into 
+the curved flame front structures of syngas flames under ambient and 
+elevated pressures up to 1.0 MPa were conducted by Zhang et al. [136,
+137], revealing pressure-dependent flame topologies. Moreover, Wang 
+et al. [138] combined OH-PLIF imaging and CFD simulations to analyze 
+flame structure, reaction rates and the critical conditions for tip opening, 
+a phenomenon where the flame tip extinguishes due to excessive 
+negative curvature, as shown in Fig. 14. It is demonstrated that tip 
+opening occurs when the local Karlovitz number (Ka) reaches around 4, 
+independent of H2 content or flow velocity. This universal threshold 
+shows the local Ka as a good indicator for predicting the local extinction 
+of negatively stretched syngas flames.
+3.1.2. Swirl flames
+GTMCs feature diverse geometries, including single- and dual-swirl 
+burners. Representative designs include low-swirl injectors [139], 
+single-swirl configurations (e.g., TECFLAM [140], TURBOMECA 
+[141–145], PRECCINSTA [146,147]) and dual-swirl burners [148,149], 
+as shown in Fig. 15. To investigate the flame dynamics of swirl flames, 
+flame front behavior and large-scale vortex interactions affecting heat 
+and mass transfer, simultaneous PIV/PLIF measurements are extensively 
+utilized [150–156]. Chemiluminescence imaging, such as OH* chem­
+iluminescence, is further used to resolve heat release oscillations [157]. 
+Studies in swirl-stabilized flames demonstrate the impacts of fuel com­
+positions and swirl intensity on velocity fields and flame shapes, as 
+quantified via PIV, OH-PLIF and OH* chemiluminescence imaging 
+[158–163]. For instance, Dam et al. [161] and Sayad et al. [162] 
+employed PIV to analyze flashback and combustion-induced vortex 
+breakdown in fully premixed syngas/air flames. Lee et al. [164,165] 
+investigated thermoacoustic instabilities and emissions in partially 
+premixed syngas/air flames, revealing correlations between fuel 
+composition, flame shape and pollutant formation. Choi et al. [166] 
+validated RANS simulations of premixed syngas/air dual-swirl flames 
+using PIV results, showing reasonable agreement for velocity profiles 
+but significant discrepancies in temperature profiles.
+Despite these advances, syngas-related studies remain limited in 
+GTMCs like TURBOMECA, PRECCINSTA and DLR dual-swirl burners 
+[157,168,169]. Notably, Dulin et al. [169] conducted PIV and OH-PLIF 
+measurements for methane and syngas flames under various pressures 
+and temperatures, observing that syngas flames exhibit enhanced up­
+stream penetration due to higher flame speeds and increased flashback 
+susceptibility under elevated conditions, as shown in Fig. 16. Advanced 
+laser diagnostics have also enabled detailed analysis of turbulent flame 
+front wrinkling in syngas swirl flames. A single-swirl burner developed 
+at the University of Twente [170] features an annular jet fuel supply 
+Fig. 10. Comparisons of rate constants for R5 from different sources 
+[115–121]. (Reproduced with permission from ACS [120].).
+Table 2 
+Summaries of kinetic models for syngas combustion.
+Mechanisms
+NS
+NR
+Validated targets
+Davis et al. (2005) [122]
+14
+38
+IDTs, LBVs, speciaition data
+Saxena et al. (2006) [125]
+14
+30
+IDTs, LBVs
+Frassoldati et al. (2007) [123]
+12
+64
+IDTs, LBVs, speciation data
+Sun et al. (2007) [65]
+15
+48
+IDTs, LBVs, speciation data
+Li et al. (2007) [126]
+21
+93
+IDTs, LBVs, speciation data
+K´eromn`es et al. (2013) [49]
+15
+49
+IDTs, LBVs
+Goswami et al. (2014) [69]
+16
+47
+IDTs, LBVs, speciation data
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+7 
+
+
+--- Page 8 ---
+
+from the centerbody of a radial swirler, which was studied using PIV, 
+OH-PLIF and OH* chemiluminescence imaging to visualize the flow 
+structure and flame topologies [171,172]. These measurements provide 
+critical benchmarks for CFD simulations of non-premixed syngas swirl 
+flames. Sadanandan et al. [173] extended these studies using OH-PLIF to 
+study the curvature effects in H2-rich syngas turbulent diffusion flames 
+at elevated pressures up to 2.0 MPa, revealing the flame front wrinkling 
+mechanisms, as shown in Fig. 17.
+3.2. Turbulent combustion characteristics
+3.2.1. Turbulent burning velocity
+TBV or ST is a critical parameter in premixed turbulent combustion. 
+As reviewed by Jithin et al. [31], TBV studies for syngas mixtures 
+emphasize the role of the high mass diffusivity of H2, which leads to 
+enhanced stretch sensitivity and significantly affects turbulent com­
+bustion characteristics [174]. TBV is conventionally defined as the 
+volumetric and global fuel consumption rate, derived by solving the con­
+tinuity equation at the average flame front surface [132]. Experimental 
+studies [175] consistently correlate ST with the unstretched laminar 
+burning velocity (SL,0) and velocity fluctuations (uʹ
+rms), expressed as Eq. 
+(1). 
+ST = SL,0 × f
+(
+uʹ
+rms
+)
+(1) 
+SPF and BF methods are widely used to measure ST for syngas [133,
+174,176–184]. For instance, Daniele et al. [178] examined the effects of 
+thermo-diffusive properties on ST of syngas using the dump-stabilized 
+flame, concluding that syngas with a non-unity Lewis number (Le) 
+Fig. 11. Measured (symbols) and simulated LBVs of syngas/air mixtures at NTP. Solid and dashed lines denote the predicted results of the kinetic model by Zhang 
+et al. [130] with and without chemically termolecular reactions. (Reproduced with permission from Elsevier [130].).
+Fig. 12. (a–b) Measured and simulated LBVs of various NH3/syngas/air mixtures at Pu = 1–10 atm. (c) Decoupled thermal and chemical effects of NH3/syngas 
+cofiring based on simulated LBVs of NH3/syngas/air mixtures using the modified fictitious diluent gas method [100]. (Reproduced with permission from Elsev­
+ier [100].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+8 
+
+
+--- Page 9 ---
+
+enhances thermo-diffusive effects without increasing flame front 
+corrugation. Besides, PIV measurements for low-swirl flames of H2/CH4 
+mixtures [185,186] were conducted to evaluate ST in the swirl flame 
+front. These studies measured ST for the fuel mixtures with H2 content 
+below 60 %, establishing correlations between ST and the intensity of 
+local turbulent velocity fluctuations. Similar correlations for low-swirl 
+syngas/air flames were identified by Littlejohn et al. [187], as shown 
+in Fig. 18.
+TBV is critically influenced by three major factors, including pres­
+sure, fuel composition and turbulence intensity [188], which are briefly 
+summarized as follows. 
+• Pressure effect. It has been well understood that ST increases 
+exponentially with pressure, though turbulence intensity has a 
+x/D
+y/D
+x/D
+y/D
+CH4/air, ϕ=0.9, averaged
+x/D
+y/D
+Syngas/air, ϕ=0.7, averaged
+Syngas/air, ϕ=0.7, instant
+Fig. 13. Time-averaged PIV and OH-PLIF data and example of the instantaneous snapshots for methane and syngas (1:1 H2/CO) premixed BFs from Dulin et al. 
+[135]. (Reproduced with permission from Springer [135].).
+Fig. 14. The digital and OH-PLIF images of syngas (60 %H2/40 %CO) BFs at Reynolds number (Re) = 1600. (Reproduced with permission from Elsevier [138].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+9 
+
+
+--- Page 10 ---
+
+stronger influence. Liu et al. [176] observed this trend in lean syngas 
+flames (35 %H2/65 %CO) using a fan-stirred explosion facility. 
+Similarly, Daniele et al. [133] reported that ST/SL increases with 
+pressure (up to 2.0 MPa) in a high-pressure combustion chamber, as 
+shown in Fig. 19. This observed trend is attributed to the coupling of 
+preferential diffusive-thermal effects and hydrodynamic instabilities.
+• Effect of fuel composition. Higher H2 content in syngas signifi­
+cantly enhances turbulent flame propagation. Daniele et al. [133] 
+and Wang et al. [181] attributed this to intensified preferential 
+diffusive-thermal instability caused by H2. Venkateswaran et al. 
+[174] quantified the effect of fuel composition, showing ST of syngas 
+nearly doubles as H2 content increases from 30 % to 90 %, regardless 
+of turbulence intensity. The enhancement is attributed to the stretch 
+sensitivity of the reactant mixture, which affects the leading edge of 
+the turbulent flame brush. Moreover, SL increases with higher H2/CO 
+ratios under fixed turbulence conditions [174]. Wehrmann and 
+Hasslberger [189] investigated lean premixed syngas flames with 
+DNS, which shows that partial substitution of H2 by CO induces 
+stronger thermo-diffusive effects compared to H2/air flames.
+• Effect of turbulence intensity. Higher turbulence intensity pro­
+motes larger SL by enhancing reactant mixing and accelerating heat 
+release. Daniele et al. [133] noted linear and bending behavior in 
+ST/SL versus u’/ST for syngas. The onset of bending is related to the 
+ratio of the turbulent eddy turnover time to the flame response time. 
+Sun and Xu [183] confirmed that turbulence promotes flame prop­
+agation, while Venkateswaran et al. [179] conducted a comparative 
+analysis by normalizing ST with unstretched laminar burning ve­
+locity (SL,0) and its maximum value (SL,max), as shown in Fig. 20. 
+ST/SL,max demonstrates consistent results across various conditions, 
+emphasizing its strong alignment with identical inferences.
+Fig. 15. Sketches of GTMC swirlers of (a) TECFLAM burner [167], (b) TUR­
+BOMECA burner [143–145] and (c) DLR dual-swirl burner [148,149].
+x/D
+y/D
+x/D
+y/D
+CH4/air, ϕ=0.7, P=1 atm, T=297 K
+Syngas/air, ϕ =0.45, P=1 atm, T=297 K
+Fig. 16. Instantaneous PIV/OH-PLIF snapshots of methane and syngas (1:1 H2/CO) premixed flames for the high-swirl nozzle. (Reproduced with permission from 
+Springer [135].).
+Fig. 17. Evaluation of flame front curvature from OH-PLIF data for non-premixed syngas/air swirl flames. (Reproduced with permission from Springer [173].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+10 
+
+
+--- Page 11 ---
+
+3.2.2. Turbulent flame structure
+Understanding turbulent flame structure is crucial for accurate 
+combustion modeling and combustor design. Syngas, with different 
+features concerning LBV, mass diffusivity and Le compared to methane, 
+exhibits distinct TCI [190]. Advances in laser diagnostic techniques, 
+particularly PLIF, have significantly contributed to exploring these in­
+teractions [136,137,190–192].
+Non-premixed flames. Boyette et al. [191] investigated the effects of 
+pressure and Re on the structure of turbulent non-premixed syngas 
+flames. It was observed that the OH layer thickness decreases mono­
+tonically with pressure, as local extinction is suppressed at increased 
+pressures. However, flame front corrugations are highly sensitive to Re 
+but relatively insensitive to pressure.
+Premixed flames. Wang et al. [190] investigated Bunsen-type tur­
+bulent premixed syngas (45.5 %CO/24.5 %H2/30 %CO2) using OH-PLIF 
+at 0.5 MPa, as shown in Fig. 21. Based on the accumulated distribution 
+function (ADF) of curvature radius shown in Fig. 22, syngas flames 
+feature smaller fine flame cusps and more pronounced wrinkling due to 
+intrinsic instabilities compared to methane flames. The wrinkling scale 
+is influenced by turbulence, while the smallest wrinkles are governed by 
+flame instability. Further studies by Wang et al. [192] and Zhang et al. 
+[136] highlight that syngas flames exhibit higher flame surface density 
+than methane flames, largely independent of pressure and H2/CO ratio 
+when H2 content exceeds 50 %. These finer flame structures arise from 
+increased flame instability at high H2 content.
+3.2.3. Turbulent flame modeling
+Recent advancements in syngas combustion modeling have 
+improved predictions of flame behavior and pollutant formation in both 
+non-premixed and premixed syngas/air flames. PDE is a crucial factor in 
+hydrogen-rich flames and emphasizes the need for advanced models to 
+capture species-specific diffusion behaviors.
+Modeling of non-premixed flames. Cuoci et al. [193] evaluated 
+EDM, EDC and SLF models for turbulent non-premixed coaxial jet 
+flames. The EDC model was found to show the best prediction, with CFD 
+post-processing accurately predicting the pollutant formation. Safer 
+et al. [194] used the SLF model and Eulerian Particle Flamelet model to 
+study NO emissions in non-premixed counter-flow syngas flames, 
+finding that H2 enrichment reduces thermal NO formation, while higher 
+pressure promotes it via the Zel’dovich mechanism. Fukumoto et al. 
+[195] employ an extended EDC model within an LES framework to 
+simulate a syngas jet flame, explicitly incorporating preferential diffu­
+sion and finite-rate chemistry to better capture TCI. The results show 
+that non-unity Le effects, particularly the high diffusivity of H2, signif­
+icantly influence flame structure and species distribution.
+Modeling of premixed flames. Bhide and Sreedhara [196] performed 
+Fig. 18. Evaluated turbulent flame speed from PIV data of low-swirl methane, 
+hydrogen and syngas flames. (Reproduced with permission from ASME [187].).
+Fig. 19. Pressure effect on correlations of ST/SL versus u’/ST for syngas (50 % 
+H2/50 %CO). The dashed-dotted lines refer to constant SL values. (Reproduced 
+with permission from Elsevier [133].).
+Fig. 20. ST as a function of u’rms at various mean flow velocities, H2/CO ratios 
+and pressures normalized by (a) SL,0 and (b) SL,max. (Reproduced with permis­
+sion from Elsevier [179].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+11 
+
+
+--- Page 12 ---
+
+a DNS of a radially expanding flame kernel, showing that the high mass 
+diffusivity of H2 enhances HRR and flame speed. Turbulence further 
+increases HRR, with the peak HRR shifting towards lower temperature 
+due to H diffusion. H is produced at high temperatures and diffuses to 
+lower-temperature zones, enhancing HRR via reaction H + O2 + M ↔  
+HO2 + M. Verma et al. [197] combined the Turbulent Flame Closure 
+model with the leading-point concept in RANS simulations, accurately 
+capturing diffusional-thermal effects in lean and highly turbulent syngas 
+flames.
+Modeling of preferential diffusion effects. PDE in hydrogen-rich fuel 
+combustion critically influences flame dynamics and stability. These 
+effects, driven by disparities in molecular diffusion rates, alter local 
+mixture states and flame structures, particularly in fuels like syngas. In 
+hydrogen-dominated autoignition, PDE induces temporal scale shifts, 
+which conventional flamelet models fail to capture [198]. In 
+non-premixed flames, PDE leads to leaner equivalence ratio distribu­
+tions in reaction zones, causing temperature deviations from standard 
+predictions [199]. The magnitude of PDE is characterized by Le, a key 
+parameter in species-specific diffusion behavior [200]. To address the 
+limitations of traditional models assuming uniform Le [201], advanced 
+approaches have emerged. The Igniting Mixing Layer flamelet model 
+improves hydrogen autoignition predictions by refining transport 
+equations and mixture stratification [198]. As compared in Fig. 23, the 
+FGM model with consideration of PDE (FGM-PD), incorporating 
+non-uniform Le, reduces laminar flame speed errors to 0.6 % and re­
+produces experimentally observed OH mass fraction distributions [202]. 
+Future work should extend PDE-integrated models to multifuel sce­
+narios, bridging fundamental combustion research and clean energy 
+applications [202,203].
+Analysis of turbulence-chemistry interactions. Wehrmann et al. 
+[189] analyzed TCI by comparing turbulent flame speeds of pure 
+hydrogen and syngas flames. The turbulent flame speed, normalized by 
+the respective laminar value, evolves differently under varying condi­
+tions. At constant flow fields and H2 content, syngas flames exhibit 
+stronger flame-flow interaction but a smaller increase in TBV, indicating 
+weaker thermo-diffusive effects. At a constant equivalence ratio, TBV 
+decreases with increasing CO content. Under identical flow fields, the 
+interaction is similar for both fuels, yet syngas shows a much lower TBV 
+than pure hydrogen, while CO substitution slightly increases it.
+4. Combustion techniques for applications
+This section presents the advancements and challenges in syngas 
+combustion across practical applications, including GTs, furnaces and 
+reciprocating engines. Key issues include pollutant formation, flame 
+stabilization and operational efficiency.
+4.1. Gas turbine
+GTs, widely applied in industrial power generation, are facing 
+pressure to reduce CO2 emissions. Syngas, a viable alternative to con­
+ventional fossil fuels, offers CO2 reduction potential but introduces 
+complexities due to its composition, particularly the H2 involved. The 
+high reactivity, rapid burning velocity and low ignition delay of H2 
+significantly influence GT performance, raising concerns such as flash­
+back [204] and thermoacoustic instabilities [169]. Research has focused 
+on addressing these challenges and optimizing GT operation for syngas 
+combustion.
+Fig. 21. OH-PLIF images of the turbulent premixed flames under various turbulence conditions. (Reproduced with permission from Elsevier [190].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+12 
+
+
+--- Page 13 ---
+
+4.1.1. Heavy-duty gas turbine
+The use of syngas as an alternative fuel in heavy-duty GTs faces 
+challenges due to the sensitivity of its fundamental combustion char­
+acteristics to its composition. Besides, turbulent combustion is crucial to 
+fuel/air mixing and enhances heat release, but the mechanical 
+complexity of flow and chemistry poses challenges for numerical 
+simulation and combustor optimization. This highlights the challenge of 
+designing efficient and low-emission GT combustors.
+Specialized software packages, such as GateCycle software, have 
+been used to model heavy-duty GT performance under various syngas 
+compositions [205,206]. Kim et al. [207] demonstrated that increasing 
+turbine mass flow improves the power output and efficiency of an F-class 
+commercial GT fueled by syngas, but blade overheating and compressor 
+surge risks arise. He et al. [208] found that compressor air bleeding 
+significantly enhances operation with low-calorific syngas.
+Analytical models proposed by Chacartegui et al. [209,210] are used 
+to study the combustion dynamics under off-design conditions for a 
+syngas-fueled heavy-duty GT combustor, emphasizing the need for 
+burner optimization to maintain stable, efficient and low-emission op­
+erations. Risks of flame flashback and auto-ignition upstream of the 
+premixing zone remain critical challenges to reliability and efficiency 
+[211,212].
+4.1.2. Micro gas turbine
+Studies have highlighted the feasibility of using syngas in μGTs, with 
+promising stability enhancement and emission reduction. Delattin et al. 
+[213] tested a pressurized, slightly modified μGT combustor by 
+gradually switching the fuel feed from 100 % natural gas to 100 % 
+low-calorific syngas. Key performance parameters, including tempera­
+ture profiles, pressure, emissions and flame imaging, were monitored 
+and showed no issues regarding auto-ignition or dynamic/static com­
+bustion instability. During the process, the flame anchoring position 
+remained stable, and the NOx emission was reduced to 5 ppm due to the 
+reduced temperature. Corrˆea et al. [214] studied the effect of syngas as a 
+supplement to natural gas in a μGT system (Fig. 24) fueled by syngas 
+derived from rice hull gasification, rich in CO2 and N2. When switching 
+to a 50 % natural gas/50 % syngas blend, the system efficiency drops by 
+about 13 %. However, turbine outlet temperatures remain steady across 
+varying fuel compositions. Unlike the results from Delattin et al. [213], 
+their findings presented increased NOx emission at low power outputs 
+and higher CO emission at all conditions, emphasizing the impact of 
+syngas on emission performance. Ashini et al. [215] experimentally and 
+numerically compared the performance of natural gas, biogas, and 
+syngas/biogas mixtures. Compared to biogas and natural gas, bio­
+gas/syngas mixtures produced lower CO emissions but higher NO 
+emissions than biogas (shown in Fig. 25). These studies demonstrate that 
+while syngas can reduce overall emissions and maintain combustion 
+stability, its integration in μGT systems requires addressing efficiency 
+trade-offs and emission variances depending on power output and fuel 
+composition.
+4.2. Internal combustion engine
+ICEs are common power sources for land and water vehicles, such as 
+Fig. 22. The ADF of curvature radius for (a) u’/SL ≅0.55, (b) u’/SL ≅4.9, (c) CO/H2/CO2/air flames and (d) CH4/air flames. (Reproduced with permission from 
+Elsevier [190].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+13 
+
+
+--- Page 14 ---
+
+cars, motorcycles, and boats. Traditionally powered by hydrocarbon 
+fuels like gasoline and diesel, ICEs are increasingly scrutinized for their 
+environmental impact due to CO2 emissions. Consequently, numerous 
+studies have explored alternative low-carbon fuels, including syngas, 
+which offer advantages in reducing exhaust emissions. The contami­
+nants in syngas can be removed before combustion, limiting the primary 
+pollutants in syngas-fueled ICEs to NOx and CO [216]. Research into 
+syngas in ICEs generally focuses on three categories, namely SI engines, 
+dual-fuel CI engines and HCCI engines.
+4.2.1. SI engine
+SI engines ignite the fuel/air mixture using a spark plug. Recent 
+studies have focused on improving fuel efficiency and reducing emis­
+sions by employing combustion regulation strategies, including stoi­
+chiometric operation with downsizing, boosting, exhaust gas 
+recirculation, and advanced direct injection methods for lean or ultra- 
+lean operation [188].
+Syngas Enrichment and Combustion Efficiency. Dai et al. [217] 
+demonstrated that syngas addition under lean conditions enhances peak 
+cylinder pressure and thermal efficiency (Fig. 26), as syngas burns more 
+completely than gasoline. The short quench distance of H2 enables the 
+flame to propagate much closer to the cylinder wall and crevices, further 
+improving engine thermal efficiency. However, syngas addition slightly 
+increases CO and NOx emissions and causes HC emissions to fluctuate 
+based on the excess air ratio.
+Effects of H2 content. Shivapuji and Dasappa [218] investigated the 
+impact of H2 fraction in syngas on engine energy balance and combus­
+tion dynamics. Increased H2 fraction improves flame kernel develop­
+ment and reduces the fast bure phase, but raises the engine cooling load 
+and brake thermal efficiency only up to a certain level of H2 fraction.
+Fig. 23. Comparisons of simulated instantaneous results between the conventional FGM (left) and the FGM-PD (right) models. (Reproduced with permission by 
+Elsevier [202].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+14 
+
+
+--- Page 15 ---
+
+Effects of Inert gas. Martinez-Boggio et al. [219] examined real 
+syngas blends (CO/H2 with 50 % inert gas) in an optical SI engine and 
+found them comparable to methane under lean conditions. Real syngas 
+improves the combustion efficiency and flame propagation speed while 
+reducing flame distortion.
+Power output limitations. Despite improvements in thermal effi­
+ciency, pure syngas combustion in SI engines reduces the power output 
+[188]. Mustafi et al. [220] found that a syngas-fueled Ricardo E6 
+single-cylinder SI engine produces 20 %–30 % less power than natural 
+gas or gasoline engines under fixed conditions, with a significant 
+Fig. 24. Schematic diagram of a μGT test system. (Reproduced with permission from Elsevier [214].).
+Fig. 25. Simulated and experimental results of syngas and biogas burned in a μGT combustor: (a) Test conditions and fuel compositions, (b) simulated temperature 
+distribution, and (c) tested performance of emissions for different fuel mixtures. (Reproduced with permission from Elsevier [215].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+15 
+
+
+--- Page 16 ---
+
+increase in brake-specific fuel consumption.
+4.2.2. Dual-fuel CI engine
+CI engines, commonly referred to as diesel engines, operate by 
+compressing air to a high pressure and temperature, which ignites the 
+fuel upon injection. CI engine is widely used in heavy-duty vehicles, 
+ships and industrial machinery due to its high thermal efficiency and 
+fuel economy. However, traditional CI engines’ reliance on diesel leads 
+to high NOx emissions. A promising mitigation strategy involves using 
+syngas as supplementary fuel in CI engines, forming dual-fuel CI systems 
+[216]. Many studies have explored the performance and emissions of 
+diesel/syngas dual-fuel combustion.
+Azimov et al. [221] investigated a pilot-ignited, supercharged, 
+dual-fuel CI engine fueled by different types of syngas. This engine 
+employed a PREMIER combustion mode (Fig. 27), a hybrid of SI and CI 
+combustion that combines spark-assisted and spark-induced compres­
+sion ignition. Increased H2 content in syngas leads to shorter combustion 
+durations, elevated combustion temperatures and efficiency, and 
+reduced CO and HC emissions, but increased NOx emissions. Ali et al. 
+[222] explored very lean combustion in a syngas/diesel dual-fuel engine 
+using numerical simulations. Diesel combustion predominantly occurs 
+in premixed combustion mode. For syngas with high H2 content, com­
+bustion is located in the piston bowl and squish region near the top dead 
+center. For syngas with low H2 content, delayed flame propagation to­
+wards the central region of the piston leads to unburned syngas emis­
+sions, highlighting the influence of H2 content on combustion dynamics.
+RCCI represents an advanced dual-fuel CI strategy for better com­
+bustion control. In RCCI mode, the pilot fuel is injected early during the 
+compression stroke [216]. Olanrewaju et al. [223] analyzed HRR and 
+combustion phasing for a syngas/diesel RCCI engine. Higher syngas 
+fraction increases ignition delays, delaying critical parameters such as 
+the start of combustion, 50 % mass fraction burned, peak pressure and 
+peak release rate. Overall, dual-fuel operation with syngas leads to 
+reduced peak pressure and peak temperature compared to baseline 
+diesel fuel.
+4.2.3. HCCI engine
+HCCI engines achieve combustion by compressing a uniform air-fuel 
+mixture until auto-ignition occurs. By operating at lower temperatures, 
+reduced NOx formation and enhanced combustion efficiency can be 
+achieved [224]. However, challenges such as limited operating ranges, 
+combustion control and high emissions of unburned products [225].
+Bika et al. [226] tested multiple compositions of syngas in an HCCI 
+engine under various intake temperatures. Increased CO fraction results 
+in higher auto-ignition temperatures, requiring increased intake tem­
+perature to maintain optimal conditions. Combustion efficiency, ranging 
+between 83 % and 88 %, remains much lower than conventional CI and 
+SI engines. This may be attributed to the inherently low combustion 
+temperature of the HCCI engine, leading to more unburned fuel/air 
+mixtures. Przybyla et al. [227] compared HCCI and SI engines fueled 
+with identical syngas. The HCCI engine exhibits higher peak cylinder 
+pressures but lower peak temperatures (Fig. 28), resulting in high CO 
+emissions and lower indicated efficiency compared to the SI engine.
+Efforts to improve HCCI operation have also extended into numerical 
+simulations. Starik et al. [228] studied the effects of singlet delta oxygen 
+and ozone on HCCI combustion of syngas, revealing that 1 % singlet 
+delta oxygen or 0.38 % ozone addition enhances ignition intensity and 
+combustion efficiency by up to 14 % while reducing CO and NO emis­
+sions by 15 %. Yamasaki and Kaneko [229] experimentally and 
+numerically 
+studied 
+the 
+combustion 
+characteristics 
+in 
+mock 
+syngas-fueled HCCI engines, using Chemkin-Pro for reaction analysis. 
+Results indicate that syngas auto-ignition temperatures (~1100 K) 
+depended on cylinder temperature rather than fuel composition. H2 
+content decreases faster than CO during ignition but requires more time 
+for full oxidation. Combustion characteristics, including timing and 
+duration, are proportional to the volumetric H2/CO ratios.
+4.3. Industrial furnace and boiler
+Industrial furnace, also known as direct heaters, plays a critical role 
+in industrial processes like metal smelting, glass production and ce­
+ramics firing. These systems increasingly incorporate advanced controls 
+and heat exchangers to enhance energy efficiency and reduce emissions. 
+The substitution of fossil fuels with syngas has emerged as a feasible way 
+to reduce the carbon footprint of furnaces [230]. Cofiring syngas with 
+natural gas has demonstrated significant potential for reducing emis­
+sions and improving thermal efficiency [231].
+4.3.1. Pure syngas combustion and cofiring
+Habib et al. [232] studied methane cofiring with syngas in a 200 MW 
+two-burner package boiler. The study found that increasing the H2 
+content of syngas raises the boiler outlet temperature. However, the 
+optimal emissions performance was observed at a CO/H2 ratio of 50:50, 
+where thermal NO emissions are minimized and prompt NO levels are 
+moderate. An increase in excess air from 5 % to 25 % effectively reduces 
+CO and NOx emissions by 30 %, making the CO/H2 ratio of 50:50 ideal 
+for emission control and equipment longevity.
+Cofiring is a practical approach to blending renewable and tradi­
+tional 
+fossil 
+fuels, 
+reducing 
+CO2emissions 
+and 
+improving 
+Fig. 26. Indicated thermal efficiency as a function of excess air ratio at 
+different syngas fractions. (Reproduced with permission from Elsevier [217].).
+Fig. 27. PREMIER combustion concept. (Reproduced with permission from 
+Elsevier [221].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+16 
+
+
+--- Page 17 ---
+
+thermodynamic performance. Indirect syngas co-firing, where syngas 
+from the gasification process is applied as a low-grade fuel, is widely 
+applied in furnaces [233]. Yang et al. [233] investigated cofiring char­
+acteristics in a commercial oil-fired boiler and a pilot-scale vertical 
+combustion chamber with refractory, as shown in Fig. 29. When syngas 
+replaces less than 20 % of the heat input, the syngas burns out 
+completely without compromising stability if the injection locations are 
+properly selected. However, cofiring syngas leads to decreased thermal 
+efficiencies, especially for syngas with a lower heating value. The 
+reburning effects of syngas co-firing, including air-staged combustion, 
+significantly reduced NOx emissions by 30 %–50 %, confirming the 
+importance of high temperatures for radical production in reducing NOx 
+emissions.
+4.3.2. Flameless combustion
+Syngas combustion, particularly H2-rich blends, poses challenges 
+like flashback and early autoignition due to the high reactivity of H2 
+[234,235]. Flameless combustion offers a solution by using high exhaust 
+gas and heat recirculation to suppress thermal NOx emissions and 
+recover energy from high-temperature exhausts in furnaces [236]. Yepes 
+et al. [234] studied the mixture of 30 % syngas and 70 % natural gas 
+(SG-NG) in a semi-industrial regenerative furnace originally designed 
+for pure natural gas. CFD modeling showed that syngas addition reduces 
+furnace temperature due to increased recirculation and CO2 in flue 
+gases. NOx emissions decreased by almost 50 %, attributed to reduced 
+contributions from thermal, N2O and NNH formation pathways. The 
+syngas addition also increases reactivity and shifts the reaction zone 
+upstream. Kim et al. [237] examined CH4/H2/CO mixtures for flameless 
+combustion under oxygen-enriched conditions, analyzing emissions and 
+temperature profiles in a furnace. Stable flameless combustion was 
+achieved when H2 or CO was added to CH4. While NO emissions increase 
+with H2 addition, the dominant formation pathways shift, with the N2O 
+intermediate route playing a central role under N2 dilution and H2 
+enrichment.
+4.4. Combined heat and power systems
+4.4.1. IGCC powerplant
+IGCC technology integrates coal or biomass gasification with 
+combined-cycle power generation, offering a clean and efficient 
+pathway for converting fossil fuels and biomass into electricity. How­
+ever, applying commercial GTs in IGCC powerplants often deviates from 
+their original design due to the distinct lower volumetric heat value of 
+syngas. This requires a higher mass flow into the combustor, compli­
+cating turbine operation and reducing performance potential under 
+certain conditions [207]. Moreover, syngas composition impacts IGCC 
+system design and operational parameters, prompting numerous studies 
+on these challenges.
+Fig. 28. In-cylinder pressure (blue curve) and temperature (red curve) as a function of crank angle, comparison between (a) SI and (b) HCCI engines. (Reproduced 
+with permission from Elsevier [227].). (For interpretation of the references to colour in this figure legend, the reader is referred to the Web version of this article.)
+Fig. 29. Schematic of test facilities including (a) commercial water-tube boiler and (b) vertical furnace with refractory. (Reproduced with permission from 
+ACS [233].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+17 
+
+
+--- Page 18 ---
+
+Numerical studies. Kim et al. [207] conducted simulations on GT 
+performance in IGCC systems using syngas with varying heating values. 
+It was observed that a lower heating value increases turbine mass flow, 
+enhancing power output and efficiency. However, these conditions in­
+crease the risks of compressor surge and blade overheating, requiring 
+adjustments like reducing combustion temperatures and introducing 
+nitrogen flow. Follow-up studies from Kim et al. [238] highlighted that 
+optimizing the system integration degree improves performance but 
+raises metal temperatures and reduces surge margins. He et al. [208] 
+modeled the performance of a part-load syngas-fueled GT, revealing that 
+air bleeding from the compressor can alleviate blade cooling challenges 
+and surge margin issues, particularly for low calorific syngas.
+Experimental studies. Experiments on GT model combustors and 
+full-scale GTs validate syngas application in IGCC. Lee et al. [30] 
+compared syngas combustion characteristics from the Taean IGCC plant 
+(Korea) and the Buggenum IGCC plant (Netherlands) using scale-down 
+combustors of GE7EA. Differences in syngas composition influenced 
+flame stability and emissions, with the Taean syngas (lower H2/CO 
+ratio) producing higher NOx but lower CO emissions than the Buggenum 
+syngas. Samiran et al. [204] found that moderate CO-enriched syngas 
+(CO/H2 = 1.2) offers superior flame stability and lower NOx emissions 
+compared to CO-enriched syngas (CO/H2 = 3). Park and Lee [239] 
+investigated combustion instabilities of H2/CO/CH4 flames in a 
+scale-downed industrial GT combustor that features a partially premixed 
+swirl combustion mode. Their findings revealed that H2 contents are a 
+key driver of high-order instability modes, as the rapid combustion of H2 
+affects the chemical time and flame temperature compared to CO and 
+CH4. For full-scale GT validation, Park et al. [240] conducted compre­
+hensive combustion tests in a syngas test facility, as shown in Fig. 30. 
+These tests evaluated ignition, load transitions and fuel changeovers, 
+demonstrating reliable performance across various syngas compositions 
+and calorific values. Nearly 100 % combustion efficiency was achieved 
+under different fuel/air ratios, though CO emissions slightly increase at 
+higher loads due to thermal dissociation of CO2. These studies demon­
+strate the adaptability and potential of syngas for stable, efficient 
+operation in IGCC powerplant systems.
+4.4.2. SOFC-based CHP systems
+As summarized by Radenahmad et al. [35], integrating biomass 
+gasification with SOFCs provides a promising route toward sustainable 
+CHP systems. Studies have shown that biomass-derived syngas can 
+enable SOFC-based CHP systems with high exergy and energy effi­
+ciencies [241–243]. SOFCs demonstrate good fuel flexibility, accom­
+modating syngas from invasive biomass sources and thus offering both 
+renewable energy and ecological benefits. While natural gas-based 
+micro-CHP systems have already been commercialized in Europe and 
+Japan [244], biomass-fed SOFC systems remain largely at pilot 
+demonstration stages [245]. Besides, the practical deployment is con­
+strained by challenges in system integration and durability.
+The key technical barriers are SOFC material robustness and the 
+compatibility between gasifier output and fuel cell operation. Although 
+conventional Ni/YSZ anodes offer high catalytic activity, they are 
+vulnerable to sulfur poisoning and carbon deposition [246]. Alternatives 
+such as sulfur-tolerant Ni/GDC [247] and Ni-free perovskites like 
+LaSrCrRuO3 [248] show potential but require scalable manufacturing 
+processes. Gas cleaning also remains a critical issue, i.e., cold gas 
+cleaning reduces overall efficiency [249], while hot cleaning demands 
+advanced high-temperature filtration technologies [250]. Additionally, 
+the variability of biomass feedstock in terms of moisture, ash, and sulfur 
+content further increases system complexity [251]. Hybrid systems 
+coupling SOFCs with GTs can increase electrical efficiency from about 
+60 % to 80 % [245], though precise thermal management is needed. 
+Intermediate-temperature SOFCs (400–700 ◦C) offer improved opera­
+tional flexibility but introduce new material challenges related to 
+durability and performance at lower temperatures [252].
+The market potential of biomass-SOFC CHP systems depends on 
+advances in TRLs of each part [253], as demonstrated in Fig. 31. Their 
+high efficiency and carbon-neutral operation position them for rural and 
+off-grid applications [254]. Micro-CHP units (<50 kWe) could disrupt 
+conventional grids, though commercialization is hindered by high cap­
+ital and material costs [255]. Utilizing invasive biomass aligns with 
+circular economy principles, while advances in modular gasification and 
+SOFC manufacturing [254,256] are essential for broader adoption.
+4.4.3. LCA and TEA analysis of CHP systems
+TEA and LCA are important tools for evaluating the sustainability 
+and commercial feasibility of syngas-based CHP systems. Analysis shows 
+that integrating gasification processes such as fluidized bed boilers in 
+existing CHP plants can improve efficiency and capacity but often leads 
+to higher operating costs compared with natural gas, making the Lev­
+elized Cost of Electricity less competitive without strategic optimization 
+[257,258]. LCA studies emphasize that feedstock choice and energy 
+Fig. 30. Schematic facility for demonstrating the IGCC combustor. (Reproduced with permission from Elsevier [240].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+18 
+
+
+--- Page 19 ---
+
+source (e.g., renewable electricity for electrolysis) dominate GHG im­
+pacts [259], while syngas fermentation and other biological routes offer 
+promising but scale-sensitive pathways [260,261].
+Life cycle assessment. Despite the potential of IGCC power plants for 
+GHG reduction, few studies have addressed their life cycle impacts. Zang 
+et al. [262] assessed eight BIGCC power systems (Fig. 32) utilizing 
+biomass-derived syngas. BIGCC systems without CCS can reduce GWP 
+by around 43 % compared to the EU27 mixed electricity grid. In 
+contrast, BIGCC systems incorporating CCS achieve negative GWP, with 
+reductions up to 1077 kg CO2-eq/MWh. Moreover, external syngas 
+combustion exhibits lower environmental impacts than internal com­
+bustion, and oxygen gasification combined with Selexol capture is 
+cleaner than air gasification with mono-ethoanol amine. Sensitivity 
+analysis highlights plant construction and energy efficiency as critical 
+determinants of life-cycle emissions.
+Technical-Economic Analysis. Biomass gasification CHP is a key 
+pathway for sustainable energy production, with economic viability 
+heavily dependent on feedstock type, plant scale, and operational pa­
+rameters (referenced in Table 3, which catalogs European gasification 
+projects by feedstock and technology). Colantoni et al. [258] assessed 
+three biomass CHP systems (100 kWth–10 MWth) using bubbling fluid­
+ized bed reactors and Italian feedstocks. Their TEA, based on net present 
+value, internal rate of return, pay back period, and Monte Carlo risk 
+analysis, showed that larger-scale plants (e.g., 10 MWth) perform best 
+economically due to economies of scale. However, feasibility remains 
+sensitive to feedstock logistics and policy incentives such as carbon 
+pricing. Overall, integrated TEA-LCA approaches are essential to achieve 
+both cost competitiveness through syngas valorization and meaningful 
+emission reductions of up to ~50 % compared with fossil fuels.
+5. Concluding remarks and prospects
+Syngas, derived from coal and biomass gasification, presents a ver­
+satile and sustainable energy carrier with significant potential to reduce 
+environmental impact while enabling efficient power generation and 
+hydrogen and liquid fuel production. This review systematically exam­
+ines syngas combustion from fundamental mechanisms to practical ap­
+plications, highlighting its role in transitioning toward carbon-neutral 
+energy systems. The key findings and challenges are summarized below. 
+Fig. 31. Illustrated TRLs of the power generation process with integration of biomass gasification and SOFC-based CHP system. (Reproduced with permission from 
+Elsevier [253].).
+Fig. 32. Illustrated flow charts of eight power-generation systems based on BIGCC analyzed by Zang et al. [262]. (Reproduced with permission from Elsevier [262].).
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+19 
+
+
+--- Page 20 ---
+
+(1) Fundamental combustion characteristics. Syngas combustion is 
+strongly influenced by the H2/CO ratio, diluents and operating 
+conditions. IDTs and LBVs depend sensitively on temperature, 
+pressure and fuel composition. Kinetic models, such as those by 
+K´eromn`es et al. [49] and Frassoldati et al. [123], can effectively 
+predict major trends but require refinement for fuel-rich condi­
+tions and complex blends (e.g., syngas/CH4/NH3). Future 
+modeling must integrate multi-component fuel dynamics and 
+high-pressure kinetics to improve predictive accuracy under 
+practical conditions.
+(2) Turbulent flame behavior and diagnostics. Laser-based diagnostics, 
+such as OH-PLIF and PIV, coupled with CFD simulations, have 
+provided valuable insights into turbulent flame structures and 
+TCI. Swirl-stabilized and Bunsen-type flames reveal that H2 
+diffusivity enhances TBVs but increases susceptibility to flash­
+back and thermoacoustic instabilities. Discrepancies in temper­
+ature predictions highlight the need for improved subgrid 
+models. Continued development of diagnostic and simulation 
+tools is crucial for optimizing combustor designs, particularly for 
+syngas blends with low calorific value or high inert content.
+(3) Applications in energy systems. In GTs, syngas facilitates low- 
+emission operations through premixed and diffusion combus­
+tion techniques, though flame instability and NOx formation 
+remain challenges. In IC engines, dual-fuel and HCCI strategies 
+improve efficiency and reduce carbon emissions but face con­
+straints in ignition control and operational flexibility. Industrial 
+furnaces and boilers benefit significantly from syngas through 
+improved thermal efficiency and reduced NOx emissions, espe­
+cially in technologies like cofiring and flameless combustion. 
+Hybrid systems, including IGCC and SOFC-based CHP, particu­
+larly when integrated with biomass gasification, show promising 
+potential for efficiency promotion and CO2 reduction.
+Looking forward, the contribution of syngas to global decarbon­
+ization will depend on advances in renewable-powered gasification, 
+hybrid energy integration and intelligent combustion control. Future 
+directions and opportunities include. 
+(1) Renewable syngas and fuel flexibility. Biomass- and waste-derived 
+syngas can close the carbon cycle, while cofiring with e-fuels 
+like ammonia or hydrogen can enhance energy density and flame 
+stability. However, such blends may risk high NOx emissions 
+through combined thermal- and fuel-NOx pathways [143,264], 
+as well as thermoacoustic instabilities due to fuel reactivity var­
+iations [145]. Future studies should focus on simultaneous con­
+trol of combustion stability and pollutants, particularly by 
+understanding how fuel reactivity shapes turbulent flame 
+dynamics.
+(2) AI-enabled combustion intelligence. Emerging approaches such as 
+AI-driven kinetic modeling [265], spatio-temporal data recon­
+struction [266] and advanced diagnostics will benefit syngas 
+research. By integrating AI with multi-scale simulations and 
+real-time sensing, adaptive combustion systems can be developed 
+to optimize real-time performance and accelerate the develop­
+ment of cleaner and more efficient energy conversion 
+technologies.
+(3) System-level analysis and perspectives. Integrated LCA and TEA are 
+important to guide the future deployment of syngas technologies. 
+These tools can identify the most sustainable feedstocks, quantify 
+climate benefits and support investment under evolving carbon 
+policies. Systematic evaluations will ensure that syngas-based 
+hybrid systems achieve both economic competitiveness and 
+deep decarbonization benefits.
+Overall, collaborative efforts between academia and industry are 
+essential to standardize the syngas production process, validate kinetic 
+models under extreme conditions and deploy pilot-scale systems for 
+carbon capture and utilization. By addressing these priorities, syngas 
+can solidify its role as a cornerstone of sustainable energy infrastructure.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgment
+This work was supported by the National Natural Science Foundation 
+of China (W2412083, 52206164, 52322005) and the Russian Science 
+Foundation (No. 22-19-00803). Dr. Xiaoxiang Shi also acknowledges the 
+financial support from the China Postdoctoral Science Foundation 
+(2025T180165, 2024M761968) and the Postdoctoral Fellowship Pro­
+gram of CPSF (GZC20250415).
+Data availability
+Data will be made available on request.
+References
+[1] International Energy Agency. 8. Renewables 2023: analysis and forecast to 2028. 
+2024.
+[2] McKinsey & Company. Charting the global energy landscape to 2050: emissions. 
+2022.
+[3] Ren S, Feng X, Wang Y. Emergy evaluation of the integrated gasification 
+combined cycle power generation systems with a carbon capture system. Renew 
+Sustain Energy Rev 2021;147:111208. https://doi.org/10.1016/j. 
+rser.2021.111208.
+[4] Sertolli A, Gabnai Z, Lengyel P, Bai A. Biomass potential and utilization in 
+worldwide research trends—A bibliometric analysis. Sustainability 2022;14: 
+5515. https://doi.org/10.3390/su14095515.
+Table 3 
+Non-exhaustive list of advanced biofuels and major CHP gasification projects 
+(adopted from Ref. [263]).
+Country
+Feedstock
+Product
+Technology 
+Provider
+Germany
+Wood Wastes
+Small-scale 
+CHP
+Burkhardt
+Germany
+Wood Wastes
+Small-scale 
+CHP
+Spanner RE2
+Austria
+Wood Chips
+Small-scale 
+CHP
+Syncraft
+Austria
+Wood Chips
+Small-scale 
+CHP
+Urbas
+Austria
+Wood Chips
+Small-scale 
+CHP
+Glock 
+Oekoenergie
+Austria
+Wood Chips, 
+pellets
+Small-scale 
+CHP
+Hargassner
+Austria
+Wood Chips, 
+pellets
+Small-scale 
+CHP
+Froeling
+UK
+Autoshredder 
+residues
+CHP
+Chinook
+UK
+Wood Wastes
+CHP
+Refgas System
+Finland
+Forest Residues
+Indirect co- 
+firing
+SHIFW
+Finland, China
+Forest Residues
+Fuel gas
+Andritz
+Finland, China, 
+Indonesia
+Forest Residues
+Fuel gas
+Valmet
+Belgium
+Forest Residues
+CHP
+Xylowatt
+All continents, mainly 
+Asia and Africa
+Forest and wood 
+wastes
+Small-scale 
+CHP, power
+Various
+USA, Canada, UK
+Forest and wood 
+wastes
+CHP, power, 
+fuel gas
+Outotec
+USA, Canada, UK
+Forest and wood 
+wastes
+CHP, power, 
+fuel gas
+Nexterra
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+20 
+
+
+--- Page 21 ---
+
+[5] Popp J, Harangi-R´akos M, Pet˝o K, Nagy A. Bioenergy: risks to food-, energy- and 
+environmental security. Applied Studies in Agribusiness and Commerce 2013;7: 
+121–30. https://doi.org/10.19041/apstract/2013/4-5/17.
+[6] Molino A, Chianese S, Musmarra D. Biomass gasification technology: the state of 
+the art overview. J Energy Chem 2016;25:10–25. https://doi.org/10.1016/j. 
+jechem.2015.11.005.
+[7] Ge Z, Guo L, Jin H. Hydrogen production by non-catalytic partial oxidation of 
+coal in supercritical water: the study on reaction kinetics. Int J Hydrogen Energy 
+2017;42:9660–6. https://doi.org/10.1016/j.ijhydene.2017.02.018.
+[8] Faraji M, Saidi M. Hydrogen-rich syngas production via integrated configuration 
+of pyrolysis and air gasification processes of various algal biomass: Process 
+simulation and evaluation using Aspen Plus software. Int J Hydrogen Energy 
+2021;46:18844–56. https://doi.org/10.1016/j.ijhydene.2021.03.047.
+[9] Matamba T, Iglauer S, Keshavarz A. A progress insight of the formation of 
+hydrogen rich syngas from coal gasification. J Energy Inst 2022;105:81–102. 
+https://doi.org/10.1016/j.joei.2022.08.001.
+[10] Li W, Wang C, Yu Z, Song Y. Catalytic coal gasification: mechanism, kinetics, and 
+reactor model. International Journal of Coal Science & Technology 2024;11. 
+https://doi.org/10.1007/s40789-024-00712-x.
+[11] Bai R, Liu L, Li N, Liu Q, Meng Y, Teng Y, et al. Insight into coal catalytic 
+gasification mechanism of Na or Ca using experiments combined with DFT 
+calculations with carbon Black as a novel coal model. Fuel 2023;349:128654. 
+https://doi.org/10.1016/j.fuel.2023.128654.
+[12] Shahabuddin M, Bhattacharya S. Enhancement of performance and emission 
+characteristics by co-gasification of biomass and coal using an entrained flow 
+gasifier. J Energy Inst 2021;95:166–78. https://doi.org/10.1016/j. 
+joei.2021.01.012.
+[13] Yang P, Zhao S, Zhang Q, Hu J, Liu R, Huang Z, et al. Synergistic effect of the 
+cotton stalk and high-ash coal on gas production during co-pyrolysis/gasification. 
+Bioresour Technol 2021;336:125336. https://doi.org/10.1016/j. 
+biortech.2021.125336.
+[14] Kuehnel MF, Wakerley DW, Orchard KL, Reisner E. Photocatalytic formic acid 
+conversion on CdS nanocrystals with controllable selectivity for H2 or CO. Angew 
+Chem Int Ed 2015;54:9627–31. https://doi.org/10.1002/anie.201502773.
+[15] Wang T, Chen M, Wu J, Du P. Highly efficient photocatalytic formic acid 
+decomposition to syngas under visible light using CdS nanorods integrated with 
+crystalline W2N3 nanosheets. J Mater Chem A 2023;11:2246–51. https://doi.org/ 
+10.1039/d2ta09482g.
+[16] Alsabeh PG, Rosas-Hern´andez A, Barsch E, Junge H, Ludwig R, Beller M. Iron- 
+catalyzed photoreduction of carbon dioxide to synthesis gas. Catal Sci Technol 
+2016;6:3623–30. https://doi.org/10.1039/C5CY01129A.
+[17] Fu Z, Yang Q, Liu Z, Chen F, Yao F, Xie T, et al. Photocatalytic conversion of 
+carbon dioxide: from products to design the catalysts. J CO2 Util 2019;34:63–73. 
+https://doi.org/10.1016/j.jcou.2019.05.032.
+[18] Lee JS, Won DI, Jung WJ, Son HJ, Pac C, Kang SO. Widely controllable syngas 
+production by a dye-sensitized TiO2 hybrid system with ReI and CoIII catalysts 
+under visible-light irradiation. Angew Chem Int Ed 2017;56:976–80. https://doi. 
+org/10.1002/anie.201608593.
+[19] Dai L, Qin Q, Wang P, Zhao X, Hu C, Liu P, et al. Ultrastable atomic copper 
+nanosheets for selective electrochemical reduction of carbon dioxide. Sci Adv 
+2017;3:e1701069. https://doi.org/10.1126/sciadv.1701069.
+[20] Chen H, Li Z, Zhang Z, Jie K, Li J, Li H, et al. Synthesis of composition-tunable 
+syngas from efficiently electrochemical conversion of CO2 over AuCu/CNT 
+bimetallic catalyst. Ind Eng Chem Res 2019;58:15425–31. https://doi.org/ 
+10.1021/acs.iecr.9b02192.
+[21] Zhu C, Shi Q, Feng S, Du D, Lin Y. Single-atom catalysts for electrochemical water 
+splitting. ACS Energy Lett 2018;3:1713–21. https://doi.org/10.1021/ 
+acsenergylett.8b00640.
+[22] Zhang H, Zhang X, Ding L, Ma J, Kong Y. Characteristics of cyanobacterial 
+biomass gasification in sub-and supercritical water. Energy & Fuels 2019;33: 
+3239–47. https://doi.org/10.1021/acs.energyfuels.8b04299.
+[23] Fan C, Guo S, Jin H. Numerical study on coal gasification in supercritical water 
+fluidized bed and exploration of complete gasification under mild temperature 
+conditions. Chem Eng Sci 2019;206:134–45. https://doi.org/10.1016/j. 
+ces.2019.05.041.
+[24] Ge Z, Guo L, Jin H. Catalytic supercritical water gasification mechanism of coal. 
+Int J Hydrogen Energy 2020;45:9504–11. https://doi.org/10.1016/j. 
+ijhydene.2020.01.245.
+[25] Sanlisoy A, Carpinlioglu MO. Microwave plasma gasification of a variety of fuel 
+for syngas production. Plasma Chem Plasma Process 2019;39:1211–25. https:// 
+doi.org/10.1007/s11090-019-10004-x.
+[26] He W, Xu B, Lang L, Yang W, Liu H, Zhan H, et al. Exploring simultaneous 
+upgrading and purification of biomass-gasified gases using plasma catalysis. 
+Catalysts 2023;13:686. https://doi.org/10.3390/catal13040686.
+[27] Ren J, Cao J-P, Zhao X-Y, Yang F-L, Wei X-Y. Recent advances in syngas 
+production from biomass catalytic gasification: a critical review on reactors, 
+catalysts, catalytic mechanisms and mathematical models. Renew Sustain Energy 
+Rev 2019;116:109426. https://doi.org/10.1016/j.rser.2019.109426.
+[28] Chyou Y-P, Chiu H-M, Chen P-C. Potential assessment on gas turbine combined 
+cycle with alternative gaseous fuel from coal gasification. Clean Technol Environ 
+Policy 2015;18:185–94. https://doi.org/10.1007/s10098-015-1005-y.
+[29] Suparmin P, Purwanti N, Oscar Nelwan L, Halomoan Tambunan A. Syngas 
+production by biomass gasification: a meta-analysis. Renew Sustain Energy Rev 
+2024;206:114824. https://doi.org/10.1016/j.rser.2024.114824.
+[30] Lee MC, Yoon J, Joo S, Yoon Y. Gas turbine combustion characteristics of H2/CO 
+synthetic gas for coal integrated gasification combined cycle applications. Int J 
+Hydrogen Energy 2015;40:11032–45. https://doi.org/10.1016/j. 
+ijhydene.2015.06.086.
+[31] Jithin EV, Raghuram GKS, Keshavamurthy TV, Velamati RK, Prathap C, 
+Varghese RJ. A review on fundamental combustion characteristics of syngas 
+mixtures and feasibility in combustion devices. Renew Sustain Energy Rev 2021; 
+146:111178. https://doi.org/10.1016/j.rser.2021.111178.
+[32] Wolfersdorf C, Meyer B. The current status and future prospects for IGCC systems. 
+Integrated gasification combined cycle (IGCC) Technologies2017. p. 847-889.
+[33] Leuter P, Fendt S, Spliethoff H. Requirements on synthesis gas from gasification 
+for material and energy utilization: a mini review. Front Energy Res 2024;12: 
+1382377. https://doi.org/10.3389/fenrg.2024.1382377.
+[34] Demirbas A. Utilization of coal as a source of chemicals. Energy Sources, Part A 
+Recovery, Util Environ Eff 2007;29:677–84. https://doi.org/10.1080/ 
+009083190957810.
+[35] Radenahmad N, Azad AT, Saghir M, Taweekun J, Bakar MSA, Reza MS, et al. 
+A review on biomass derived syngas for SOFC based combined heat and power 
+application. Renew Sustain Energy Rev 2020;119:109560. https://doi.org/ 
+10.1016/j.rser.2019.109560.
+[36] G¨oransson K, S¨oderlind U, He J, Zhang W. Review of syngas production via 
+biomass DFBGs. Renew Sustain Energy Rev 2011;15:482–92. https://doi.org/ 
+10.1016/j.rser.2010.09.032.
+[37] Samiran NA, Jaafar MNM, Ng J-H, Lam SS, Chong CT. Progress in biomass 
+gasification technique – with focus on Malaysian palm biomass for syngas 
+production. Renew Sustain Energy Rev 2016;62:1047–62. https://doi.org/ 
+10.1016/j.rser.2016.04.049.
+[38] Villaf´an-Vidales HI, Arancibia-Bulnes CA, Riveros-Rosas D, Romero-Paredes H, 
+Estrada CA. An overview of the solar thermochemical processes for hydrogen and 
+syngas production: reactors, and facilities. Renew Sustain Energy Rev 2017;75: 
+894–908. https://doi.org/10.1016/j.rser.2016.11.070.
+[39] Toledo M, Arriagada A, Ripoll N, Salgansky EA, Mujeebu MA. Hydrogen and 
+syngas production by hybrid filtration combustion: progress and challenges. 
+Renew Sustain Energy Rev 2023;177:113213. https://doi.org/10.1016/j. 
+rser.2023.113213.
+[40] Li J, Lin L, Ju T, Meng F, Han S, Chen K, et al. Microwave-assisted pyrolysis of 
+solid waste for production of high-value liquid oil, syngas, and carbon solids: a 
+review. Renew Sustain Energy Rev 2024;189:113979. https://doi.org/10.1016/j. 
+rser.2023.113979.
+[41] Jung HS, Kim BG, Kwon JH, Bae JW. Thermocatalytic technologies for syngas 
+production from greenhouse gases and biomass-derived renewable oxygenates. 
+Renew Sustain Energy Rev 2025;216:115711. https://doi.org/10.1016/j. 
+rser.2025.115711.
+[42] Lee HC, Jiang LY, Mohamad AA. A review on the laminar flame speed and 
+ignition delay time of syngas mixtures. Int J Hydrogen Energy 2014;39:1105–21. 
+https://doi.org/10.1016/j.ijhydene.2013.10.068.
+[43] Konnov AA, Mohammad A, Kishore VR, Kim NI, Prathap C, Kumar S. 
+A comprehensive review of measurements and data analysis of laminar burning 
+velocities for various fuel + air mixtures. Prog Energy Combust Sci 2018;68: 
+197–267. https://doi.org/10.1016/j.pecs.2018.05.003.
+[44] Ranzi E, Frassoldati A, Grana R, Cuoci A, Faravelli T, Kelley AP, et al. Hierarchical 
+and comparative kinetic modeling of laminar flame speeds of hydrocarbon and 
+oxygenated fuels. Prog Energy Combust Sci 2012;38:468–501. https://doi.org/ 
+10.1016/j.pecs.2012.03.004.
+[45] Mittal G, Sung C-J, Yetter RA. Autoignition of H2/CO at elevated pressures in a 
+rapid compression machine. Int J Chem Kinet 2006;38:516–29. https://doi.org/ 
+10.1002/kin.20180.
+[46] Kalitan DM, Mertens JD, Crofton MW, Petersen EL. Ignition and oxidation of lean 
+CO/H2 fuel blends in air. J Propul Power 2007;23:1291–301. https://doi.org/ 
+10.2514/1.28123.
+[47] Walton SM, He X, Zigler BT, Wooldridge MS. An experimental investigation of the 
+ignition properties of hydrogen and carbon monoxide mixtures for syngas turbine 
+applications. Proc Combust Inst 2007;31:3147–54. https://doi.org/10.1016/j. 
+proci.2006.08.059.
+[48] Herzler J, Naumann C. Shock tube study of the ignition of lean CO/H2 fuel blends 
+at intermediate temperatures and high pressure. Combust Sci Technol 2008;180: 
+2015–28. https://doi.org/10.1080/00102200802269715.
+[49] K´eromn`es A, Metcalfe WK, Heufer KA, Donohoe N, Das AK, Sung C-J, et al. An 
+experimental and detailed chemical kinetic modeling study of hydrogen and 
+syngas mixture oxidation at elevated pressures. Combust Flame 2013;160: 
+995–1011. https://doi.org/10.1016/j.combustflame.2013.01.001.
+[50] Krejci MC, Mathieu O, Vissotski AJ, Ravi S, Sikes TG, Petersen EL, et al. Laminar 
+flame speed and ignition delay time data for the kinetic modeling of hydrogen 
+and syngas fuel blends. J Eng Gas Turbines Power 2013;135. https://doi.org/ 
+10.1115/1.4007737.
+[51] Petersen EL, Kalitan DM, Barrett AB, Reehal SC, Mertens JD, Beerer DJ, et al. New 
+syngas/air ignition data at lower temperature and elevated pressure and 
+comparison to current kinetics models. Combust Flame 2007;149:244–7. https:// 
+doi.org/10.1016/j.combustflame.2006.12.007.
+[52] Das AK, Sung C-J, Zhang Y, Mittal G. Ignition delay study of moist hydrogen/ 
+oxidizer mixtures using a rapid compression machine. Int J Hydrogen Energy 
+2012;37:6901–11. https://doi.org/10.1016/j.ijhydene.2012.01.111.
+[53] Vasu SS, Davidson DF, Hanson RK. Shock tube study of syngas ignition in rich 
+CO2 mixtures and determination of the rate of H + O2 + CO2 → HO2 + CO2. 
+Energy & Fuels 2011;25:990–7. https://doi.org/10.1021/ef1015928.
+[54] Barak S, Ninnemann E, Neupane S, Barnes F, Kapat J, Vasu S. High-pressure oxy- 
+syngas ignition delay times with CO2 dilution: shock tube measurements and 
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+21 
+
+
+--- Page 22 ---
+
+comparison of the performance of kinetic mechanisms. J Eng Gas Turbines Power 
+2018;141:021011. https://doi.org/10.1115/1.4040904.
+[55] Barak S, Pryor O, Ninnemann E, Neupane S, Vasu S, Lu X, et al. Ignition delay 
+times of oxy-syngas and oxy-methane in supercritical CO2 mixtures for direct- 
+fired cycles. J Eng Gas Turbines Power 2020;142:021014. https://doi.org/ 
+10.1115/1.4045743.
+[56] Karimi M, Ochs B, Sun W, Ranjan D. High pressure ignition delay times of H2/CO 
+mixture in carbon dioxide and argon diluent. Proc Combust Inst 2021;38:251–60. 
+https://doi.org/10.1016/j.proci.2020.06.268.
+[57] Harman-Thomas JM, Kashif TA, Hughes KJ, Pourkashanian M, Farooq A. 
+Experimental and modelling study of syngas combustion in CO2 bath gas. Fuel 
+2023;342:127865. https://doi.org/10.1016/j.fuel.2023.127865.
+[58] Li W, Zou C, Yao H. A shock-tube and modeling study of syngas ignition delay 
+times in rich CO2 environment at elevated pressures. Combust Flame 2023;251: 
+112695. https://doi.org/10.1016/j.combustflame.2023.112695.
+[59] Thi LD, Zhang Y, Huang Z. Shock tube study on ignition delay of multi- 
+component syngas mixtures-effect of equivalence ratio. Int J Hydrogen Energy 
+2014;39:6034–43. https://doi.org/10.1016/j.ijhydene.2014.01.170.
+[60] Mathieu O, Kopp MM, Petersen EL. Shock-tube study of the ignition of multi- 
+component syngas mixtures with and without ammonia impurities. Proc Combust 
+Inst 2013;34:3211–8. https://doi.org/10.1016/j.proci.2012.05.008.
+[61] Mathieu O, Hargis J, Camou A, Mulvihill C, Petersen EL. Ignition delay time 
+measurements behind reflected shock-waves for a representative coal-derived 
+syngas with and without NH3 and H2S impurities. Proc Combust Inst 2015;35: 
+3143–50. https://doi.org/10.1016/j.proci.2014.06.062.
+[62] Gersen S, Darmeveil H, Levinsky H. The effects of CO addition on the autoignition 
+of H2, CH4 and CH4/H2 fuels at high pressure in an RCM. Combust Flame 2012; 
+159:3472–5. https://doi.org/10.1016/j.combustflame.2012.06.021.
+[63] McLean IC, Smith DB, Taylor SC. The use of carbon monoxide/hydrogen burning 
+velocities to examine the rate of the CO + OH reaction. Symposium 
+(International) on Combustion 1994;25:749–57. https://doi.org/10.1016/S0082- 
+0784(06)80707-1.
+[64] Hassan MI, Aung KT, Faeth GM. Properties of laminar premixed CO/H/air flames 
+at various pressures. J Propul Power 1997;13:239–45. https://doi.org/10.2514/ 
+2.5154.
+[65] Sun H, Yang SI, Jomaas G, Law CK. High-pressure laminar flame speeds and 
+kinetic modeling of carbon monoxide/hydrogen combustion. Proc Combust Inst 
+2007;31:439–46. https://doi.org/10.1016/j.proci.2006.07.193.
+[66] Dong C, Zhou Q, Zhao Q, Zhang Y, Xu T, Hui S. Experimental study on the 
+laminar flame speed of hydrogen/carbon monoxide/air mixtures. Fuel 2009;88: 
+1858–63. https://doi.org/10.1016/j.fuel.2009.04.024.
+[67] Bouvet N, Chauveau C, G¨okalp I, Lee SY, Santoro RJ. Characterization of syngas 
+laminar flames using the bunsen burner configuration. Int J Hydrogen Energy 
+2011;36:992–1005. https://doi.org/10.1016/j.ijhydene.2010.08.147.
+[68] Fu J, Tang C, Jin W, Thi LD, Huang Z, Zhang Y. Study on laminar flame speed and 
+flame structure of syngas with varied compositions using OH-PLIF and 
+spectrograph. Int J Hydrogen Energy 2013;38:1636–43. https://doi.org/ 
+10.1016/j.ijhydene.2012.11.023.
+[69] Goswami M, Bastiaans RJM, Konnov AA, de Goey LPH. Laminar burning velocity 
+of lean H2-CO mixtures at elevated pressure using the heat flux method. Int J 
+Hydrogen Energy 2014;39:1485–98. https://doi.org/10.1016/j. 
+ijhydene.2013.10.164.
+[70] Li H, Li G, Sun Z, Yu Y, Zhai Y, Zhou Z. Experimental investigation on laminar 
+burning velocities and flame intrinsic instabilities of lean and stoichiometric H2/ 
+CO/air mixtures at reduced, normal and elevated pressures. Fuel 2014;135: 
+279–91. https://doi.org/10.1016/j.fuel.2014.06.074.
+[71] Lee K-M, Jeong B, Lee S. Study on laminar burning velocity of syngas-air 
+premixed flames in various mixing conditions. J Mech Sci Technol 2015;29: 
+3005–15. https://doi.org/10.1007/s12206-015-0631-y.
+[72] Gong X, Huo J, Ren Z, Law CK. Extrapolation and DNS-mapping in determining 
+laminar flame speeds of syngas/air mixtures. Combust Flame 2019;200:365–73. 
+https://doi.org/10.1016/j.combustflame.2018.11.033.
+[73] Guo P, Liu S, Chang X, Wang Z, Xu C, Hu L, et al. The synergistic effect of 
+equivalence ratio and initial temperature on laminar flame speed of syngas. Int J 
+Hydrogen Energy 2022;47:23106–17. https://doi.org/10.1016/j. 
+ijhydene.2022.05.125.
+[74] Natarajan J, Lieuwen T, Seitzman J. Laminar flame speeds of H2/CO mixtures: 
+effect of CO2 dilution, preheat temperature, and pressure. Combust Flame 2007; 
+151:104–19. https://doi.org/10.1016/j.combustflame.2007.05.003.
+[75] Han M, Ai Y, Chen Z, Kong W. Laminar flame speeds of H2/CO with CO2 dilution 
+at normal and elevated pressures and temperatures. Fuel 2015;148:32–8. https:// 
+doi.org/10.1016/j.fuel.2015.01.083.
+[76] Li H-M, Li G-X, Sun Z-Y, Zhou Z-H, Li Y, Yuan Y. Effect of dilution on laminar 
+burning characteristics of H2/CO/CO2/air premixed flames with various 
+hydrogen fractions. Exp Therm Fluid Sci 2016;74:160–8. https://doi.org/ 
+10.1016/j.expthermflusci.2015.11.026.
+[77] Das AK, Kumar K, Sung C-J. Laminar flame speeds of moist syngas mixtures. 
+Combust Flame 2011;158:345–53. https://doi.org/10.1016/j. 
+combustflame.2010.09.004.
+[78] Singh D, Nishiie T, Tanvir S, Qiao L. An experimental and kinetic study of syngas/ 
+air combustion at elevated temperatures and the effect of water addition. Fuel 
+2012;94:448–56. https://doi.org/10.1016/j.fuel.2011.11.058.
+[79] Xie Y, Wang J, Xu N, Yu S, Zhang M, Huang Z. Thermal and chemical effects of 
+water addition on laminar burning velocity of syngas. Energy & Fuels 2014;28: 
+3391–8. https://doi.org/10.1021/ef4020586.
+[80] Yepes HA, Amell AA. Laminar burning velocity with oxygen-enriched air of 
+syngas produced from biomass gasification. Int J Hydrogen Energy 2013;38: 
+7519–27. https://doi.org/10.1016/j.ijhydene.2013.03.148.
+[81] Ai Y, Zhou Z, Chen Z, Kong W. Laminar flame speed and Markstein length of 
+syngas at normal and elevated pressures and temperatures. Fuel 2014;137: 
+339–45. https://doi.org/10.1016/j.fuel.2014.08.004.
+[82] Varghese RJ, Kolekar H, Hariharan V, Kumar S. Effect of CO content on laminar 
+burning velocities of syngas-air premixed flames at elevated temperatures. Fuel 
+2018;214:144–53. https://doi.org/10.1016/j.fuel.2017.10.131.
+[83] Wang S, Wang Z, Han X, Chen C, He Y, Zhu Y, et al. Experimental and numerical 
+study of the effect of elevated pressure on laminar burning velocity of lean H2/ 
+CO/O2/diluents flames. Fuel 2020;273:117753. https://doi.org/10.1016/j. 
+fuel.2020.117753.
+[84] Wang F, Wang Y, Zhang D, Wen X, Chen G. Experimental and numerical study of 
+the effects of N2 dilution and CH4 addition on the laminar burning characteristics 
+of syngas. Fuel 2022;329:125403. https://doi.org/10.1016/j.fuel.2022.125403.
+[85] Prathap C, Ray A, Ravi MR. Investigation of nitrogen dilution effects on the 
+laminar burning velocity and flame stability of syngas fuel at atmospheric 
+condition. Combust Flame 2008;155:145–60. https://doi.org/10.1016/j. 
+combustflame.2008.04.005.
+[86] Burbano HJ, Pareja J, Amell AA. Laminar burning velocities and flame stability 
+analysis of H2/CO/air mixtures with dilution of N2 and CO2. Int J Hydrogen 
+Energy 2011;36:3232–42. https://doi.org/10.1016/j.ijhydene.2010.11.089.
+[87] Hu E, Fu J, Pan L, Jiang X, Huang Z, Zhang Y. Experimental and numerical study 
+on the effect of composition on laminar burning velocities of H2/CO/N2/CO2/air 
+mixtures. Int J Hydrogen Energy 2012;37:18509–19. https://doi.org/10.1016/j. 
+ijhydene.2012.09.053.
+[88] Wang ZH, Weng WB, He Y, Li ZS, Cen KF. Effect of H2/CO ratio and N2/CO2 
+dilution rate on laminar burning velocity of syngas investigated by direct 
+measurement and simulation. Fuel 2015;141:285–92. https://doi.org/10.1016/j. 
+fuel.2014.10.040.
+[89] Li H-M, Li G-X, Sun Z-Y, Zhou Z-H, Li Y, Yuan Y. Investigation on dilution effect 
+on laminar burning velocity of syngas premixed flames. Energy 2016;112: 
+146–52. https://doi.org/10.1016/j.energy.2016.06.015.
+[90] John Varghese R, Kumar S. Laminar burning velocities of LCV syngas-air mixtures 
+at high temperature and pressure conditions. Fuel 2020;279:118475. https://doi. 
+org/10.1016/j.fuel.2020.118475.
+[91] Rabello de Castro R, Brequigny P, Dufitumukiza JP, Mounaïm-Rousselle C. 
+Laminar flame speed of different syngas compositions for varying thermodynamic 
+conditions. Fuel 2021;301:121025. https://doi.org/10.1016/j.fuel.2021.121025.
+[92] Wang S, Wang Z, Elbaz AM, He Y, Chen C, Zhu Y, et al. Effects of CO2 dilution and 
+CH4 addition on laminar burning velocities of syngas at elevated pressures: an 
+experimental and modeling study. Energy & Fuels 2021;35:18733–45. https:// 
+doi.org/10.1021/acs.energyfuels.1c02901.
+[93] Zhou Q, Cheung CS, Leung CW, Li X, Li X, Huang Z. Effects of fuel composition 
+and initial pressure on laminar flame speed of H2/CO/CH4 bio-syngas. Fuel 2019; 
+238:149–58. https://doi.org/10.1016/j.fuel.2018.10.106.
+[94] Zhang W, Chen G, Zhi F, Zhang A, Deng H, Wen X, et al. The impact of H2 and O2 
+enrichment on the laminar combustion characteristics of biomass syngas flame. 
+Int J Hydrogen Energy 2024;71:48–58. https://doi.org/10.1016/j. 
+ijhydene.2024.05.242.
+[95] Monteiro E, Bellenoue M, Sotton J, Moreira NA, Malheiro S. Laminar burning 
+velocities and Markstein numbers of syngas–air mixtures. Fuel 2010;89:1985–91. 
+https://doi.org/10.1016/j.fuel.2009.11.008.
+[96] He Y, Wang Z, Weng W, Zhu Y, Zhou J, Cen K. Effects of CO content on laminar 
+burning velocity of typical syngas by heat flux method and kinetic modeling. Int J 
+Hydrogen Energy 2014;39:9534–44. https://doi.org/10.1016/j. 
+ijhydene.2014.03.216.
+[97] Varghese RJ, Kolekar H, Kumar S. Laminar burning velocities of H2/CO/CH4/ 
+CO2/N2-air mixtures at elevated temperatures. Int J Hydrogen Energy 2019;44: 
+12188–99. https://doi.org/10.1016/j.ijhydene.2019.03.103.
+[98] Oliveira GP, Sbampato ME, Martins CA, Santos LR, Barreta LG, Boschi 
+Gonçalves RF. Experimental laminar burning velocity of syngas from fixed-bed 
+downdraft biomass gasifiers. Renew Energy 2020;153:1251–60. https://doi.org/ 
+10.1016/j.renene.2020.02.083.
+[99] Han X, Wang Z, He Y, Zhu Y, Cen K. Experimental and kinetic modeling study of 
+laminar burning velocities of NH3/syngas/air premixed flames. Combust Flame 
+2020;213:1–13. https://doi.org/10.1016/j.combustflame.2019.11.032.
+[100] Mei B, Ma S, Zhang Y, Zhang X, Li W, Li Y. Exploration on laminar flame 
+propagation of ammonia and syngas mixtures up to 10 atm. Combust Flame 2020; 
+220:368–77. https://doi.org/10.1016/j.combustflame.2020.07.011.
+[101] Wang S, Wang Z, Elbaz AM, Han X, He Y, Costa M, et al. Experimental study and 
+kinetic analysis of the laminar burning velocity of NH3/syngas/air, NH3/CO/air 
+and NH3/H2/air premixed flames at elevated pressures. Combust Flame 2020; 
+221:270–87. https://doi.org/10.1016/j.combustflame.2020.08.004.
+[102] Zhou S, Yang W, Tan H, An Q, Wang J, Dai H, et al. Experimental and kinetic 
+modeling study on NH3/syngas/air and NH3/bio-syngas/air premixed laminar 
+flames at elevated temperature. Combust Flame 2021;233:111594. https://doi. 
+org/10.1016/j.combustflame.2021.111594.
+[103] Mueller MA, Yetter RA, Dryer FL. Measurement of the rate constant for H+O2+
+M→HO2+M (M=N2, Ar) using kinetic modeling of the high-pressure H2/O2/NOx 
+reaction. Symposium (International) on Combustion 1998;27:177–84. https:// 
+doi.org/10.1016/S0082-0784(98)80403-7.
+[104] Fernandes RX, Luther K, Troe J, Ushakov VG. Experimental and modelling study 
+of the recombination reaction H + O2 (+M) → HO2 (+M) between 300 and 900 K, 
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+22 
+
+
+--- Page 23 ---
+
+1.5 and 950 bar, and in the bath gases M = He, Ar, and N2. Phys Chem Chem Phys 
+2008;10:4313–21. https://doi.org/10.1039/B804553D.
+[105] Hong Z, Davidson DF, Barbour EA, Hanson RK. A new shock tube study of the H+
+O2→OH+O reaction rate using tunable diode laser absorption of H2O near 2.5μm. 
+Proc Combust Inst 2011;33:309–16. https://doi.org/10.1016/j. 
+proci.2010.05.101.
+[106] Wooldridge MS, Hanson RK, Bowman CT. A shock tube study of the CO + OH → 
+CO2 + H reaction. Symposium (International) on Combustion 1994;25:741–8. 
+https://doi.org/10.1016/S0082-0784(06)80706-X.
+[107] Joshi AV, Wang H. Master equation modeling of wide range temperature and 
+pressure dependence of CO + OH → products. Int J Chem Kinet 2006;38:57–73. 
+https://doi.org/10.1002/kin.20137.
+[108] Wang S, Davidson DF, Hanson RK. Shock tube and laser absorption study of CH2O 
+oxidation via simultaneous measurements of OH and CO. J Phys Chem 2017;121: 
+8561–8. https://doi.org/10.1021/acs.jpca.7b09362.
+[109] Allen TL, Fink WH, Volman DH. Theoretical studies of the mechanism of the gas 
+phase reaction of the hydroperoxo radical with carbon monoxide to form 
+hydroxyl radical and carbon dioxide. J Phys Chem 1996;100:5299–302. https:// 
+doi.org/10.1021/jp9528929.
+[110] You X, Wang H, Goos E, Sung C-J, Klippenstein SJ. Reaction kinetics of CO + HO2 
+→ products: ab initio transition state theory study with master equation modeling. 
+J Phys Chem 2007;111:4031–42. https://doi.org/10.1021/jp067597a.
+[111] Li W, Shang Y, Ning H, Li J, Luo S-N. Reaction pathways and kinetics study on a 
+syngas combustion system: CO + HO2 in an H2O environment. Phys Chem Chem 
+Phys 2020;22:5797–806. https://doi.org/10.1039/c9cp06642j.
+[112] Vardanyan IA, Sachyan GA, Nalbandyan AB. The rate constant of the reaction 
+HO2 + CO → CO2 + OH. Int J Chem Kinet 1975;7:23–31. https://doi.org/ 
+10.1002/kin.550070104.
+[113] Atri GM, Baldwin RR, Jackson D, Walker RW. The reaction of OH radicals and 
+HO2 radicals with carbon monoxide. Combust Flame 1977;30:1–12. https://doi. 
+org/10.1016/0010-2180(77)90046-3.
+[114] Vandooren J, de Guertechin LO, Van Tiggelen PJ. Kinetics in a lean formaldehyde 
+flame. Combust Flame 1986;64:127–39. https://doi.org/10.1016/0010-2180(86) 
+90050-7.
+[115] Veyret B, Lesclaux R. Absolute rate constants for the reactions of the formyl 
+radical HCO with oxygen and nitric oxide from 298 to 503 K. J Phys Chem 1981; 
+85:1918–22. https://doi.org/10.1021/j150613a028.
+[116] Timonen RS, Ratajczak E, Gutman D. Kinetics of the reactions of the formyl 
+radical with oxygen, nitrogen dioxide, chlorine, and bromine. J Phys Chem 1988; 
+92:651–5. https://doi.org/10.1021/j100314a017.
+[117] Hsu CC, Mebel AM, Lin MC. Ab initio molecular orbital study of the HCO + O2 
+reaction: direct versus indirect abstraction channels. J Chem Phys 1996;105: 
+2346–52. https://doi.org/10.1063/1.472083.
+[118] DeSain JD, Jusinski LE, Ho AD, Taatjes CA. Temperature dependence and 
+deuterium kinetic isotope effects in the HCO (DCO) + O2 reaction between 296 
+and 673 K. Chem Phys Lett 2001;347:79–86. https://doi.org/10.1016/S0009- 
+2614(01)01016-8.
+[119] Colberg M, Friedrichs G. Room temperature and shock tube study of the reaction 
+HCO + O2 using the photolysis of glyoxal as an efficient HCO source. J Phys Chem 
+2006;110:160–70. https://doi.org/10.1021/jp055168r.
+[120] Faßheber N, Friedrichs G, Marshall P, Glarborg P. Glyoxal oxidation mechanism: 
+implications for the reactions HCO + O2 and OCHCHO + HO2. J Phys Chem 
+2015;119:7305–15. https://doi.org/10.1021/jp512432q.
+[121] Smith Gregory P, Golden David M, Frenklach Michael, Moriarty Nigel W, 
+Eiteneer Boris, Goldenberg M. GRI-Mech 3.0. 2024.
+[122] Davis SG, Joshi AV, Wang H, Egolfopoulos F. An optimized kinetic model of H2/ 
+CO combustion. Proc Combust Inst 2005;30:1283–92. https://doi.org/10.1016/j. 
+proci.2004.08.252.
+[123] Frassoldati A, Faravelli T, Ranzi E. The ignition, combustion and flame structure 
+of carbon monoxide/hydrogen mixtures. Note 1: detailed kinetic modeling of 
+syngas combustion also in presence of nitrogen compounds. Int J Hydrogen 
+Energy 2007;32:3471–85. https://doi.org/10.1016/j.ijhydene.2007.01.011.
+[124] Zhang Y, Mathieu O, Petersen EL, Bourque G, Curran HJ. Assessing the 
+predictions of a NOx kinetic mechanism on recent hydrogen and syngas 
+experimental data. Combust Flame 2017;182:122–41. https://doi.org/10.1016/j. 
+combustflame.2017.03.019.
+[125] Saxena P, Williams FA. Testing a small detailed chemical-kinetic mechanism for 
+the combustion of hydrogen and carbon monoxide. Combust Flame 2006;145: 
+316–23. https://doi.org/10.1016/j.combustflame.2005.10.004.
+[126] Li J, Zhao Z, Kazakov A, Chaos M, Dryer FL, Scire Jr JJ. A comprehensive kinetic 
+mechanism for CO, CH2O, and CH3OH combustion. Int J Chem Kinet 2007;39: 
+109–36. https://doi.org/10.1002/kin.20218.
+[127] Chemical-Kinetic mechanisms for combustion applications, San Diego 
+mechanism. San Diego: University of California at; 2024.
+[128] Wang H, You X, Joshi A, Davis S, Laskin A, Egolfopoulos F. USC Mech version II. 
+High-temperature combustion reaction model of H2/CO/C1-C4 compounds. 2024.
+[129] Wu Y, Panigrahy S, Sahu AB, Bariki C, Beeckmann J, Liang J, et al. Understanding 
+the antagonistic effect of methanol as a component in surrogate fuel models: a 
+case study of methanol/n-heptane mixtures. Combust Flame 2021;226:229–42. 
+https://doi.org/10.1016/j.combustflame.2020.12.006.
+[130] Zhang X, Mei B, Ma S, Pan H, Wang H, Li Y. Experimental and kinetic modeling 
+investigation on laminar flame propagation of CH4/CO mixtures at various 
+pressures: insight into the transition from CH4-related chemistry to CO-related 
+chemistry. Combust Flame 2019;209:481–92. https://doi.org/10.1016/j. 
+combustflame.2019.08.021.
+[131] Daniele S, Jansohn P, Boulouchos K. Lean premixed combustion of undiluted 
+syngas at gas turbine relevant conditions: NOx emissions and lean operational 
+limits. Turbo Expo: Power for Land, Sea, and Air 2008;43130:137–44. https:// 
+doi.org/10.1115/GT2008-50265.
+[132] Daniele S, Jansohn P, Boulouchos K. Flame front characteristic and turbulent 
+flame speed of lean premixed syngas combustion at gas turbine relevant 
+conditions. Turbo Expo: Power for Land, Sea, and Air 2009;48838:393–400. 
+https://doi.org/10.1115/GT2009-59477.
+[133] Daniele S, Jansohn P, Mantzaras J, Boulouchos K. Turbulent flame speed for 
+syngas at gas turbine relevant conditions. Proc Combust Inst 2011;33:2937–44. 
+https://doi.org/10.1016/j.proci.2010.05.057.
+[134] Fu J, Tang C, Jin W, Huang Z. Effect of preferential diffusion and flame stretch on 
+flame structure and laminar burning velocity of syngas bunsen flame using OH- 
+PLIF. Int J Hydrogen Energy 2014;39:12187–93. https://doi.org/10.1016/j. 
+ijhydene.2014.06.043.
+[135] Dulin V, Lobasov A, Chikishev L, Markovich D, Hanjalic K. On impact of helical 
+structures on stabilization of swirling flames with vortex breakdown. Flow Turbul 
+Combust 2019;103:887–911. https://doi.org/10.1007/s10494-019-00063-7.
+[136] Zhang M, Wang J, Wu J, Wei Z, Huang Z, Kobayashi H. Flame front structure of 
+turbulent premixed flames of syngas oxyfuel mixtures. Int J Hydrogen Energy 
+2014;39:5176–85. https://doi.org/10.1016/j.ijhydene.2014.01.038.
+[137] Zhang M, Wang J, Chang M, Huang Z. Turbulent flame topology and the wrinkled 
+structure characteristics of high pressure syngas flames up to 1.0 MPa. Int J 
+Hydrogen Energy 2019;44:15973–84. https://doi.org/10.1016/j. 
+ijhydene.2018.08.154.
+[138] Wang J, Nie Y, Cai X, Guo S, Zhang W, Xie Y, et al. Investigation on the highly 
+negative curved syngas bunsen flame and the critical local Karlovitz number 
+when tip opening. Fuel 2018;215:429–37. https://doi.org/10.1016/j. 
+fuel.2017.11.031.
+[139] Johnson MR, Littlejohn D, Nazeer WA, Smith KO, Cheng RK. A comparison of the 
+flowfields and emissions of high-swirl injectors and low-swirl injectors for lean 
+premixed gas turbines. Proc Combust Inst 2005;30:2867–74. https://doi.org/ 
+10.1016/j.proci.2004.07.040.
+[140] Keck O, Meier W, Stricker W, Aigner M. Establishment of a confined swirling 
+natural gas/air flame as a standard flame: temperature and species distributions 
+from laser Raman measurements. Combust Sci Technol 2002;174:117–51. 
+https://doi.org/10.1080/713713067.
+[141] Janus B, Dreizler A, Janicka J. Experimental study on stabilization of lifted swirl 
+flames in a model GT combustor. Flow Turbul Combust 2005;75:293–315. 
+https://doi.org/10.1007/s10494-005-8583-4.
+[142] Sharaborin DK, Savitskii AG, Bakharev GY, Lobasov AS, Chikishev LM, Dulin VM. 
+PIV/PLIF investigation of unsteady turbulent flow and mixing behind a model gas 
+turbine combustor. Exp Fluid 2021;62:1–19. https://doi.org/10.1007/s00348- 
+021-03181-z.
+[143] Shi X, Lian T, Zhang Y, Liu Z, Li W, Xi Z, et al. Enhanced ammonia combustion by 
+partial pre-cracking strategy in a gas turbine model combustor: flame 
+macrostructures, lean blowout characteristics and exhaust emissions. Appl Energy 
+Combust Sci 2024;17:100247. https://doi.org/10.1016/j.jaecs.2024.100247.
+[144] Shi X, Liu Z, Lian T, Han S, Zhang Y, Xi Z, et al. Effects of wall confinement on 
+flame topologies and lean blowout characteristics of partially premixed DME/air 
+flames in a gas turbine model combustor. Fuel 2024;372:132232. https://doi.org/ 
+10.1016/j.fuel.2024.132232.
+[145] Shi X, Lian T, Liu Z, Yang X, Li W, Li Y. Impact of carbon-free fuels addition on 
+self-excited combustion oscillations in partially premixed CH4/air swirl flames. 
+Proc Combust Inst 2024;40:105568. https://doi.org/10.1016/j. 
+proci.2024.105568.
+[146] Meier W, Weigand P, Duan XR, Giezendanner-Thoben R. Detailed 
+characterization of the dynamics of thermoacoustic pulsations in a lean premixed 
+swirl flame. Combust Flame 2007;150:2–26. https://doi.org/10.1016/j. 
+combustflame.2007.04.002.
+[147] Oberleithner K, St¨ohr M, Im SH, Arndt CM, Steinberg AM. Formation and flame- 
+induced suppression of the precessing vortex core in a swirl combustor: 
+experiments and linear stability analysis. Combust Flame 2015;162:3100–14. 
+https://doi.org/10.1016/j.combustflame.2015.02.015.
+[148] Meier W, Duan XR, Weigand P. Investigations of swirl flames in a gas turbine 
+model combustor: II. Turbulence–chemistry interactions. Combust Flame 2006; 
+144:225–36. https://doi.org/10.1016/j.combustflame.2005.07.009.
+[149] St¨ohr M, Arndt CM, Meier W. Transient effects of fuel–air mixing in a partially- 
+premixed turbulent swirl flame. Proc Combust Inst 2015;35:3327–35. https://doi. 
+org/10.1016/j.proci.2014.06.095.
+[150] Kohse-H¨oinghaus K. Laser techniques for the quantitative detection of reactive 
+intermediates in combustion systems. Prog Energy Combust Sci 1994;20:203–79. 
+https://doi.org/10.1016/0360-1285(94)90015-9.
+[151] Bombach R, K¨appeli B. Simultaneous visualisation of transient species in flames 
+by planar-laser-induced fluorescence using a single laser system. Appl Phys B 
+1999;68:251–5. https://doi.org/10.1007/s003400050614.
+[152] Sick V. Exhaust-gas imaging via planar laser-induced fluorescence of sulfur 
+dioxide. Appl Phys B 2002;74:461–3. https://doi.org/10.1007/s003400200813.
+[153] Mosburger M, Sick V. Single laser detection of CO and OH via laser-induced 
+fluorescence. Appl Phys B 2010;99:1–6. https://doi.org/10.1007/s00340-010- 
+3896-y.
+[154] Beerer D, McDonell V, Therkelsen P, Cheng RK. Flashback and turbulent flame 
+speed measurements in hydrogen/methane flames stabilized by a low-swirl 
+injector at elevated pressures and temperatures. J Eng Gas Turbines Power 2014; 
+136:031502. https://doi.org/10.1115/1.4025636.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+23 
+
+
+--- Page 24 ---
+
+[155] Bessler WG, Schulz C. Quantitative multi-line NO-LIF temperature imaging. Appl 
+Phys B 2004;78:519–33. https://doi.org/10.1007/s00340-004-1421-x.
+[156] Mulla IA, Dowlut A, Hussain T, Nikolaou ZM, Chakravarthy SR, Swaminathan N, 
+et al. Heat release rate estimation in laminar premixed flames using laser-induced 
+fluorescence of CH2O and H-atom. Combust Flame 2016;165:373–83. https://doi. 
+org/10.1016/j.combustflame.2015.12.023.
+[157] Allison PM, Driscoll JF, Ihme M. Acoustic characterization of a partially-premixed 
+gas turbine model combustor: syngas and hydrocarbon fuel comparisons. Proc 
+Combust Inst 2013;34:3145–53. https://doi.org/10.1016/j.proci.2012.06.157.
+[158] Shao W, Xiong Y, Mu K, Zhang Z, Wang Y, Xiao Y. The influence of fuel-air swirl 
+intensity on flame structures of syngas swirl-stabilized diffusion flame. J Therm 
+Sci 2010;19:276–83. https://doi.org/10.1007/s11630-010-0276-1.
+[159] Guo P, Zang S, Ge B, Tian Y. Investigation of nitrogen-diluted syngas non- 
+premixed flames measured by planar laser-induced fluorescence of hydroxyl and 
+particle image velocimetry. Proc IME C J Mech Eng Sci 2011;225:1672–80. 
+https://doi.org/10.1177/0954406211399515.
+[160] Valera-Medina A, Baej H, Syred N, Chong C, Bowen P. Coherent structure impacts 
+on blowoff using various syngases. Energy Proc 2017;105:1356–62. https://doi. 
+org/10.1016/j.egypro.2017.03.500.
+[161] Dam B, Corona G, Hayder M, Choudhuri A. Effects of syngas composition on 
+combustion induced vortex breakdown (CIVB) flashback in a swirl stabilized 
+combustor. Fuel 2011;90:3274–84. https://doi.org/10.1016/j.fuel.2011.06.024.
+[162] Sayad P, Sch¨onborn A, Klingmann J. Experimental investigation of the stability 
+limits of premixed syngas-air flames at two moderate swirl numbers. Combust 
+Flame 2016;164:270–82. https://doi.org/10.1016/j.combustflame.2015.11.026.
+[163] Dolai A, Badhuk P, Ravikrishna R. Investigation of syngas combustion in a novel 
+ultra-low emission 20-kW two-stage combustor. Fuel 2023;340:127497. https:// 
+doi.org/10.1016/j.fuel.2023.127497.
+[164] Lee MC, Yoon J, Joo S, Kim J, Hwang J, Yoon Y. Investigation into the cause of 
+high multi-mode combustion instability of H2/CO/CH4 syngas in a partially 
+premixed gas turbine model combustor. Proc Combust Inst 2015;35:3263–71. 
+https://doi.org/10.1016/j.proci.2014.07.013.
+[165] Lee MC. Effects of H2/CO/CH4 syngas composition variation on the NOx and CO 
+emission characteristics in a partially-premixed gas turbine combustor. Sci China 
+Technol Sci 2016;59:1804–13. https://doi.org/10.1007/s11431-016-0099-x.
+[166] Choi M, Park Y, Li X, Sung Y, Park S, Moon K, et al. Study on flame structures and 
+emission characteristics according to various swirl combinations and fuel 
+compositions in a CH4/H2/CO syngas swirl-stabilized combustor. Fuel 2019;253: 
+887–903. https://doi.org/10.1016/j.fuel.2019.05.049.
+[167] Kuenne G, Ketelheun A, Janicka J. LES modeling of premixed combustion using a 
+thickened flame approach coupled with FGM tabulated chemistry. Combust 
+Flame 2011;158:1750–67. https://doi.org/10.1016/j. 
+combustflame.2011.01.005.
+[168] Dinesh KR, Luo KH, Kirkpatrick M, Malalasekera W. Burning syngas in a high 
+swirl burner: effects of fuel composition. Int J Hydrogen Energy 2013;38: 
+9028–42. https://doi.org/10.1016/j.ijhydene.2013.05.021.
+[169] Dulin V, Chikishev L, Sharaborin D, Lobasov A, Tolstoguzov R, Liu Z, et al. On the 
+flow structure and dynamics of methane and syngas lean flames in a model gas- 
+turbine combustor. Energies 2021;14:8267. https://doi.org/10.3390/ 
+en14248267.
+[170] Pater SG, Kok JB, van der Meer TH. Thermo acoustic flame transfer function 
+prediction for turbulent non-premixed syngas flames. Turbo Expo: Power for 
+Land, Sea, and Air 2006;42363:683–90. https://doi.org/10.1115/GT2006-90910.
+[171] Tsurikov M, Meier W, Geigle K-P. Investigations of a syngas-fired gas turbine 
+model combustor by planar laser techniques. Turbo Expo: Power for Land, Sea, 
+and Air 2006;42363:303–9. https://doi.org/10.1115/GT2006-90344.
+[172] Kutne P, Boxx I, St¨ohr M, Meier W. Experimental analysis of the combustion 
+behaviour of low calorific syngas mixtures in a gas turbine model combustor. 3rd 
+European Combustion Meeting 2007:11–3.
+[173] Sadanandan R, Kutne P, Steinberg A, Meier W. Investigation of the syngas flame 
+characteristics at elevated pressures using optical and laser diagnostic methods. 
+Flow Turbul Combust 2012;89:275–94. https://doi.org/10.1007/s10494-011- 
+9354-z.
+[174] Venkateswaran P, Marshall A, Shin DH, Noble D, Seitzman J, Lieuwen T. 
+Measurements and analysis of turbulent consumption speeds of H2/CO mixtures. 
+Combust Flame 2011;158:1602–14. https://doi.org/10.1016/j. 
+combustflame.2010.12.030.
+[175] Fillo AJ. The global consumption speeds of premixed large-hydrocarbon fuel/air 
+turbulent bunsen flames [Master Thesis]. Oregon, USA: Oregon State University.
+[176] Liu CC, Shy SS, Chiu CW, Peng MW, Chung HJ. Hydrogen/carbon monoxide 
+syngas burning rates measurements in high-pressure quiescent and turbulent 
+environment. Int J Hydrogen Energy 2011;36:8595–603. https://doi.org/ 
+10.1016/j.ijhydene.2011.04.087.
+[177] Chiu C-W, Dong Y-C, Shy SS. High-pressure hydrogen/carbon monoxide syngas 
+turbulent burning velocities measured at constant turbulent reynolds numbers. 
+Int J Hydrogen Energy 2012;37:10935–46. https://doi.org/10.1016/j. 
+ijhydene.2012.04.023.
+[178] Daniele S, Mantzaras J, Jansohn P, Denisov A, Boulouchos K. Flame front/ 
+turbulence interaction for syngas fuels in the thin reaction zones regime: 
+turbulent and stretched laminar flame speeds at elevated pressures and 
+temperatures. J Fluid Mech 2013;724:36–68. https://doi.org/10.1017/ 
+jfm.2013.141.
+[179] Venkateswaran P, Marshall A, Seitzman J, Lieuwen T. Pressure and fuel effects on 
+turbulent consumption speeds of H2/CO blends. Proc Combust Inst 2013;34: 
+1527–35. https://doi.org/10.1016/j.proci.2012.06.077.
+[180] Venkateswaran P, Marshall AD, Seitzman JM, Lieuwen TC. Turbulent 
+consumption speeds of high hydrogen content fuels from 1–20 atm. J Eng Gas 
+Turbines Power 2013;136:011504. https://doi.org/10.1115/1.4025210.
+[181] Wang J, Zhang M, Xie Y, Huang Z, Kudo T, Kobayashi H. Correlation of turbulent 
+burning velocity for syngas/air mixtures at high pressure up to 1.0 MPa. Exp 
+Therm Fluid Sci 2013;50:90–6. https://doi.org/10.1016/j. 
+expthermflusci.2013.05.008.
+[182] Shy SS, Liu CC, Lin JY, Chen LL, Lipatnikov AN, Yang SI. Correlations of high- 
+pressure lean methane and syngas turbulent burning velocities: effects of 
+turbulent Reynolds, Damk¨ohler, and Karlovitz numbers. Proc Combust Inst 2015; 
+35:1509–16. https://doi.org/10.1016/j.proci.2014.07.026.
+[183] Sun ZY, Xu C. Turbulent burning velocity of stoichiometric syngas flames with 
+different hydrogen volumetric fractions upon constant-volume method with 
+multi-zone model. Int J Hydrogen Energy 2020;45:4969–78. https://doi.org/ 
+10.1016/j.ijhydene.2019.12.054.
+[184] Zhao H, Wang J, Cai X, Dai H, Bian Z, Huang Z. Flame structure, turbulent 
+burning velocity and its unified scaling for lean syngas/air turbulent expanding 
+flames. Int J Hydrogen Energy 2021;46:25699–711. https://doi.org/10.1016/j. 
+ijhydene.2021.05.090.
+[185] Cheng R, Littlejohn D, Strakey P, Sidwell T. Laboratory investigations of a low- 
+swirl injector with H2 and CH4 at gas turbine conditions. Proc Combust Inst 2009; 
+32:3001–9. https://doi.org/10.1016/j.proci.2008.06.141.
+[186] Davis D, Therkelsen P, Littlejohn D, Cheng R. Effects of hydrogen on the thermo- 
+acoustics coupling mechanisms of low-swirl injector flames in a model gas turbine 
+combustor. Proc Combust Inst 2013;34:3135–43. https://doi.org/10.1016/j. 
+proci.2012.05.050.
+[187] Littlejohn D, Cheng RK, Noble D, Lieuwen T. Laboratory investigations of low- 
+swirl injectors operating with syngases. Turbo Expo: Power for Land, Sea, and Air 
+2008;43130:1001–10. https://doi.org/10.1115/GT2008-51298.
+[188] Paykani A, Chehrmonavari H, Tsolakis A, Alger T, Northrop WF, Reitz RD. 
+Synthesis gas as a fuel for internal combustion engines in transportation. Prog 
+Energy Combust Sci 2022;90:100995. https://doi.org/10.1016/j. 
+pecs.2022.100995.
+[189] Wehrmann VS, Klein M, Hasslberger J. Direct numerical simulation and modeling 
+of the flame propagation characteristics in lean premixed turbulent H2/CO/air 
+combustion. Int J Hydrogen Energy 2024;90:1206–19. https://doi.org/10.1016/ 
+j.ijhydene.2024.09.384.
+[190] Wang J, Zhang M, Huang Z, Kudo T, Kobayashi H. Measurement of the 
+instantaneous flame front structure of syngas turbulent premixed flames at high 
+pressure. Combust Flame 2013;160:2434–41. https://doi.org/10.1016/j. 
+combustflame.2013.06.008.
+[191] Boyette WR, Guiberti TF, Magnotti G, Roberts WL. Structure of turbulent 
+nonpremixed syngas flames at high pressure. Proc Combust Inst 2019;37: 
+2207–14. https://doi.org/10.1016/j.proci.2018.09.004.
+[192] Wang J, Guo S, Zhang W, Zhang M, Huang Z. Effect of hydrogen ratio on 
+turbulent flame structure of oxyfuel syngas at high pressure up to 1.0 MPa. Int J 
+Hydrogen Energy 2019;44:11185–93. https://doi.org/10.1016/j. 
+ijhydene.2019.02.209.
+[193] Cuoci A, Frassoldati A, Buzzi Ferraris G, Faravelli T, Ranzi E. The ignition, 
+combustion and flame structure of carbon monoxide/hydrogen mixtures. Note 2: 
+fluid dynamics and kinetic aspects of syngas combustion. Int J Hydrogen Energy 
+2007;32:3486–500. https://doi.org/10.1016/j.ijhydene.2007.02.026.
+[194] Safer K, Tabet F, Safer M. A numerical investigation of structure and NO emissions 
+of turbulent syngas diffusion flame in counter-flow configuration. Int J Hydrogen 
+Energy 2016;41:3208–21. https://doi.org/10.1016/j.ijhydene.2015.12.154.
+[195] Fukumoto K, Wang CJ, Wen JX. Large Eddy simulation of a syngas jet flame: 
+effects of preferential diffusion and turbulence-chemistry interaction. Energy & 
+Fuels 2019;33:5561–81. https://doi.org/10.1021/acs.energyfuels.9b00130.
+[196] Bhide KG, Sreedhara S. A DNS study on turbulence-chemistry interaction in lean 
+premixed syngas flames. Int J Hydrogen Energy 2020;45:23615–23. https://doi. 
+org/10.1016/j.ijhydene.2020.06.042.
+[197] Verma S, Monnier F, Lipatnikov AN. Validation of leading point concept in RANS 
+simulations of highly turbulent lean syngas-air flames with well-pronounced 
+diffusional-thermal effects. Int J Hydrogen Energy 2021;46:9222–33. https://doi. 
+org/10.1016/j.ijhydene.2021.01.022.
+[198] Abtahizadeh E, de Goey P, van Oijen J. Development of a novel flamelet-based 
+model to include preferential diffusion effects in autoignition of CH4/H2 flames. 
+Combust Flame 2015;162:4358–69. https://doi.org/10.1016/j. 
+combustflame.2015.06.015.
+[199] Ranga Dinesh KKJ, Jiang X, van Oijen JA, Bastiaans RJM, de Goey LPH. 
+Hydrogen-enriched nonpremixed jet flames: effects of preferential diffusion. Int J 
+Hydrogen Energy 2013;38:4848–63. https://doi.org/10.1016/j. 
+ijhydene.2013.01.171.
+[200] Li S, Zheng Y, Mira D, Li S, Zhu M, Jiang X. A large-eddy simulation–linear-eddy 
+model study of preferential diffusion processes in a partially premixed swirling 
+combustor with synthesis gases. J Eng Gas Turbines Power 2017;139:031501. 
+https://doi.org/10.1115/1.4034446.
+[201] de Swart JAM, Bastiaans RJM, van Oijen JA, de Goey LPH, Cant RS. Inclusion of 
+preferential diffusion in simulations of premixed combustion of hydrogen/ 
+methane mixtures with flamelet generated manifolds. Flow Turbul Combust 
+2010;85:473–511. https://doi.org/10.1007/s10494-010-9279-y.
+[202] Kai R, Tokuoka T, Nagao J, Pillai AL, Kurose R. LES flamelet modeling of 
+hydrogen combustion considering preferential diffusion effect. Int J Hydrogen 
+Energy 2023;48:11086–101. https://doi.org/10.1016/j.ijhydene.2022.12.164.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+24 
+
+
+--- Page 25 ---
+
+[203] Mukundakumar N, Efimov D, Beishuizen N, van Oijen J. A new preferential 
+diffusion model applied to FGM simulations of hydrogen flames. Combust Theor 
+Model 2021;25:1245–67. https://doi.org/10.1080/13647830.2021.1970232.
+[204] Samiran NA, Ng J-H, Mohd Jaafar MN, Valera-Medina A, Chong CT. Swirl 
+stability and emission characteristics of CO-enriched syngas/air flame in a 
+premixed swirl burner. Process Saf Environ Prot 2017;112:315–26. https://doi. 
+org/10.1016/j.psep.2017.07.011.
+[205] Oluyede EO, Phillips JN. Fundamental impact of firing syngas in gas turbines. 
+Turbo expo: power for land, sea, and air 2007;47926:175–82. https://doi.org/ 
+10.1115/GT2007-27385.
+[206] Erbes M, Gay R. GATE/cycle predictions of the off-design performance of 
+combined cycle power plants. Simulation of Thermal Energy Systems, ASME AES 
+1989;6:43–51.
+[207] Kim YS, Lee JJ, Kim TS, Sohn JL. Effects of syngas type on the operation and 
+performance of a gas turbine in integrated gasification combined cycle. Energy 
+Convers Manag 2011;52:2262–71. https://doi.org/10.1016/j. 
+enconman.2011.01.009.
+[208] He F, Li Z, Liu P, Ma L, Pistikopoulos EN. Operation window and part-load 
+performance study of a syngas fired gas turbine. Appl Energy 2012;89:133–41. 
+https://doi.org/10.1016/j.apenergy.2010.11.044.
+[209] Chacartegui R, Torres M, S´anchez D, Jim´enez F, Munoz A, S´anchez T. Analysis of 
+main gaseous emissions of heavy duty gas turbines burning several syngas fuels. 
+Fuel Process Technol 2011;92:213–20. https://doi.org/10.1016/j. 
+fuproc.2010.03.014.
+[210] Chacartegui R, S´anchez D, De Escalona JM, Jimenez-Espadafor F, Mu˜noz A, 
+S´anchez T. SPHERA project: assessing the use of syngas fuels in gas turbines and 
+combined cycles from a global perspective. Fuel Process Technol 2012;103: 
+134–45. https://doi.org/10.1016/j.fuproc.2011.11.004.
+[211] Lee MC, Seo SB, Chung JH, Kim SM, Joo YJ, Ahn DH. Gas turbine combustion 
+performance test of hydrogen and carbon monoxide synthetic gas. Fuel 2010;89: 
+1485–91. https://doi.org/10.1016/j.fuel.2009.10.004.
+[212] Dodo S, Karishuku M, Yagi N, Asai T, Akiyama Y. Dry low-NOx combustion 
+technology for novel clean coal power generation aiming at the realization of a 
+low carbon society. Mitsubishi Heavy Industries Technical Review 2015;52: 
+24–31.
+[213] Delattin F, Lorenzo GD, Rizzo S, Bram S, Ruyck JD. Combustion of syngas in a 
+pressurized microturbine-like combustor: experimental results. Appl Energy 
+2010;87:1441–52. https://doi.org/10.1016/j.apenergy.2009.08.046.
+[214] Corrˆea PSP, Zhang J, Lora EES, Andrade RV, de Mello e Pinto LR, Ratner A. 
+Experimental study on applying biomass-derived syngas in a microturbine. Appl 
+Therm Eng 2019;146:328–37. https://doi.org/10.1016/j. 
+applthermaleng.2018.09.123.
+[215] Ashini H, Tabejamaat S, Bastani M. Experimental and numerical study on 
+combustion of biogas/lean-hydrogen syngas mixtures in a microturbine 
+combustor. Int J Hydrogen Energy 2025;102:1–19. https://doi.org/10.1016/j. 
+ijhydene.2025.01.001.
+[216] Fiore M, Magi V, Viggiano A. Internal combustion engines powered by syngas: a 
+review. Appl Energy 2020;276:115415. https://doi.org/10.1016/j. 
+apenergy.2020.115415.
+[217] Dai X, Ji C, Wang S, Liang C, Liu X, Ju B. Effect of syngas addition on performance 
+of a spark-ignited gasoline engine at lean conditions. Int J Hydrogen Energy 2012; 
+37:14624–31. https://doi.org/10.1016/j.ijhydene.2012.07.039.
+[218] Shivapuji AM, Dasappa S. Influence of fuel hydrogen fraction on syngas fueled SI 
+engine: fuel thermo-physical property analysis and in-cylinder experimental 
+investigations. Int J Hydrogen Energy 2015;40:10308–28. https://doi.org/ 
+10.1016/j.ijhydene.2015.06.062.
+[219] Martinez-Boggio SD, Merola SS, Teixeira Lacava P, Irimescu A, Curto-Risso PL. 
+Effect of fuel and air dilution on syngas combustion in an optical SI engine. 
+Energies 2019;12:1566. https://doi.org/10.3390/en12081566.
+[220] Mustafi N, Miraglia Y, Raine R, Bansal P, Elder S. Spark-ignition engine 
+performance with ‘Powergas’ fuel (mixture of CO/H2): a comparison with 
+gasoline and natural gas. Fuel 2006;85:1605–12. https://doi.org/10.1016/j. 
+fuel.2006.02.017.
+[221] Azimov U, Tomita E, Kawahara N, Harada Y. Effect of syngas composition on 
+combustion and exhaust emission characteristics in a pilot-ignited dual-fuel 
+engine operated in PREMIER combustion mode. Int J Hydrogen Energy 2011;36: 
+11985–96. https://doi.org/10.1016/j.ijhydene.2011.04.192.
+[222] Ali AAMM, Ali K, Kim C, Lee Y, Oh S, Kim K. Numerical study of the combustion 
+characteristics in a syngas-diesel dual-fuel engine under lean condition. Int J 
+Automot Technol 2019;20:933–42. https://doi.org/10.1007/s12239/019/0087/ 
+7.
+[223] Olanrewaju FO, Li H, Aslam Z, Hammerton J, Lovett JC. Analysis of the effect of 
+syngas substitution of diesel on the heat release rate and combustion behaviour of 
+diesel-syngas dual fuel engine. Fuel 2022;312:122842. https://doi.org/10.1016/ 
+j.fuel.2021.122842.
+[224] Jamsran N, Park H, Lee J, Oh S, Kim C, Lee Y, et al. Syngas composition for 
+improving thermal efficiency in boosted homogeneous charge compression 
+ignition engines. Fuel 2022;321:124130. https://doi.org/10.1016/j. 
+fuel.2022.124130.
+[225] Saxena S, Bedoya ID. Fundamental phenomena affecting low temperature 
+combustion and HCCI engines, high load limits and strategies for extending these 
+limits. Prog Energy Combust Sci 2013;39:457–88. https://doi.org/10.1016/j. 
+pecs.2013.05.002.
+[226] Bika AS, Franklin L, Kittelson DB. Homogeneous charge compression ignition 
+engine operating on synthesis gas. Int J Hydrogen Energy 2012;37:9402–11. 
+https://doi.org/10.1016/j.ijhydene.2012.03.014.
+[227] Przybyla G, Szlek A, Haggith D, Sobiesiak A. Fuelling of spark ignition and 
+homogenous charge compression ignition engines with low calorific value 
+producer gas. Energy 2016;116:1464–78. https://doi.org/10.1016/j. 
+energy.2016.06.036.
+[228] Starik AM, Korobov AN, Titova NS. Combustion improvement in HCCI engine 
+operating on synthesis gas via addition of ozone or excited oxygen molecules to 
+the charge: modeling study. Int J Hydrogen Energy 2017;42:10475–84. https:// 
+doi.org/10.1016/j.ijhydene.2017.01.179.
+[229] Yamasaki Y, Kaneko S. Prediction of ignition and combustion development in an 
+HCCI engine fueled by syngas. SAE Technical Paper Series 2014. https://doi.org/ 
+10.4271/2014-32-0002. 2014-32-0002.
+[230] J´o´zwiak P, Hercog J, Kiedrzy´nska A, Badyda K. CFD analysis of natural gas 
+substitution with syngas in the industrial furnaces. Energy 2019;179:593–602. 
+https://doi.org/10.1016/j.energy.2019.04.179.
+[231] Chae T, Lee J, Yang W, Ryu C. Characteristics of syngas reburning in a natural gas 
+firing furnace - effects of combustible gas species in the syngas. J Mech Sci 
+Technol 2016;30:3861–8. https://doi.org/10.1007/s12206-016-0751-z.
+[232] Habib MA, Mokheimer EMA, Sanusi SY, Nemitallah MA. Numerical investigations 
+of combustion and emissions of syngas as compared to methane in a 200MW 
+package boiler. Energy Convers Manag 2014;83:296–305. https://doi.org/ 
+10.1016/j.enconman.2014.03.056.
+[233] Yang W, Yang DJ, Choi SY, Kim JS. Experimental study on co-firing of syngas as a 
+reburn/alternative fuel in a commercial water-tube boiler and a pilot-scale 
+vertical furnace. Energy & Fuels 2011;25:2460–8. https://doi.org/10.1021/ 
+ef200242p.
+[234] Yepes HA, Obando JE, Amell AA. The effect of syngas addition on flameless 
+natural gas combustion in a regenerative furnace. Energy 2022;252:124008. 
+https://doi.org/10.1016/j.energy.2022.124008.
+[235] García-Armingol T, Ballester J. Operational issues in premixed combustion of 
+hydrogen-enriched and syngas fuels. Int J Hydrogen Energy 2015;40:1229–43. 
+https://doi.org/10.1016/j.ijhydene.2014.11.042.
+[236] Colorado AF, Herrera BA, Amell AA. Performance of a flameless combustion 
+furnace using biogas and natural gas. Bioresour Technol 2010;101:2443–9. 
+https://doi.org/10.1016/j.biortech.2009.11.003.
+[237] Kim D, Park J, Huh KY, Lee Y. Oxygen-enriched flameless combustion of CH4/H2/ 
+CO mixtures. Int J Energy Res 2021;46:4320–38. https://doi.org/10.1002/ 
+er.7429.
+[238] Kim YS, Lee JJ, Kim TS, Sohn JL, Joo YJ. Performance analysis of a syngas-fed gas 
+turbine considering the operating limitations of its components. Appl Energy 
+2010;87:1602–11. https://doi.org/10.1016/j.apenergy.2009.09.021.
+[239] Park J, Lee MC. Combustion instability characteristics of H2/CO/CH4 syngases 
+and synthetic natural gases in a partially-premixed gas turbine combustor: part 
+I—frequency and mode analysis. Int J Hydrogen Energy 2016;41:7484–93. 
+https://doi.org/10.1016/j.ijhydene.2016.02.047.
+[240] Park S, Shin J, Morishita M, Saitoh T, Choi G, Tanahashi M. Validation of 
+measured data on F/A ratio and turbine inlet temperature with optimal 
+estimation to enhance the reliability on a full-scale gas turbine combustion test 
+for IGCC. Int J Hydrogen Energy 2019;44:13999–4011. https://doi.org/10.1016/ 
+j.ijhydene.2019.03.233.
+[241] Wang J, Al-attab KA, Yew Heng T. Techno-economic and thermodynamic analysis 
+of solid oxide fuel cell combined heat and power integrated with biomass 
+gasification and solar assisted carbon capture and energy utilization system. 
+Energy Convers Manag 2023;280:116762. https://doi.org/10.1016/j. 
+enconman.2023.116762.
+[242] Zhao H, Lu R, Zhang T. Thermodynamic and economic performance study of 
+SOFC combined cycle system using biomass and LNG coupled with CO2 recovery. 
+Energy Convers Manag 2023;280:116817. https://doi.org/10.1016/j. 
+enconman.2023.116817.
+[243] Zhang X, Liu W, Pan J, Zhao B, Yi Z, He X, et al. Comprehensive performance 
+assessment of a novel biomass-based CCHP system integrated with SOFC and HT- 
+PEMFC. Energy 2024;295:131112. https://doi.org/10.1016/j. 
+energy.2024.131112.
+[244] Braun RJ, Kazempoor P. Application of SOFCs in combined heat, cooling and 
+power systems. In: Zhao TS, Ni M, editors. Solid oxide fuel cells: from materials to 
+system modeling. The Royal Society of Chemistry; 2013.
+[245] Toonssen R, Sollai S, Aravind PV, Woudstra N, Verkooijen AHM. Alternative 
+system designs of biomass gasification SOFC/GT hybrid systems. Int J Hydrogen 
+Energy 2011;36:10414–25. https://doi.org/10.1016/j.ijhydene.2010.06.069.
+[246] Li X, Wang Y. Progress in the study of sulfur poisoning of anodes in solid oxide 
+fuel cells. Chem Eng J 2024;500:157413. https://doi.org/10.1016/j. 
+cej.2024.157413.
+[247] Niakolas DK, Ouweltjes JP, Rietveld G, Dracopoulos V, Neophytides SG. Au-doped 
+Ni/GDC as a new anode for SOFCs operating under rich CH4 internal steam 
+reforming. Int J Hydrogen Energy 2010;35:7898–904. https://doi.org/10.1016/j. 
+ijhydene.2010.05.038.
+[248] Sauvet AL, Fouletier J. Electrochemical properties of a new type of anode material 
+La1-xSrxCr1-yRuyO3-δ for SOFC under hydrogen and methane at intermediate 
+temperatures. Electrochim Acta 2001;47:987–95. https://doi.org/10.1016/ 
+S0013-4686(01)00811-8.
+[249] Sharma M, N R, Dasappa S. Solid oxide fuel cell operating with biomass derived 
+producer gas: status and challenges. Renew Sustain Energy Rev 2016;60:450–63. 
+https://doi.org/10.1016/j.rser.2016.01.075.
+[250] Aravind PV, de Jong W. Evaluation of high temperature gas cleaning options for 
+biomass gasification product gas for solid oxide fuel cells. Prog Energy Combust 
+Sci 2012;38:737–64. https://doi.org/10.1016/j.pecs.2012.03.006.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+25 
+
+
+--- Page 26 ---
+
+[251] Ud Din Z, Zainal ZA. Biomass integrated gasification–SOFC systems: technology 
+overview. Renew Sustain Energy Rev 2016;53:1356–76. https://doi.org/ 
+10.1016/j.rser.2015.09.013.
+[252] Hossain S, Abdalla AM, Jamain SNB, Zaini JH, Azad AK. A review on proton 
+conducting electrolytes for clean energy and intermediate temperature-solid 
+oxide fuel cells. Renew Sustain Energy Rev 2017;79:750–64. https://doi.org/ 
+10.1016/j.rser.2017.05.147.
+[253] Abouemara K, Shahbaz M, McKay G, Al-Ansari T. The review of power generation 
+from integrated biomass gasification and solid oxide fuel cells: current status and 
+future directions. Fuel 2024;360:130511. https://doi.org/10.1016/j. 
+fuel.2023.130511.
+[254] Dong L, Liu H, Riffat S. Development of small-scale and micro-scale biomass- 
+fuelled CHP systems–A literature review. Appl Therm Eng 2009;29:2119–26. 
+https://doi.org/10.1016/j.applthermaleng.2008.12.004.
+[255] Stambouli AB, Traversa E. Solid oxide fuel cells (SOFCs): a review of an 
+environmentally clean and efficient source of energy. Renew Sustain Energy Rev 
+2002;6:433–55. https://doi.org/10.1016/S1364-0321(02)00014-X.
+[256] Fryda L, Panopoulos KD, Kakaras E. Integrated CHP with autothermal biomass 
+gasification and SOFC–MGT. Energy Convers Manag 2008;49:281–90. https:// 
+doi.org/10.1016/j.enconman.2007.06.013.
+[257] Gustavsson C, Hulteberg C. Co-production of gasification based biofuels in 
+existing combined heat and power plants – analysis of production capacity and 
+integration potential. Energy 2016;111:830–40. https://doi.org/10.1016/j. 
+energy.2016.06.027.
+[258] Tezer ¨O, Karaba˘g N, ¨Ongen A, Çolpan C¨O, Ayol A. Biomass gasification for 
+sustainable energy production: a review. Int J Hydrogen Energy 2022;47: 
+15419–33. https://doi.org/10.1016/j.ijhydene.2022.02.158.
+[259] Raya-Imbern´on A, Samu AA, Barwe S, Cusati G, F˝odi T, Hepp BM, et al. 
+Renewable syngas generation via low-temperature electrolysis: opportunities and 
+challenges. ACS Energy Lett 2024;9:288–97. https://doi.org/10.1021/ 
+acsenergylett.3c02446.
+[260] Galani A, Sipkema D, Sousa DZ. Hot prospects: harnessing thermophilic microbes 
+for syngas fermentation. Trend Biotech 2025. https://doi.org/10.1016/j. 
+tibtech.2025.04.017.
+[261] Zhang C, Fu R, Kang L, Ma Y, Fan D, Fei Q. An upcycling bioprocess for 
+sustainable aviation fuel production from food waste-derived greenhouse gases: 
+life cycle assessment and techno-economic analysis. Chem Eng J 2024;486: 
+150242. https://doi.org/10.1016/j.cej.2024.150242.
+[262] Zang G, Zhang J, Jia J, Lora ES, Ratner A. Life cycle assessment of power- 
+generation systems based on biomass integrated gasification combined cycles. 
+Renew Energy 2020;149:336–46. https://doi.org/10.1016/j.renene.2019.12.013.
+[263] Shahabuddin M, Alam MT, Krishna BB, Bhaskar T, Perkins G. A review on the 
+production of renewable aviation fuels from the gasification of biomass and 
+residual wastes. Bioresour Technol 2020;312:123596. https://doi.org/10.1016/j. 
+biortech.2020.123596.
+[264] Xi Z, Liu Z, Shi X, Lian T, Yang X, Zhang J, et al. Enhancement of biogas 
+combustion by co-firing dimethyl ether in a gas turbine model combustor. Fuel 
+2022;316:123446. https://doi.org/10.1016/j.fuel.2022.123446.
+[265] Tao C, Wang Y, Liu C, Yang B. Advancing ammonia-hydrogen combustion 
+reaction kinetics: informative experimental datasets constructed through global- 
+sensitivity-based clustering. Combust Flame 2025;280:114353. https://doi.org/ 
+10.1016/j.combustflame.2025.114353.
+[266] Li Z, Han W, Zhang Y, Fu Q, Li J, Qin L, et al. Learning spatiotemporal dynamics 
+with a pretrained generative model. Nat Mach Intell 2024;6:1566–79. https://doi. 
+org/10.1038/s42256-024-00938-z.
+X. Shi et al.                                                                                                                                                                                                                                      
+Renewable and Sustainable Energy Reviews 226 (2026) 116425 
+26 

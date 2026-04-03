@@ -1,0 +1,1276 @@
+
+--- Page 1 ---
+
+In-situ laser diagnostics of turbulent premixed H2/air flame structure and 
+stability based on OH-PLIF and spontaneous Raman spectroscopy
+Huanhuan Xu a
+, Hu Meng b,*
+, Zilin Zhu c, Bingbing Zheng d, Junqing Chen b
+,  
+Yihua Ren b,e,**
+a National Engineering Laboratory for Reducing Emissions from Coal Combustion, Shandong University, Jinan, 250061, China
+b School of Engineering Science, University of Chinese Academy of Sciences, Beijing, 100049, China
+c School of Energy Science and Engineering, Harbin Institute of Technology, Harbin, 150001, China
+d Institute of Thermal Science and Technology, Shandong University, Jinan, 250061, China
+e State Key Laboratory of High Temperature Gas Dynamics, Institute of Mechanics, Chinese Academy of Sciences, Beijing, 100190, China
+A R T I C L E  I N F O
+Keywords:
+Turbulent premixed H2-air flames
+OH-PLIF
+Spontaneous Raman scattering
+Internal flame structure
+Flame stability
+A B S T R A C T
+Hydrogen (H2) combustion plays a pivotal role in decarbonizing energy systems including gas turbines and in­
+dustrial burners due to its zero-carbon emissions and high energy density. However, inherent high diffusivity of 
+H2 may wrinkles the flame front and causes local extinction, and the impact of this thermodiffusive instabilities 
+(TDI) increases at lean combustion conditions. This study systematically investigates turbulent premixed H2/air 
+jet flame utilizing OH planar laser-induced fluorescence (OH-PLIF) and spontaneous Raman scattering (SRS) 
+techniques to resolve flame fronts and temperatures, respectively. The experiments were conducted with 
+equivalence ratios (ϕ) spanning over 0.5–1.0, Reynolds number (Re) ranging from 6000 to 12000, as well as 
+different co-flow conditions. It was revealed that increasing Re or reducing ϕ enhances the flame front wrinkling, 
+promotes the reactant pocket formation, and increases flame brush thickness. Additionally, the flame temper­
+ature was observed to exceed the adiabatic temperature in the post-flame zone due to the molecular diffusion in 
+the stretched H2-air premixed turbulent flames. This super-adiabatic temperature effect diminishes with 
+increasing Re, as a result of the improved reactant pocket formation. A stabilization mechanism for turbulent 
+premixed H2/air flames was analyzed based on a dimensionless Damk¨ohler number. Non-piloted turbulent jet 
+flames require Da >4.18 for stabilization, whereas the surrounding pilot flame can enhance this Da criterion by 
+preheating the combustible mixture and providing a considerable radical pool, thereby significantly improving 
+the flame stability through both thermal and kinetic effects. These findings bridge the critical knowledge gap in 
+understanding combustion across turbulent flame regimes, offering essential insights for the design of lean-burn 
+H2 combustors.
+1. Introduction
+Hydrogen (H2) brings in a unique opportunity to decarbonize the 
+thermo-chemical energy transition process by substituting conventional 
+hydrocarbon fuels while leaving great potential for optimization. For 
+transition towards sustainable combustion systems, lean premixed tur­
+bulent flame is advantageous for the desirable merits of high efficiency 
+and low nitrogen oxides (NOx) emissions [1,2], making it a preferred 
+approach for the utilization of H2 in industrial applications such as the 
+gas turbines [3–5], internal engines [6–8] and gas condensing boiler [9]. 
+Significant challenges exist for the development of such burners in the 
+flame instability [10], including flashback and local extinction, as H2 
+flames burn differently from conventional fuels. These inherent diffi­
+culties in maintaining hydrogen flame stability under fuel-lean condi­
+tions are amplified in practical combustion systems due to the turbulent 
+flow interactions and transient operational demands, necessitating the 
+development of H2 flame stabilization mechanism.
+To enhance the stability of highly turbulent lean flames, pilot flames 
+have served as one of the most common solutions from both practical 
+and scientific perspectives. During the startup or low-power operating of 
+* Corresponding author.
+** Corresponding author. School of Engineering Science, University of Chinese Academy of Sciences, 100049 Beijing, China.
+E-mail addresses: menghu@ucas.ac.cn (H. Meng), renyihua@ucas.ac.cn (Y. Ren). 
+Contents lists available at ScienceDirect
+International Journal of Hydrogen Energy
+journal homepage: www.elsevier.com/locate/he
+https://doi.org/10.1016/j.ijhydene.2025.152723
+Received 29 August 2025; Received in revised form 9 November 2025; Accepted 20 November 2025  
+International Journal of Hydrogen Energy 198 (2026) 152723 
+Available online 25 November 2025 
+0360-3199/© 2025 Hydrogen Energy Publications LLC. Published by Elsevier Ltd. All rights are reserved, including those for text and data mining, AI training, and 
+similar technologies. 
+
+
+--- Page 2 ---
+
+a combustion device such as gas turbine or engine [11], pilot flames can 
+anchor the main turbulent flames through continuous ignition and 
+thermal support. In addition, scientific-wise, piloted flames have been 
+developed as a standard configuration and extensively adopted to 
+generate benchmark datasets for advancing the turbulent combustion 
+model validation, across a broad range of turbulence levels, such as the 
+Sandia piloted premixed flames [12].
+The stabilization dynamics of piloted turbulent lean flames have 
+attracted considerable research attention due to their fundamental 
+importance in flame anchoring and practical relevance to clean com­
+bustion technologies. Guibert et al. [13] pointed out that the adiabatic 
+flame temperature of the coaxial pilot flames significantly increases the 
+stability of the central flame while the H/C ratio has negligible effects. 
+This finding is consistent with that of Yu et al. [14] found that the main 
+premixed jet flame is insensitive to the hot gas composition from the 
+pilot flame but significantly depends on the heat transfer from the pilot 
+flame. Meares et al. [15] studied the stabilization mechanism of turbu­
+lent jet flame, but with a focus on understanding the impact of the ho­
+mogeneity of the CH4/air in mixture flow, by changing the premixing 
+length of the fuel and air flows. Cabra et al. [16] studied the autoignition 
+behavior of a lifted turbulent H2/N2 jet flame in the coflow of hot 
+combustion products, and they proposed that the small-scale recircula­
+tion and the mixing of hot products into reactants rapidly trigger the 
+ignition below the liftoff height. While significant progress has been 
+made in piloted premixed flame research, existing studies mainly focus 
+on hydrocarbon-based or diluted H2 flame [13–16], leaving pure H2 
+turbulent premixed flames unexplored.
+With respect to the piloted turbulent premixed flame structure, Zhou 
+et al. [17] conducted simultaneous laser-based measurements and 
+visualized the detailed flame structure of piloted stoichiometric CH4/air 
+turbulent jet flames in a distributed reaction zone. Wang et al. [18] 
+performed a DNS study on the inner structure and the stabilization 
+mechanism of piloted CH4/air premixed flames and found a negative 
+displacement speed on the flame front in the near field. Shi et al. [19] 
+measured the internal flame structures of lean premixed H2/air flames in 
+the distributed reaction zone. However, it remains insufficient for a 
+comprehensive understanding of piloted lean premixed H2/air flame 
+structures especially those crossing turbulent flame regimes.
+Apparently, great distinctions of flame stability and structure can be 
+expected between the hydrocarbon fuels and H2, given the facts that: (1) 
+H2 exhibits much higher laminar flame speed and molecular diffusivity 
+that preclude direct extrapolation of hydrocarbon-based combustion 
+dynamics; (2) sub-unity Lewis number of H2 fuel-lean premixed gases 
+induces super-adiabatic flame temperatures and more wrinkled flame 
+surfaces [19,20] due to strong thermodiffusive instabilities [21], which 
+accordingly results in (3) unique combustion dynamic behaviors [22]. 
+Insufficient understanding of the flame structure and stability hinders 
+not only the design of hydrogen combustors but also the development of 
+accurate combustion models. The unique features of flame corrugation 
+and high temperature in pure H2 flames pose significant challenges for 
+conventional intrusive measurement techniques. Systematic in­
+vestigations based on multi-laser-based diagnostic techniques for flame 
+front and temperature measurements are therefore urgently needed to 
+gain deeper insights into the flame-turbulence coupling in pure H2 
+flames, especially when flames are located in different turbulent 
+regimes.
+Given the limited understanding of piloted lean H2 flames and the 
+scarcity of experimental data, this work focuses on the flame structure 
+and stability of the turbulent premixed H2/air flames using in-situ laser 
+diagnostics. The objectives of this study are: (1) to establish an experi­
+mental database for pure H2 turbulent flames in the moderate turbulent 
+flame regimes, using OH-planar laser-induced fluorescence (OH-PLIF) 
+and Spontaneous Raman Spectroscopy (SRS); (2) to quantify the influ­
+ence of coflow conditions on flame structure, particularly in the vicinity 
+of the flame base; and (3) to reveal the stabilization mechanism for both 
+non-piloted and piloted H2/air flames through dimensionless 
+Damk¨ohler number analyses and kinetics studies via CHEMKIN II [23].
+2. Experimental methods and supporting calculations
+2.1. Burner configuration and flame conditions
+The axisymmetric burner configuration is illustrated in Fig. 1, con­
+sisting of a concentric nozzle assembly. A central stainless-steel tube 
+with a 4-mm inner diameter and 6-mm outer diameter delivered pre­
+mixed gas flow of H2/air, while a coaxial channel with an inner diameter 
+of 60 mm supplies the pilot flow. A ceramic honeycomb ring, with an 
+outer diameter of 60 mm, an inner diameter of 6 mm, and a thickness of 
+13 mm, was positioned 1 mm upstream of the nozzle outlet plane to 
+establish a uniform flow profile. To further stabilize the pilot flow, a 
+sintered metal mesh and 1-mm-diameter glass beads were installed 200 
+mm upstream of the nozzle exit. Air was supplied by an air compressor, 
+while H2 and CH4 were delivered from pressurized gas cylinders. High- 
+purity gases (H2: 99.95 %, CH4: 99.95 %, and O2: 99.999 %) were 
+supplied and regulated by mass flow controllers (Seven star) with ac­
+curacy of 0.5 % of the set point plus 0.35 % of full scale. The burner 
+assembly was mounted on a three-axis translational stage with resolu­
+tion of 0.01 mm for spatial-resolved laser diagnostics. Flame images 
+were captured by a digital camera (Canon EOS 600D, 32 mm focus 
+length, ISO 3200, exposure time of 1/20 s, f/5 aperture) to record the 
+flame morphologies under varying conditions.
+Turbulent premixed H2/air flames with different equivalence ratios 
+(ϕ), Reynold numbers (Re), and coflow conditions have been investi­
+gated. Three coflow conditions were investigated: (1) a CH4/air pre­
+mixed flame with an equivalence ratio fixed at 0.8 was adopted as the 
+pilot flame to stabilize the central H2/air premixed flame, producing a 
+vitiated coflow with a temperature of 1620 K, as to be described in 
+section3.5; (2) a cold air coflow at room temperature flows with the 
+same outlet velocity to that of the piloted CH4/air mixture; (3) quiescent 
+air without any coflow. Lean premixed H2 flames were studied with 
+equivalence ratios ranging from 0.5 to 0.8 and Reynolds numbers 
+spanning over 6000–12000. This Re range not only allows capturing the 
+coflow condition effect on the flame stability, but also aligns with typical 
+DNS capabilities as demonstrated in Ref. [21], enabling the interests in 
+the influence of both turbulence and the intrinsic flame instability.
+The conditions of the turbulent premixed H2/air flames for flame 
+structure measurements are summarized in Table 1, including laminar 
+flame thickness, δL, Damk¨ohler number (Da), and Peclect number (Pe) of 
+H2/air mixtures at room temperature. δL is calculated as δL = (Tb-Tu)/ 
+max(dT/dx), where Tu is the temperature of the fresh of the reactant 
+Fig. 1. Schematic of the burner configuration.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+2 
+
+
+--- Page 3 ---
+
+mixture and Tb is the temperature of the burnt products. Da is defined as 
+the ratio of residence time scale, τres, and chemical time scale, τchem, 
+expressed as Da = τres/τchem = (d0/u0)/(α/SL
+2) [24], where α is thermal 
+diffusivity, SL is the laminar flame speed of H2/air mixture, u0 is the 
+injection velocity, and d0 is the inner diameter of the burner tube. Pe 
+characterize relative significance of the advection and the diffusion, and 
+is defined as the Pe = u0d0/α [25]. The great values of Pe imply that all 
+the investigated flames are convection-controlled, as seen at Table 1; 
+besides, Pe number increases with Re, demonstrating turbulent effects 
+suppressing molecular diffusion with increasing flow velocities.
+To clearly characterize the turbulent flame conditions, the local ve­
+locity fluctuation at the burner exit was estimated using an empirical 
+correlation, u’ = 0.16u0Re−1/8 [26,27], and the turbulence length scale 
+was approximated as l = 0.07d0 [27]. With these parameters, the tur­
+bulent flame regime can be obtained as shown in Fig. 2. It is found that 
+flames investigated in this study were located in either the flamelets 
+zone or the thin reaction zone.
+2.2. OH-PLIF setups
+OH-PLIF diagnostics were employed to trace flame dynamics. A 
+tunable pulsed dye laser (Sirah Precision Scan), pumped by a pulsed Nd: 
+YAG laser (Q-Smart 850), was used as an excitation source for the Q1(8) 
+transition of the OH A-X (ν’ = 1, ν’’ = 0) band near 283.55 nm, deliv­
+ering 18.92 mJ/pulse at a repetition rate of 10 Hz. The laser beam was 
+transformed into a planar laser sheet with a thickness of approx. 0.5 mm 
+and a height of 500 mm using cylindrical lens, covering the entire 
+measurement region. After excitation, fluorescence signals at around 
+308 nm were captured using a CCD camera (LaVision SX 6 M, dynamic 
+resolution: 12-bit, chip size: 2752 × 2200 pixels) equipped with a gated 
+intensifier (IRO X intensifier, Spectral range: 190–900 nm, Gain: 90 %, 
+Gate width: 300 ns) and a Nikkor UV lens (focal length: 85 mm, f 
+number: 2.8). A bandpass filter centered at 310 nm with a FWHM of 10 
+nm was installed in front of the UV lens to isolate OH fluorescence 
+signal. Given the above laser parameters and light sheet dimensions, also 
+considering that laser linewidth is less than 0.03 cm−1 (referring to the 
+Sirah specification), the normalized irradiance can be calculated as 
+25.33 W/(cm2 cm−1), which is much lower than the saturation limit of 1 
+× 105 W/(cm2 cm−1) reported by Dunn and Masri [29]. Therefore, it is 
+believed that the LIF saturation was avoided and the fluorescence signal 
+is in the linear regime [30]. The vertical energy profile of the incoming 
+laser sheet was measured separately by capturing fluorescence intensity 
+of a cuvette filled with Rhodamine 6G (dye solution). The spatial reso­
+lution was measured as 0.0399 mm, which is sufficient to resolve 
+wrinkled flame structures across all equivalence ratios (ϕ = 0.5–1.0), 
+and comparable with reaction zone thickness (0.023–0.076 mm). The 
+PLIF images were processed for background noise and shot-to-shot 
+fluctuation of laser energy. For each experimental condition, 500 indi­
+vidual images were recorded to allow statistical information to be 
+retrieved. The signal-to-noise ratio (SNR) for the OH-PLIF measurements 
+was higher than 30, which was determined by obtaining a ratio of the 
+averaged fluorescence intensity and averaged non-fluorescence 
+intensity.
+2.3. Spontaneous Raman scattering
+The flame temperature was measured by spontaneous Raman scat­
+tering. Fig. 3 demonstrates the schematic of laser diagnostic setup. A Nd: 
+YLF laser (Tabor-D30, Grace Laser) was used as excitation source. The 
+central wavelength of the incident laser is 526.47 nm, pulse width of 
+laser is 150 ns, pulse energy was set to 30 mJ, and repetition rate is 1 
+kHz. The laser beam diameter was expanded and then re-focused into 
+the center of flame. For the signal collection part, a concave mirror was 
+used to increase the collection solid angle of Raman scattering. The 
+collected signals were focused into the spectrometer (SP 2300i, Prince­
+ton Instruments) and an ICCD camera (PI MAX 4, 1024i-GEN II-SR-FG, 
+Princeton Instruments) by a series of achromatic lenses. The grating of 
+Table 1 
+Conditions for turbulent H2/air flames in room-temperature air coflow or in vitiated coflow, where SLM means standard liter per minute, at 0 ◦C, 1 atm.
+Case No.
+H2/air premixed flames
+Conditions of coflow
+ϕ
+Re
+δL/cm
+Da
+Pe
+u’
+piloted flame
+Composition
+Flowrate/SLM
+1
+0.5
+6000
+0.0076
+1.03
+2713.24
+1.328
+Yes, ϕ = 0.8
+CH4+air
+9.23
+2
+0.5
+8000
+0.0076
+0.78
+3617.65
+1.708
+Yes, ϕ = 0.8
+CH4+air
+9.23
+3
+0.5
+10000
+0.0076
+0.62
+4522.07
+2.076
+Yes, ϕ = 0.8
+CH4+air
+9.23
+4
+0.5
+12000
+0.0076
+0.52
+5426.48
+2.435
+Yes, ϕ = 0.8
+CH4+air
+9.23
+5
+0.6
+10000
+0.0048
+1.75
+4316.62
+2.108
+Yes, ϕ = 0.8
+CH4+air
+9.23
+6
+0.7
+10000
+0.0036
+3.45
+4148.30
+2.140
+Yes, ϕ = 0.8
+CH4+air
+9.23
+7
+0.8
+6000
+0.0029
+8.97
+2404.18
+1.389
+Yes, ϕ = 0.8
+CH4+air
+9.23
+8
+0.8
+8000
+0.0029
+6.73
+3205.58
+1.787
+Yes, ϕ = 0.8
+CH4+air
+9.23
+9
+0.8
+10000
+0.0029
+5.38
+4006.97
+2.172
+Yes, ϕ = 0.8
+CH4+air
+9.23
+10
+0.8
+12000
+0.0029
+4.49
+4808.36
+2.548
+Yes, ϕ = 0.8
+CH4+air
+9.23
+11
+1.0
+10000
+0.0023
+8.91
+3786.88
+2.236
+Yes, ϕ = 0.8
+CH4+air
+9.23
+12
+0.8
+6000
+0.0029
+8.97
+2404.18
+1.389
+No
+air
+9.23
+13
+0.8
+8000
+0.0029
+6.73
+3205.58
+1.787
+No
+air
+9.23
+14
+1.0
+10000
+0.0023
+8.91
+3786.88
+2.236
+No
+air
+9.23
+15
+0.8
+6000
+0.0029
+8.97
+2404.18
+1.389
+No, quiescent air
+No coflow
+0.00
+16
+0.8
+8000
+0.0029
+6.73
+3205.58
+1.787
+No, quiescent air
+No coflow
+0.00
+17
+1.0
+10000
+0.0023
+8.91
+3786.88
+2.236
+No, quiescent air
+No coflow
+0.00
+Fig. 2. The premixed turbulent flame regime, the diagram is based on Pe­
+ters [28].
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+3 
+
+
+--- Page 4 ---
+
+spectrometer was set to 600 grooves/mm and 2400 grooves/mm for two 
+different temperature measurement methods, respectively. A short gate 
+width of 200 ns was specified for ICCD to suppress the interference 
+signals from flame chemiluminescence. The slit of spectrometer was set 
+to 200 μm and the region of interest (ROI) was set to 100 pixels, which 
+created a measurement volume of ~0.2 × 0.75 × 0.2 mm3 (x-y-z). The 
+accumulation of ICCD was set to 50 and average of ICCD was set to 20, 
+which means the Raman signal from 50 laser pulses was integrated on 
+CCD chip as one spectrum. Then 20 spectra were averaged to 1 frame. 
+For each point of height above burner (HAB), 300 frames were collected. 
+It is need to mention that the measurement volume is larger than the 
+flame thickness, which will bring additional uncertainties on the tem­
+perature measurements at the height of flame front. However, the 
+temperatures are not derived from single-shot measurements. Based on 
+both simulated and experimental validation provided in the supple­
+mentary materials, the average temperature measurements in this work 
+are approximately 50 K lower than those obtained from single shot 
+measurement.
+2.4. Data processing
+2.4.1. OH-PLIF image processing
+Following background subtraction and energy calibration of the OH- 
+PLIF data, the flame front characterization was conducted through 
+MATLAB-based image processing as outlined in Fig. 4. Turbulent flame 
+structures, including the primary reaction zone and fragmented pockets 
+of reactants and products, were identified using a hybrid filtered Canny 
+algorithm with adaptive filtering [31]. Statistical quantification of 
+pocket distributions was performed across 500 consecutive laser shots, 
+with spatially averaged radii computed through geometric centroid 
+analysis. The refined single-pixel flame contours were used to binarize 
+the images into burnt (assigned a value of 1) and unburnt (assigned 0) 
+regions. Averaging of 500 binarized images yielded the mean progress 
+variable c, where c = 0 and c = 1 correspond to unburnt reactant mix­
+tures and fully burnt products, respectively. In this study, the c = 0.05 
+iso-contour line was designated as the flame leading edge to demarcate 
+thermally undisturbed fresh mixtures, while the flame brush thickness, 
+δT, was defined as the spatial distance between this leading edge and the 
+half-burning iso-surface (c = 0.5). At the region of the flame brush tip, 
+the energy variations of the laser sheet were confirmed to be within 3 %, 
+and thus, the impact of the energy inhomogeneities on the flame brush 
+was minimal. To take the asymmetric feature of the averaging flame 
+structure into account, δT was calculated by averaging the left and right 
+flame wings.
+2.4.2. Raman signal processing
+In this study, the flame temperature was measured firstly by 
+nonlinear fitting of collected N2 Raman scattering. By analyzing the 
+curve of N2 Raman scattering, the Boltzmann distribution of the vibra­
+tional energy level of N2 can be obtained to retrieve the flame temper­
+ature. In this kind of method, the grating of spectrometer was set to 2400 
+grooves/mm to guarantee the resolution of the curve of N2 Raman 
+scattering for the lineshape fitting. Detailed signal processing was 
+introduced in our previous work [32]. However, this method is not 
+suitable for the measurements near burner exit due to its inaccuracy for 
+low temperatures fitting. To obtain more accurate results for 
+low-temperature measurements, another method based on the Raman 
+scattering intensity of N2, O2, H2, and H2O was developed. With a given 
+temperature T of species i, the mole fraction of species can be calculated 
+by a reference point with temperature Ti,0 and mole fraction xi,0 [33]: 
+xi = IRaman,i
+IRaman,i,0
+⋅T
+Ti,0
+⋅xi,0,
+(1) 
+Furthermore, it was also assumed that only 4 species contribute to 
+the Raman scattering in the low-temperature region of premixed H2 
+Fig. 3. Schematic of optical alignment for Raman Scatter measurement.
+Fig. 4. Image processing of OH-PLIF signals.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+4 
+
+
+--- Page 5 ---
+
+flame, i.e., 
+xH2 + xO2 + xN2 + xH2O = 1.
+(2) 
+The reference Raman scattering intensity of species is obtained by N2 
+Raman scattering and Raman differential cross section ratio between 
+species i to N2: 
+IRaman,i,0 = IRaman,N2,0⋅σʹ
+i
+σʹ
+N2
+;
+(
+xi,0 = xN2,0
+)
+,
+(3) 
+where σʹ
+i is the Raman differential cross section of species i. Combine 
+Equations (1)–(3), the temperature of flames can be calculated by:  
+To simplify the data process, we only use the Raman cross section of 
+N2 for calibration. Besides, we also validated in the supplementary 
+materials that the single-shot measurement result is close to the Favre 
+average temperature results that obtained from the averaged spectra.
+The efficiency of the laser diagnostic setup was calibrated by a 
+Deuterium-Halogen Calibration Light Source (Ocean Optics. DH-3 
+PLUS). Furthermore, the used N2, O2, H2, and H2O cross sections are 
+based on the laser with wavelength of 532 nm, but the laser used in this 
+work is a Nd:YLF laser with wavelength of 527 nm. The compensation 
+factor induced by different laser wavelength was calibrated based on Lill 
+et al. [34].
+Furthermore, the Raman scattering cross sections of N2, O2, H2, and 
+H2O changed with temperature. According to the database maintained 
+by TU-Darmstadt: https://doi.org/10.48328/tudatalib-1692, when the 
+temperature up to 1000 K, the Raman cross section of N2 varies 4 %, H2 
+varies 5 %, O2 varies 14 %, and H2O varies 2 % compare to 300 K. 
+Considering that the mole fraction of O2 is relatively low where the 
+flame temperature is up to 1000 K, based on the calculation of CHEM­
+KIN, for the most lean cases with ϕ = 0.5, the mole fraction of N2 is 0.71, 
+O2 is 0.15, H2 is 0.04, and H2O is 0.1, where the temperature is ~1000 K. 
+Therefore, we assume that the final uncertainty that induced by the 
+temperature dependence of Raman cross sections of the four major 
+species is ~5 %.
+2.5. Supporting calculation method
+In this study, laminar flame speed, SL, and laminar flame thickness, 
+δL, were calculated based on 1D freely propagating laminar premixed 
+flame (PREMIX) incorporated in CHEMKIN II. Burke et al. mechanism 
+[35] was adopted for kinetics modeling, based on which the thermal 
+diffusivity was derived. To accurately predict the transport properties of 
+H2 flames, multicomponent transport properties and thermal diffusion 
+were employed. Grid refinement criteria (GRAD and CURV) were both 
+set to 0.05 to make sure that the solution is grid-independent.
+When calculating Damk¨ohler number, two chemical time scales were 
+taken into account to isolate the thermal effect and the kinetic effect: 
+τchem,therm was obtained based on α and SL of H2/air mixtures with only 
+mixture temperature elevated, while τchem,coup incorporates both the 
+thermal effect and the kinetic effect, by additionally specifying an initial 
+OH concentration in the combustible mixture. The initial OH concen­
+tration was set as 20 % of the OH maximum of the corresponding H2/air 
+PREMIX simulation, and this percentage was determined according to 
+OH-PLIF signal to be discussed in section 3.2.
+3. Results and discussions
+3.1. Flame appearance
+Fig. 5 illustrates the images of the piloted turbulent premixed H2/air 
+flames across varying equivalence ratios (ϕ). A distinct evolution in 
+flame structure is observed with increasing ϕ, the flame tip becomes 
+progressively obvious, transitioning from an open-like tip shape at ϕ =
+0.5 to a well-defined closed configuration near stoichiometric condi­
+tions. Although the direct imaging exhibits an apparent open tip for the 
+very lean case of ϕ = 0.5, it should be underlined that the closure of 
+inner cone tip still exists but the flame tip is too weak to be captured by a 
+digital camera, which was later validated by the following OH-PLIF 
+images. Readers could also refer to the case of ϕ = 0.6 for some hints 
+in Fig. 5 (b), where the faint closure of the inner cone becomes 
+discernible. Besides, a secondary post-flame zone enveloping the inner 
+reaction layer was observed for the piloted flames, which grows spatially 
+and gets brighter as ϕ increases. During the experiments, it was also 
+found that despite the imaging challenges inherent to H2 combustion, a 
+darkroom environment without any ambient lighting is applicable for 
+the visualization of H2 flames. The bule radiation from the flame front is 
+reported as a broadband radiation spectrum which peaks at approxi­
+mately 440 nm [36] and the red radiation at the flame tip is attributed to 
+the vibrationally excited H2O molecules in the wavelength range from 
+600 to about 900 nm [37]. The pink color in the pilot flame region arises 
+from thermal radiation of the ceramic honeycomb, which reaches in­
+candescent temperatures during sustained operation.
+Fig. 6 compares the appearance response of the turbulent premixed 
+H2/air flames to the coflow variations at a jet Re of 8000. A reduction in 
+Re (from 10000 to 8000) shortens the flame length, as seen in Fig. 5(a, c) 
+compared with Fig. 6(a and b), consistent with the expected propor­
+tionality between flame height and fuel injection velocity. Apparently, 
+coflow conditions exert a pronounced impact on flame appearance. 
+Replacing the pilot flame with a room-temperature coflow or entirely 
+eliminating the coflow collapses the post-flame zone, leaving only the 
+internal flame cone visible as a result of the eliminated thermal and 
+radical enhancement from the hot product of the pilot flame. In contrast, 
+the distinctions in the H2/air flame appearance between air coflow cases 
+and quiescent ambient air cases are negligible as shown in Fig. 6(c and 
+d), suggesting the minimal aerodynamic interaction at the tested coflow 
+velocities, and this point will be validated again by the flame brush 
+thickness in section 3.3.
+3.2. OH-PLIF results
+Fig. 7 exhibits the normalized OH-PLIF signal which clearly shows 
+the complete 2D internal flame structure, and the maxima of the aver­
+aged raw OH intensity are also identified. The internal flame front 
+consistently shows the increasing flame height as Re increases, similar to 
+that demonstrated in the flame photos as discussed in section 3.1.
+It can be observed that the flame front becomes more corrugated as 
+the Re increases or ϕ decreases, and this behavior can be understood 
+form the following two perspectives: firstly, increasing Re or decreasing 
+ϕ increases Pe, as shown in Table 1, with all the measured flames in the 
+convection-controlled regime. Larger Pe indicates stronger convective 
+effect, where the greater vortex-flame interaction promotes more 
+wrinkling of the flame front; secondly, the enhancement of flame 
+T =
+1
+(
+IRaman,H2
+IRaman,N2,0⋅σʹ
+H2/σʹ
+N2
++
+IRaman,N2
+IRaman,N2,0⋅σʹ
+N2/σʹ
+N2
++
+IRaman,H2O
+IRaman,N2,0⋅σʹ
+H2O/σʹ
+N2
++
+IRaman,O2
+IRaman,N2,0⋅σʹ
+02/σʹ
+N2
+)⋅T0
+xN2,0
+.
+(4) 
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+5 
+
+
+--- Page 6 ---
+
+corrugation corresponds to more elevated turbulent flame speed, which 
+is well correlated with the thermodiffusive instabilities (TDI) in the lean 
+H2/air flames. These instabilities arise from the high diffusivity of the 
+hydrogen molecule and cause wrinkling and cellular structures. Since 
+Berger et al. reported that turbulence and TDI show synergistic effects 
+[21] and the impact of TDI increases as ϕ decreases [38], it can be 
+concluded that the observed enhancement of flame corrugation with 
+increasing Re and decreasing ϕ is attributed to the growing TDI.
+The dependence of peak OH-PLIF intensity on Re exhibits distinct 
+trends across the two studied equivalence ratios. For ultra-lean flames 
+(ϕ = 0.5), the maximum OH intensity increases monotonically with Re, 
+reflecting enhanced impact of TDI on reaction rates at higher turbulence 
+levels. In contrast, flames of ϕ = 0.8 display a non-monotonic response, 
+with peak OH intensity occurring at Re = 8000. This divergence suggests 
+different synergistic effects of turbulence and TDI at a larger ϕ, where 
+the TDI is weakened. Besides, the consistently growing OH signal with 
+Re at the leaner condition aligns with the stronger vortex effect driven 
+by the enhanced convection, i.e., the increasing Pe, while the non- 
+monotonic behavior at ϕ = 0.8 implies the varying vortex-flame in­
+teractions as the δL is much decreased compared to that of ϕ = 0.4, as 
+demonstrated in Table 1.
+With regard to the impact of the pilot flame on the OH-PLIF signal, 
+one distinctive feature that should be noted is the detectable OH signal 
+from the pilot flame region envelops the anchoring position produced. 
+The OH radical from the pilot flame is checked to be above 19.5 % of the 
+maxima, and such a high concentration causes strong chemical inter­
+action with the central H2/air flame base, expectedly altering the sta­
+bility through kinetic enhancement. Based on the current laser-related 
+experimental configuration, the OH-PLIF signal is assumed to exhibit a 
+linear relationship with the OH radical concentration, as introduced in 
+section 2.2; therefore, this proportionality serves as the basis for the 
+ignition delay time calculation in section 3.5.
+3.3. Pocket formation
+Pocket formation results from the flame front winkling and curving 
+in the middle height and at the flame tip, which significantly influences 
+the lean blow out limits, flame surface densities, the local heat release 
+rates, and the temporal average flame temperatures. To quantitatively 
+characterize the internal flame front characteristics and gain deep in­
+sights into the turbulent premixed H2 flame, statistical evaluations of 
+pocket amount and mean radius were conducted, as presented in Figs. 8 
+and 9.
+Fig. 8 depicts the reactant pocket properties as a function of ϕ and the 
+remarkably decreasing trend underlines the significant impact of ϕ on 
+the reactant pocket formation, this can be attributed to the transition in 
+the turbulent flame regimes, shown in Fig. 2, as flames shift from the 
+flamelets zone to the thin reaction zone as ϕ decreasing. The product 
+pocket formation across the examined ϕs was also checked which is not 
+shown here and its influence is less profound compared with that on the 
+reactant pocket. The reactant pocket occurs near the flame tip while 
+product pocket appears inside the inner flame wings, as shown in Figs. 4 
+and 7. As Tyagi et al. [39] attributed the formation of the reactant 
+pocket and product pocket to the flame folding and tearing, respectively, 
+it can be concluded that the shift from the flamelet zone to the thin 
+reaction zone has a more profound influence on flame tip surface folding 
+than the flame wing tearing.
+Fig. 8 compares the effects of Re on the reactant pocket properties for 
+flames at equivalence ratios of 0.5 and 0.8, and more pocket formation 
+for the leaner conditions correlates well with the increased flame front 
+corrugation observed in Fig. 7. More significantly, pocket properties in 
+the thin reaction zone (flames with ϕ = 0.5) exhibit a stronger non-linear 
+dependence on Re than these in the flamelets zone (flames with ϕ = 0.8). 
+In the flamelets zone, increasing Re exerts a relatively constant effect on 
+both the pocket amount and radii; in contrast, within the thin reaction 
+zone, the influence of Re on pocket radii becomes more profound at 
+higher Re, while its impact on pocket amount weakens. These two 
+Fig. 5. Photos of piloted H2 flame with varying equivalence ratio, Re = 10000.
+Fig. 6. Photos of H2/air flames under different coflow conditions, Re = 8000.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+6 
+
+
+--- Page 7 ---
+
+distinct behaviors imply the competing underlying mechanisms of 
+chemical reaction and turbulence.
+Similar enhancing influence of Re was also observed on the product 
+pocket, in terms of both the amount and the mean radius. However, it is 
+worth pointing out that the formation of product pocket is much less 
+than that of the reactant pocket with the current camera configuration. 
+For example, among the 500 captured snapshots, product pockets are 
+found in less than 10 frames.
+3.4. Flame brush thickness
+In this section, the flame brush thickness (δT) along the entire flame 
+height is studied as this characteristic reflects the spatial fluctuation of 
+the internal flame front and δT at the flame base plays an important role 
+in the flame stability. The brush thickness of piloted H2 flames as a 
+function of HAB for different Re numbers is displayed in Fig. 10. It can be 
+seen that all four curves show a similar trend. A declination of δT is 
+observed near the burner exit, while at larger HABs, for example HAB 
+Fig. 7. Normalized OH signal of piloted turbulent H2 flames with ϕ = 0.5 (top row) and ϕ = 0.8 (bottom row). Red line marks the main flame front and black circle 
+represents the reactant pocket. (For interpretation of the references to color in this figure legend, the reader is referred to the Web version of this article.)
+Fig. 8. Properties of reactant pocket as function of equivalence ratio in piloted 
+H2-air turbulent premixed flames with Re = 10000.
+Fig. 9. Properties of reactant pocket as function of Re in piloted H2 flames with 
+ϕ = 0.5 and ϕ = 0.8.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+7 
+
+
+--- Page 8 ---
+
+>3 mm for Re = 6000, δT increases with HAB. This decreasing trend at 
+the low positions is attributed to the diminishing effect of the pilot flame 
+as departing from the burner tip. Instead of growing proportionally to 
+the square root of the axial flame position reported by Griebel et al. [40] 
+for CH4/air flames, the current work reveals a second power relation­
+ship. This disagreement could be caused by either the utilization of 
+turbulent generation grid in Griebel at el.’s work or the instinct 
+self-acceleration of H2 combustion [41].
+By comparing the four fitting lines in Fig. 10, the influence of Re on 
+the flame brush thickness is examined. Quantitative results show an 
+inverse correlation between Re and δT, namely lower Re values corre­
+spond to a greater brush thickness. This behavior remains constant both 
+at the flame base where the central turbulent premixed H2 flame 
+strongly interacts with the surrounding pilot flame combustion prod­
+ucts, and in the flame tails where the assistance-effect from the pilot 
+flame weakens. The suppressing effect of Re aligns with the negative 
+trend of δT over the increasing turbulence reported in Ref. [40].
+To evaluate the stabilizing effect of the pilot flame, the flame brush 
+thickness δT of identical H2 flames under three coflow conditions are 
+compared in Fig. 11. While the central flames in coflow air and quiescent 
+environments exhibit minor differences in δT, the presence of a pilot 
+flame induces remarkable changes in flame brush thickness. In the vi­
+cinity of the nozzle tip, heat and radicals transferred from the pilot flame 
+enhances δT. However, at downstream positions (HAB >4 mm), the 
+piloted central flame exhibits a thinner flame brush compared to flames 
+in a room-temperature environment. Furthermore, the δT characteristics 
+in the base region strongly correlate with the secondary post-flame zone 
+observed in Fig. 6. For the non-piloted flames with an internal flame 
+cone illustrated in Fig. 6(c and d), the flame brush thickness δT increases 
+monotonically over the entire HABs. In contrast, piloted flames shown in 
+Fig. 6 (b) develop a post-flame zone where the secondary flame front 
+merges with the internal flame front near the base, which therefore in­
+creases δT in the interaction region right after the burner exit.
+3.5. Flame temperature
+The flame temperature profiles along the centerline of H2/air flames 
+are displayed in Fig. 12, based on spontaneous Raman scattering. The 
+temperature of each HAB is an average result from 300 measurements. 
+The plotted error bars mean the standard deviation of the 300 mea­
+surements for each HAB and reflect a combination of fitting uncertainty, 
+the turbulent fluctuations, and systematic errors, such as fluctuations 
+from the mass flow controller and ICCD noise. Furthermore, as analyzed 
+in the supplementary materials, the temperature was under-estimated 
+~50 K due to the average of flame fluctuation. The results demon­
+strate that flame temperature increases monotonically with increasing 
+HAB. At smaller Reynold numbers, the temperature gradient becomes 
+steeper due to shorter flame heights, which is consistent with observa­
+tions in Fig. 7. For a given Re, richer mixtures can exhibit reduced flame 
+height and earlier attainment of peak temperature. For instance, the 
+maximum temperature of Re = 10000, ϕ = 0.5 occurs at HAB = 45 mm 
+while shifting to HAB = 35 mm for ϕ = 0.8 with same Re, due to the 
+Fig. 10. Flame brush thickness of piloted H2 flames with ϕ = 0.8.
+Fig. 11. Effects of coflow conditions on flame brush thickness of turbulent 
+premixed H2 flames, ϕ = 0.8, Re = 8000.
+Fig. 12. Flame temperature profiles along the centerline for piloted H2/air 
+flames with (a) ϕ = 0.5 and (b) ϕ = 0.8.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+8 
+
+
+--- Page 9 ---
+
+increased flame speed.
+Apart from these general behaviors, the post-flame region exhibits 
+super-adiabatic temperature phenomena, as a result of TDI. For H2/air 
+mixtures of ϕ = 0.5 and 0.8, the calculated adiabatic temperatures (Tad) 
+are 1642 K and 2162 K, respectively. However, experimentally 
+measured flame temperatures reaching 1718 (±41.4) K and 2189 
+(±53.4) K, considering that the temperature was under-estimated due to 
+the flame fluctuation, the real temperature of flame is beyond the 
+calculated adiabatic temperatures. This observation aligns with findings 
+by Shi et al. [19] and Chen et al. [42], and they attributed this TDI 
+impact on super-adiabatic temperature to the differential diffusion of H2 
+that drives H2 diffuses toward the products, enhancing local heat 
+release. Besides, the more profound super-adiabatic temperature 
+behavior at low ϕ indicates the stronger TDI at leaner conditions, and 
+this behavior agrees with finding in Berger et al. ’study [38] that the 
+impact of instabilities increases if the equivalence ratio is decreased. 
+Notably, differences in post-flame temperature are observed across the 
+four investigated Re numbers, i.e., increasing Re correlates with a 
+reduction in peak flame temperature. This trend is attributed to the 
+improved reactant pocket formation due to more wrinkling as Re in­
+creases. These pockets entrain unburnt mixtures into the post-flame 
+zone, increasing the possibility of a local low-temperature region and 
+thus reducing the average temperature in Raman measurements. This 
+cooling effect of these pockets is more profound under a leaner condi­
+tion, as compared in Fig. 9.
+In addition, for Re = 10000 and Re = 12000 in Fig. 8, it is observed 
+that once the centerline temperature reaches its peak, it decreases at 
+larger HAB, indicating the mixing of ambient air with the hot products. 
+This behavior could be addressed by applying a shielding coflow in the 
+future to separate the reacting flow from the surrounding air.
+Fig. 13 (a) compares the flame centerline temperature between 
+piloted cases and air coflow cases. For the two studied flame cases, non- 
+piloted flames consistently exhibit higher temperatures at HABs larger 
+than 10 mm. This can be attributed to the slightly upstream flame tip in 
+the non-piloted cases, as demonstrated in Fig. 13 (b), where the peak 
+OH-PLIF signal in a piloted flame clearly occurs in a downstream posi­
+tion compared with these in non-piloted cases. The less distance to the 
+tip of the non-piloted flames causes the higher flame temperature in the 
+unburnt side. Since the flame tip is only slightly shifted by the pilot 
+flame, as shown in Fig. 13 (b), the resulting discrepancy in the centerline 
+temperature remains relatively small, especially in the positions above 
+the flame tip, where measurement uncertainty is amplified. Again, only 
+minimal differences emerge between flames in coflow air and those in 
+quiescent environments, resulting in the near-identical stability map as 
+will be discussed in the next section.
+In addition to the influence of the pilot flame on the flame centerline 
+temperature, the coflow temperature at the burner exit plane is greatly 
+elevated in the piloted cases. To quantitatively examine this inlet 
+change, the temperature of the pilot flame flue gas was measured by 
+Raman scattering at the HAB = 5 mm, and it was found that the radial 
+temperature distribution is fairly uniform at 1620 (±35.6) K. Enveloping 
+the central H2/air flames, the pilot flame preheats the reactant flows 
+through the heated ceramic honeycomb and tube wall. The Raman 
+scattering is no longer applicable to this preheating effect measurement 
+because of the near-wall reflection interference; instead, a 1-mm-diam­
+eter type- K thermocouple was inserted at the center of the burner exit 
+and on the top surface of the burner nozzle immediately after stopping 
+the pilot flame while keeping an airflow in the central tube with a cor­
+responding outlet velocity to the tested H2/air flame. Experimental 
+measurement of the temperature profile at the burner exit is challenging 
+due to the small size of the tube. However, under the investigated flow 
+turbulence, it has been checked that the thermal boundary layer is 
+considerably thin, and the center-point measurements were therefore 
+used to characterize the mixture temperature at the burner exit. Results 
+show that the central flow is about 10 K heated by the hot ceramic 
+honeycomb and the tube wall, while the temperature of the burner tip is 
+421 K, and the central flow rate variation does not change these numbers 
+noticeably.
+3.6. Flame stability
+The flame stability under coflow conditions of pilot flame case, air 
+coflow case and quiescent air case were examined in this study. A flame 
+was identified stable if it remained burning without blow-out or local 
+extinction for at least 20 min following ignition or transition from a 
+previous operating condition. It has been confirmed that a stable flame 
+could persist for several hours otherwise it extinguishes within this 
+transition period. Besides, 20 min are sufficient to establish a new 
+thermal equilibrium at the studied thermal power with a maximum of 
+1.5 kW (Case 9 in Table 1), thereby ensuring the reliability of the 
+measurements.
+The matrix stability map of H2/air flames with and without pilot 
+flame assistance is presented in Table 2. For non-piloted H2 flames, the 
+stability cannot be achieved within the investigated Re range if it is very 
+lean, such as ϕ = 0.5–0.7. At high equivalence ratios, such as ϕ = 0.8 and 
+1.0 listed in Table 2, flames are stable; besides, Table 2 also shows that 
+stability range can be extended by increasing ϕ, as flame shifts to be 
+stable at Re = 10000 when increasing ϕ from 0.6 to 0.7 to 0.8 and 1.0. 
+No noticeable discrepancy was found between the flames in air coflow 
+and quiescent air, and the similar stability behaviors in these two non­
+piloted flames are correlated well with the minor differences in flame 
+appearance, flame brush thickness, and OH signal, as discussed in the 
+previous sections. Particularly, with the pilot flame assistance, flames 
+Fig. 13. Effects of the coflow condition on the profiles of temperature (a) and 
+averaged OH-PLIF signal intensity (b) along the flame centerline.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+9 
+
+
+--- Page 10 ---
+
+are stable across all investigated conditions.
+Damk¨ohler Da number is critical to quantify flame blowout [24,43], 
+and it is reported that once this dimensionless parameter is lower than a 
+characteristic value; for example, for swirled premixed 50 vol% CH4-50 
+vol% H2 flames, flame blowout occurs when Da number is lower than 
+1.9 [24]. Biswas et al. [26] defined a global Da number for hot jet 
+ignition for extra-lean combustion and found the limiting Da for H2/air 
+mixtures is 40. In this respect, to identify this Da threshold for concentric 
+H2 jet flames, more H2/air flames beyond Table 2 were explored under 
+the air coflow condition and a Da-Re stability map can be obtained as 
+shown in Fig. 14, where Da was calculated based on the τchem of an 
+initial temperature of 300 K. It appears that when the Da exceeds 4.18, 
+the non-piloted flame stabilizes, whereas at lower values, extinction 
+occurs. To the best of the authors’ knowledge, this is the first report of 
+Da criterion for flame stability of H2 turbulent flames in a round tube jet. 
+Due to the differences in the burner configuration and the formula of Da 
+calculation, it is important to note that the Da stability limit in this study 
+is not directly aligned with those in Refs. [24,26]. It should be noted that 
+the Da criterion is burner configuration-dependent, and a thorough 
+analysis should be made for a given burner configuration with geometry 
+or coflow air velocity varied, which is beyond the scope of this study.
+Now we discuss how the pilot flame stabilizes H2/air flames that are 
+extinguished under non-piloted conditions, such as those with ϕ = 0.5. 
+As discussed in sections 3.2-3.5, the pilot flame alters the flame struc­
+ture, and profound influences are found especially near the burner exit, 
+including the preheating effect of the heated burner configuration 
+(temperature of central mixture flow at the burner exit is ~310 K, and 
+burner wall tip is ~421 K), the presence of considerable OH radical 
+(~20 % of the maximum in the central H2 flame), and the directly 
+heating by the hot flue gas (~1620 K) of the pilot flame at the flame 
+base. Experimentally, it is very difficult to examine how much the 
+combustible mixture at the flame base is heated by the pilot flame, 
+therefore, Da numbers under different thermal conditions were 
+calculated and results for ϕ = 0.5H2/air flames with Re = 6000 and 
+12000 are demonstrated in Fig. 15. The heating effects with five 
+increasing levels are compared, namely the room temperature of 300 K, 
+the burner outlet temperature preheated by the hot tube and ceramic 
+honeycomb, i.e. 310 K, the temperature identical to the burner wall, and 
+the temperature of one-third-way heated by the pilot flame, as well as a 
+higher temperature of 800 K. Datherm and Dacoup were calculated based 
+on chemical time scales of τchem,therm and τchem,coup, respectively, as 
+described in section 2.5, and the differences between these two Da 
+numbers are caused by the kinetic enhancement of OH radical.
+It is clear that the mixture temperature has an exponential effect on 
+increasing Da number, as a result of the much enhanced laminar flame 
+speed. For example, as the temperature increases from 300 K to 745 K, SL 
+is significantly enhanced from 48.06 cm/s to 627.64 cm/s. The pre­
+heating effect of the hot solid wall is slight. Although all the piloted H2/ 
+air flames attach to the nozzle tip, as exhibited in Figs. 5 and 6, the real 
+heating effect of the pilot flame must exceed the burner wall tempera­
+ture since under this circumstance Da is still lower than 4.18. For a one 
+third way direct heating of the pilot flame, corresponding to a mixture 
+temperature of 740 K, the thermal enhancement is quite remarkable and 
+all Da numbers are on the order of 10. Further increasing the mixture 
+temperature makes this thermal stabilization effect stronger. In addi­
+tion, it can be observed that the participation of OH radical exerts a 
+kinetic stabilization effect, which gets more important at higher mixture 
+temperatures. Based on the 20 % basis of OH radial pool adopted in this 
+kinetic analysis, the kinetic stabilization effect is less profound than the 
+thermal stabilization effect, within the investigated thermal range.
+Based on the analysis of Da numbers, the stability of turbulent pre­
+mixed H2/air flames can be promoted by two synergistic mechanisms: 
+(1) thermal contributions from the hot solid wall and pilot flame 
+exhaust, and (2) kinetic enhancement via the radical pool. The expo­
+nential stabilization effect offers practical insights into industrial 
+Table 2 
+Effect of the pilot flame on the stability of H2/air premixed flames (✓ means stable flame and ✕ represents extinction, Da numbers are identified for the flames under air 
+coflow condition).
+ϕ
+0.5
+0.6
+0.7
+0.8
+1.0
+Re
+6000
+8000
+10000
+12000
+10000
+10000
+6000
+8000
+10000
+12000
+10000
+Pilot flame
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+✓
+Air coflow
+✕
+✕
+✕
+✕
+✕
+✕
+✓
+✓
+✓
+✓
+✓
+No coflow
+✕
+✕
+✕
+✕
+✕
+✕
+✓
+✓
+✓
+✓
+✓
+Da numbers
+1.03
+0.78
+0.62
+0.52
+1.75
+3.45
+8.97
+6.73
+5.38
+4.49
+8.91
+Fig. 14. Da as a function of Re in turbulent premixed H2/air burning in 
+air coflow.
+Fig. 15. Effects of heating temperature and OH radical on Da numbers for the 
+H2/air premixed turbulent flames with ϕ = 0.5.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+10 
+
+
+--- Page 11 ---
+
+combustion systems, such as selecting appropriate pilot flames or 
+plasmas to provide radicals pools and to strengthen its interaction with 
+flames at the base region.
+4. Conclusions
+This study experimentally investigates the flame stability and 
+structure of turbulent premixed H2/air flames in both cold co-flows and 
+piloted flames. OH-PLIF and Raman spectroscopy were utilized to 
+measure the flame front structure and temperature profile along the 
+centerline. By examining the spontaneous internal flame front, pocket 
+formation, and temporally-averaged characteristics such as flame brush 
+thickness and temperature profile, this study has established a 
+comprehensive database for turbulent premixed H2 flame and eluci­
+dated the stabilization mechanism of piloted flames. Based on the dis­
+cussions and analyses, the following conclusions can be drawn. 
+(1) Increasing the Reynolds number or decreasing the equivalence 
+ratio enhances flame front corrugation, which can be attributed 
+to the stronger convective effect and the enhanced impact of the 
+TDI. Reactant pocket properties in the thin reaction zone exhibit a 
+non-linear relationship with increasing Re, while in the flamelets 
+zone, the effect of Re is relatively constant, implying the 
+competing mechanisms of chemical reaction and turbulence.
+(2) The flame brush thickness of turbulent premixed H2 exhibits a 
+quadratic dependence on height above burner. For non-piloted 
+flames, δT increases monotonically throughout the entire HAB 
+range. However, the pilot flame exerts a noticeable influence on 
+the central flame, leading to an initial thickening of δT near the 
+burner exit, followed by a subsequent decline. For both flame 
+configurations, δT increases quadratically on the height above the 
+burner.
+(3) Super-adiabatic temperature was observed in the post-flame re­
+gion as a result of TDI, and TDI impact on this phenomenon be­
+comes stronger at leaner conditions. Increasing Re decreases the 
+post-flame temperature of turbulent premixed H2/air flames, as a 
+result of the improved cooling effect of more reactant pocket 
+formation. The presence of a pilot flame preheats the central 
+mixture flow at the exit, but lowers the temperature at higher 
+HABs due to the upstream-shifted flame tip.
+(4) The presence of a pilot flame alters the flame structure incon­
+stantly at different axial locations. While the impact is minor at 
+the flame tip, it is profound near the burner exit. These remark­
+able structure changes in the vicinity of the flame base, which 
+accordingly enhances the stability in terms of: (i) the preheating 
+effect of the heated burner configuration, (ii) the considerable OH 
+radical, and (iii) the directly heating by the hot flue gas.
+(5) Kinetic study further shows that the stability of turbulent pre­
+mixed H2 flames is controlled by the Da mechanism with Da 
+>4.18 as the stabilization criterion; while for the piloted flame 
+cases, the thermal contribution and kinetic enhancement from 
+the pilot flame increase Da exponentially and thereby enhance 
+the stability of turbulent premixed H2/air flame.
+CRediT authorship contribution statement
+Huanhuan Xu: Writing – review & editing, Supervision, Project 
+administration, Methodology, Conceptualization. Hu Meng: Writing – 
+review & editing, Writing – original draft, Validation, Methodology. 
+Zilin Zhu: Writing – original draft, Visualization, Investigation. 
+Bingbing Zheng: Visualization, Investigation. Junqing Chen: Valida­
+tion, Methodology. Yihua Ren: Writing – review & editing, Supervision, 
+Project administration, Methodology, Conceptualization.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Acknowledgments
+This work was financially supported by the National Natural Science 
+Foundation of China (Grant No. 52206160, 52476137), Shandong Pro­
+vincial Natural Science Foundation (Grant No. ZR2025MS950) and the 
+Special Educating Project of the Talent for Carbon Peak and Carbon 
+Neutrality of University of Chinese of Academy of Science. As this work 
+was a follow-up study of the Humboldt research program, H.X. and Y.R 
+acknowledge the support from their host professor Prof. Heinz Pitsch 
+from RWTH Aachen for stimulating discussions as well as personal 
+supports from the Alexander von Humboldt Foundation.
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi. 
+org/10.1016/j.ijhydene.2025.152723.
+References
+[1] McDonell V. Lean combustion in gas turbines. Lean combustion: technology and 
+control. second ed. 2016. p. 147–201.
+[2] Korb B, Kuppa K, Nguyen HD, Dinkelacker F, Wachtmeister G. Experimental and 
+numerical investigations of charge motion and combustion in lean-burn natural gas 
+engines. Combust Flame 2020;212:309–22.
+[3] Mo¨ell D, L¨orstad D, Bai XS. Les of Hydrogen Enriched Methane/Air Combustion in 
+the Sgt-800 Burner at Real Engine Conditions. Proceedings of the asme turbo expo: 
+turbomachinery technical conference and exposition, 4b; 2018.
+[4] Galeott S, Picchi A, Becchi R, Lemmi G, Meloni R, Babazzi G, et al. Experimental 
+study on stability enhancement of a natural gas Gt burner with hydrogen flame 
+piloting operated with simulated exhaust gas recirculation. Proceedings of asme 
+turbo expo 2024: turbomachinery technical conference and exposition, Gt2024, 3b; 
+2024.
+[5] Elmeknassi Y, He W, Adam A, Han D, Shuo D. Integrated optimization of hydrogen- 
+fueled gas turbine parameters: balancing efficiency and economic viability. Int J 
+Hydrogen Energy 2025;135:111–20.
+[6] Niki Y, Rajasegar R, Li ZM, Musculus MP, Oliver JMG, Takasaki K. Verification of 
+diesel spray ignition phenomenon in dual-fuel diesel-piloted premixed natural gas 
+engine. Int J Engine Res 2022;23:180–97.
+[7] Qiang Y, Cai X, Xu S, Wang F, Zhang L, Wang S, et al. Effect of injection strategy on 
+the hydrogen mixture distribution and combustion of the hydrogen-fueled engine 
+with passive pre-chamber ignition under lean burn condition. Fuel 2024;375: 
+132610.
+[8] Anticaglia A, Balduzzi F, Ferrara G, De Luca M, Carpentiero D, Fabbri A, et al. 
+Feasibility analysis of a direct injection H2 internal combustion engine: numerical 
+assessment and proof-of-concept. Int J Hydrogen Energy 2023;48:32553–71.
+[9] Jaeger M, Hriberˇsek M, Samec N, Guo Y, Wang X, Kokalj F. The numerical analysis 
+of flame stability in case of premixed hydrogen-air combustion. Appl Therm Eng 
+2025:126535.
+[10] Li D, Ihme M. Stability diagram and blow-out mechanisms of turbulent non- 
+premixed combustion. Proc Combust Inst 2021;38:6337–44.
+[11] Xu K, Liu Y, Zhao J, Zhang H, He X. Investigation of the dynamic interaction 
+mechanism of split injections during the ignition process under diesel engine-like 
+cold-and hot-start conditions. Fuel 2024;370:131830.
+[12] Barlow RS, Frank JH, Karpetis AN, Chen JY. Piloted methane/air jet flames: 
+transport effects and aspects of scalar structure. Combust Flame 2005;143:433–49.
+[13] Guiberti TF, Cutcher H, Roberts WL, Masri AR. Influence of pilot flame parameters 
+on the stability of turbulent jet flames. Energy Fuels 2017;31:2128–37.
+[14] Yu S, Bai XS, Zhou B, Wang Z, Li ZS, Ald´en M. Numerical studies of the pilot flame 
+effect on a piloted jet flame. Combust Sci Technol 2022;194:351–64.
+[15] Meares S, Prasad VN, Magnotti G, Barlow RS, Masri AR. Stabilization of piloted 
+turbulent flames with inhomogeneous inlets. Proc Combust Inst 2015;35:1477–84.
+[16] Cabra R, Myhrvold T, Chen JY, Dibble RW, Karpetis AN, Barlow RS. Simultaneous 
+laser raman-rayleigh-lif measurements and numerical modeling results of a lifted 
+turbulent H2/N2 jet flame in a vitiated coflow. Proc Combust Inst 2002;29:1881–8.
+[17] Zhou B, Brackmann C, Li Z, Ald´en M, Bai X-S. Simultaneous multi-species and 
+temperature visualization of premixed flames in the distributed reaction zone 
+regime. Proc Combust Inst 2015;35:1409–16.
+[18] Wang HO, Hawkes ER, Chen JH. A direct numerical simulation study of flame 
+structure and stabilization of an experimental high Ka CH4/air premixed jet flame. 
+Combust Flame 2017;180:110–23.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+11 
+
+
+--- Page 12 ---
+
+[19] Shi SG, Schultheis R, Barlow RS, Geyer D, Dreizler A, Li T. Internal flame structures 
+of thermo-diffusive lean premixed H2/air flames with increasing turbulence, 40. P 
+Combust Inst; 2024.
+[20] Chen YC, Bilger RW. Experimental investigation of three-dimensional flame-front 
+structure in premixed turbulent combustion - II. Lean hydrogen/air bunsen flames. 
+Combust Flame 2004;138:155–74.
+[21] Berger L, Attili A, Pitsch H. Synergistic interactions of thermodiffusive instabilities 
+and turbulence in lean hydrogen flames. Combust Flame 2022;244.
+[22] Yahou T, Dawson JR, Poinsot T, Selle L, Schuller T. Flame front dynamics during 
+ignition of lean premixed H2/Air and CH4/Air flames. Combust Flame 2024;269.
+[23] Kee RJ, Rupley FM, Miller JA. Chemkin-II: a Fortran chemical kinetics package for 
+the analysis of gas-phase chemical kinetics. Sandia national lab. Livermore, CA 
+(United States): SNL-CA); 1989.
+[24] García-Armingol T, Ballester J. Operational issues in premixed combustion of 
+hydrogen-enriched and syngas fuels. Int J Hydrogen Energy 2015;40:1229–43.
+[25] Fanaee SA, Esfahani J. Two-dimensional analytical model of flame characteristic in 
+catalytic micro-combustors for a hydrogen–air mixture. Int J Hydrogen Energy 
+2014;39:4600–10.
+[26] Biswas S, Tanvir S, Wang HF, Qiao L. On ignition mechanisms of premixed CH4/air 
+and H2/air using a hot turbulent jet generated by pre-chamber combustion. Appl 
+Therm Eng 2016;106:925–37.
+[27] Baum MJ, Gibbes B. Field-scale numerical modeling of a dense multiport diffuser 
+outfall in crossflow. J Hydraul Eng 2020;146:05019006.
+[28] Peters N. Turbulent combustion. Meas Sci Technol 2001;12:2022.
+[29] Dunn M, Masri A. A comprehensive model for the quantification of linear and 
+nonlinear regime laser-induced fluorescence of OH under A 2 Σ+← X 2 Π (1, 0) 
+excitation. Appl Phys B 2010;101:445–63.
+[30] Eckbreth AC. Laser diagnostics for combustion temperature and species. CRC press; 
+2022.
+[31] Chaib O, Zheng YT, Hochgreb S, Boxx I. Hybrid algorithm for the detection of 
+turbulent flame fronts. Exp Fluid 2023;64.
+[32] Meng H, Ren YH, Cameron F, Pitsch H. In-situ temperature and major species 
+measurements of sooting flames based on short-gated spontaneous Raman 
+scattering. Appl Phys B Laser Opt 2023;129.
+[33] Eckbreth AC. Laser diagnostics for combustion temperature and species. CRC press; 
+1996.
+[34] Lill J, Dreizler A, Geyer D. Simulated Raman libraries of gaseous CO, H2, N2, O2, 
+CO2, and H2O for high-temperature diagnostics. J Quant Spectrosc Ra 2025;340.
+[35] Burke MP, Chaos M, Ju Y, Dryer FL, Klippenstein SJ. Comprehensive H2/O2 kinetic 
+model for high-pressure combustion. Int J Chem Kinet 2012;44:444–74.
+[36] Fiala T. Radiation from high pressure hydrogen-oxygen flames and its use in 
+assessing rocket combustion instability. Technische Universit¨at München; 2015.
+[37] Schefer RW, Kulatilaka WD, Patterson BD, Settersten TB. Visible emission of 
+hydrogen flames. Combust Flame 2009;156:1234–41.
+[38] Berger L, Attili A, Pitsch H. Intrinsic instabilities in premixed hydrogen flames: 
+parametric variation of pressure, equivalence ratio, and temperature. Part 2-Non- 
+linear regime and flame speed enhancement. Combust Flame 2022;240.
+[39] Tyagi A, Boxx I, Peluso S, O’Connor J. Pocket formation and behavior in turbulent 
+premixed flames. Combust Flame 2020;211:312–24.
+[40] Griebel P, Siewert P, Jansohn P. Flame characteristics of turbulent lean premixed 
+methane/air flames at high pressure: turbulent flame speed and flame brush 
+thickness. Proc Combust Inst 2007;31:3083–90.
+[41] Jiang YH, Li GX, Li HM, Zhang GP, Lv JC. Experimental study on the Influence of 
+Hydrogen Fraction on Self-acceleration of H2/CO/air laminar premixed flame. Int J 
+Hydrogen Energy 2020;45:2351–9.
+[42] Chen Y-C, Bilger RW. Experimental investigation of three-dimensional flame-front 
+structure in premixed turbulent combustion: II. Lean hydrogen/air Bunsen flames. 
+Combust Flame 2004;138:155–74.
+[43] Lieuwen T, McDonell V, Santavicca D, Sattelmayer T. Burner development and 
+operability issues associated with steady flowing syngas fired combustors. Combust 
+Sci Technol 2008;180:1169–92.
+H. Xu et al.                                                                                                                                                                                                                                       
+International Journal of Hydrogen Energy 198 (2026) 152723 
+12 

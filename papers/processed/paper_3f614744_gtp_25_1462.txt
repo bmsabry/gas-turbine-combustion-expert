@@ -1,0 +1,979 @@
+
+--- Page 1 ---
+
+Antoine Durocher1
+National Research Council Canada,  
+Ottawa, ON K1A 0R6, Canada
+Luming Fan
+National Research Council Canada,  
+Ottawa, ON K1A 0R6, Canada
+Marc F€uri
+Siemens Energy Canada Limited,  
+Dorval, QC H8T 3H1, Canada
+Julien Sirois
+Siemens Energy Canada Limited,  
+Dorval, QC H8T 3H1, Canada
+David May
+Siemens Energy Canada Limited,  
+Dorval, QC H9P 1A5, Canada
+Gilles Bourque
+Department of Mechanical Engineering,  
+McGill University,  
+Montreal, QC H3A 0G4, Canada
+Jeffrey M. Bergthorson
+Department of Mechanical Engineering,  
+McGill University,  
+Montreal, QC H3A 2K6, Canada
+Sean Yun
+National Research Council Canada,  
+Ottawa, ON K1A 0R6, Canada
+Patrizio Vena
+National Research Council Canada,  
+Ottawa, ON K1A 0R6, Canada;  
+Polytechnique Montreal,  
+Montreal, QC H3T 0A3, Canada  
+e-mail: Patrizio.Vena@nrc-cnrc.gc.ca
+OH-PLIF Measurements for 
+Micromixed Flames in a  
+Multi-Injector Burner at Elevated 
+Pressures and Temperatures
+A multi-injector combustion system consisting of seven premix/micromix injectors is studied 
+in the high-pressure optically accessible combustion rig (OACR), which is commissioned for 
+the first time at the National Research Council Canada (NRC). The clustered design mimics 
+the packaging expected in industrial applications where hundreds of such injectors will be 
+needed to provide the desired power output. The pressure vessel and test facility allow for an 
+investigation of the combustion system up to 922 K and 20 bar inlet temperature and 
+pressure, respectively. It provides conditions closer to gas turbine operation to investigate 
+the impact of pressure on micromixed flames and provide pressure scaling, such as for 
+emissions and flame characteristics, to be used for extrapolating to full gas turbine load. 
+Three of the five optical windows of the OACR are used in the current experimental 
+configuration to monitor the flames with direct imaging and perform nonintrusive OH- 
+planar laser-induced fluorescence (OH-PLIF), for the first time in this rig. The current work 
+focuses on the combustion of pure hydrogen in micromixed flames to commission the added 
+hydrogen capabilities of the test cell and the laser diagnostics. Globally-lean hydrogen 
+flames operating at the same preheated air temperature, target flame temperature, and 
+pressure drop across the injectors are investigated at pressures of 2.5, 5, 7, 10, and 15 bar to 
+isolate the impact of pressure on combustion. Increasing pressure is found to significantly 
+deteriorate the quality of raw OH-PLIF images, down to a mean signal-to-noise ratio (SNR) 
+of 1.7 at 15 bar. Spatial filtering corrects for horizontal intensity striations believed to be 
+caused by combustor cooling in the high-pressure environment, before a qualitative 
+exponential relationship is used to correct for laser attenuation in the high-pressure 
+environment and through multiple flames. The laser sheet slicing across the centerline axis of 
+three inline nozzles mostly captures the main flame body in the turbulent wake of the 
+micromix jets of the complex tridimensional structures. Little changes in flame structures are 
+observed with increasing pressure, with the 15 bar condition moving slightly downstream 
+from the nozzle exit. The results suggest that injector concept screening at lower pressure 
+while maintaining the other operating conditions similar may be possible before pursuing 
+additional elevated-pressure testing. [DOI: 10.1115/1.4069788] 
+Keywords: micromix, fuel flexibility, hydrogen, high-pressure, multi-injector array 
+1 Introduction
+Hydrogen is a promising carbon-free alternative to decarbonize 
+the energy and aviation sectors. In an effort to mitigate their 
+environmental footprint, engine manufacturers are actively devel­
+oping novel technology to safely and reliably burn hydrogen. While 
+it offers high energy density, hydrogen cannot be used as a drop-in 
+replacement for current hydrocarbon fuels in traditional, large, 
+premixed combustion systems. Its high reactivity and preferential 
+diffusion in premixed mixtures pose significant risks of flashback 
+that may result in hardware damage or failure [1]. Technical 
+innovations are therefore required to develop novel combustion 
+systems, outside of the established design rules for hydrocarbon 
+combustion, to enable the combustion of hydrogen in a safe and 
+sustainable approach.
+Micromix combustion technology is one avenue considered for 
+the combustion of high-hydrogen-content and pure hydrogen fuels 
+[2–4]. The micromix fueling strategy relies on multiple, mini­
+aturized fuel injection orifices located close to the injector exit. This 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025) June 
+16–20, 2025. GT2025.
+1Corresponding author.
+Manuscript received August 1, 2025; final manuscript received August 26, 2025; 
+published online November 27, 2025. Editor: Jerzy T. Sawicki. 
+This work was prepared while under employment by the Government of (Canada) as 
+part of the official duties of the author(s) indicated above, as such copyright is owned by 
+that Government, which reserves its own copyright under national law.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051010-1 
+Copyright V
+C 2026 National Research Council Canada and Siemens Energy Canada Limited
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 2 ---
+
+approach is intrinsically resistant to flashback as no reactive mixture 
+flows through the injector body. If designed adequately, then the 
+injected fuel, often introduced via jets-in-crossflow, rapidly mixes 
+with the air and can help mitigate NOx emissions through the 
+miniaturized flames [3,5] and dampen the thermoacoustic response 
+for high-hydrogen flames. Since micromixing is generally limited to 
+high-hydrogen-content fuels only, recent developments aim to 
+combine premixed and micromixed fuel injection strategies into a 
+single compact injector body to offer fuel-flexible combustion 
+systems able to stabilize flames from pure methane to pure hydrogen 
+[4,6]. These geometries, demonstrated at atmospheric conditions, 
+rely on complex internal fuel passages that have become possible 
+thanks to recent advances in additive manufacturing (AM) [7].
+Premixed/micromixed designs require multiple injectors, up to a 
+few hundred in practical applications, to deliver the desired power 
+output. Multinozzle configurations allow the study of flame-flame 
+interactions in a geometry one step closer to that of practical systems. 
+Few studies focus on confined clustered combustion systems [4,8–10] 
+as these provide challenging environments to perform advanced 
+laser-based diagnostics that often require unobstructed optical access 
+to the flame bodies. Nonetheless, such experiments can provide key 
+information on flame-flame interactions to be used for practical 
+design optimization and combustion model validation. In previous 
+design iterations of the injectors investigated in this work, significant 
+flame coupling was observed not only between micromix jet-flames 
+(i.e., the multiple fuel streams within a single injector tube), but also 
+between neighboring injectors, leading to longitudinal pulsations in a 
+confined environment, and also some rotational motion in the 
+complex tridimensional flame topologies [10].
+While atmospheric combustion rigs provide accessible platforms 
+to perform fundamental research and preliminary design exploration 
+for practical combustion systems, industrial gas turbines operate in 
+preheat and high-pressure conditions. Better understanding the 
+impact of boundary conditions on flame stabilization and dynamics 
+is a necessary step to reach mature designs. That is especially crucial 
+for hydrogen technology, which cannot rely on empirical design rules 
+developed for hydrocarbon lean-premixed combustion. Such experi­
+ments often require significant engineering work where scientific 
+investigations in high-pressure, optically accessible rigs are often 
+limited by either operating pressures below 10 bar, preheating, or flow 
+rates [11–13]. Optically-accessible, preheated, and high-pressure 
+combustion rigs that can deliver industrial flow rates are seldom found 
+and require significant investment to build and operate [14,15]. These 
+can accelerate the development of novel technology by providing 
+insight into combustion phenomena that are otherwise inaccessible.
+The current work presents the high-pressure, optically accessible 
+combustion rig (OACR) in the Test Cell #2 facility that was recently 
+upgraded for hydrogen combustion at the National Research Council 
+Canada (NRC). Nonintrusive laser diagnostics were implemented in 
+the OACR for the first time to perform OH-planar laser-induced 
+fluorescence (PLIF) measurements at elevated pressures. A 7-injector 
+premix/micromix combustion system, improved via testing of 
+various prototypes at atmospheric pressure [4,6,10,16,17], was 
+installed in the pressure vessel for pure hydrogen experiments with 
+preheated air from 2.5 to 15 bar. This first investigation at preheated 
+and high-pressure conditions was primarily focused on the commis­
+sioning of the hydrogen facility and laser diagnostics. Stable 100% 
+micromix H2 flames were obtained for all the pressures studied. This 
+work confirmed the operability of the upgraded hydrogen combustion 
+facility and demonstrated the feasibility of the premix/micromix 
+combustion strategy at operating conditions relevant for gas turbine 
+operations. The dataset obtained provides insight into the micromix 
+combustion strategy toward gas turbine implementation and the 
+geometrical optimization of these unique injector features for 
+practical applications.
+2 Methodology
+2.1 Optically Accessible Combustion Rig. The capabilities of 
+the OACR are presented in Table 1, and its geometry is shown in Fig. 
+1. It is installed in the Class 1 div. 2 high-pressure, hydrogen 
+combustion test cell #2 at the NRC Canada. The installation meets 
+the ISO 9001:2015 standard for quality management. The rig 
+consists of a high-pressure vessel in which optically accessible 
+combustors can be installed. The OACR provides a flexible platform 
+to perform nonintrusive diagnostics for single- and multi-injector 
+combustion systems where the geometry under investigation only 
+needs to mate with the mounting flanges of the pressure vessel.
+The OACR consists of three distinct casings: air inlet section, 
+cooling air section, and exhaust section, highlighted in Fig. 1(a). The 
+air inlet receives the preheated air delivered at maximum conditions 
+of 14.5 kg/s and 922 K. This air section is used for both combustion 
+air and “hot” cooling air for the combustion system and liner to 
+mimic the cooling found in industrial systems. The cooling, or 
+medium temperature, section houses the combustion system. It 
+provides low-temperature air up to 373 K, at a slightly higher 
+pressure than the main air section (DPmid ¼ 0:3%), to cool the 
+external components of the combustor and the exhaust tube. This 
+section has an internal diameter of 0.45 m and a usable length of 
+1.2 m, providing a flexible platform to mount combustors of varying 
+sizes. It is equipped with four optical access ports located at 0 deg, 
+90 deg, 150 deg, and 270 deg at the same longitudinal location (z). In 
+this work, the 150 deg port is blanked and used for instrumentation 
+and the spark ignition system. The other three openings are equipped 
+with fused-silica windows (Spectrosil 2000) to provide visual access 
+to the combustion process. The combustion and cooling air then flow 
+into the exhaust section which is cooled with a water jacket. The 
+combustion products are spray-cooled downstream of the exhaust 
+before exiting through the facility stack.
+The fuel inlet flange has four ports to accommodate primary (Py) 
+and secondary (Sy) fuel streams for both natural gas and hydrogen. 
+Two ports are used for each fuel stage to ensure a uniform fuel feed 
+to the internal fuel manifold. The different fuel components are teed- 
+in and mixed inside the pressure vessel before the fuel blend is 
+delivered to the combustion system, as shown in Fig. 1(b). The 
+facility can deliver up to 0.10 kg/s of hydrogen and 0.68 kg/s of 
+natural gas. Hydrogen is supplied via a dedicated outdoor Synthetic 
+Fuel Facility that comprises four bays, each of which can each 
+accommodate a compressed hydrogen jumbo tube trailer (Air 
+Liquide, capacity of 4000 standard m3 and pressure of 2400 psi), and 
+a regulation pad to gradually decrease the hydrogen supply pressure 
+to 650 psi before delivery to the test cell.
+Air and fuel flows are measured with appropriately sized orifice 
+plates. Calibration of the flow measurement instruments was 
+performed at the beginning of the project and validated regularly 
+with a reference Coriolis mass flowmeter calibrated by the supplier. 
+Although not all are listed in Fig. 1, the rig is fully instrumented 
+along the pressure vessel and the combustor with dozens of 
+thermocouples, differential pressure transducers, dynamic pressure 
+transducers (CP211, Meggit #), and absolute pressure measure­
+ments. The operation of the rig is controlled using a combination of 
+LabVIEW and Lookout.
+Emissions measurements are sampled by a multihole probe 
+located in the exhaust section, shown in Fig. 1(b). Sampling is 
+performed following the ARP1256D standards [18] when the flames 
+stabilize and are averaged over 60 s for steady-state measurements. 
+Table 1 Optically accessible combustion rig 
+Air flow
+Main air
+14.5 kg/s
+32 lb/s
+Cooling air
+6.6 kg/s
+14 lb/s
+Air temperature
+Main air
+922 K
+1200 F
+Cooling air
+373 K
+212 F
+Pressure absolute
+2068 kPa 20.68 bar
+300 psi
+Hydrogen flow
+0.10 kg/s
+0.22 lb/s
+Natural gas flow
+0.68 kg/s
+1.5 lb/s
+Test section
+Diameter
+45 cm
+18 in
+Length
+120 cm
+47 in
+Optical access
+Midsection
+4 (0, 90, 135, 270)
+Exhaust
+1
+051010-2 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 3 ---
+
+While the system can provide measurements of unburnt hydro­
+carbons, CO, and CO2, only the NOx (NO and NO2) emissions are 
+relevant for the current study burning pure hydrogen.
+2.2 Micromix Combustion System. The micromix combus­
+tion system consists of three major components: the injector 
+cassette, the optically accessible combustor, and the heat shield 
+around the combustor. The cassette and combustor are components 
+made of Inconel 625 through a monolithic AM approach. They were 
+printed on EOS M290 machines using laser powder bed fusion. The 
+AM allows for the complex integration of the fueling and cooling 
+passages through the injector cassette and the cooling, especially for 
+the windows, of the combustor. Conventional machining is carried 
+out after printing to prepare surfaces that mate with other 
+components, such as the window frames of the combustor.
+The injector cassette contains the seven injectors and also acts as 
+the fuel plenum for both the primary (premixed) and secondary 
+(micromixed) fueling strategies. The internal fuel plenum for each 
+fuel stage is fed via two pairs of inlets located in opposite corners. A 
+complex system of internal channels then uniformly distributes the 
+fuel to the injection points on each injector, at the respective fueling 
+zones identified in Fig. 1(c). Primary fuel injections occur close to 
+the injector inlet and are sufficiently far upstream to achieve 
+premixed conditions at the nozzle exit. Secondary fuel injections are 
+performed as jets-in-crossflow near the injector exit and correspond 
+to the micromix approach. The fuel split, defined as the micromix 
+fuel ratio (MFR) in (1) with volumetric flow rates ( _V), can be 
+adjusted during experiments. In this work, however, conditions at 
+MFR100 corresponding to 100% micromixed combustion are 
+maintained across the entire dataset. 
+MFR ¼
+_VSy
+_VPy þ _VSy
+(1)  
+The orientation of the injectors is shown in Fig. 2. Labeling of the 
+injectors is consistent with their angular positions relative to the 
+coordinate system of the OACR. The three inline nozzles I0, I00, and 
+I180 are the ones investigated with laser diagnostics. The cassette is 
+equipped with multiple type-N thermocouples located on the back 
+side of the dump plane and embedded in the injectors to measure 
+metal temperatures and capture potential flashback or flame 
+anchoring that might lead to hardware damage.
+The preheated air flows through four tubes from the air inlet 
+section of the OACR into the combustor to provide “hot” cooling air 
+for the windows and the laser beam dump of the combustor. Partial 
+window cooling air paths are presented in Fig. 1(c) and mitigate the 
+thermal stresses in the brittle fused-silica windows during operation. 
+The combustor has optical access on three sides at 0, 90, and 270 
+degrees, while the 180-degree side includes a laser beam dump, as 
+shown in Fig. 2 to minimize the reflections back into the analysis 
+region of interest for nonintrusive diagnostics. The windowless side 
+is instrumented with six type-N thermocouples to measure metal 
+temperature profiles along the combustor length, and provides space 
+for the ignition system.
+Five dynamic pressure transducers (CP211) are mounted on the 
+combustion system. They are identified in Figs. 1(b), 1(c), and 2, 
+which provide the location and orientation of each instrument. Two 
+pressure sensors (PTAir,90-1and-2) are located upstream of the flames 
+in the air plenum, and three in the combustion chamber(PTComb,0-1 
+and PTComb,180-1and-2). Pressure signals are acquired at a 50 kHz 
+sampling frequency, and the acoustics module also acquires the 
+scientific camera gate to allow for phase-average imaging [10].
+2.3 Laser Diagnostics. The hydrogen-rated, high-pressure test 
+cell is a class 1 div. 2 hazardous location. As such, electrical 
+equipment must be either intrinsically safe, sealed, or purged/ 
+pressurized. The classification further complicates the diagnostics 
+setup as the lasers are located outside of the test cell, producing a 
+laser path 8.5 m long from the dye laser head to the experimental 
+region of interest, and the camera systems have to be housed in a 
+purged, positive-pressure enclosure. The photograph of the OACR 
+in Fig. 3(a) highlights the end of the laser path close to the pressure 
+vessel. In this configuration, an explosion-proof CCTV camera is 
+mounted on one optically accessible side for safety reasons during 
+the commissioning of the hydrogen and laser systems. The scientific 
+cameras are installed facing the opposing window in a purged box 
+(Fig. 1(b)) that is purged with dry air and maintained at a positive 
+pressure of approximately 80 psig. The purge box is equipped with a 
+single fused-silica window.
+The second harmonic of a Spectra-Physics Nd:YAG laser 
+(Quanta-Ray Pro-250-10H) pumps a wavelength-tunable dye laser 
+(Sirah, Precision Scan) using a solution of rhodamine 6G. The dye 
+laser is adjusted at a wavelength of 282.94 nm and produces an 
+ultraviolet beam with an average output energy of 8.5 mJ/pulse at 
+the exit of the laser housing. Laser line mirrors then direct the beam 
+through the wall of the high-pressure test cell and above the OACR. 
+Sheet forming optics are installed on the horizontal top rail crossing 
+Fig. 1 High-pressure, optically-accessible combustion rig 
+(OACR) with partial instrumentation: (a) external pressure vessel, 
+(b) combustion rig housed in the medium temperature section, 
+and (c) cross section of the combustion system at the location of 
+the laser sheet used for diagnostics. Generic flow paths are 
+provided for the main hot air used for combustion and cooling, 
+hydrogen fuel lines, and natural gas fuel lines.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051010-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 4 ---
+
+above the OACR and adjusted such that the thin laser sheet waist is 
+centered slightly downstream from the outlets of the injectors (Fig. 
+1(c)). The resultant laser sheet spans 4 injector diameters, D. In 
+addition to the long optical path and generally larger length scales 
+than those found in atmospheric combustion rigs, the alignment is 
+further complicated by the fact that it is performed when the rig is 
+opened and cold. When preheated, the OACR can thermally expand 
+in the longitudinal z-direction by as much as 50 mm at the exhaust 
+and by approximately 1.4D at the location of the optical access. 
+Therefore, the procedure for laser alignment factors in the thermal 
+expansion to optimize the location of the beam relative to the dump 
+plane of the cassette.
+OH-Planar Laser-Induced Fluorescence images are acquired 
+using an sCMOS camera attached to an IRO (LaVision IRO). The 
+fluorescence signal is collected by the IRO, equipped with a 
+bandpass filter (320620 nm) on a UV-Nikkor lens (105 mm), with a 
+gate time of 200 ns and a gain of 70% of maximum. In these 
+experiments, the aperture is adjusted to f/8 to slightly increase the 
+depth of field to allow for slight misalignment as the rig may shift 
+over the course of an entire day of testing. The smaller aperture also 
+mitigates the amount of realignment and refocusing that might 
+otherwise be needed once the OACR is completely closed. Raw 
+images are corrected for pulse-to-pulse laser energy variations 
+measured by a photodiode close to the laser exit and background 
+noise. Spatial calibration of the camera is performed with a 3D 
+LaVision calibration plate (Type 20). After cropping, the experi­
+mental field of view captures a region of interest spanning 
+approximately 5.3D  3.5D. The camera and laser system are 
+triggered synchronously at a frequency of 10 Hz using a LaVision 
+timing unit (PTU-X), and 600 images are acquired per dataset.
+2.4 Operating Conditions. Experiments in the current study 
+maintained similar operating conditions, except for the inlet air 
+pressure, which varied from 2.5 bar to 15 bar. Measurements are 
+performed for 100% hydrogen fuel burning in a full micromix fuel 
+injection strategy (MFR100). The same air inlet temperature and 
+target adiabatic flame temperature are maintained for the different 
+pressure conditions to achieve globally lean reactant mixtures. The 
+target, constant, adiabatic flame temperature replicated primary 
+zone temperatures of interest for gas turbine applications. Inlet flow 
+rates were adjusted to maintain the same pressure drop across the 
+injectors for all experiments.
+Measurements of effective flow area were carried out before each 
+test day to ensure the integrity of the injectors and to calculate the 
+flow split, and therefore the zone temperatures. Post-test inspections 
+were conducted after each test day to identify potential discoloration 
+or damage to the hardware and ensure the validity of comparisons 
+between different days. The data reported in this work have been 
+acquired over multiple days with no discrepancies observed in 
+validation metrics.
+Stable micromixed flames were obtained for pure hydrogen at 
+pressures of 2.5, 5, 7, 10, and 15 bar. During testing, the 7-injector 
+cassette could sustain the target flame temperature up to 15 bar 
+without damage to the hardware under nominal operations. Several 
+high-pressure, 100% hydrogen relight tests were performed to assess 
+the robustness of the combustion system and the OACR to hydrogen 
+ignition events. While the ignition process generally sheds particles 
+and small debris accumulated in the upstream pressure vessel and 
+the airlines that can coat the windows of the combustor, no window 
+failures were observed during testing.
+3 Results
+3.1 100% Hydrogen Micromix Combustion. The direct 
+visualization of the flames investigated is shown in Fig. 4. The 
+images were captured by a Nikon D750 DSLR camera using the 
+same acquisition settings at all operating pressures. The thermal 
+power of the combustion system increases with pressure, resulting in 
+the most luminous flames being captured at 15 bar. The absence of 
+light in the pressure vessel and the low-light condition in the test cell 
+allow the hydrogen flames to be visualized, although it is difficult to 
+distinguish the flames coming from individual injectors, given the 
+angle of view of the camera relative to the orientation of the injectors 
+in the cassette. In these images, the white hydrogen flames appear to 
+be fully lifted from the injectors and the products in the postflame 
+regions are indicated by the red/orange glow downstream of the 
+hydrogen flames. As thermal power increases, the combustor also 
+experiences higher operating temperatures. This is evident from the 
+direct imaging as the sides of the window frames start glowing. 
+During testing, the metal temperatures of the test section were 
+monitored closely to ensure that they did not initiate the automated 
+fuel trip sequence that shuts down fuel supply to preserve the 
+combustion system integrity. Red spots can also be observed in the 
+more luminous cases downstream of the flames. These correspond to 
+particles that have stuck, and in some cases fused, to the windows 
+during ignition. These spots were removed as best as possible 
+between tests to maximize the transmissivity for optical diagnostics.
+During testing, several attempts were made to transition from a 
+micromixed condition to a partially micromixed condition in an 
+effort to approach premixed combustion. For pure hydrogen fuel, 
+these resulted in flashbacks at high micromix fuel ratios, typically 
+above MFR85, even for globally leaner conditions with increased 
+inlet velocity. These attempts highlight the benefits of micromixing 
+for the premix/micromix design to increase the fuel flexibility of the 
+injectors to safely stabilize pure hydrogen flames.
+Normalized NOx emissions are shown in Fig. 5 for 100% H2 
+(MFR100) conditions with increasing pressure. NOx measurements 
+are obtained in concentration units and corrected to a dry, 15%O2 
+standard (15%O2 ppmvd). They are then normalized by the 15 bar 
+condition. The data points shown here correspond to an average of 
+60 s acquired at the target condition. From these experiments 
+conducted at the same target flame temperature and pressure drop 
+across the injectors, it is possible to extract the pressure exponent 
+needed to develop a surrogate model that can be used to predict 
+emissions at higher pressure ratios. The micromix strategy provides 
+promising NOx emissions for a first design iteration at elevated 
+pressure, and the exponential trend achieves an R2 ¼ 0:987 to 
+estimate emissions at higher operating pressures found in some 
+industrial systems. Further modification and optimization of the 
+design are expected to yield lower NOx emissions in future designs.
+3.2 High-Pressure OH-Planar Laser-Induced Fluorescence 
+Correction. Raw OH-planar laser-induced fluorescence (OH- 
+PLIF) images at 5, 10, and 15 bar (Fig. 6) show the flames 
+Fig. 2 Upstream view of the combustion system 
+051010-4 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 5 ---
+
+corresponding to the three inline injectors I0, I00, and I180. In these 
+images, the laser propagates from the right of the frame to the left 
+(x ¼ 2D ! −2D) and subsequently traverses the three flame 
+regions. For these conditions, the raw images generally show a 
+compact flame downstream from each injector that exhibits higher 
+laser-induced fluorescence (LIF) intensity, and unburnt and cold air 
+streams between the injectors, identified by the absence of signal. 
+The raw images clearly show the challenges of performing 
+fluorescence at elevated pressures, as highlighted in various other 
+works [11,12,19]. Three observations are made from the raw OH- 
+PLIF images.
+(1) The mean signal-to-noise ratio (SNR) for single-shot 
+decreases significantly with pressure. Including the three 
+flames captured in the field of view, the SNR decreases from 
+3.1, 2.1, and 1.7 as the pressure increases from 5, 10, to 15 bar.
+(2) There is a significant variation in signal intensity from the 
+right to the left side of the raw images. At 5 bar, the SNR 
+corresponding to injectors I0, I00, and I180 has values of 4.8, 
+2.7, and 1.5, respectively. This laser energy attenuation is 
+generally negligible in single burners at atmospheric 
+pressure. It is, however, typically present in multi-nozzle 
+combustion systems, even at atmospheric conditions [4,9] 
+and also in single burner experiments performed at elevated 
+pressures [11,12,19].
+(3) Horizontal striations become visible as pressure increases 
+beyond 5 bar. These are most prominent at 15 bars and appear 
+to be regularly spaced. During testing, moderate (5 bar) and 
+high (10 bar) pressure conditions were sequentially inves­
+tigated, and it was confirmed that the striations are negligible 
+in the lower pressure condition, even if they were present in 
+the previous test point. This indicates that it is not a systematic 
+bias created by a damaged or dirty window.
+While the first two observations are unavoidable for LIF at 
+elevated pressures, it is suspected by the authors that the striations 
+result from design choices in the combustor that will be explained 
+later. The combination of these three phenomena in a multi-injector 
+combustion system complicate the analysis of the acquired data. 
+This is even more true for micromix combustion systems that have 
+multiple distinct fuel orifices located near the injector outlets, as 
+highlighted in the previous 3D, OH-LIF reconstruction of similar 
+burners [10]. Nonetheless, in the linear-LIF regime, which is 
+estimated to be the case here, signal attenuation is independent of the 
+initial laser energy, contrary to saturated LIF. These effects can be 
+partially corrected in instantaneous images, although they will lead 
+to increased noise in the leftmost flames, whose SNR is the lowest 
+among the three injectors.
+Raw images are first corrected for shot-to-shot laser energy 
+fluctuations before the background noise is removed to obtain the 
+OH signal only. The images are then corrected for the spatial, 
+longitudinal (z), fluctuations that appear as horizontal striations. The 
+intensity variation appears to be fairly consistent along the three 
+flames investigated, with a roughly regular spacing. While the exact 
+Fig. 3 (a) OACR installed in test cell #2 at the National Research Council Canada. The partial laser path is highlighted in 
+magenta. (b) Purged box containing the camera equipment used for direct visualization and laser diagnostics.
+Fig. 4 Direct flame images acquired with a Nikon D750 DLSR camera. Camera settings are maintained for the different operating 
+pressures at f/5.6, 1/320 s exposure time, and ISO-3200. The same pressure drop across the injectors and target adiabatic 
+temperature were used for all cases. The increased luminosity results from the increased thermal power as operating pressure 
+goes from (a) 2.5 bar up to (e) 15 bar.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051010-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 6 ---
+
+cause of the observed behavior has yet to be determined, the authors 
+hypothesize that it is a combined effect of the elevated pressure and 
+the window cooling that introduces a regular pattern in the incoming 
+laser sheet. The combustor window through which the laser sheet is 
+entering is cooled by impinging jets issued from the window frame 
+of the combustor. While this cooling is active at all pressures, the 
+authors suspect that temperature/density gradients between cooling 
+air and recirculated products in the vicinity of the window where the 
+laser sheet enters the combustor create a roughly structured pattern 
+of flow pockets with different refractive indexes. This pattern could 
+effectively act similarly to an array of beam shaping optics, with the 
+hot and cold flow pockets acting as microlenses and leading to the 
+horizontal pattern observed. Smaller deviations of this pattern can be 
+observed through the inline flames as the laser sheet traverses 
+regions that can be made of hot product, cold air, and mixes of both 
+across the three injectors. Future testing is planned that will include a 
+different configuration of the cooling strategy for the laser inlet 
+window to validate this hypothesis. Another monolithic additively- 
+manufactured combustor is currently being redesigned to mitigate 
+the amount of cooling air in the region, where laser diagnostics is 
+performed while maintaining material integrity at the target 
+operating condition.
+With the current geometry, spatial filtering is applied to correct 
+the striations observed in instantaneous raw images along the laser 
+path. It is demonstrated in Fig. 7, starting with the same raw image 
+shown in Fig. 6(b) for the 10 bar pressure condition. A moving 
+average is first performed along the x-direction with a narrow 
+longitudinal window (along z) in Fig. 7(a). This further highlights 
+the intensity strata observed previously. The raw image is also 
+processed using a Gaussian smoothing with a narrow x window 
+along the z-axis to blend, or average, the local OH-PLIF intensity in 
+Fig. 7(b). This effectively not only removes the horizontal striations 
+but also greatly blurs the image and removes the smaller flow 
+features captured in the raw image. The ratio of these two is shown in 
+Fig. 7(c) for reactive pixels in the frame identified with a wide OH 
+mask. The local fluctuation mask captures the moving average 
+intensity variations with respect to the smoothed image. It can be 
+multiplied by the raw image (Fig. 6(b)) to correct for the horizontal 
+striations. As mentioned previously, these lines of intensity 
+variations appear to be very regular and mostly occur along the 
+laser sheet. In a few instances, they appear to slightly deflect from the 
+horizontal as the laser sheet travels through the internozzle region 
+where thermal and density gradients can lead to different diffractive 
+indices.
+The processed image can then be corrected for the laser 
+attenuation caused by OH molecules along the laser beam path in 
+the high-pressure environment across the different flames. This 
+correction is applied to instantaneous images, making use of the 
+assumption that the different injectors are producing similar flames 
+with equivalent averaged properties, for example, temperature or 
+OH concentration. Compensating for the laser attenuation at high 
+pressure has been an issue discussed in other work and tackled with 
+various levels of complexity [11,12,19]. In this work, the attenuation 
+correction remains relatively simple and does not fully correct the 
+attenuation observed. It is meant to rebalance the intensity of OH- 
+PLIF to provide datasets more apt for systematic analysis with 
+combustion modeling. The approach is graphically represented in 
+Fig. 8 for the same 10 bar pressure condition used previously. Under 
+the linear LIF regime, the laser attenuation should be independent of 
+the initial laser energy. The LIF intensity for each assumed identical 
+flame then becomes an indirect measurement of the laser 
+attenuation, and Beer-Lambert’s Law [20] can then be applied to 
+estimate LIF intensity reduction along the laser path for the inline 
+flames using exponential fits. As stated previously, this is not a 
+rigorous approach but rather a qualitative means to partially correct 
+the attenuation observed in these high-pressure flames. In Fig. 8, the 
+2D OH signal intensity from an interrogation window along the z 
+direction, here the segment between 0.7 and 1.4 z=D, is projected on 
+the x-axis. Piecewise exponential fits are then applied over sections 
+where flames are detected with an SNR threshold. The multiple fits 
+from the different interrogation windows are then interpolated and 
+smoothed over the entire field of view to generate a 2D map of laser 
+attenuation that can be used to partially correct the image.
+The results of the different image processing steps are shown in 
+Fig. 9 for the 10 bar pressure condition. Each image is also processed 
+using a 3  3 median filter to provide a systematic comparison 
+between the intermediate steps. Filtering with a larger window 
+would help remove additional speckling and noise, if needed. The 
+raw image in Fig. 9(a) has an average SNR of 2.1, which is mainly 
+affected by the central and left injectors. While the leftmost flame 
+can hardly be distinguished in the raw image, the processing 
+approach significantly improves the contrast and produces a 
+Fig. 5 Normalized NOx emissions 
+Fig. 6 Raw OH-PLIF images captured at (a) 5 bar, (b) 10 bar, and (c) 15 bar. Note the maximum OH intensity decreases with 
+pressure.
+051010-6 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 7 ---
+
+corrected image that is qualitatively more representative of the 
+flames and OH-PLIF intensity expected. Using the spatial filtering 
+mask, the horizontal striations can be mostly removed in Fig. 9(c)
+without compromising spatial resolution. Contrary to the large 
+Gaussian smoothed average used to derive the mask, fine structures 
+are retained in the processed images. The attenuation correction then 
+increases the OH signal intensity along the laser path in Fig. 9(d). 
+While this operation performs adequately for the central and right 
+flames, additional noise is also being introduced in the final image 
+for the left flame. More granularity, or speckling, is observed, which 
+can be mitigated if a larger median filter is used to visualize the final 
+OH-PLIF fields. This is expected as the last flame on the laser path 
+can have SNR between 1.3 and 2, depending on pressure. That 
+makes it difficult to clearly distinguish the signal from the 
+background noise, especially at the weaker edges of the flames.
+3.3 Flame Characterization With OH-Planar Laser- 
+Induced Fluorescence. The corrected OH-PLIF images are 
+presented in Fig. 10 for instantaneous shots and mean fields at 5, 
+10, and 15 bar. These flames were selected initially because of their 
+relatively quiet, stable condition. Phase-averaging is not performed 
+as no significant dominant frequency, nor a pressure limit cycle, is 
+attained. While the image processing approach does significantly 
+improve the contrast from the raw images, the mean OH fields 
+clearly show that the piecewise exponential fit used to correct for 
+laser attenuation through the three flames only partially corrects 
+laser attenuation across the flame. The left flame still exhibits lower 
+intensities compared to the other elements of the multi-injector 
+combustor. In addition, window fouling starts being perceptible in 
+mean fields where particles have fused onto the optical access 
+windows.
+Interpretation of these results remains challenging as the highly 
+turbulent micromixed flames have no clear structure and are 
+generally not axisymmetric [10]. With the laser sheet aligned with 
+the injector centerline axes, the fluorescence images capture the bulk 
+of the flame body downstream of the injector core. When comparing 
+the PLIF images (Fig. 10) with the direct flame images (Fig. 4), it 
+appears that the distributed lee-stabilized flames from the jets-in- 
+crossflow are mostly not captured by the laser plane slicing through 
+the combustion system. Three distinct flames with limited flame 
+merging between neighboring injectors are observed. For pure 
+micromixed combustion, the localized fuel injections mitigate the 
+migration of premixed fuel-air pockets, which can burn between 
+injectors. In some of the frames, such as for the 10 and 15 bar 
+conditions shown in Figs. 10(b) and 10(c) for the right injector, part 
+of the lee-stabilized hydrogen jet flame is hooking back upstream 
+toward the injector outer diameter. Given the complex tridimen­
+sional flame structures and the clocking, or orientation of the 
+micromix fuel injections within each injector, it appears that the 
+anchored lee-stabilized part of the flames seldom appear in the field 
+of view. The flame anchoring on the outer diameter of the injector 
+can lead to high heat transfer to the hardware and locally creates hot 
+spots on the injector heat shield, causing the hardware to be glowing 
+hot. The metal temperature then becomes one operational limit at 
+15 bar for this geometry. Some of those hot spots can be captured 
+with the DSLR camera during testing, as shown in Fig. 4(e) for the 
+15 bar condition between injectors I00, I0, and I300 on the right of the 
+frame. Post-test inspection showed a discoloration of the metal, 
+indicating that the hot spots were localized and firmly anchored in 
+the flow for the current micromixed experiments. The pattern is 
+repeated around the central injector spaced by 120 deg between the 
+injector trios I00, I180, I240 and I00, I60, I120. Given the complex 
+tridimensional nature of the micromixed flames, appropriate 
+orientation and spacing of the injectors have to be optimized along 
+with cooling strategies to mitigate the high heat flux to the hardware. 
+The location of these hot spots has been confirmed numerically after 
+the experiments using preliminary computational fluid dynamic 
+analyses. These findings provide an example where the synergistic 
+impact of optically accessible combustion rigs with combustion 
+modeling can rapidly identify undesired behavior.
+Fig. 7 Example of spatial filtering performed for the 10 bar 
+condition. (a) Moving average performed in the x-direction further 
+highlights the striations observed in the raw images. (b) Gaussian 
+smoothing applied in the z-direction with a 0.4D moving window. 
+(c) Local intensity fluctuations shown for a wide flame mask. The 
+local intensity fluctuation mask is then used to spatially correct 
+raw images.
+Fig. 8 Projection of OH intensity between 0.7–1.4z=D for the 
+10 bar condition. A piecewise, exponential fit is performed (–) to 
+approximate the Beer-Lambert laser attenuation through the 
+inline flames in the laser path. The fit obtained is then used to 
+rebalance the OH intensity fields.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051010-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 8 ---
+
+The overall flame topology remains similar for the micromixed 
+flames as pressure is increased. This fueling strategy does not appear 
+to be experiencing thermodiffussive instabilities and flame front 
+thinning that is generally expected from globally-lean premixed 
+configurations. For all the pressures investigated here, the flames are 
+mostly lifted and present a broad OH reaction zone. The flame liftoff 
+becomes more apparent as pressure increases to 15 bar and the 
+leading edge of the core of the flame moves further downstream. The 
+instantaneous OH-PLIF images show the downstream displacement 
+with pressure, especially for the right injector (Fig. 10(c)), where the 
+core of the flame now reaches approximately 0.5D downstream from 
+the injector outlet. This is captured in the average OH field (Fig. 
+10(f)) as the flames more rarely move upstream the z ¼ ½0, 0:5D for 
+all the nozzles. Flame centroids are also moving further downstream 
+at the 15 bar condition. The overall qualitatively small changes in 
+flame topology suggest that if other operating conditions can be 
+reproduced at low-pressure conditions, such as inlet temperature, 
+inlet velocity, and jet momentum flux ratios, promising design 
+identification may be performed in atmospheric facilities at 
+significantly reduced costs compared to high-pressure experiments. 
+Further investigations of quantitative metrics should be performed 
+to ensure that the micromix flame topology can scale to pressure.
+Approaching gas turbine operating conditions offers unique 
+datasets that can be used to further understand the performance of 
+different injector designs toward higher technology readiness 
+integration. It is a necessary milestone in new combustion system 
+development to identify pressure scaling, stable operating regions, 
+and emissions trends. The OACR offers optical access to leverage 
+the planned high-pressure testing needed for industrial development 
+to provide additional information on the flame structures that are 
+otherwise typically modeled only. It offers insight into the 
+combustion process that can then be used to better understand the 
+hardware being tested and also provide complete validation datasets 
+for combustion model development. Moving toward high-hydrogen 
+combustion, industrial computational fluid dynamic best practices 
+have to be modified to account for the different physical properties 
+of hydrogen compared to natural gas or other hydrocarbons. This 
+dataset will be used in subsequent work to provide a baseline for 
+design improvement and will infer changes needed to improve the 
+premix/micromix designs.
+After commissioning the OACR and hydrogen facility, additional 
+work is planned on this injector configuration to expand the scope of 
+testing to encompass fuel blends with natural gas and to investigate 
+the impact of MFR on the hybrid premix/micromix combustion 
+system. The entire body of work should then be used for design 
+iterations that will be tested in the OACR in upcoming experimental 
+campaigns. The modular rig allows for quick turnover between 
+combustion systems to do advanced screening between interesting 
+geometries to better understand the stabilization mechanisms 
+between promising premix/micromix injectors.
+4 Conclusion
+The high-pressure OACR is presented for the first time. It is used 
+to commission the nonintrusive laser diagnostics and the hydrogen 
+fueling upgrades recently completed in the Test Cell #2 facility at the 
+National Research Council Canada. The adaptable test section of the 
+pressure vessel is equipped with a new 7-injector combustion system 
+relying on the combination of premixed and micromixed staged 
+fueling strategies that offers wide fuel flexibility from current 
+hydrocarbons to pure hydrogen. In this work, the combustion of pure 
+hydrogen in the micromix combustion mode is investigated with 
+preheated air at elevated pressures. The optical access is used to 
+perform direct flame imaging with a Nikon DSLR camera and to 
+perform OH-PLIF diagnostics at elevated pressures.
+The hydrogen capability of the 7-injector cassette is confirmed at 
+pressures of 2.5, 5, 7, 10, and 15 bar by achieving stable micromix 
+flames at each condition. Steady-state acoustics and emissions 
+measurements are acquired at each data point and confirm the 
+potential of the premix/micromix approach at operating conditions 
+closer to gas turbine applications. Since carbon emissions are 
+nonexistent for pure hydrogen combustion, only a NOx pressure 
+scaling is extracted from the emissions measurements to be used to 
+estimate pollutant formation at higher operating pressures.
+Laser diagnostics are performed for three inline injectors with the 
+laser sheet centered above their nozzle centerline axes. The results 
+Fig. 9 Image correction process applied to the 10 bar condition 
+and presented with a 3 3 3 median filter for direct comparison 
+between the processing steps
+051010-8 / Vol. 148, MAY 2026                                                                                                                 
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 9 ---
+
+for the 5, 10, and 15 bar pressure conditions highlight the challenges 
+of performing optical diagnostics at elevated pressure conditions 
+with multiple-injector clusters. Raw OH-PLIF images present 
+significant SNR reduction with increasing pressure and along the 
+inline injectors because of laser attenuation. In addition, striations 
+appear in the images, which are suspected to be caused by a 
+combination of variations in the refractive index of the hot 
+combustion products and the relatively colder cooling air jets, 
+combined with the impact of pressure of gas densities. Qualitative 
+approaches are proposed to correct for spatial inhomogeneities in the 
+laser profile and for the laser attenuation through multiple flames. 
+The corrected images provide qualitatively better contrast for all the 
+flames to be compared between different pressure conditions.
+The OH-PLIF images mostly capture the lifted turbulent micro­
+mixed flames in the wake of the fuel injection. Given the complex 
+tridimensional flame topology and location of the laser sheet with 
+respect to the localized micromixed fuel injection, only a portion of 
+the lee-stabilized hydrogen jet flame anchored on the outer injector 
+diameter is captured in a limited number of frames. The micromixed 
+flame structure appears mostly unchanged with increasing pressure, 
+suggesting that experiments at lower pressure might be pursued for 
+preliminary characterization, if other operating conditions can be 
+maintained. As pressure is increased to 15 bar, the flames lift slightly 
+further downstream of the injector exit and create recirculating hot 
+pockets on the injector dump plane. This leads to higher metal 
+temperature that can limit the operational range.
+This first investigation using the OACR shows the potential of 
+high-pressure optical diagnostics to accelerate the development of 
+hydrogen technology. The datasets obtained provide information to 
+better understand where and how flames stabilize in the elevated 
+temperature and pressure environment closer to gas turbine 
+operation. They can also be used to validate combustion modeling 
+with direct measurements of the combustion phenomena to help 
+converge toward an optimal injector design. Leveraging already 
+planned high-pressure testing necessary for novel multi-injector 
+systems, individual injectors, or sector rigs, the pressure vessel can 
+provide additional and complementary information to traditional rig 
+measurements to streamline the design process toward higher 
+technology readiness levels and fully utilize the costs of high- 
+pressure testing. With the commissioning completed, further 
+investigations on the effects of fuel split and fuel composition on 
+the premix/micromix combustion are planned, along with the testing 
+of design iterations.
+Permission for Use. The content of this paper is copyrighted by 
+the National Research Council Canada and Siemens Energy Canada 
+Limited and is licensed to ASME for publication and distribution 
+only. Any inquiries regarding permission to use the content of this 
+paper, in whole or in part, for any purpose must be addressed to 
+National Research Council Canada and Siemens Energy Canada 
+Limited directly.
+Funding Data
+ National Research Council’s (Award ID: Low-Emission 
+Aviation program (LEAP).
+ Natural Sciences and Engineering Research Council of Canada 
+(NSERC) (Funder ID: 10.13039/501100000038).
+ Government of Canada (Award ID: Environment and Climate 
+Change Canada; Funder ID: 10.13039/501100000023).
+ Siemens (Award ID: Siemens Energy Canada Limited; Funder 
+ID: 10.13039/501100004830).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+Nomenclature
+AM ¼ additive manufacturing
+D ¼ nozzle diameter (m)
+DP ¼ differential pressure
+HP ¼ high pressure
+Fig. 10 (a)–(c) Instantaneous OH-PLIF fields corrected for spatial variations and attenuation for increasing pressures. (d)–(f) 
+Mean OH-PLIF fields. Note that the OH-PLIF intensity scale is different at increasing pressures, but consistent for instantaneous 
+and mean fields.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+MAY 2026, Vol. 148 / 051010-9 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025
+
+
+--- Page 10 ---
+
+I ¼ injector
+IRO ¼ intensified relay optics
+MFR ¼ micromix-fuel ratio
+NG ¼ natural gas
+OACR ¼ optically-accessible combustion rig
+P ¼ pressure (kPa)
+PLIF ¼ planar laser-induced fluorescence
+PT ¼ pressure transducer
+PT ¼ pressure transducer
+Py ¼ primary fuel channel
+Sy ¼ secondary fuel channel
+SNR ¼ signal-to-noise ratio
+_V ¼ volumetric flow rate (SLPM)
+References
+0[1] Noble, D., Wu, D., Emerson, B., Sheppard, S., Lieuwen, T., and Angello, L., 2021, 
+“Assessment of Current Capabilities and Near-Term Availability of Hydrogen- 
+Fired Gas Turbines Considering a Low-Carbon Future,” ASME J. Eng. Gas 
+Turbines Power, 143(4), p. 041002.
+0[2] Funke, H. H.-W., Beckmann, N., Keinz, J., and Horikawa, A., 2021, “30 Years of 
+Dry-Low-NOx Micromix Combustor Research for Hydrogen-Rich Fuels–An 
+Overview of Past and Present Activities,” ASME J. Eng. Gas Turbines Power, 
+143(7), p. 071002.
+0[3] Kroniger, D., Horikawa, A., Funke, H. H.-W., Pfaeffle, F., Kishimoto, T., and 
+Okada, K., 2021, “Experimental and Numerical Investigation on the Effect of 
+Pressure on Micromix Hydrogen Combustion,” ASME Paper No. GT2021-58926.
+0[4] Durocher, A., Fan, L., F€uri, M., Bourque, G., Sirois, J., May, D., Bergthorson, J. M., 
+Yun, S., and Vena, P., 2024, “Characterization of a 5-Nozzle Array Using Premix/ 
+Micromix Injection for Hydrogen,” Appl. Energy Combust. Sci., 18, p. 100260.
+0[5] Funke, H. H.-W., Beckmann, N., and Abanteriba, S., 2019, “An Overview on Dry 
+Low NOx Micromix Combustor Development for Hydrogen-Rich Gas Turbine 
+Applications,” Int. J. Hydrogen Energy, 44(13), pp. 6978–6990.
+0[6] Durocher, A., Fan, L., Francolini, B., Furi, M., Bourque, G., Sirois, J., May, D., 
+Bergthorson, J. M., Yun, S., and Vena, P., 2024, “Characterization of a Novel 
+Additive Manufacturing Micromix Nozzle Burning Methane to Hydrogen,” 
+ASME J. Eng. Gas Turbines Power, 146(5), p. 051009.
+0[7] Moosbrugger, V., Giuliani, F., Paulitsch, N., and Andracher, L., 2019, “Progress in 
+Burner Design Using Additive Manufacturing With a Monolithic Approach and 
+Added Features,” ASME Paper No. GT2019-90720.
+0[8] Samarasinghe, J., Peluso, S., Szedlmayer, M., De Rosa, A., Quay, B., and 
+Santavicca, D., 2013, “Three-Dimensional Chemiluminescence Imaging of 
+Unforced and Forced Swirl-Stabilized Flames in a Lean Premixed Multi- 
+Nozzle Can Combustor,” ASME J. Eng. Gas Turbines Power, 135(10), p. 
+101503.
+0[9] Kwong, W. Y., and Steinberg, A. M., 2019, “Blowoff and Reattachment Dynamics 
+of a Linear Multinozzle Combustor,” ASME J. Eng. Gas Turbines Power, 141(1), 
+p. 011015.
+[10] Durocher, A., Fan, L., F€uri, M., Bourque, G., Bergthorson, J. M., Yun, S., and 
+Vena, P., 2024, “Phase-Averaged, 3D OH-LIF Reconstruction for Multi-Nozzle, 
+Micromixed Hydrogen Combustion,” Proc. Combust. Inst., 40(1–4), p. 105561.
+[11] Boxx, I., Slabaugh, C., Kutne, P., Lucht, R., and Meier, W., 2015, “3 kHz PIV/OH- 
+PLIF Measurements in a Gas Turbine Combustor at Elevated Pressure,” Proc. 
+Combust. Inst., 35(3), pp. 3793–3802.
+[12] Strakey, P. A., Woodruff, S. D., Williams, T. C., and Schefer, R. W., 2008, “OH- 
+Planar Fluorescence Measurements of Pressurized, Hydrogen Premixed Flames in 
+the SimVal Combustor,” AIAA J., 46(7), pp. 1604–1613.
+[13] Versailles, P., Durocher, A., Bourque, G., and Bergthorson, J. M., 2019, “Nitric 
+Oxide Formation in Lean, Methane-Air Stagnation Flames at Supra-Atmospheric 
+Pressures,” Proc. Combust. Inst., 37(1), pp. 711–718.
+[14] Schneider, D., Meier, U., Quade, W., Koopman, J., Aumeier, T., Langfeld, A., 
+Behrendt, T., Hassa, C., and Rackwitz, L., 2010, “A New Test Rig for Laser 
+Optical Investigations of Lean Jet Engine Burners,” 27th International Congress of 
+the Aeronautical Sciences (ICAS 2010), Nice, France, Sept., pp. 19–24.
+[15] Tao, C., Zhang, C., Xue, X., Fan, X., Gao, J., Feng, X., and Gao, X., 2023, 
+“Flame Dynamics and Combustion Instability Induced by Flow-Flame 
+Interactions in a Centrally-Staged Combustor,” Aerosp. Sci. Technol., 142, 
+p. 108635.
+[16] Durocher, A., Fan, L., F€uri, M., Bourque, G., Sirois, J., May, D., Bergthorson, 
+J. M., Yun, S., and Vena, P., 2025, “An Investigation of a Multi-Injector, Premix/ 
+Micromix Burner Burning Pure Methane to Pure Hydrogen,” ASME J. Eng. Gas 
+Turbines Power, 147(7), p. 071019.
+[17] Gauthier, P., Zghal, M., Durocher, A., Vena, P., Fan, L., Francolini, B., 
+Bergthorson, J. M., and Yun, S., 2024, “Combustion Computational Fluid 
+Dynamics Simulations of a Range of Experimental Lean Hydrogen/Natural Gas 
+Blend Flames,” ASME Paper No. GT2024-129104.
+[18] SAE E-31 Technical Committee, 2011, “Procedure for the Continuous Sampling 
+and Measurement of Gaseous Emissions From Aircraft Turbine Engines,” SAE 
+International, SAE-ARP1256E, pp. 1–21.
+[19] Ji, K., Hui, X., Tao, C., Xue, X., and An, Q., 2024, “Laser Absorption Correction 
+for Hydroxyl Planar Laser Induced Fluorescence Measurements in a Centrally 
+Staged Combustor at Elevated Pressures,” J. Appl. Phys., 136(11), p. 113104.
+[20] Eckbreth, A. C., 2022, Laser Diagnostics for Combustion Temperature and 
+Species, CRC Press, London.
+051010-10 / Vol. 148, MAY 2026                                                                                                               
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/5/051010/7538116/gtp-25-1462.pdf by University of Cincinnati user on 31 December 2025

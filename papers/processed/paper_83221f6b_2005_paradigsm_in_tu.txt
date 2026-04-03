@@ -1,0 +1,2997 @@
+
+--- Page 1 ---
+
+Paradigms in turbulent combustion research
+R.W. Bilgera,*, S.B. Popeb, K.N.C. Brayc, J.F. Driscolld
+a School of Aerospace Mechanical and Mechatronic Engineering, University of Sydney, NSW 2006, Australia
+b Sibley School of Mechanical and Aerospace Engineering, Cornell University, Ithaca, NY 14853, USA
+c 23, De Freville Ave, Cambridge CB4 1HW, UK
+d Department of Aerospace Engineering, University of Michigan, Ann Arbor, MI 48109, USA
+Abstract
+The development of the basic conceptual viewpoints, or paradigms, for turbulent combustion in
+gases over the last 50 years is reviewed. Signiﬁcant progress has been made. Recent successes in the
+prediction of pollutant species and extinction/re-ignition phenomena in non-premixed ﬂames are seen
+as the result of close interaction between experimentalists, theoreticians, and modellers. Premixed tur-
+bulent ﬂames seem to be dependent on a much wider range of factors, and predictive capabilities are
+not so advanced. Implications for large eddy simulation (LES) and partially premixed combustion are
+outlined.
+ 2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+1. Introduction
+This week we celebrate a half-century of what
+has been a remarkable, sustained endeavour to
+surmount the challenges of combustion science
+and application. The Combustion Institute was
+formed to provide a permanent home for the mul-
+ti-disciplinary community of scientists and engi-
+neers that had grown together, after the Second
+World War, with the common interest of grap-
+pling at a fundamental level with the problems
+of combustion processes in engines (spark-igni-
+tion, diesel, gas-turbine, and rocket), furnaces,
+explosions, and ﬁres, and the aero-thermochemis-
+try of rocket nozzles and re-entry of objects from
+earth orbit. This community had already pro-
+duced the fabulous archive of its three post-war
+symposia. It knew that it needed to sustain and
+grow itself if it were to surmount the great chal-
+lenges that lay ahead. How else to assimilate many
+still-emerging sciences—thermochemistry, chemi-
+cal kinetics, molecular transport phenomena,
+heat, and mass transfer in single and multi-phase
+systems, and laminar and turbulent ﬂuid ﬂow—in-
+to a coherent science capable of application to
+engineering problems?
+Fifty years is a long time in science. Just look
+at the biological sciences! Why have we not solved
+the problem in this time? Surely, back then, our
+founders projected a far shorter time frame than
+half a century when seeking support for the ﬂedg-
+ling Institute and for their own individual research
+projects. The opening speeches at the Royal Insti-
+tution in London for the 1958 Symposium make
+interesting reading. Sir Cyril Hinshelwood, then
+President of the Royal Society and winner, with
+Semenov, of the 1956 Nobel Prize in chemistry
+for his work on the chemical kinetics of combus-
+tion, gives a sobering assessment [1] of the diﬃcul-
+ties of achieving a satisfactory theory for laminar
+ﬂames. It includes, by the way, a complete dis-
+missal of any future for Zeldovichs asymptotics!
+Lewis [2] bemoans the Edisonian approach, still
+1540-7489/$ - see front matter  2004 The Combustion Institute. Published by Elsevier Inc. All rights reserved.
+doi:10.1016/j.proci.2004.08.273
+* Corresponding author. Fax: +61 2 9351 7060.
+E-mail address: bilger@aeromech.usyd.edu.au (R.W.
+Bilger).
+Proceedings of the Combustion Institute 30 (2005) 21–42
+www.elsevier.com/locate/proci
+Proceedings
+of the
+Combustion
+Institute
+
+
+--- Page 2 ---
+
+universally used then in combustion development.
+He cites the discovery of lead tetraethyl as an anti-
+knock additive after an exhaustive and expensive
+testing program. And further, in spite of much
+continued eﬀort at a fundamental level, the sci-
+ence behind this technology was still not under-
+stood when Lewis was speaking 35 years later.
+Surely, combustion science could eventually out-
+reach such blind empiricism! Both Lewis and Hin-
+shelwood knew that practical applications would
+need the mastering of turbulence—a formidable
+task in itself—and would need to be coupled to
+all the intricacies of hydrocarbon chemical kinet-
+ics that were then emerging. They did not explic-
+itly mention this, however! Experts advising the
+Australian government in the 1960s listed Com-
+bustion as one of a few areas of research that
+would not be cost-eﬀective!
+Have we solved the problem? Laminar ﬂames?
+On the whole, for simple fuels: yes—but we still
+have many papers in this area! Hydrocarbon
+kinetics? Well along the road, it would seem. Tur-
+bulent combustion and its science-based applica-
+tion
+to
+engineering
+problems?
+Not
+yet,
+but
+signiﬁcant progress has been made.
+At the 27th Symposium, Correa [3] reviewed
+the remarkable progress that has been achieved
+in gas turbine technology over the past 50 years.
+To illustrate the value of combustion science, he
+shows that CFD using PDF methods [4] can pro-
+duce accurate calculations of the NO emissions
+from combustors. This methodology is now grad-
+ually being incorporated into commercial CFD
+codes [5], and hence available for broader applica-
+tion. We can also take heart that Michael Schum-
+acher and the Ferrari Formula 1 team put their
+trust in one of our combustion science community
+[6]—Thierry Baritaud—for the most crucial as-
+pects of their engine design! Over the last ﬁve, Fer-
+rari-winning years, Thierry and the Ferrari team
+have been able to get a 2–3% increase in peak
+power every year. He makes use of CFD codes
+for fuel mixing and evaporation, and advanced
+turbulent combustion codes for ﬂame travel to
+guide the empirical development of the combus-
+tion design [7,8]. He looks forward to combustion
+codes that can be even better predictors of ﬂame
+travel and of the post-ﬂame reactions that also af-
+fect performance.
+Increasingly, advanced combustion modelling
+is ﬁnding application across the broad range of
+industry. Increasingly, such computational model-
+ling is becoming more sound in its scientiﬁc base.
+There is still a long way to go until it enjoys the
+status of being an accurate predictive tool as is ﬁ-
+nite element analysis in elasticity and conductive
+heat transfer.
+Turbulent combustion has been the subject of
+regular invited lectures and topical reviews over
+the last 20 years [9–19] of the biennial symposia
+of The Combustion Institute. The Hottel Lecture
+given by Ken Bray at the 26th Symposium [15] is
+particularly comprehensive. It pre-empts any at-
+tempt at such a comprehensive review for this
+50th anniversary lecture.
+Our approach is prompted, instead, by the out-
+standing advances that have been made in recent
+years in turbulent non-premixed combustion.
+These advances have been closely associated with
+a series of international workshops on turbulent
+non-premixed ﬂames [20]. The aim of these work-
+shops has been to foster close interaction between
+experimentalists,
+modellers,
+and
+theoreticians,
+with a focus on elucidating the physics and com-
+putational modelling of the chemistry–turbulence
+interactions that occur, and on improving mea-
+surement techniques. It is generally agreed that
+advances here have been more rapid than in pre-
+mixed turbulent ﬂames, and that this is partly be-
+cause there exists a well-developed and widely
+accepted hierarchy of experiments that is well
+aligned with the capabilities of the modelling
+and simulation. In contrast, there is no generally
+accepted set of experiments for the study of turbu-
+lent premixed ﬂames.
+It is also widely held that premixed turbulent
+combustion is inherently more complex than
+non-premixed [21], and that this is because there
+is a much stronger coupling between the chemistry
+and the turbulence. Strong coupling also occurs in
+piloted jet diﬀusion ﬂames at high turbulent mix-
+ing rates such as in the Sandia [20,22] ﬂames E
+and F where local extinction and re-ignition oc-
+cur. Modelling of these ﬂames has, however, been
+quite successful [23–27].
+Our objective here was to explore possible rea-
+sons for this disparity in achievement. We review
+the historical development of the conceptual view-
+points or paradigms associated with these two
+branches of the subject. Thomas Kuhn argues
+[28] that the most interesting aspects of scientiﬁc
+enquiry are the paradigm shifts and the events
+causing them, which may be experimental, theoret-
+ical or sociological. We hope to gain insight into
+new approaches for the study of turbulent pre-
+mixed combustion and for the emerging subject
+of partially premixed turbulent combustion. Much
+that has been learned in the past must play a cen-
+tral role in addressing todays problems of perfect-
+ing large eddy simulation (LES) for combustion.
+We limit our scope to the crucial issue of tur-
+bulence-chemistry interactions in gases. We leave
+questions of buoyancy, radiant loss, multi-phase
+transport, etc., aside. The views presented here
+are not intended to reﬂect the wide range of views
+held within the turbulent combustion research
+community as a whole. Rather they are intended
+to reﬂect the views of the authors, who perhaps
+represent a mainstream of the research commu-
+nity. Furthermore, we have not tried to reach a
+consensus, but present instead the spread of views
+that we have among us.
+22
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 3 ---
+
+2. Non-premixed turbulent combustion
+The major, well-founded paradigms in turbu-
+lent non-premixed combustion that are considered
+here are given in Table 1. These are categorised in
+terms of their modelling of the chemistry and mix-
+ing. These are discussed in more detail in the fol-
+lowing sub-sections together with the innovative
+experiments that have arisen from them or that
+they suggest for future investigation.
+2.1. The mixing-controlled paradigm
+The original paradigm for turbulent non-pre-
+mixed combustion has the viewpoint that such
+combustion is basically mixing controlled. The
+classical paper by Hawthorne et al. [29] appears
+in the ﬁrst of the post-war combustion symposia.
+In it, the ﬂame lengths and mean structure of tur-
+bulent jet diﬀusion ﬂames are studied and are
+found to correlate well with the mixing laws of
+turbulent jets. The paradigm is closely related to
+that for laminar diﬀusion ﬂames as studied by
+Burke and Schumann [30] in the ﬁrst combustion
+symposium held in 1928. In that early work, the
+mixing is by molecular diﬀusion in laminar ﬂow,
+and the ﬂame is situated at the surface where the
+fuel and oxidant are in stoichiometric propor-
+tions—the reaction zone, itself, being very thin
+compared with the diameter of the ﬂame. The
+main idea was that chemical rates were much fas-
+ter than mixing by molecular diﬀusion. This con-
+cept was carried across into the paradigm for
+turbulent diﬀusion ﬂames—if fuel is in excess,
+the mixture consists of products and excess fuel;
+if oxygen is in excess, the mixture consists of prod-
+ucts and excess oxidant. A variable, essentially the
+same as todays mixture fraction [31], can be de-
+ﬁned that describes the stoichiometry of the mix-
+ture, and the instantaneous temperature and
+composition of the mixture would be uniquely re-
+lated to the mixture-fraction variable. In turbulent
+ﬂow, the mixture fraction at a particular point has
+random ﬂuctuations, but these have statistics sim-
+ilar to those in non-reacting ﬂow. Mean values of
+composition and temperature can be obtained by
+weighting their instantaneous relationship to the
+mixture fraction by the probability density func-
+tion (PDF) of the mixture fraction. Such mean
+values seem to show co-existence of fuel and oxi-
+dant. This is not, however, due to the slowness of
+chemical reaction, but due to the ﬂuctuating stoi-
+chiometry: signiﬁcant concentrations of both fuel
+and oxidant may exist at the same place, but not
+at the same time.
+Such a mixing-controlled paradigm immedi-
+ately raises the question as to its range of validity.
+If the mixing can be made fast enough, then surely
+the reaction rates would be controlled by the
+chemistry and not by the mixing. The well-stirred
+reactor of Longwell and Weiss [32] used small so-
+nic jets to produce what was thought to be a
+homogeneous mixture of reactants and products
+within the reactor. Would the length of jet diﬀu-
+sion ﬂames be aﬀected by limits on the reaction
+rate? In a little-known study, Hottel reports [33]
+on experiments at MIT [34] where this was inves-
+tigated by studying jet diﬀusion ﬂames at a range
+of pressures from 0.3 to 6 atm. The original idea
+was that chemical rates would go approximately
+as the square of the pressure whereas the Rey-
+nolds number would go linearly with pressure.
+The ﬁndings were that the ﬂame lengths were still
+controlled by mixing but that buoyancy was more
+important in determining rates of mixing in such
+ﬂames than was the Reynolds number. A modiﬁed
+Froude number was needed to incorporate the ef-
+fects of buoyancy on mixing.
+In the early 1970s, interest was renewed in the
+eﬀects of chemical kinetics, particularly for pollu-
+tants such as nitric oxide. This interest came as a
+result of sociological pressures for reduction in air
+pollution emissions arising from combustion pro-
+cesses. Nitric oxide is formed by relatively slow
+reactions, and so could not come directly under
+the mixing-controlled paradigm. Since the forma-
+tion of nitric oxide was not important for the ma-
+jor species and overall heat release, eﬀorts were
+made to correlate its production with the convec-
+tive and mixing time scales in the ﬂow. Early re-
+sults on hydrogen jet diﬀusion ﬂames, with
+Froude number held constant [35], suggested that
+the reactive time scale had a minus half power
+dependence on the Reynolds number—and so
+proportional to the Kolmogoroﬀ, or ﬁne-scale
+time scale of the turbulence. Later work [36] has
+indicated that radiation and diﬀerential diﬀusion
+eﬀects are also important, particularly in hydro-
+Table 1
+Paradigms in non-premixed turbulent combustion
+Paradigm
+Chemistry
+Mixing
+Mixing controlled
+Fast for major species
+Scaling laws/second-order closures
+Laminar ﬂamelet
+Precalculated tables/Lagrangian Pdes
+Laminar counter-ﬂow/second-order
+closure
+PDF approach
+Already closed/reduced mechanisms
+Mixing models
+Conditional moment closure
+Closure in terms of conditional moments
+PDF integrals
+Multiple mapping conditioning
+Closure in terms of conditional means
+Mapping closure
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+23
+
+
+--- Page 4 ---
+
+carbon ﬂames, and such attempts at simple corre-
+lation are not sustainable.
+For a while in the 1960s and 1970s, the primary
+emphasis was on how the rate of mixing was af-
+fected, not only by buoyancy, but by density vari-
+ations and/or ﬂuctuations, and by the postulated
+phenomenon of ﬂame-generated turbulence [37].
+Kent and Bilger [38] studied a horizontal round-
+jet diﬀusion ﬂame of hydrogen into a co-ﬂowing
+airstream, the main idea being that minimal
+deﬂection of the ﬂame in the vertical direction
+and, preservation, essentially, of axi-symmetry
+would gainsay any eﬀects of buoyancy—the main
+interest was in density eﬀects and ﬂame generated
+turbulence. On the down side was the introduc-
+tion of new non-dimensional parameters such as
+the ratio of the jet to co-ﬂow velocity and the
+probable increase in the inﬂuence of the boundary
+layer characteristics at the jet nozzle exit—some-
+thing that could involve a host of new non-dimen-
+sional parameters. This development reﬂected the
+new paradigm for the study of non-reacting tur-
+bulence. The then classical work on self-preserv-
+ing
+ﬂows
+and
+equilibrium
+ﬂows
+was
+being
+superseded by attempts to describe the evolution
+of turbulence by partial diﬀerential equations
+involving several signiﬁcant terms such as produc-
+tion, advection, turbulent diﬀusion, and dissipa-
+tion [39]. These equations were derived from
+Reynolds averaging of the Navier–Stokes equa-
+tions. As Bray pointed out [40], many more terms
+would be involved in ﬂows with strong density
+ﬂuctuations. Density-weighted or Favre averaging
+of the Navier–Stokes and species conservation
+equations [41] appeared to be a way around this
+problem and has enjoyed some success [42,43].
+The modelling of chemistry was extended to in-
+clude the concept of chemical equilibrium being
+the fast chemistry limit so that the eﬀects of high
+temperature dissociation could give estimates for
+the concentrations of intermediate species and
+radicals such as H, OH, and O. This was particu-
+larly helpful for modelling nitric oxide. Early
+work in hydrogen jet diﬀusion ﬂames [44] assumed
+that the kinetics were essentially those of the Zel-
+dovich reduced mechanism [45] and that the tem-
+perature and oxygen concentrations were given by
+the fast chemistry paradigm. Consequently, the
+average production rate, needed in the Rey-
+nolds/Favre-averaged equation for this species,
+could be obtained by weighting instantaneous
+reaction rates, derived from fast-chemistry theory
+for the temperature and reactant species, by the
+PDF of the mixture fraction [44].
+A signiﬁcant result arising from this paradigm
+was the discovery by analysis [46] that reaction
+rates in ﬂames with fast chemistry are propor-
+tional to the rate of scalar dissipation or the rate
+of molecular mixing (of the mixture fraction). Sca-
+lar dissipation rates in turbulent jets into still air
+scale with the minus fourth power of the distance
+from the nozzle exit—so ﬁnite-rate chemistry ef-
+fects would be most apparent near the nozzle exit.
+The bulk of the carbon monoxide burnout occurs
+much further downstream where scalar dissipa-
+tion rates are very low. No wonder that Hottel
+[33] and Homsy [34] could ﬁnd no eﬀects of kinetic
+rates on ﬂame lengths deﬁned in terms of CO
+burnout!
+An immediate upshot of this discovery was the
+new viewpoint that the reactive species and tem-
+perature should depend not just on mixture frac-
+tion, as under the fast chemistry paradigm, but
+also on local values of scalar dissipation. High
+values of local scalar dissipation would need high
+values of chemical reaction rates to balance the
+high rates of reactant arrival in the reaction zone
+from turbulent mixing. Tsuji and Yamaoka [47]
+had shown, in a beautiful series of investigations
+on laminar counter-ﬂow diﬀusion ﬂames, that
+the composition and temperature were dependent
+on the strain-rate in the ﬂow—a quantity linearly
+related to the scalar dissipation of the mixture
+fraction. At high strain rates (scalar dissipation
+rates), temperatures are lowered, and there is in-
+creased overlap in the proﬁles of fuel and oxidant
+concentrations. At very high strain rates, extinc-
+tion occurs.
+Turbulent diﬀusion ﬂames of hydrocarbons
+posed a great problem in these times. The fast
+chemistry paradigm implied that chemical equi-
+librium would be the limit applicable at low rates
+of scalar dissipation. Experiments showed that
+levels of CO concentration were far below those
+predicted by full chemical equilibrium [48]. Anal-
+ysis of experimental data on laminar diﬀusion
+ﬂames [49] indicated that such equilibrium struc-
+ture was not approached at the low strain rates
+of interest—some sort of metastable state was in-
+volved. It was proposed [49] that such experimen-
+tal data could be used for turbulent ﬂame
+calculations. Lieuw et al. [50] showed that CO lev-
+els in turbulent diﬀusion ﬂames could be well
+predicted
+by
+assuming
+that
+moderately
+low
+strain-rate data from laminar ﬂame calculations
+could be used to predict CO levels in turbulent
+(methane) ﬂames. These concepts [49,50] were
+the forerunners of what has become known as
+laminar ﬂamelet modelling (which is the subject
+of the next sub-section).
+The general idea of the chemistry being depen-
+dent on the eﬀects of scalar dissipation rates in re-
+gions where the mixture fraction is close to
+stoichiometric led, eventually, to the now-much-
+heralded Sandia experiments [20,22] on piloted-
+jet diﬀusion ﬂames. Crucial to this experimental
+concept was the notion that high scalar dissipa-
+tion rates should not be at the nozzle exit where
+the ﬂow was subjected to the detailed minutiae
+of
+the
+initial
+conditions
+arising
+from
+the
+upstream boundary layers in and outside of the
+jet tube or subjected to transitional coherent
+24
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 5 ---
+
+structures. It would be better to have such high
+scalar dissipation delayed to 10–20 diameters
+downstream where the turbulence was more fully
+developed and amenable to the then, currently
+available, techniques for turbulence modelling. A
+large pilot ﬂow with burned products at close to
+stoichiometric mixture could provide such a
+streamwise holiday for stoichiometric values of
+the scalar dissipation that would, eventually, be
+overcome by the dynamics of the turbulence,
+and eventually give rise to rates high enough to
+cause local extinction. An unenclosed jet ﬂow
+was also amenable to the latest advances in la-
+ser-diagnostic measurement. This experimental
+conﬁguration was initially realised at the Univer-
+sity of Sydney by Sta˚rner and Bilger [51]. The pa-
+per in the Munich 1986 Symposium [52] involving
+probe measurements was accorded the 1988 Silver
+Medal of the Combustion Institute: the judges
+were perhaps inﬂuenced by the oral presentation
+by Assaad Masri that included later measure-
+ments by Rayleigh/ Raman scattering made at
+Sandia with Bob Dibble, and eventually published
+in Combustion and Flame [53,54]. These laser-di-
+agnostic measurements were, indeed, the ﬁrst of a
+long series of collaborations between Sydney Uni-
+versity and Sandia [20,55–57], initially with Bob
+Dibble and then with Rob Barlow, that has led
+to the superb experimental databases that are
+the current benchmark for turbulent non-pre-
+mixed combustion modelling [20]. Recognition is
+needed for the vision of Sandia administrators,
+Dan Hartley, Peter Mattern, and Bill McLean,
+who have been strong supporters of this interna-
+tional collaboration and the value of this experi-
+mental endeavour. The TNF collaboration now
+includes many groups around the world. The
+database now comprises excellent measurements
+for all the major species, temperature, and for
+CO, OH, and NO for a wide range of jet and
+bluﬀ-body ﬂames [20]. The high quality of the
+data has put the onus onto the modellers to reﬁne
+their models and onto theoreticians to develop
+new paradigms.
+2.2. The laminar ﬂamelet paradigm
+A new paradigm appeared in the early 1980s
+when Peters showed [58] that the species conserva-
+tion equation can, locally and instantaneously, be
+transformed into the so-called stationary laminar
+ﬂamelet (SLFM) equation by assuming terms
+involving transients and those involving gradients
+parallel to the instantaneous surface of the mix-
+ture fraction to be small. The underlying concept
+is that ﬂame reaction zones are thin, and their
+structure is essentially the same as in laminar
+ﬂames subjected to the same scalar dissipation.
+Pre-calculated libraries of quantities such as com-
+position, temperature, and reaction rates, as func-
+tions of mixture fraction and scalar dissipation,
+are used to obtain closure for the chemistry–tur-
+bulence interactions. Detailed chemical reaction
+mechanisms and molecular diﬀusion processes
+can be included in these laminar ﬂame calcula-
+tions. A presumed joint PDF of mixture fraction
+and scalar dissipation allows mean values to be
+predicted [50], in a manner analogous to that
+introduced
+for
+mixing-controlled
+combustion.
+However, the ﬂamelets are relatively insensitive
+to variations in scalar dissipation, and adequate
+predictions are sometimes obtained by assuming
+a constant mean value.
+This innovation has been taken up widely by
+modellers because it provides a simple and easy-
+to-implement physical picture of the turbulent
+ﬂame structure. Within its range of validity, it
+is an attractively simple way to include eﬀects
+of complex chemistry in turbulent ﬂame calcula-
+tions. An early success [50] was the improvement
+in matching experimental CO concentrations, in
+comparison with calculations assuming chemical
+equilibrium. However, strong arguments have
+also been put forward [59] against ﬂamelet mod-
+els. These include the eﬀects of variations in sca-
+lar
+dissipation
+through
+ﬂamelets,
+and
+the
+inﬂuence of neglected advection terms in the
+transport equations. It is clear that the SLFM
+paradigm cannot remain valid in the presence
+of local extinction and re-ignition when unsteady
+and ﬂame edge eﬀects [60] must become impor-
+tant. Nevertheless, the whole question of the
+range of validity of ﬂamelet models remains con-
+troversial. It cannot be denied that the laminar
+ﬂamelet
+paradigm
+can
+provide
+an
+accurate
+description for suﬃciently large turbulence scales
+and low turbulence intensities for combustion
+chemistry that is close to irreversible. It is equally
+obvious that there is also a regime of intense tur-
+bulence, whose length and time scales are small
+relative to those of a laminar ﬂame, for which
+laminar ﬂamelet models will not be appropriate.
+But the range of validity of these models is not
+yet agreed.
+More recently, the SLFM has been modiﬁed to
+include eﬀects of transients [61,62] and to incorpo-
+rate a Lagrangian viewpoint [63,64], with associ-
+ated treatment of the strong ﬂuctuations that can
+occur in scalar dissipation, and to accommodate
+the eﬀects of the advection terms parallel to the
+surfaces of constant mixture fraction. These
+changes can be helpful, particularly for extinction
+and re-ignition processes, and for kinetically slow
+species such as nitric oxide, carbon monoxide or
+soot. Large eddy simulation incorporating such a
+viewpoint has been successful [26]. New interpreta-
+tions of the ﬂamelet paradigm continue to appear.
+For example, Vervisch et al. [65] combines a ﬂam-
+elet-generated chemistry tabulation with a simpli-
+ﬁed Conditional Moment Closure model (see
+Section 2.5) in which some conditional moments
+are related to the ﬂame-tabulated chemistry.
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+25
+
+
+--- Page 6 ---
+
+Another factor that aﬀects the ﬂamelet para-
+digm is the competition between the broadening
+of ﬂamelets and their extinction, both of which
+are governed by the local Damko¨hler number
+and the level of mixture fraction ﬂuctuations
+[11]. For the particular conditions of very high
+turbulence levels reported by Ratner et al. [66],
+the CH PLIF images indicate that the ﬂamelets
+‘‘extinguish before they broaden.’’ When the
+velocity ﬂuctuations exceeded 10 m/s, ‘‘shredded’’
+ﬂamelets were observed, but each CH reaction
+layer remained about as thin as a layer in a lami-
+nar ﬂame (0.5–1 mm). This ﬁnding implies that,
+for these speciﬁc conditions, the Damko¨hler num-
+ber required to extinguish the ﬂamelet exceeds
+that required to enter a distributed reaction re-
+gime. However, most experiments to date have
+been conducted using room temperature reactants
+and relatively low gas velocities, which favor ﬂam-
+elet formation. Additional work is needed at ele-
+vated inlet temperatures and large mixing rates
+to measure the boundaries between ﬂamelet and
+non-ﬂamelet behavior.
+Despite these developments the applicability of
+ﬂamelet models to speciﬁc circumstances remains
+controversial. The TNF Workshop has adopted
+bluﬀ-body experiments to test Lagrangian ﬂam-
+elet modelling, as it is not clear how widely appli-
+cable this will be, for example, in a recirculation
+zone, unless an LES approach is used.
+2.3. The PDF approach
+The mixing-controlled and stationary laminar
+ﬂamelet models lead to the prediction that the
+instantaneous composition at a point in a turbu-
+lent ﬂame is uniquely determined by just one or
+two variables, mixture fraction (for fast-chemis-
+try), and mixture fraction and scalar dissipation
+(for the steady ﬂamelet model). In the 1980s, sin-
+gle-shot Rayleigh/Raman data capable of testing
+these predictions became available and were pre-
+sented in the form of scatter plots [53]. For hydro-
+carbon ﬂames, the degree of scatter observed, and
+especially the occurrence of compositions outside
+those realised in steady laminar ﬂames, indicated
+the need for a more general modelling approach
+[67]. This was provided by PDF methods, whose
+development for turbulent reactive ﬂows started
+in the mid-1970s [68–70].
+The primary advantages of the PDF approach
+are that independent turbulent ﬂuctuations of all
+species can be represented, and that the direct ef-
+fects of reaction appear in closed form in the PDF
+equations [4,12,71–73]. While no modelling is re-
+quired of the reaction term in the PDF equations,
+a mixing model is needed to account for mixing by
+molecular diﬀusion.
+The
+development
+of
+Eulerian
+[74]
+and
+Lagrangian [4] Monte Carlo particle methods en-
+abled PDF calculations to be performed of pilot-
+ed-jet ﬂames using 4-step reduced mechanisms
+[67]. The resulting calculated scatter plots were,
+in many respects, in qualitative agreement with
+the measurements; but improvements in both cal-
+culations and measurements were required to
+draw ﬁrmer quantitative conclusions.
+The improvements in laser diagnostics led to
+more accurate measurements of the Sandia ﬂames
+D, E, and F [22]; and the in situ adaptive tabula-
+tion (ISAT) algorithm [75,76] facilitated the use of
+more detailed chemistry [77]. At the 28th Sympo-
+sium, quantitatively accurate calculations of these
+ﬂames were reported [24,25] based on PDF com-
+putations involving around 20 species. The PDF
+calculations of Xu and Pope [23] accurately repre-
+sent the level of local extinction in these ﬂames as
+a function of jet velocity and axial distance—a
+feat as yet unparalleled by other approaches. Pre-
+dictions in methanol ﬂames [78] are also good,
+even though the reaction zone is thinner.
+In spite of the success of these PDF calcula-
+tions, there remain signiﬁcant questions about
+the physical realism of the mixing models. The
+primary models used are: IEM [79] or, equiva-
+lently, LMSE [68]; the modiﬁed Curl model
+(MC) [80,81]; and the EMST model [82]. These
+are found to yield substantially diﬀerent distribu-
+tions (as revealed by scatter plots) [83], and also to
+predict
+extinction
+at
+substantially
+diﬀerent
+Damko¨hler numbers [83,84].
+The three major issues with mixing models in
+PDF methods are as follows. First, there is no ex-
+plicit coupling between reaction and mixing;
+although (especially in the EMST model) such
+coupling is implicit through the shape of the
+PDF. Second, the IEM and MC models are
+non-local in composition space: even at high
+Damko¨hler number, according to the models, rich
+and lean mixtures can mix to form unreacted stoi-
+chiometric mixtures [85]. The EMST model was
+developed to overcome this shortcoming. Third,
+none of the models includes a physically realistic
+representation of the ﬂuctuations in scalar dissipa-
+tion. Since our notions of local extinction are
+based on extreme values of the scalar dissipa-
+tion—many times the mean value—it remains a
+puzzle that PDF models (which do not explicitly
+represent the distribution of scalar dissipation)
+are capable of calculating local extinction and
+re-ignition in piloted jet ﬂames. An important
+goal of research in this area is to delineate the re-
+gimes of applicability of the diﬀerent models, and
+of course to develop improved models. Some pro-
+gress in this direction is discussed below in Section
+2.5.
+PDF methods have also been applied to the
+more challenging bluﬀ-body stabilised jet ﬂames
+[86] (including calculations with detailed chemis-
+try [87,88]) and to the swirling bluﬀ-body ﬂames
+[89]. For these complex recirculating ﬂows, the
+primary issue is the extent to which the turbulence
+26
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 7 ---
+
+modelling in PDF methods is adequate, and when
+it is necessary to account explicitly for the large-
+scale turbulent motions (e.g., via unsteady RANS
+or LES).
+While still an active and fruitful area of re-
+search, PDF methods have reached the level of
+maturity that they are available in commercial
+CFD
+codes
+for
+use
+both
+in
+research
+(e.g.,
+[90,91]) and in industrial applications. There are
+still signiﬁcant areas requiring careful research,
+however.
+2.4. Conditional moment closure
+Conditional moment closure (CMC) [92–94] is
+a modelling viewpoint that has been inspired by
+the laser-diagnostic measurements in jet diﬀusion
+ﬂames [20] and by experiments in reactive mixing
+layers [95]. It was apparent that ﬂamelet methods
+would not be applicable in the latter case as the
+reaction between nitric oxide and ozone was slow
+and was occurring throughout the mixed ﬂuid.
+The basic concept is that the ﬂuctuations in tem-
+perature and composition that occur in turbulent
+combustion can be closely cross-linked to the ﬂuc-
+tuations in one or two key variables. In non-pre-
+mixed combustion, mixture fraction is the key
+variable of interest. In many such ﬂows, the tem-
+perature and species mass fractions that exist are
+found to have values that vary little from others
+that have the same value of the mixture fraction.
+The conditional average is deﬁned as the average
+of all those members of the subset having the same
+value of the mixture fraction. The known conser-
+vation equations for species and enthalpy can be
+reformulated in terms of such conditional aver-
+ages. They involve important terms for the condi-
+tional average reaction rates.
+In CMC, it is necessary to close these condi-
+tional average rates of reaction [94]. Fluctuations
+about the conditional averages are often small,
+and the conditional average reaction rates are well
+approximated using the conditional average tem-
+perature and species mass fractions. So-called
+ﬁrst-order CMC achieves conditional reaction
+rate closure by neglecting the contributions of
+conditional variances and co-variances. Many
+non-premixed problems, including ﬂows with
+recirculation [96,97] and auto-ignition of sprays
+[98], have been successfully modelled using ﬁrst-
+order CMC.
+In ﬂames with signiﬁcant local extinction and
+re-ignition, it has been found [99] that such
+ﬁrst-order closure is not suﬃciently accurate. Sec-
+ond-order closure [94] incorporates the eﬀects of
+conditional variances and co-variances in the
+conditional reaction rates. Equations for these
+conditional variances and co-variances can be for-
+mulated from the conservation equations. To keep
+the number of such equations small, a reduced
+mechanism can be used for second-order correc-
+tions to the reaction rates as done for hydrogen
+by Kronenburg et al. [100] for improving predic-
+tion of the temperature sensitive species NO. For
+hydrocarbons, this approach has not, so far, been
+successful. Kim and Huh have, instead, applied
+second-order corrections to the forward rates of
+only a few key reactions and achieved excellent re-
+sults for piloted-jet diﬀusion ﬂames [27,101].
+An alternative to second-order closure is to use
+double conditioning. Kronenburg [102,103] uses
+averaging conditional on both mixture fraction
+and sensible enthalpy. Closure for conditional
+reaction rates is found to be in excellent agree-
+ment with DNS in homogeneous turbulence with
+multi-step chemistry under conditions having
+strong local extinction and re-ignition. Full clo-
+sure will require models for other unclosed terms
+such as the double conditioned dissipation terms.
+Provided these challenges can be surmounted,
+double-conditioning
+CMC
+has
+considerable
+promise for application to ﬂames and practical
+combustors.
+Recently, it has been found that, to satisfy
+boundary conditions correctly, it is necessary to
+use the fully conservative form of the CMC equa-
+tion [104]. In this form [94], it is the conditional
+average multiplied by the probability density that
+appears as the dependent variable for which the
+solution is being sought. Earlier work used the ﬁ-
+nite-diﬀerence form of the CMC equation that is
+closely similar to that of the unsteady laminar
+ﬂamelet equation [64]. In the ﬁnite-diﬀerence
+form, problems arise in parts of the ﬂow where
+the probability density of the mixture fraction is
+essentially zero for part of its range. The diﬃculty
+with boundary conditions is most obvious in such
+ﬂows as the auto-ignition of a jet in a hot co-ﬂow.
+Although partially blocked by the turbulent diﬀu-
+sion term including the PDF, computations in re-
+gions with unmixed hot co-ﬂow may result in
+signiﬁcant advection of heated mixture containing
+radicals into regions where there should be little
+progress in the reaction. There is then the problem
+of deciding where to establish the upstream region
+of the CMC computation. These problems are
+readily resolved when using the fully conservative
+form of the CMC equation [104].
+A big advantage with CMC is that it uses con-
+ventional turbulence models to predict the ﬂow
+and mixing ﬁelds. For the CMC calculation to
+be fully consistent with this CFD it is important
+for the models for conditional velocity and condi-
+tional scalar dissipation to be properly modelled.
+In earlier work, a linear model has been used for
+the conditional velocity [94], but this is inconsis-
+tent with the gradient model commonly used for
+closure of the turbulent ﬂux of the variance of
+the mixture fraction. A gradient model for the
+conditional velocity is fully consistent [105] with
+conventional CFD modelling. It also leads to im-
+proved modelling of the conditional scalar dissi-
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+27
+
+
+--- Page 8 ---
+
+pation [105] by integration of the PDF transport
+equation using a presumed form of the PDF of
+the mixture fraction [106].
+In second-order closure and in double condi-
+tioning, it is necessary to model the scalar dissipa-
+tion ﬂuctuations. The root mean square (rms) of
+the scalar dissipation divided by the unconditional
+mean is known to increase with the Reynolds
+number. Measurement of scalar dissipation re-
+quires the spatial resolution to be ﬁner than the
+Kolmogoroﬀscale [107]. Measurements being
+made in ﬂames [108,109] have yet to achieve such
+ﬁne resolution and may be under-estimating the
+mean and rms of the scalar dissipation. Double-
+conditioning closure [102,103] also requires mod-
+els for the double-conditioned scalar dissipation
+of mixture fraction, sensible enthalpy, and their
+cross dissipation [102]. The laser measurements
+will be of great assistance in developing models
+for these.
+CMC is showing some success in the predic-
+tion of lifted diﬀusion ﬂames [110,111], the clas-
+sical
+model
+problem
+for
+partially
+premixed
+combustion. A gradient model is being used for
+the conditional turbulent scalar ﬂux, and this
+allows stabilisation to occur. Modelling so far
+uses ﬁrst-order closure and is not fully coupled
+to the ﬂow and mixing ﬁeld, so the results so
+far are very preliminary but are, nevertheless,
+encouraging.
+In summary, CMC has a very sound basis and
+is capable of continued reﬁnement. It has already
+achieved considerable success for a wide range of
+problems and is providing stimulus for advanced
+measurements in ﬂames.
+2.5. Multiple mapping conditioning
+While in the early stages of its development,
+the approach of multiple mapping conditioning
+(MMC) [112] holds the promise of unifying the
+CMC and PDF approaches, and of providing a
+more soundly based mixing model, stemming
+from a generalisation of the mapping closure
+[113,114]. In the ﬁrst-order CMC closure, all spe-
+cies are assumed to take their mean values, condi-
+tioned on mixture fraction. In MMC, in place of
+mixture fractions, one considers a set of m ‘‘refer-
+ence variables,’’ with m being speciﬁed between 1
+and the number of species. The reference variables
+may be of diﬀerent types, roughly related to mix-
+ture fraction, the velocity, the scalar dissipation,
+or other quantities. The distribution of composi-
+tions is then represented by two quantities: the
+joint PDF of the reference variables (which, by
+construction, is a known joint normal); and the
+mean of the species conditioned on the reference
+variables, for which a consistent modelled trans-
+port equation is obtained.
+The initial applications of MMC are very
+encouraging. An analytic solution is obtained
+[112] for the three-stream mixing problem in iso-
+tropic turbulence that is in excellent agreement
+with DNS data [115]; whereas the existing models
+(IEM, MC, and EMST) yield a qualitatively
+incorrect behaviour for this test problem. The ef-
+fects of ﬂuctuations in the scalar dissipation can
+be incorporated [116], and the resulting model is
+consistent with CMC and SLFM in the appropri-
+ate limits.
+Related to the concepts in MMC is the fol-
+lowing fundamental question [103]: in the mul-
+ti-dimensional composition space, what is the
+shape and dimensionality of the region accessed
+in turbulent combustion? Is it one- or two-di-
+mensional as implied by CMC and SLFM? Or
+does it have the full dimension of the space as
+allowed by PDF methods? Theoretical argu-
+ments [117] suggest that the dimensionality is in-
+deed large, but that compositions lie close to a
+low-dimensional
+manifold,
+as
+assumed
+in
+MMC.
+Very
+accurate
+simultaneous
+measure-
+ments of all species are necessary to determine
+the dimensionality and geometry of the accessed
+region,
+and hence DNS
+is better
+suited
+to
+addressing these questions than is experimental
+measurement.
+Further development and application of the
+MMC approach to simple ﬂows is needed to ex-
+plore its potential and to gain experience of its
+performance. A key issue is the development of
+an accurate and eﬃcient particle method (or other
+numerical method) so that MMC can be applied
+in the computation of turbulent ﬂames.
+2.6. Implications for LES
+In the modelling approaches discussed above,
+the primary focus is on the coupling between
+reaction and molecular mixing, and the associ-
+ated closure problem faced by statistical ap-
+proaches. Until recently, these approaches to
+turbulent combustion have been applied in con-
+junction with conventional turbulence models
+(i.e., at the Reynolds-averaged Navier–Stokes
+[RANS] level). Over the last decade, we have
+seen the beginning of the application of large-
+eddy simulation (LES) to turbulent combustion.
+Does LES represent a new paradigm? Our an-
+swer is: yes and no.
+With respect to the treatment of the turbulent
+velocity ﬁeld, LES emerged in the 1960s as a
+new paradigm [118]. In place of a purely statistical
+approach in terms of turbulent viscosity or Rey-
+nolds stresses, in LES the large-scale unsteady
+motions are explicitly represented. This seems to
+be particularly beneﬁcial for the bluﬀ-body ﬂame
+and swirling ﬂames in which such large-scale un-
+steady motions are evident. Furthermore, the
+inherently unsteady framework of LES makes it
+more suitable for the study of combustion dynam-
+ics and acoustics [119,120].
+28
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 9 ---
+
+With respect to the coupling between reaction
+and molecular mixing, LES is not a new para-
+digm. This is because these two coupled processes
+occur, predominantly, at the smallest, unresolved
+scales. Hence, to a large extent, LES faces the
+same
+closure
+problem
+as
+RANS-based
+ap-
+proaches, and indeed similar models have been
+used, e.g., ﬂamelet models [121,122]. The demands
+on the models are often somewhat reduced, as the
+amplitudes of the sub-grid ﬂuctuations are less
+than those of the Reynolds-averaged ﬂuctuations.
+Also, the resolved ﬁelds provide additional infor-
+mation that can be incorporated in the modelling
+[26]. Because of the substantial computational
+requirements of LES, there has been a tendency
+to use quite simple turbulent-combustion sub-
+models; but we are beginning to see the combina-
+tion of LES with more comprehensive submodels,
+e.g., CMC [123], PDF [124], and linear eddy mod-
+elling (LEM) [125,126].
+While impressive LES calculations have been
+performed of practical combustors [127–130] and
+results validated against ﬂow-ﬁeld and tempera-
+ture data, quantitative testing of the sub-grid
+models for the chemistry against detailed Ray-
+leigh/Raman data is at an early stage. Hopefully,
+within this decade a clearer picture will emerge of
+the relative merits and ranges of applicability of
+RANS and LES methodologies. Crucial questions
+are the abilities of the models to predict local
+extinction and re-ignition, and the need and abil-
+ity to represent the distribution of mixing rates
+(e.g., ﬂuctuations in the scalar dissipation rate).
+3. Premixed turbulent combustion
+The major paradigms considered here are that
+of Damko¨hler [131] and what are, essentially,
+extensions of the Damko¨hler paradigm. Damko¨h-
+lers paradigm is here considered to embody the
+hypothesis that the turbulent ﬂame speed and
+ﬂame structure can be related to correlations
+and classiﬁcations dependent on a small number
+of parameters. This is detailed in Section 3.1 to-
+gether with experimental and DNS evidence for
+the validity of such a hypothesis under wide
+ranges of eﬀects of ﬂow geometry, Lewis number,
+and other factors on turbulent ﬂame speed and
+ﬂame-front structure. It seems that such simple
+correlation and classiﬁcation may not be possible.
+As with non-premixed turbulent combustion, the
+way ahead seems to involve modelling of unclosed
+terms in suitable forms of the known conservation
+equations. In Sections 3.2, 3.3, and 3.5, we con-
+sider such paradigms that involve thin ﬂame-front
+concepts, including Bray–Moss–Libby modelling,
+coherent ﬂame and ﬂame surface density model-
+ling, and the level set approach. These paradigms
+consider the chemistry to be fast and often to be
+the same as that in stretched laminar ﬂames.
+Means for directly calculating the eﬀects of turbu-
+lence on the chemistry are not yet evident. This is
+becoming an important shortcoming as signiﬁcant
+eﬀects can be expected on prompt NO formation
+and CO burnout in lean premixed combustors
+such as those used in modern stationary gas tur-
+bines. Addressing such questions seems to be
+more tractable when turbulent mixing rates at
+small scales become high compared with chemical
+rates and the reaction zone becomes thickened—
+Lewis number eﬀects should then be less signiﬁ-
+cant. Such thickened ﬂame-front paradigms are
+considered in Section 3.5. Conditional moment
+closure appears to be a feasible approach at this
+limit. Such issues, and new ideas on the design
+of watershed experiments for turbulent premixed
+combustion, together with new ideas on using
+marker ﬁelds to link the CMC to the mixing
+are outlined in this section. Finally, some implica-
+tions for LES are considered in Section 3.6.
+3.1. Damko¨hlers paradigm
+The basic paradigm for turbulent premixed
+combustion is that of Damko¨hler [131]. It has its
+origins in the paradigm for laminar premixed
+ﬂames. In laminar premixed ﬂows, the ﬂame front
+is thin and propagates normal to itself at a speed
+relative to that of the unburned mixture that is
+primarily dependent on the state of the unburned
+mixture (composition, temperature, and pressure).
+In turbulent ﬂow, the large scales of the turbu-
+lence wrinkle the ﬂame front, so increasing its
+eﬀective area, and hence the rate of reactant con-
+sumption and propagation of the mean front. If
+the smallest scales of the turbulence are larger
+than the ﬂame-front thickness, it is hypothesised
+that the instantaneous front will propagate locally
+at the laminar burning velocity. The turbulent
+ﬂame will then propagate at a speed equal to the
+laminar burning velocity multiplied by the ratio
+of the wrinkled instantaneous front area to the
+projected area. Small-scale turbulence, smaller
+than the laminar ﬂame-front thickness, is hypoth-
+esised to increase the propagation speed of the
+instantaneous ﬂame–front by a factor equal to
+the ratio of the eﬀective turbulent diﬀusivity of
+the small scales to the molecular diﬀusivity raised
+to the one-half power. Here, the paradigm is con-
+sidered to embody the hypothesis that the turbu-
+lent ﬂame speed and ﬂame structure can be
+related to correlations and classiﬁcations depen-
+dent on a small number of parameters.
+These concepts have been applied, mainly, to
+ﬂow situations, such as ﬂames propagating in
+spark-ignition (SI) engines and ﬂames stabilised
+on Bunsen-type burners, where the turbulence
+present in the unburned mixture is signiﬁcant.
+(This is in contrast to jet diﬀusion ﬂames in non-
+premixed combustion where the turbulence is gen-
+erated by shear in the ﬂow. We will later return to
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+29
+
+
+--- Page 10 ---
+
+premixed turbulent ﬂames where the turbulence is
+dominated by generation from gradients.) Of ma-
+jor interest is the prediction of turbulent ﬂame
+speed. This determines ﬂame travel times in
+spark-ignition (SI) engines and the length of
+ﬂames on Bunsen-type burners. The Damko¨hler
+paradigm suggested that, in problems of practical
+interest, the degree of ﬂame wrinkling would be
+the dominant eﬀect and that this should be largely
+a kinematic eﬀect dependent on the ratio of a tur-
+bulent velocity scale to the laminar burning veloc-
+ity. The paradigm became focused on an ideal
+turbulent ﬂame that was one-dimensional in the
+mean and was statistically stationary in a refer-
+ence frame moving with the turbulent ﬂame
+brush. As in laminar ﬂows, it was assumed that
+angled ﬂames could be treated by consideration
+of propagation in the direction normal to the
+mean front.
+Eﬀorts have been made over 60 years (and still
+continue) to correlate experimental data on turbu-
+lent ﬂame speed in terms of this paradigm and
+extensions of it. Extensions include dependence
+on other parameters such as the turbulence length
+scale and Reynolds number, the laminar ﬂame
+thickness and volumetric expansion ratio, and
+the eﬀects of non-unity Lewis number. Many
+authors have claimed success. Their correlations
+are limited, however, to a very limited number
+of ﬂow conﬁgurations and their correlation coeﬃ-
+cients are, even then, unsatisfactorily low. Results
+seem to be particularly sensitive to the ﬂow
+conﬁguration.
+Some advances have evolved from a series of
+workshops organised by R.K. Cheng and F.C.
+Gouldin in association with the International
+Combustion
+Symposia.
+The
+workshops
+have
+identiﬁed several approaches to overcome the
+diﬃculties that are speciﬁc to turbulent premixed
+ﬂames, which include the determination of ‘‘ca-
+nonical’’ ﬂame geometries to use for model vali-
+dation, and an unambiguous deﬁnition of the
+turbulent burning velocity. The workshop has
+led to agreement that premixed turbulent ﬂames
+should be separated into the ‘‘Oblique’’ category
+(i.e., rod stabilised V-ﬂames), the ‘‘Envelope’’
+category (i.e., Bunsen ﬂames that form an enve-
+lope about all of the reactants), and the ‘‘Unat-
+tached’’ category, which includes low-swirl ﬂat
+ﬂames and counter-ﬂow ﬂames that do not at-
+tach to burner hardware. Each category is asso-
+ciated with diﬀerent boundary conditions and
+has a diﬀerent ﬂame wrinkling process. For
+example, extensive merging of ﬂamelets occurs
+near the tip of a Bunsen ﬂame, but this degree
+of merging does not occur in a counter-ﬂow
+geometry. Therefore, it is recommended that
+any scaling relation that is determined (from
+computations or experiments) for one category
+should be identiﬁed only with that category and
+not applied to all categories.
+It is noted that none of these ﬂow conﬁgura-
+tions meet the ideal paradigm of one-dimensional-
+ity in the mean and some are also not statistically
+stationary in a framework moving with the ﬂame
+brush. Insight into the limitations on application
+of the ideal paradigm in turbulent ﬂows can be
+gained from considering its mother paradigm—
+that for premixed laminar ﬂames. Ideal behaviour
+there is not exhibited where a characteristic length
+scale of the ﬂow—ﬂame-ball diameter or distance
+from a wall—is of the same order of magnitude as
+the laminar ﬂame thickness or strain rate in the
+ﬂow is comparable with the inverse of the convec-
+tive time scale of passage through the laminar
+ﬂame. Furthermore, initially planar ﬂames will of-
+ten become highly distorted due to thermo-diﬀu-
+sive instabilities. Accordingly, we should expect
+that turbulent ﬂame speeds should strongly de-
+pend on similar considerations. Flames stabilised
+at ﬁxed locations (such as Bunsen-burner types,
+V-ﬂames, etc.) should be sensitive to convective
+time scales comparable to those for passage
+through a normal turbulent ﬂame brush. Low
+swirl ﬂames, counter-ﬂow ﬂames, and stagnation
+ﬂames have mean strain rates that are often com-
+parable with the mean convective time through
+the turbulent ﬂame brush. There has been much
+evidence that the external pressure gradients that
+occur in such ﬂows aﬀect the turbulent burning
+velocity to a signiﬁcant extent. This is probably
+because the conditional momentum balance for
+burned and unburned gases is crucial in determin-
+ing the conditional velocities, which are closely re-
+lated with the turbulent burning velocity.
+To properly deﬁne the turbulent burning veloc-
+ity, it has been proposed [132] that one should use
+the consumption speed rather than the displace-
+ment speed that has been reported in the past.
+Consumption speeds are determined by deﬁning
+a control volume (which can be a local control
+volume [132] or a global control volume [133])
+and computing or measuring the mass ﬂowrate
+of reactant that crosses all boundaries, including
+the mass ﬂowrate associated with density–velocity
+correlations. Displacement speed is deﬁned as the
+velocity of the wave (which is the velocity of an
+iso-surface of the mean reactedness) with respect
+to the gas velocity ahead of the wave, in the direc-
+tion normal to the wave. It is diﬃcult to exactly
+deﬁne where the gas velocity ahead of the wave
+should be determined, and this leads to large
+uncertainties. Thus, the use of a displacement
+speed is not recommended.
+If turbulent ﬂame speeds are not easily corre-
+lated by such a simple paradigm as that of
+Damko¨hler, perhaps the structure of the turbulent
+ﬂame could be so captured. So-called Borghi dia-
+grams have proliferated [134,64] in which the
+ﬂame-front structure is mapped onto a two-di-
+mensional plane with axes of relative velocity
+scales versus relative length scales, turbulent to
+30
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 11 ---
+
+laminar (or of Damko¨hler number versus Rey-
+nolds number). Such diagrams could, perhaps,
+also be applicable in ﬂows with gradient-gener-
+ated turbulent mixing where the concept of a tur-
+bulent ﬂame speed is less meaningful. Regions
+identiﬁed on these diagrams are given names such
+as ‘‘wrinkled laminar ﬂamelets,’’ ‘‘corrugated
+ﬂamelets,’’ ‘‘distributed reaction zone,’’ ‘‘thin
+reaction zone,’’ ‘‘quenched reaction zone,’’ etc.
+This is often done on the basis of scaling
+arguments, and on experimental observations
+[135–137] and DNS [138] for two-dimensional
+laminar ﬂame–vortex interactions. Two-dimen-
+sional turbulence lacks the vortex stretching phe-
+nomena present in three-dimensional turbulence.
+Vortex stretching is likely to be important as it
+is a means by which the turbulence can be kept
+at high intensity in the presence of large dilatation
+and an order of magnitude increase in kinematic
+viscosity. DNS for three-dimensional turbulence
+with realistic chemistry and turbulence Reynolds
+numbers
+is
+still
+beyond
+present
+capabilities
+although some results for special geometries are
+becoming available [139]. Experimental measure-
+ments in fully turbulent ﬂames have been limited
+by spatial resolution requirements that are more
+severe than in non-premixed turbulent ﬂames.
+Credible experimental results that have been ob-
+tained so far do not present clear conﬁrmation
+that ﬂame structure can be correlated on the basis
+of a few parameters such as envisaged by Borghi
+diagrams.
+Several experimental investigations using pla-
+nar Rayleigh scattering have been made with the
+object of determining the limit of validity of the
+‘‘wrinkled laminar ﬂamelet’’ regime. Recent work
+by Shepherd, et al. [140] using the low-swirl stabi-
+lised burner ﬁnds no eﬀect of high turbulence
+intensity on the thickness of the preheat zone of
+the instantaneous ﬂame front. This contradicts
+the ﬁndings of OYoung and Bilger [141] made
+with a two-sheet technique in a very similar ﬂame,
+and Chen and Bilger in Bunsen-type ﬂames
+[142,143] and stagnation-plate stabilised ﬂames
+[144] where progress variable gradients are found
+to be decreased by high turbulence levels. Soika
+et al. [145] ﬁnd ﬂame-front thinning at high turbu-
+lence levels for very lean ﬂames. All of these re-
+sults
+discussed
+so
+far
+are
+for
+hydrocarbon
+ﬂames,
+mainly
+methane.
+For
+lean
+hydrogen
+ﬂames, Chen and Bilger [146] ﬁnd that ﬂame
+fronts remain thin up to high turbulence levels,
+but local extinction occurs at the trailing cusps.
+Lewis number eﬀects are clearly important. Planar
+laser-induced ﬂuorescence of OH [142,143] and
+CH [133,147] radicals shows little eﬀect of turbu-
+lence intensity on gradients of these species in
+measurements made to date. This has been taken
+as evidence for the ‘‘thin reaction zones’’ regime of
+the ﬂame-front structure proposed by Peters [64].
+Peters proposal seems to be founded on an esti-
+mate of the fuel-consumption layer thickness in
+a
+premixed
+laminar
+ﬂame
+being
+around
+0.018 mm [64] for a stoichiometric methane ﬂame
+at 1 atm and 300 K. This estimate is an order of
+magnitude smaller than the thickness of the ﬂame
+derived from its maximum temperature gradient.
+It is also, however, an order of magnitude smaller
+than the fuel reaction layer thickness obtained in
+full ﬂame calculations, and so the Peters structure
+is clearly questionable. Further investigation of
+the eﬀect of high turbulence on ﬂame structure is
+needed to clarify these issues.
+There also appears to be close coupling be-
+tween the overall ﬂow ﬁeld and the detailed struc-
+ture of the instantaneous ﬂame front. This is
+exempliﬁed
+by
+the
+ﬁndings
+of
+Swaminathan
+et al. [148]. They show, analytically, that the scalar
+turbulent ﬂux (a macro-scale quantity) in statisti-
+cally one-dimensional ﬂames is inherently linked
+to
+the
+structure
+of
+the
+instantaneous
+ﬂame
+front—very much important at the micro-scale le-
+vel. This has been conﬁrmed by reference to DNS
+[148] that are one–dimensional in the mean. Flow
+divergence present in Bunsen and stagnation plate
+ﬂows introduces other terms in the analysis, and
+these ﬂames do not show such behaviour [149].
+Whatever the explanation for these eﬀects, it is
+apparent that the overall ﬂow ﬁeld can have
+marked eﬀects on the instantaneous ﬂame-front
+structure.
+It appears that the Damko¨hler paradigm may
+not lead to simple correlations for turbulent ﬂame
+speeds or for classiﬁcation of the structure of the
+instantaneous ﬂame front. In the much more trac-
+table case of turbulent non-premixed combustion,
+we have seen that eﬀorts to correlate the coupled
+turbulence–chemistry interaction eﬀects on minor
+species, such as nitric oxide, using appropriate
+non-dimensional parameters have not been suc-
+cessful. Too many phenomena are involved. In
+that case, a strategy that has had some success
+has been to adopt paradigms that are not based
+on ﬂow-geometric and dimensional reasoning
+but rather on concepts that involve modelling-clo-
+sures for terms that appear in suitable forms
+(ﬂamelet, PDF, and CMC) of the known conser-
+vation equations. Such paradigms have also been
+explored in turbulent premixed combustion, par-
+ticularly for ﬂows in which the chemistry is
+thought to be relatively fast. These approaches
+have embodied closure assumptions that assume
+that the instantaneous ﬂame front is thin, and its
+ﬁne-scale structure is like that in a (stretched) lam-
+inar ﬂame. Thickened ﬂame-front paradigms, on
+the other hand, are for ﬂows in which mixing rates
+associated with the small scales of the turbulence
+are high compared with chemical reaction rates.
+They have received little attention, probably be-
+cause they have been thought to be of little prac-
+tical importance. They may, however, be more
+tractable theoretically.
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+31
+
+
+--- Page 12 ---
+
+Laminar ﬂamelet and other thin ﬂame-front
+models of turbulent premixed combustion are an
+extension of the Damko¨hler paradigm for the
+wrinkled laminar ﬂame mode. The instantaneous
+ﬂame front is assumed to be thin and is often as-
+sumed to behave as a stretched laminar ﬂame.
+Various means are used to incorporate this con-
+cept into appropriate closures of the known con-
+servation equations. In the Bray–Moss–Libby
+(BML) (Section 3.2) approach, the focus is on
+making closure of the unconditional moment
+equations for the progress variable. In coherent
+ﬂame models and ﬂame surface density models
+(Section 3.3), equations are formulated for the
+area of ﬂame front per unit volume. In the level
+set approach (Section 3.4), moment equations
+are formulated for a conserved scalar, G, that is
+zero at the ﬂame surface and propagates at this
+surface at the laminar ﬂame speed modiﬁed for
+stretch eﬀects.
+3.2. BML modelling
+Bray–Moss–Libby (BML) models [150–155]
+invoke simplifying assumptions enabling the ther-
+mochemical state of the mixture to be expressed in
+terms of a single quantity, the progress variable
+c(x,t). This is deﬁned either as a normalised tem-
+perature or as a normalised product concentra-
+tion. Mean quantities can then be written in
+terms of a PDF P(c;x), which is expressed in three
+parts, representing pockets of unburned reactants
+and fully burned products, with probabilities a(x)
+and b(x), respectively, and a partially burned mix-
+ture with probability c(x). In the fast-chemistry or
+thin-ﬂame combustion regime, in which a turbu-
+lent ﬂame brush consists of unburned and fully
+burned gases separated by thin burning zones, it
+is found that c = O(1/Da)  1, where Da is a
+Damko¨hler number representing a ratio of turbu-
+lence and chemical times. The novel conceptual
+viewpoint following from this formulation sees
+all mean quantities as being the sum of three con-
+tributions. These are the conditional means in reac-
+tants
+and
+products,
+weighted
+by
+their
+probabilities, a and b, respectively, together with
+a burning zone contribution with weight c. To
+the leading order in an expansion in powers of c
+[151], the mean values of quantities such as veloc-
+ity or progress variable are simply weighted aver-
+ages of their conditional means in reactants and
+products, and are independent of c. On the other
+hand, reaction rates and reactant concentration
+gradients are zero everywhere, except in the thin-
+ﬂame reaction zones, so their means are propor-
+tional to c.
+This perspective has proved valuable in devel-
+oping new closures for the second-order Favre-
+mean turbulence equations that form the basis
+of BML models. These closures identify and de-
+scribe consequences of heat release in the turbu-
+lent ﬂow. In the fast-chemistry limit, with c  1,
+turbulent transport is represented in terms of con-
+ditional means and variances in reactants and
+products, allowing processes of ﬂame-generated
+turbulence
+[153]
+and
+counter-gradient
+scalar
+transport [152] to be described. Mean dissipation
+terms are partitioned into their three conditional
+contributions, proportional to a, b, and c, respec-
+tively [156]. Thus, for example, the viscous dissi-
+pation can be described in terms of conditional
+dissipations in reactants and products together
+with a contribution from the thin reaction zones
+(dilatation dissipation), which is proportional to
+the mean reaction rate. The mean scalar dissipa-
+tion for ﬂuctuations in progress variable, which
+is proportional to the mean square gradient of
+c(x,t), has no contributions from reactants and
+products, and so is proportional to c. Both analy-
+sis [157] and physical arguments [158] then show
+that the mean reaction rate in the fast-chemistry
+limit is proportional to the mean scalar dissipa-
+tion, a ﬁnding analogous to Bilgers result [46]
+for
+non-premixed
+combustion.
+As
+such,
+the
+BML PDF decomposition does not provide an
+expression for the mean reaction rate nor does it
+involve any necessary assumption that thin-ﬂame
+reaction zones consist of laminar ﬂamelets. Both
+algebraic models [155] and transported ﬂame sur-
+face density models [159] have been used.
+The BML PDF decomposition paradigm has
+been experimentally explored and in DNS. Early
+experiments by Moss [160] in 1980 show good
+agreement with predictions of ﬂame-generated
+turbulence [153] and counter-gradient transport
+[152]. DNS [161] conﬁrms the occurrence of
+counter-gradient
+transport
+at
+low
+turbulence
+intensities and large values of heat release, and
+shows that a transition to gradient transport takes
+place at higher turbulence intensities. This transi-
+tion
+has
+also
+been
+experimentally
+observed
+[162,163]. Experiments in ﬂames stabilised in
+counter-ﬂows [164] and ﬂows impinging on plates
+[165–167] provide a large database for ﬂames at
+relatively low turbulence intensities. These ﬂames
+have been successfully simulated in a series of pa-
+pers [168–170] in which systematic use is made of
+a small parameter characterising the turbulence
+intensity. It is interesting to note that the turbu-
+lence and scalar ﬂux within the ﬂame are brought
+into excellent agreement with the experiments only
+after new reacting ﬂow models for the pressure
+gradient covariance terms in the transport equa-
+tions are introduced [169]. These models [171],
+which are well supported by DNS [65,171], are
+based on BML PDF decomposition, and the pres-
+sure gradient within the ﬂame brush is found to
+have an important role. Lindstedt and Vaos
+[172] include eﬀects that may be important in
+ﬂows featuring combustion oscillations. The ﬁnal
+paper in this series [170] tests various previously
+published models for the mean heat release rate,
+32
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 13 ---
+
+and none are found to provide good agreement
+with the available experimental data.
+It may be seen that BML models concentrate
+attention on the ﬂuid mechanics of premixed tur-
+bulent combustion, and considerable progress
+has been made in this area. A satisfactory descrip-
+tion of the mean rate of heat release, applicable in
+a wide range of circumstances, remains elusive.
+3.3. Coherent ﬂamelet and ﬂame surface density
+models
+The coherent ﬂamelet model (CFM) [173,138]
+is based on the concept that the mean chemical
+reaction rate per unit volume is the product of
+two quantities: the reaction rate per unit area of
+the ﬂamelets and the average ﬂamelet area per
+unit volume. The ﬁrst quantity is assumed to be
+proportional to the laminar burning velocity; the
+second quantity is the ﬂame surface density. It
+has been used to simulate turbulent premixed
+spherical ﬂames [175], V-ﬂames [176], Bunsen
+ﬂames [177], and ﬂat ﬂames [178,179]. It has also
+been combined with the KIVA code to design
+complex internal combustion engine geometries
+[180]. If conditions favour the existence of ﬂam-
+elets, the reaction rate can be expressed in terms
+of the ﬂame surface density (FSD); therefore, a
+balance equation for the ﬂame surface density is
+solved. The source terms in the FSD equation
+are based on a model of the average stretch rate,
+and the destruction terms are based on a model
+of ﬂamelet merging and extinction. The approach
+is a physically based one because the exact conser-
+vation equation for the FSD can be derived from
+ﬁrst principles [174,179,138], and each of the
+terms consists of quantities that can be directly
+measured or simulated with DNS. Therefore, a
+number of fundamental modelling assumptions
+can be assessed, and not just the ﬁnal results. It
+is interesting to note that there are similarities be-
+tween
+the
+FSD
+and
+the
+PDF
+approaches
+[174,181], and the mathematical analysis that re-
+lates the FSD evolution equation and the PDF
+transport equation is described in Vervisch et al.
+[181]. The source term in the FSD equation has
+been modelled by Cant et al. [179], and by Mene-
+veau and Poinsot [138]; one term accounts for the
+stretching of the ﬂame front due to the mean ﬂow
+velocity gradients, and a second term accounts for
+small-scale stretch rates. A third term accounts for
+the destruction of ﬂame surface area due to merg-
+ing of ﬂamelets and extinction. This term is as-
+sumed to be proportional to the square of the
+ﬂame surface density.
+An appealing aspect of the coherent ﬂamelet
+paradigm is the way it rigorously incorporates
+information from direct numerical simulations as
+well as from experiments into submodels for
+stretch rate and extinction. The submodel for
+the mean stretch rate is based on the Stretch
+Eﬃciency Function, which has been determined
+from many previous measurements and simula-
+tions of stretch rates. These values were deter-
+mined for laminar counterﬂow conditions, for
+unsteady
+ﬂame–vortex
+interactions
+[136–138],
+and
+for
+some
+fully
+turbulent
+conditions
+[133,182]. The Stretch Eﬃciency submodel is
+based on the fundamental concept that the
+ﬂame–vortex interaction is the basic building
+block of the structure of turbulence–chemistry
+interactions. It accounts for the way that each
+eddy stretches the ﬂamelet, increases the area of
+the reaction zone, and changes the local scalar
+gradients.
+However, this approach requires that some
+improvements be made to properly model diﬀer-
+ential diﬀusion. It has been experimentally shown
+that the importance of diﬀerential diﬀusion is not
+limited to laminar or transitional conditions; for
+high-Reynolds
+number
+turbulent
+premixed
+ﬂames, it has been shown that the turbulent burn-
+ing velocities diﬀer by a factor of 2 when all con-
+ditions are held constant, except for the Markstein
+number [183]. Also of importance is the unsteady
+nature of the stretch rate. It has been shown that
+premixed [133] and non-premixed [147] turbulent
+ﬂames experience rapid-changing stretch rates
+and do not respond to the high-frequency compo-
+nents of the stretch. For this reason, they do not
+extinguish, even when the average stretch rate
+exceeds that required for extinction for the stea-
+dy-state case. The Coherent Flamelet approach
+attempts to account for the unsteadiness by using
+unsteady
+ﬂame-vortex
+interaction
+information
+that is integrated over all eddy sizes in the turbu-
+lence energy spectrum [138].
+The Coherent Flamelet Model also simulates
+the loss of ﬂamelet area due to merging and
+extinction, which can be signiﬁcant near walls or
+the tip of a Bunsen ﬂame. An interesting ﬁnding
+is that the ﬂamelet merging submodel successfully
+explains the well-known non-linear relation be-
+tween the turbulent burning velocity and the tur-
+bulence intensity, which has been extensively
+studied in the past and has been called the ‘‘bend-
+ing’’ phenomenon. For suﬃciently large turbu-
+lence intensities, the rate of destruction of ﬂame
+surface density is found to exceed the rate of cre-
+ation, and this tends to reduce the turbulent burn-
+ing velocity [178].
+A subgrid model for Large Eddy Simulations
+[184,185] has included many of the concepts in
+the Coherent Flamelet Model, including the
+Stretch Eﬃciency Function. However, it becomes
+increasingly diﬃcult to assess the validity of this
+approach at the subgrid scale, since measurements
+of subgrid surface density are not yet available.
+Furthermore, premixed ﬂames normally do not
+form subgrid scale wrinkles that are smaller than
+approximately ten times the laminar ﬂamelet
+thickness [186]. This is because of the large dilata-
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+33
+
+
+--- Page 14 ---
+
+tion velocities of the products that move away
+from the ﬂame front as the product gases expand.
+So, it is not expected that the Stretch Eﬃciency
+Function that is determined at large scales will
+be valid at small scales.
+3.4. The level set approach
+In the level set approach, which has been de-
+scribed in detail by Peters [64], the ﬂame surface
+is identiﬁed by deﬁning a function G(x,t) such
+that G(x,t) = G0 on the ﬂame, which is usually,
+but not necessarily, assumed to have negligible
+thickness. As it is, only the surface G(x,t) = G0
+that is of interest, the variation of G(x,t) at other
+locations is assumed to be able to be chosen for
+convenience. The question of how such ﬁeld vari-
+ation of G is matched to the surface variation at
+G = G0
+seems
+to
+be
+unresolved.
+Values
+of
+G > G0 are taken to represent fully burned gas
+while G < G0 describes unburned mixture. Kine-
+matic considerations lead to a transport equation
+for G. When turbulent ﬂow is to be considered,
+this equation is averaged, and closures are re-
+quired for the resulting transport equations for
+the mean and variance of G. This approach is in
+many ways similar to the ﬂame surface density
+formulation, which provides the basis for the
+Coherent Flame Model [138]. The ﬂame surface
+density can be shown [187] to be proportional to
+the mean of the modulus of the gradient of
+G(x,t). Furthermore, in both cases, the reaction
+zone is considered to have negligible thickness,
+and the chemical closure problem is replaced by
+the need to specify the propagation speed of this
+reacting surface. If the propagation speed is not
+constant, then its covariances with other variables
+must also be speciﬁed.
+Peters [64] describes how these closures are
+developed and interpreted for the level set ap-
+proach using a combination of analysis and data
+from DNS. He considers two sets of circum-
+stances, in the ﬁrst of which the turbulence cannot
+penetrate the interior of the laminar ﬂamelet, and
+the propagation speed is then that of a stretched
+laminar ﬂame, while the second case is one where
+turbulence disrupts the preheat zone but the reac-
+tion zone remains thin and intact. Recent experi-
+mental data [188] illustrate the second of these
+cases. Finally, a single set of closed mean and var-
+iance equations are proposed [64] for application
+in both these regimes. It is argued [64] that, be-
+cause the eﬀects of gas expansion through the thin
+ﬂame are explicitly considered, complications
+associated with countergradient transport are
+avoided. The analytical relationship between level
+set and BML models is set out in the review by
+Bray and Peters [187].
+In his book [64], Peters describes applications
+of his level set model to the prediction of turbu-
+lent burning velocities and to the simulation of
+a turbulent Bunsen ﬂame stabilised on a slot
+burner and, in both cases, agreement with avail-
+able experimental data may be judged as being
+satisfactory. If we conﬁne our attention to cir-
+cumstances where laminar ﬂamelet models are
+applicable, then level set models and ﬂame sur-
+face
+density
+models
+(such
+as
+the
+Coherent
+Flame Model) make the same basic assump-
+tions, and should give similar predictions for
+RANS closures. In LES, the broad ﬁeld charac-
+teristics of the level set approach may have
+advantages, even though there may be funda-
+mental problems with the basic assumptions of
+the model.
+3.5. Thickened ﬂame-front paradigms
+Although thin ﬂame-front paradigms may be
+the closest to what is of practical importance, they
+may not be the most tractable, theoretically. Le-
+wis number eﬀects are likely to be very important
+in thin ﬂame fronts, but much less so in thickened
+ﬂame fronts where turbulence within the front de-
+creases these eﬀects. Even when the Lewis num-
+bers of reactant and product species are close to
+unity, diﬀerential-diﬀusion eﬀects may be impor-
+tant due to the crucial role that molecular hydro-
+gen has in determining radical levels. The work of
+Chen and Bilger [146] in lean premixed hydrogen
+ﬂames indicates that chemical time scales can be
+greatly aﬀected. Similar eﬀects seem likely to be
+present in hydrocarbon ﬂames. In non-premixed
+combustion, it seems that diﬀerential diﬀusion ef-
+fects are reduced at high Reynolds number [189].
+There, the appropriate length scale is clearly that
+of the large eddies. In premixed combustion, the
+important length scale is probably that of the
+instantaneous ﬂame front. Accordingly, theoreti-
+cal development in premixed combustion may be
+simpliﬁed under conditions where the eﬀects of
+small-scale turbulence thicken the instantaneous
+ﬂame front, and Lewis number eﬀects on trans-
+port within the ﬂame front are reduced. In non-
+stoichiometric ﬂames, the laminar ﬂame thickness
+can be greatly increased, particularly for rich mix-
+tures, and thick ﬂame paradigms may be of direct
+importance.
+With Damko¨hler number, Da, deﬁned as a
+large-scale turbulence time scale divided by a
+chemical time scale associated with overall heat
+release, it is seen that thickened ﬂame fronts are
+favoured by low Da, but also by high Reynolds
+number of the turbulence, Re. At high Re, the
+reaction zone is thickened by the small-scale tur-
+bulence, even though Da is not small. The thick-
+ness may still be small compared with the
+integral length scales of the turbulence, and the
+PDF of the progress variable may still be domi-
+nated by spikes at zero and unity, so that BML-
+type models are still applicable to the ﬂuid
+mechanics.
+34
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 15 ---
+
+In non-premixed turbulent combustion, it is
+found that there is a fast-chemistry limit under
+which rates of chemical reaction are determined
+by ﬂuid mechanics alone [46]. The fast-chemistry
+limit in premixed turbulent combustion appears,
+however, to be dependent on chemical time scales.
+In the previous section on thin ﬂame-front para-
+digms, candidate closures for the chemical source
+term involve chemical time scales. Perhaps, this
+arises from the low turbulence Re of the experi-
+mental database being addressed.
+There appears to have been little experimental
+work on premixed combustion under high turbu-
+lence Re conditions. Spalding [190] considers
+ﬂame spread in a duct for a ﬂame stabilised be-
+hind a V-gutter. The data of Wright and Zukoski
+[191] show little inﬂuence of approach velocity
+and temperature, or of stoichiometry, on the
+ﬂame spread rate. Spalding ﬁnds that an eddy
+break-up model gives good predictions. This mod-
+el does not involve chemical time scales. Reaction
+rates are largely governed by the rate of entrain-
+ment arising from the turbulence generated by
+the strong shear developed in the ﬂow due to heat
+release. In non-premixed combustion, the Spal-
+ding eddy break-up model for mean reaction rate
+is clearly linked to the fast chemistry paradigm
+[192]. Brays result [157] linking the mean reaction
+rate to the mean scalar dissipation rate is an
+important step in this regard. There is yet no evi-
+dence, however, that the mean rate of dissipation
+of the progress variable will become independent
+of chemical time scales at high Re and Da. The
+mixing-controlled limit for the mean reaction rate
+may apply at high Da, but only when the instan-
+taneous reaction zone is thickened by the small-
+scale turbulence. It may be that ﬂow geometry
+and ﬂow-induced mean pressure gradients are also
+important.
+Pope and Anand [193] use Monte-Carlo simu-
+lation of the PDF transport equation to investi-
+gate premixed ﬂames at both the ﬂamelet and
+distributed reaction zone limits. They use one-
+step kinetics with unity Lewis numbers so that
+reaction rates are an immutable function of the
+progress variable. At the distributed reaction lim-
+it, the mixing model is expressed in terms of tur-
+bulence scales, alone. They present results for the
+width of the turbulent ﬂame brush and for the
+variance of the progress variable ﬂuctuations as
+a function of the Damko¨hler number. Presum-
+ably, the distributed reaction model could be used
+to address questions arising for multi-step kinetics
+including prompt NO formation in lean ﬂames
+and post-ﬂame reactions in systems with rich mix-
+tures. Recent work by Vicente et al. [194] makes
+predictions for CO and NO in a turbulent pre-
+mixed ﬂame behind a bluﬀ-body stabiliser using
+such methods. Interestingly, they incorporate a
+distribution of mixing time scales into their
+mixing model.
+The experiments of Magre et al. [195] address
+premixed combustion under conditions that are
+not those of fast chemistry. Their Coherent
+Anti-Stokes Raman (CARS) measurements in a
+planar mixing layer between hot products and
+cold premixture show high levels of carbon mon-
+oxide. These appear to be much higher than can
+be explained by ﬂamelet models. Modelling of
+these data has been addressed by few investigators
+and remains a challenge to theoreticians and
+modellers.
+Conditional moment closure has been formu-
+lated for turbulent premixed combustion [196,94]
+but little further development has occurred. Mar-
+tin et al. [197] have made a start with application
+to an idealised lean premixed gas turbine combus-
+tor. This general lack of development for pre-
+mixed is largely because of eﬀorts being directed
+to the more tractable application in non-premixed
+combustion. CMC can predict only the eﬀects of
+turbulence on species relative to the progress var-
+iable. Closure for the progress variable statistics is
+still required. This could be achieved by coupling
+CMC with moment closure methods such as PDF
+methods. At low Damko¨hler numbers, closure
+may also be possible using the new concept of a
+marker ﬁeld [199].
+Marker ﬁelds, denoted as S, can be generated
+by two diﬀerent methods [199]. In modelling and
+simulation, the marker S obeys the usual trans-
+port and diﬀusion equation with a simple source
+term. In experiments, an inert species such as NO
+is seeded into the ﬂow in a time-varying manner.
+Unlike Peters G ﬁeld [64], the S ﬁeld is not
+locked (by assumption) to the progress variable,
+C, ﬁeld at the centre of the ﬂame reaction zone.
+How the C ﬁeld maps onto the S ﬁeld is a matter
+of considerable interest. The characteristics of
+the marker ﬁeld are expected to be close to
+Gaussian with a monotonically varying mean
+gradient in a simple, statistically stationary one-
+dimensional ﬂow. At low Damko¨hler numbers,
+a ﬁrst-order conditional moment closure seems
+possible leading to plausible results for the turbu-
+lent ﬂame speed and for the structure of the tur-
+bulent ﬂame. DNS of turbulent premixed ﬂames
+with the marker ﬁeld is under study in current re-
+search. Experimental implementation will be at-
+tempted ﬁrst on the stagnation plate burner
+used in earlier studies of turbulent premixed
+ﬂame structure [144,163], and the extension of
+this approach to more complex ﬂow geometries
+and to ﬂames with complex chemistry will be
+attempted.
+The CMC formulation is also leading to new
+experimental endeavours in premixed turbulent
+combustion. As in the non-premixed case, a term
+appears in the premixed CMC equations that in-
+volves the product of the conditional scalar dissi-
+pation rate for the progress variable times the
+second derivative of the conditional average mass
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+35
+
+
+--- Page 16 ---
+
+fraction of individual species with respect to the
+progress variable. It seems that this term can give
+us insight into the eﬀects of ﬂow geometry and of
+Da on turbulent ﬂame brush width and extinction
+phenomena:
+•
+For the classical one-dimensional turbulent
+ﬂame (one-dimensional in the mean), the tur-
+bulent ﬂame brush becomes wider than the
+integral length scale as Da is lowered at low
+Da, as has been found by Pope and Anand
+[193]. Within the ﬂame brush, the PDF of
+the progress variable is no longer U-shaped
+and trends to an increasingly narrow distri-
+bution around the local mean. Assuming,
+for the moment, that the chemical structure
+of the ﬂame as a function of the progress
+variable is not greatly aﬀected, the decrease
+in Da is largely due to decrease in the turbu-
+lence time scale. If the unconditional scalar
+dissipation is now controlled by turbulent
+mixing laws, it will remain approximately
+constant, due to reduction in both the pro-
+gress variable variance and in the turbulence
+time scale. The conditional scalar dissipation
+rate for the progress variable will also remain
+approximately constant and proﬁles of condi-
+tional average species mass fractions against
+progress variable (and their second deriva-
+tives) will also remain approximately con-
+stant, as has been assumed. Decreasing Da
+just broadens the turbulent ﬂame brush, and
+rates of molecular mixing remain at the level
+at which the chemistry can cope. No extinc-
+tion occurs.
+•
+For ﬂames in shear layers, such as the Magre
+experiment [195] or a high velocity jet of pre-
+mixture into a co-ﬂow of hot products, and
+in counterﬂow and stagnation plate ﬂames,
+the width of the ﬂame brush is limited by the
+laws of turbulent mixing. At low Da, further
+decrease in Da by increase in velocity leads to
+no increase in the ﬂame brush width or reduc-
+tion of the progress variable variance. Uncon-
+ditional
+and
+conditional
+scalar
+dissipation
+rates will increase to a level where the chemical
+reactions will no longer be able to cope with
+such high rates of molecular mixing. Local
+extinction will eventually occur. Full extinction
+will manifest itself as all species mass fractions
+are linear functions of the progress variable,
+including H2 and other intermediates, and the
+chain carrying radicals H, OH, and O. The
+mass fractions of these intermediates and radi-
+cals will be limited by their equilibrium values.
+Partial extinction will involve high levels of
+intermediates such as H2 and CO, as found in
+the Magre experiment [195]. Downstream in
+these ﬂows the ﬂame brush will broaden, and
+scalar dissipation rates will drop allowing re-ig-
+nition of the ﬂame.
+Clearly, ﬂame structure at low Da will strongly
+depend on the ﬂow geometry.
+These ideas have given rise to attempts at the
+University of Sydney to develop a premixed jet
+burner that is the analogue of the piloted-jet
+diﬀusion ﬂame burner that has proved to be
+such an important asset in the development of
+non-premixed combustion modelling. The con-
+ﬁguration is, once again, of a small central
+high-velocity jet, this time of combustible pre-
+mixture, an annulus of slowly moving radical-
+rich combustion products and an outer high
+temperature co-ﬂow. Near the central jet exit,
+scalar dissipation rates of the progress variable
+are low in the annulus that is rich in radicals
+and intermediates. This ensures that combustion
+of ad-mixed jet ﬂuid occurs. Further down-
+stream, the inﬂuence of the annulus ﬂow has
+gone, mean gradients in progress variable be-
+come steep, and scalar dissipation rates soar.
+Local extinction or partial extinction becomes
+apparent. Further downstream, mean gradients
+of the progress variable drop, scalar dissipation
+rates fall, and robust combustion is resumed.
+This experiment is still in early stages of devel-
+opment. Further details may be found on the
+web [198]. It is expected that advanced laser
+diagnostic line measurements and imaging in
+such ﬂames will guide development of advanced
+paradigms and models for ﬁnite-rate chemistry
+eﬀects in turbulent premixed ﬂames.
+3.6. Implications for LES
+LES appears to be especially promising for the
+simulation of premixed combustion because it
+explicitly resolves the large-scale unsteady mo-
+tions that are known to play a signiﬁcant role
+when the reactants are premixed. Premixed ﬂames
+are sensitive to the burner geometry and to large-
+scale, unsteady phenomenon such as the existence
+of an anchoring point, the passage of vortices,
+ﬂame-wall interactions, and the merging of adja-
+cent ﬂame brush regions, such as those near the
+tip of a Bunsen ﬂame. These factors are important
+because they control the large-scale wrinkling of
+the reaction surface.
+LES for premixed has the problem that the
+ﬂame usually lies within one grid cell, and this cre-
+ates numerical problems. One approach to sub-
+grid scale modelling has been to artiﬁcially thicken
+the ﬂame front [184,185], as has, been mentioned
+already in the sub-section on ﬂame surface density
+modelling.
+Other
+ﬂame
+surface
+density
+ap-
+proaches include the work of Cant and co-work-
+ers
+[200–202].
+Sub-grid
+models
+have
+been
+proposed, which assume that a sub-grid turbulent
+burning velocity exists and that this velocity de-
+pends on certain fractal properties of the subgrid
+ﬂame surface area [189]. However, it has not yet
+been experimentally determined if the sub-grid
+36
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 17 ---
+
+ﬂame surface area is fractal, since the ﬂame wrin-
+kling process may not be scale-independent. For
+example, premixed ﬂames, in general, do not form
+wrinkles smaller than several times the laminar
+ﬂame thickness because there is rapid gas expan-
+sion at the ﬂame front that prevents the reaction
+zone from rolling up. Another sub-grid model
+[203] requires that a diﬀerential equation for the
+sub-grid ﬂame surface density be solved.
+DNS is beginning to play a role in the simula-
+tion turbulent premixed combustion: recently, a
+turbulent ﬂat ﬂame was simulated on a 3-D grid
+(8 mm · 8 mm · 16 mm) with a spatial resolution
+of 31 lm, which is less than half of the laminar
+ﬂame thickness [204]. The complex methane-air
+chemistry mechanism included 20 species and 84
+reactions. It is immediately apparent from these
+results that the eﬀects of Lewis number and ﬂame
+stretch rates are signiﬁcant. Although such resolu-
+tion is as yet insuﬃcient, it can be expected that
+DNS will play an even more important role in
+the future, because many practical premixed com-
+bustion devices do not operate at excessively large
+Reynolds numbers. Laboratory experiments and
+automotive
+IC
+engines
+typically
+have
+small
+dimensions and only a limited time for the ﬂame
+to wrinkle, so future application of DNS appears
+promising. For other practical devices, such as the
+premixed gas turbine engine, the Reynolds num-
+bers are large, so LES should continue to have
+an inherent advantage.
+4. Partially premixed turbulent combustion
+In many practical combustion systems, includ-
+ing some types of reciprocating and gas turbine en-
+gines, it cannot be assumed that combustion meets
+the most basic assumption of either classical pre-
+mixed or non-premixed combustion theories. The
+reason is that the combustible gases entering local-
+ised reaction zones are not fully premixed to a uni-
+form composition, and nor do pure fuel and pure
+oxidiser enter reaction zones from opposite sides.
+Combustion is then sometimes described as par-
+tially premixed. It is helpful to distinguish between
+diﬀerent categories of partial premixing: the most
+important distinction is between non-uniform
+combustible mixtures in which the range of com-
+positions excludes stoichiometric mixtures and
+those in which stoichiometric mixtures do occur.
+(It is noted that some partially premixed ﬂames,
+such as the Sandia A–F series [22], have a fuel
+stream that is so fuel rich that they may be treated
+as non-premixed [20–26]: we will not be concerned
+further with such ﬂames in this section.)
+Situations where the non-uniform combustible
+mixture is either all fuel-rich or all fuel-lean, and
+stoichiometric mixtures do not occur, will be re-
+ferred to as stratiﬁed premixed ﬂames. In the ab-
+sence of stoichiometric mixture, local combustion
+zone structure may be expected to resemble pre-
+mixed burning because fuel and oxidiser will enter
+from the same side. However, composition varia-
+tions will lead to local ﬂuctuations in burning rate,
+and thus provide an additional mechanism for
+ﬂame wrinkling. If the composition of the combus-
+tible mixture includes stoichiometric as well as fuel-
+lean and fuel-rich mixtures, then the possibility
+exists that local burning zone structures may resem-
+ble both premixed and non-premixed ﬂames. This
+more challenging situation will be called pre-
+mixed/non-premixed combustion.
+Pollution control strategies often lead design-
+ers to favour stratiﬁed premixed combustion.
+However, the requirement to limit combustion
+instabilities in gas turbine engines, together with
+other factors, such as the need for rapid mixing
+rates to eliminate localised fuel-rich and stoichi-
+ometric pockets left by the evaporation of liquid
+fuel
+droplets,
+implies
+that
+premixed/non-pre-
+mixed burning is hard to avoid. What laboratory
+experiments and DNS geometries allow these
+two diﬀerent types of partial premixing to be
+studied? The standard test case for premixed/
+non-premixed turbulent combustion is the lifted
+jet ﬂame [205]; here, triple ﬂames and edge ﬂames
+provide the paradigm shift that appears able
+[206] to reconcile competing claims of earlier the-
+ories to predict the lift-oﬀheight, based on fully
+premixed or strictly non-premixed burning mod-
+els. Triple ﬂames are found to play a key role in
+DNS of turbulent autoignition in mixtures con-
+taining fuel-rich and fuel-lean pockets [207] but
+the results may be an artefact of the one-step
+Arrhenius kinetics that is used. DNS of lifted
+hydrogen jet ﬂames [208] indicates a far more
+complex structure involving edge ﬂames, turbu-
+lent
+premixed
+ﬂames,
+and
+ﬂoating
+diﬀusion
+ﬂames. Bunsen ﬂames and V ﬂames will involve
+mixture fraction variations if, as often happens,
+the combustion zone overlaps with the mixing
+layer between the combustible gases and the sur-
+rounding co-ﬂow or ambient air. The partially
+premixed burning will be of the stratiﬁed pre-
+mixed type if the premixed ﬂow is fuel-lean,
+and the surrounding gas is air, whereas a fuel-
+rich
+premixed
+ﬂow
+will
+lead
+to
+premixed/
+non-premixed
+combustion.
+Other
+convenient
+geometries
+include
+counterﬂows
+[209]
+and
+a
+dump combustor [210] fed with two parallel
+streams with diﬀerent compositions. The fuel jet
+in a vitiated co-ﬂow as studied by Cabra et al.
+[211] is interesting as it appears to be a lifted
+ﬂame in the classical ﬂame-propagation sense un-
+der low jet velocity and high co-ﬂow temperature
+conditions, and as a non-premixed auto-ignition
+ﬂow under high jet velocity, lower co-ﬂow tem-
+perature conditions: modelling and experimental
+investigation [91,198] are continuing.
+Current modelling strategies are related to
+those developed for fully premixed and non-pre-
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+37
+
+
+--- Page 18 ---
+
+mixed combustion. For example, ﬂamelet ap-
+proaches for premixed/non-premixed situations,
+using both RANS [64,212] and LES [206], in-
+volve a combination of premixed and non-pre-
+mixed ﬂamelets. It is not yet clear to what
+extent it is necessary to take the local reaction
+zone structure explicitly into account in, for
+example, models for the various scalar dissipa-
+tions or equivalent terms that appear in most
+models. As we have seen, PDF methods yield
+excellent predictions of the Sandia non-premixed
+jet ﬂames, even in cases where signiﬁcant local
+extinction is known to occur. Local extinction
+allows reactants to partially mix before they
+burn, and the success of the current generation
+of PDF models implies that their mixing clo-
+sures provide an adequate description of the lo-
+cal reaction zone structure at least for these
+particular experiments. For practical combus-
+tors, PDF methods have the advantage that they
+are able to handle many diﬀerent inﬂow streams
+of
+unrelated
+temperature
+and
+composition.
+CMC, which also contains no representation of
+triple ﬂames or edge ﬂames, nevertheless makes
+adequate predictions of the lift-oﬀheight of a
+lifted jet ﬂame [110,111]. It must be concluded
+that we do not yet know how much detail of lo-
+cal ﬂame structure is required, and we cannot
+yet determine the range of applicability of the
+various modelling approaches for partially pre-
+mixed turbulent combustion. Recent advanced
+work on DNS of lifted diﬀusion ﬂames involv-
+ing more than 200 million mesh points and mul-
+ti-step
+kinetics
+for
+the
+hydrogen
+fuel
+[213]
+promises to yield more insight than can be ob-
+tained from advanced laser measurements. It is
+apparent that such DNS will play an important
+role in enhancing our capability in modelling
+turbulent partially premixed combustion.
+5. Concluding remarks
+Over the 50 years of the Combustion Insti-
+tute,
+great
+progress
+has
+been
+made
+in
+our
+understanding
+of
+turbulent
+combustion,
+although this understanding remains far from
+complete. Only partially do we have answers
+to the following, fundamental questions (appli-
+cable to both premixed and non-premixed com-
+bustion) which have been asked since the earliest
+investigations.
+1. What diﬀerent regimes of turbulent combus-
+tion can be identiﬁed? And where, in a multi-
+parameter space, are the boundaries between
+diﬀerent regimes?
+2. In a given regime, what is the instantaneous
+spatial structure of the ﬂame?
+3. Can the local properties of the instantaneous
+ﬂame be characterised by a few variables?
+4. How can a statistical model (applicable in
+RANS or LES) be constructed based on a
+characterisation of the instantaneous ﬂame
+structure (or otherwise)?
+For non-premixed combustion, the sequence
+of
+modelling
+paradigms—mixing-controlled,
+laminar ﬂamelets, CMC, and PDF—seeks to de-
+scribe
+successively
+more
+challenging
+regimes,
+from the ﬂame-sheet regime to ﬂames with sub-
+stantial local extinction. In the simpler regimes,
+mixture fraction and scalar dissipation arise nat-
+urally in all approaches as the primary quanti-
+ties
+determining
+the
+local
+properties.
+The
+understanding gained of the connection between
+scalar dissipation and local extinction led to the
+piloted jet ﬂames (and other conﬁgurations) for
+the study of more challenging regimes. Here,
+experiments and DNS are beginning to address
+questions 2 and 3, above.
+For premixed combustion, controversy re-
+mains on the existence and nature of some com-
+bustion regimes, such as a thin-reaction zone
+regime and a thickened ﬂame-front regime. It ap-
+pears that a large number of parameters may be
+needed to delineate the space for many regimes
+including parameters describing the ﬂow geometry
+and method of stabilisation. In the most-studied
+thin ﬂame-front regime, the behaviour of the
+instantaneous ﬂame is characterised by the pro-
+gress variable and the ﬂame stretch but the limita-
+tions on the range of validity of such modelling
+remains controversial. The ﬂame surface density
+(FSD)
+provides
+a
+statistical
+framework
+for
+describing turbulent premixed ﬂames. But, be-
+cause the ﬂame surface is not passive (it propa-
+gates and is subjected to instabilities), model
+equations for the FSD involve more uncertainty
+than its non-premixed counterpart (i.e., the joint
+PDF of mixture fraction and scalar dissipation).
+This approach, and the other statistical frame-
+works described above, may eventually incorpo-
+rate enough of the complexity in the physics to
+throw light on the nature and boundary of the
+various combustion regimes.
+Well before the centennial of the Combustion
+Institute we will, surely, have conquered turbulent
+combustion in gases and also in multi-phase ﬂows.
+The increasing power of laser diagnostics and
+DNS can be applied to thoughtfully designed con-
+ﬁgurations to reﬁne our understanding of the fun-
+damental questions posed above. The increasing
+power of computers and algorithms will allow suf-
+ﬁciently comprehensive statistical approaches to
+accurately describe turbulent combustion pro-
+cesses in the diﬀerent regimes. We shall then have
+fulﬁlled the vision of the Combustion Institutes
+founders, to have predictive methods based on
+fundamental principles, which can be applied to
+the development of improved combustion equip-
+ment for the beneﬁt of society.
+38
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 19 ---
+
+Acknowledgments
+This work is supported by the Australian
+Research Council, by the US Air Force Oﬃce of
+Scientiﬁc Research under Grant No. F-49620-00-
+1-0171 and by the US Department of Energy
+under Grant No. DE-FG02-90ER14128. Contri-
+butions and comments from Drs. Robert Barlow,
+Thierry Baritaud, and Yasuhiro Mizobuchi and
+from Profs Kang Huh, Thierry Poinsot, Peter
+Lindstedt, Luc Vervisch, Johannes Janicka, and
+Heinz Pitsch are gratefully acknowledged.
+References
+[1] C.N. Hinshelwood, Proc. Combust. Inst. 7 (1958)
+xxvii–xxix.
+[2] B. Lewis, Proc. Combust. Inst. 7 (1958) xxxi–xxxv.
+[3] S.M. Correa, Proc. Combust. Inst. 27 (1998)
+1793–1897.
+[4] S.B. Pope, Prog. Energy Combust. Sci. 11 (1985)
+119–192.
+[5] Fluent 6.1. Available from http://www.ﬂuent.com/
+software/ﬂuent/focus/reacting.htm.
+[6] T.A. Baritaud, J.M. Duclos, A. Fusco, Proc.
+Combust. Inst. 26 (1996) 2627–2635.
+[7] S. Henriot, D. Bouyssounnouse, T. Baritaud, SAE
+Technical Paper 2003-01-1845 (SP-1795), 2003.
+[8] G. Cantore, N. Pini, G.M. Bianchi, T. Baritaud, A
+3D CFD analysis of the Premixed Combustion
+Process in High Performance Engines, SAE-NA
+2003-01-013, 2003. Available from f.corcione@
+im.onr.it.
+[9] W.P. Jones, J.H. Whitelaw, Proc. Combust. Inst.
+20 (1984) 233–249.
+[10] N. Peters, Proc. Combust. Inst. 21 (1986) 1231–1250.
+[11] R.W. Bilger, Proc. Combust. Inst. 22 (1988)
+475–488.
+[12] S.B. Pope, Proc. Combust. Inst. 23 (1990) 591–612.
+[13] D.
+Bradley,
+Proc.
+Combust.
+Inst.
+24
+(1992)
+247–262.
+[14] T.
+Takeno,
+Proc.
+Combust.
+Inst.
+25
+(1994)
+1061–1073.
+[15] K.N.C. Bray, Proc. Combust. Inst. 26 (1996) 1–26.
+[16] T.
+Poinsot,
+Proc.
+Combust.
+Inst.
+26
+(1996)
+219–232.
+[17] L. Vervisch, Proc. Combust. Inst. 28 (2000) 11–24.
+[18] G.I. Sivashinsky, Proc. Combust. Inst. 29 (2002)
+1737–1761.
+[19] A.R. Kerstein, Proc. Combust. Inst. 29 (2002)
+1763–1773.
+[20] TNF Workshop web site. Available from http://
+www.ca.sandia.gov/TNF, Sandia National Labo-
+ratories, 2003.
+[21] S.B. Pope, Annu. Review Fluid Mech 19 (1987)
+237–270.
+[22] R.S. Barlow, J.H. Frank, Proc. Combust. Inst. 27
+(1998) 1087–1095.
+[23] J. Xu, S.B. Pope, Combust. Flame 123 (2000)
+281–307.
+[24] Q. Tang, J. Xu, S.B. Pope, Proc. Combust. Inst. 28
+(2000) 133–139.
+[25] R.P. Lindstedt, S.A. Louloudi, E.M. Vaos, Proc.
+Combust. Inst. 28 (2000) 149–156.
+[26] H.
+Pitsch,
+Proc.
+Combust.
+Inst.
+29
+(2002)
+1971–1978.
+[27] S.H. Kim, K.Y. Huh, Combust. Flame 138 (2004)
+336–350.
+[28] T.S. Kuhn, The Structure of Scientiﬁc Revolutions.
+University of Chicago Press, 1962.
+[29] W.R. Hawthorne, D.S. Weddell, H.C. Hottel,
+Proc. Combust. Inst. 3 (1948) 266–288.
+[30] S.P. Burke, T.E.W. Schumann, Proc. Combust.
+Inst. 1 (1928) 2–11.
+[31] S.R. Turns, An Introduction to Combustion: Con-
+cepts and Applications. McGraw-Hill, New York,
+1996.
+[32] J.P. Longwell, M.A. Weiss, Ind. Eng. Chem. 47
+(1955) 1634–1643.
+[33] H.C. Hottel, in: W.G. Berl (Ed.), International
+Symposium on Models in Fire Research, Publica-
+tion 746, National Academy of Sciences—Nation-
+al Research Council, Washington, DC, 1961.
+[34] C.A. Homsy, Similitude in turbulent free-jet diﬀu-
+sion ﬂames, Sc.D. thesis, Chemical Engineering,
+November,
+1959.
+Available
+from
+http://
+theses.mit.edu.
+[35] R.W. Bilger, R.E. Beck, Proc. Combust. Inst. 15
+(1974) 541–552.
+[36] J.F. Driscoll, R.-H. Chen, Y. Yoon, Combust.
+Flame 88 (1992) 37–49.
+[37] R. G}unther, Progr. Energy Combust. Sci. 9 (1983)
+105–154.
+[38] J.H. Kent, R.W. Bilger, Proc. Combust. Inst. 14
+(1972) 615–625.
+[39] B.E Launder, D.B. Spalding, Mathematical Models
+of Turbulence. Academic Press, New York, 1972.
+[40] K.N.C. Bray, AASU Report No. 330, 1973,
+Department of Aeronautics and Astronautics,
+University of Southampton.
+[41] R.W. Bilger, Combust. Sci. Technol. 11 (1975)
+215–217.
+[42] R.W. Dibble, W. Kollmann, M. Faraschi, R.W.
+Schefer, Proc. Combust. Inst. 21 (1988) 1329–1340.
+[43] R.W. Dibble, W. Kollmann, M. Faraschi, R.W.
+Schefer, Proc. Combust. Inst. 21 (1988) 1329–1340.
+[44] J.H. Kent, R.W. Bilger, Proc. Combust. Inst. 16
+(1976) 1643–1656.
+[45] C.T. Bowman, Proc. Combust. Inst. 24 (1992)
+859–878.
+[46] R.W. Bilger, Combust. Sci. Technol. 13 (1976)
+155–170.
+[47] H. Tsuji, I. Yamaoka, Proc. Combust. Inst. 12
+(1968) 997–1005.
+[48] R.E. Mitchel, A.F. Saroﬁm, L.A. Clomberg,
+Combust. Flame 37 (1980) 197.
+[49] R.W. Bilger, Combust. Flame 30 (1977) 277–284.
+[50] S.K. Lieuw, K.N.C. Bray, J.B. Moss, Combust.
+Sci. Technol. 27 (1981) 69–83.
+[51] S.H. Sta˚rner, R.W. Bilger, Combust. Flame 61
+(1985) 29–38.
+[52] A.R. Masri, R.W. Bilger, Proc. Combust. Inst. 21
+(1986) 1511–1520.
+[53] R.W. Dibble, A.R. Masri, R.W. Bilger, Combust.
+Flame 67 (1987) 189–206.
+[54] A.R. Masri, R.W. Dibble, R.W. Bilger, Combust.
+Flame 74 (1988) 267–284.
+[55] A.R. Masri, R.S. Barlow, R.W. Dibble, Progr.
+Energy Combust. Sci. 22 (1996) 307–362.
+[56] M.S. Mansour, R.W. Bilger, R.W. Dibble, Proc.
+Combust. Inst. 22 (1988) 711–719.
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+39
+
+
+--- Page 20 ---
+
+[57] B.B. Dally, A.R. Masri, R.S. Barlow, G.J. Fiecht-
+ner, Combust. Flame 114 (1998) 119–148.
+[58] N. Peters, Combust. Sci. Technol. 30 (1983) 1–17.
+[59] R.W. Bilger, Prog. Energy Combust. Sci. 26 (2000)
+367–380.
+[60] V. Favier, L. Vervisch, Combust. Flame 125 (2001)
+788–803.
+[61] N. Peters, Prog. Energy Combust. Sci. 10 (1984)
+319–339.
+[62] D.C. Haworth, M.C. Drake, S.B. Pope, R.J. Blint,
+Proc. Combust. Inst. 22 (1988) 589–597.
+[63] F. Maus, D. Keller, N. Peters, Proc. Combust.
+Inst. 23 (1990) 693–698.
+[64] N. Peters, Turbulent Combustion. Cambridge, 2000.
+[65] L. Vervisch, R. Hauguel, P. Domingo, M. Rul-
+land, J. Turbulence 5 (2004) 2–36.
+[66] A. Ratner, J.F. Driscoll, J. Donbar, C. Carter, J.
+Mullin, Proc. Combust. Inst. 28 (2000) 245.
+[67] J.-Y. Chen, R.W. Dibble, in: M.D. Smooke (Ed.),
+Reduced
+Kinetic
+Mechanisms
+and
+Asymptotic
+Approximations for Methane–air Flames. Springer,
+Lon, 1991, p. 193 (Chapter 9).
+[68] C. Dopazo, E.E. OBrien, Acta Astronaut. 1 (1974)
+1239–1266.
+[69] V.A. Frost, Fluid Mechan. 4 (1975) 124–133.
+[70] S.B. Pope, Combust. Flame 27 (1976) 299–312.
+[71] C. Dopazo, in: P.A. Libby, F.A. Williams (Eds.),
+Turbulent Reacting Flows, vol. 375. Academic
+Press, New York, 1994 (Chapter 7).
+[72] S.B. Pope, Turbulent Flows. Cambridge University
+Press, Cambridge, 2000.
+[73] R.O. Fox, Computational Models for Turbulent
+Reactive Flows. Cambridge University Press, Cam-
+bridge, 2003.
+[74] S.B. Pope, Combust. Sci. Technol. 25 (1981)
+159–174.
+[75] S.B. Pope, Combust. Theory Modelling 1 (1997)
+41–63.
+[76] J.-Y. Chen, Combust. Sci. Technol. 176 (2004)
+1153–1169.
+[77] C.J. Sung, C.K. Law, J.-Y. Chen, Proc. Combust.
+Inst. 27 (1998) 295–304.
+[78] R.P. Lindstedt, S.A. Louloudi, Proc. Combust.
+Inst. 29 (2002) 2147–2154.
+[79] J. Villermaux, J.C. Devillon, in: Proceedings of the
+2nd International Symposium on Chemical Reaction
+Engineering, 1972, pp. 1–13.
+[80] R.L. Curl, AIChE J. 9 (1963) 175–181.
+[81] J. Janicka, W. Kolbe, W. Kollmann, J. Non-
+Equilib. Thermodyn. 4 (1977) 47–66.
+[82] S. Subramaniam, S.B. Pope, Combust. Flame 115
+(1998) 487–514.
+[83] Z. Ren, S.B. Pope, Combust. Flame 138 (2004)
+208–216.
+[84] S. Subramaniam, S.B. Pope, Combust. Flame 117
+(1999) 732–754.
+[85] A.T. Norris, S.B. Pope, Combust. Flame 83 (1990)
+37–42.
+[86] B.B. Dally, D.F. Flectcher, A.R. Masri, Combust.
+Theory Modelling 2 (1998) 193–219.
+[87] K. Liu, Ph.D. Thesis, Cornell University, 2004.
+[88] T.S. Kuan, R.P. Lindstedt, Proc. Combust. Inst.,
+2004, to appear.
+[89] A.R. Masri, S.B. Pope, B.B. Dally, Proc. Combust.
+Inst. 28 (2000) 123–131.
+[90] A.R. Masri, R. Cao, S.B. Pope, G.M. Goldin,
+Combust. Theory Modelling 8 (2004) 1–22.
+[91] R.Gordon, A.R. Masri, S.B. Pope, G.M. Goldin,
+Combust. Theor. Model., 2004, submitted.
+[92] A.Yu. Klimenko, Fluid Dyn. 25 (1990) 327–334.
+[93] R.W. Bilger, Phys. Fluids A 5 (1993) 436–444.
+[94] A.Y. Klimenko, R.W. Bilger, Prog. Energy Com-
+bust. Sci. 25 (1999) 595–687.
+[95] R.W. Bilger, L.V. Krishnamoorthy, L.R. Saetran,
+J. Fluid Mech. 233 (1991) 211–244.
+[96] S.H. Kim, L. Tao, K.Y. Huh, Combust. Flame 120
+(2000) 75–90.
+[97] M.J. Cleary, J.H. Kent, R.W. Bilger, Proc. Com-
+bust. Inst. 29 (2002) 273–279.
+[98] W.T. Kim, K.Y. Huh, Proc. Combust. Inst. 29
+(2002) 569–576.
+[99] M.R. Roomina, R.W. Bilger, Combust. Flame 125
+(2001) 1176–1195.
+[100] A. Kronenburg, R.W. Bilger, J.H. Kent, Proc.
+Combust. Inst. 27 (1998) 1097–1104.
+[101] S.H. Kim, C.H. Choi, K.Y. Huh, Second-order
+conditional moment closure modelling of a turbu-
+lent CH4/H2/N2 jet diﬀusion ﬂame, Proc. Combust.
+Inst. 30 (2005) 735–742.
+[102] A. Kronenburg, Phys. Fluids 16 (2004) 2640–2648.
+[103] A. Kronenburg, A.E. Papoutsakis, Conditional
+moment
+closure
+modelling
+of
+extinction
+and
+reignition in turbulent non-premixed ﬂames, Proc.
+Combust. Inst. 30 (2005) 759–766.
+[104] M.J. Cleary, J.H. Kent, A numerical method for
+conditional
+moment
+closure,
+2003
+Australian
+Combustion
+Symposium
+and
+8th
+Australian
+Flame Days, Monash University, December 2003.
+[105] M. Mortensen, Chem. Eng. Sci., in press.
+[106] C.B. Devaud, R.W. Bilger, T. Liu, Phys. Fluids 16
+(2004) 2004–2011.
+[107] R.W. Bilger, Some aspects of scalar dissipation,
+Flow, Turbul. Combust., in press.
+[108] A.N. Karpetis, R.S. Barlow, Proc. Combust. Inst.
+29 (2002) 1929–1936.
+[109] A.N. Karpetis, R.S. Barlow, Proc. Combust. Inst.
+30 (2005) 665–672.
+[110] C.B. Devaud, K.N.C. Bray, Combust. Flame 131
+(2003) 102–114.
+[111] I.S. Kim, E. Mastorakos, Proc. Combust. Inst. 30
+(2005) 911–918.
+[112] A.Y. Klimenko, S.B. Pope, Phys. Fluids 15 (2003)
+1907–1925.
+[113] H. Chen, S. Chen, R.H. Kraichnan, Phys. Rev.
+Lett. 63 (1989) 2657–2660.
+[114] S.B. Pope, Theor. Comput. Fluid Dyn. 2 (1991)
+255–270.
+[115] A. Juneja, S.B. Pope, Phys. Fluids 8 (1996)
+2161–2184.
+[116] A.Y. Klimenko, in: 2003 Australian Symposium on
+Combustion and the 8th Australian Flame Days,
+Monash University, 2003.
+[117] S.B. Pope, Flow, Turbul. Combust, in press.
+[118] J. Smagorinsky, Mon. Weather Rev. 91 (1963) 99.
+[119] C. Stone, S. Menon, Proc. Combust. Inst. 29 (2002)
+155–160.
+[120] B. Varoquie´, J.P. Le´gier, F. Lacas, D. Veynante, T.
+Poinsot, Proc. Combust. Inst. 29 (2002) 1965–1970.
+[121] H. Pitsch, H. Steiner, Phys. Fluids 12 (2000)
+2541–2554.
+[122] A. Kempf, A. Sadiki, J. Janicka, Proc. Combust.
+Inst. 29 (2002) 1979–1985.
+[123] W.K. Bushe, H. Steiner, Phys. Fluids 11 (1999)
+1896–1906.
+40
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+
+
+--- Page 21 ---
+
+[124] M.R.H. Sheikhi, T.G. Drozda, P. Givi, F.A. Jaberi,
+S.B. Pope, Proc. Combust. Inst. 30 (2005) 549–556.
+[125] S. Menon, W. Calhoon, Proc. Comb. Inst. 26
+(1996) 59–66.
+[126] V.K. Chakravarthy, S. Menon, Flow, Turbulence
+Combust. 65 (2000) 133–161.
+[127] W.-W. Kim, S. Menon, H.C. Mongia, Combust.
+Sci. Technol. 143 (1999) 25–62.
+[128] P. Moin, Progr. Comput. Fluid Dyn. 4 (2004) 3.
+[129] F. di Mare, W.P. Jones, K.R. Menzies, Combust.
+Flame 137 (2004) 278–294.
+[130] L. Selle, G. Lartigue, T. Poinsot, R. Koch, K.-U.
+Schildmaker, W. Krebs, P. Kaufmann, D. Veyn-
+ante, Combust. Flame 137 (2004) 489–505.
+[131] G. Damko¨hler, Z. Electrochemie und angewandte
+Physikalische Chemie, 46 (1940) 601-626. NACA
+TM No. 1112, 1947.
+[132] R.K. Cheng, I.G. Shepherd, Combust. Flame 85
+(1991) 7.
+[133] S. Filatyev, J.F. Driscoll, C. Carter, J. Donbar,
+Combust. Flame, to appear.
+[134] R. Borghi, Progr. Energy Combust. Sci. 14 (1998)
+245–292.
+[135] J.-M. Samaniego, T. Mantel, Combust. Flame 118
+(1999) 537–566.
+[136] C.J. Mueller, J.F. Driscoll, D.L. Reuss, M.C.
+Drake, M. Rosalik, Combust. Flame 112 (1998) 342.
+[137] J.O. Sinibaldi, J.F. Driscoll, C. Mueller, J. Don-
+bar, C. Carter, Combust. Flame 133 (2003) 323.
+[138] C. Meneveau, T. Poinsot, Combust. Flame 86
+(1991) 311.
+[139] T. Hasegawa, K. Nishikado, J. Chomiak, Com-
+bust. Sci. Technol. 108 (1995) 67–80.
+[140] I.G. Shepherd, R.K. Cheng, T. Plessing, C. Kortsc-
+hik, N. Peters, Proc. Combust. Inst. 29 (2002) 1833.
+[141] F. OYoung, R.W. Bilger, Combust. Flame 109
+(1997) 682–700.
+[142] Y.-C. Chen, R.W. Bilger, Combust. Sci. Technol.
+167 (2001) 187–222.
+[143] Y.-C. Chen, R.W. Bilger, Combust. Flame 131
+(2002) 400–435.
+[144] Y.-C. Chen, R.W. Bilger, Proc. Combust. Inst. 30
+(2005) 801–808.
+[145] A. Soika, F. Dinkelacker, A. Leipertz, Proc.
+Combust. Inst. 27 (1998) 785–792.
+[146] Y.-C. Chen, R.W. Bilger, Combust. Flame 138
+(2004) 155–174.
+[147] J.M. Donbar, J.F. Driscoll, C. Carter, Combust.
+Flame 125 (2001) 1239.
+[148] N. Swaminathan, R.W. Bilger, G.R. Ruetsch,
+Combust. Sci. Technol. 128 (1997) 73–97.
+[149] Y.-C. Chen, P.A.M. Kalt, R.W. Bilger, N. Swami-
+nathan, Proc. Combust Inst. 29 (2002) 1863–1871.
+[150] K.N.C. Bray, J.B. Moss, Acta Astronaut. 4 (1977)
+291.
+[151] K.N.C. Bray, in: P.A. Libby, F.A. Williams (Eds.),
+Turbulent Reacting Flows. Springer, Berlin, 1980.
+[152] K.N.C. Bray, P.A. Libby, AIAA J. 19 (1981) 205.
+[153] K.N.C. Bray, G. Masuya, J.B. Moss, P.A. Libby,
+Combust. Sci. Technol. 25 (1981) 127.
+[154] K.N.C. Bray, J.B. Moss, P.A. Libby, Combust.
+Flame 61 (1985) 87–102.
+[155] K.N.C. Bray, P.A. Libby, in: P.A. Libby, F.A.
+Williams
+(Eds.),
+Turbulent
+Reacting
+Flows,
+Academic Press, New York, 1994, pp. 115–150.
+[156] K.N.C. Bray, Proc. R. Soc. Lond. A 451 (1995)
+231–256.
+[157] K.N.C. Bray, Proc. Combust. Inst. 17 (1979) 223.
+[158] K.N.C. Bray, P.A. Libby, Combust. Flame 39
+(1980) 33.
+[159] A.-S. Wu, K.N.C. Bray, Combust. Flame 109
+(1997) 43–64.
+[160] J.B. Moss, Combust. Sci. Technol. 22 (1980)
+119–129.
+[161] D. Veynante, A. Trouve´, K.N.C. Bray, T. Mantel,
+J. Fluid Mech. 332 (1997) 263–293.
+[162] P.A.M. Kalt, J.H. Frank, R.W. Bilger, Proc.
+Combust. Inst. 27 (1998) 751–758.
+[163] P.A.M. Kalt, Y.-C. Chen, R.W. Bilger, Combust.
+Flame 129 (2002) 401–415.
+[164] L.W. Kostiuk, I.G. Shepherd, K.N.C. Bray, Com-
+bust. Flame 118 (1999) 129–139.
+[165] R.K. Cheng, I.G. Shepherd, Combust. Flame 85
+(1991) 7.
+[166] E.J. Stevens, K.N.C. Bray, B. Lecordier, Proc.
+Combust. Inst. 27 (1998) 949–955.
+[167] S.C. Li, P.A. Libby, F.A. Williams, Proc. Com-
+bust. Inst. 25 (1994) 1207.
+[168] K.N.C. Bray, M. Champion, P.A. Libby, Com-
+bust. Flame 112 (1998) 635–654.
+[169] K.N.C. Bray, M. Champion, P.A. Libby, Com-
+bust. Flame 120 (2000) 1–18.
+[170] K.N.C. Bray, M. Champion, P.A. Libby, Com-
+bust. Flame 127 (2001) 2023–2040.
+[171] P. Domingo, K.N.C. Bray, Combust. Flame 121
+(2000) 555–574.
+[172] R.P. Lindstedt, E.M. Vaos, Combust. Flame 116
+(1999) 461–485.
+[173] F.E. Marble, J.E. Broadwell, The Coherent Flame
+Model of Turbulent Chemical Reactions, TRW
+Report, 1977.
+[174] S.B. Pope, Int. J. Eng. Sci 26 (1988) 445.
+[175] S.B. Pope, W.K. Cheng, Proc. Combust. Inst. 22
+(1988) 781.
+[176] D. Veynante, J.M. Duclos, J. Piana, Proc. Com-
+bust. Inst. 25 (1994) 1249.
+[177] R. Prasad, J.P. Gore, Combust. Flame 116 (1999) 1.
+[178] J.M. Duclos, D. Veynante, T. Poinsot, Combust.
+Flame 95 (1993) 101.
+[179] R.S. Cant, S.B. Pope, K.N.C. Bray, Proc. Comb.
+Inst. 23 (1990) 809–815.
+[180] P. Boudier, S. Henriot, T. Poinsot, T. Baritaud,
+Proc. Combust. Inst. 24 (1992) 503.
+[181] L. Vervisch, E. Bidaux, K.N.C. Bray, W. Koll-
+mann, Phys. Fluids 7 (1995) 2496.
+[182] J.-H. Chen, T. Echekki, Combust. Flame 116
+(1999) 15.
+[183] M.S. Wu, S. Kwon, J.F. Driscoll, G.M. Faeth,
+Comb. Sci. Technol. 73 (1990) 327.
+[184] F. Charlette, C. Meneveau, D. Veynante, Combust.
+Flame 131 (2002) 159.
+[185] O. Colin, F. Ducros, D. Veynante, T. Poinsot,
+Phys. Fluids 12 (2000) 1843–1863.
+[186] H. Kobayashi, H. Kawazoe, Proc. Combust. Inst.
+28 (2000) 375–382.
+[187] K.N.C. Bray, N. Peters, in: P.A. Libby, F.A.
+Williams
+(Eds.),
+Turbulent
+Reacting
+Flows.
+Academic Press, New York, 1994, pp. 63–113.
+[188] C. Kortschik, T. Plessing, N. Peters, Combust.
+Flame 136 (2004) 43–50.
+[189] A. Kronenburg, R.W. Bilger, Combust. Sci. Tech-
+nol. 166 (2001) 175–194.
+[190] D.B. Spalding, Proc. Combust. Inst. 13 (1970)
+649–657.
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42
+41
+
+
+--- Page 22 ---
+
+[191] F.H. Wright, E.E. Zukoski, Proc. Combust. Inst. 9
+(1962) 933–943.
+[192] E.A. Brizuela, R.W. Bilger, Combust. Flame 104
+(1996) 208–212.
+[193] S.B. Pope, M.S. Anand, Proc. Combust. Inst. 20
+(1984) 403–410.
+[194] W. Vincente, M. Salinas, E. Barrios, C. Dopazo,
+Combust. Sci. Technol. 176 (2004) 585.
+[195] P. Magre, P. Moreau, G. Collin, R. Borghi, M.
+Pe´alat, Combust. Flame 71 (1988) 147–168.
+[196] R.W. Bilger, in: T. Takeno (Ed.), Turbulence and
+Molecular Processes in Combustion (Sixth Toyota
+Conference).
+Elsevier,
+Amsterdam,
+1993,
+pp.
+267–285.
+[197] S.M. Martin, J.C. Kramlich, G. Kosa´ly, J.J. Riley,
+J. Eng. Gas Turb. Power: Trans. ASME 125 (2003)
+895–900.
+[198] Available
+from:
+<www.aeromech.usyd.edu.au/
+thermoﬂuids>.
+[199] R.W. Bilger, Combust. Flame 138 (2004) 188–194.
+[200] E.R Hawkes, R.S. Cant, Proc. Combust. Inst. 28
+(2000) 51–58.
+[201] E.R. Hawkes, R.S. Cant, Combust. Flame 126
+(2001) 1617–1629.
+[202] S. Tullis, Large eddy simulation of scalar ﬂux in
+turbulent premixed ﬂames, Ph.D. thesis, University
+of Cambridge, August 2003.
+[203] R. Knickker, D. Veynante, C. Meneveau, Proc.
+Comb. Inst. 29 (2002) 2105.
+[204] J.B. Bell, M.S. Day, J.F. Grcar, Proc. Combust.
+Inst. 29 (2002) 1987–1993.
+[205] W. Pitts, Proc. Comb. Inst. 22 (1988) 809–816.
+[206] P. Domingo, L. Vervisch, K. Bray, Combust.
+Theory Modelling 6 (2002) 529–551.
+[207] L. Vervisch, Proc. Combustion Inst. 28 (2000)
+11–24.
+[208] Y. Mizobuchi, S. Tachibana, J. Shinio, S. Ogawa,
+T.
+Takeno,
+Proc.
+Combust.
+Inst.
+29
+(2002)
+2009–2015.
+[209] E. Mastorakos, A.M.K.P. Taylor, J.H. Whitelaw,
+Combust. Flame 91 (1992) 40–54.
+[210] M. Besson, P. Bruel, J.L. Champion, B. Deshaies,
+J. Thermophys. Heat Transfer 14 (2000) 1.
+[211] R. Cabra, T. Myhrvold, J.-Y. Chen, R.W. Dibble,
+A.N. Karpetis, R.S. Barlow, Proc. Combust. Inst.
+29 (2002) 1881–1888.
+[212] J. Helie, A. Trouve´, Proc. Combustion Inst. 28
+(2000) 193–201.
+[213] Y. Mizobuchi, J. Shinjo, S. Ogawa, T. Takeno,
+Understanding of combustion phenomena in a
+hydrogen jet lifte ﬂame by use of DNS with
+hundred millions of grid points, in: Sixth World
+Congress on Computational Mechanics, Beijing,
+September 2004, to appear.
+42
+R.W. Bilger et al. / Proceedings of the Combustion Institute 30 (2005) 21–42

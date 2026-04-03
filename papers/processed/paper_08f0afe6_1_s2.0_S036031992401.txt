@@ -1,0 +1,851 @@
+
+--- Page 1 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+Available online 4 April 2024
+0360-3199/© 2024 Hydrogen Energy Publications LLC. Published by Elsevier Ltd. All rights reserved.
+Experimental investigation of high-frequency transverse instability in 
+Helmholtz resonator-coupled lean-premixed hydrogen combustor 
+Hyebin Kang , Kyu Tae Kim * 
+Department of Aerospace Engineering, Korea Advanced Institute of Science and Technology (KAIST), 291 Daehak-ro, Yuseong-gu, Daejeon, 34141, South Korea   
+A R T I C L E  I N F O   
+Handling Editor: Dr M Mahdi Najafpour  
+Keywords: 
+Acoustic damper 
+Gas turbine combustion 
+Helmholtz resonator 
+High frequency 
+Hydrogen 
+Transverse mode 
+A B S T R A C T   
+Recent experimental studies suggest that lean-premixed pure hydrogen combustion plays a central role in 
+generating self-sustained pressure oscillations, preferentially coupled with high-frequency tangential modes in 
+land-based gas turbine combustors. The triggering of such high-frequency combustion dynamics is known to be 
+closely connected with relatively small, flashback-resistant, characteristic nozzle dimensions, and the structural 
+and kinematic properties of the premixed hydrogen flames. To identify important trends in the transverse modal 
+dynamics of hydrogen flames, here we conduct detailed measurements of multislit injector-driven hydrogen 
+flame dynamics. We analyze the measured data using the wave decomposition technique for PDF-based statis­
+tical assessments of bimodality and nodal line orientation. Experimentally, the planar-to-transverse mode 
+transformation is revealed to be controlled by the combined influence of flame temperature and thermal power, 
+which ultimately leads to the development of well-defined standing modes at around 4.69 kHz under the most 
+severe test condition. Using analytic modeling and rigorous validation measurements, we also investigate 
+Helmholtz resonator-type passive stabilization and its impact on the integrated system’s thermoacoustic states 
+with respect to the change in purge air flowrate. Our results show that the coupled system does not retain many 
+of the initial thermoacoustic properties, but instead undergoes prominent changes in the first tangential modal 
+dynamics, progressively evolving from a large-amplitude bimodal to a low-amplitude unimodal state.   
+1. Introduction 
+With its high relevance to the decarbonization of power generation 
+systems, hydrogen-fueled gas turbine combustion has been the subject of 
+extensive research [1–3]. Significant progress has been made in recent 
+years, with the development of flashback-resistant dry low-NOx 
+hydrogen combustion technologies, and basic design principles and 
+unconventional nozzle architectures have been demonstrated under 
+engine-relevant conditions [4–6]. Even though extensive efforts have 
+been made to understand nitrogen oxides emission trends and heat 
+transfer-dependent boundary layer flashback mechanisms [7–14], pre­
+mixed hydrogen flames’ mechanistic role in the triggering of 
+high-frequency self-excited instabilities remains relatively underex­
+plored. Detailed characterization and physical understanding of the 
+transverse modal dynamics at a fundamental level, including multidi­
+mensionality and local flame-acoustic interactions, are expected to be a 
+crucial ingredient for the development of passive stabilization methods 
+tailored to meet gas turbine system-level requirements. A series of recent 
+experimental and numerical investigations indicate that the instabilities 
+of premixed hydrogen flames are characterized by the excitation of 
+higher-order acoustic modes [15,16], even including the triggering of 
+high-frequency combustion instabilities coupled to the first tangential 
+mode [17–19]. The physical understanding of the transverse modal 
+dynamics and their passive stabilization are the main focus of the cur­
+rent study. 
+O’Connor et al. [20] provided a comprehensive review of transverse 
+mode instabilities, highlighting the transverse acoustic field, hydrody­
+namic mode excitation, and flame response to these disturbances. A 
+series of experimental investigations conducted by Sattelmayer and 
+colleagues [21–25] are concerned with high-frequency transverse 
+thermoacoustic interactions. Based on the detailed observations, they 
+developed a theoretical model for linear stability analysis, and identified 
+local flame displacement as the primary mechanism. Using a similar 
+reduced-order modeling approach, M´ery [26] studied the stability of 
+transverse modes in a simplified flow configuration, and concluded that 
+the spatial distribution of thermal power relative to the acoustic field 
+plays a crucial role. Recently, Acharya and Lieuwen [27,28] utilized a 
+level-set-based theoretical framework to analyze the growth rates of 
+* Corresponding author. 
+E-mail address: kt_kim@kaist.ac.kr (K.T. Kim).  
+Contents lists available at ScienceDirect 
+International Journal of Hydrogen Energy 
+journal homepage: www.elsevier.com/locate/he 
+https://doi.org/10.1016/j.ijhydene.2024.04.015 
+Received 15 January 2024; Received in revised form 28 March 2024; Accepted 1 April 2024   
+
+
+--- Page 2 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+143
+transverse modes, with the aim of providing optimal nozzle arrange­
+ments. The triggering of high-frequency transverse instabilities was 
+experimentally investigated in a sub-scale lean-premixed combustor 
+equipped with multi-element injectors [29]. In a related study [18], the 
+dynamics of lean-premixed multislit hydrogen-air flames were observed 
+to undergo high-frequency pressure fluctuations at 3.5 kHz, originating 
+from the triggering of the first tangential mode of the combustion 
+chamber. 
+Passive damping devices including various forms of acoustic 
+dampers [30–35] and perforated liners [36,37] are often used in gas 
+turbine combustion systems to suppress pressure oscillations, mainly 
+due to their structural simplicity and proven robustness. For example, 
+Helmholtz resonators consisting of a narrow flow passage (neck) and a 
+relatively large cavity (volume) are well known to be very effective in 
+controlling intense pressure fluctuations by dissipating coherent 
+acoustic oscillations via non-resonant vortex shedding. These dampers 
+are generally cooled by means of a purge flow (also called bias flow) to 
+decrease the risk of hot gas ingestion-induced frequency detuning and 
+related hardware failures; this method requires a careful performance 
+tradeoff between the minimum purge mass flowrate required for suit­
+able damper operation and the potential increase in nitrogen oxides 
+emissions [30–32]. The remaining considerations affecting the perfor­
+mance 
+of 
+passive 
+stabilization 
+methods 
+include 
+the 
+place­
+ment/arrangement of damping elements, specific internal structures, 
+and combustor operating conditions [38–42]. For accurate evaluation of 
+the impedance of Helmholtz resonators, Bellucci et al. [30] proposed a 
+nonlinear model to account for the impact of periodic flow reversal in 
+the 
+neck, 
+and 
+the 
+design 
+principle 
+was 
+validated 
+against 
+loudspeaker-forced lab-scale experiments and practical engine-level 
+tests at elevated pressure. Recently, Bourquard and Noiray [31], using 
+analytic modeling and independent measurements (impedance tube in 
+isolation and electroacoustic feedback-coupled damper-cavity system), 
+systematically characterized the stabilization capabilities of generic 
+Helmholtz and quarter-wave resonators for a range of damper volume 
+and purge mass flowrate. The authors observed that the Helmholtz 
+resonators provide better stabilization performance at comparatively 
+low purge flowrate, but are more prone to frequency detuning than 
+other resonators of comparable volume. Mazur and his colleagues [39] 
+investigated the role of the circumferential placement of Helmholtz 
+resonators in annular combustor configurations, and they found that 
+standing modes are predominantly observed when the dampers are 
+clustered in a certain segment of the annulus, while spinning modes 
+become more pronounced in uniform distribution circumstances. A 
+comprehensive study was conducted by Scarpato and coworkers [43,44] 
+to examine specifically how various parameters affect the absorption 
+properties of acoustic dampers with perforated plates as a function of 
+dimensionless Strouhal number. 
+Although substantial progress has been achieved in the character­
+ization of lean-premixed hydrogen combustion dynamics, thermoa­
+coustic interactions with Helmholtz resonators, especially in regard to 
+high-frequency transverse instabilities, are not well understood; they 
+are generally hypothesized to reflect modal dynamics-invariant passive 
+stabilization. To clarify important trends that apparently different from 
+the well-established planar acoustic behaviors, here we investigate the 
+modal dynamics of an acoustic damper-coupled lean-premixed com­
+bustion system that is primarily driven by multislit hydrogen flames’ 
+heat release rate fluctuations. This study demonstrates experimentally 
+that the implementation of multiple Helmholtz resonators plays an 
+important part in fundamentally altering the modal dynamics of the 
+coupled system, and greatly attenuates the intensity of the system 
+instability. 
+Fig. 1. Experimental setup. (a) Cross-section of hydrogen combustion test rig without dampers and with dampers installed (lower inset). (b) Multislit injector as­
+sembly with circumferential positions of five dynamic pressure transducers. (c) Schematic of impedance tube measurement setup, with inner diameter of 52 mm and 
+overall length of 1250 mm. Inset shows magnified view of Helmholtz resonator. Pressure wave incident angle is kept at 90◦to suppress non-planar phenomena. (d) 
+Top- and side-views of combustion liner equipped with six equally spaced Helmholtz resonators oriented perpendicular to high-temperature crossflow direction. Us, 
+upstream; c, combustor; tp, transition piece; n, neck; b, back. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 3 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+144
+2. Experimental methods 
+2.1. Hydrogen combustion and impedance tube test setups 
+The cross-section of the atmospheric-pressure test facility is shown in 
+Fig. 1a, together with flashback-resistant slit-type injectors developed 
+for operations with pure hydrogen fuels. This test rig, modified from the 
+previous 
+configuration 
+[18,19], 
+was 
+reconfigured 
+to 
+study 
+high-frequency transverse combustion dynamics, with and without the 
+installation of air-purged Helmholtz resonators. For all test conditions, 
+preheated lean-premixed reactant mixtures, ultra-high purity 99.999% 
+hydrogen and dry air, are supplied to the inlet plenum with a perforated 
+plate to remove large-scale flow structures and provide a well-defined 
+acoustic boundary condition. The multislit injector assembly displayed 
+in Fig. 1b consists of radial and circumferential injectors with a constant 
+slit width of 1.5 ± 0.02 mm, and the whole nozzle assembly is directly 
+connected to a 109 mm diameter optically-accessible quartz tube section 
+and a variable-length combustor section. Note that the length of the 
+quartz tube is shortened to facilitate the integration of the damper 
+(Fig. 1a inset). The external surface of the quartz tube is actively cooled 
+with jet impingement of room temperature air to prevent thermal 
+damage. The use of a water-cooled tunable piston permits change of the 
+effective combustor length, defined as the distance between the 
+combustor dump plane and the piston head. Further details about the 
+experimental setup and operational information are provided in Refs. 
+[45,46]. 
+The purge flowrate-controlled impedance tube depicted in Fig. 1c is 
+used to measure absorption coefficients of Helmholtz resonators (inde­
+pendent experiment). A fully shielded neodymium magnet-type loud­
+speaker (Morel model EW428) is positioned on the left side of the 
+impedance tube, operated with serially connected power amplifier 
+(InterM model R500Plus) and function generator (Tektronix model 
+AFG31000). The air temperature inside the impedance tube during ex­
+periments is monitored with a type-K thermocouple, and pressure fluc­
+tuations in the impedance tube are measured using four 1/4-inch high- 
+sensitivity microphones (G.R.A.S. model 46 BD), each flush-mounted in 
+the inner surface of the impedance tube. Following the ISO 10534-2 
+standard [47], the microphones are uniformly distributed at intervals 
+of 0.05 m, with the closest microphone positioned 0.20 m from the 
+Helmholtz resonator. The measured pressure signals are post-processed 
+to evaluate reflection and absorption coefficients for acoustic dampers 
+(close-up view in Fig. 1c), based on the assumption that pressure signals 
+may be modeled as the superposition of two travelling waves: p′(x) =
+Ae−jkx + Bejkx, where the two terms on the right-hand side mean pressure 
+waves propagating toward and reflected from the damper. Caution is 
+warranted in view of planar wave motions; this simplification may be 
+justified by the existence of the upper limit frequency of 3.8 kHz. With 
+these caveats, the pressure signals recorded from the four microphones 
+may be formulated in a matrix form: 
+⎡
+⎢⎢⎣
+e−jkx1
+e−jkx2
+e−jkx3
+e−jkx4
+ejkx1
+ejkx2
+ejkx3
+ejkx4
+⎤
+⎥⎥⎦
+[
+A
+B
+]
+=
+⎡
+⎢⎢⎣
+p′(x1)
+p′(x2)
+p′(x3)
+p′(x4)
+⎤
+⎥⎥⎦
+(1)  
+The above equation can be transformed to the following compact form 
+using the least-mean-squares method to calculate the coefficients A and 
+B: 
+[
+A
+B
+]
+= (HTH)−1HTP = H†P, where the notation (†) represents the 
+pseudoinverse. By taking the ratio of the two coefficients, we finally 
+compute reflection and absorption coefficients; α(ω) = 1 −
+|R(ω)|2, 
+where α(ω) and R(ω) denote angular frequency-dependent absorption 
+and reflection coefficients, respectively. 
+2.2. Measurement techniques and experimental conditions 
+The mass flow rates of air and hydrogen are controlled using two 
+thermal mass flow meters: Sierra Instruments model FlatTrak 780S for 
+air and Teledyne Instruments model HFM-D-301 for hydrogen. The flow 
+meters have measurement ranges of 6.8 kg/min for air and 0.058 kg/ 
+min for hydrogen, with an accuracy of ±0.5% for air and ±0.6% for 
+hydrogen at full scale. Seven piezoelectric pressure transducers (PCB 
+model 112A22, sensitivity 14.5 mV/kPa and uncertainty ±1%) are used 
+to measure pressure data. These pressure transducers are installed in 
+water-cooled adapters with 16 mm long waveguides, and are mounted at 
+two longitudinal positions (p′
+us and p′
+tp in Fig. 1a) and five non- 
+equidistant azimuthal locations at the injector face (Fig. 1b). The 
+analog signals are conditioned by an amplifier (PCB model 482A16), and 
+recorded using a high-speed data acquisition system. The sampling 
+frequency is set to 48 kHz (16 s duration), which is sufficiently high to 
+prevent any aliasing of the instability frequencies discussed below. 
+Spectral analysis of the recorded signals is performed using the fast 
+Fourier transform technique with the Hanning window function, and the 
+Hilbert transform is utilized to calculate instantaneous phase 
+information. 
+Here we tested two different nozzle velocities of 25 ± 0.25 m/s and 
+50 ± 0.51 m/s, while the inlet temperature was kept at 473 ± 5 K 
+throughout our experiments. For each nozzle velocity condition, the 
+equivalence ratio was varied between 0.325 and 0.615; these values are 
+equivalent to adiabatic flame temperatures ranging between 1400 and 
+2000 K, confirmed by Cantera calculation [48]. The experimental un­
+certainty in measuring the equivalence ratio is estimated to be approx­
+imately 1.5%, taking into account all elemental uncertainties related to 
+mass flow rates and inlet temperature measurements. For the test con­
+ditions summarized in Table 1, stationary measurements of self-excited 
+instabilities were carried out in the absence of acoustic dampers by 
+adjusting the effective combustor length from 1200 to 1800 mm in 50 
+mm increments. Subsequently, the coupled resonator-combustor sys­
+tem’s thermoacoustic responses were investigated over a range of purge 
+mass flowrates up to 6.4 g/s, when other experimental conditions 
+remained unchanged at the most severe test condition. 
+3. Results and discussion 
+This section will begin by analyzing pressure amplitude spectra ac­
+quired for the entire range of test conditions. Of particular interest are 
+inlet condition-dependent growth patterns and consequential influence 
+on longitudinal-to-transverse mode transition. We will concentrate on 
+the transverse modal dynamics of high-frequency self-induced in­
+stabilities using wave decomposition-based phase space reconstruction. 
+Finally, we will examine how the laboratory-scale combustion system 
+integrated with multiple Helmholtz resonators undergoes prominent 
+changes in oscillatory state. 
+3.1. Self-excited dynamics of multislit hydrogen flames 
+Fig. 2 presents pressure amplitude spectra measured under the whole 
+range of test conditions summarized in Table 1, with the influence of 
+effective combustor length being incorporated into the three- 
+dimensional form of spectral waterfall plots. Fig. 2a shows that the 
+Table 1 
+Test conditions.  
+Variables 
+Values 
+Reactants 
+Lean-premixed H2-air 
+Inlet temperature, Tinlet (K) 
+473 ± 5 
+Mean nozzle velocity, unozzle (m /s)
+25 ± 0.25, 50 ± 0.51 
+Equivalence ratio, φ 
+0.325, 0.413, 0.508, 0.615 
+Adiabatic flame temperature, Tad (K) 
+1400, 1600, 1800, 2000 
+Thermal power, Pth (kW) 
+22–76 
+Combustor length, lc (mm) 
+1200–1800 (Δlc = 50 mm) 
+Purge air, ˙mpurge (g /s)
+0.0–6.4  
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 4 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+145
+low-temperature dynamics of premixed hydrogen flames are well 
+characterized by the growth of multiple spectral peaks representing the 
+third and fourth-order longitudinal modes and their interactions with 
+higher harmonics; their relative magnitudes are comparable. Note that 
+there is a clear tendency for the low nozzle velocity case to have much 
+higher instability intensity, and that the relative contribution of the first 
+and second harmonics with respect to the variation of effective 
+combustor length appears to be governed by stochastic processes asso­
+ciated with initial conditions. A similar trend is visible in Fig. 2b (1600 
+K). The amplitude spectra compiled in Fig. 2c, unlike the foregoing 
+cases, indicate that raising the adiabatic flame temperature to 1800 K 
+tends to suppress the planar wave-coupled pressure fluctuations, and 
+instead triggers the first tangential mode instabilities. Experimentally, 
+this confirms the existence of a planar-to-transverse mode transition that 
+depends critically on the combination of flame temperature and mean 
+nozzle velocity; longitudinal and transverse modes, signified by sub­
+scripts L and T, were identified by comparing experimental data to FEM- 
+based three-dimensional Helmholtz simulations [18]. Even more strik­
+ing is the formation of the cascading spectral peaks under the highest 
+flame temperature condition depicted in Fig. 2d, showing clearly that 
+the first tangential mode near 4.6 kHz is markedly intensified, while the 
+resonance phenomenon remains unaffected by the variation of 
+combustor length, mainly due to its non-planar nature. Of note, the 
+simultaneous excitation of high-order longitudinal eigenmode at 2.60 
+kHz and its second harmonic component at 5.20 kHz is detectable 
+particularly under relatively short combustor length conditions, and 
+these spectral peaks appear to remain unassociated with the preexisting 
+transverse mode. In summary, we identify the predominant trend in the 
+multislit hydrogen flame dynamics as the replacement of low-frequency 
+planar modes by high-frequency transverse modes in relation to the 
+overall increase in the adiabatic flame temperature, characteristically 
+posing serious obstacles to the development of lean-premixed hydrogen 
+combustion systems. 
+Although the amplitude spectra concerning the transverse mode 
+appear to be thermoacoustically similar in terms of the first tangential 
+mode frequency and their respective magnitudes, there are differences 
+in detail that prove fundamentally important. For example, two spectral 
+peaks, marked as Cases A and B in Fig. 2d, are chosen for detailed 
+characterization of amplitude-phase modulations and concomitant 
+modal dynamics. We first look into pressure waveforms from both the 
+entire time span and shorter time interval perspectives, with a particular 
+emphasis on the statistical interpretation of their relative phase dy­
+namics. To identify important features of the high-frequency modal 
+dynamics that are not directly reflected in the pressure time-series data, 
+we model the pressure waves as the superposition of two acoustic waves 
+travelling in opposite directions. The wave decomposition method 
+Fig. 2. Pressure amplitude spectra cumulatively plotted as a function of effective combustor length ranging between 1200 and 1800 mm. Four waterfall plots 
+correspond to investigated adiabatic flame temperatures between 1400 and 2000 K. Spectral averaging was performed for pressure signals measured from five 
+different circumferential positions illustrated in Fig. 1b, and calculated magnitudes (prime) were normalized by mean combustor pressure (overbar). Important 
+assumptions used for FEM-based Helmholtz simulations and typical mode shapes are presented in Ref. [18]. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 5 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+146
+Fig. 3. Left column (a, d): representative time traces of combustor pressure oscillations for the entire time span of 16 s and four periods of limit cycles, with time 
+being normalized by fundamental period, namely T = f −1
+1T ≃0.22 ms. Dynamic pressure signals were measured at five circumferential locations indicated in Fig. 1b 
+(color coding). Middle column (b, e): PDFs of phase difference between combustor pressure signals. Gray shaded region indicates ±90◦in-phase interaction condition 
+with respect to reference pressure signal. Right column (c, f): fast Fourier transform of pressure fluctuations. Solid red line denotes 1T mode frequency predicted by 
+mathematical expression of f1T,analytic = β1,0c/πD, where β1,0 is the first root of J′
+1, that is, the derivative of the first-order Bessel function of the first kind, c is sound 
+speed, and D is inner diameter of cylindrical combustor section. (For interpretation of the references to color in this figure legend, the reader is referred to the Web 
+version of this article.) 
+Fig. 4. Top row (a, b): joint PDFs of pressure amplitudes travelling in clockwise (A−) and counter-clockwise (A+) directions. Two inclined dashed lines indicate ±1/3 
+spin ratio values required for spinning and standing mode classification into three subclasses, including (counter)clockwise spinning and standing modes. Bottom row 
+(c, d): phase space representation of transverse pressure perturbations in the 〈̃Ax, ̃Ay〉 domain. Angular positions of nodal line (ψnode) and anti-nodal line (ψantinode) are 
+highlighted with solid and dashed lines, respectively. Full explanations of these calculation processes are provided in Ref. [19]. CW, clockwise; CCW, counter­
+clockwise; SR, spin ratio. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 6 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+147
+enables us to calculate the instantaneous spin ratio for quantitative 
+assessment of the relative prevalence of spinning and standing waves, 
+and subsequent joint PDF-based phase space reconstruction for the 
+elucidation of unconventional evolution patterns. We anticipate that 
+this hybrid method with particular consideration of multiple coupled 
+processes will provide important insights into the nature of transverse 
+thermoacoustic phenomena. Detailed explanations of the relevant 
+calculation procedures and important caveats are presented in Ref. [19]. 
+These integrative approaches are applied to Case A (25 m/s, 2000 K). 
+We observe that limit cycles with some intermittent fluctuations are 
+readily discernible (Fig. 3a), with the irregularity being linked to their 
+phase dynamics as illustrated in Fig. 3b; here the first pressure trans­
+ducer positioned at ψ = 210◦is taken as the reference signal. Notwith­
+standing the irregular phase relationship, the dominant frequency 
+presented in Fig. 3c is locked to the first tangential mode (4.56 kHz), 
+which is to some extent lower than the first-order Bessel function-based 
+analytic solution calculated under ideal adiabatic conditions (4.83 kHz). 
+The temperature reduction caused largely by non-adiabatic boundary 
+conditions offers a proximate explanation for the difference between 
+measurement and prediction. Fig. 4a shows that this state is governed by 
+a mixture of spinning and standing modes, reflected by the very large 
+spread in the PDF distribution prevailing over several distinct segments 
+of the domain. Following the definition adopted in Refs. [49,50], ±1/3 
+spin ratio demarcation lines are utilized here to determine whether the 
+observed transverse oscillations are categorized into standing modes 
+(the 
+kite-shaped 
+central 
+region 
+in 
+Fig. 
+4a) 
+or 
+clock­
+wise/counterclockwise spinning modes (the lower/upper right triangle 
+regions). The relevant trajectories constructed from the joint PDFs of 
+̃Ax = ̃Acos(ψnode +90◦) and ̃Ay = ̃Asin(ψnode + 90◦), delineated in 
+Fig. 4c, reconfirm the coexistence of standing and spinning modes, 
+represented by the formation of four high-magnitude arc regions 
+(standing mode) overlaid with low-magnitude elliptic regions (spinning 
+mode). The unequally distributed asymmetric PDF distribution is a clear 
+indication that the attributes vary with time to some degree. Nonethe­
+less, the morphological features suggest clearly that the development of 
+standing modes is more pronounced, with the nodal line positioned in 
+the vertical (z coordinate) direction. This observation agrees well with 
+the PDFs portrayed in Fig. 3b and 4a. 
+We next examine the distinctive features of the high nozzle velocity 
+case (50 m/s; equivalent to 76 kW thermal power). Clearly, Fig. 3d – f 
+shows that the two-fold increase in thermal power makes it possible for 
+the thermoacoustic system to exhibit well-organized stronger limit cycle 
+oscillations without the previously observed irregular phase dynamics. 
+The measured frequency is very close to the value of the theoretically 
+deduced exact solution. This leads to the occurrence of nearly pure 
+standing mode, which is corroborated by the PDF distribution confined 
+to the center of the 〈A−, A+〉 domain in Fig. 4b, and also by the formation 
+of two dense clusters of data points connected with the principal anti- 
+nodal line aligned at 178◦when viewed from the 〈̃Ax, ̃Ay〉 perspective 
+(Fig. 4d). This comparison implies that the development of well-defined 
+unimodal dynamics is correlated strongly with the augmentation of the 
+mean nozzle velocity, in proportion to the thermal power level supplied 
+to system. A caveat must be underlined: an essential preliminary to the 
+triggering of high-frequency transverse modes is more fundamentally 
+associated with the rotational symmetry of the multislit injector 
+arrangement, especially when the slit width (1.5 mm) is commensurate 
+with the characteristic length scale of lean-premised hydrogen flames 
+(0.4–1.0 mm) [18]. 
+Table 2 
+Dimensions of high-frequency Helmholtz resonators with perforated plates.  
+Elements 
+ftarget = 1.2 kHz 
+ftarget = 4.5 kHz 
+Back 
+Db (mm) 
+Lb (mm) 
+Nb 
+Db (mm) 
+Lb (mm) 
+Nb 
+2 
+2 
+1 
+1 
+2 
+1 
+Cavity 
+Dc (mm) 
+Lc (mm)  
+Dc (mm) 
+Lc (mm)  
+32 
+16  
+20 
+6  
+Neck 
+Dn (mm) 
+Ln (mm) 
+Nn 
+Dn (mm) 
+Ln (mm) 
+Nn 
+2 
+2 
+6 
+1.5 
+2 
+16  
+Fig. 5. Top row (a, b): isocontour plots of predicted absorption coefficient as a function of purge air flowrates for two different frequencies of interest, namely 1.2 
+and 4.5 kHz. Horizontal dashed lines indicate purge air flowrates necessary to achieve maximum sound absorption. Linear interpolation was applied. Bottom row (c, 
+d): direct comparison of absorption coefficients between model prediction (black dashed lines) and impedance tube measurement (filled diamond symbols). Gray 
+shaded rectangles denote low and high cutoff frequencies, each explicitly determined by microphone spacing and impedance tube diameter, respectively. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 7 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+148
+3.2. Helmholtz resonator design, validation tests, and data interpretation 
+Having reviewed several key aspects of the transformation from 
+bimodal to unimodal transverse dynamics, we turn to one of the main 
+questions of the present study: passive stabilization and concurrent in­
+fluences on the modal dynamics, particularly when Helmholtz 
+resonator-type acoustic dampers are integrated into the hydrogen 
+combustion system. The major dimensions of the Helmholtz resonators 
+were obtained by the well-established design principles discussed in 
+Refs. [51–53], and specific information about orifices and cavity di­
+mensions is summarized in Table 2. The model prediction was directly 
+validated against absorption coefficient measurements using the purge 
+flow-controlled impedance tube illustrated Fig. 1c. The modeling results 
+for the two frequencies of interest, namely 1.2 and 4.5 kHz, are dis­
+played in Fig. 5a and b in the form of heatmaps to visualize the variation 
+of frequency-dependent absorption coefficient over a range of purge air 
+flowrate. For these results, it is reasonable to expect that the Helmholtz 
+resonators function properly, provided that the requirement for the 
+purge air flowrate is accurately satisfied; the maximum sound absorp­
+tion can be achieved at approximately 0.6 and 3.0 g/s, respectively. The 
+calculated absorption coefficients corresponding to the horizontal gray 
+dashed lines are replotted in Fig. 5c and d for direct comparison with 
+their respective experimental data. The prediction is in good agreement 
+with the measurement, supporting the design principles and relevant 
+interpretations. It should be noted, however, that the lower and upper 
+cutoff frequencies are in principle determined by the distance between 
+microphones specified by flower = 0.05c/s, and the condition required to 
+maintain planar acoustic waves for a fixed impedance tube diameter, 
+that is, fupper = 0.58c/d, where c is the speed of the sound, s is the 
+microphone spacing, and d is the diameter of the impedance tube [47]. 
+In parallel with detailed characterizations of the Helmholtz resona­
+tors in the isothermal flow environment in isolation, we also investigate 
+the thermoacoustic response of the coupled Helmholtz resonator- 
+combustor system to high-frequency combustion dynamics. The air- 
+purged Helmholtz resonators designed for the mitigation of 4.5 kHz 
+transverse mode are installed in close proximity to the hydrogen flames, 
+and they are positioned at six equally spaced azimuthal locations – 
+forming a three-dimensional network perpendicular to the crossflow 
+direction – to rule out the possibility that the dampers are accidently 
+aligned along the pressure nodal line (Fig. 1d). Fig. 6a plots pressure 
+spectrograms measured for varied purge air flowrates up to 6.4 g/s, and 
+the stacked images show that the coupled system undergoes a marked 
+Fig. 6. (a) Dependence of power spectral density of self-sustained pressure oscillations on purge mass flowrate up to 6.4 g/s. Each subplot represents a pressure 
+spectrogram calculated for entire time span of 16 s. (b) Joint PDF-based phase space representation for five representative cases. (c) Pressure fluctuation amplitudes 
+of two frequencies of interest, plotted as a function of purge mass flowrate. Error bars represent one standard deviation. (d) Bar plots showing probability of spinning 
+and standing modes. ST means standing mode. Operating conditions: Tinlet = 473 K, unozzle = 25 m/s, Tad = 2000 K, φ = 0.615, lc = 1500 mm. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 8 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+149
+reduction in instability strength. Interestingly, the self-sustained insta­
+bility does not vanish completely, but instead splits into two adjacent 
+modes in the intermediate range of the purge air flowrate. This is a clear 
+indication that the integrated Helmholtz damper-combustor system is 
+prone to purge flow-induced detuning [31]. For clarity, Fig. 6c translates 
+these factors into numbers to compare their peak-to-peak pressure am­
+plitudes; the attenuation effect is readily detectable even at compara­
+tively low purge flowrates. The secondary peak, slightly lower than the 
+initial 1T mode frequency, begins to grow if the purge flowrate exceeds 
+3.2 g/s, but the magnitude of the newly created instability is relatively 
+unaffected by the further increase in the purge flowrate. The fact that 
+these behaviors are accompanied by progressive variations of the degree 
+of preferred modes (illustrated in Fig. 6b) suggests unambiguously that 
+the resulting transverse modal dynamics are not invariant. The transi­
+tion of the preferred mode from inconsistent standing to coherent 
+spinning mode is clearly visible in Fig. 6d (bar plots); the rightmost 
+graph included in Fig. 6b shows a non-trivial structure akin to a canted 
+elliptical 
+orbit 
+reflecting 
+the 
+pure 
+spinning 
+mode. 
+Such 
+resonator-coupled transverse modal dynamics are previously unre­
+ported in the literature. The details of the underlying mechanisms 
+remain uncertain; in-depth explorations will be indispensable for further 
+characterization. 
+4. Conclusions 
+The development of hydrogen-fueled gas turbines has garnered 
+notable interest in the quest to achieve the global energy sector’s 
+decarbonization goals. A series of recent experimental studies, however, 
+suggest that lean-premixed combustors operating with pure hydrogen 
+fuels are characteristically susceptible to the excitation of high- 
+frequency transverse instabilities that can have direct and critical im­
+pacts on the architecture and functioning of can-annular combustion 
+systems. Addressing this fundamental problem is crucial, not only to 
+advance our understanding of the multidimensional thermoacoustics, 
+but also to propose the effective passive stabilization strategies that will 
+be required to account for their transverse modal dynamics. To this end, 
+we carry out several independent experiments to measure Helmholtz 
+resonator-coupled system-level modal dynamics driven by the heat 
+release rate fluctuations of multislit hydrogen flames. In particular, we 
+combine pressure spectrum analysis results with wave decomposition- 
+based phase space reconstruction to provide a systematic approach to 
+mode identification, given that the morphological features entail 
+detailed information about amplitude-phase modulations. By clarifying 
+distinct modal dynamics patterns, we find that the transverse mode 
+constitutes the dominant part of the pressure amplitude spectra under 
+high-temperature and high thermal power conditions. For passive sta­
+bilization of the transverse fluctuations, Helmholtz resonators are 
+theoretically modeled and experimentally validated under isothermal 
+flow conditions in isolation and in a fully coupled damper-combustor 
+configuration. The integration of multiple Helmholtz resonators is 
+observed to produce noticeable changes in the modal dynamics, 
+including the subsequent generation of two adjacent modes. Taken 
+together, the findings from this research underscore the importance of 
+passive stabilization approaches, especially taking into account purge 
+flow-induced detuning and unpredictable non-planar behaviors like 
+nodal line dislocation and distortion. 
+CRediT authorship contribution statement 
+Hyebin Kang: Data curation, Formal analysis, Methodology, Writing 
+– original draft. Kyu Tae Kim: Conceptualization, Formal analysis, 
+Funding acquisition, Methodology, Project administration, Writing – 
+original draft, Writing – review & editing. 
+Declaration of competing interest 
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper. 
+Acknowledgments 
+This work was supported by the Korea Institute of Energy Technol­
+ogy Evaluation and Planning (KETEP) and the Ministry of Trade, In­
+dustry & Energy (MOTIE) of the Republic of Korea (Grant # 
+20206710100060, Development of Low NOx Hydrogen Combustor for 
+Distributed Power Generation Gas Turbine; Grant # 20214000000310, 
+Human Resources Program in Energy Technology). 
+References 
+[1] Be´er JM. Combustion technology developments in power generation in response to 
+environmental challenges. Prog Energy Combust Sci 2000;26:301–27. https://doi. 
+org/10.1016/S0360-1285(00)00007-1. 
+[2] Gahleitner G. Hydrogen from renewable electricity: an international review of 
+power-to-gas pilot plants for stationary applications. Int J Hydrogen Energy 2013; 
+38(5):2039–61. https://doi.org/10.1016/j.ijhydene.2012.12.010. 
+[3] ¨Oberg S, Odenberger M, Johnsson F. Exploring the competitiveness of hydrogen- 
+fueled gas turbines in future energy systems. Int J Hydrogen Energy 2022;47(1): 
+624–44. https://doi.org/10.1016/j.ijhydene.2021.10.035. 
+[4] York WD, Ziminsky WS, Yilmaz E. Development and testing of a low NOx hydrogen 
+combustion system for heavy-duty gas turbines. J Eng Gas Turbines Power 2013; 
+135(2):022001. https://doi.org/10.1115/1.4007733. 
+[5] Funke HHW, Beckmann N, Abanteriba S. An overview on dry low NOx micromix 
+combustor development for hydrogen-rich gas turbine applications. Int J Hydrogen 
+Energy 2019;44(13):6978–90. https://doi.org/10.1016/j.ijhydene.2019.01.161. 
+[6] Jaeschke A, ´Cosi´c B, Wassmer D, Paschereit CO. Experimental investigation of a 
+multi tube burner for premixed hydrogen and natural gas low emission 
+combustion. J Eng Gas Turbines Power 2023;145(12):121010. https://doi.org/ 
+10.1115/1.4063378. 
+[7] Fruzza F, Lamioni R, Tognotti L, Galletti C. Flashback of H2-enriched premixed 
+flames in perforated burners: numerical prediction of critical velocity. Int J 
+Hydrogen Energy 2023;48(81):31790–801. https://doi.org/10.1016/j. 
+ijhydene.2023.04.252. 
+[8] Vance FH, de Goey LPH, van Oijen JA. Prediction of flashback limits for laminar 
+premixed hydrogen-air flames using flamelet generated manifolds. Int J Hydrogen 
+Energy 2023;48(69):27001–12. https://doi.org/10.1016/j.ijhydene.2023.03.262. 
+[9] Pers H, Aniello A, Morisseau F, Shuller T. Autoignition-induced flashback in 
+hydrogen-enriched laminar premixed burners. Int J Hydrogen Energy 2023;48(27): 
+10235–49. https://doi.org/10.1016/j.ijhydene.2022.12.041. 
+[10] Jim´enez C, Fern´andez-Galisteo D, Kurdyumov VN. DNS study of the propagation 
+and flashback conditions of lean hydrogen-air flames in narrow channels: 
+symmetric and non-symmetric solutions. Int J Hydrogen Energy 2015;40(36): 
+12541–9. https://doi.org/10.1016/j.ijhydene.2015.07.037. 
+[11] Tuncer O, Acharya S, Uhm JH. Dynamics, NOx and flashback characteristics of 
+confined premixed hydrogen-enriched methane flames. Int J Hydrogen Energy 
+2009;34(1):496–506. https://doi.org/10.1016/j.ijhydene.2008.09.075. 
+[12] Zhao FC, Sun BG, Yuan S, Bao LZ, Wei H, Luo QH. Experimental and modeling 
+investigations to improve the performance of the near-zero NOx emissions direct- 
+injection hydrogen engine by injection optimization. Int J Hydrogen Energy 2024; 
+49(B):713–24. https://doi.org/10.1016/j.ijhydene.2023.09.039. 
+[13] Marragou S, Magnes H, Poinsot T, Selle L, Schuller T. Stabilization regimes and 
+pollutant emissions from a dual fuel CH4/H2 and dual swirl low NOx burner. Int J 
+Hydrogen Energy 2022;47(44):19275–88. https://doi.org/10.1016/j. 
+ijhydene.2022.04.033. 
+[14] Pan H, Geng S, Yang H, Zhang G, Bian H, Liu Y. Influence of H2 blending on NOx 
+production in natural gas combustion: mechanism comparison and reaction routes. 
+Int J Hydrogen Energy 2023;48(2):784–97. https://doi.org/10.1016/j. 
+ijhydene.2022.09.251. 
+[15] Choi Y, Kim KT. Strong flame interaction-induced collective dynamics of multi- 
+element lean-premixed hydrogen flames. Int J Hydrogen Energy 2023;48(5): 
+2030–43. https://doi.org/10.1016/j.ijhydene.2022.10.091. 
+[16] Giannotta A, Cherubini S, De Palma P. The effect of hydrogen enrichment on 
+thermoacoustic instabilities in laminar conical premixed methane/air flames. Int J 
+Hydrogen Energy 2023;48(96):37654–65. https://doi.org/10.1016/j. 
+ijhydene.2023.06.118. 
+[17] Kroniger D, Kamiya H, Horikawa A. Investigation of combustion oscillation modes 
+of hydrogen micromix flames. In: ASME Conference Proceedings; GT2023-102068. 
+https://doi.org/10.1115/GT2023-102068. 
+[18] Lee T, Kim KT. High-frequency transverse combustion instabilities of lean- 
+premixed multislit hydrogen-air flames. Combust Flame 2022;238:111899. 
+https://doi.org/10.1016/j.combustflame.2021.111899. 
+[19] Park D, Lee T, Kim KT. Rotational symmetry-driven modal dynamics of high- 
+frequency transverse instabilities in a lean-premixed multislit hydrogen combustor. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         
+
+
+--- Page 9 ---
+
+International Journal of Hydrogen Energy 65 (2024) 142–150
+150
+Combust Flame 2022;245:112356. https://doi.org/10.1016/j. 
+combustflame.2022.112356. 
+[20] O’Connor J, Acharya V, Lieuwen T. Transverse combustion instabilities: acoustic, 
+fluid mechanic, and flame processes. Prog Energy Combust Sci 2015;49:1–39. 
+https://doi.org/10.1016/j.pecs.2015.01.001. 
+[21] Hauser M, Lorenz M, Sattelmayer T. Influence of transversal acoustic excitation of 
+the burner approach f low on the flame structure. J Eng Gas Turbines Power 2010; 
+133(4):041501. https://doi.org/10.1115/1.4002175. 
+[22] Schwing J, Grimm F, Sattelmayer T. A model for the thermo-acoustic feedback of 
+transverse acoustic modes and periodic oscillations in flame position in cylindrical 
+flame tubes. In: ASME Conference Proceedings; GT2012-68775. https://doi.org/1 
+0.1115/GT2012-68775. 
+[23] Hertweck M, Berger FM, Hummel T, Sattelmayer T. Impact of the heat release 
+distribution on high-frequency transverse thermoacoustic driving in premixed 
+swirl flames. Int J Spray Combust Dyn 2017;9(3):143–54. https://doi.org/ 
+10.1177/1756827716672471. 
+[24] Berger FM, Hummel T, Hertweck M, Kaufmann J, Schuermans B, Sattelmayer T. 
+High-frequency thermoacoustic modulation mechanisms in swirl-stabilized gas 
+turbine combustors – Part I: experimental investigation of local flame response. 
+J Eng Gas Turbines Power 2017;139(7):071501. https://doi.org/10.1115/ 
+1.4035591. 
+[25] Hummel T, Berger F, Hertweck M, Schuermans B, Sattelmayer T. High-frequency 
+thermoacoustic modulation mechanisms in swirl-stabilized gas turbine combustors 
+– Part II: modeling and analysis. J Eng Gas Turbines Power 2017;139(7):071502. 
+https://doi.org/10.1115/1.4035592. 
+[26] M´ery Y. Dynamical response of a perfectly premixed flame and limit behavior for 
+high power density systems. Combust Flame 2018;192:410–25. https://doi.org/ 
+10.1016/j.combustflame.2018.02.007. 
+[27] Acharya VS, Lieuwen TC. Significance of the direct excitation mechanism for high- 
+frequency response of premixed flames to flow oscillations. J Eng Gas Turbines 
+Power 2021;143(1):001005. https://doi.org/10.1115/1.4049204. 
+[28] Acharya VS, Lieuwen TC. Optimum multi-nozzle configuration for minimizing the 
+Rayleigh integral during high-frequency transverse instabilities. In: ASME 
+Conference Proceedings; GT2021-60285. https://doi.org/10.1115/GT2021-60285. 
+[29] Philo JJ, Gejji RM, Slabaugh CD. Injector-coupled transverse instabilities in a 
+multi-element premixed combustor. Int J Spray Combust Dyn 2020;12: 
+1756827720932832. https://doi.org/10.1177/1756827720932832. 
+[30] Bellucci V, Flohr P, Paschereit CO, Magni F. On the use of Helmholtz resonators for 
+damping acoustic pulsations in industrial gas turbines. J Eng Gas Turbines Power 
+2004;126(2):271–5. https://doi.org/10.1115/1.1473152. 
+[31] Bourquard C, Noiray N. Stabilization of acoustic modes using Helmholtz and 
+Quarter-wave resonators tuned at exceptional points. J Sound Vib 2019;445: 
+288–307. https://doi.org/10.1016/j.jsv.2018.12.011. 
+[32] Noiray N, Schuermans B. Theoretical and experimental investigations on damper 
+performance for suppression of thermoacoustic oscillations. J Sound Vib 2012;331 
+(12):2753–63. https://doi.org/10.1016/j.jsv.2012.02.005. 
+[33] Zhang Z, Zhao D, Han N, Wang S, Li J. Control of combustion instability with a 
+tunable Helmholtz resonator. Aero Sci Technol 2015;41:55–62. https://doi.org/ 
+10.1016/j.ast.2014.12.011. 
+[34] Zhao D, A’Barrow C, Morgans AS, Carrotte J. Acoustic damping of a Helmholtz 
+resonator with an oscillating volume. AIAA J 2009;47(7):1672–9. https://doi.org/ 
+10.2514/1.39704. 
+[35] Dup`ere IDJ, Dowling AP. The use of Helmholtz resonators in a practical combustor. 
+J Eng Gas Turbines Power 2005;127(2):268–75. https://doi.org/10.1115/ 
+1.1806838. 
+[36] Tam CKW, Kurbatskii KA, Ahuja KK, Gaeta RJ. A numerical and experimental 
+investigation of the dissipation mechanisms of resonant acoustic liners. J Sound 
+Vib 2001;245(3):545–57. https://doi.org/10.1006/jsvi.2001.3571. 
+[37] Zhao D, Morgans AS, Dowling AP. Tuned passive control of acoustic damping of 
+perforated liners. AIAA J 2011;49(4):725–34. https://doi.org/10.2514/1.J050613. 
+[38] Bothien MR, Noiray N, Schuermans B. A novel damping device for broadband 
+attenuation of low-frequency combustion pulsations in gas turbines. J Eng Gas 
+Turbines Power 2014;136(4):041504. https://doi.org/10.1115/1.4025761. 
+[39] Mazur M, Nygård HT, Dawson J, Worth N. Experimental study of damper position 
+on instabilities in an annular combustor. In: ASME Conference Proceedings; 
+GT2018-75070. https://doi.org/10.1115/GT2018-75070. 
+[40] Mensah GA, Moeck JP. Acoustic damper placement and tuning for annular 
+combustors: an adjoint-based optimization study. J Eng Gas Turbines Power 2017; 
+139(6):061501. https://doi.org/10.1115/1.4035201. 
+[41] Zhao D, Morgans AS. Tuned passive control of combustion instabilities using 
+multiple Helmholtz resonators. J Sound Vib 2009;320(4–5):744–57. https://doi. 
+org/10.1016/j.jsv.2008.09.006. 
+[42] Zhijian Y, Yang Y. Impact of dual-volume Helmholtz dampers on longitudinal and 
+azimuthal thermo-acoustic instabilities in an annular combustor. J Therm Sci 2022; 
+31(6):2225–43. https://doi.org/10.1007/s11630-022-1692-8. 
+[43] Scarpato A, Tran N, Ducruix S, Schuller T. Modeling the damping properties of 
+perforated screens traversed by a bias flow and backed by a cavity at low Strouhal 
+number. J Sound Vib 2012;331(2):276–90. https://doi.org/10.1016/j. 
+jsv.2011.09.005. 
+[44] Scarpato A, Ducruix S, Schuller T. Optimal and off-design operations of acoustic 
+dampers using perforated plates backed by a cavity. J Sound Vib 2013;332(20): 
+4856–75. https://doi.org/10.1016/j.jsv.2013.03.030. 
+[45] Kang H, Kim KT. Combustion dynamics of multi-element lean-premixed hydrogen- 
+air flame ensemble. Combust Flame 2021;233:111585. https://doi.org/10.1016/j. 
+combustflame.2021.111585. 
+[46] Kang H, Yoon C, Kim KT. Experimental and numerical investigations of forced 
+response of multi-element lean-premixed hydrogen flames. Combust Flame 2023; 
+258:113079. https://doi.org/10.1016/j.combustflame.2023.113079. 
+[47] Acoustics - determination of sound absorption coefficient and impedance in 
+impedance tubes, Part 2: two-microphone technique for normal sound absorption 
+coefficient and normal surface impedance. 2023. ISO Standard No. 10534-2:2023, 
+https://www.iso.org/standard/81294.html. 
+[48] Goodwin DG, Speth RL, Schoegl I, Moffat HK, Weber BW. Cantera: an object- 
+oriented software toolkit for chemical kinetics, thermodynamics, and transport 
+processes. 2022., Version 2.6.0. https://www.cantera.org. 
+[49] Bourgouin JF, Durox D, Moeck JP, Schuller T, Candel S. Self-sustained instabilities 
+in an annular combustor coupled by azimuthal and longitudinal acoustic modes. 
+In: ASME Conference Proceedings; GT2013-95010. https://doi.org/10.1115/GT2 
+013-95010. 
+[50] Dawson JR, Worth NA. Flame dynamics and unsteady heat release rate of self- 
+excited azimuthal modes in an annular combustor. Combust Flame 2014;161: 
+2565–78. https://doi.org/10.1016/j.combustflame.2014.03.021. 
+[51] Howe MS. On the theory of unsteady high Reynolds number flow through a 
+circular aperture. In: Proc R soc lond A; 1979. p. 205–23. 366, http://www.jstor. 
+org/stable/79799. 
+[52] Hughes IJ, Dowling AP. The absorption of sound by perforated linings. J Fluid 
+Mech 1990;218:299–335. https://doi.org/10.1017/S002211209000101X. 
+[53] Melling TH. The acoustic impedance of perforates at medium and high sound 
+pressure levels. J Sound Vib 1973;29(1):1–65. https://doi.org/10.1016/S0022- 
+460X(73)80125-7. 
+H. Kang and K.T. Kim                                                                                                                                                                                                                         

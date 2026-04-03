@@ -1,0 +1,2127 @@
+
+--- Page 1 ---
+
+Advances in laser diagnostics for swirl combustion: current progress and 
+future directions☆
+Guoqing Wang *
+, Mingming Gu , Liangliang Xu , Shuyue Lai , Xi Xia , Fei Qi *
+School of Mechanical Engineering, Shanghai Jiao Tong University, Shanghai 200240, China
+A R T I C L E  I N F O
+Keywords:
+Laser diagnostics
+Swirling flame
+Low-carbon combustion
+High-speed imaging
+Turbulent reacting flows
+A B S T R A C T
+Swirl combustion is a fundamental feature in modern energy conversion systems, particularly in gas turbines and 
+aeroengines, where it enhances flame stabilization, mixing efficiency, and emissions control. The global shift 
+toward low- and zero-carbon fuels, such as ammonia and hydrogen, introduces new challenges in swirl com­
+bustion environments, including altered flow dynamics, temperature distributions, and chemical reaction 
+pathways. In this context, laser-based diagnostic techniques have undergone significant advances, enabling non- 
+intrusive, high-resolution, time-resolved measurements of velocity fields, scalar distributions, and reaction zone 
+structures in swirl-stabilized flames. This review summarizes recent progress in major laser diagnostic methods, 
+including high-speed particle image velocimetry, planar laser-induced fluorescence, laser absorption spectros­
+copy, Rayleigh scattering, and Raman scattering based techniques. Developments in multiphysics and hybrid 
+techniques are also discussed. Additionally, we emphasizes representative laser diagnostic advancements driven 
+by high-temperature and low-carbon combustion technologies. The co-evolution of laser technology, diagnostic 
+methods, and swirl combustion is discussed to show how advances in each area have accelerated progress in the 
+others. Finally, the review outlines remaining scientific challenges, practical barriers to industrial application, 
+and future research priorities, with emphasis on diagnostics for extreme conditions, AI-driven data analysis, and 
+compact in-situ measurement solutions for next-generation swirl combustion systems.
+1. Introduction
+Swirling flames play a pivotal role in both fundamental combustion 
+research and a variety of industrial applications. Their ability to enhance 
+fuel–air mixing and stabilize combustion makes them essential in sectors 
+such as power generation and aero-propulsion. The introduction of swirl 
+generates complex flow structures, most notably recirculation zones, 
+vortex cores and helical vortices, as illustrated in Fig. 1(a). These flow 
+features, together with their interaction with the flame, are visualized 
+through diverse cases, including the technically premixed methane–air 
+[1], attached hydrogen [2], and high-pressure ammonia–air swirling 
+flames [3] in Fig. 1. Such structures promote the entrainment and 
+mixing of hot gases and reactive radicals with incoming fresh mixtures, 
+thereby sustaining continuous ignition and stabilizing the flame [4,5]. 
+These features are critical for achieving high thermal efficiency and low 
+emissions in advanced combustion systems [6].
+To meet increasing demands for performance and environmental 
+compliance, combustion technologies in gas turbines and aeroengines 
+are continually evolving. A central objective is to achieve higher com­
+bustion temperatures and pressures to improve overall engine effi­
+ciency. However, elevated temperatures also intensify the formation of 
+nitrogen oxides (NOx), posing a significant environmental challenge. To 
+mitigate NOx emissions while maintaining performance, modern sys­
+tems increasingly adopt low-emission strategies, particularly lean- 
+premixed combustion. This approach operates at low equivalence ra­
+tios to suppress pollutant formation.
+Several notable lean-premixed combustion technologies have 
+emerged in this context, including dry low NOx (DLN) combustors, lean 
+premixed prevaporized (LPP) systems, twin annular premixing swirler 
+(TAPS) technology, and lean direct injection (LDI). DLN systems use 
+staged fuel injection with precise air–fuel ratio control across multiple 
+zones, employing advanced swirlers for flame stabilization [8–10]. LPP 
+systems utilize engineered swirling flows to form distinct recirculation 
+zones (primary, corner, and lip) that enhance mixing, improve flame 
+stability, and reduce emissions [11–13]. TAPS technology features dual 
+concentric swirlers operating at different equivalence ratios, a central 
+* Corresponding author at: School of Mechanical Engineering, 501, Mechanical Building A, 800 Dongchuan Road, Minhang District, Shanghai Jiao Tong University, 
+Shanghai 200240, China.
+E-mail addresses: wgqing@sjtu.edu.cn (G. Wang), fqi@sjtu.edu.cn (F. Qi). 
+Contents lists available at ScienceDirect
+Experimental Thermal and Fluid Science
+journal homepage: www.elsevier.com/locate/etfs
+https://doi.org/10.1016/j.expthermflusci.2025.111666
+Received 22 May 2025; Received in revised form 10 August 2025; Accepted 23 November 2025  
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+Available online 30 November 2025 
+0894-1777/© 2025 Elsevier Inc. All rights are reserved, including those for text and data mining, AI training, and similar technologies. 
+
+
+--- Page 2 ---
+
+pilot zone for stability, and an ultra-lean main zone for emissions 
+reduction [14,15]. Similarly, LDI systems aim to minimize premixing 
+residence time to reduce flashback risk while still enabling low-emission 
+combustion. Studies across these systems demonstrate that optimized 
+fuel injection and controlled swirling flows significantly shape flame 
+structure and suppress instabilities [16–18]. These engineering ad­
+vances enable modern gas turbines to achieve stable, efficient combus­
+tion with substantially lower emissions than traditional diffusion flame 
+combustors [19].
+Despite these advancements, lean-premixed flames are inherently 
+more susceptible to thermoacoustic instabilities, self-excited oscillations 
+driven by the interaction between heat release and pressure waves 
+[5,20]. These oscillations, often resonant in nature, remain a focal point 
+of combustion research due to their potential to cause structural damage 
+and operational instability. Advanced diagnostic tools are essential to 
+characterize and mitigate these dynamic phenomena, with laser-based 
+techniques proving particularly effective in capturing the high-speed, 
+complex behavior of swirling flames [21,22].
+Another critical trajectory in combustion research is the integration 
+of low-carbon and carbon-free fuels to address global decarbonization 
+goals. Given the urgent need to reduce carbon dioxide (CO2) emissions 
+from turbomachinery, several strategies are being explored, including 
+the adoption of sustainable aviation fuels, development of zero-carbon 
+fuel propulsion systems, improvements in thermal efficiency, and 
+deployment of carbon capture, utilization, and storage technologies 
+[23]. Among these approaches, carbon-free fuels, such as hydrogen (H2) 
+and ammonia (NH3), present the most transformative potential for long- 
+term combustion technology. These “novel” fuels exhibit significantly 
+different physical and chemical properties compared to conventional 
+hydrocarbons (e.g., natural gas, kerosene), resulting in unique com­
+bustion behaviors under swirling flow conditions.
+Hydrogen, for instance, is gaining significant attention due to its high 
+reactivity and clean combustion profile. With a laminar flame speed of 
+up to 3.51 m/s, approximately seven times that of methane (CH4), and a 
+wide flammability range (4–75 % by volume), hydrogen enables stable 
+and rapid combustion [24]. However, its low volumetric density and 
+strong propensity for flashback, much higher than natural gas, pose 
+design and safety challenges. Additionally, high-frequency pressure 
+fluctuations (>1000 Hz) during hydrogen combustion can couple with 
+the chamber’s acoustic modes, triggering thermoacoustic instabilities 
+that may cause hardware degradation, such as nozzle erosion and liner 
+failure [25,26].
+Ammonia is another promising candidate for carbon-free energy, 
+particularly in power generation and the marine sectors. Due to its low 
+reactivity and narrow flammability range, ammonia combustion is 
+prone to blow-off, requiring careful attention to flame stabilization. 
+Extensive research has focused on understanding ammonia’s combus­
+tion dynamics in swirling flows, with particular emphasis on flame 
+stabilization and NOx formation [27,28]. Unique to ammonia is its fuel- 
+type nitrogen, which can produce substantial NOx and nitrous oxide 
+(N2O) emissions, the latter being a potent greenhouse gas with a global 
+warming potential nearly 300 times that of CO2 [29–31]. Consequently, 
+efforts to optimize ammonia combustion prioritize enhancing stability 
+while minimizing pollutant formation.
+The intricate flame behaviors introduced by these emerging fuels and 
+advanced combustor designs underscore the need for advanced diag­
+nostic tools. Laser diagnostics have emerged as indispensable in this 
+context, offering non-intrusive, high-resolution measurements of key 
+parameters such as temperature, species concentrations, and velocity 
+fields [22,32,33]. Techniques like particle image velocimetry (PIV) 
+[34–45], planar laser-induced fluorescence (PLIF) [38,46–60], Rayleigh 
+scattering [61–64], spontaneous Raman scattering (SRS) [65–76], and 
+so on have enabled detailed visualization of vortex–flame interactions, 
+combustion instabilities, and pollutant formation mechanisms.This re­
+view focuses on recent advancements in laser diagnostics for swirl 
+combustion, highlighting high-speed imaging techniques, advanced 
+spectroscopic methods, and multi-parameter measurement strategies 
+that address challenges in high-temperature and low-carbon combustion 
+technologies. To provide a structured overview of recent developments 
+in this field, this review is organized into four main sections. Section 2
+discusses the relationship between advancements in laser technology, 
+diagnostic methods, and swirl combustion research, highlighting their 
+co-evolution and mutual influence. Section 3 presents a detailed review 
+of diagnostic progress, distinguishing between developments driven by 
+Fig. 1. (a) Three-dimensional visualization of swirling flow features: the internal recirculation zone, the meandering vortex core and helical waves in the outer shear 
+layer [7]; Visualizations of (b) technically premixed methane-air swirling flame on Turbomeca gas turbine model combustor [1]; (c) attached hydrogen swirling 
+flame with the HYLON injector [2]; (d) ammonia-air swirling flame under high pressure [3].
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+2 
+
+
+--- Page 3 ---
+
+high-temperature combustion systems and those motivated by emerging 
+low- and zero-carbon fuels. This includes recent innovations in flow, 
+species, and temperature measurements under increasingly complex 
+combustion conditions. Section 4 concludes the review by summarizing 
+current achievements and outlining critical challenges and prospective 
+research directions aimed at advancing laser-based diagnostics for next- 
+generation swirl combustion systems.
+2. The interplay between laser technology, diagnostic method, 
+and swirl combustion
+The advancement of swirl combustion research is deeply intertwined 
+with progress in laser sources and diagnostic technologies. This synergy 
+manifests through two mutually reinforcing development cycles as 
+shown in Fig. 2.
+2.1. Co-evolution of laser sources and diagnostic capabilities
+Progress in laser technology, particularly Nd:YAG solid-state lasers 
+widely used in combustion diagnostics, continues to expand the frontiers 
+of measurement capabilities. Key parameters such as output energy, 
+repetition rate, pulse width, and wavelength tunability have been 
+significantly enhanced [23]. Modern commercial Nd:YAG lasers can 
+now deliver pulse energies from several to tens of joules. The emergence 
+of diode-pumped solid-state lasers and fiber lasers has introduced sys­
+tems capable of higher repetition rates and improved beam quality. 
+Their repetition rates have advanced from early 10 Hz to kilohertz 
+(kHz), tens of kHz, and even megahertz (MHz) levels [77], significantly 
+enhancing the temporal resolution of measurements. In addition, diode 
+and fiber seed-injection techniques [78,79] have transformed Nd:YAG 
+lasers from unstable, broadband sources (linewidth ≈0.5 nm, timing 
+jitter ≈ns) into precision instruments with ultra-narrow linewidths (<
+0.001 nm) and exceptional timing stability (< 1 ps jitter). Femtosecond 
+laser systems have likewise evolved from bulky dye-based setups (pulse 
+energy in the nJ range, pulse duration ≈100 fs) to compact, high-power 
+Ti:sapphire sources (pulse energy in the mJ–J range, pulse duration ≈
+20–50 fs) and fiber-based systems (pulse energy in the µJ–mJ range, 
+pulse duration ≈50–500 fs). Breakthroughs in Chirped pulse amplifi­
+cation (CPA) [80,81], optical parametric CPA, and high-harmonic gen­
+eration have further advanced commercially available ultrafast 
+femtosecond lasers, enabling more precise and stable control over pulse 
+characteristics.
+These developments have directly enabled new diagnostic modal­
+ities. For instance, the effectiveness of high-speed optical diagnostics is 
+closely tied to advancements in laser technology. High-repetition-rate 
+lasers have facilitated high-speed techniques up to 10 to 1000 kHz 
+such as PIV [34,36,38–40,42,44,45], PLIF [46,48,50,52–55], filtered 
+Rayleigh scattering (FRS) [61–64], spontaneous Raman scattering 
+[69,70], and ultrafast diagnostics including femtosecond-based 
+nonlinear Coherent Anti-Stokes Raman Scattering (CARS) [82–84]. 
+The advanced laser diagnostics achieved higher temporal and spatial 
+resolutions, improved measurement accuracy, and multi-parameter 
+sensing.
+Importantly, this development cycle 1 is bidirectional: the increasing 
+demands of laser diagnostics, for better beam quality, stability, and 
+tunability, have in turn driven innovations in laser technology. 
+Together, laser development and diagnostic capabilities form a positive 
+feedback loop.
+2.2. Integration of laser diagnostics in swirl combustion research
+The second cycle in Fig. 2 exists between laser diagnostics and tur­
+bulent swirl combustion studies. As diagnostics improve, researchers 
+gain unprecedented insight into the swirling flow, mixing, and reaction 
+structures that characterize swirl-stabilized flames.
+High-speed PIV and laser Doppler velocimetry (LDV) allow for time- 
+resolved measurements of flow structures. Advanced techniques, such as 
+time-resolved stereo PIV and tomographic PIV, reconstruct complex 
+vortex dynamics in two-dimensional (2D-3C) [35,36,40,42,45] and 
+three-dimensional (3D-3C) velocity fields [37,41,43]. Similarly, high- 
+speed PLIF provides real-time visualization of fuel and reactive species 
+[46,48,50,52–55], while OH-PLIF enables simultaneous mapping of 
+radicals at the flame front and post-flame regions. Imaging multiple 
+species PLIF simultaneously using one single [38,51,56–60] or multiple 
+lasers [47,49,50] are also developed to examine turbulence-chemistry 
+interactions. Emerging broadband Raman scattering techniques allow 
+quantitative species measurements in hydrocarbon, hydrogen, and 
+ammonia-based flames [65–68,73–76]. The transition of Raman spec­
+troscopy from 1D line measurements to 2D spatial mapping facilitates 
+the investigation of key scalar fields [71,72], such as scalar dissipation 
+rates, critical for understanding flamelet behavior and extinction 
+phenomena.
+Conversely, the complex and unsteady dynamics inherent in swirl 
+combustion, including ignition, blowout, flashback, extinction, and 
+acoustic or plasma-coupled flame responses, demand high-fidelity di­
+agnostics of velocity, temperature, species concentration, and heat 
+release. Addressing these challenges continues to drive diagnostic 
+innovation, reinforcing this second feedback loop.
+2.3. Scope and focus of this review
+Laser technology, diagnostic methods, and swirl combustion 
+research are closely interlinked through these two cycles of mutual 
+reinforcement. Each domain continues to push the boundaries of the 
+others, resulting in accelerated progress across all three. While 
+numerous reviews [22,77,85–87] have addressed technical details 
+within each individual area, the focus of this work is on their synergistic 
+evolution. Specifically, this review explores two key developmental 
+pathways: the progression of conventional low-emission swirl combus­
+tion and its reciprocal influence on laser technology and diagnostic 
+methods. The rise of low-carbon swirl combustion systems and the 
+emergence of novel diagnostics and laser tools tailored to these 
+Fig. 2. Schematic representation of the interplay between laser technology, diagnostic methods, and swirl combustion research. The diagram illustrates two mutually 
+reinforcing developmental cycles that drive innovation across these interconnected fields.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+3 
+
+
+--- Page 4 ---
+
+applications. By clarifying the interplay among these domains, we aim to 
+provide insight and direction for future research in both swirl combus­
+tion and advanced laser diagnostics.
+Before discussing the specific applications of laser diagnostics in 
+swirl combustion and their mutual influence, we first summarize the 
+principal laser-based diagnostic techniques relevant to swirl combus­
+tion. Table 1 presents representative and widely adopted methods, 
+including LDV, PIV, PLIF, LAS, SRS, CARS, and FRS. While not 
+exhaustive, this selection covers techniques frequently reported in the 
+literature. The qualitative comparisons are drawn from reviewed refer­
+ences and focus on key performance attributes: measured quantities 
+(velocity, species concentration, temperature), temporal resolution, 
+repetition rate, spatial resolution, species selectivity, fuel compatibility, 
+pressure range, environmental robustness, accuracy, and relative cost. 
+This overview highlights the strengths and limitations of each method, 
+providing a foundation for the subsequent discussion on their applica­
+tions and technological interplay.
+3. Evolution and applications of laser diagnostics in swirl 
+combustion
+3.1. Developments driven by high-temperature combustion technologies
+The development of high-repetition-rate laser diagnostics has been 
+largely driven by the need to understand the complex dynamics of high- 
+temperature combustion systems, particularly in swirling flames. In gas 
+turbine combustors, dynamic processes such as flame stabilization and 
+extinction, combustion instabilities, and pollutant formation pose sig­
+nificant challenges for both experimental and numerical investigations 
+[88]. Among these, thermoacoustic instability stands out as a key un­
+steady phenomenon where interactions between acoustic waves, flow 
+fields, and flame dynamics result in the formation of coherent periodic 
+structures. These instabilities exemplify the intricate coupling mecha­
+nisms in swirl combustion.
+To capture and analyze such rapidly evolving phenomena, high- 
+repetition-rate laser diagnostics have become essential. They enable 
+time-resolved measurements that provide insights into the fundamental 
+mechanisms governing flame response, vortex-flame interactions, and 
+instability-induced structures. Advanced diagnostics have significantly 
+deepened our understanding of these complex systems and offered 
+pathways to optimize combustion performance both theoretically and 
+practically.
+3.1.1. Laser-based flow field diagnostics in swirling flames
+Laser-based diagnostics are indispensable tools for resolving the 
+complex fluid dynamics in swirl combustion. Techniques such as LDV 
+and PIV have played foundational roles in characterizing velocity fields 
+and coherent structures.
+LDV provides point-wise velocity measurements by detecting the 
+Doppler shift in scattered laser light. Its high temporal resolution makes 
+it ideal for studying unsteady features in swirling flows. For example, 
+Durox et al. [89] used LDV to obtain axial and radial velocity compo­
+nents at various axial and radial positions in a swirl combustion cham­
+ber. LDV allows to observe how changes in the swirl number (e.g., 
+through variation of inlet guide vanes) affect the velocity field, flow 
+structure, and flame dynamics (Fig. 3). Such measurements are critical 
+for identifying jet penetration, recirculation zones, and validating 
+computational fluid dynamics (CFD) models or complementing other 
+diagnostics like chemiluminescence imaging [90].
+PIV, in contrast, captures two- or three-dimensional velocity fields by 
+tracking seeded particles over short intervals. Stereoscopic and dual- 
+plane PIV configurations enable full three-component velocity vector 
+measurements, which are particularly suited for analyzing complex, 
+transient phenomena such as precessing vortex cores (PVCs) and recir­
+culation zones [42,48,91]. Low-speed PIV (~10 Hz) can reveal average 
+and fluctuating characteristics of swirling flows, while high-speed PIV 
+(up to 100 kHz) captures transient structures in real time.
+For instance, Sweeney et al. [25] showed that moderately swirling 
+flames form compact recirculation zones comparable to those of pre­
+mixed or stratified non-swirling flames, as shown in Fig. 4. The shape of 
+the recirculation zone changes significantly with high swirl, extending 
+farther downstream and entraining dilute products of combustion. Such 
+insights were only made possible through the application of PIV.
+The evolution of high-repetition-rate laser sources, from early Q- 
+Table 1 
+Comparison of laser diagnostic techniques in swirl combustion research.
+Diagnostic 
+technique
+Laser Doppler 
+Velocimetry 
+(LDV)
+Particle Image 
+Velocimetry 
+(PIV)
+Planar Laser- 
+Induced 
+Fluorescence (PLIF)
+Laser Absorption 
+Spectroscopy (LAS)
+Spontaneous 
+Raman Scattering 
+(SRS)
+Coherent Anti-Stokes 
+Raman Scattering 
+(CARS)
+Filtered Rayleigh 
+Scattering (FRS)
+Measured 
+Quantities
+Velocity
+Velocity
+Species 
+concentration,
+Species 
+concentration,
+Species 
+concentration
+Species 
+concentration,
+Temperature
+Temperature
+Temperature
+Temperature
+Temporal 
+Resolutiona
+High (µs)
+Moderate 
+(µs–ms)
+High (ns–µs)
+Moderate (µs–ms)
+High (ns–µs)
+Ultra High (fs–ns)
+High (ns–µs)
+Repetition Rate
+kHz–MHz
+Hz–kHz
+Hz–kHz
+kHz–MHz
+Hz–kHz
+Hz–kHz
+Hz–kHz
+Spatial 
+Resolution
+Point-wiseb
+High (2D, 3D)
+High (2D, 3D)
+Line-of-sight
+Point-wiseb or 1D
+Point-wiseb
+High (2D, 3D)
+Species 
+Selectivity
+None
+None
+High
+High
+High
+High
+None
+Fuel 
+Compatibility
+Universal
+Universal
+Fuel-specificc
+Fuel-specificc
+Universal
+Good
+Universal
+Pressure Range
+Wide
+Wide
+Low–Moderate
+Low–Moderate
+Moderate–High
+Moderate–High
+Moderate–High
+Environmental 
+Robustnessd
+High
+High
+Moderate
+Moderate
+Low
+Low
+Moderate
+Accuracy
+High
+Moderate
+Moderate–High
+High
+High
+High
+Moderate
+Relative Coste
+Moderate
+Moderate
+Moderate
+Low
+High
+High
+Moderate
+Note:
+a Temporal resolution refers to the system’s ability to resolve fast transients, while repetition rate depends on the laser/camera. High resolution does not imply high 
+data measuring repetition rate.
+b Point-wise refers to single-point measurements, often requiring scanning to form spatial maps. High (2D, 3D) implies full-field imaging using camera-based 
+systems.
+c Fuel-specific techniques require species with suitable absorption features; others (e.g., LDV, PIV) are applicable across a wide range.
+d Environmental Robustness reflects sensitivity to flame luminosity, particle/droplet contamination, pressure fluctuations, and optical access.
+e Relative Cost is a qualitative estimate based on system complexity, required optics/detectors, and calibration needs.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+4 
+
+
+--- Page 5 ---
+
+Fig. 3. (a) Top views of the radial swirler with variable blade angles. α denotes the angle between the blade chord and the radial direction: α = 42. (b) Mean axial 
+(top) and azimuthal (bottom) velocity profiles measured by LDV for different swirler blade angles α. Adapted from Durox et al. [89] with permission of Elsevier.
+Fig. 4. Mean (r < 0 mm) and fluctuating (r > 0 mm) velocities for non-swirling (top), moderately swirling (middle), and highly swirling (bottom) flows. Streak lines 
+are shown in white, with the mixing layer and mean flame brush marked by short- and long-dashed lines respectively. Reproduced from Sweeney et al. [92] with 
+permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+5 
+
+
+--- Page 6 ---
+
+switched systems to modern burst-mode lasers, has been transformative. 
+Innovations such as regenerative amplification and multistage power 
+amplification have enabled pulse repetition rates of tens to hundreds of 
+kilohertz [77], supporting the development of high-speed PIV. These 
+advancements allow researchers to capture velocity fields at unprece­
+dented temporal resolutions (10–100 kHz) [48,88], uncovering features 
+like vortex-induced flame roll-up, tip extinction, and dynamic in­
+teractions between flow structures and flame fronts, as shown in Fig. 5. 
+Analytical techniques such as proper orthogonal decomposition (POD) 
+and wavelet analysis applied to time-resolved PIV or PLIF data further 
+enable the extraction of dominant flow modes and their temporal evo­
+lution, enhancing the understanding of coherent structure behavior 
+[36,93,94].
+Quantitative vortex analysis has also been promoted based on high- 
+speed flow field measurement [95–98]. Wang et al. [95] utilized 50 kHz 
+PIV and CH* chemiluminescence to investigate unsteady vortex ring 
+behavior in thermoacoustically forced flames. They extracted parame­
+ters such as core vorticity, circulation, and convective velocity of the 
+outer vortex ring (OVR) to identify mechanisms of vortex formation and 
+detachment, and their influence on flame heat release (Fig. 6). These 
+studies confirmed that vortex behavior, while altered by acoustic exci­
+tation, adheres to fundamental vortex dynamics principles.
+The central recirculation zone (CRZ) is an essential feature in 
+swirling flames, including the blue whirl [99,100], which emerges due 
+to vortex breakdown. Wang et al. [101] recently analyzed the ISL of 
+swirling flow, and found that the boundary between the cases with and 
+without CRZ, as shown in Fig. 7, collapses to a single line for all test 
+cases, yielding a critical Reynolds number of 424 ± 11. This highlighted 
+that CRZ formation is closely tied to the strength of the inner shear layer 
+(ISL) and the viscosity of burned gases, adding depth to the current 
+understanding of CRZ mechanisms.
+Synchronized measurements such as PIV/CH2O PLIF have revealed 
+how acoustically induced vortices modulate flame front fluctuations and 
+heat release rates [55,102]. Ren et al. [103] identified two distinct 
+vortex–flame interaction regimes in V-shaped premixed flames: weak 
+interaction in lean flames (interrupted by tip extinction), and strong 
+interaction near stoichiometric conditions, where vortex strength syn­
+chronizes with heat release rate. Wang et al. [54] investigated phase- 
+averaged vortex cores and CH2O fields of a centrally staged 
+combustor, as shown in Fig. 8. They found that PVC in the pilot flame 
+drives coherent heat release rate (HRR) fluctuations, while the outer 
+helical vortex (OHV) contributes to additional HRR via flame tip 
+stretching and roll-up. The PVC affects the primary heat-release process 
+by dictating the convective transport of the reactants upstream of the 
+flame front. The second growth of OHVs, attributed to thermal expan­
+sion, plays a critical role in flame dynamics.
+For 3D swirling flame dynamics, Zheng et al. [104,105] developed 
+dual-plane stereoscopic PIV (DP-s-PIV) technology to reconstruct 3D 
+acoustically induced vortex structures and explored how excitation 
+frequency governs the formation of inner and outer vortex rings. As 
+shown in Fig. 9, their results, in conjunction with further 50 kHz PIV and 
+CH* imaging [95], demonstrated that acoustic frequency modulates 
+vortex behavior and heat release intensity. Most recently, long-duration, 
+kilohertz-rate planar PIV was employed by Wang et al. [54,106] to study 
+the 3D structures of PVC and OHV and their impacts on stratified 
+swirling flames. The reconstructed vortical structures of the primary 
+recirculation zone (PRZ), lip recirculation zone (LRZ), PVC, and OHV 
+are clearly shown in Fig. 10. Their work revealed how different vortex 
+structures, PVC through reactant transport and OHV through flame 
+stretching, regulate combustion behavior. Phase-conditioned analysis 
+with respect to both acoustic signals and vortex phases offered a 
+rigorous approach to resolving local flame dynamics.
+Advancements in laser diagnostics, especially high-speed PIV and its 
+technical variants, have transformed our ability to resolve and interpret 
+the dynamic flow fields in swirl combustion. These tools have revealed 
+the role of recirculation zones (e.g., PRZ, LRZ) and coherent vortex 
+structures (e.g., PVC, OHV, vortex rings) in flame stabilization, extinc­
+tion, and heat release modulation. The integration of time-resolved, 
+quantitative vortex dynamics with advanced vortical analysis con­
+tinues to provide new insights into the fundamental physics governing 
+swirling flow.
+3.1.2. High-speed species measurement techniques in swirling flames
+Simultaneous measurement of flow fields and key chemical species 
+in combustion flames is crucial for investigating combustion chemistry, 
+flame structure, and flame-flow interactions. As such, many studies have 
+integrated flow diagnostics with species measurement techniques to 
+observe both fluid dynamics and chemical evolution in real time 
+[42,48,55,88,102,107,108].
+Various diagnostic techniques are available for detecting combustion 
+species, including chemiluminescence, laser-induced fluorescence (LIF), 
+laser absorption spectroscopy (LAS), Raman scattering, and so on. Each 
+method has specific advantages and limitations, depending on experi­
+mental requirements and species of interest. Among these, PLIF is 
+particularly well-suited for capturing species distributions in high- 
+speed, transient combustion environments, due to its high spatial reso­
+lution, non-intrusive nature, and strong sensitivity.
+PLIF provides 2D imaging capabilities for stable molecular species (e. 
+Fig. 5. Image sequence from 10-kHz stereo-PIV measurements in acoustically unstable flame. The vectors represent the planar velocity (x and y components), and 
+the color bar represents the velocity magnitude (including also the z component). The flame axis is at x  = 0. Adapted from Meier et al. [88] with permission 
+of Springer.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+6 
+
+
+--- Page 7 ---
+
+g., acetone, nitric oxide) and reactive species (e.g., OH, CH2O, CH). 
+Table 2 compares typical PLIF diagnostics used in swirling flames for 
+different species. Recent advances in laser systems, especially the 
+development of burst-mode lasers, have significantly improved the 
+temporal resolution of PLIF, enabling repetition rates up to 1 MHz. 
+When combined with high-speed dye lasers and optical parametric os­
+cillators (OPOs), PLIF can now provide simultaneous, multi-species 
+imaging at repetition rates up to 50 kHz, allowing detailed visualiza­
+tion of turbulent flame chemistry and dynamics [49,86,109].
+High-speed PLIF has yielded critical insights into swirl combustion 
+by capturing transient phenomena such as mixing, ignition, flame sta­
+bilization, and vortex interactions. For example, Boxx et al. [109] used 
+combined OH-PLIF and stereo-PIV at 10 kHz to investigate flame dy­
+namics in a lean premixed gas turbine combustor. They observed strong 
+local periodicity and global fluctuations in velocity and heat release 
+(~364 Hz), though no clear evidence of a PVC was found. St¨ohr et al. 
+[48] combined OH and acetone PLIF with PIV at 10 kHz to study tran­
+sient mixing and combustion in a lean partially-premixed swirling 
+flame. Transport and mixing of fuel is visualized by adding 9 % acetone 
+to the methane. Fuel–air mixing visualized via acetone fluorescence 
+showed that PVC-enhanced mixing helped stabilize the flame, as shown 
+in Fig. 11. Sulfur dioxide PLIF at 20 kHz [110] revealed vortex–flame 
+interactions where vortex circumferential velocities deviated from the 
+main flow, inducing flame contour curling and shedding.
+Simultaneous stereoscopic PIV and OH-PLIF at 10 kHz has also 
+improved understanding of flame–flow coupling, which is essential for 
+low-emission combustor design [42]. Steinberg et al. [107] explored 
+self-excited thermoacoustic oscillations in a gas turbine combustor using 
+OH-PLIF, PIV, and OH* chemiluminescence at 5 kHz. They highlighted 
+the phase interaction between PVC and acoustic modes as a key driver of 
+instability, as shown in Fig. 12. If the two oscillations are in phase, 
+pressure fluctuations can be amplified to create a combustion instability.
+High-speed OH/CH2O PLIF has also revealed pockets of formalde­
+hyde enclosed by OH at flame tips, offering clues on flame stabilization 
+mechanisms. Liu et al. [108] employed simultaneous 20 kHz PIV, 
+acetone PLIF, and CH2O PLIF to investigate V-shaped and lift-off flame 
+transitions in a model gas turbine combustor. As shown in Fig. 13, they 
+studied the intermittent transitions between the anchored V-shape flame 
+and the detached lift-off flame. Their findings showed that increasing 
+the equivalence ratio or forcing amplitude can re-anchor lifted flames, 
+offering guidance for stable, low-emission burner design.
+PLIF techniques are being extended to high-pressure, reactive, two- 
+phase flows for evaluating novel low-NOx liquid-fueled combustors. 
+For instance, Legros et al. [111] combined OH, NO, and kerosene vapor 
+PLIF with PIV to examine droplet–flame interactions in a lean-premixed 
+kerosene combustor. The single-shot distributions of kerosene mole 
+fraction, OH radical, and kerosene temperature for three operating 
+conditions are shown in Fig. 14. Their work underscored the influence of 
+droplet size on flame anchoring and species distribution. They high­
+lighted the importance of droplet size on the mutual predictions of the 
+aerodynamic field, the structure of the flame, flame anchoring, and 
+species distribution.
+In three-dimensional diagnostics, tomographic techniques for LIF, e. 
+g., volumetric laser-induced fluorescence (VLIF), are advancing. Initially 
+used for general turbulent flames [112–114], these techniques are now 
+applied to swirling flames. Moeck et al. [115] used tomographic 
+reconstruction to study coherent heat release fluctuations in a swirling 
+flame. They observed a highly asymmetric distribution pattern in helical 
+fluctuations, highlighting the significant influence of PVC on the swirl­
+ing flame dynamics. Wang et al. [116] developed a high-speed 
+Fig. 6. Evolutions of (a) axial position, (b) peak vorticity, (c) circulation, (d) axial velocity at injector exit, (e) acceleration, and (f) relative fluctuations of heat 
+release rate, and four key instants of the OVR. Reproduced from Wang et al. [95] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+7 
+
+
+--- Page 8 ---
+
+endoscopic VLIF system using a burst-mode laser and fiber bundle to 
+reconstruct time-resolved 3D flame structures (see Fig. 15). This tech­
+nique enables volumetric analysis of combustion dynamics under 
+confined or harsh-access conditions.
+High-speed species diagnostics, particularly PLIF, are vital for 
+capturing the transient chemistry of swirling flames. PLIF enables 2D 
+imaging of key species like OH, CH2O, kerosene, and acetone with high 
+spatial and temporal resolution. Recent advances in burst-mode lasers 
+allow imaging rates up to 100  kHz, enabling real-time visualization of 
+species distribution. Combined with techniques like PIV and chem­
+iluminescence, high-speed PLIF has revealed critical dynamics such as 
+vortex-enhanced mixing, flame stabilization, and thermoacoustic in­
+stabilities. Emerging 3D diagnostics like volumetric LIF further enhance 
+our understanding of swirling flame structures under realistic engine 
+conditions.
+3.1.3. Advances in high-speed temperature diagnostics
+Accurate temperature measurement in swirling flames is critical for 
+understanding temperature distribution and combustion characteristics. 
+One of the distinguishing features of laser-based temperature di­
+agnostics is the diversity of available techniques, each offering unique 
+capabilities. Methods such as LAS, filtered Rayleigh scattering (FRS), 
+CARS, and two-color PLIF have been successfully employed to probe 
+temperature fields in swirling flames.
+LAS is a widely used non-intrusive technique capable of providing 
+quantitative, species-specific measurements of gas temperature, pres­
+sure, composition, and velocity. It typically employs near- or mid- 
+infrared tunable diode lasers or broadband sources such as interband 
+cascade lasers and quantum cascade lasers (QCLs). A comprehensive 
+review of LAS using these light sources can be found in [85,117]. This 
+section focuses on LAS applications in swirling flame temperature 
+measurements.
+LAS is a calibration-free and temporally resolved diagnostic tech­
+nique; however, it inherently provides line-of-sight averaged tempera­
+tures. Since swirling flames exhibit strong spatial non-uniformity and 
+temporal fluctuations, advanced strategies such as scanning lasers or 
+tomographic systems with multiple beams and detectors are required to 
+obtain spatially resolved temperature fields. For example, Liu et al. 
+Fig. 7. Flame front (left half) and flow field (right half) for two representative V-shaped flames, (a) with CRZ and (b) without CRZ. (c) The boundary between CRZ 
+and no CRZ collapses to a single line, yielding a critical Res of 424. |γ|max, D and νs are the max ISL intensity, exit diameter, and kinematic viscosity of the burnt gas, 
+respectively. Adapted from Wang et al. [101] with permission of AIP publishing.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+8 
+
+
+--- Page 9 ---
+
+[118] employed phase-locked tomographic LAS to reconstruct temper­
+ature and CO2 volume fraction distributions in acoustically forced pre­
+mixed swirling flames using mid-infrared CO2 absorption at 4.2 µm. The 
+temporally resolved fields revealed significant temperature fluctuations 
+near the nozzle due to vortex-driven mixing, as shown in Fig. 16.
+For asymmetric or non-periodic flames, full tomographic systems 
+become necessary [119–123]. Liu et al. [120] developed a tunable diode 
+LAS (TDLAS) tomography setup that reconstructed 2D temperature 
+fields with a 12 ms resolution, as shown in Fig. 17. Thermal oscillations 
+extracted from the real-time reconstructions were used to infer flame 
+instability [121]. Fei et al. [122] demonstrated a water vapor-based 
+TDLAS-tomography system for a swirl burner operating at 2.5 kHz, 
+successfully capturing dynamic temperature evolution during hydrogen 
+ignition at a scramjet combustor exit.
+Rayleigh scattering enables 2D and 3D temperature mapping by 
+detecting elastic scattering from gas molecules. High-speed Rayleigh 
+systems typically use pulsed lasers and intensified CMOS cameras, 
+achieving repetition rates of several kHz [61]. Since the Rayleigh signal 
+strength is proportional to the gas number density and scattering cross- 
+section, temperature can be inferred via the ideal gas law [124]. This 
+method offers high spatial resolution without requiring seeding but is 
+highly sensitive to soot and particulates, whose Mie scattering can 
+overwhelm the signal.
+FRS addresses this limitation by using iodine absorption filters to 
+selectively suppress unwanted particle scattering [125]. Li et al. [63]
+applied FRS to measure 2D temperature fields in confined CH4/air 
+swirling flames, achieving standard deviations below 7.5 %. Instanta­
+neous FRS images in Fig. 18 revealed strong structural and thermal 
+variations with equivalence ratio. Yin et al. [64] extended FRS to 10 kHz 
+for simultaneous temperature and CH2O measurements in a two-stage 
+Fig. 8. (a) Phase-resolved vortex cores and CH2O fields in a centrally staged combustor. (b) Axial and radial positions, radial position, vortex core circulation, and 
+normalized area-integration of HRR fluctuation in the vortex core region versus the angular position θ. Hollow and solid symbols denote two different flame cases. 
+Adapted from Wang et al. [54] with permission of Elsevier.
+Fig. 9. (a) Dual-plane stereoscopic PIV arrangement for three-dimensional velocity measurement. (b) Phase-averaged iso-surface of the Q criteria and z-component 
+vorticity contours on the central plane. Adapted from Zheng et al. [104] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+9 
+
+
+--- Page 10 ---
+
+radial stratified swirl combustor. Using a Hencken burner calibration, 
+they observed a transition from V-shaped to M-shaped flame structures 
+at an equivalence ratio of 0.85, attributed to thermal diffusion and air 
+distribution effects. However, it should be noted that Rayleigh signals 
+are species- and temperature-dependent, requiring precise scattering 
+cross-section data for accurate thermometry [126].
+Moreover, femtosecond CARS (fs-CARS) uses ultrafast laser pulses to 
+provide high-resolution, high-accuracy temperature measurements. By 
+suppressing non-resonant background and collisional broadening, fs- 
+CARS enhances signal fidelity. Scherman et al. [82] demonstrated a 1- 
+kHz hybrid femtosecond/picosecond CARS system for turbulent com­
+bustion in an aeroengine rig, achieving ± 2 % accuracy and ± 3 % 
+precision.
+Two-color PLIF provides 2D temperature fields by exciting two 
+transitions of a fluorescent tracer (e.g., acetone, toluene, OH, or NO) and 
+relating their intensity ratio to temperature via the Boltzmann distri­
+bution. Although early implementations operated at low frame rates (e. 
+g., 10 Hz), they were still effective in phase-locked studies of combustion 
+instabilities and CFD validation [127,128].
+Recent advancements in laser and imaging technologies have 
+enabled two-color PLIF at high repetition rate. For example, OH-based 
+thermometry at 10 kHz was achieved using burst-mode OPO lasers 
+alternating between excitation wavelengths [53]. Combined diagnostics 
+involving formaldehyde two-color PLIF, PIV, and chemiluminescence 
+have been used to study preheat zones and flame lift-off dynamics under 
+various staging conditions [129,130]. Tao et al. [131] applied two-color 
+OH-PLIF thermometry in a centrally staged swirl spray combustor at up 
+to 0.62 MPa and 650 K. Two laser systems excited the Q1(5) and Q1(14) 
+OH transitions, and the resulting fluorescence ratio was calibrated 
+against CARS. As shown in Fig. 19, the resulting high-resolution tem­
+perature maps distinguished between the pilot and main flame zones.
+Ongoing advancements in laser diagnostic techniques have signifi­
+cantly enhanced the spatial and temporal resolution of temperature 
+measurements in swirling flames, enabling detailed characterization of 
+thermal fields that are critical for optimizing combustor design and 
+elucidating complex flow–flame interactions. Each temperature diag­
+nostic method offers distinct advantages and inherent trade-offs. LAS 
+delivers high temporal resolution and excellent species selectivity, but 
+provides only line-of-sight averaged measurements. Rayleigh and 
+Raman scattering techniques offer high spatial resolution and localized 
+measurements, yet demand optically clean environments and complex 
+experimental configurations. Two-color PLIF facilitates rapid two- 
+dimensional imaging of temperature fields but relies on tracer calibra­
+tion and may suffer from limited accuracy under certain conditions.
+3.2. Innovations driven by low- and zero-carbon fuel combustion
+The rapid advancement of low-carbon combustion technologies, 
+particularly those utilizing hydrogen and ammonia, has become a sig­
+nificant driver in the evolution of combustion diagnostic techniques. 
+Among these, laser-based methods have gained prominence for their 
+capability to detect and quantify key quantities in swirl combustion 
+systems, enabling better understanding of combustion dynamics and 
+supporting the development of low- and zero-carbon gas turbine and 
+aeroengine technologies.
+While the transition to alternative fuels has limited impact on flow 
+field and temperature measurement techniques, it introduces substantial 
+changes in combustion chemistry and the resulting product species. 
+Accordingly, this section focuses on how novel fuels influence the 
+composition of swirl combustion products and, in turn, how this drives 
+the advancement of diagnostic techniques for nitrogen-containing 
+species.
+3.2.1. Diagnostics of nitrogen-containing species in low-carbon combustion
+For ammonia-based combustion technologies, the high nitrogen 
+content in ammonia leads to combustion products that differ signifi­
+cantly from those generated by conventional hydrocarbon fuels. Species 
+such as NH3, NH2, and NH, which emerge during the stepwise 
+Fig. 10. Reconstructed vortical structures for flame cases 1a (a) and 1b (b), respectively. The green isosurface of the PRZ corresponds to V = −
+0.8 m/s. The 
+threshold isosurface for the PVC, OHV, and LRZ is Q2D = 8 × 105s−2. The white arrows mark the rotational direction of the helical structures. Adapted from Wang 
+et al. [54] with permission of Elsevier.
+Table 2 
+Comparison of PLIF techniques for species diagnostics in swirl combustion.
+Feature
+Acetone PLIF
+Formaldehyde PLIF
+OH-PLIF
+CH-PLIF
+Target Species
+acetone (C3H6O)
+formaldehyde (CH2O)
+hydroxyl radical (OH)
+methylidyne radical (CH)
+Role in Combustion
+fuel tracer
+intermediate
+reaction zone indicator
+reaction zone indicator (especially in rich flames)
+Excitation Wavelength
+~248–266 nm
+~355 nm
+~283–287 nm
+~388–400 nm
+Emission Range
+visible
+visible
+UV
+visible (blue/green)
+Application
+mixing, sprays
+ignition, cool flames
+flame front detection
+flame structure, local equivalence ratio
+Reactivity
+non-reactive
+reactive (early stage)
+highly reactive
+highly reactive
+Signal Strength
+high
+moderate
+moderate to high
+moderate
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+10 
+
+
+--- Page 11 ---
+
+dehydrogenation of ammonia, are critical for understanding fuel con­
+version pathways and reaction kinetics.
+In parallel, nitrogen oxides (NOx) emissions remain a central concern 
+in ammonia combustion. In addition to the typical NO and nitrogen 
+dioxide (NO2) species, N2O has been recognized as a key intermediate 
+with significant environmental implications. To investigate the effects of 
+these nitrogen-containing species on ignition behavior, flame stability, 
+and pollutant formation, a range of advanced diagnostic tools has been 
+developed. These include LAS, LIF, and Raman scattering, tailored to 
+provide accurate and time-resolved measurements of trace nitrogen 
+species under high-temperature, high-pressure conditions.
+Among the most prominent techniques for detecting nitrogen- 
+containing species in combustion environments, TDLAS has shown 
+considerable efficacy in measuring trace concentrations of NH3, NO, and 
+NO2. The absorption line strengths of some species, e.g., NH3, NO, H2O, 
+CO, CO2, from 1 to 10 μm are shown in Fig. 20. Weng et al. [132]
+explored ultraviolet (UV) absorption spectroscopy of NH3 within the 
+190–230 nm range under high-temperature conditions, observing a 
+decrease in absorption cross-section as temperature increased from 295 
+K to 1570 K. Li et al. [133] developed a mid-infrared TDLAS system 
+using QCLs targeting NH3 absorption near 1103.45 cm−1 in CH4/NH3 
+swirl combustion. Their system successfully detected NH3 emissions 
+ranging from 26 to 738 ppm, as shown in Fig. 20, with emissions 
+increasing alongside fuel NH3 content and equivalence ratio. Another 
+study utilized a linear calibration-free wavelength modulation spec­
+troscopy approach with QCLs at ~ 5.2 µm (NO) and ~ 6.25 µm (NO2), 
+enabling in situ, non-intrusive, and quantitative detection even under 
+substantial H2O interference, achieving ppm-level sensitivity in gas 
+turbine exhausts [134].
+LIF has also become a key technique for visualizing reactive nitrogen 
+species in flames. While LIF has been extensively applied in laminar and 
+turbulent jet flames for ammonia and ammonia-blended combustion, its 
+application in swirl combustion remains limited due to the inherent 
+complexity of turbulent flows. Brackmann et al. [135] measured OH, 
+NH, and NO LIF in laminar premixed ammonia-air flames, using the 
+resulting data to validate several detailed kinetic models. Alekseev et al. 
+[136] revealed that peak NO formation occurs at ~ 50 % NH3 fuel 
+content in NH3-dimethyl ether flame using NO-PLIF. Wang et al. 
+[57–59] developed a series of PLIF systems capable of simultaneous 
+multi-species imaging (e.g., NH/NO [57], OH/NO [59], NH3/NH/NO 
+[58]) using a single dye laser. Dai et al. [60] extended this approach to 
+measure NH3/NH2/NH with a single dye laser system. Other studies 
+have employed two or more laser systems to simultaneously measure 
+combinations such as NH3/NH/Rayleigh [56], NH3/NH/OH [137], NH/ 
+OH [138], and NH/NO/Rayleigh [139]. These efforts, particularly those 
+splitting a single laser beam to excite different species, have provided 
+valuable insights into flame structures and pollutant formation 
+dynamics.
+In swirling flame environments, Okafor et al. [140] implemented 
+simultaneous OH/NO-PLIF imaging using two Nd:YAG-pumped dye la­
+sers in a micro gas turbine combustor fueled by CH4–NH3–air mixtures. 
+Their results show spatial correlations between high OH and NO in­
+tensities in fuel-rich zones (see Fig. 21), suggesting that NO formation is 
+promoted by OH radical production. An optimal equivalence ratio (Φ =
+1.30–1.35) was identified for minimizing NOx emissions, which 
+depended on the NH3 fraction. The two-stage rich-lean burning flames of 
+methane-ammonia combustion produced lower NOx emissions than 
+NH3-air combustion due to the higher flame speeds that suppressed 
+secondary NOx formation.
+Wang et al. [3] applied PLIF techniques to investigate NO and OH 
+formation in premixed NH3/CH4-air flames at 2 bar. To avoid NH3 ab­
+sorption near 226 nm (commonly used for NO), they selected an alter­
+native excitation wavelength around 236 nm for the NO (0–1) band. As 
+shown in Fig. 22, the PLIF images display rapid NO formation imme­
+diately downstream of the reaction zone, with minimal variation in NO 
+intensity above the nozzle. Increased residence time enhanced reaction 
+completion, while higher swirl numbers significantly reduced NO, NO2, 
+and N2O emissions, more effectively than increasing combustor length.
+Raman scattering offers the capability to simultaneously measure 
+concentrations of multiple species without disturbing the flame. This 
+technique has been widely applied in hydrogen and hydrocarbon flames, 
+Fig. 11. Time-series of PIV, OH-PLIF, and acetone-PLIF measurements showing 
+vortex-induced mixing and reaction in the ISL. Reproduced from St¨ohr et al. 
+[48] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+11 
+
+
+--- Page 12 ---
+
+and more recently extended to ammonia combustion. Researchers have 
+used Raman scattering to measure NH3, O2, N2, and H2O distributions, 
+extract temperature profiles, and provide data for validating combustion 
+models [65,67]. For instance, Tang et al. [73] conducted quantitative 
+measurements of temperature and species mass fractions in turbulent 
+ammonia/hydrogen/nitrogen jet flames. However, strong background 
+fluorescence in fuel-rich ammonia flames often overwhelms the rela­
+tively weak Raman signal, complicating accurate measurements. 
+Zubairova et al. [75] developed a multipass setup to enhance Raman 
+signals and quantify NO and major species in ammonia/air flames. Lill 
+et al. [76] applied Raman techniques to measure N2O concentrations, 
+employing rotating shutters to suppress background luminosity in 
+laminar opposed jet flames.
+For swirling flames, Katoch et al. [74] utilized 1D Raman measure­
+ments to characterize fuel composition at the injector outlet of a dual- 
+fuel dual-swirl burner. The recorded radial profiles of H2, NH3, N2, 
+and O2 mole fractions are shown in Fig. 23, revealing how structural 
+modifications influence fuel distribution. Marragou et al. [141] used 
+Raman scattering to study mixing evolution in coaxial swirled jets. They 
+proposed a dimensionless mixing progress parameter to model the 
+mixing behavior, demonstrating Raman’s capability to resolve concen­
+tration gradients and mixing dynamics.
+The development of laser-based diagnostics such as TDLAS, PLIF, 
+and Raman scattering has significantly advanced our understanding of 
+nitrogen-containing species in low-carbon combustion. These diagnostic 
+advancements have yielded new insights into nitrogen chemistry in 
+swirling flames.
+3.2.2. Multiphysics measurements in low-carbon combustion
+To better understand the complex mechanisms governing swirl- 
+stabilized low-carbon combustion, multiphysics field measurement 
+techniques have become essential. These techniques enable the simul­
+taneous acquisition of key parameters, such as flow fields, radical spe­
+cies distributions (e.g., OH), and temperature fields, offering 
+Fig. 12. Time sequence of OH distribution (top) and velocity field (bottom). The background color for velocity-field images on the left is the axial velocity (−30 to 
+30  m/s), while in the right images it shows the vorticity (−20000 to 20000 s−1). The thick black line represents the instantaneous flame surface topography. Adapted 
+from Steinberg et al. [107] with permission of Elsevier.
+Fig. 13. Lifted flame and attached flame configurations measured by acetone (top) and CH2O (bottom) PLIF. The lifted flame features PVC with an asymmetric 
+zigzag vortex, and the V-flame features a symmetric ring vortex. The blue lines indicate the position of the vortices. Reproduced from Liu et al. [108] with permission 
+of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+12 
+
+
+--- Page 13 ---
+
+comprehensive insight into flame structure, dynamics, and stability.
+Among the various multi-field diagnostic approaches, the combina­
+tion of PIV and OH-PLIF is the most widely adopted. PIV is readily 
+adaptable to low-carbon combustion environments, while OH radicals, 
+key intermediates in combustion reactions, serve as critical markers for 
+flame front dynamics, especially in hydrogen-based fuels. As such, the 
+PIV and OH-PLIF technique has become a powerful tool for probing the 
+structure and evolution of low-carbon swirling flames.
+Flame blow-off, defined as the extinction of a flame when its stabi­
+lization limits are exceeded, is a critical concern in combustor design of 
+ammonia due to its high susceptibility to blow-out [28]. Co-firing 
+ammonia with more reactive fuels such as methane or hydrogen is a 
+promising strategy to mitigate these issues. Zhang et al. [142] investi­
+gated the blow-off and flame transition behavior of ammonia/air and 
+ammonia/methane/air flames in a swirl combustor using combined PIV 
+and OH-PLIF diagnostics. As shown in Fig. 24, decreasing the equiva­
+lence ratio toward the blow-off limit induces a progressive destabiliza­
+tion of the swirling flame. Macrostructural transitions in the flame can 
+act as early indicators of impending blow-off. Co-firing with methane 
+significantly improves the lean blow-off limits of ammonia flames.
+Fig. 14. Single-shot axial (left) and radial at Z/D = 0.75 (right) distributions of kerosene mole fraction, OH radical, and kerosene temperature for three operating 
+conditions: P = 0.83 MPa, FAR = 42 ‰ (top), P = 1.38 MPa, FAR = 34 ‰ (bottom). Each image displays the correlated distributions of OH (grey to white scale) and 
+kerosene vapor (color scale) distributions on the top half side and the combined of OH (grey to white scale) and kerosene vapor temperature distributions (color 
+scale) on the bottom half side. Adapted from Legros et al. [111] with permission of Elsevier.
+Fig. 15. Tomographic reconstructions of flame fuel distribution presented with iso-contours of acetone VLIF signal at four consecutive time instants. Reproduced 
+from Wang et al. [116] with permission of Springer.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+13 
+
+
+--- Page 14 ---
+
+Hydrogen blending further enhances combustion stability due to its 
+high reactivity and large laminar flame speed. Khateeb et al. [143,144]
+reported that adding hydrogen to ammonia significantly widens the 
+stability limits of ammonia-hydrogen-air swirling flames, particularly 
+with an ammonia fraction between 0.70 and 0.80. This results in a broad 
+stable range from lean to rich equivalence ratios, with very lean mix­
+tures achieving low NO emissions below 100 ppm without needing a 
+secondary combustion stage. Thus, using hydrogen-enriched ammonia 
+can ensure both stable combustion and reduced NO emissions in gas 
+turbine applications.
+Plasma-assisted combustion is another emerging technique to sta­
+bilize low-carbon flames and reduce pollutant emissions. Low-carbon 
+fuels such as ammonia and biogas mixtures pose significant combus­
+tion stability challenges due to their low reactivity or slow kinetics. 
+Laser diagnostics applied to plasma-assisted flames have revealed that 
+non-equilibrium plasma discharges can significantly enhance combus­
+tion by increasing radicals (e.g., NH2) production and reducing NOx 
+emissions [145–147].
+For instance, Tang et al. [148,149] utilized a plasma torch driven by 
+low-power microsecond repetitively pulsed discharges (μRPDs) to sta­
+bilize ammonia/air swirling flames. Using OH-PLIF and NH2* chem­
+iluminescence imaging, as shown in Fig. 25, they observed strong 
+emissions of excited species such as OH, N2*, H*, and O* under plasma 
+activation. The plasma markedly enhanced flame anchoring and 
+extended the lean blow-off limit from ~ 0.6 to ~ 0.4–0.5 over Reynolds 
+numbers ranging from ~ 3000 to 7500.
+Hydrogen-enriched lean premixed combustion is prone to induce 
+high-frequency thermoacoustic instability. Kushwaha et al. [150]
+explored these phenomena in a swirl-stabilized gas turbine combustor 
+using high-speed OH* chemiluminescence, OH-PLIF, and stereo-PIV at 
+10 kHz, as shown in Fig. 26. Extended proper orthogonal decomposition 
+revealed phase-synchronized flame surface structures and HRR oscilla­
+tions correlated with coherent velocity field structures, providing in­
+sights into flame–flow coupling mechanisms. Æsøy et al. [151]
+examined the effect of hydrogen enrichment on the nonlinear response 
+and saturation of premixed flames stabilized by a bluff-body using high- 
+speed OH-PLIF at a rate of 10 kHz [152]. The OH-PLIF images are 
+processed to extract the phase-averaged flame surface density and flame 
+curvature, as shown in Fig. 27. They observed that high levels of 
+hydrogen increase the amplitude response to acoustic forcing, leading to 
+higher saturation amplitudes. Substituting natural gas with hydrogen in 
+gas turbines increases the risk of much higher limit-cycle amplitudes if 
+self-excited instabilities occur. Aguilar et al. [153] investigated the in­
+fluence of hydrogen on the stability of a perfectly premixed combustor. 
+It demonstrates that the effect of premixed hydrogen on thermoacoustic 
+instabilities can be predicted using well-established methods, e.g. low- 
+order network model.
+Flashback, the upstream propagation of a flame into the premixing 
+section, is another critical safety issue for hydrogen combustion in gas 
+turbines. Numerous experimental and numerical investigations have 
+examined laminar and turbulent flashback, particularly under atmo­
+spheric pressure [155–159].
+Reichel et al. [154,160] used PIV and OH-PLIF to study flame 
+anchoring and flashback in a technically premixed, swirl-stabilized 
+hydrogen burner. They found that axial air injection introduced a non­
+swirling jet on the central axis, which shifted the vortex breakdown 
+point downstream and improved flashback resistance, as shown in 
+Fig. 28. Edge-detection algorithms applied to OH-PLIF data quantified 
+flame front locations and flashback limits.
+Ranjan et al. [156] investigated flame stabilization in hydrogen- 
+enriched stratified swirling flames after flashback into an annular mix­
+ing tube using time-resolved stereo-PIV and acetone-PLIF. Equivalence 
+ratio distributions from acetone-PLIF indicate intermittent fuel-rich 
+pockets near the outer wall. As shown in Fig. 29, flame–fuel-rich re­
+gion interactions generated bright kernels and acute-tipped flame 
+structures that anchored to the wall and accelerated upstream 
+propagation.
+Ebi et al. [161] explored boundary layer flashback of lean-premixed 
+methane–hydrogen–air flames using stereoscopic and tomographic PIV, 
+combined with high-speed chemiluminescence imaging. As shown in 
+Fig. 16. Temporally resolved swirling flame temperature field with acoustic 
+perturbation amplitude uʹ/u = 24 % at different phases. Reproduced from Liu 
+et al. [118] with permission of Optica.
+Fig. 17. (a) Schematic diagram of TDLAS-based tomographic sensor. (b) Instantaneous tomographic images of (i)–(iii) temperature and (iv)–(vi) H2O concentration 
+over the cross section of interest in the methane-air swirling flame. The time interval between the neighboring images is 12 ms. Reproduced from Liu et al. [120,121]
+with permission of IEEE.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+14 
+
+
+--- Page 15 ---
+
+Fig. 30, three-dimensional flame reconstruction revealed two primary 
+flashback modes: small-scale bulges counter-propagating into the flow, 
+and large-scale swirling flame tongues moving upstream along the 
+central body wall. The latter was driven by negative axial velocity re­
+gions created by strong swirl, differing from reverse-flow mechanisms 
+typical in straight channels.
+In summary, recent advancements in laser-based diagnostic tech­
+niques have substantially deepened our understanding of multiphysics, 
+including flow dynamics, reactive species distributions, and tempera­
+ture, within swirl combustion systems fueled by low- and zero-carbon 
+alternatives such as ammonia and hydrogen. These non-intrusive, 
+high-resolution diagnostics are essential tools for a better understand­
+ing of flame stabilization and play a critical role in optimizing perfor­
+mance and reducing emissions in next-generation gas turbines and 
+aeroengines.
+3.3. Practical challenges in implementing laser-based diagnostic 
+techniques in industrial swirl combustor environments
+While laser-based diagnostics have become indispensable tools for 
+exploring swirl combustion in controlled laboratory settings, their 
+translation to industrial combustors remains highly constrained. Prac­
+tical applications, especially in aeroengines and gas turbines, introduce 
+severe environmental, structural, and operational limitations that can 
+significantly impair diagnostic accuracy, reliability, and longevity. This 
+section provides a comprehensive overview of the key barriers hindering 
+practical implementation and the technological strategies developed to 
+address them.
+3.3.1. Extreme operating environments: pressure, temperature, and 
+vibration
+Industrial combustors operate under extreme conditions, with flame 
+temperatures often exceeding 2000 K and pressures exceeding 20 atm. 
+These environments challenge both the durability and performance of 
+laser diagnostics. Techniques such as LAS and PLIF suffer from reduced 
+accuracy at high pressures due to spectral line broadening and intensi­
+fied collisional quenching [162]. Although PLIF signal strength gener­
+ally increases with pressure, its quenching effects tend to dominate at 
+Fig. 18. Two-dimensional FRS temperature measurements of swirling flame under different equivalence ratios. Reproduced from Li et al. [63] with permission 
+of Springer.
+Fig. 19. Typical instantaneous OH-PLIF images at Q1(5), their Q1(14) coun­
+terparts, and the resultant temperature fields from swirling flame case 1. 
+Reproduced from Tao et al. [131] with permission of ASME.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+15 
+
+
+--- Page 16 ---
+
+Fig. 20. (a) Absorption line strengths of NH3, NO, H2O, CO, CO2 from 1 to 10 μm at T = 473 K, P = 1 atm; (b) Measured NH3 concentration in the exhaust gas of 
+swirling methane-ammonia co-firing flames. Reproduced from Li et al. [133] with permission of Elsevier.
+Fig. 21. Simultaneously captured instantaneous OH-PLIF and NO-PLIF images in fuel-rich non-premixed methane-ammonia-air flames with ENH3 = 0.20. The top and 
+bottom rows are separated only by time. Reproduced from Okafor et al. [140] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+16 
+
+
+--- Page 17 ---
+
+pressures above 10 atm, leading to reduced fluorescence yields and 
+compromised temperature or species measurements [163]. Short-pulse 
+lasers, on the nanosecond or picosecond scale, can partially mitigate 
+signal degradation by delivering high peak intensities. Additionally, the 
+use of tunable laser sources with broad spectral ranges helps address 
+shifting absorption features under pressure-broadened conditions [164].
+Despite these difficulties, certain scattering-based methods, 
+including Rayleigh, Raman, and coherent anti-Stokes Raman scattering 
+(CARS), can benefit from higher molecular densities at elevated pres­
+sures, resulting in enhanced signal intensities [165]. However, this gain 
+is often counteracted by increased background interference from flame 
+luminosity or particle scattering [166].
+Mechanical vibration poses another serious obstacle in investigating 
+gas turbines and aeroengines combustors. High-throughput airflow, fuel 
+injection pulsations, and mechanical resonance introduce vibrations 
+that can defocus optics, misalign laser beams, or destabilize diagnostic 
+platforms. Effective mitigation requires a combination of rigid me­
+chanical design, vibration-isolated optical tables, and, in advanced 
+systems, real-time beam correction using adaptive optics such as 
+deformable mirrors or galvanometer-based compensation systems.
+3.3.2. Optical signal attenuation and interference
+Swirling flames in practical combustors often involve staged com­
+bustion, diffusion-mode burning, and complex fuel–air stratification, all 
+of which produce significant optical interference. In particular, fuel-rich 
+zones and kerosene sprays generate soot particles and oil droplets that 
+absorb or scatter incident laser beams, drastically reducing signal 
+quality in techniques such as PLIF, Raman, and Rayleigh scattering 
+[166]. Chemiluminescence from the flame and glowing surfaces in­
+troduces further background noise, masking weak signals. This is espe­
+cially problematic for diagnostics requiring high sensitivity and low- 
+noise detection, such as spontaneous Raman scattering or FRS [73,75].
+To overcome these challenges, several advanced strategies have been 
+proposed. Pulsed and burst-mode lasers improve signal-to-noise ratios 
+by increasing instantaneous energy delivery. Structured light tech­
+niques, polarization filtering, and multi-wavelength detection enhance 
+signal separation from background interference [167,168]. FRS lever­
+ages narrowband atomic absorption filters (e.g., iodine vapor cells) to 
+suppress unwanted light [169]. Spectral deconvolution algorithms 
+disentangle overlapping signals from particles, soot, and flame emis­
+sions. Backscatter or off-axis collection geometries minimize the influ­
+ence of intense forward-scattered light from particles.
+In addition, combustion byproducts tend to contaminate optical 
+windows over time, reducing transmittance and causing beam distor­
+tion. In particle-based diagnostics like PIV (Particle Image Velocimetry) 
+or LDV (Laser Doppler Velocimetry), seeding with metal oxides (e.g., 
+TiO2 or Al2O3) is common. These particles often deposit on optical 
+windows, rapidly degrading image quality. Solutions include the use of 
+purge air curtains, anti-soot coatings, self-cleaning windows, and time- 
+gated imaging, all of which aim to reduce contamination and prolong 
+optical clarity.
+3.3.3. Optical access constraints in realistic combustor geometries
+One of the most significant limitations in practical combustors is the 
+lack of adequate optical access. Unlike laboratory test rigs, real engines 
+feature compact and highly integrated structures. Multi-layered 
+combustor walls, designed to accommodate thermal expansion, cool­
+ing airflows, and mechanical stresses, offer limited space for installing 
+optical windows.
+Even when optical ports are included, their size is typically con­
+strained by structural and thermal considerations. Small-aperture win­
+dows result in either insufficient signal throughput or unsafely high laser 
+energy densities. In addition, thermal gradients can lead to window 
+deformation, coating degradation, and alignment drift.
+To address these issues, two primary strategies have emerged. On the 
+one hand, optically accessible model combustors are designed to repli­
+cate real combustor geometry and operating conditions while incorpo­
+rating large viewing windows for diagnostics like PIV, PLIF, and FRS 
+[88,170]. Although these platforms offer controlled environments, they 
+often compromise realism in terms of turbulence intensity, heat flux, and 
+wall boundary conditions. On the other, miniaturized diagnostic inte­
+gration involves embedding small windows or optical probes directly 
+into engine components. Sapphire or fused silica windows, combined 
+with active cooling via air-film systems, provide a durable interface for 
+line-of-sight techniques like TDLAS or LAS. Additionally, endoscopic 
+probes employing fiber-optic bundles or micro-lens arrays allow de­
+livery and collection of light in confined geometries [171]. However, 
+fiber-based systems must be engineered to withstand extreme thermal 
+and mechanical loads.
+While relatively simple techniques like LAS can be adapted to con­
+strained environments, more complex diagnostics, such as spontaneous 
+Raman scattering, Rayleigh scattering, and CARS, require precise 
+alignment, large optical apertures, and high collection efficiencies, 
+making them much more difficult to implement in practical systems 
+Fig. 22. Experimental measured instantaneous images of (a) NO-PLIF and (b) 
+OH-PLIF for different swirling configurations and reactant compositions at 2 
+bar. Reproduced from Wang et al. [3] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+17 
+
+
+--- Page 18 ---
+
+[165].
+3.3.4. Calibration and quantification challenges
+Calibration is essential for signal quantification in PIV, PLIF, FRS, 
+SRS, and CARS measurements. Nonlinear techniques such as CARS 
+require accurate thermodynamic models and databases that account for 
+temperature- and pressure-dependent molecular behavior. Reliable 
+calibration and accurate quantification remain major challenges in real 
+combustor environments. In laboratory conditions, known reference 
+gases or flow fields can be used for in-situ calibration of temperature, 
+species concentration, and velocity. In contrast, real engines combustor 
+offer limited space and accessibility, making it difficult to insert cali­
+bration targets or introduce controlled reference gases. Spontaneous 
+radiation from hot walls and flames interferes with weak diagnostic 
+signals, particularly in scattering or fluorescence-based methods. These 
+interference signals increase the difficulty of removing background 
+noise, environmental effects, and the influence of other species or 
+particles.
+To address these issues, miniature calibration cells and reference 
+burners are being developed to provide localized calibration environ­
+ments within confined systems. Spectral separation technologies, such 
+as narrowband filters and polarization-based light suppression, enhance 
+signal integrity. Furthermore, artificial intelligence (AI)-based calibra­
+tion or quantification methods are gaining increasing attention. Ma­
+chine learning models can be trained to identify and filter out 
+background noise and interference signals caused by spontaneous ra­
+diation from hot surfaces and flames, improving signal quality [172]. 
+Training datasets generated from high-fidelity CFD simulations can be 
+used to optimize inversion algorithms for diagnostic techniques like 
+CARS, improving measurement accuracy without the need for physical 
+calibration targets. With their rapid prediction capabilities, AI methods 
+can perform estimations in microseconds, supporting real-time 
+Fig. 23. Radial profiles of H2, NH3, N2, and O2 mole fraction measured 2 mm above the injection plane for different recession distances. Dashed lines correspond to 
+theoretical mole fractions for perfectly homogeneous (a and b) and segregated mixtures (c). Time-averaged, broadband flame images were recorded for the three 
+recession distances. Adapted from Katoch et al. [74] with permission of Elsevier.
+Fig. 24. The flame transition from a stabilized lean condition to the blow-off 
+limit for the 50 % NH3 flame. Top row: direct flame images, bottom row: 
+OH-PLIF images overlapped with mean hot gas velocity within the dashed box. 
+Reproduced from Zhang et al. [142] with permission of Elsevier.
+Fig. 25. Time-averaged OH-PLIF signals and Abel-transformed time-averaged 
+NH2* chemiluminescence, recorded in different air flow rates and a fixed 
+equivalence ratio of 0.71, when the plasma is turned off (a–c) and on (d–f). 
+Reproduced from Tang et al. [149] with permission of Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+18 
+
+
+--- Page 19 ---
+
+monitoring and feedback adjustments—critical for dynamically 
+evolving combustion processes [173].
+Laser-based diagnostics offer non-intrusive capabilities for probing 
+complex combustion dynamics. However, their implementation in 
+practical combustors is constrained by a convergence of extreme envi­
+ronmental conditions, geometric limitations, signal interference, and 
+calibration complexity. Addressing these barriers requires interdisci­
+plinary advancements in optical engineering, system miniaturization, 
+and AI-assisted data processing. Many advanced techniques require 
+costly ultrafast lasers, cameras or complex synchronization hardware, 
+limiting their adoption in industrial settings. Simplified versions of di­
+agnostics are required to balance measurement performance with 
+practicality.
+4. Conclusions and future directions
+4.1. Summary of key developments in laser diagnostics for swirl 
+combustion
+The field of laser-based diagnostics for swirl combustion has un­
+dergone transformative progress in recent years, particularly in response 
+to the global demand for cleaner, low-carbon energy technologies. As 
+combustion systems transition from traditional hydrocarbon fuels to 
+low- and zero-carbon alternatives such as hydrogen and ammonia, un­
+derstanding the complex multiphysics phenomena, such as turbulent 
+flow interactions, heat release dynamics, flame stability, and pollutant 
+formation, has become increasingly critical.
+Laser diagnostics, including LAS, PIV, PLIF, Rayleigh scattering, 
+Raman scattering, and so on, have emerged as indispensable tools for 
+non-intrusively probing combustion processes with high spatial and 
+temporal resolution. Advances in laser technology and high-frame-rate 
+detectors have revolutionized high-speed diagnostics, greatly deep­
+ening our understanding of swirl combustion dynamics. The integration 
+of multiple diagnostic techniques has enabled simultaneous measure­
+ments of velocity fields, intermediate species (e.g., OH, CH2O, NO), and 
+temperature distributions, offering unprecedented insight into flame 
+structure, blow-off mechanisms, flashback behavior, and thermoacous­
+tic instabilities. These experimental datasets also play a crucial role in 
+validating computational fluid dynamics models of combustors.
+In low-carbon combustion research, advanced diagnostic techniques 
+have provided compelling evidence of the unique challenges associated 
+with fuels like ammonia, including low flame speeds, narrow stability 
+limits, and elevated NOx emissions. Approaches such as hydrogen 
+blending, plasma-assisted combustion, and swirl stabilization have been 
+extensively investigated using high-speed diagnostics to understand and 
+mitigate these issues. Similarly, the application of time-resolved and 
+volumetric laser diagnostics has shed light on complex blowoff and 
+flashback dynamics in ammonia-hydrogen-enriched flames, revealing 
+critical mechanisms that govern flame anchoring, propagation, and 
+instability.
+Despite significant progress, challenges remain in applying these 
+advanced diagnostic methods to high-pressure, real-engine conditions 
+due to limitations in optical access, signal attenuation, and system 
+complexity. Future efforts should focus on improving the robustness and 
+portability of diagnostic systems, enhancing multi-dimensional and 
+machine learning-assisted data analysis techniques, and expanding 
+measurement capabilities to include additional species and reaction 
+intermediates.
+4.2. Emerging challenges and perspectives for future research
+The co-evolution of swirl combustion research and laser-based di­
+agnostics has demonstrated a strong symbiotic relationship, and ad­
+vancements in one domain often catalyze progress in the other two. 
+Innovations in laser technologies have enabled more sophisticated 
+diagnostic capabilities, while the complex demands of modern 
+Fig. 26. (a) Schematic of the swirl-stabilized PRECCINSTA combustor. The domains of PIV, OH* chemiluminescence, and OH-PLIF imaging are indicated. 
+Instantaneous (b) vorticity field, (c) OH-PLIF intensity showing the flame area, and (d) OH* chemiluminescence field showing the heat release rate distribution are 
+also shown for reference. Reproduced from Kushwaha et al. [150] with permission of Springer.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+19 
+
+
+--- Page 20 ---
+
+combustion systems continue to drive the development of novel laser 
+diagnostic techniques.
+In the future, swirl combustion will face escalating challenges asso­
+ciated with the adoption of unconventional fuels (e.g., ammonia, 
+hydrogen), the emergence of novel combustor designs, and increasingly 
+extreme operational conditions, including elevated pressures, tempera­
+tures, and velocities, as well as complex physico-chemical phenomena 
+such as non-equilibrium plasma fields. These evolving conditions will 
+impose new performance and adaptability requirements on laser diag­
+nostic methods.
+On one front, laser technology itself is rapidly advancing. Key pa­
+rameters such as pulse energy, repetition rate, and pulse duration 
+continue to improve, opening new possibilities for diagnostic applica­
+tions. To fully leverage these developments, researchers must proac­
+tively adapt existing diagnostic platforms and pioneer new 
+measurement techniques tailored to the demands of next-generation 
+combustion systems. A notable case is the rapid maturation of femto­
+second laser technologies. Emerging techniques such as femtosecond 
+LAS, Femtosecond Laser Electronic Excitation Tagging (FLEET) and 
+femtosecond CARS, exemplify promising tools for high-speed, high- 
+Fig. 27. Phase-averaged flame surface density colored by the flame curvature, shown through the forcing cycle. Annotation A1 shows the flame roll-up process 
+toward the inner shear layer. Annotation B1 shows the flame roll-up process toward the outer shear layer. Reproduced from Æsøy et al. [151] with permission 
+of ASME.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+20 
+
+
+--- Page 21 ---
+
+resolution diagnostics. Moreover, QCLs are emerging as compact, 
+tunable mid-infrared sources for species-specific diagnostics at high 
+pressures.Fiber-coupled laser systems offer practical advantages in 
+compactness, alignment stability, and deployment in restricted-access 
+environments, making them promising for industrial applications. 
+Further development of these tools in swirl combustion studies will 
+deepen our understanding of flame dynamics and enhance cross- 
+disciplinary innovation.
+Furthermore, traditional diagnostic approaches, including absorp­
+tion, scattering, and emission spectroscopy, must also be extended to 
+operate effectively under practical combustion conditions. Although 
+their implementation in practical combustors is constrained by a 
+convergence 
+of 
+extreme 
+environmental 
+conditions, 
+geometric 
+limitations, signal interference, and calibration complexity. Addressing 
+these barriers requires interdisciplinary advancements in optical engi­
+neering, system miniaturization, and AI-assisted data processing. For 
+instance, a major limitation of current high-repetition-rate laser burst 
+systems is their short duration (~10 ms), which restricts the capture of 
+unsteady phenomena like ignition, flashback, blow-off, and large-scale 
+instabilities. Extending burst durations to hundreds of milliseconds or 
+longer would allow full-cycle flame visualization, enabling time- 
+resolved PIV and PLIF to capture complete transients and provide 
+deeper insight into long-duration flame dynamics.
+While modern laser diagnostics can generate vast, high-fidelity 
+datasets, the effective utilization of this data remains a bottleneck. AI- 
+assisted laser diagnostics for swirl combustion are emerging as a 
+Fig. 28. (a) Isothermal flow field (top) in the presence of a high amount of axial air injection at Re = 40000, S = 0.9, and u0 = constant; solid lines indicating zero 
+axial velocity. (b) Mean OH signal probability (middle) and instant OH-PLIF images (bottom) in the presence of high axial air injection recorded at Tin = 453 K and 
+u0 = 70 m/s. Adapted from Reichel et al. [154], with permission from ASME.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+21 
+
+
+--- Page 22 ---
+
+powerful complement to traditional measurement techniques, enabling 
+both deeper physical insight and enhanced experimental efficiency. 
+Recent advances in data augmentation and missing data reconstruction, 
+leveraging generative adversarial networks and physics-informed neural 
+networks (PINNs), allow high-fidelity interpolation of sparse or 
+occluded measurements, such as in PLIF or PIV under limited optical 
+access. Multimodal data fusion frameworks, which integrate velocity, 
+temperature, and species measurements from complementary di­
+agnostics (e.g., PIV + FRS + PLIF), are being combined with convolu­
+tional and graph neural networks to enable modal identification, feature 
+extraction, and mechanism interpretation of complex swirling flame 
+dynamics. For fast processing and real-time monitoring, emerging ul­
+trafast algorithms can process high-speed imaging data on GPU plat­
+forms, enabling closed-loop feedback control of combustion instabilities. 
+These AI-enhanced capabilities are poised to transform laser diagnostics 
+from a purely observational tool into a predictive, adaptive, and control- 
+oriented component of future swirl combustion research.
+CRediT authorship contribution statement
+Guoqing Wang: Writing – review & editing, Writing – original draft, 
+Visualization, Investigation, Conceptualization. Mingming Gu: Writing 
+– review & editing. Liangliang Xu: Writing – review & editing, Funding 
+acquisition. Shuyue Lai: Writing – review & editing. Xi Xia: Writing – 
+review & editing. Fei Qi: Writing – review & editing, Funding 
+acquisition.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Fig. 29. Simultaneously captured (a) chemiluminescence image, (b) axial velocity map, (c) azimuthal velocity map, (d) 2D dilatation map during flashback-to- 
+flameholding transition for 87% H2 enrichment [156]. Reproduced from Ranjan et al. [156], with permission from Elsevier.
+Fig. 30. Formation of a small-scale flame bulge on the trailing side of a flame tongue (luminescence image sequence, top). Axial velocity field in y = 0.8 mm plane 
+and 3D streamlines showing (a) the reverse flow pocket associated with the flame bulge as it resists the approach flow and (b) the recovered flow field subsequently 
+convecting the bulge downstream. The flame surface rendered in gray corresponds to an isotherm of about 555 K. Adapted from Ebi et al. [161], with permission 
+from Elsevier.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+22 
+
+
+--- Page 23 ---
+
+Acknowledgments
+This research was supported by the National Natural Science Foun­
+dation of China (Grant Nos. 22227901, 52206163).
+Data availability
+The authors do not have permission to share data.
+References
+[1] W. Meier, P. Weigand, X.R. Duan, R. Giezendanner-Thoben, Detailed 
+characterization of the dynamics of thermoacoustic pulsations in a lean premixed 
+swirl flame, Combust. Flame 150 (2007) 2–26, https://doi.org/10.1016/j. 
+combustflame.2007.04.002.
+[2] S. Marragou, H. Magnes, A. Aniello, T.F. Guiberti, L. Selle, T. Poinsot, T. Schuller, 
+Modeling of H2/air flame stabilization regime above coaxial dual swirl injectors, 
+Combust. Flame 255 (2023) 112908, https://doi.org/10.1016/j. 
+combustflame.2023.112908.
+[3] G. Wang, T.F. Guiberti, S. Cardona, C.A. Jimenez, W.L. Roberts, Effects of 
+residence time on the NOx emissions of premixed ammonia-methane-air swirling 
+flames at elevated pressure, Proc. Comb. Inst. 39 (2023) 4277–4288, https://doi. 
+org/10.1016/j.proci.2022.07.141.
+[4] K. Oberleithner, M. Sieber, C.N. Nayeri, C.O. Paschereit, C. Petz, H.C. Hege, B. 
+R. Noack, I. Wygnanski, Three-dimensional coherent structures in a swirling jet 
+undergoing vortex breakdown: stability analysis and empirical mode 
+construction, J. Fluid Mech. 679 (2011) 383–414, https://doi.org/10.1017/ 
+jfm.2011.141.
+[5] S. Candel, D. Durox, T. Schuller, J.F. Bourgouin, J.P. Moeck, Dynamics of swirling 
+flames, Annu. Rev. Fluid Mech. 46 (2014) 147–173, https://doi.org/10.1146/ 
+annurev-fluid-010313-141300.
+[6] J. Driscoll, J. Temme, Role of swirl in flame stabilization, 49th AIAA Aerospace 
+Sciences Meeting including the New Horizons Forum and Aerospace Exposition 
+(2011), 108. https://doi.org/10.2514/6.2011-108.
+[7] C. Petz, H.C. Hege, K. Oberleithner, M. Sieber, C.N. Nayeri, C.O. Paschereit, 
+I. Wygnanski, B.R. Noack, Global modes in a swirling jet undergoing vortex 
+breakdown, Phys. Fluids 23 (2011) 091102, https://doi.org/10.1063/1.3640007.
+[8] A.H. Lefebvre, D.R. Ballal, Gas turbine combustion: alternative fuels and 
+emissions, 3rd ed., CRC press, Boca Raton, 2010.
+[9] A. Haj Ayed, K. Kusterer, H.H.W. Funke, J. Keinz, C. Striegan, D. Bohn, 
+Improvement study for the dry-low-NOx hydrogen micromix combustion 
+technology, Propuls. Power Res. 4 (2015) 132–140, https://doi.org/10.1016/j. 
+jppr.2015.07.003.
+[10] H.H.W. Funke, N. Beckmann, J. Keinz, A. Horikawa, 30 Years of Dry-Low-NOx 
+micromix combustor research for hydrogen-rich fuels—an overview of past and 
+present activities, J. Eng. Gas Turb. Power 143 (2021), https://doi.org/10.1115/ 
+1.4049764.
+[11] N. Syred, J.M. Bekr, Combustion in swirling flows : a review, Combust. Flame 201 
+(1974) 144-, https://doi.org/10.1016/0010-2180(74)90057-1.
+[12] S.K. Dhanuka, J.E. Temme, J.F. Driscoll, H.C. Mongia, Vortex-shedding and 
+mixing layer effects on periodic flashback in a lean premixed prevaporized gas 
+turbine combustor, Proc. Comb. Inst. 32 (2009) 2901–2908, https://doi.org/ 
+10.1016/j.proci.2008.06.155.
+[13] J.E. Temme, P.M. Allison, J.F. Driscoll, Combustion instability of a lean premixed 
+prevaporized gas turbine combustor studied using phase-averaged PIV, Combust. 
+Flame 161 (2014) 958–970, https://doi.org/10.1016/j. 
+combustflame.2013.09.021.
+[14] S. Stouffer, D. Ballal, J. Zelina, D. Shouse, R. Hancock, H. Mongia, Development 
+and combustion performance of high pressure WSR and TAPS combustor, 43rd 
+AIAA Aerospace Sciences Meeting and Exhibit (2005), 1416. https://doi.org/ 
+10.2514/6.2005-1416.
+[15] M. Foust, D. Thomsen, R. Stickles, C. Cooper, W. Dodds, Development of the GE 
+Aviation low emissions TAPS combustor for next generation aircraft engines, 50th 
+AIAA Aerospace Sciences Meeting including the New Horizons Forum and 
+Aerospace Exposition (2012), 0936. https://doi.org/10.2514/6.2012-936.
+[16] N. Patel, M. Kırtas¸, V. Sankaran, S. Menon, Simulation of spray combustion in a 
+lean-direct injection combustor, Proc. Comb. Inst. 31 (2007) 2327–2334, https:// 
+doi.org/10.1016/j.proci.2006.07.232.
+[17] N. Patel, S. Menon, Simulation of spray–turbulence–flame interactions in a lean 
+direct injection combustor, Combust. Flame 153 (2008) 228–257, https://doi. 
+org/10.1016/j.combustflame.2007.09.011.
+[18] C. Huang, R. Gejji, W. Anderson, C. Yoon, V. Sankaran, Combustion dynamics in a 
+single-element lean direct injection gas turbine combustor, Comb. Sci. and Tech. 
+192 (2020) 2371–2398, https://doi.org/10.1080/00102202.2019.1646732.
+[19] Y. Huang, V. Yang, Dynamics and stability of lean-premixed swirl-stabilized 
+combustion, Prog. Energy Combust. Sci. 35 (2009) 293–364, https://doi.org/ 
+10.1016/j.pecs.2009.01.002.
+[20] T. Poinsot, Prediction and control of combustion instabilities in real engines, 
+Proc. Comb. Inst. 36 (2017) 1–28, https://doi.org/10.1016/j.proci.2016.05.007.
+[21] Y.M. Al-Abdeli, A.R. Masri, Review of laboratory swirl burners and experiments 
+for model validation, Exp. Therm Fluid Sci. 69 (2015) 178–196, https://doi.org/ 
+10.1016/j.expthermflusci.2015.07.023.
+[22] M. Ald´en, Spatially and temporally resolved laser/optical diagnostics of 
+combustion processes: from fundamentals to practical applications, Proc. Comb. 
+Inst. 39 (2023) 1185–1228, https://doi.org/10.1016/j.proci.2022.06.020.
+[23] V. Becattini, P. Gabrielli, M. Mazzotti, Role of carbon capture, storage, and 
+utilization to enable a net-zero-CO2-emissions aviation sector, Ind. Eng. Chem. 
+Res. 60 (2021) 6848–6862, https://doi.org/10.1021/acs.iecr.0c05392.
+[24] H. Pitsch, The transition to sustainable combustion: Hydrogen- and carbon-based 
+future fuels and methods for dealing with their challenges, Proc. Comb. Inst. 40 
+(2024) 105638, https://doi.org/10.1016/j.proci.2024.105638.
+[25] J. Beita, M. Talibi, S. Sadasivuni, R. Balachandran, Thermoacoustic instability 
+considerations for high hydrogen combustion in lean premixed gas turbine 
+combustors: a review, Hydrogen 2 (2021) 33–57, https://doi.org/10.1115/ 
+1.4063415.
+[26] M. Impagnatiello, S. Shcherbanev, B. Dharmaputra, N. Noiray, Nonlinear 
+dynamics and thermoacoustic intermittency of a hydrogen-powered sequential 
+combustor, Combust. Flame 274 (2025) 114008, https://doi.org/10.1016/j. 
+combustflame.2025.114008.
+[27] A. Valera-Medina, H. Xiao, M. Owen-Jones, W.I.F. David, P.J. Bowen, Ammonia 
+for power, Prog. Energy Combust. Sci. 69 (2018) 63–102, https://doi.org/ 
+10.1016/j.pecs.2018.07.001.
+[28] H. Kobayashi, A. Hayakawa, K.K.A. Somarathne, E.C. Okafor, Science and 
+technology of ammonia combustion, Proc. Comb. Inst. 37 (2019) 109–133, 
+https://doi.org/10.1016/j.proci.2018.09.029.
+[29] S. Mashruk, E.C. Okafor, M. Kovaleva, A. Alnasif, D. Pugh, A. Hayakawa, 
+A. Valera-Medina, Evolution of N2O production at lean combustion condition in 
+NH3/H2/air premixed swirling flames, Combust. Flame 244 (2022) 112299, 
+https://doi.org/10.1016/j.combustflame.2022.112299.
+[30] A. Hayakawa, M. Hayashi, M. Kovaleva, G.J. Gotama, E.C. Okafor, S. Colson, 
+S. Mashruk, A. Valera-Medina, T. Kudo, H. Kobayashi, Experimental and 
+numerical study of product gas and N2O emission characteristics of ammonia/ 
+hydrogen/air premixed laminar flames stabilized in a stagnation flow, Proc. 
+Comb. Inst. 39 (2023) 1625–1633, https://doi.org/10.1016/j.proci.2022.08.124.
+[31] E.C. Okafor, O. Kurata, H. Yamashita, N. Iki, T. Inoue, H. Jo, M. Shimura, 
+T. Tsujimura, A. Hayakawa, H. Kobayashi, Achieving high flame stability with 
+low NO and Zero N2O and NH3 emissions during liquid ammonia spray 
+combustion with gas turbine combustors, Proc. Comb. Inst. 40 (2024) 105340, 
+https://doi.org/10.1016/j.proci.2024.105340.
+[32] A. Dreizler, B. B¨ohm, Advanced laser diagnostics for an improved understanding 
+of premixed flame-wall interactions, Proc. Comb. Inst. 35 (2015) 37–64, https:// 
+doi.org/10.1016/j.proci.2014.08.014.
+[33] A. Ehn, J. Zhu, X. Li, J. Kiefer, Advanced laser-based techniques for gas-phase 
+diagnostics in combustion and aerospace engineering, Appl. Spectrosc. 71 (2017) 
+341–366, https://doi.org/10.1177/0003702817690161.
+[34] I. Boxx, M. St¨ohr, C. Carter, W. Meier, Sustained multi-kHz flamefront and 3- 
+component velocity-field measurements for the study of turbulent flames, Appl. 
+Phys. B 95 (2009) 23–29, https://doi.org/10.1007/s00340-009-3420-4.
+[35] M. St¨ohr, C.M. Arndt, W. Meier, Effects of Damk¨ohler number on vortex–flame 
+interaction in a gas turbine model combustor, Proc. Comb. Inst. 34 (2013) 
+3107–3115, https://doi.org/10.1016/j.proci.2012.06.086.
+[36] V. Caux-Brisebois, A.M. Steinberg, C.M. Arndt, W. Meier, Thermo-acoustic 
+velocity coupling in a swirl stabilized gas turbine model combustor, Combust. 
+Flame 161 (2014) 3166–3180, https://doi.org/10.1016/j. 
+combustflame.2014.05.020.
+[37] E. Dominik, T.C. Noel, Simultaneous high-speed 3D flame front detection and 
+tomographic PIV, Meas. Sci. Technol. 27 (2016) 035303, https://doi.org/ 
+10.1088/0957-0233/27/3/035303.
+[38] I. Chterev, N. Rock, H. Ek, B. Emerson, J. Seitzman, N. Jiang, S. Roy, T. Lee, 
+J. Gord, T. Lieuwen, Simultaneous imaging of fuel, OH, and three component 
+velocity fields in high pressure, liquid fueled, swirl stabilized flames at 5kHz, 
+Combust. Flame 186 (2017) 150–165, https://doi.org/10.1016/j. 
+combustflame.2017.07.021.
+[39] T.E. Smith, C.M. Douglas, B.L. Emerson, T.C. Lieuwen, Axial evolution of forced 
+helical flame and flow disturbances, J. Fluid Mech. 844 (2018) 323–356, https:// 
+doi.org/10.1017/jfm.2018.151.
+[40] Q. An, A.M. Steinberg, The role of strain rate, local extinction, and hydrodynamic 
+instability on transition between attached and lifted swirl flames, Combust. Flame 
+199 (2019) 267–278, https://doi.org/10.1016/j.combustflame.2018.10.029.
+[41] R. Zhang, I. Boxx, W. Meier, C.D. Slabaugh, Coupled interactions of a helical 
+precessing vortex core and the central recirculation bubble in a swirl flame at 
+elevated power density, Combust. Flame 202 (2019) 119–131, https://doi.org/ 
+10.1016/j.combustflame.2018.12.035.
+[42] C.A. Fugger, P.S. Hsu, N. Jiang, T. Yi, M.N. Slipchenko, J.J. Felver, T.E. Smith, B. 
+L. Emerson, T.C. Lieuwen, S. Roy, 10-kHz simultaneous dual-plane stereo-PIV and 
+OH-PLIF imaging, Appl. Phys. B 126 (2020) 167, https://doi.org/10.1007/ 
+s00340-020-07522-4.
+[43] Z. Yang, S. Wang, J. Zheng, L. Li, X. Liu, Y. Gao, F. Qi, 20 kHz dual-plane stereo- 
+PIV measurements on a swirling flame using a two-legged burst-mode laser, Opt. 
+Lett. 45 (2020) 5756–5759, https://doi.org/10.1364/OL.404002.
+[44] I. Chterev, I. Boxx, Effect of hydrogen enrichment on the dynamics of a lean 
+technically premixed elevated pressure flame, Combust. Flame 225 (2021) 
+149–159, https://doi.org/10.1016/j.combustflame.2020.10.033.
+[45] N. Jiang, P.S. Hsu, C.A. Fugger, S.E. Schmidheiser, B.L. Emerson, T.C. Lieuwen, 
+S. Roy, 10-kHz-rate two-color dual-plane stereo-PIV using an optical parametric 
+oscillator, Meas. Sci. Technol. 34 (2023) 054003, https://doi.org/10.1088/1361- 
+6501/acb457.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+23 
+
+
+--- Page 24 ---
+
+[46] I. Boxx, M. St¨ohr, C. Carter, W. Meier, Temporally resolved planar measurements 
+of transient phenomena in a partially pre-mixed swirl flame in a gas turbine 
+model combustor, Combust. Flame 157 (2010) 1510–1525, https://doi.org/ 
+10.1016/j.combustflame.2009.12.015.
+[47] Z.S. Li, B. Li, Z.W. Sun, X.S. Bai, M. Ald´en, Turbulence and combustion 
+interaction: High resolution local flame front structure visualization using 
+simultaneous single-shot PLIF imaging of CH, OH, and CH2O in a piloted 
+premixed jet flame, Combust. Flame 157 (2010) 1087–1096, https://doi.org/ 
+10.1016/j.combustflame.2010.02.017.
+[48] M. St¨ohr, C.M. Arndt, W. Meier, Transient effects of fuel–air mixing in a partially- 
+premixed turbulent swirl flame, Proc. Comb. Inst. 35 (2015) 3327–3335, https:// 
+doi.org/10.1016/j.proci.2014.06.095.
+[49] Z. Wang, P. Stamatoglou, Z. Li, M. Ald´en, M. Richter, Ultra-high-speed PLIF 
+imaging for simultaneous visualization of multiple species in turbulent flames, 
+Opt. Express 25 (2017) 30214–30228, https://doi.org/10.1364/OE.25.030214.
+[50] C.A. Fugger, S. Roy, A.W. Caswell, B.A. Rankin, J.R. Gord, Structure and 
+dynamics of CH2O, OH, and the velocity field of a confined bluff-body premixed 
+flame, using simultaneous PLIF and PIV at 10 kHz, Proc. Comb. Inst. 37 (2018) 
+1461–1469, https://doi.org/10.1016/j.proci.2018.05.014.
+[51] A.W. Skiba, C.D. Carter, S.D. Hammack, T. Lee, A simplified approach to 
+simultaneous multi-scalar imaging in turbulent flames, Combust. Flame 189 
+(2018) 207–211, https://doi.org/10.1016/j.combustflame.2017.10.035.
+[52] P. Malbois, E. Salaün, A. Vandel, G. Godard, G. Cabot, B. Renou, A.M. Boukhalfa, 
+F. Grisch, Experimental investigation of aerodynamics and structure of a swirl- 
+stabilized kerosene spray flame with laser diagnostics, Combust. Flame 205 
+(2019) 109–122, https://doi.org/10.1016/j.combustflame.2019.03.041.
+[53] P.S. Hsu, N. Jiang, D.K. Lauriola, S. Roy, P.M. Danehy, 10-kHz PLIF thermometry 
+for high-speed jet flame using single burst-mode OPO, AIAA SCITECH 2022 
+Forum (2021), 1523. https://doi.org/10.2514/6.2022-1523.
+[54] S. Wang, J. Zheng, L. Xu, Q. An, X. Han, C. Zhang, L. Li, X. Xia, F. Qi, 
+Experimental investigation of the helical mode in a stratified swirling flame, 
+Combust. Flame 244 (2022) 112268, https://doi.org/10.1016/j. 
+combustflame.2022.112268.
+[55] G. Wang, X. Liu, L. Li, Z.X. Chen, F. Qi, Investigation on the flame front and flow 
+field in acoustically excited swirling flames with and without confinement, Comb. 
+Sci. and Tech. 194 (2022) 130–143, https://doi.org/10.1080/ 
+00102202.2019.1678388.
+[56] Z. Wang, X. Li, L. Li, Z. Zhao, B. Zhou, X. Gan, Strategy for simultaneous multi- 
+scalar imaging in turbulent NH3/H2 premixed flames using a single laser system, 
+Combust. Flame 242 (2022) 112185, https://doi.org/10.1016/j. 
+combustflame.2022.112185.
+[57] G. Wang, H. Shi, W.L. Roberts, T.F. Guiberti, Simultaneous imaging of NO and NH 
+in an ammonia-hydrogen-nitrogen flame using a single dye laser, Combust. Flame 
+245 (2022) 112355, https://doi.org/10.1016/j.combustflame.2022.112355.
+[58] G. Wang, S. Wang, T.F. Guiberti, Simultaneous planar laser-induced fluorescence 
+measurement of reactant NH3, radical NH, and pollutant NO in ammonia- 
+hydrogen flames using a single dye laser, Combust. Flame 256 (2023) 112981, 
+https://doi.org/10.1016/j.combustflame.2023.112981.
+[59] K.P. Chatelain, G. Wang, T.F. Guiberti, Simultaneous planar laser-induced 
+fluorescence of nitric oxide and hydroxyl radical with a single dye laser in 
+hydrogen flames, Int. J. Hydrog. Energy 49 (2024) 473–482, https://doi.org/ 
+10.1016/j.ijhydene.2023.08.168.
+[60] H. Dai, S. Cardona, S. Wang, X. Cai, J. Wang, Z. Huang, T.F. Guiberti, 
+Simultaneous PLIF imaging of NH2, NH, and NH3 in ammonia-hydrogen-nitrogen 
+flames using a single dye laser, Combust. Flame 274 (2025) 114031, https://doi. 
+org/10.1016/j.combustflame.2025.114031.
+[61] R.A. Patton, K.N. Gabet, N. Jiang, W.R. Lempert, J.A. Sutton, Multi-kHz 
+temperature imaging in turbulent non-premixed flames using planar Rayleigh 
+scattering, Appl. Phys. B 108 (2012) 377–392, https://doi.org/10.1007/s00340- 
+012-4880-5.
+[62] C.M. Arndt, M.J. Papageorge, F. Fuest, J.A. Sutton, W. Meier, M. Aigner, The role 
+of temperature, mixture fraction, and scalar dissipation rate on transient methane 
+injection and auto-ignition in a jet in hot coflow burner, Combust. Flame 167 
+(2016) 60–71, https://doi.org/10.1016/j.combustflame.2016.02.027.
+[63] M. Li, B. Yan, L. Chen, S. Chen, Two-dimensional thermometry measurements in 
+confined swirl flames using filtered Rayleigh scattering, Appl. Phys. B 127 (2021) 
+80, https://doi.org/10.1007/s00340-021-07615-8.
+[64] S. Yin, Z. Fei, L. Li, S. Wang, L. Xu, Y. Lin, S. Wang, J. Ye, X. Xia, M. Gu, F. Qi, 
+Investigation of 10kHz filtered Rayleigh scattering and CH2O planar laser- 
+induced fluorescence measurement in two-stage swirl combustor†, Chin. J. Chem. 
+Phys. 37 (2024) 162–170, https://doi.org/10.1063/1674-0068/cjcp2312143.
+[65] L. Marshall, H. Danny L, Raman Scattering Studies of Combustion, Comb. Sci. and 
+Tech. 13 (1976) 199-210. https://doi.org/10.1080/00102207608946735.
+[66] R.S. Barlow, C.D. Carter, Raman/Rayleigh/LIF measurements of nitric oxide 
+formation in turbulent hydrogen jet flames, Combust. Flame 97 (1994) 261–280, 
+https://doi.org/10.1016/0010-2180(94)90020-5.
+[67] J. Kojima, Q.-V. Nguyen, Spontaneous Raman scattering diagnostics: applications 
+in practical combustion systems, Handbook of Combustion (2010) 125–154.
+[68] R.S. Barlow, M.J. Dunn, M.S. Sweeney, S. Hochgreb, Effects of preferential 
+transport in turbulent bluff-body-stabilized lean premixed CH4/air flames, 
+Combust. Flame 159 (2012) 2563–2575, https://doi.org/10.1016/j. 
+combustflame.2011.11.013.
+[69] N. Jiang, P.S. Hsu, J.G. Mance, Y. Wu, M. Gragston, Z. Zhang, J.D. Miller, J. 
+R. Gord, S. Roy, High-speed 2D Raman imaging at elevated pressures, Opt. Lett. 
+42 (2017) 3678–3681, https://doi.org/10.1364/OL.42.003678.
+[70] C. Yang, H. Tang, G. Magnotti, High-speed 1D Raman analyzer for temperature 
+and major species measurements in a combustion environment, Opt. Lett. 45 
+(2020) 2817–2820, https://doi.org/10.1364/OL.390299.
+[71] T.F. Guiberti, W.R. Boyette, Y. Krishna, W.L. Roberts, A.R. Masri, G. Magnotti, 
+Assessment of the stabilization mechanisms of turbulent lifted jet flames at 
+elevated pressure using combined 2-D diagnostics, Combust. Flame 214 (2020) 
+323–335, https://doi.org/10.1016/j.combustflame.2020.01.001.
+[72] T.F. Guiberti, Y. Krishna, W.R. Boyette, C. Yang, W.L. Roberts, G. Magnotti, 
+Single-shot imaging of major species and OH mole fractions and temperature in 
+non-premixed H2/N2 flames at elevated pressure, Proc. Comb. Inst. 38 (2021) 
+1647–1655, https://doi.org/10.1016/j.proci.2020.06.252.
+[73] H. Tang, C. Yang, G. Wang, Y. Krishna, T.F. Guiberti, W.L. Roberts, G. Magnotti, 
+Scalar structure in turbulent non-premixed NH3/H2/N2 jet flames at elevated 
+pressure using Raman spectroscopy, Combust. Flame 244 (2022) 112292, 
+https://doi.org/10.1016/j.combustflame.2022.112292.
+[74] A. Katoch, T.F. Guiberti, D.V. de Campos, D.A. Lacoste, Dual-fuel, dual-swirl 
+burner for the mitigation of thermoacoustic instabilities in turbulent ammonia- 
+hydrogen flames, Combust. Flame 246 (2022) 112392, https://doi.org/10.1016/ 
+j.combustflame.2022.112392.
+[75] A. Zubairova, H. Kim, M. Ald´en, C. Brackmann, Fluorescence-free quantitative 
+measurements of nitric oxide and major species in an ammonia/air flame with 
+Raman spectroscopy, Proc. Comb. Inst. 39 (2023) 1317–1324, https://doi.org/ 
+10.1016/j.proci.2022.07.136.
+[76] J. Lill, M. Stark, R. Schultheis, A. Weinmann, A. Dreizler, D. Geyer, Towards non- 
+intrusive, quantitative N2O Raman measurements in ammonia flames, Proc. 
+Comb. Inst. 40 (2024) 105458, https://doi.org/10.1016/j.proci.2024.105458.
+[77] M.N. Slipchenko, T.R. Meyer, S. Roy, Advances in burst-mode laser diagnostics 
+for reacting and nonreacting flows, Proc. Comb. Inst. 38 (2021) 1533–1560, 
+https://doi.org/10.1016/j.proci.2020.07.024.
+[78] D.J. Richardson, J. Nilsson, W.A. Clarkson, High power fiber lasers: current status 
+and future perspectives [Invited], J. Opt. Soc. Am. B 27 (2010) B63–B92, https:// 
+doi.org/10.1364/JOSAB.27.000B63.
+[79] H. Yu, Y. Yu, Z. Zhang, Y. Li, K. Li, C. Cao, C. Zhao, J. Yin, Y. Zhang, Y. Zhang, 
+Z. Han, Y. Wang, Z. Lu, Recent research and advances in Injection-Seeded lasers 
+across Wavelengths: 1, 1.6, and 2 µm, Opt. Laser Technol. 182 (2025) 112098, 
+https://doi.org/10.1016/j.optlastec.2024.112098.
+[80] D. Strickland, G. Mourou, Compression of amplified chirped optical pulses, Opt. 
+Commun. 55 (1985) 447–449, https://doi.org/10.1016/0030-4018(85)90151-8.
+[81] P. Maine, D. Strickland, P. Bado, M. Pessot, G. Mourou, Generation of ultrahigh 
+peak power pulses by chirped pulse amplification, IEEE J. Quantum Electron. 24 
+(1988) 398–403, https://doi.org/10.1109/3.137.
+[82] M. Scherman, J. Barros, R. Santagata, E. Lin, P. Nicolas, J.P. Faleni, A. Vincent- 
+Randonnier, P. Cherubini, F. Guichard, A. Mohamed, D. Gaffie, B. Attal-Tretout, 
+A. Bresson, 1-kHz hybrid femtosecond/picosecond coherent anti-Stokes Raman 
+scattering thermometry of turbulent combustion in a representative aeronautical 
+test rig, J. Raman Spectrosc. 52 (2021) 1643–1650, https://doi.org/10.1002/ 
+jrs.6106.
+[83] C. Pivard, M. Scherman, R. Santagata, G. Pilla, G. Pelletier, T. Le Pichon, High- 
+speed fs/ps-CARS thermometry for supersonic H2/air combustion studies, Exp. 
+Fluids 66 (2025) 79, https://doi.org/10.1007/s00348-025-04007-y.
+[84] C.N. Dennis, C.D. Slabaugh, I.G. Boxx, W. Meier, R.P. Lucht, Chirped probe pulse 
+femtosecond coherent anti-stokes Raman scattering thermometry at 5kHz in a gas 
+turbine model combustor, Proc. Comb. Inst. 35 (2015) 3731–3738, https://doi. 
+org/10.1016/j.proci.2014.06.063.
+[85] C.S. Goldenstein, R.M. Spearrin, J.B. Jeffries, R.K. Hanson, Infrared laser- 
+absorption sensing for combustion gases, Prog. Energy Combust. Sci. 60 (2017) 
+132–176, https://doi.org/10.1016/j.pecs.2016.12.002.
+[86] B. Li, D. Zhang, J. Liu, Y. Tian, Q. Gao, Z. Li, A review of femtosecond laser- 
+induced emission techniques for combustion and flow field diagnostics, Appl. Sci. 
+9 (2019) 1906, https://doi.org/10.3390/app9091906.
+[87] A. Farooq, A.B.S. Alquaity, M. Raza, E.F. Nasir, S. Yao, W. Ren, Laser sensors for 
+energy systems and process industries: perspectives and directions, Prog. Energy 
+Combust. Sci. 91 (2022) 100997, https://doi.org/10.1016/j.pecs.2022.100997.
+[88] W. Meier, I. Boxx, M. St¨ohr, C.D. Carter, Laser-based investigations in gas turbine 
+model combustors, Exp. Fluids 49 (2010) 865–882, https://doi.org/10.1007/ 
+s00348-010-0889-x.
+[89] D. Durox, J.P. Moeck, J.-F. Bourgouin, P. Morenton, M. Viallon, T. Schuller, 
+S. Candel, Flame dynamics of a variable swirl number system and instability 
+control, Combust. Flame 160 (2013) 1729–1742, https://doi.org/10.1016/j. 
+combustflame.2013.03.004.
+[90] G. Vignat, D. Durox, S. Candel, The suitability of different swirl number 
+definitions for describing swirl flows: accurate, common and (over-) simplified 
+formulations, Prog. Energy Combust. Sci. 89 (2022) 100969, https://doi.org/ 
+10.1016/j.pecs.2021.100969.
+[91] T. Yi, N. Jiang, C.A. Fugger, P.S. Hsu, J. Felver, S. Roy, I. Chterev, R.M. Kumar, D. 
+Stepien, M. Sirignano, B.L. Emerson, T.C. Lieuwen, J.R. Gord, Turbulent flame 
+structure and dynamics in swirling reacting flows: Insights from high-speed dual- 
+plane Stereo-PIV/OH-PLIF measurements, AIAA SCITECH 2019 Forum (2019), 
+0730. https://doi.org/10.2514/6.2019-0730.
+[92] M.S. Sweeney, S. Hochgreb, M.J. Dunn, R.S. Barlow, The structure of turbulent 
+stratified and premixed methane/air flames II: swirling flows, Combust. Flame 
+159 (2012) 2912–2929, https://doi.org/10.1016/j.combustflame.2012.05.014.
+[93] M.M.A. Ahmed, M. Birouk, Burner geometry effect on coherent structures and 
+acoustics of a confined swirling partially premixed methane flame, Exp. Therm 
+Fluid Sci. 105 (2019) 85–99, https://doi.org/10.1016/j. 
+expthermflusci.2019.03.011.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+24 
+
+
+--- Page 25 ---
+
+[94] F.J. Salvador, M. Carreres, J. Garcia-Tiscar, M. Belmar-Gil, Modal decomposition 
+of the unsteady non-reactive flow field in a swirl-stabilized combustor operated 
+by a lean premixed injection system, Aerosp. Sci. Technol. 112 (2021) 106622, 
+https://doi.org/10.1016/j.ast.2021.106622.
+[95] G. Wang, X. Liu, X. Xia, S. Wang, F. Qi, Dynamics of periodically-excited vortices 
+in swirling flames, Proc. Comb. Inst. 38 (2020) 6183–6191, https://doi.org/ 
+10.1016/j.proci.2020.06.308.
+[96] J. Zheng, Y. Guan, L. Xu, X. Xia, L.K.B. Li, F. Qi, Scale-free topology of vortical 
+networks in a turbulent thermoacoustic system, Phys. Rev. Fluids 9 (2024) 
+033202, https://doi.org/10.1103/PhysRevFluids.9.033202.
+[97] Y. Ren, Q. Wang, Y. Guan, X. Xia, F. Qi, Complex network analysis of a premixed 
+swirling flame influenced by precessing vortex core, Phys. Fluids 36 (2024) 
+087123, https://doi.org/10.1063/5.0215162.
+[98] Q. Wang, S. Lai, F. Qi, X. Xia, Combined Reynolds-vorticity transport analysis of 
+the shear layers in a premixed swirling flame, J. Fluid Mech. 1006 (2025) A20, 
+https://doi.org/10.1017/jfm.2025.54.
+[99] Y. Yang, H. Zhang, X. Xia, P. Zhang, F. Qi, An experimental study of the blue whirl 
+onset, Proc. Comb. Inst. 39 (2023) 3705–3714, https://doi.org/10.1016/j. 
+proci.2022.07.085.
+[100] Y. Yang, H. Zhang, L. Li, M. Gu, X. Xia, F. Qi, How does the blue ring form in a 
+blue whirl: an experimental study, Proc. Comb. Inst. 40 (2024) 105772, https:// 
+doi.org/10.1016/j.proci.2024.105772.
+[101] Q. Wang, Y. Ren, M. Gu, B. Yu, X. Feng, F. Qi, X. Xia, Influence of inner shear 
+layer on the emergence of central recirculation zone in a V-shaped premixed 
+swirling flame, Phys. Fluids 35 (2023) 107129, https://doi.org/10.1063/ 
+5.0168980.
+[102] S. Wang, X. Liu, G. Wang, L. Xu, L. Li, Y. Liu, Z. Huang, F. Qi, High-repetition-rate 
+burst-mode-laser diagnostics of an unconfined lean premixed swirling flame 
+under external acoustic excitation, Appl. Opt. 58 (2019) C68–C78, https://doi. 
+org/10.1364/AO.58.000C68.
+[103] Y. Ren, Q. Wang, Y. Peng, L. Xu, X. Xia, F. Qi, Strong and weak interactions of a V- 
+shaped premixed swirling flame with outer vortex rings, Combust. Flame 270 
+(2024) 113760, https://doi.org/10.1016/j.combustflame.2024.113760.
+[104] J. Zheng, S. Wang, Z. Yang, L. Li, G. Wang, Y. Gao, X. Liu, F. Qi, Experimental 
+investigations on coherent flow structures in acoustically excited swirling flames 
+using temporally-separated dual-plane Stereo-PIV, Exp. Therm Fluid Sci. 136 
+(2022) 110673, https://doi.org/10.1016/j.expthermflusci.2022.110673.
+[105] S. Wang, J. Zheng, L. Li, X. Xia, X. Han, C. Zhang, F. Qi, Z. Yang, Extensional study 
+of optical-flow enhanced hybrid PIV method for dual-plane stereoscopic PIV 
+measurement, Meas. Sci. Technol. 33 (2022) 095012, https://doi.org/10.1088/ 
+1361-6501/ac6fb1.
+[106] S. Wang, J. Zheng, L. Li, Z. Yang, X. Xia, C. Fu, Y. Gao, X. Liu, X. Han, C. Zhang, 
+F. Qi, Evolution characteristics of 3D vortex structures in stratified swirling flames 
+studied by dual-plane stereoscopic PIV, Combust. Flame 237 (2022) 111874, 
+https://doi.org/10.1016/j.combustflame.2021.111874.
+[107] A.M. Steinberg, I. Boxx, M. St¨ohr, C.D. Carter, W. Meier, Flow–flame interactions 
+causing acoustically coupled heat release fluctuations in a thermo-acoustically 
+unstable gas turbine model combustor, Combust. Flame 157 (2010) 2250–2266, 
+https://doi.org/10.1016/j.combustflame.2010.07.011.
+[108] X. Liu, S. Wang, G. Wang, L. Xu, L. Li, High-speed simultaneous PLIF/PIV imaging 
+of a lift-off swirling flame under acoustic forcing, Exp. Therm Fluid Sci. 121 
+(2021) 110259, https://doi.org/10.1016/j.expthermflusci.2020.110259.
+[109] I. Boxx, C.M. Arndt, C.D. Carter, W. Meier, High-speed laser diagnostics for the 
+study of flame dynamics in a lean premixed gas turbine model combustor, Exp. 
+Fluids 52 (2012) 555–567, https://doi.org/10.1007/s00348-010-1022-x.
+[110] X. Yang, C. Fu, G. Wang, Z. Li, T. Li, Y. Gao, Simultaneous high-speed SO2 PLIF 
+imaging and stereo-PIV measurements in premixed swirling flame at 20 kHz, 
+Appl. Opt. 58 (2019) C121–C129, https://doi.org/10.1364/AO.58.00C121.
+[111] S. Legros, C. Brunet, P. Domingo-Alvarez, P. Malbois, E. Salaun, G. Godard, 
+M. Caceres, B. Barviau, G. Cabot, B. Renou, G. Lartigue, V. Moureau, S. Puggelli, 
+S. Richard, M.A. Boukhalfa, F. Grisch, Combustion for aircraft propulsion: 
+progress in advanced laser-based diagnostics on high-pressure kerosene/air 
+flames produced with low-NOx fuel injection systems, Combust. Flame 224 
+(2021) 273–294, https://doi.org/10.1016/j.combustflame.2020.12.036.
+[112] L. Ma, Y. Wu, W. Xu, S.D. Hammack, T. Lee, C.D. Carter, Comparison of 2D and 
+3D flame topography measured by planar laser-induced fluorescence and 
+tomographic chemiluminescence, Appl. Opt. 55 (2016) 5310–5315, https://doi. 
+org/10.1364/AO.55.005310.
+[113] W. Xu, C.D. Carter, S. Hammack, L. Ma, Analysis of 3D combustion measurements 
+using CH-based tomographic VLIF (volumetric laser induced fluorescence), 
+Combust. Flame 182 (2017) 179–189, https://doi.org/10.1016/j. 
+combustflame.2017.04.012.
+[114] B.R. Halls, J.R. Gord, T.R. Meyer, D.J. Thul, M. Slipchenko, S. Roy, 20-kHz-rate 
+three-dimensional tomographic imaging of the concentration field in a turbulent 
+jet, Proc. Comb. Inst. 36 (2017) 4611–4618, https://doi.org/10.1016/j. 
+proci.2016.07.007.
+[115] J.P. Moeck, J.-F. Bourgouin, D. Durox, T. Schuller, S. Candel, Tomographic 
+reconstruction of heat release rate perturbations induced by helical modes in 
+turbulent swirl flames, Exp. Fluids 54 (2013) 1498, https://doi.org/10.1007/ 
+s00348-013-1498-2.
+[116] Q. Wang, H. Liu, X. Liu, S. Wang, C. Fu, G. Wang, Y. Gao, W. Cai, F. Qi, Three- 
+dimensional concentration field imaging in a swirling flame via endoscopic 
+volumetric laser-induced fluorescence at 10-kHz-rate, Sci. China Technol. Sci. 63 
+(2020) 2163–2168, https://doi.org/10.1007/s11431-019-1574-4.
+[117] B. Fu, C. Zhang, W. Lyu, J. Sun, C. Shang, Y. Cheng, L. Xu, Recent progress on 
+laser absorption spectroscopy for determination of gaseous chemical species, 
+Appl. Spectrosc. Rev. 57 (2022) 112–152, https://doi.org/10.1080/ 
+05704928.2020.1857258.
+[118] X. Liu, G. Wang, J. Zheng, L. Xu, S. Wang, L. Li, F. Qi, Temporally resolved two 
+dimensional temperature field of acoustically excited swirling flames measured 
+by mid-infrared direct absorption spectroscopy, Opt. Express 26 (2018) 
+31983–31994, https://doi.org/10.1364/OE.26.031983.
+[119] F. Wang, Q. Wu, Q. Huang, H. Zhang, J. Yan, K. Cen, Simultaneous measurement 
+of 2-dimensional H2O concentration and temperature distribution in premixed 
+methane/air flame using TDLAS-based tomography technology, Opt. Commun. 
+346 (2015) 53–63, https://doi.org/10.1016/j.optcom.2015.02.015.
+[120] C. Liu, L. Xu, Z. Cao, Y. Lin, Reconstruction of two-dimensional temperature 
+distribution in swirling flames using TDLAS-based tomography, 2017 IEEE 
+International Instrumentation and Measurement Technology Conference (I2MTC) 
+(2017), https://doi.org/10.1109/I2MTC.2017.7969791.
+[121] C. Liu, Z. Cao, Y. Lin, L. Xu, H. McCann, Online cross-sectional monitoring of a 
+swirling flame using TDLAS tomography, IEEE Trans. Instrum. Meas. 67 (2018) 
+1338–1348, https://doi.org/10.1109/TIM.2018.2799098.
+[122] L. Fei, K. Guojian, L. Xin, W. Kuanliang, Y., Xilong, Diode laser absorption 
+tomography for swirl flames application, in: Fifth International Symposium on 
+Laser Interaction with Matter, 2019, https://doi.org/10.1117/12.2524472.
+[123] D.I. Pineda, L. Paxton, N. Perakis, C.Y. Wei, S. Luna, H. Kahouli, M. Ihme, F. 
+N. Egolfopoulos, R.M. Spearrin, Carbon oxidation in turbulent premixed jet 
+flames: a comparative experimental and numerical study of ethylene, n-heptane, 
+and toluene, Combust. Flame 221 (2020) 371–383, https://doi.org/10.1016/j. 
+combustflame.2020.08.008.
+[124] Z. Li, C. Brackmann, J. Bood, M. Richter, P.-E. Bengtsson, K. Kohse-H¨oinghaus, 
+Laser diagnostics in combustion and beyond dedicated to Prof. Marcus Ald´en on 
+his 70th birthday, Combust. Flame 263 (2024) 113403. https://doi.org/10.1016/ 
+j.combustflame.2024.113403.
+[125] V. Gopal, L. Maddalena, Review of filtered Rayleigh Scattering technique for 
+mixing studies in supersonic air flow, Prog. Aerosp. Sci. 120 (2021) 100679, 
+https://doi.org/10.1016/j.paerosci.2020.100679.
+[126] J.A. Sutton, J.F. Driscoll, Rayleigh scattering cross sections of combustion species 
+at 266, 355, and 532 nm for thermometry applications, Opt. Lett. 29 (2004) 
+2620–2622, https://doi.org/10.1364/ol.29.002620.
+[127] R. Giezendanner-Thoben, U. Meier, W. Meier, M. Aigner, Phase-locked 
+temperature measurements by two-line OH PLIF thermometry of a self-excited 
+combustion instability in a gas turbine model combustor, Flow Turbul. Combust. 
+75 (2005) 317–333, https://doi.org/10.1007/s10494-005-8587-0.
+[128] R. Giezendanner-Thoben, U. Meier, W. Meier, J. Heinze, M. Aigner, Phase-locked 
+two-line OH planar laser-induced fluorescence thermometry in a pulsating gas 
+turbine model combustor at atmospheric pressure, Appl. Opt. 44 (2005) 
+6565–6577, https://doi.org/10.1364/AO.44.006565.
+[129] Z. Wang, Y. Wang, X. Liu, Lift-off region temperature field and planar flow field of 
+a twin-nozzle reacting jet in hot crossflow, Proc. Comb. Inst. 39 (2023) 
+1269–1278, https://doi.org/10.1016/j.proci.2022.08.123.
+[130] X. Liu, Y. Wang, Z. Wang, F. Qi, Single camera 20 kHz two-color formaldehyde 
+PLIF thermometry using a dual-wavelength-switching burst mode laser, Opt. Lett. 
+46 (2021) 5149–5152, https://doi.org/10.1364/OL.439735.
+[131] C. Tao, C. Zhang, Q. An, X. Xue, Temperature field measurements in swirl spray 
+flames using two-line planar laser induced fluorescence thermometry, J. Eng. Gas 
+Turb. Power 147 (2024), https://doi.org/10.1115/1.4066409.
+[132] W. Weng, S. Li, M. Ald´en, Z. Li, Ultraviolet absorption cross-sections of ammonia 
+at elevated temperatures for nonintrusive quantitative detection in combustion 
+environments, Appl. Spectrosc. 75 (2021) 1168–1177, https://doi.org/10.1177/ 
+0003702821990445.
+[133] J. Li, S. Guo, Z. Wang, Y. Wei, W. Liu, Z. Xi, S. Yao, Measurement of NH3 emission 
+in CH4/NH3 combustion exhaust gas with the mid-infrared laser absorption, 
+Infrared Phys. Technol. 147 (2025) 105802, https://doi.org/10.1016/j. 
+infrared.2025.105802.
+[134] J. Li, R. Li, Y. Liu, F. Li, X. Lin, X. Yu, W. Shao, X. Xu, In situ measurement of NO, 
+NO2, and H2O in combustion gases based on near/mid-infrared laser absorption 
+spectroscopy, Sensors 22 (2022), https://doi.org/10.3390/s22155729.
+[135] C. Brackmann, V.A. Alekseev, B. Zhou, E. Nordstr¨om, P.-E. Bengtsson, Z. Li, 
+M. Ald´en, A.A. Konnov, Structure of premixed ammonia + air flames at 
+atmospheric pressure: laser diagnostics and kinetic modeling, Combust. Flame 
+163 (2016) 370–381, https://doi.org/10.1016/j.combustflame.2015.10.012.
+[136] V.A. Alekseev, C. Brackmann, X. Liu, E.J.K. Nilsson, Nitric oxide formation in 
+flames of NH3/DME binary mixtures: Laser-induced fluorescence measurements 
+and detailed kinetic analysis, Fuel 371 (2024) 131951, https://doi.org/10.1016/ 
+j.fuel.2024.131951.
+[137] Z. Wang, X. Li, T. Li, A. Dreizler, S.M. Mousavi, A.N. Lipatnikov, B. Zhou, 
+Experimental investigation of NH3-H2 jet flames adopting multi-scalar imaging: 
+Comparison of turbulent burning velocities obtained using different flame-front 
+markers, Combust. Flame 275 (2025) 114054, https://doi.org/10.1016/j. 
+combustflame.2025.114054.
+[138] Q. Fan, X. Liu, L. Xu, A.A. Subash, C. Brackmann, M. Alden, X.-S. Bai, Z. Li, Flame 
+structure and burning velocity of ammonia/air turbulent premixed flames at high 
+Karlovitz number conditions, Combust. Flame 238 (2022) 111943, https://doi. 
+org/10.1016/j.combustflame.2021.111943.
+[139] Q. Fan, X. Liu, X. Cai, C. Brackmann, M. Alden, X.-S. Bai, Z. Li, Structure and 
+scalar correlation of ammonia/air turbulent premixed flames in the distributed 
+reaction zone regime, Combust. Flame 241 (2022) 112090, https://doi.org/ 
+10.1016/j.combustflame.2022.112090.
+[140] E.C. Okafor, K.D.K.A. Somarathne, R. Ratthanan, A. Hayakawa, T. Kudo, 
+O. Kurata, N. Iki, T. Tsujimura, H. Furutani, H. Kobayashi, Control of NOx and 
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+25 
+
+
+--- Page 26 ---
+
+other emissions in micro gas turbine combustors fuelled with mixtures of methane 
+and ammonia, Combust. Flame 211 (2020) 406–416, https://doi.org/10.1016/j. 
+combustflame.2019.10.012.
+[141] S. Marragou, T.F. Guiberti, T. Poinsot, T. Schuller, Near-field mixing in a coaxial 
+dual swirled injector, Flow Turbul. Combust. 114 (2025) 221–242, https://doi. 
+org/10.1007/s10494-024-00596-6.
+[142] M. Zhang, X. Wei, J. Wang, Z. Huang, H. Tan, The blow-off and transient 
+characteristics of co-firing ammonia/methane fuels in a swirl combustor, Proc. 
+Comb. Inst. 38 (2021) 5181–5190, https://doi.org/10.1016/j.proci.2020.08.056.
+[143] A.A. Khateeb, T.F. Guiberti, X.R. Zhu, M. Younes, A. Jamal, W.L. Roberts, 
+Stability limits and NO emissions of technically-premixed ammonia-hydrogen- 
+nitrogen-air swirl flames, Int. J. Hydrog. Energy 45 (2020) 22008–22018, https:// 
+doi.org/10.1016/j.ijhydene.2020.05.236.
+[144] A.A. Khateeb, T.F. Guiberti, G. Wang, W.R. Boyette, M. Younes, A. Jamal, W. 
+L. Roberts, Stability limits and NO emissions of premixed swirl ammonia-air 
+flames enriched with hydrogen or methane at elevated pressures, Int. J. Hydrog. 
+Energy 46 (2021) 11969–11981, https://doi.org/10.1016/j. 
+ijhydene.2021.01.036.
+[145] R. Ju, J. Wang, M. Zhang, H. Mu, G. Zhang, J. Yu, Z. Huang, Stability and 
+emission characteristics of ammonia/air premixed swirling flames with rotating 
+gliding arc discharge plasma, Energy 277 (2023) 127649, https://doi.org/ 
+10.1016/j.energy.2023.127649.
+[146] S. Wang, X. Wei, M. Gu, Q. Lin, G. Luo, F. Hu, Flame characteristics and NO 
+emission law of sliding arc plasma-assisted ammonia combustion, Combust. 
+Flame 274 (2025) 114000, https://doi.org/10.1016/j. 
+combustflame.2025.114000.
+[147] W. Sun, H. Tang, NH/NH2 measurements in plasma-assisted ammonia swirling 
+flames, in: 2024 IEEE International Conference on Plasma Science (ICOPS), 2024, 
+https://doi.org/10.1109/ICOPS58192.2024.10627754.
+[148] Y. Tang, D. Xie, B. Shi, N. Wang, S. Li, Flammability enhancement of swirling 
+ammonia/air combustion using AC powered gliding arc discharges, Fuel 313 
+(2022) 122674, https://doi.org/10.1016/j.fuel.2021.122674.
+[149] Y. Tang, D. Xie, C. Wei, B. Huang, B. Shi, N. Wang, Effect of microsecond 
+repetitively pulsed discharges on lean blow-off limit and emission of rapidly- 
+mixed ammonia/air swirling flames, Appl. Energy Combust. Sci. 14 (2023) 
+100140, https://doi.org/10.1016/j.jaecs.2023.100140.
+[150] A. Kushwaha, A. Roy, I. Chterev, I. Boxx, R.I. Sujith, Coupled thermoacoustic 
+interactions in hydrogen-enriched lean combustion, Exp. Fluids 65 (2024), 
+https://doi.org/10.1007/s00348-024-03845-6.
+[151] E. Æsøy, T. Indlekofer, M.R. Bothien, J.R. Dawson, The effect of hydrogen on 
+nonlinear flame saturation, J. Eng. Gas Turb. Power 145 (2023) 111019, https:// 
+doi.org/10.1115/1.4063316.
+[152] N.A. Worth, J.R. Dawson, Cinematographic OH-PLIF measurements of two 
+interacting turbulent premixed flames with and without acoustic forcing, 
+Combust. Flame 159 (2012) 1109–1126, https://doi.org/10.1016/j. 
+combustflame.2011.09.006.
+[153] J.G. Aguilar, E. Æsøy, J.R. Dawson, The influence of hydrogen on the stability of a 
+perfectly premixed combustor, Combust. Flame 245 (2022) 112323, https://doi. 
+org/10.1016/j.combustflame.2022.112323.
+[154] T.G. Reichel, K. Goeckeler, O. Paschereit, Investigation of lean premixed swirl- 
+stabilized hydrogen burner with axial air injection using OH-PLIF imaging, J. Eng. 
+Gas Turb. Power 137 (2015), https://doi.org/10.1115/1.4031181.
+[155] A. Goldmann, F. Dinkelacker, Experimental investigation and modeling of 
+boundary layer flashback for non-swirling premixed hydrogen/ammonia/air 
+flames, Combust. Flame 226 (2021) 362–379, https://doi.org/10.1016/j. 
+combustflame.2020.12.021.
+[156] R. Ranjan, N.T. Clemens, Insights into flashback-to-flameholding transition of 
+hydrogen-rich stratified swirl flames, Proc. Comb. Inst. 38 (2021) 6289–6297, 
+https://doi.org/10.1016/j.proci.2020.06.017.
+[157] H. Pers, P.A. Masset, E. Flores-Montoya, L. Selle, T. Schuller, Influence of slit 
+asymmetry on blow-off and flashback in methane/hydrogen laminar premixed 
+burners, Combust. Flame 263 (2024) 113413, https://doi.org/10.1016/j. 
+combustflame.2024.113413.
+[158] X. Zhang, X. Wang, H. Zhou, Z. Ren, Effects of Soret and differential diffusion on 
+boundary layer flashback of H2/CH4 swirling flames, Proc. Comb. Inst. 40 (2024) 
+105327, https://doi.org/10.1016/j.proci.2024.105327.
+[159] J. Park, K.T. Kim, Boundary layer flashback limits and flame dynamics of 
+turbulent premixed hydrogen-air flames, Combust. Flame 273 (2025) 113923, 
+https://doi.org/10.1016/j.combustflame.2024.113923.
+[160] T.G. Reichel, S. Terhaar, O. Paschereit, Increasing flashback resistance in lean 
+premixed swirl-stabilized hydrogen combustion by axial air injection, J. Eng. Gas 
+Turb. Power 137 (2015) 071503-071503-071509. https://doi.org/10.1115/ 
+1.4029119.
+[161] D. Ebi, N.T. Clemens, Experimental investigation of upstream flame propagation 
+during boundary layer flashback of swirl flames, Combust. Flame 168 (2016) 
+39–52, https://doi.org/10.1016/j.combustflame.2016.03.027.
+[162] D.D. Lee, F.A. Bendana, A.P. Nair, S.A. Danczyk, W.A. Hargus, R.M. Spearrin, 
+Exploiting line-mixing effects for laser absorption spectroscopy at extreme 
+combustion pressures, Proc. Comb. Inst. 38 (2021) 1685–1693, https://doi.org/ 
+10.1016/j.proci.2020.08.037.
+[163] G. Singla, P. Scouflaire, C. Rolon, S. Candel, Planar laser-induced fluorescence of 
+OH in high-pressure cryogenic LOx/GH2 jet flames, Combust. Flame 144 (2006) 
+151–169, https://doi.org/10.1016/j.combustflame.2005.06.015.
+[164] R.J. Tancin, C.S. Goldenstein, Ultrafast-laser-absorption spectroscopy in the mid- 
+infrared for single-shot, calibration-free temperature and species measurements in 
+low- and high-pressure combustion gases, Opt. Express 29 (2021) 30140–30154, 
+https://doi.org/10.1364/OE.435506.
+[165] M.J. Evans, P.R. Medwell, Understanding and interpreting laser diagnostics in 
+flames: a review of experimental measurement techniques, Front. Mech. Eng. 5 
+(2019) 65, https://doi.org/10.3389/fmech.2019.00065.
+[166] H. Meng, Y. Ren, F. Cameron, H. Pitsch, In-situ temperature and major species 
+measurements of sooting flames based on short-gated spontaneous Raman 
+scattering, Appl. Phys. B 129 (2023) 32, https://doi.org/10.1007/s00340-023- 
+07972-6.
+[167] Y.N. Mishra, E. Kristensson, E. Berrocal, Reliable LIF/Mie droplet sizing in sprays 
+using structured laser illumination planar imaging, Opt. Express 22 (2014) 
+4480–4492, https://doi.org/10.1364/OE.22.004480.
+[168] Y.N. Mishra, E. Kristensson, M. Koegl, J. J¨onsson, L. Zigan, E. Berrocal, 
+Comparison between two-phase and one-phase SLIPI for instantaneous imaging of 
+transient sprays, Exp. Fluids 58 (2017) 110, https://doi.org/10.1007/s00348- 
+017-2396-9.
+[169] B. Thurow, N. Jiang, W. Lempert, Review of ultra-high repetition rate laser 
+diagnostics for fluid dynamic measurements, Meas. Sci. Technol. 24 (2012) 
+012002, https://doi.org/10.1088/0957-0233/24/1/012002.
+[170] R.J. Tancin, G.C. Mathews, C.S. Goldenstein, Design and application of a high- 
+pressure combustion chamber for studying propellant flames with laser 
+diagnostics, Rev. Sci. Instrum. 90 (2019) 045111, https://doi.org/10.1063/ 
+1.5081671.
+[171] M. Kang, X. Li, L. Ma, Three-dimensional flame measurements using fiber-based 
+endoscopes, Proc. Comb. Inst. 35 (2015) 3821–3828, https://doi.org/10.1016/j. 
+proci.2014.07.064.
+[172] S. Barwey, M. Hassanaly, V. Raman, A. Steinberg, Using machine learning to 
+construct velocity fields from OH-PLIF images, Comb. Sci. and Tech. 194 (2022) 
+93–116, https://doi.org/10.1080/00102202.2019.1678379.
+[173] C. Bong, S.-K. Im, H. Do, M.S. Bak, Estimation of the global equivalence ratio of a 
+swirl combustor from a small number of absorption spectra using machine 
+learning, Appl. Spectrosc. 78 (2024) 1078–1088, https://doi.org/10.1177/ 
+00037028241268279.
+G. Wang et al.                                                                                                                                                                                                                                   
+Experimental Thermal and Fluid Science 173 (2026) 111666 
+26 

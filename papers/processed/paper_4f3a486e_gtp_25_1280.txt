@@ -1,0 +1,718 @@
+
+--- Page 1 ---
+
+Cristian D. Avila Jimenez1
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mails: cjimenez45@gatech.edu; 
+cristianavila1990@gmail.com
+Renee Cole
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: rcole36@gatech.edu
+David R. Noble
+Electric Power Research Institute (EPRI),  
+Charlotte, NC 28262  
+e-mail: bnoble@epri.com
+Robert Steele
+Electric Power Research Institute (EPRI),  
+Charlotte, NC 28262  
+e-mail: rcsteele4@hotmail.com
+David Wu
+Electric Power Research Institute (EPRI),  
+Charlotte, NC 28262  
+e-mail: dwu@epri.com
+Benjamin Emerson1
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: bemerson@gatech.edu
+Tim Lieuwen
+Ben T. Zinn Combustion Laboratory,  
+Georgia Institute of Technology,  
+Atlanta, GA 30332  
+e-mail: tim.lieuwen@gatech.edu
+Toward the Development of an 
+NH3-RRQL System—Part II: 
+Effects of the Primary Combustion 
+Zone Length and Secondary Stage 
+Number of Holes on Stability 
+and Emissions
+Staged combustion systems like the rich–relaxation–quench–lean (RRQL) offer the potential 
+for low nitrogen oxides (NOx) emissions while burning ammonia (NH3). This process 
+involves rich premixed NH3–air combustion in a primary zone, allowing time for NOx 
+relaxation, followed by a lean secondary combustion zone via air injection. However, 
+improper design of the secondary stage can lead to high NOx and nitrous oxide (N2O) 
+emissions, offsetting the climate benefits of carbon-free fuels. This study investigates the 
+effects of primary zone length and secondary stage geometry on the stability and emissions of 
+a lab-scale RRQL system. Experiments were conducted at atmospheric pressure using a 
+modular axial swirl burner (swirl number ¼ 1.1, 16 vanes), with primary equivalence ratios 
+(/primary) of 1.13, 1.15, and 1.18. Two quartz lengths (76 and 178 mm) were tested using a 
+five holes (2.03 mm) secondary injection design. Strong flame interaction and elevated NOx 
+were observed for the 76 mm liner. A longer chamber allowed better NOx relaxation and NH3 
+cracking. Additional tests with 5-, 10-, and 16-holes configurations showed that fewer holes, 
+implying higher momentum flux ratios, yielded lower NOx–N2O emissions, especially at 
+/primary ¼ 1.13. These effects diminished as /primary decreased from 1.18 down to the 
+optimum 1.13. Diffusion-like combustion was seen for 0.90  /global  1.10, leading to 
+inefficient combustion marked by excess O2 values compared with equilibrium. Optimal 
+performance was achieved with /primary ¼ 1.13 and 0.70  /global  0.90, with estimated 
+burner outlet temperatures between 1720 and 1970 K. [DOI: 10.1115/1.4069538] 
+Introduction
+Hydrogen (H2) as fuel for electrical power generation is an 
+important vector toward a zero-carbon economy, if solutions are 
+found to alleviate its main limitations, including low volumetric 
+density, high risk of explosion, and storage and transport [1]. 
+Instead, ammonia (NH3), a H2 carrier, has attracted a lot of attention 
+in recent years owing to its mature and well-established infra­
+structures for production, storage, and distribution [2,3]. Many 
+countries, such as Japan, South Korea, Australia, and U.S., to name a 
+few, are now funding research programs to promote NH3 for energy. 
+The major challenges of burning NH3 are its very low reactivity, 
+which can be overcome by blending with methane (CH4) or H2 to 
+stabilize the flame [4–6], and the very high NOx emission [7–9]. For 
+example, researchers found that the NOx emission level is 
+unacceptably high when burning NH3 at the conditions under which 
+most gas turbines operate [10–13]. Moreover, NH3 is toxic and 
+corrosive, raising additional difficulties when operating combustion 
+devices with this fuel. However, blending NH3 with other fuels 
+could be challenging from an infrastructural point of view, and very 
+few studies are available about pure NH3–air combustion for gas 
+turbines.
+Rich NH3–air and NH3–H2/CH4–air premixed flames with 
+equivalence ratios around 1.10 to 1.30 are known to yield marginal 
+NOx emissions without needing to resort to selective catalytic 
+Turbo Expo: Turbomachinery Technical Conference & Exposition (GT2025), June 
+16–20, 2025. GT2025.
+1Corresponding authors.
+Manuscript received July 3, 2025; final manuscript received July 28, 2025; published 
+online December 22, 2025. Editor: Jerzy T. Sawicki.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2025, Vol. 148 / 071001-1 
+Copyright V
+C 2025 by ASME; reuse license CC-BY 4.0
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 2 ---
+
+reduction [13,14]. However, these conditions lead to unburned NH3, 
+H2, and/or CH4, so a second combustion stage is needed to oxidize 
+all the fuel. This strategy is typically referred to as rich–quench–lean 
+[15–17] or two-stage combustion [18,19], which relies in a NH3 
+flame with rich primary equivalence ratio (/primary) to produce low 
+NOx, and then a secondary air is injected to burn out the remaining 
+fuel in a secondary lean combustion zone, producing a lean global 
+equivalence ratio (/global).
+Tu et al. [20] experimentally and numerically studied 
+NH3–CH4–air premixed swirling flames with air-staging showing 
+that using 30% of the air budget for the secondary stage, which 
+produced a /primary ¼ 1.21, was the optimum staged-air ratio for low 
+NO emissions and high combustion efficiency. However, they 
+demonstrated that NO emissions could reach high values either by 
+injecting secondary air too close to the primary flame or by setting 
+too high staged-air ratios. Finally, high jet-to-crossflow momentum 
+flux ratio (J) could produce air jets impinging on each other, creating 
+an upstream recirculation which was found to negatively affect the 
+NO emissions. A˚ nestad et al. [21] investigated the flame structure 
+and emissions performance in a two-stage lab-scale generic 
+combustor design operated with NH3–H2 blends. They found 
+minimum NOx emissions at /primary  1.15, which occurred when 
+excess NH3 in the main stage was largely converted through 
+pyrolysis to H2, which was then burnt off with additional air in the 
+second stage. However, in both cases, using constant fuel and air 
+budgets and then splitting the air into primary and secondary streams 
+changes the /primary for each splitting ratio, making it difficult to 
+isolate the effects of diverse parameters to compare between cases, 
+and conclude about the sole impact of the secondary stage on 
+exhaust emissions and flame stability.
+Avila Jimenez et al. [22] investigated the effects of secondary air 
+injection on the emissions and stability of two-stage NH3–CH4–air 
+swirl flames using a lab-scale microgas turbine burner. They 
+demonstrated that having more secondary air holes for the same air 
+addition could reduce NO emissions. In addition, they demonstrated 
+for the first time that there is a secondary air addition threshold 
+(which depends on the secondary air injection geometry) above 
+which primary flame instabilities are triggered, which increased the 
+NO emissions prior to blowout. Recently, Kim et al. [23] explored 
+how secondary air injection impacts the flame structure and NO 
+emission characteristics in turbulent premixed CH4–NH3–air flames 
+within a two-stage swirl model combustor. They discovered that 
+minimal NO emissions, along with low CO emissions, occur when 
+there is weak interaction between the two combustion zones and 
+when the secondary air jet has a moderate velocity. Nonetheless, 
+there has been limited investigation into the effects of other 
+parameters on flame stability beyond just the secondary air flow rate.
+Takagi et al. [24] performed staged combustion experiments by 
+adding NH3 to a hydrocarbon (C3H8) and nonhydrocarbon 
+(CO þ H2) fuel blend. They demonstrated that the conversion of 
+NH3 (only product for NH3–nonhydrocarbon blend) into NO in the 
+lean secondary combustion stage is much lower than that for HCN 
+(additional product from NH3–hydrocarbon blend). Therefore, 
+mixing hydrocarbons to stabilize rich NH3 flames could not be a 
+good strategy due to the possible HCN emissions from the rich 
+primary stage that can potentially increase the NO formation in the 
+secondary stage.
+Cole et al. [25] recently introduced the rich, relaxation, quench, 
+lean (RRQL) strategy for NH3 combustion. The experimental setup 
+designed in Ref. [25] was upgraded with a redesigned modular 
+swirler, for which the procedure is discussed in Part I of this study. 
+This paper (Part II) presents an experimental study of the impact of 
+the combustion chamber length and the secondary air injection 
+number of holes on combustion stability and exhaust emissions. 
+First, two quartz liners with 76 mm and 178 mm length were 
+implemented for the primary combustion zone while injecting 
+secondary air through a secondary stage geometry with five holes of 
+2.03 mm diameter. Then, three different secondary stage geometries 
+with 5-, 10-, and 16-holes were tested with the 178 mm long quartz 
+were studied.
+Materials and Methods
+Burner and Conditions. Experiments were conducted with a 
+laboratory scale modular burner, shown in Fig. 1. The burner 
+consists of a modular swirler, and the swirler center body houses a 
+hydrogen torch and spark ignitor which is used only to ignite the 
+premixed NH3–air. This burner simulates the rich, relaxation, and 
+lean secondary stage combustion sections of an RRQL NH3 
+combustor, and the reader can refer to Ref. [25] for further details 
+about the burner head end. The burner has been designed also to 
+Fig. 1 Modular swirl burner setup 
+071001-2 / Vol. 148, JULY 2025                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 3 ---
+
+accommodate a 3D printed modular and interchangeable swirler 
+manufactured in stainless steel. In this study, a swirler design with 16 
+straight vanes with a geometrical swirl number of Sg ¼ 1.1 was 
+chosen based on previous experiments (see Part I of this paper). The 
+swirler has 16 straight vanes with a vane angle of 55.95 deg and an 
+effective area of 6.7  10−4 m2 and is illustrated in Fig. 1.
+Two experimental campaigns were conducted. First, the com­
+bustion chamber length impact on emissions and flame stability was 
+studied. Two quartz lengths of 76 mm and 178 mm were 
+implemented for the primary combustion zone while injecting 
+secondary air through a secondary stage geometry of five holes with 
+2.03-mm diameter, as shown in Fig. 1. The /global was decreased to 
+around 0.50 or flame blowout. Time-averaged broadband flame 
+images of the primary combustion zone were recorded with a DSLR 
+camera to characterize the interaction between the secondary and 
+primary flames. The camera was set with an exposure time of 1/8 s, 
+an aperture of f/8, and an ISO number of 800. White balance was 
+kept constant at 4000 K (white, fluorescent light) throughout the 
+experimental campaigns.
+Second, the exhaust emissions for different number of holes in the 
+secondary stage were investigated. Three different secondary stage 
+geometries with 5-, 10-, and 16-holes were tested with the 178 mm 
+long quartz. Time-averaged broadband flame images of the 
+secondary combustion zone were recorded with the same DSLR 
+camera from a bottom view (see Fig. 1, right-hand side) to 
+characterize the secondary combustion zone. The camera settings 
+were changed to an exposure time of 2 s, an aperture of f/8, and an 
+ISO number of 1600.
+Equivalence ratios and the nozzle velocity are calculated in real- 
+time using the mass flow ratios for the fuel and air circuits. The mass 
+flow rates are metered by pressure drop through critical orifices and 
+controlled using manual and electronic pressure regulators to 
+control upstream pressure. An upstream pressure transducer and 
+thermocouple in combination with a downstream pressure trans­
+ducer allow the operator to ensure sonic flow for effective metering. 
+An additional thermocouple is located upstream of the swirler to 
+track the reactant temperature. Constant nozzle velocity of 
+U0 ¼ 0.90 m/s was utilized and defined using the reactant density, 
+effective nozzle area, and reactant mass flow. The current air and 
+fuel flow control setup leads to accuracy for the /global better than 
+1%.
+Table 1 summarizes the experimental procedure followed. There 
+is a blockage plate on the top of the top quartz (see Fig. 1) to prevent 
+backflow or interactions with surrounding air. The long quartz is 
+meant to allow NOx emissions to relax toward equilibrium with 
+residence times around 100 ms, depending on the nozzle velocity 
+and expansion ratio. As shown in Ref. [26], these values should 
+enable the capture of the first order of magnitude NO relaxation at 
+1 bar and nearly the full approach to equilibrium at 10 bar.
+Exhaust Emissions. Exhaust emissions data are collected using a 
+California Analytical Instruments 700 LX Series NDIR/O2 Ana­
+lyzer for O2 and 700 FTIR multigas analyzer with NOx, NH3, and 
+N2O measurement capabilities. An area-weighted, water-cooled 
+rake probe was installed 76 mm downstream from the secondary 
+stage holes plane, and the reader is referred to Ref. [25] for additional 
+information about the sampling probe design. The probe is complete 
+with thermocouples on the water supply, water return, and sample 
+lines to ensure that the sample is properly quenched to freeze NOx 
+reaction chemistry and to avoid water condensation in the sampling 
+line. Additionally, the sample temperature is closely monitored, and 
+the emissions sample line between the probe and analyzer is heated 
+to 150 C. Exhaust emissions were normalized by the standard of 
+15% dry O2 [27]. All the raw (non-normalized by the standard of 
+15% dry O2) emissions data are plotted as Supplemental Materials
+on the ASME Digital Collection. The exhaust emission gas 
+analyzers are calibrated before every run using span gas with a 
+known concentration for O2, CO, CO2, NO, NO2, N2O, and NH3. In 
+addition, exhaust emissions concentration is contrasted using a 
+standard well-known flame every time before starting an experi­
+mental campaign. By this process, it is confirmed that the accuracy 
+of the reported data is within the accuracy of the gas analyzers 
+provided by the company (California Analytical Instruments, 
+Orange, CA). Unfortunately, the combustion efficiency could not 
+be calculated due to lack of H2 capability in the current gas analyzers 
+setup. As an alternative for this metric, the equilibrium O2 was 
+computed and compared with the measured values. In this sense, 
+higher combustion efficiency is rated by the proximity of measured 
+O2 to equilibrium O2, i.e., higher measured O2 than equilibrium 
+indicates lower combustion efficiency.
+Results and Discussion
+Long Versus Short Quartz. Figure 2 shows the concentration of 
+NOx (top panel), N2O (middle panel), and NH3 (bottom panel) in the 
+exhaust as a function of /global for the two combustion liners’ length 
+tested (76 mm and 178 mm). Solid and dashed lines show the results 
+for long and short liners, respectively. Lower operability range was 
+obtained with the short liner compared to the longer one. The lowest 
+/global achieved with the short liner before primary flame blowout 
+was /global ¼ 0.7660.02, regardless of the /primary tested, although 
+exhaust emissions were recorded only until /global ¼ 0.80 (or higher) 
+due to primary flame instabilities. These flame instabilities occurred 
+due to strong interaction between the secondary stage with the 
+primary flame (see Fig. 3). In contrast, stable primary flame was 
+observed until /global ¼ 0.50 with the long liner (/global < 0.50 could 
+not be studied due to air supply limitations). This means that longer 
+combustion liner is desirable for RRQL NH3 combustion system 
+since the lean stability limit is highly increased. It is also concluded 
+that implementing a short liner, which is closer to a retrofitted 
+burner, not only carries flame instabilities for lean /global but also 
+higher NOx emissions.
+Figure 2 shows that very low NOx emissions were measured for 
+the rich flames (no secondary air addition) regardless of the 
+combustion liner length. However, higher NOx concentration was 
+measured with the short liner compared to the long one at the same 
+/global when secondary air was supplied. One explanation, as 
+described later by analyzing primary flame images, is that strong 
+interactions between the secondary and primary combustion zones 
+may produce local lean pockets, conditions that are well-known to 
+Table 1 Experimental matrix 
+Parameter
+Campaign 1
+Campaign 2
+Primary equivalence ratio (/primary)
+1.13/1.15/1.18
+Nozzle velocity (U0)
+0.90 m/s
+Geometric swirl (Sg)
+1.1
+Inlet temperature
+298 K
+Inlet pressure
+0.11 MPa
+Ammonia mol fraction (XNH3)
+1
+Global equivalence ratio (/global)
+1.10 down to 0.50 or blowout
+1.10 down to 0.50
+Quartz length (mm)
+76 and 178
+178
+Secondary stage # holes
+5
+5/10/16
+Secondary stage holes diameter (mm)
+2.03
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2025, Vol. 148 / 071001-3 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 4 ---
+
+produce high NOx emissions [7–9,13,28,29]. Kim et al. [23] explain 
+that local lean pockets could be produced, increasing the NO 
+emissions, when strong interaction happens between the air jets in 
+the secondary combustion zone and the primary rich flame, and as 
+shown in Ref. [20], the NO emissions increased by placing the 
+secondary air addition too close to the primary flame. On the other 
+hand, lower N2O is measured for the short liner (Fig. 2, middle 
+panel). This is probably due to higher temperatures and lower heat 
+losses [30] compared to the long liner, a trend that is also observed 
+for NH3 emissions. This also implies that probably a slightly lean 
+flame is produced with the short liner when adding secondary air, 
+explaining again the higher measured NOx concentration. Although 
+slightly higher N2O and NH3 emissions are produced with the long 
+liner, it is observed that N2O emissions are sub-10 ppm and NH3 are 
+negligible for /primary ¼ 1.13 and 1.15 for /global < 1.0. Therefore, 
+the long liner is better not only for lower NOx but higher flame 
+stability. Finally, it is important to note that /primary ¼ 1.13 yields 
+the lowest exhaust emissions with the long liner for all the lean 
+/global tested.
+Figure 3 presents the flame images of the primary flame for the 
+short (top row) and long (bottom row) liners as a function of the 
+/global for a /primary ¼ 1.18. This /primary was selected since it allows 
+for easier secondary flame observation by the eye, but the same trend 
+is followed by flames with /primary ¼ 1.13 and 1.15. It is observed 
+that the secondary combustion zone, denoted by the curved white 
+line, grows and travels upstream by decreasing /global, regardless of 
+the combustion liner length. However, due to the reduced distance 
+between both stages, the secondary combustion zone interacts with 
+the primary flame while using the short liner. This interaction 
+triggers pulsating flame instabilities that eventually lead to flame 
+blowout. This behavior was reported recently by Avila Jimenez et al. 
+[22] for a different combustor architecture. These interactions also 
+could produce slightly lean pockets that might explain the higher 
+NOx [20,23] and lower NH3 emissions measured (see Fig. 2), and 
+produce higher local temperatures, explaining also the lower N2O 
+emissions. In contrast, the secondary combustion zone does not 
+interact with the primary flame for the long liner as observed in the 
+bottom row for a wider /global range, until 0.70. Interactions between 
+both combustion zones were only noticeable at far lean conditions 
+/global < 0.70. Although flame instabilities were not observed, these 
+interactions could still create local lean pockets, explaining the 
+increase in NOx at the leaner /global (see Fig. 2, top panel). 
+Therefore, the next section (Number of Holes) is presented only for 
+the 178 mm long quartz.
+Number of Holes. Figure 4 shows the concentration of NOx (top 
+panel), N2O (middle panel), and NH3 (bottom panel) in the exhaust 
+as a function of /global for the three geometries and /primary tested. 
+The different colors are for different /primary, and the solid, dashed, 
+and dotted lines are for 5-, 10-, and 16-holes in the secondary stage, 
+respectively. Once again, very low NOx emissions (sub-12 ppm) 
+were measured for the rich flames (no secondary air addition) 
+regardless of secondary geometry. However, NOx emissions 
+increase by decreasing /global for all geometries. Even though there 
+are no flame instabilities or strong combustion zones interactions, it 
+is observed that higher NOx in the secondary combustion zone is 
+produced as a function of the /primary. This is explained by the much 
+higher unburned NH3 (see Fig. 4, bottom panel) available for the 
+secondary stage combustion zone as /primary increases. It is 
+important to note that the improvement in NOx emissions by 
+implementing a longer combustor liner for the primary flame could 
+be canceled by poor control of the /primary and poor design of the 
+secondary combustion zone.
+For most cases, a monotonic trend is observed for NOx and N2O 
+(Fig. 4, middle panel). It was found that /primary ¼ 1.13 produced the 
+lowest NOx emissions for over the lean cases. In addition, the 
+secondary stage geometry plays a role. Lower number of holes 
+yields better NO–N2O emissions. However, these differences in NO 
+and N2O emissions between geometries are more noticeable by 
+increasing /primary. This means that there is a lower impact of the 
+secondary stage geometry on emissions when /primary is tuned.
+Figure 4 (bottom panel) shows that the unburned NH3 is rapidly 
+consumed in the secondary combustion zone for /primary ¼ 1.13 and 
+1.15, conditions that yield zero NH3 emissions. However, unburned 
+NH3 is still measurable for /primary ¼ 1.18, explaining the higher NO 
+and N2O emissions for this condition. It is acknowledged that high 
+heat losses through the walls can be responsible for part of the NH3 
+emissions and lowering the heat losses by implementing a metal 
+liner and using high preheat temperatures could bring NH3 even 
+lower and enhance the H2 production for the secondary stage. It is 
+concluded that /primary ¼ 1.13 is the optimum primary equivalence 
+ratio, and 0.70  /global  0.90 seems to be an optimum operability 
+range for the RRQL system using the current burner. This /global 
+range produces a theoretical burner outlet gas temperature of around 
+1720 K  /global  1970 K. It is acknowledged that gas turbines, 
+especially the ones fitted with dry low NOx combustors, run at lower 
+/global to control turbine inlet temperature (TIT). However, TIT 
+could be modified in practice by placing a dilution stage downstream 
+the secondary lean combustion stage, which is out of the scope of the 
+present study. Nevertheless, the authors acknowledge that with NH3 
+as fuel, the lower /global studied are relevant to J-class gas turbines.
+Figure 5 presents the time-averaged images of the secondary 
+combustion zone for the three geometries studied as a function of the 
+/global for a /primary ¼ 1.13. Flame images for /primary ¼ 1.15 and 
+Fig. 2 NOx (top panel), N2O (middle panel), and NH3 (bottom 
+panel) concentration in the flue gases as a function of the global 
+equivalence ratio for 76 mm (dashed lines) and 178 mm (solid 
+lines) quartz length. Primary equivalence ratio is shown in 
+different colors and symbols (/primary 5 1.13 squares, /primary 5 
+1.15 circles, and /primary 5 1.18 triangles).
+071001-4 / Vol. 148, JULY 2025                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 5 ---
+
+1.18 are provided as Supplemental Materials on the ASME Digital 
+Collection. Inverse diffusion flames are first formed, as highlighted 
+by the blue rectangles (first rectangle from right to left). By 
+comparing the NOx (top panel) and NH3 (bottom panel) emissions in 
+Fig. 4 with the flame images in Fig. 5, it is observed that this 
+combustion regime (diffusion-like) in the secondary stage is 
+undesirable for either low combustion efficiency or high NOx 
+production. It is also notice that these “diffusion-like” flames are 
+stabilized for leaner /global by increasing the number of holes, i.e., 
+low J values are not appropriate.
+Then, there is a transition to “partially premixed-like” combus­
+tion regime as shown by the arrow (see the yellow rectangles, second 
+rectangle from right to left), which is characterized by a more 
+homogeneous combustion zone, which /global depends on the 
+secondary geometry. This transition occurs by decreasing /global, 
+i.e., by increasing the secondary air flowrate, hence, increasing the 
+jet’s penetration length. This explains why there is an “optimum” 
+/global and why it shifts to leaner values by increasing the number of 
+holes. Contrasting again Figs. 4 and 5, it can be concluded that this 
+combustion regime is desirable due to a local minimum NOx and 
+lower NH3 emissions. Then, decreasing further /global, i.e., 
+increasing J, produces a relocation of the secondary combustion 
+zone upstream until it interacts with the primary flame (see white 
+rectangle, far left rectangle) as it was explained in Fig. 3, increasing 
+NOx emissions again.
+The comparison of flame images and exhaust emissions indicates 
+that partially premixed-like combustion, with a /global slightly 
+leaner than the transition value from diffusion-like (avoiding the 
+interaction between both combustion zones), is an optimal 
+secondary combustion process. It is also concluded based on the 
+current results that high J that allows for a fast transition from 
+diffusion-like to partially premixed-like combustion regime is key 
+for the design of the secondary air injection geometry for an efficient 
+RRQL system.
+Figure 6 shows the concentration of CO (top panel) and O2 
+(bottom panel) in the exhaust as a function of /global for the three 
+geometries and /primary tested. CO emissions have been demon­
+strated for rich NH3–air flames [25], due to the dissociation of the 
+CO2 in the atmospheric air, which is about 380 ppm [31]. CO reaches 
+a concentration of about 40 ppm in the flue gases; however, it is 
+quickly burned out in the secondary stage to sub-10 ppm values. As 
+explained in the methods section, equilibrium O2 is computed as a 
+“combustion efficiency” measure. As can be seen in Fig. 5, 
+diffusion-like combustion was observed for diverse /global  0.85, 
+Fig. 3 Time-averaged broadband images of NH3–air flames as a function of the global 
+equivalence ratio for short (top row) and long (bottom row) combustion chamber
+Fig. 4 NOx (top panel), N2O (middle panel), and NH3 (bottom panel) 
+concentration in the flue gases as a function of the global 
+equivalence ratio for 5 (square, solid lines), 10 (circles, dashed lines), 
+and 16 (triangles, dotted lines) holes in the secondary stage. Primary 
+equivalence ratio is shown in different colors. (Color version online.)
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2025, Vol. 148 / 071001-5 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 6 ---
+
+depending on the number of holes. This combustion regime 
+produces low combustion efficiency denoted by the high O2 
+concentration compared with equilibrium O2 in Fig. 6. All 
+geometries follow the same trend and reach equilibrium O2 at 
+/global  0.70. For these lean /global values, a “premixed-like” 
+combustion zone is observed (see Figs. 3 and 5), which stabilizes 
+around 25 mm upstream the secondary holes plane.
+Finally, an interesting comment can be made if NOx emissions are 
+plotted as a function of J as shown in Fig. 7. Two distinct trends are 
+observed depending on the hole’s setup for the secondary 
+combustion zone. NOx emissions keep increasing as a function of 
+J for 5H, while there is a bimodal trend for 10H and 16H, with a local 
+minimum NOx concentration at certain J. This observation indicates 
+that an odd number of holes in the secondary zone, meaning air jets 
+do not face each other, would yield different NOx trends compared to 
+even number of holes (opposed air jets). In addition, Fig. 7 shows 
+that the local minima for 10H and 16H is measured for 20 < J < 100. 
+Lower J leads to low combustion efficiency (see Fig. 6, bottom 
+panel) and increased NOx emissions, while higher J could also lead 
+to increased NOx emissions. It is suggested that the local minima 
+happens when the hot products and secondary air are well mixed, 
+and then the emissions increase again when the backflow starts 
+interacting with the primary stage, producing local lean pockets 
+[23], conditions that are well-known for producing high NOx 
+emissions for NH3 flames [7–9,13,28,29]. However, these results 
+could help as a design criterion to choose the number of holes for the 
+secondary combustion zone in NH3-RRQL systems.
+Fig. 6 CO and O2 concentration in the flue gases as a function of 
+the global equivalence ratio for different number of holes in the 
+secondary stage. Primary equivalence ratio is shown in different 
+colors. (Color version online.)
+Fig. 7 NOx concentration in the flue gases as a function of the 
+momentum flux ratio (J) for different number of holes in the 
+secondary stage. Primary equivalence ratio is shown in different 
+colors. (Color version online.)
+Fig. 5 Time-averaged broadband images of the secondary combustion zone as a function of 
+the global equivalence ratio for the three geometries tested
+071001-6 / Vol. 148, JULY 2025                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 7 ---
+
+Conclusions
+An experimental study was carried out to understand the impact of 
+the primary combustion zone length and secondary stage number of 
+holes on stability and emissions of rich premixed NH3–air flames 
+under the RRQL system. The main conclusions are as follows:
+ Long combustion chamber for the primary flame is better for 
+lower NOx and higher primary flame stability. This reduces the 
+primary and secondary flames interaction which produces first 
+higher NOx emissions and then primary flame blowout if /global 
+is reduced from a certain threshold (approximately 
+/global ¼ 0.76 for a 76 mm combustor liner).
+ For the tested burner, an optimum primary equivalence ratio 
+was found to be /primary ¼ 1.13. This value not only allowed for 
+a stable primary flame but also produced simultaneous low 
+NOx and NH3 emissions.
+ The secondary stage geometry plays a role on overall exhaust 
+emissions. It was found that lower number of holes yields better 
+NOx–N2O emissions. However, these differences between 
+geometries observed for the exhaust emissions are more 
+noticeable when increasing /primary, probably due to the higher 
+unburned NH3 available for the secondary combustion zone.
+ Diffusion-like combustion was found at low J values (/global 
+0.85, depending on the number of holes) producing higher O2 
+concentration in the flue gases than expected from equilibrium 
+calculations. This implies that such a combustion regime is not 
+desirable due to lower combustion efficiency. Instead, 
+premixed-like combustion was observed for higher secondary 
+air additions, reaching an optimum operating range of 0.70 
+/global  0.90, which allows for a theoretical turbine inlet 
+temperature range of TIT ¼ 1720–1970 K.
+The key takeaways are that a longer combustion chamber will not 
+only increase the residence time for NOx to reach equilibrium and 
+crack unburned NH3 but also increase the primary flame stability, 
+increasing the operability range. In addition, we found that it is 
+crucial to tune the rich primary flame equivalence ratio and then 
+inject enough secondary air to avoid inverse-diffusion flames 
+forming and instead reach a premixed-like secondary combustion 
+zone for lower NOx emissions.
+Acknowledgment
+The authors gratefully acknowledge the technical contributions 
+and insights of John Vega and Mark Winquist at GTI-Energy.
+Funding Data
+ U.S. Department of Energy (DOE)/National Energy Technol­
+ogy Laboratory (Grant No. DE-FE0032079; Funder ID: 
+10.13039/100000015).
+ Electrical Power Research Institute (EPRI)–Gas Turbine 
+Institute (GTI) Energy Low Carbon Resources Initiative 
+(LCRI).
+Data Availability Statement
+The datasets generated and supporting the findings of this article 
+are obtainable from the corresponding author upon reasonable 
+request.
+Nomenclature
+CO ¼ carbon monoxide
+H2 ¼ hydrogen
+J ¼ jet-to-crossflow momentum flux ratio
+NO ¼ nitrogen oxide
+NH3 ¼ ammonia
+NOx ¼ nitrogen oxides
+N2O ¼ nitrous oxide
+O2 ¼ oxygen
+RRQL ¼ rich–relaxation–quench–lean
+Sg ¼ geometric swirl number
+U0 ¼ nozzle velocity
+/global ¼ global equivalence ratio
+/primary ¼ primary equivalence ratio
+References
+0[1] Crabtree, G. W., Dresselhaus, M. S., and Buchanan, M. V., 2004, “The Hydrogen 
+Economy,” Phys. Today, 57(12), pp. 39–44.
+0[2] O’Connor, J., Noble, B., and Lieuwen, T., 2022, Renewable Fuels, Cambridge 
+University Press, Cambridge, UK.
+0[3] Klerke, A., Christensen, C. H., Nørskov, J. K., and Vegge, T., 2008, “Ammonia for 
+Hydrogen Storage: Challenges and Opportunities,” J. Mater. Chem., 18(20), 
+p. 2304.
+0[4] Hayakawa, A., Goto, T., Mimoto, R., Arakawa, Y., Kudo, T., and Kobayashi, H., 
+2015, “Laminar Burning Velocity and Markstein Length of Ammonia/Air 
+Premixed Flames at Various Pressures,” Fuel, 159, pp. 98–106.
+0[5] Pfahl, U. J., Ross, M. C., Shepherd, J. E., Pasamehmetoglu, K. O., and Unal, C., 
+2000, “Flammability Limits, Ignition Energy, and Flame Speeds in H2-CH4-NH3- 
+N2O-O2-N2 Mixtures,” Combust. Flame, 123(1–2), pp. 140–158.
+0[6] Takizawa, K., Takahashi, A., Tokuhashi, K., Kondo, S., and Sekiya, A., 2008, 
+“Burning Velocity Measurements of Nitrogen-Containing Compounds,” 
+J. Hazard. Mater., 155(1–2), pp. 144–152.
+0[7] Hayakawa, A., Goto, T., Mimoto, R., Kudo, T., and Kobayashi, H., 2015, “NO 
+Formation/Reduction Mechanisms of Ammonia/Air Premixed Flames at Various 
+Equivalence Ratios and Pressures,” Mech. Eng. J., 2(1), p. 14-00402.
+0[8] Khateeb, A. A., Guiberti, T. F., Zhu, X., Younes, M., Jamal, A., and Roberts, W. L., 
+2020, “Stability Limits and Exhaust NO Performances of Ammonia-Methane-Air 
+Swirl Flames,” Exp. Therm. Fluid Sci., 114, p. 110058.
+0[9] Zhu, X., Khateeb, A. A., Guiberti, T. F., and Roberts, W. L., 2021, “NO and 
+OH* Emission Characteristics of Very-Lean to Stoichiometric 
+Ammonia–Hydrogen–Air Swirl Flames,” Proc. Combust. Inst., 38(4), 
+pp. 5155–5162.
+[10] Valera-Medina, A., Gutesa, M., Xiao, H., Pugh, D., Giles, A., Goktepe, B., Marsh, 
+R., and Bowen, P., 2019, “Premixed Ammonia/Hydrogen Swirl Combustion 
+Under Rich Fuel Conditions for Gas Turbines Operation,” Int. J. Hydrogen 
+Energy, 44(16), pp. 8615–8626.
+[11] Iki, N., Kurata, O., Matsunuma, T., Inoue, T., Tsujimura, T., Furutani, H., 
+Kobayashi, H., Hayakawa, A., and Okafor, E., 2018, “NOx Reduction in a Swirl 
+Combustor Firing Ammonia for a Micro Gas Turbine,” ASME Paper No. GT2018- 
+75993.
+[12] Valera-Medina, A., Marsh, R., Runyon, J., Pugh, D., Beasley, P., Hughes, T., and 
+Bowen, P., 2017, “Ammonia–Methane Combustion in Tangential Swirl Burners 
+for Gas Turbine Power Generation,” Appl. Energy, 185, pp. 1362–1371.
+[13] Avila, C., Wang, G., Zhu, X., Es-Sebbar, E., Abdullah, M., Younes, M., Jamal, A., 
+Guiberti, T., Roberts, F., and William, L., 2022, “Lean Stability Limits and 
+Exhaust Emissions of Ammonia-Methane-Air Swirl Flames at Micro Gas Turbine 
+Relevant Pressure,” ASME Paper No. GT2022-78304.
+[14] Okafor, E. C., Somarathne, K. D. K. A., Ratthanan, R., Hayakawa, A., Kudo, T., 
+Kurata, O., Iki, N., Tsujimura, T., Furutani, H., and Kobayashi, H., 2020, “Control 
+of NOx and Other Emissions in Micro Gas Turbine Combustors Fuelled With 
+Mixtures of Methane and Ammonia,” Combust. Flame, 211, pp. 406–416.
+[15] Lieuwen, T. C., and Yang, V., 2013, Gas Turbine Emissions, Cambridge 
+University Press, Cambridge, UK.
+[16] Mashruk, S., Xiao, H., and Valera-Medina, A., 2021, “Rich-Quench-Lean Model 
+Comparison for the Clean Use of Humidified Ammonia/Hydrogen Combustion 
+Systems,” Int. J. Hydrogen Energy, 46(5), pp. 4472–4484.
+[17] Feitelberg, A. S., Jackson, M. R., Lacey, M. A. A., Manning, K. S. S., Ritter, A. M., 
+and Virginia, W., 1996, “Design and Performance of a Low Btu Fuel Rich- 
+Quench-Lean Gas Turbine Combustor,” Advanced Coal-Fired Power Systems ’96 
+Review Meeting, Morgantown, WV, July 16–18, p. 1–13.
+[18] Somarathne, K. D. K. A., Okafor, E. C., Hayakawa, A., Kudo, T., Kurata, O., Iki, 
+N., and Kobayashi, H., 2019, “Emission Characteristics of Turbulent Non- 
+Premixed Ammonia/Air and Methane/Air Swirl Flames Through a Rich-Lean 
+Combustor Under Various Wall Thermal Boundary Conditions at High Pressure,” 
+Combust. Flame, 210, pp. 247–261.
+[19] Kurata, O., Iki, N., Inoue, T., Matsunuma, T., Tsujimura, T., Furutani, H., and 
+Kawano, M., et al., 2019, “Development of a Wide Range-Operable, Rich-Lean 
+Low-NOx Combustor for NH3 Fuel Gas-Turbine Power Generation,” Proc. 
+Combust. Inst., 37(4), pp. 4587–4595.
+[20] Tu, Y., Zhang, H., Guiberti, T. F., Avila Jimenez, C. D., Liu, H., and Roberts, W. 
+L., 2024, “Experimental and Numerical Study of Combustion and Emission 
+Characteristics of NH3/CH4/Air Premixed Swirling Flames With Air-Staging in a 
+Model Combustor,” Appl. Energy, 367, p. 123370.
+[21] A˚ nestad, A., Sampath, R., Moeck, J., Gruber, A., and Worth, N. A., 2023, “The 
+Structure and Stability of Premixed CH4, H2, and NH3/H2 Flames in an Axially 
+Staged Can Combustor,” ASME Paper No. GT2023-103088.
+[22] Avila Jimenez, C. D., Macfarlane, A., Younes, M., Jamal, A., Dunn, M., Guiberti, 
+T. F., Masri, A. R., and Roberts, W. L., 2024, “Effects of Secondary Air Injection 
+on the Emissions and Stability of Two-Stage NH3-CH4-Air Swirl Flames,” Proc. 
+Combust. Inst., 40(1–4), p. 105723.
+[23] Kim, J., Lee, H., Lee, J. M., Park, J., Chung, S. H., and Yoo, C. S., 2024, “Effects of 
+the Secondary Air on the Combustion Characteristics of Turbulent Premixed CH4/ 
+NH3/Air Flames in a Two-Stage Swirl Combustor,” Proc. Combust. Inst., 40(1–4), 
+p. 105298.
+Journal of Engineering for Gas Turbines and Power                                                                                                                                      
+JULY 2025, Vol. 148 / 071001-7 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
+
+
+--- Page 8 ---
+
+[24] Takagi, T., Tatsumi, T., and Ogasawara, M., 1979, “Nitric Oxide Formation From 
+Fuel Nitrogen in Staged Combustion: Roles of HCN and NHi,” Combust. Flame, 
+35(C), pp. 17–25.
+[25] Cole, R., Gubbi, S., Wu, D., Emerson, B., Noble, D. R., Steele, R., Sun, W., 
+and Lieuwen, T., 2024, “Rich Ammonia Flame Shapes and NO 
+Relaxation: Facility Development and Characterization,” ASME Paper No. 
+GT2024-122369.
+[26] Gubbi, S., Cole, R., Emerson, B., Noble, D., Steele, R., Sun, W., and Lieuwen, T., 
+2023, “Air Quality Implications of Using Ammonia as a Renewable Fuel: How 
+Low Can NOx Emissions Go?,” ACS Energy Lett., 8(10), pp. 4421–4426.
+[27] Baukal, C. E., and Eleazer, P. B., 1998, “Quantifying NOx for Industrial 
+Combustion Processes,” J. Air Waste Manage. Assoc., 48(1), pp. 52–58.
+[28] Hayakawa, A., Arakawa, Y., Mimoto, R., Somarathne, K. D. K. A., Kudo, T., and 
+Kobayashi, H., 2017, “Experimental Investigation of Stabilization and Emission 
+Characteristics of Ammonia/Air Premixed Flames in a Swirl Combustor,” Int. J. 
+Hydrogen Energy, 42(19), pp. 14010–14018.
+[29] Okafor, E. C., Somarathne, K. D. K. A., Hayakawa, A., Kudo, T., Kurata, O., Iki, 
+N., and Kobayashi, H., 2019, “Towards the Development of an Efficient Low-NOx 
+Ammonia Combustor for a Micro Gas Turbine,” Proc. Combust. Inst., 37(4), 
+pp. 4597–4606.
+[30] Okafor, E. C., Tsukamoto, M., Hayakawa, A., Somarathne, K. D. K. A., 
+Kudo, T., Tsujimura, T., and Kobayashi, H., 2021, “Influence of Wall Heat Loss on 
+the Emission Characteristics of Premixed Ammonia-Air Swirling Flames 
+Interacting With the Combustor Wall,” Proc. Combust. Inst., 38(4), 
+pp. 5139–5146.
+[31] Pinti, D. L., 2021, “Composition of the Earth’s Atmosphere,” Encyclopedia of 
+Geology, D. Alderton, S. A. Elias eds., 2nd ed., Academic Press, Vol. 1–6, 
+Elsevier, London Wall, UK, pp. 187–197.
+071001-8 / Vol. 148, JULY 2025                                                                                                                
+Transactions of the ASME 
+Downloaded from http://asmedigitalcollection.asme.org/gasturbinespower/article-pdf/148/7/071001/7533394/gtp-25-1280.pdf by guest on 31 December 2025
