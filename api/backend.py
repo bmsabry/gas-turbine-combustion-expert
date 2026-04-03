@@ -28,10 +28,18 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-)
-
 # Project directory
 PROJECT_DIR = Path(__file__).parent.parent
+
+@app.get("/")
+async def root():
+    return {
+        "name": "Gas Turbine Combustion Expert API",
+        "version": "1.0.0",
+        "docs": "/docs",
+        "status": "running"
+    }
+
 
 class ChatRequest(BaseModel):
     message: str
