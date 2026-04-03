@@ -54,7 +54,11 @@ function AdminPanel({ onClose }) {
       })
       if (res.ok) {
         const data = await res.json()
-        setSettings(data)
+        // Merge with existing settings to preserve llm_api_key
+        setSettings(prev => ({
+          ...data,
+          llm_api_key: prev?.llm_api_key || ''
+        }))
       }
     } catch (err) {
       console.error('Failed to fetch settings')

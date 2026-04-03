@@ -109,12 +109,12 @@ def setup_admin_routes(app):
     @app.get("/api/admin/settings")
     async def get_settings(username: str = Depends(get_current_admin)):
         settings = load_settings()
-        # Don't return the password hash or API key
+        # Return all settings including API key for this session
         return {
             "llm_provider": settings["llm_provider"],
             "llm_api_url": settings["llm_api_url"],
-            "llm_model": settings["llm_model"],
-            "has_api_key": bool(settings.get("llm_api_key"))
+            "llm_api_key": settings.get("llm_api_key", ""),  # Return actual API key
+            "llm_model": settings["llm_model"]
         }
     
     @app.post("/api/admin/settings")
