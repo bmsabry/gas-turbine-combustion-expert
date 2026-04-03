@@ -22,14 +22,14 @@ COPY chunks/ ./chunks/
 COPY papers/metadata/ ./papers/metadata/
 COPY admin_settings.json ./admin_settings.json
 
-# Build frontend
+# Build frontend - copy entire frontend folder first
 COPY frontend/ ./frontend/
 WORKDIR /app/frontend
 RUN npm install && npm run build
-WORKDIR /app
 
-# Move frontend build to static directory
-RUN mv /app/frontend/dist /app/static
+# Move built frontend to static directory
+WORKDIR /app
+RUN mkdir -p /app/static && cp -r /app/frontend/dist/* /app/static/ && rm -rf /app/frontend
 
 # Expose port
 EXPOSE 8000

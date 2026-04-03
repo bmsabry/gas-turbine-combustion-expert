@@ -33,13 +33,13 @@ app.add_middleware(
 
 # Project directory
 PROJECT_DIR = Path(__file__).parent.parent
+STATIC_DIR = Path("/app/static")  # Docker container path
 
-# Mount static files for frontend (if exists)
-STATIC_DIR = PROJECT_DIR / "static"
-if STATIC_DIR.exists():
-    app.mount("/static", StaticFiles(directory=str(STATIC_DIR)), name="static")
+# Mount static files for frontend
+static_dir = PROJECT_DIR / "static"
+if static_dir.exists():
+    app.mount("/assets", StaticFiles(directory=str(static_dir / "assets")), name="assets")
 
-# API info endpoint
 @app.get("/api")
 async def api_info():
     return {
@@ -49,13 +49,16 @@ async def api_info():
         "status": "running"
     }
 
-# Serve frontend for root
 @app.get("/")
 async def root():
+    # Try Docker path first, then local path
     index_file = STATIC_DIR / "index.html"
+    if not index_file.exists():
+        index_file = PROJECT_DIR / "static" / "index.html"
     if index_file.exists():
-        return FileResponse(str(index_file))
-    return {"message": "Gas Turbine Combustion Expert API", "docs": "/docs"}
+        return FileResponse(str(index_file), media_type="text/html")
+    # Fallback to API info
+    return {"message": "Gas Turbine Combustion Expert API", "docs": "/docs", "static_dir": str(STATIC_DIR), "exists": STATIC_DIR.exists()}
 
 
 class ChatRequest(BaseModel):
