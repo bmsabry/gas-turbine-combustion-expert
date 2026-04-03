@@ -28,6 +28,8 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+)
+
 # Project directory
 PROJECT_DIR = Path(__file__).parent.parent
 
