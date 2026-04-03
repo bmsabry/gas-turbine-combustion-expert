@@ -76,73 +76,69 @@ def load_embeddings():
     embeddings_file = PROJECT_DIR / "embeddings" / "embeddings.json"
     if embeddings_file.exists():
         with open(embeddings_file) as f:
-            data = json.load(f)
-            if isinstance(data, list):
-                return data
+            return json.load(f)
     return []
 
-def load_faiss_index():
-    index_file = PROJECT_DIR / "embeddings" / "faiss_index.bin"
-    if index_file.exists():
-        return faiss.read_index(str(index_file))
-    return None
+def load_chunks():
+    chunks = []
+    chunks_dir = PROJECT_DIR / "chunks"
+    if chunks_dir.exists():
+        for chunk_file in chunks_dir.glob("*_chunks.json"):
+            try:
+                with open(chunk_file) as f:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        chunks.extend(data)
+                    elif isinstance(data, dict):
+                        chunks.append(data)
+            except Exception as e:
+                print(f"Error loading {chunk_file}: {e}")
+    return chunks
 
 def load_knowledge_graph():
     entities_file = PROJECT_DIR / "knowledge_graph" / "entities.json"
-    relations_file = PROJECT_DIR / "knowledge_graph" / "relationships.json"
-    conflicts_file = PROJECT_DIR / "knowledge_graph" / "contradictions.json"
+    relationships_file = PROJECT_DIR / "knowledge_graph" / "relationships.json"
+    contradictions_file = PROJECT_DIR / "knowledge_graph" / "contradictions.json"
     
     entities = []
     relationships = []
-    conflicts = []
+    contradictions = []
     
-    if entities_file.exists():
-        with open(entities_file) as f:
-            entities = json.load(f)
-    if relations_file.exists():
-        with open(relations_file) as f:
-            relationships = json.load(f)
-    if conflicts_file.exists():
-        with open(conflicts_file) as f:
-            conflicts = json.load(f)
+    try:
+        if entities_file.exists():
+            with open(entities_file) as f:
+                entities = json.load(f)
+    except Exception as e:
+        print(f"Error loading entities: {e}")
     
-    return entities, relationships, conflicts
+    try:
+        if relationships_file.exists():
+            with open(relationships_file) as f:
+                relationships = json.load(f)
+    except Exception as e:
+        print(f"Error loading relationships: {e}")
+    
+    try:
+        if contradictions_file.exists():
+            with open(contradictions_file) as f:
+                contradictions = json.load(f)
+    except Exception as e:
+        print(f"Error loading contradictions: {e}")
+    
+    return entities, relationships, contradictions
 
-def load_chunks():
-    chunks_dir = PROJECT_DIR / "chunks"
-    all_chunks = []
-    for chunk_file in chunks_dir.glob("*.json"):
-        with open(chunk_file) as f:
-            data = json.load(f)
-            if isinstance(data, list):
-                all_chunks.extend(data)
-    return all_chunks
+# Load data at startup
+print("Loading embeddings...")
+embeddings_data = load_embeddings()
+print(f"Loaded {len(embeddings_data)} embeddings")
 
-# Global data
-embeddings_data = []
-faiss_index = None
-all_chunks = []
-entities, relationships, conflicts = [], [], []
+print("Loading chunks...")
+all_chunks = load_chunks()
+print(f"Loaded {len(all_chunks)} chunks")
 
-@app.on_event("startup")
-async def startup_event():
-    global embeddings_data, faiss_index, all_chunks, entities, relationships, conflicts
-    
-    print("Loading embeddings...")
-    embeddings_data = load_embeddings()
-    print(f"Loaded {len(embeddings_data)} embeddings")
-    
-    print("Loading FAISS index...")
-    faiss_index = load_faiss_index()
-    print(f"FAISS index: {'loaded' if faiss_index else 'not found'}")
-    
-    print("Loading chunks...")
-    all_chunks = load_chunks()
-    print(f"Loaded {len(all_chunks)} chunks")
-    
-    print("Loading knowledge graph...")
-    entities, relationships, conflicts = load_knowledge_graph()
-    print(f"Loaded {len(entities)} entities, {len(relationships)} relationships, {len(conflicts)} conflicts")
+print("Loading knowledge graph...")
+entities, relationships, conflicts = load_knowledge_graph()
+print(f"Loaded {len(entities)} entities, {len(relationships)} relationships, {len(conflicts)} conflicts")
 
 @app.get("/api/health")
 async def health_check():
@@ -189,10 +185,11 @@ async def chat(request: ChatRequest):
         
         # Check if any tag matches query
         if any(tag in query_lower for tag in tags) or \
-           any(tag in query_lower for tag in ["noxs", "nox", "emission", "swirl", "pressure", "flame", "combustion", "stability", "flashback"]):
+           any(tag in query_lower for tag in ["noxs", "nox", "emission", "swirl", "pressure", "flame", "combustion", "stability", "flashback", "residence", "time"]):
             if text not in seen_texts and len(relevant_chunks) < 5:
                 relevant_chunks.append(chunk)
                 seen_texts.add(text)
+    
     # Check for conflicts related to the query
     relevant_conflicts = []
     for conflict in conflicts:
@@ -243,9 +240,9 @@ async def chat(request: ChatRequest):
         )
     
     # Call the LLM
+    llm_response = None
     try:
         async with httpx.AsyncClient() as client:
-            # Build system prompt
             system_prompt = """You are a gas turbine combustion expert AI assistant. You answer ONLY based on the provided research paper excerpts. Rules:
 1. Never use knowledge outside the provided context.
 2. When multiple papers agree, cite all: (Smith et al., 2021; Jones et al., 2019).
@@ -266,15 +263,30 @@ async def chat(request: ChatRequest):
                     "system": system_prompt,
                     "messages": [
                         {"role": "user", "content": f"Context:\n{context}\n\nQuestion: {request.message}"}
-                        sources=sources,
-                        conflicts=relevant_conflicts[:3],
-                        single_study_notes=[]
-                    )
-        except Exception as e:
-            print(f"LLM API error: {e}")
+                    ]
+                },
+                timeout=60.0
+            )
+            
+            if response.status_code == 200:
+                data = response.json()
+                llm_response = data.get("content", [{}])[0].get("text", "")
+            else:
+                print(f"LLM API error: {response.status_code} - {response.text}")
+    except Exception as e:
+        print(f"LLM API error: {e}")
     
-    # Fallback: Return context-based response
-    response_text = f"Based on the research literature:\n\n"
+    # Use LLM response if available, otherwise build fallback
+    if llm_response:
+        return ChatResponse(
+            response=llm_response,
+            sources=sources,
+            conflicts=relevant_conflicts[:3],
+            single_study_notes=[]
+        )
+    
+    # Fallback
+    response_text = "Based on the research literature:\n\n"
     
     if relevant_chunks:
         for i, chunk in enumerate(relevant_chunks[:3]):
