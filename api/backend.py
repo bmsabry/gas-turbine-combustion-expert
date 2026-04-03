@@ -17,7 +17,7 @@ import httpx
 import asyncio
 
 # Import admin module
-from admin import setup_admin_routes, load_settings
+from api.admin import setup_admin_routes, load_settings
 
 app = FastAPI(title="Gas Turbine Combustion Expert API")
 
