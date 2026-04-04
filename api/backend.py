@@ -161,6 +161,16 @@ else:
 # Build chunk lookup by index position
 chunk_by_idx = {i: c for i, c in enumerate(all_chunks)}
 
+# Pre-load SentenceTransformer model at startup (not per request)
+print("Loading SentenceTransformer model...")
+try:
+    from sentence_transformers import SentenceTransformer as ST
+    _st_model = ST("all-MiniLM-L6-v2")
+    print("SentenceTransformer model loaded")
+except Exception as e:
+    _st_model = None
+    print(f"SentenceTransformer load failed: {e} — will use keyword fallback")
+
 # ─── Semantic search using FAISS ──────────────────────────────────────────────
 
 def semantic_search(query: str, top_k: int = 10) -> List[Dict]:
@@ -169,9 +179,9 @@ def semantic_search(query: str, top_k: int = 10) -> List[Dict]:
         return keyword_fallback(query, top_k)
 
     try:
-        from sentence_transformers import SentenceTransformer
-        model = SentenceTransformer("all-MiniLM-L6-v2")
-        query_vec = model.encode([query], normalize_embeddings=True)
+        if _st_model is None:
+            return keyword_fallback(query, top_k)
+        query_vec = _st_model.encode([query], normalize_embeddings=True)
         query_vec = np.array(query_vec, dtype=np.float32)
 
         distances, indices = faiss_index.search(query_vec, min(top_k, faiss_index.ntotal))
