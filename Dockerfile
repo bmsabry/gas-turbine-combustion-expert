@@ -16,11 +16,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY api/ ./api/
+COPY admin_settings.template.json ./admin_settings.template.json
+COPY start.sh ./start.sh
+RUN chmod +x ./start.sh
 COPY embeddings/ ./embeddings/
 COPY knowledge_graph/ ./knowledge_graph/
 COPY chunks/ ./chunks/
 COPY papers/metadata/ ./papers/metadata/
-COPY admin_settings.json ./admin_settings.json
 
 # Build frontend - copy entire frontend folder first
 COPY frontend/ ./frontend/
@@ -35,4 +37,4 @@ RUN mkdir -p /app/static && cp -r /app/frontend/dist/* /app/static/ && rm -rf /a
 EXPOSE 8000
 
 # Run the application
-CMD ["uvicorn", "api.backend:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["/app/start.sh"]
