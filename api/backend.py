@@ -353,7 +353,7 @@ async def chat(request: ChatRequest):
                 if cid not in all_retrieved or r["score"] > all_retrieved[cid]["score"]:
                     all_retrieved[cid] = r
 
-        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:300]
+        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:600]
 
         if not candidates:
             return ChatResponse(
@@ -362,7 +362,7 @@ async def chat(request: ChatRequest):
             )
 
         # STEP 3: Gemini Flash Reranking → top 50
-        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=100)
+        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=300)
 
         # STEP 4: Build sources list
         sources = []
@@ -384,7 +384,7 @@ async def chat(request: ChatRequest):
 
         # STEP 6: Build context from top 50 chunks
         context_parts = []
-        for i, chunk in enumerate(reranked[:100]):
+        for i, chunk in enumerate(reranked[:300]):
             title = chunk.get("title", "Unknown")
             year = chunk.get("year", "")
             text = chunk.get("text", "")
@@ -417,23 +417,28 @@ async def chat(request: ChatRequest):
 
         # STEP 9: System prompt
         system_prompt = (
+            "ABSOLUTE RULE - THIS OVERRIDES EVERYTHING: You are STRICTLY FORBIDDEN from mentioning "
+            "ANY paper title, author name, year, journal name, citation, reference, or source ANYWHERE "
+            "in your answer. NEVER write phrases like 'according to', 'as shown by', 'researchers found', "
+            "'studies show', 'Smith et al.', '[Author Year]', 'Sources:', 'References:', 'Bibliography:', "
+            "or any similar attribution. Do NOT number your sources. Do NOT list papers at the end. "
+            "Do NOT mention where information came from. EVER. Your answer must contain ONLY direct "
+            "technical content with zero attribution of any kind.\n\n"
             "You are a gas turbine combustion expert AI assistant. "
-            "Answer ONLY from the provided research paper excerpts and knowledge graph data.\n\n"
+            "Answer ONLY from the provided research excerpts.\n\n"
             "Rules:\n"
             "1. Never use outside knowledge. If the answer is not in the provided context, say so explicitly.\n"
-            "2. Synthesize information from multiple sources into a single coherent technical answer.\n"
-            "3. Flag disagreements explicitly: CONFLICTING EVIDENCE: [Paper A] states X. However [Paper B] states Y.\n"
-            "4. Single-study findings: NOTE: This finding comes from a single study and has not been independently corroborated.\n"
-            "5. For system design questions: answer component by component (diffuser → premixer → liner → coatings).\n"
-            "6. Do NOT include citation lists or sources sections at the end. Answer directly and technically.\n"
-            "7. Use confidence levels: 'Literature strongly supports...' / 'Evidence suggests...' / 'Limited evidence indicates...'\n"
-            "8. Be thorough and technical - your audience is combustion engineers.\n"
-            "9. When context includes [VISUAL/EQUATION] chunks, incorporate that quantitative data into your answer."
+            "2. Synthesize all relevant information into one single coherent technical answer.\n"
+            "3. Flag disagreements: ⚠️ CONFLICTING EVIDENCE: One body of research states X. However, other research states Y.\n"
+            "4. For system design questions: answer component by component (diffuser → premixer → liner → coatings).\n"
+            "5. Use confidence levels: 'The literature strongly supports...' / 'Evidence suggests...' / 'Limited evidence indicates...'\n"
+            "6. Be thorough and deeply technical - your audience is combustion engineers.\n"
+            "7. When context includes [VISUAL/EQUATION] chunks, incorporate that quantitative data and equations directly into your answer."
         )
 
         # STEP 10: Assemble user message with full context
         user_msg = (
-            f"Research Paper Context (top 100 most relevant chunks, including equations and figure data):\n"
+            f"Research Paper Context (top 300 most relevant chunks, including equations and figure data):\n"
             f"{context}{conflict_ctx}\n\n"
             f"Question: {request.message}\n\n"
             "Provide a comprehensive, technically accurate answer based solely on the provided research context."
