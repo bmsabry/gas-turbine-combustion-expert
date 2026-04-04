@@ -161,15 +161,22 @@ else:
 # Build chunk lookup by index position
 chunk_by_idx = {i: c for i, c in enumerate(all_chunks)}
 
-# Pre-load SentenceTransformer model at startup (not per request)
-print("Loading SentenceTransformer model...")
-try:
-    from sentence_transformers import SentenceTransformer as ST
-    _st_model = ST("all-MiniLM-L6-v2")
-    print("SentenceTransformer model loaded")
-except Exception as e:
-    _st_model = None
-    print(f"SentenceTransformer load failed: {e} — will use keyword fallback")
+# Lazy load SentenceTransformer (loaded on first request to avoid startup timeout)
+_st_model = None
+_st_model_loaded = False
+
+def get_st_model():
+    global _st_model, _st_model_loaded
+    if not _st_model_loaded:
+        _st_model_loaded = True
+        try:
+            from sentence_transformers import SentenceTransformer as ST
+            _st_model = ST("all-MiniLM-L6-v2")
+            print("SentenceTransformer model loaded successfully")
+        except Exception as e:
+            _st_model = None
+            print(f"SentenceTransformer load failed: {e}")
+    return _st_model
 
 # ─── Semantic search using FAISS ──────────────────────────────────────────────
 
@@ -179,9 +186,10 @@ def semantic_search(query: str, top_k: int = 10) -> List[Dict]:
         return keyword_fallback(query, top_k)
 
     try:
-        if _st_model is None:
+        model = get_st_model()
+        if model is None:
             return keyword_fallback(query, top_k)
-        query_vec = _st_model.encode([query], normalize_embeddings=True)
+        query_vec = model.encode([query], normalize_embeddings=True)
         query_vec = np.array(query_vec, dtype=np.float32)
 
         distances, indices = faiss_index.search(query_vec, min(top_k, faiss_index.ntotal))
