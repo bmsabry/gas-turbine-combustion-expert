@@ -155,7 +155,7 @@ async def decompose_query(query: str, client: httpx.AsyncClient, settings: dict)
     return [query]
 
 
-async def rerank_with_gemini(query: str, chunks: List[Dict], client: httpx.AsyncClient, settings: dict, top_k: int = 50) -> List[Dict]:
+async def rerank_with_gemini(query: str, chunks: List[Dict], client: httpx.AsyncClient, settings: dict, top_k: int = 100) -> List[Dict]:
     """Use Gemini Flash to rerank chunks - returns top_k most relevant."""
     if len(chunks) <= top_k:
         return chunks
@@ -347,13 +347,13 @@ async def chat(request: ChatRequest):
         # STEP 2: Multi-query TF-IDF Retrieval (150 candidates per sub-query, merged)
         all_retrieved = {}
         for sq in sub_queries:
-            results = search_chunks_tfidf(sq, top_k=150)
+            results = search_chunks_tfidf(sq, top_k=300)
             for r in results:
                 cid = r.get("chunk_id", r.get("text", "")[:50])
                 if cid not in all_retrieved or r["score"] > all_retrieved[cid]["score"]:
                     all_retrieved[cid] = r
 
-        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:150]
+        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:300]
 
         if not candidates:
             return ChatResponse(
@@ -362,7 +362,7 @@ async def chat(request: ChatRequest):
             )
 
         # STEP 3: Gemini Flash Reranking → top 50
-        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=50)
+        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=100)
 
         # STEP 4: Build sources list
         sources = []
@@ -384,7 +384,7 @@ async def chat(request: ChatRequest):
 
         # STEP 6: Build context from top 50 chunks
         context_parts = []
-        for i, chunk in enumerate(reranked[:50]):
+        for i, chunk in enumerate(reranked[:100]):
             title = chunk.get("title", "Unknown")
             year = chunk.get("year", "")
             text = chunk.get("text", "")
@@ -433,7 +433,7 @@ async def chat(request: ChatRequest):
 
         # STEP 10: Assemble user message with full context
         user_msg = (
-            f"Research Paper Context (top 50 most relevant chunks, including equations and figure data):\n"
+            f"Research Paper Context (top 100 most relevant chunks, including equations and figure data):\n"
             f"{context}{conflict_ctx}\n\n"
             f"Question: {request.message}\n\n"
             "Provide a comprehensive, technically accurate answer based solely on the provided research context."

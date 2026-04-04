@@ -1,0 +1,3822 @@
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+1
+Design procedures and a Developed Computer Code for 
+Preliminary Single Annular Combustor Design 
+B. S. Mohammad1 and S. M. Jeng2 
+University of Cincinnati, Cincinnati, OH, 45220 
+Gas Turbine Combustor (GTC) design is a challenging and time consuming process. 
+Several methodologies for conventional combustor design have been developed. The 
+objective of this paper is to provide detailed procedures for the preliminary design of a 
+Single Annular Combustor (SAC) (also known as Fuel Rich Dome Combustor). The design 
+algorithm employs empirical and semi-empirical models which include diffuser section 
+design, air distribution computations, combustor sizing, fuel nozzle design, axial swirler 
+design, heat transfer calculations (with/without cooling,  thermal barrier coating) and 
+dilution holes design. The design process will provide the combustor geometry as well as an 
+evaluation of the combustor performance (NOx and CO emissions). A computer code has 
+been developed based on the design procedures. A SAC design has been implemented by the 
+computer program in order to show the program capabilities. The program run time is in 
+the order of magnitude of minutes. Our aim is to provide a tool to serve in educational 
+purposes. Also, to provide a kit to help understand the important technical issues governing 
+the GTC design. This paper shows the first version of the software. In future, the software 
+will have more capabilities including the Lean Premixed Prevaporized (LPP) concept. 
+ 
+Nomenclature 
+3.0
+A
+ 
+= Pre-Diffuser inlet area 
+3.1
+A
+ 
+= Pre-Diffuser exit area 
+d
+A  
+= Dome area 
+AF  
+= Air to fuel ratio by mass 
+ 
+1 PhD candidate, Aerospace Engineering and Engineering Mechanics, University of Cincinnati, ML70, 745 Baldwin 
+Hall, Cincinnati, OH, 45219, AIAA Student member. 
+2 Professor, Aerospace Engineering and Engineering Mechanics, University of Cincinnati, ML 70, and 745 Baldwin 
+Hall, Cincinnati, OH, 45219, and AIAA Member. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+2
+lA  
+= Liner cross sectional area (area bounded by outer and inner liners) 
+p
+A  
+= Passage area 
+ALR  
+= ratio between atomizing air flow rate and fuel flow rate 
+AR  
+= Area ratio of the Pre-diffuser (aerodynamic diffuser) 
+ref
+A
+ 
+= Combustor reference area 
+pn
+Area
+ 
+= Primary fuel nozzle exit area  
+sn
+Area  
+= Secondary fuel nozzle exit area 
+sw
+A  
+= Area of the swirler 
+1
+C  
+= Heat transfer by convection on the liner hot side 
+2
+C  
+= Heat transfer by convection between on the liner cold side 
+cooling
+C
+ 
+= Fraction of air to cool turbine 
+d
+C  
+= Discharge coefficient for the simple plain dilution hole 
+d
+C  
+= Maximum possible discharge coefficient 
+dp
+C  
+= Discharge coefficient for the primary nozzle 
+ds
+C  
+= Discharge coefficient for the secondary nozzle 
+CO  
+= Carbon Monoxide 
+pa
+C
+ 
+= Air specific heat. 
+p
+C  
+= Diffuser Actual pressure recovery coefficient 
+pg
+C
+ 
+= Hot gases specific heat  
+pi
+C  
+= Diffuser ideal pressure recovery coefficient 
+pfv
+C
+ 
+=  Gaseous phase (fuel vapor) specific heat 
+h
+d  
+= Dilution hole diameter 
+j
+d  
+= Primary dilution jet diameter 
+dpl  
+= Liner pressure drop 
+td   
+= Nozzle tip diameter. 
+t _ pn
+d
+ 
+= Primary fuel nozzle tip diameter 
+t _ sn
+d
+ 
+= Secondary fuel nozzle tip diameter 
+an
+D  
+= Annulus area hydraulic diameter 
+f
+D  
+= Fuel droplet diameter 
+hs
+D  
+= swirler hub diameter 
+L
+D  
+= Liner hydraulic diameter  
+DPTP  
+= Ratio of dynamic pressure to total pressure 
+S
+D  
+= Nozzle swirl chamber diameter 
+ts
+D  
+= Swirler tip diameter 
+th
+FA  
+= Stoichiometric fuel air ratio by mass 
+FN  
+= Standard US Nozzle flow number 
+SI
+FN
+ 
+= Nozzle flow number in SI units 
+fr  
+= Ratio of  
+fp max
+m
+to the total fuel flow rate per nozzle 
+fg
+h
+ 
+= Latent heat of vaporization of the fuel droplet 
+H  
+= Percentage of hydrogen by mass in the fuel 
+H  
+= Monatomic Hydrogen 
+H2O  
+= Water vapor 
+d
+H  
+= Dome height 
+p
+H  
+= Overall passage height 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+3
+HV  
+= Heating value of the fuel.  
+J  
+= Dilution jet momentum flux ratio to main stream 
+ak  
+= Air thermal conductivity. 
+gk  
+= Thermal conductivity of the hot gases  
+gf
+k
+ 
+= Thermal conductivity of the gaseous fuel 
+sw
+k
+ 
+= Swirler constant 
+TBC
+k
+  
+= Thermal conductivity of the TBC layer 
+w
+k  
+= Liner thermal conductivity 
+1 2
+K  
+= Net heat conducted through the liner 
+K  
+= Dilution Jet pressure parameter 
+b
+K  
+= Backward  reaction rate 
+f
+K  
+= Forward reaction rate 
+v
+K  
+= Fuel evaporation constant 
+cL  
+= Combustor length 
+lL  
+= Liner length 
+bL  
+= Beam length 
+cs
+L  
+= Cooling segment length 
+f
+L  
+= Fuel luminosity factor 
+zone
+L
+ 
+= Zone length 
+LW  
+= Diffuser length to width ratio 
+max
+LW
+ 
+= Maximum length to width ratio of the pre-diffuser 
+c _ a
+m
+ 
+= Primary swirling air flow rate  
+pn
+c _ a
+m
+ 
+= Primary swirling air flow rate per nozzle 
+c _ cc
+m
+ 
+= Liner convective cooling flow rate 
+c _ d
+m
+ 
+= Dome air flow rate 
+c _ dc
+m
+ 
+= Dome cooling air flow rate 
+c _ dil
+m
+ 
+= Total Secondary dilution jets air flow rate 
+c _ p
+m
+ 
+= Total Primary dilution jets flow rate 
+c _ passage
+m
+ = Passage air flow rate 
+c _ s
+m
+ 
+= Secondary swirling air flow rate  
+pn
+c _ s
+m
+ 
+= Secondary swirling air flow rate per nozzle 
+fuel
+m
+ 
+= Total fuel flow rate 
+fp max
+m
+ 
+= Primary nozzle fuel flow rate at the point where the secondary valve opens.  
+f _ pn
+m
+ 
+= Fuel flow rate per nozzle 
+total
+m
+ 
+= Total core mass flow rate 
+sw
+m
+ 
+= Swirling air flow rate. 
+3
+M  
+= Compressor Exit Mach number 
+3.1
+M
+ 
+= Pre-Diffuser exit Mach number  
+n  
+= Number of jets or dilution holes 
+bands
+n
+ 
+= Number of dilution rows or bands 
+vn  
+= Number of vanes of the swirler 
+N  
+= Monatomic Nitrogen 
+N2  
+= Nitrogen 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+4
+fn
+N
+ 
+= Number of fuel nozzles 
+i
+N   
+= Molar concentration of the species i  
+NOx  
+= Nitrous Oxides 
+Nu  
+= Nusselt number 
+O2  
+= Oxygen 
+O  
+= Monatomic oxygen 
+OH  
+= Hydroxyl 
+3.0
+P  
+= Static pressure at the Pre-diffuser inlet 
+gP   
+= Hot gases pressure 
+PF  
+= Pattern factor 
+g
+Pr  
+= Hot Gases Prandtl number 
+t3
+P  
+= Total compressor exit pressure 
+zP  
+= Pressure in a combustor zone 
+ref
+q
+ 
+= Reference dynamic head 
+cr  
+= Compressor Pitch radius 
+R  
+= Gas constant for air 
+1
+R  
+= Heat transfer by radiation between the hot gases and the liner 
+2
+R  
+= Heat transfer by radiation between the liner and the casing 
+c
+R   
+= Constant of conversion=82.05
+
+
+3
+cm .atm / gmol.K  
+d
+Re  
+= Reynolds number based on the fuel droplet diameter 
+cs
+L
+Re
+ 
+= Reynolds number based on the segment length 
+s
+Re  
+= Reynolds number based on the Slot depth 
+s  
+= Cooling slot depth 
+N
+S  
+= Swirl number 
+SMD  
+= Sauter Mean Diameter 
+t  
+= Fuel spray thickness 
+lt  
+= Cooling strip lip thickness 
+dt  
+= Fuel droplet lifetime 
+rt  
+= Residence time  
+TBC
+t
+ 
+= Thickness of the Thermal Barrier Coating 
+wt  
+= Liner thickness 
+3.0
+T
+ 
+= Static temperature at the Pre-diffuser inlet 
+g
+T  
+= Temperature of the hot gases in the primary zone 
+iT  
+= Temperature at the interface between the TBC and the liner 
+sT  
+= Fuel surface temperature 
+st
+T  
+= Stoichiometric Flame temperature 
+t4
+T  
+= Turbine Inlet Total Temperature 
+t3
+T  
+= Total compressor exit temperature 
+w1
+T
+ 
+= Temperature of the liner hot side 
+w2
+T
+ 
+= Temperature of the liner cold side 
+w,ad
+T
+ 
+= Effective wall or adiabatic wall temperature 
+zT  
+= Temperature in a combustor zone 
+g
+U  
+= Hot gases velocity 
+j
+U  
+= Dilution jet velocity 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+5
+r
+U  
+= Relative velocity between air and fuel droplets (close to fuel nozzle tip) 
+cv  
+= Swirler vanes chord 
+tv  
+= Swirler vane thickness 
+sv  
+= Swirler vane spacing 
+3.0
+V
+ 
+= Air velocity at the Pre-diffuser inlet  
+3.1
+V
+ 
+= Pre-diffuser exit velocity  
+c
+V  
+= Combustor volume 
+d
+V  
+= Velocity in the dome area 
+e
+V  
+= Volume of fuel evaporation 
+p
+V  
+= Velocity in the passage 
+r
+V  
+= Relative velocity between the fuel droplet and the combustion products 
+ref
+V
+ 
+= Reference velocity 
+zone
+V
+ 
+= Gas velocity in a combustor zone 
+W  
+= Pre-diffuser inlet width  
+x  
+= Parameter to enable estimation of the expected fuel spray thicknesses 
+ix  
+= Mole fraction of the species i 
+Y  
+= Dilution jet penetration 
+max
+Y
+ 
+= Maximum penetration of the dilution jet 
+ 
+= Dilution hole mass flow rate/ Annulus mass flow rate 
+q
+B  
+= Transfer number 
+set
+P
+
+ 
+= Pressure setting for the secondary fuel nozzle to open 
+min
+P
+
+ 
+= Minimum pressure below which the pilot fuel nozzle is closed 
+max
+P
+
+ 
+= Maximum pressure supplied by the fuel pump 
+pd
+
+ 
+= Pressure loss in the aerodynamic diffuser as a fraction of its inlet total pressure 
+dd
+
+ 
+= Pressure loss in the dump diffuser as a fraction of its total inlet pressure 
+t 
+= Total pressure loss in the diffuser section as a fraction of total inlet pressure 
+g
+ 
+= Hot gas emissivity 
+c 
+= Casing emissivity. 
+w
+  
+= Liner emissivity. 
+c 
+= Total pressure loss through the combustor as a fraction of total inlet pressure 
+p
+ 
+= Equivalence ratio in the primary zone 
+s 
+= Equivalence ratio in the secondary region  
+ 
+= Air specific heat ratio 
+ 
+= Cooling film effectiveness 
+f
+  
+= Fuel viscosity 
+g
+ 
+= Hot gases viscosity. 
+pn
+
+ 
+= ½ the spray angle of the primary nozzle 
+sn
+
+ 
+= ½ the spray angle for the secondary nozzle 
+v
+ 
+= Swirler vane angle 
+d
+ 
+= Dilution jet angle 
+ 
+= Diffusion angle of the aerodynamic diffuser (or Pre-diffuser) 
+fuel
+
+ 
+= Fuel density 
+g
+ 
+= Hot gases density 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+6
+3.0
+
+ 
+= Air density at the Pre-diffuser inlet
+ 
+ 
+= Boltzman constant 
+v
+ 
+= Swirler vanes solidity 
+f
+ 
+= Fuel surface tension 
+  
+  
+I. Introduction 
+He design process of a Fuel Rich Dome Combustor (also referred to as Single Annular Combustor (SAC)) is a 
+challenging task. The design procedures involve lots of compute-intensive calculations. The design process 
+includes coupled non-linear equations, implicit equations, different charts and lots of mathematics and logic to 
+synchronize the design process. 
+ 
+Mellor1 and Lefebvre2 collected an extensive list of empirical and analytical tools. They discussed details about 
+the assumptions behind different equations involved in the design process as well as their range of validity. 
+However, they did not provide a method to automate their design process. There are several other published 
+preliminary designs for aircraft Gas Turbine Combustor (GTC).3-5  
+ 
+This paper presents a mechanism to automate the design procedures of a SAC in a detailed step-by-step manner. 
+An integral part of our automation mechanism, is the development of software that automates the design process. 
+The fundamental objective of this software is to minimize the time spent in the preliminary aircraft GTC design 
+process. The software will also enable the designer to fine tune several critical parameters and check their impact on 
+the combustor’s size and performance in a timely manner. 
+In Section II, the detailed design procedures of the SAC are presented. In Section III, the performance evaluation 
+of the SAC will be discussed, while in the Section 3, the automation code is used to design a SAC. The performance 
+of that specific SAC is also analyzed in Section 3. The reader is encouraged to refer to the books by Mellor1 and 
+Lefebvre2 for more details on the assumptions and derivations of the design equations.  
+II. SAC Design Procedures 
+A. Data required to initiate the design process 
+      The design process assumes the following parameters are given: 
+total
+m
+, 
+t3
+T , 
+t3
+P , 
+cr , 
+3
+M , 
+cooling
+C
+, 
+t4
+T  and 
+c.  
+The previous parameters are related to the thermodynamic cycle and engine configuration. In other words, they 
+represent the operational requirements and duty of the GTC. The numerical values are given at the point of 
+T
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+7
+maximum power. Furthermore, in the current version of the design code, we assume a constant area combustor. The 
+default input fuel is assumed to be Jet A. However, the user can simply change the properties to an alternate fuel. 
+ 
+B. Air Distribution through the Combustor 
+A typical GTC is shown in Fig. 1.6 The air flows from the compressor to two different combustor sections: the 
+dome (
+c _ d
+m
+) and the passage (
+c _ passage
+m
+). The air flowing through the dome has three different purposes. The first is 
+to atomize the liquid fuel issuing from the fuel nozzle (
+c _ a
+m
+). The second is to create a swirling flow that stabilizes 
+the combustion (
+c _ s
+m
+) and the third to cool the dome (
+c _ dc
+m
+). Also, the air flowing through the passage has three 
+purposes. The first is to provide cooling for the liner. The second is to provide the primary air jets needed to 
+complete the combustion reaction in the secondary region (
+c _ p
+m
+) and the third is to provide the dilution air jets 
+necessary to achieve the required exit temperature distribution (
+c _ dil
+m
+).  The process is then summarized as follows: 
+1) Compute 
+c
+mfrom Eq. (1). 
+ 
+
+
+c
+cooling
+total
+m
+1
+C
+* m
+
+
+
+
+ 
+(1) 
+2) AF  at the design point, maximum power conditions, is estimated using Eq. (2).  The equation describes an 
+energy balance of the GTC.   
+ 
+
+
+
+pg
+t4
+pg
+t4
+pa
+t3
+AF
+HV
+C
+* T
+C T
+C T
+
+
+
+
+ 
+(2) 
+3) 
+fuel
+m
+is estimated using Eq. (3). 
+ 
+fuel
+c
+m
+m
+AF
+
+
+
+
+ 
+(3) 
+4) The value of 
+c _ a
+m
+/
+fuel
+m
+ is assumed somewhere between 2 and 3 to ensure sufficient atomization.3  Now we 
+have an estimate of the 
+c _ a
+m
+. 
+5) The ratio 
+c _ dc
+m
+/
+c
+m   is assumed somewhere between 10-15% for typical combustor.3  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+8
+6) 
+p
+ is assumed between 1.4 and 1.5.7 Hence, Eq. (4) could be used to estimate the value of 
+c _ s
+m
+.  The 
+equivalence ratio shouldn’t be too lean at idle power. Otherwise the combustion efficiency will be too low. Also, 
+it shouldn’t be overly rich at high power to avoid smoke problems. 
+ 
+c _ s
+th
+p
+fuel
+c
+c _ dc
+m
+AF
+* m
+m
+m
+
+
+
+
+
+
+
+
+
+ 
+(4) 
+7) 
+c _ d
+m
+and 
+c _ passage
+m
+ are both calculated from Eqs. (5) and (6) respectively.  
+ 
+c _ d
+c _ a
+c _ s
+c _ dc
+m
+m
+m
+m
+
+
+
+
+
+
+
+ 
+(5) 
+ 
+c _ passage
+c
+c _ d
+m
+m
+m
+
+
+
+
+
+ 
+(6) 
+8)  
+c _ p
+m
+ is be calculated from Eq. (7). Also the value of 
+s is assumed. 
+ 
+c _ p
+th
+s
+c
+c _ d
+m
+AF /
+* m / AF
+m
+
+
+
+
+
+
+ 
+(7) 
+9) The value of
+c _ cc
+m
+ is typically 0.75 kg s-1 m-2 atm-1.  Once we estimate the liner area (in section C), we can 
+simply determine the required cooling flow rate. Hence, the 
+c _ dil
+m
+can be calculated using Eq. (8). 
+ 
+c _ dil
+c _ passage
+c _ cc
+c _ p
+m
+m
+m
+m
+
+
+
+
+
+
+
+ 
+(8) 
+10) The ratio 
+c _ d
+m
+/
+c
+m and
+c _ passage
+m
+/
+c
+m can simply be estimated using the flow rates we already calculated. 
+Usually 20-40 % of the air flows through the dome and the remaining through the passage. 
+ 
+C. Combustor Sizing 
+The main dimensions of the Fuel Rich Dome Combustor are shown in Fig. 2.  We need to determine different 
+geometrical variables as well as the pressure drop across the liner and the swirlers. The combustor main dimensions 
+are estimated according to the velocity method. That is the dimensions will assume a certain prescribed velocity. 
+Typical velocity ranges are assumed according to conventional combustor designs. The sizing procedures are: 
+1) 
+3.0
+T
+, 
+3.0
+P , 
+3.0
+
+and 
+3.0
+V
+at the inlet of pre-diffuser (from now on we refer to that location as station 3.0) are 
+obtained from Eq. (9-12) respectively.  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+9
+ 
+
+
+
+
+2
+3.0
+t 3
+3.0
+T
+T
+1
+1
+2M
+
+
+
+
+
+
+ 
+(9) 
+ 
+
+
+
+
+/
+1
+3.0
+3.0
+t3
+t3.0
+P
+T
+T
+* P
+
+
+
+
+ 
+(10)  
+ 
+
+
+3.0
+3.0
+3.0
+P
+R*T
+
+
+
+ 
+(11) 
+ 
+3.0
+3.0
+3.0
+V
+M
+*
+* R* T
+
+
+ 
+(12) 
+2) Calculate 
+3.0
+A
+ from Eq. (13). Hence, compute W  from Eq. (14).  
+ 
+
+
+3.0
+total
+3.0
+3.0
+A
+m
+*V
+
+
+
+
+ 
+(13) 
+ 
+
+
+3.0
+c
+W
+A
+* 2* r
+
+
+
+ 
+(14)  
+3) 
+p
+V  is assumed to be within 35-60 m/s.8 Also, 
+d
+V  is assumed to be within 7-12 m/s.8  
+4) We already estimated 
+c _ d
+m
+. Now we can estimate 
+d
+A  from Eq. (15). Similarly, we get 
+p
+A  from Eq. (16). 
+ 
+
+
+d
+c _ d
+3.0
+d
+A
+m
+*V
+
+
+
+
+ 
+(15) 
+ 
+
+
+p
+c _ passage
+3.0
+p
+A
+m
+*V
+
+
+
+
+ 
+(16) 
+5) 
+ref
+A
+is the sum of both areas as shown in Eq. (17). 
+ 
+ref
+d
+p
+A
+A
+A
+
+
+ 
+(17) 
+6) 
+ref
+V
+ and reference dynamic head 
+ref
+q
+ are calculated from Eqs (18) and (19) respectively.  
+ 
+
+
+ref
+c
+3.0
+ref
+V
+m
+* A
+
+
+
+
+ 
+(18) 
+ 
+2
+ref
+3.0
+ref
+q
+1 / 2
+*V
+
+
+ 
+(19) 
+7) The dome height (
+d
+H ) and overall passage height (
+p
+H ) are calculated from Eqs (20) and (21) respectively.  
+ 
+
+
+d
+d
+c
+H
+A
+2*
+* r
+
+
+
+ 
+(20) 
+ 
+
+
+p
+ref
+c
+d
+H
+A
+2*
+* r
+H
+
+
+
+
+ 
+(21) 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+10
+8) The fuel spray coverage is almost symmetric in the dome region. Therefore, we can assume that the 
+circumferential coverage of the swirl cup (fuel nozzle) will have similar dimensions as the dome height. Thus, 
+we can use Eq. (22) to estimate 
+fn
+N
+.  
+ 
+fn
+c
+dome
+N
+2*
+* r / H
+
+
+ 
+    (22) 
+9) 
+lL  is estimated using Eq. (23).2  dpl will be estimated in section D. The value of PF  ranges between 0.2 and 
+0.3. Eq. (23) is based on the older generation of GTC. For newer GTC designs, the ratio 
+l
+d
+L / H  ranges between 
+2 and 3.1 
+cL will be obtained by summing 
+D
+L  and 
+lL . It should be mentioned that the combustor length to fuel 
+injector spacing ratio has a significant influence on the PF .   
+ 
+
+
+
+
+l
+ref
+d
+L
+20
+dpl
+q
+* H * Ln 1
+PF
+
+
+
+
+ 
+(23)  
+10) The total air and fuel flow rates have already been estimated through the combustor as well as the number of fuel 
+nozzles and hence, the air and fuel flow rates per fuel nozzle can be calculated. Consequently, all the previously 
+calculated flow rates could be obtained per nozzle.   
+D. Pre-Diffuser Design 
+Typically the pre-diffuser begins with a constant area section to dissipate the wakes.  The constant area section is 
+followed by a diffusing section to recover a good portion of the inlet dynamic head.  The diffuser schematic is 
+shown in Fig. 3.1 Dump diffuser follows the diffusing section to further reduce the speed and to enable stable 
+combustion. The dump diffuser is a diffuser with large area expansion and minimum axial length that will result in 
+abrupt reduction of the flow velocity, but with a very slight pressure recovery. The geometrical variables of the pre-
+diffuser are given in Fig. 4.  
+An important parameter to define is AR . It is the ratio of 
+3.1
+3.0
+A
+/ A
+. The second parameter we define is DPTP . 
+It is the ratio of the dynamic pressure to total pressure as given by Eq. (24). At the diffuser inlet the DPTP  is 
+usually around 6-8% and may even go to as high as 10%.1 The DPTP  indicates the maximum available pressure to 
+recover. At the exit of the pre-diffuser the DPTP  is around 1.5%. Therefore, we are not worried about the total 
+pressure loss that takes place in the dump diffuser (the maximum available is already 1.5%). 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+11
+Another important parameter to define is the 
+p
+C . It measures how much pressure is recovered in the diffuser. 
+The definition of 
+p
+C  is given in Eq. (25) and the
+pi
+C  is given in Eq. (26). The difference between 
+p
+C  and 
+pi
+C is that 
+the ideal pressure recovery assumes that there are no losses in the passage. 
+ 
+
+
+
+
+
+
+2
+total
+total
+1
+2
+DPTP
+q / P
+(1 / 2 ) V
+P
+1
+1
+1
+2* M
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+(24) 
+ 
+
+
+p
+2
+1
+C
+P
+P
+q
+
+
+
+ 
+(25)  
+ 
+ 
+ 
+ 
+
+
+2
+pi
+C
+1
+1
+AR
+
+
+
+ 
+(26) 
+The 2D diffuser should be designed with minimum pressure loss. One of the best approaches to the 2D diffuser 
+is to obtain the total pressure loss in both the pre-diffuser (aerodynamics diffuser) and dump diffuser as function of 
+AR . Then, the AR  corresponding to the minimum pressure loss can be calculated. 
+However, to automate the process we need to fit some curves for the 2D diffuser. Two fits are required for this 
+process automation. First, the value of the length to width ratio ( LW ) that corresponds to the value of AR for no 
+appreciable stall is required. This can be obtained from the chart provided by Renau et al9. Equation (27) shows the 
+required relation for AR
+2
+
+while Eq. (28) is valid for AR >2. From the same chart we can also get an estimate for 
+p
+C as function of LW and AR  (see Eq. (29)). is estimated using Eq. (30). 
+  
+
+
+1 0.38859
+LW
+AR
+1.044
+0.26, AR
+2
+
+
+
+
+
+ 
+(27) 
+ 
+
+
+2.8225 AR
+LW
+44.8535
+1
+2165.67* e
+, AR
+2
+
+
+
+
+
+ 
+(28) 
+ 
+
+
+
+
+1
+2
+0.5
+2
+p
+C
+0.918* ( LW
+* AR
+)
+0.677* ( LW
+* AR
+)
+0.74
+
+
+
+
+
+
+
+ 
+(29) 
+ 
+
+
+
+tan(
+)
+AR
+1
+2LW
+
+
+
+
+ 
+(30) 
+ 
+pd
+
+ is given by Eq. (31). Similarly, 
+dd
+
+is given by Eq. (32). Equation (34) assumes that the static pressure rise 
+is negligible.  The objective here is to let 
+dd
+
+ in Eq. (32) be a function in AR . This can be achieved using the chain 
+rule as depicted in Eq. (33). Plugging Eq. (33) in Eq. (32), we get Eq. (34).  
+tis then calculated from Eq. (35). 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+12
+ 
+
+
+
+
+
+
+
+
+
+
+1
+2
+pd
+pi
+p
+3.0
+C
+C
+1
+1
+1
+2* M
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+(31) 
+ 
+
+
+
+
+
+
+
+
+
+
+1
+2
+2
+dd
+3.1
+ref
+3.1
+1
+A
+A
+1
+1
+1
+2* M
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+(32) 
+ 
+3.1
+ref
+3.1
+3.0
+3.0
+ref
+3.0
+ref
+A
+/ A
+A
+/ A
+* A
+/ A
+A
+/ A
+* AR
+
+
+ 
+(33) 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+1
+2
+2
+dd
+3.0
+ref
+3.1
+1
+A
+/ A
+* AR
+1
+1
+1
+2* M
+/ AR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+(34)  
+ 
+
+
+
+t
+pd
+dd
+1
+1
+1
+
+
+
+
+
+
+
+ 
+(35) 
+The design procedures are summarized as follows: 
+1) We start a loop to compute the value of AR  that corresponds to the minimum pressure loss as follows: 
+A. AR  varies from 1.4-3 (see Reneau et al design chart9) 
+B. Calculate the corresponding LW  from Eq. (27) or (28). 
+C. Calculate the 
+pi
+C from Eq. (26). 
+D. Calculate the 
+pa
+C
+from Eq. (29). 
+E. Calculate 
+pd
+
+ from Eq. (31) 
+F. Calculate 
+dd
+
+ from Eq. (34). 
+G. Calculate 
+t from Eq. (35). 
+H. Check  and it should be within 4° to 8°.9 
+I. 
+LW  should be less than the maximum prescribed value. 
+J. Plot 
+tvs. AR  and choose the value of AR that corresponds to the minimum 
+t.  
+K. Since W  is already know we estimate the length of the pre-diffuser (
+D
+L ). 
+2) Calculate the exit area of the pre-diffuser (we will refer to that location as station 3.1), 
+3.1
+V
+ and 
+3.1
+M
+from Eqs. 
+(36-38) respectively. 
+ 
+3.1
+3.0
+A
+A
+* AR
+
+ 
+(36) 
+ 
+3.1
+3.0
+V
+V
+AR
+
+
+ 
+(37) 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+13
+ 
+3.1
+3.0
+M
+M
+AR
+
+
+ 
+(38) 
+3) Calculate the
+3.0
+DPTP
+and
+3.1
+DPTP
+from Eq. (24). Values should lie within the range mentioned earlier. 
+4) l is calculated from Eq. (39). The corresponding numerical value of dpl is simply given by Eq. (40). Usually the 
+liner pressure drop should be 60-70% of the total pressure drop through the combustor.1 
+   
+ 
+l
+c
+d
+
+
+
+
+
+ 
+    (39) 
+ 
+l
+t3.0
+dpl
+100* P
+
+
+
+ 
+    (40) 
+E. Fuel Nozzle design 
+The fuel nozzle is responsible for delivering the required fuel flow rate at different flight conditions. The fuel 
+provided should be atomized to a suitable diameter to enhance the fuel/air mixing. A Dual orifice fuel nozzle shall 
+be designed. A typical dual orifice nozzle is shown in Fig. 5. 
+The dual fuel nozzle is important because no single fuel nozzle will be able to deliver the engine requirements at 
+different missions. The flow rate of the fuel is proportional to the square root of the differential pressure. Therefore, 
+an increase in the flow rate by a factor of 40 requires an increase in the differential pressure by 1600 times. 
+However, designing a pump with such a wide range of operation is not practical. 
+ The pilot nozzle is open for low pressures and once the pressure reaches 
+set
+P
+
+, the main nozzle also opens. 
+There is also a 
+min
+P
+
+below which the pilot nozzle is closed (roughly 30 psi). There are minimum pressure 
+requirements to achieve good atomization of fuel.  
+The presence of a swirler in each fuel circuit is important to impart a tangential component of velocity before the 
+fuel exits the nozzle. As the fuel exits and because of the centrifugal effects, a spray in the form of a cone is formed 
+from both the pilot and main nozzles.  
+The main dimensions and performance of the fuel nozzle are estimated as follows: 
+1) We assume that 
+max
+P
+
+ is given.  
+2) Assume suitable values of 
+set
+P
+
+ and 
+min
+P
+
+. The fuel nozzle performance curve should look reasonable. This can 
+be checked after plotting the nozzle performance curve. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+14
+3) We assume that the 
+fp max
+m
+ at the point where the secondary valve opens is known. It is assumed as a fraction of 
+the maximum fuel flow rate as depicted in Eq. (41).  A fraction of 20% should result in a reasonable performance 
+curve. 
+ 
+fp max
+f _ pn
+m
+fr * m
+
+
+
+ 
+(41) 
+4) 
+dp
+C  and 
+ds
+C for both nozzles are assumed. The value ranges from 0.63 to be 0.3 at low Reynolds number and 
+from 0.3 to 0.24 at high Reynolds number.10  However,  practical values of 0.36 and 0.27 for the primary and 
+secondary nozzle can be used respectively.1  
+5) 
+pn
+Area
+ is estimated from Eq. (42). Consequently, 
+t _ pn
+d
+is simply obtained from Eq. (43). 
+ 
+
+
+
+
+
+
+1/ 2
+pn
+fp max
+dp
+s
+f
+Area
+m
+C *
+2*
+P *
+
+
+
+
+
+ 
+(42) 
+ 
+
+
+1/ 2
+t _ pn
+pn
+d
+4* Area
+
+
+
+ 
+(43) 
+6) Similarly, 
+sn
+Area can now be estimated from Eq. (44) and 
+t _ sn
+d
+ is therefore given by Eq. (45). 
+ 
+
+
+
+
+
+
+C
+f _ pn
+dp
+p
+max
+fuel
+sn
+ds
+max
+s
+fuel
+m
+* Area *
+2*
+P
+*
+Area
+C *
+2*
+P
+P *
+
+
+
+
+
+
+
+
+
+ 
+(44) 
+ 
+
+
+t _sn
+s
+p
+d
+Area
+Area
+* 4
+
+
+
+
+ 
+(45) 
+7) The 
+SI
+FN
+ for both nozzles is estimated from Eq. (46). That includes the density correction. The standard US 
+flow number ( FN
+m
+P
+
+
+
+
+) is computed from Eq. (47). 
+ 
+2
+SI
+d
+FN
+2* C * Area(m )
+
+ 
+(46)  
+ 
+
+
+
+
+1/ 2
+6
+3
+SI
+fuel
+FN
+FN * 0.66*10 *
+kg / m
+
+
+ 
+(47) 
+8) The value of 2
+pn
+
+ and 2
+sn
+
+ are assumed around 90°. We calculate x from Eq. (48) for both nozzles to enable 
+estimation of the expected spray thicknesses.11  t  is estimated using Eq. (49).  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+15
+ 
+
+
+
+
+
+
+
+
+Cos
+Cos
+2
+2
+x
+1
+1
+
+
+
+
+
+
+  
+(48) 
+ 
+
+
+
+
+2
+t
+t
+t
+d
+x* d
+2
+
+
+
+ 
+(49) 
+F. Axial Swirlers Design 
+The swirling flow is an essential feature of all modern GTC. A swirler imparts a swirl to the air before its 
+admittance to the combustion dome. Consequently, a Central Recirculation Zone (CRZ) is set up. The CRZ is 
+essential for three reasons. First, it is essential for anchoring the flame. The reduced flow velocities result in a flame 
+that is stable and anchored close to the swirler exit. Second, the mixing between air and fuel is enhanced 
+significantly. Third, it acts as a continuous source of ignition because a part of the combustion gases is mixed with 
+the incoming air/fuel mixture and ignites it. Different swirler configurations are used in Gas Turbine Engines. A 
+Typical co-axial swirler is shown in Fig. 6.12  
+Two axial swirlers are to be designed. Each one has a hub diameter and a tip diameter. The primary swirler will 
+provide the air necessary for the atomization process. It will have a hub diameter equals to the secondary nozzle 
+swirler chamber diameter (assumed 3 times the outer diameter). The secondary swirler will provide the secondary 
+swirling air. The hub diameter of the secondary swirler will be the tip diameter of the primary swirler (assuming 
+zero thickness). Fig. 7 shows a schematic of the swirlers/fuel nozzle assembly. Now we summarize the design 
+procedures for an axial swirler: 
+1) 
+v
+is assumed within 30-60.1   
+2) 
+tv  is assumed within 0.7-1.5 mm.1 
+3) 
+vn  is assumed within 8-16.1 
+4) 
+v
+ is assumed around 1.0. 
+5) 
+sw
+A  is estimated using Eq. (50).13  It is reasonable to assume that 
+lA  is equal to 
+d
+A . Also, one should notice that 
+pdl  is approximately equal to the swirler pressure drop.  
+sw
+k
+has a value of 1.3 for flat vanes.  
+sw
+m
+ has already 
+been computed for both the primary (
+c _ a
+m
+) and secondary swirler (
+c _ s
+m
+). 
+ 
+
+
+
+
+
+
+
+
+
+
+Cos
+0.5
+2
+2
+sw
+v
+3
+sw
+sw
+l
+A
+1
+*
+2*
+* pdl
+k
+* m
+1
+A
+
+
+
+
+
+
+
+
+ 
+(50)  
+ 
+  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+16
+6) 
+ts
+D  is calculated using Eq. (51). Note that that hub diameter is already known from the fuel nozzle design 
+section. 
+ 
+
+
+
+
+2
+2
+sw
+ts
+hs
+v
+t
+ts
+hs
+A
+/ 4* D
+D
+0.5* n * v * D
+D
+
+
+
+
+
+ 
+(51) 
+7) Now 
+N
+S  is checked using Eq. (52).14 If the value of the swirl number is less than 1, then iteration is required 
+until a Swirl number (
+N
+S ) of around 1.0 is reached. It is well established that 
+N
+S  should be > 0.6 for a CRZ to 
+setup.14  
+ 
+
+
+
+
+
+
+
+
+
+
+tan
+3
+hs
+ts
+N
+3
+hs
+ts
+v
+2 / 3* 1
+D
+/ D
+S
+1
+D
+/ D
+*
+
+
+
+
+ 
+(52)  
+8) 
+sv  is estimated using Eq. (53). Hence, 
+cv  is estimated using Eq. (54)  
+ 
+
+
+s
+hs
+ts
+v
+v
+* D
+D
+2* n
+
+
+
+
+ 
+(53) 
+ 
+c
+v
+s
+v
+* v
+
+
+ 
+(54) 
+G. Heat Transfer and Film Cooling Calculations 
+The hot gases temperature in a GTC can be higher than 2000 C (3632 F). This will result in immediate melting 
+of the liner. Thus, liner cooling is a must in all GTC. Frequently, the cooling is achieved using film cooling. The air 
+film reduces the liner wall temperature and protects it from damage. Fig. 8 shows a schematic of a cooling strip. 
+Our calculations start by assuming the liner is not cooled. Fig. 9 shows different heat transfer mechanisms 
+involved in the gas turbine combustor.2 We notice that on the hot side convection takes place between the hot gases 
+and the liner. Also, radiation exchange takes place between the hot gases and the liner. The net heat is then 
+conducted through the liner to the other side. Heat transfer by convection takes place between the cold side of the 
+liner and the air flowing in the passage. Finally, heat transfer by radiation takes place between the liner and the 
+casing. All formulas for different quantities will be introduced shortly. 
+When we consider the film cooling, the internal convection (
+1
+C ) will have a different formula. The reason being 
+that the heat transfer takes place by convection between the hot gases and the effective film (temperature called 
+effective film temperature or adiabatic wall temperature). 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+17
+The procedures of evaluating the temperature of the liner (uncooled) are summarized as follows: 
+1) 
+L
+D  is calculated by Eq. (55). 
+bL  is taken to be equal to
+L
+D .2 
+ 
+L
+d
+D
+2* H
+
+ 
+(55) 
+2) 
+an
+D  is also computed from Eq. (56) 
+ 
+an
+p
+D
+2* H
+
+ 
+(56) 
+3) 
+f
+L  is estimated using Eq. (57).15   
+ 
+H2
+fL
+336
+
+
+ 
+(57)  
+ 
+ 
+ 
+4) 
+g
+T  is estimated using the NASA program.16  
+5) 
+g
+ obtained from Eq. (58).17 
+gP  is obtained by subtracting pdl  from 
+3.0
+P . 
+ 
+
+
+
+
+kPa
+0.5
+1.5
+g
+g
+f
+b
+g
+1
+exp
+290* P (
+)* L * AF* L
+*T
+
+
+
+
+
+ 
+(58)  
+6) 
+1
+R is calculated from Eq. (59)2 . 
+ 
+
+
+
+
+1.5
+2.5
+2.5
+1
+w
+g
+g
+g
+w1
+R
+0.5 * 1
+*
+*T
+* T
+T
+
+
+
+
+
+
+ 
+(59) 
+7) 
+1
+C  (primary zone) is computed in Eq. (60)2 . All gas properties are estimated using the NASA program.  
+ 
+
+
+
+
+
+
+0.8
+0.2
+1
+g
+L
+c _ d
+L
+g
+g
+w1
+C
+0.017* k
+D
+* m
+A *
+* T
+T
+
+
+
+
+
+
+ 
+(60)  
+ 
+ 
+8) The conduction through the liner is just the sum of both as shown in Eq. (61). 
+ 
+
+
+1 2
+1
+1
+w
+w
+w1
+w2
+K
+R
+C
+k / t
+T
+T
+
+
+
+
+ 
+(61) 
+9) 
+2
+R is calculated in Eq. (62)2 where z is defined by Eq. (63) and depends on the area and emissivity.  
+ 
+
+
+4
+4
+2
+w2
+3.0
+R
+* z* T
+T
+
+
+
+ 
+(62) 
+ 
+
+
+
+
+
+c
+w
+c
+w
+c
+w
+c
+z
+1
+A / A
+
+
+
+
+
+
+
+
+ 
+(63) 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+18
+10)  Now we get 
+2
+C  from Eq. (64)2. 
+ 
+
+
+
+
+
+
+0.8
+0.2
+2
+a
+an
+c _ passage
+p
+a
+w2
+3.0
+C
+0.02* k
+D
+* m
+A *
+* T
+T
+
+
+
+
+
+
+ 
+(64) 
+11) 
+1 2
+K  is the summation of both 
+2
+C  and 
+2
+R . Now we have 6 equations in 6 unknowns (60-65) that must be solved 
+simultaneously to obtain the temperatures Tw1 and Tw2. 
+ 
+1 2
+2
+2
+K
+C
+R
+
+
+ 
+(65) 
+12)  If film cooling is considered for the liner then we repeat exactly the same previous procedures, but we evaluate 
+1
+C using the following procedures: 
+a. Assume the value of
+cs
+L . Practically, 1 inch is a good assumption. However, the length shouldn’t exceed 5 cm.1  
+b. Assume the value of s .The value ranges between 1.5 to 2.5 mm. 18 
+c. Estimate the lip thickness ( lt ).  The ratio of  lt / s is around 0.6. 18 
+d. The value of m is calculated from Eq. (66). The gas density is computed from the pressure and temperature (in 
+the primary zone for example). The gas velocity is estimated using the dome flow rate and from the area and 
+density. The value of m is usually around 2 in the primary zone.1  
+ 
+
+
+
+
+air
+gas
+m
+*U
+/
+*U
+
+
+
+ 
+(66) 
+e. Based on the computed value of m we either use Eq. (67) (0.5 < m <1.3) or Eq. (68) (1.3 < m ) to calculate the 
+film effectiveness ().19 
+ 
+
+
+
+
+
+
+0.15
+0.2
+0.2
+0.65
+a
+g
+cs
+l
+1.1* m
+*
+/
+* L
+/ s
+* t / s
+, if 0.5
+m
+1.3
+
+
+
+
+
+
+
+
+ 
+(67) 
+ 
+
+
+
+
+
+
+0.15
+0.2
+0.2
+a
+g
+cs
+l
+1.28*
+/
+* L
+/ s
+* t / s
+,
+if m
+1.3
+
+
+
+
+
+
+
+ 
+(68) 
+f. The film effectiveness is defined in Eq. (69). The same equation that estimates the effective wall temperature is 
+used. The effective wall temperature is also called adiabatic wall temperature (
+w,ad
+T
+). 
+ 
+
+
+
+g
+w,ad
+g
+a
+T
+T
+/ T
+T
+
+
+
+ 
+(69)  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+19
+g. We estimate the slot Reynolds number (
+s
+Re ) using Eq. (70). Also, we estimate the Reynolds number based on 
+the segment length (
+cs
+L
+Re
+) from Eq. (71). We calculate 
+1
+C using Eq. (72) if 0.5
+m
+1.3
+
+
+ or using Eq. (73) if  
+m
+1.3
+
+. 
+ 
+s
+a
+a
+a
+Re
+*U * s /
+
+
+
+ 
+(70) 
+ 
+cs
+L
+a
+a
+cs
+a
+Re
+*U * L /
+
+
+
+ 
+(71) 
+ 
+
+
+cs
+0.7
+1
+a
+cs
+L
+w,ad
+w1
+C
+0.069k / L * Re
+T
+T
+, if 0.5
+m
+1.3
+
+
+
+
+ 
+(72) 
+ 
+
+
+
+
+cs
+0.36
+0.8
+1
+a
+cs
+L
+cs
+w,ad
+w1
+C
+0.1k / L * Re
+* L / s
+T
+T
+, if m
+1.3
+
+
+
+
+ 
+(73) 
+h. Finally, we use the previous equations for 
+1
+R , 
+2
+C , 
+2
+R , 
+1 2
+K  and solve simultaneously to obtain the cooled wall 
+temperature.  
+13) A layer of Thermal Barrier Coating (TBC) is usually added to the liner surface to decrease the surface 
+temperature by around 50 degrees. If the liner temperature is required while considering the TBC layer then the 
+procedures are the same, but the conduction through the TBC layer is taken into consideration. That is Eq. (74) is 
+added to the previous list and now one more unknown is considered which is the temperature at the interface 
+between the TBC and the liner (
+iT ). The thickness of the TBC ( TBC
+t
+) coating is assumed to be 0.5 mm. The 
+conduction through the TBC and liner wall is obtained from Eqs. (75) and (76) respectively where 
+TBC
+k
+ is the 
+thermal conductivity of the TBC layer. 
+ 
+1
+1
+2
+2
+1 i
+i 2
+R
+C
+R
+C
+K
+K
+
+
+
+
+
+
+
+ 
+(74) 
+ 
+
+
+1 i
+TBC
+TBC
+w1
+i
+K
+k
+/ t
+T
+T
+
+
+ 
+(75) 
+ 
+
+
+i 2
+w
+w
+i
+w2
+K
+k / t
+T
+T
+
+
+ 
+(76) 
+H. Dilution Hole Design 
+The temperature in the dome of a fuel rich combustor is very high and may potentially result in an immediate 
+damage to the Gas Turbine blades if admitted directly. Also, since the combustion process in the primary zone is 
+incomplete, dilution air is needed to complete the process and reduce the temperature of the gases.  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+20
+The dilution holes are usually designed to allow for maximum penetration of the dilution jet. Typically, the 
+dilution jet will penetrate up to 40% of the dome height.2 An example of a jet issuing from a dilution hole is given in 
+Fig. 10 where  is the jet’s angle, Y is the penetration and 
+j
+d is the jet diameter.  
+The design procedures of a simple round dilution holes are summarized as follows: 
+1) The jet velocity (
+j
+U ) is calculated from Eq. (77).  
+ 
+J
+J
+U
+2* dpl / 
+
+ 
+(77) 
+2) The pressure parameter ( K ) is defined by Eq. (78).20   and is used to determine the discharge coefficient (
+d
+C ) 
+for the simple plain dilution hole from Eq. (79)20 where  is defined in Eq. (80) and a numerical value of 0.25 is 
+good enough for preliminary design purpose.2 
+ 
+ 
+
+
+
+2
+2
+J
+J
+3
+p
+K
+1 / 2
+U
+/ 1 / 2
+V
+
+
+
+ 
+(78) 
+ 
+
+
+
+
+
+
+0.5
+2
+2
+d
+C
+1.25 K
+1 / 4K
+K 2
+
+
+
+
+
+ 
+(79) 
+ 
+hole mass flow rate/
+ mass flow rate
+Annulus
+
+ 
+(80) 
+3) The maximum possible discharge coefficient (
+d
+C ) is around 0.625 (taking the limit as K approaches ). The 
+dilution jet angle (
+d
+) is then estimated using Eq. (81).21 
+ 
+d
+d
+d
+Sin
+C / C
+
+
+
+ 
+(81) 
+4) The momentum flux ratio ( J ) is determined from Eq. (82) where 
+g
+and 
+g
+U are the hot gases density and 
+velocity respectively. Hot gases density is obtained from the NASA thermal equilibrium program using the 
+primary zone equivalence ratio.16 The value of 
+g
+U  is then obtained from the total dome flow rate (area and 
+density are both known) as follows: 
+ 
+2
+2
+J
+J
+g
+g
+J
+U /
+U
+
+
+
+ 
+(82) 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+21
+5) Two sets of dilution holes will be sized. The first set provides the primary dilution jets which we will refer to as 
+the big holes. The secondary jets that trims the temperature profiles will be referred to as the small holes. We 
+begin by sizing the big holes and then the small holes. 
+6) The relation between the maximum penetration of the jet (
+max
+Y
+) and the jet diameter.2 is shown in Eq. (83). A 
+maximum penetration of 0.4 dome height is required. The equation is solved for the required primary jet 
+diameter to achieve such penetration.  
+ 
+
+
+0.5
+max
+j
+c _ d
+c _ d
+c _ p
+Y
+1.25d J
+m
+/ m
+m
+
+
+
+
+
+ 
+(83) 
+7) The hole diameter (
+h
+d ) is estimated using Eq. (84).  
+ 
+h
+j
+d
+d
+d /
+C
+
+ 
+(84) 
+8) The number of jets ( n ) required is then estimated by a simple mass balance from Eq. (85) where 
+jet
+m
+is the total 
+dilution air flow rate through the big holes.  The number is then corrected to the nearest multiple of number of 
+fuel nozzles. We will assume that each band of holes (see Fig. 11 for definition) has two holes per fuel injector. 
+Now the number of rows or bands (
+bands
+n
+) required for the dilution air is simply estimated using Eq. (86). 
+ 
+
+
+0.5
+2
+Jet
+3
+3
+j
+n
+15.25m
+dpl P / T
+/ d
+
+
+
+ 
+(85) 
+ 
+bands
+fn
+n
+n / N
+/ 4
+
+ 
+(86) 
+9) For the small holes we will repeat the previous procedures. However, we will assume twice the number of big 
+holes per fuel nozzle. 
+III. Performance Evaluation 
+Since the main dimensions of the SAC have now been estimated, performance evaluation is the next step. The 
+parameters involved in the evaluation process are: the fuel spray Souter Mean Diameter ( SMD ), droplet life time (
+dt , time required for complete evaporation), combustor residence time (
+rt ), and NOx  and CO  emissions. 
+The SMD of the fuel spray is a good indication of the droplet evaporation characteristics. The droplet lifetime 
+needs to be estimated and compared to the available residence time in the combustor. The life time must be less than 
+the available residence time. Otherwise, fuel droplets would emerge from the combustor and cause low combustion 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+22
+efficiency and high unburnt hydrocarbons emissions. There are stringent regulations on the amounts of NOx  and 
+CO  and we will use the empirical formulas for their estimation. We also use the Zeldovich mechanism to solve for 
+the NOx  production rates.   
+ 
+The combustor performance evaluation is carried out as follows: 
+1. The SMD  for the primary and secondary fuel jets is estimated using Eq. (87)22 where 
+f
+is the surface tension 
+of the fuel and 
+f
+ is the viscosity of the fuel.  To include the air blast effect (account for atomizing air) we use 
+Eq. (88)2. 
+r
+U is the relative velocity between the air and fuel (m/s). ALR is the mass flow rate ratio between the 
+atomizing air and fuel (
+c _ a
+m
+/
+f
+m). 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+0.25
+0.25
+0.25
+0.75
+2
+2
+f
+f
+3.0
+f
+f
+3.0
+SMD
+4.52
+/
+dpl
+t cos(
+)
+0.39
+/
+dpl
+t cos(
+)
+
+
+
+
+
+
+
+
+ 
+(87) 
+ 
+
+
+
+
+
+
+
+
+
+
+0.4
+0.5
+0.4
+2
+1
+2
+1
+t _ sn
+f
+3.0
+t _ sn
+r
+t _ sn
+f
+f
+f
+t _ sn
+SMD
+0.48d
+/
+d
+U
+1
+ALR
+0.15d
+/
+d
+1
+ALR
+
+
+
+
+
+
+
+
+
+
+ 
+(88) 
+2. The combustor is divided into three zones. Total flow rate is split into three parts representing the flow rate in 
+each zone. For each region the temperature as well as the thermal properties are obtained from the NASA 
+thermal equilibrium program at the corresponding equivalence ratio.16 Now we can get an estimate of the 
+dt  in 
+each zone according to the procedures suggested by Turns23:  The transfer number (
+q
+B ) is estimated using Eq. 
+(89) where 
+th
+FA is the stoichiometric fuel air ratio by mass, 
+fg
+h
+is the latent heat of vaporization of the fuel 
+droplet and
+pfv
+C
+ is the specific heat of the gaseous mixture (obtained from NASA program) . The Reynolds 
+number based on the droplet diameter (
+d
+Re ) is calculated from Eq. (90) where 
+r
+V is the relative velocity between 
+the fuel droplet and the combustion products. We will assume the 
+r
+V to be 0.3 of the 
+g
+U . The fuel droplet 
+diameter (
+f
+D ) is the SMD  estimated previously. The Nusselt number ( Nu ) number is then computed in Eq. 
+(91). The evaporation constant (
+v
+K ) is estimated using Eq. (92). 
+fv
+k
+ is the gaseous mixture thermal conductivity 
+(from NASA program). Finally, the 
+dt is estimated from Eq. (93). If all the previous variables are substituted 
+with the numerical values corresponding to the primary zone, an estimate of the lifetime based on the primary 
+zone conditions can be obtained: 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+23
+ 
+. 
+
+
+
+
+g
+pfv
+g
+s
+th
+fg
+B
+C
+T
+T
+LHV / FA
+/ h
+
+
+
+ 
+(89) 
+ 
+d
+g
+r
+g
+Re
+V D /
+
+
+
+ 
+(90) 
+ 
+
+
+
+
+1/ 2
+1/ 2
+1/ 3
+1/ 2
+4 / 3
+d
+g
+d
+g
+Nu
+2
+0.555 Re
+Pr
+/ 1 1.232 / Re
+Pr
+
+
+
+ 
+(91) 
+ 
+
+
+
+
+v
+fv
+f
+pfv
+g
+K
+4k Nu /
+C
+ln B
+1
+
+
+
+ 
+(92) 
+ 
+2
+d
+v
+t
+D / K
+
+ 
+(93) 
+3. We also assume that the combustor is length is divided into three equal parts such that the each zone length (
+zone
+L
+) is just 
+cL /3. The gas velocity in each zone (
+zone
+V
+) is estimated using the flow rate ( m /
+A
+
+
+). A simple 
+estimate of the residence time in each region is then easily obtained using Eq. (94). The total residence time is 
+the sum of the three region residence times. If the residence time in the primary zone is less than the fuel droplet 
+evaporation time, step 2 should be repeated in the secondary region while using the D-squared law to get the new 
+particle SMD . 
+ 
+r
+zone
+zone
+t
+L
+/ V
+
+  
+(94) 
+4. The overall NOx  can be calculated in g/kg fuel using Eq. (95)24 where 
+c
+V  is the combustor volume and 
+st
+T  is 
+the flame temperature assuming the air and fuel are in stoichiometric conditions (obtained from NASA program 
+at =1).   
+ 
+
+
+
+8
+1.25
+3
+g
+c
+st
+total
+g
+NOx
+9* 10
+P ( kpa )
+V ( m ) Exp 0.01T ( K ) / m
+( kg / s ) T ( K )
+
+
+
+ 
+(95) 
+5. The CO  emissions can be estimated in g/kg fuel using Eq. (96)24 where
+e
+V is the volume of fuel evaporation 
+defined in Eq. (97) and 
+g
+is the gas density in the primary zone.  
+ 
+
+
+
+
+
+
+
+0.5
+1.5
+total
+g
+g
+c
+e
+3.0
+g
+CO
+86m
+T Exp
+0.00345T
+/
+V
+V
+dpl / P
+P
+
+
+
+
+ 
+(96)  
+ 
+ 
+e
+c _ d d
+g
+V
+0.55m
+t / 
+
+
+ 
+(97) 
+6. Another way to estimate the NOx  (thermal only) is by using the Zeldovich mechanism25, 26 and the extended 
+Zeldovidh mechanism.27 The equations can be solved approximately to provide a rough value for the NOx . The 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+24
+equations and the reaction rates are summarized in several references.12-17 The three equations responsible for the 
+formation of the thermal NOx  are Eq. (98) to (100). The forward (
+f
+K ) and backward (
+b
+K ) reaction rate 
+constants for the three reactions are given by Eq. (101) to (106). The mole fraction of oxygen ( O2 ), nitrogen (
+N2 ), monatomic oxygen ( O ), water vapor ( H2O ), hydroxyl (OH ) and monatomic hydrogen ( H ) must be 
+known for the three zones inside the combustor. A good approximation could be obtained from the NASA 
+program assuming they are in thermal equilibrium. The mole fraction is then converted into molar concentration 
+using Eq. (107). 
+ix  represents the mole fraction of  the species i where
+i
+N  represents the molar concentration of 
+the species i and 
+zP and 
+zT  are the pressure and temperature of the specific zone considered. 
+c
+R  is constant of 
+conversion=82.05
+
+
+3
+cm .atm / gmol.K .We also assume that the monatomic nitrogen ( N ) is in equilibrium. 
+Using this information, the N  molar concentration (
+N
+N ) is evaluated using Eq. (108) and the rate of generation 
+of NO ( dNO / dt ) is given by Eq. (109). Equations (108) and (109) are solved in each zone. The total integration 
+time is the residence time. The NO  concentration is computed in ppm from Eq. (110). The previous procedures 
+are repeated to obtain the NO  concentration in all three zones. Finally, the total NO  (
+total
+NO
+) generated in the 
+combustor is estimated using Eq. (111). The rate of NOx  in g/s is obtained from Eq. (112).  
+ 
+ 
+O 
+ N2
+NO 
+ N       
+
+
+
+ 
+(98) 
+ 
+N 
+ O2
+NO 
+ O
+
+
+
+ 
+(99) 
+ 
+N 
+ OH
+NO 
+ H     
+
+
+
+ 
+(100) 
+ 
+
+
+14
+f 1
+z
+K
+1.8*10 Exp
+38370 / T
+
+
+ 
+(101) 
+ 
+
+
+13
+b1
+z
+K
+3.8* 10 Exp
+425 / T
+
+
+ 
+(102) 
+ 
+
+
+10
+f 2
+z
+K
+1.8* 10 *T * Exp
+4680 / T
+
+
+ 
+(103) 
+ 
+
+
+9
+b2
+z
+K
+3.8*10 Exp
+20820 / T
+
+
+ 
+(104) 
+ 
+
+
+13
+f 3
+z
+z
+K
+7.1*10 *T * Exp
+450 / T
+
+
+ 
+(105) 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+25
+ 
+
+
+14
+b3
+z
+K
+1.7* 10 Exp
+24560 / T
+
+
+ 
+(106) 
+ 
+
+
+i
+z
+c
+z
+i
+N
+P / R T * x
+
+ 
+(107) 
+ 
+
+
+N
+f 1
+O
+N 2
+b2
+NO
+O
+b3
+NO
+H
+f 2
+O2
+b1
+NO
+f 3
+OH
+N
+K
+.N .N
+K
+.N
+.N
+K
+.N
+.N
+/ K
+.N
+K .N
+K
+.N
+
+
+
+
+
+ 
+(108) 
+ 
+
+
+NO
+f 1
+O
+N 2
+f 2
+NO
+O2
+f 3
+N
+OH
+b1
+NO
+N
+b2
+NO
+O
+b3
+NO
+H
+dN
+/ dt
+K
+.N .N
+K
+.N
+.N
+K
+.N .N
+K .N
+.N
+K .N
+.N
+K .N
+.N
+
+
+
+
+
+
+ (109)  
+ 
+
+
+
+
+6
+NO
+z
+c
+z
+NO
+N
+/ P / R T * 10
+ppm
+
+ 
+(110) 
+ 
+
+
+
+total
+pz
+pz
+sz
+sz
+dz
+dz
+pz
+sz
+dz
+NO
+m NO
+m NO
+m NO
+/ m
+m
+m
+
+
+
+
+
+
+
+
+
+
+
+ 
+(111) 
+ 
+
+
+6
+total
+pz
+sz
+dz
+NOx( g / s )
+NO
+/ 10 * m
+m
+m
+* 1000
+
+
+
+
+
+
+ 
+(112)  
+IV. Design of a SAC using the developed Code 
+The developed code has a user friendly interface as shown in Fig. 12. There are nine modules and each one runs 
+by pressing a button. The structure of all modules is similar. The user interface of each module is divided into two 
+portions: the upper portion is for the user input while the lower is for the program output. Fig. 12 shows the startup 
+or the main page of the program. The user has to go through all the design modules in order. When button one is 
+pressed the engine parameters module is loaded and the screen changes as shown in Fig. 13. The Engine parameters 
+we discussed previously are entered and then the user proceeds with the design process. Fig. 13 is self explanatory. 
+All the design modules work in a similar fashion. Fig. 14 shows the aerodynamic diffuser design. Fig. 15 shows the 
+air distribution through the combustor. Fig. 16 shows the combustor sizing process. Fuel nozzle design is presented 
+in Fig. 17.  The axial swirlers design is shown in Fig. 18. Heat transfer calculations and temperatures estimation are 
+shown in Fig. 19. Dilution holes design is shown in Fig. 20. Finally, the performance of the combustor is evaluated 
+and shown in Fig. 21. The numerical values obtained from the developed code are practical and have good 
+agreement with existing GTC. 
+ 
+References 
+ 
+1Mellor, A. M., Design of modern turbine combustors, Academic Press, London ; San Diego, 1990. 
+2Lefebvre, A. H., Gas turbine combustion, Taylor & Francis, Philadelphia, 1999. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+26
+3Dodds, W. J., and Bahr, D. W., "Combustion system design," Design of Modern Turbine Combustors. Academic 
+Press, New York, 1990, pp. 343-476. 
+4Mattingly, J. D., Heiser, W. H., and Pratt, D. T., "Aircraft Engine Design." 2nd ed., American Institute of 
+Aeronautics and Astronautics, Reston, VA, 2002. 
+5Sawyer, J. W., Sawyer’s Gas Turbine Engineering Handbook, Turbomachinery International Publications, 
+Norwalk, CT., 1985. 
+6Hsiao, G., Mongia, H. C., and Atul, V. "Swirl Cup Modeling--Part II: Inlet Boundary Conditions," 41st Aerospace 
+Sciences Meeting and Exhibit. AIAA, Reno, NV, 2003. 
+7Holderness, F. H., and Macfarlane, J. J. "Soot formation in rich Kerosene flames at high pressure," AGARD CP. 
+Vol. 125, 1973. 
+8Taylor, J. R., and Sabla, P. E. "Combustion Systems design," Notes from University of Tennessee Space Institute. 
+1988. 
+9Reneau, L. R. "Performance and design of straight, two-dimensional diffusers." Dept. of Mechanical Engineering, 
+Stanford University., 1965, pp. xvii, 293 p. 
+10Radcliffe, A., "The performance of a type of swirl atomizer," Proceedings of the Institution of Mechanical 
+Engineers Vol. 169, 1955, pp. 93-106. 
+11Rizk, N. K., and Lefebvre, A. H., "Internal Flow Characteristics of Simplex Swirl Atomizers," Journal of 
+Propulsion and Power Vol. 1, No. 3, 1985, pp. 200-204. 
+12Mongia, H. "Perspective of Combustion Modeling for Gas Turbine Combustors  " 42nd AIAA Aerospace Sciences 
+Meeting and Exhibit. Reno, Nevada, 2004. 
+13Knight, M. A., and Walker, R. B. "The Component Pressure losses in Combustion Chambers," Aeronautical 
+Research Council R and M 2987. England, 1957. 
+14Beer, J. M., and Chigier, N., Combustion aerodynamics, Applied Science Publishers LTD, London, 1972. 
+15Lefebvre, A. H. "Influence of fuel properties on gas-turbine combustion performance." Purdue University, 
+Lafayette, IN (USA), 1985. 
+16McBride, B., and Gordon, S. "Computer Program for Calculation of Complex Chemical Equilibrium Compositions 
+and Applications." NASA-RP-1311-P2, 1996. 
+17Reeves, D. "Flame Radiation in an Industrial Gas Turbine Combustion Chamber." England, 1956. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+27
+18Sturgess, G. J., "Design Of Combustor Cooling Slots For High Film Effectivness .1. Film General Development," 
+Journal of Engineering for Gas Turbines and Power-Transactions of the Asme Vol. 108, No. 2, 1986, pp. 354-360. 
+19Ballal, D. R., and Lefebvre, A. H., "A Proposed Method for Calculating Film Cooled Wall Temperatures in Gas 
+Turbine Combustor Chambers," ASME, 1972. 
+20Kaddah, K. S. "Discharge Coefficients and Jet DEflection Angles for Combustor Liner Air Entry Holes," College 
+of Aeronautics. Vol. MSc, Cranfield, England, 1964. 
+21"The Design and Performance of Gas Turbine Combustion Chambers." Northern Research and Engineering 
+Corporation, 1964. 
+22Lefebvre, A. H., "The Prediction of Sauter Mean Diameter for Simplex Pressure-Swirl Atomizers," Atomization 
+and Spray Technology Vol. 3, 1987, pp. 37-51. 
+23Turns, S. R., An Introduction to Combustion, McGraw-Hill, 2000. 
+24Lefebvre, A. H., "Fuel Effects on Gas Turbine Combustion-Liner Temperatrure, PAttern Factor, and Pollutant 
+Emissions," Journal of Aircraft Vol. 21, No. 11, 1984, pp. 887-898. 
+25Zeldovich, J., "The Oxidation of Nitrogen in Combustion and Explosions," Acta Physicochimica Vol. 21, No. 4, 
+1946, pp. 577-628. 
+26Zeldovich, Y. B., Sadovinikov, P. Y., and Frank-Kamenetskii, D. A., "Oxidation of Nitrogen in Combustion," 
+Academy of Sciences of USSR, Institute of Chemical physics, Moscow-Leningrad, 1947. 
+27Lavoie, G. A., Heywood, J. B., and Keck, J. C., "Experimental and Theoretical Study of Nitric Oxide Formation in 
+Internal Combustion Engines,," Combustion Science and Technology Vol. 1, 1970, pp. 313-326. 
+ 
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+28
+ 
+ 
+ 
+ 
+ 
+ 
+Figure 2. Single Annular Combustor geometry (GE CF6-80C).1 
+Figure 1. Typical assembly of GEAE combustor.6 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+29
+ 
+ 
+ 
+ 
+ 
+Figure 5 Typical dual orifice fuel nozzle.2 
+ 
+Figure 4. Typical pre-diffuser dimensions. 
+ 
+Figure 6 Typical co-axial swirlers.9 
+ 
+Figure 7 Fuel Nozzle/Swirlers assembly. 
+ 
+Figure 3. Different stations at combustor inlet.1 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+30
+ 
+ 
+Figure 9 Heat transfer processes in the combustor.2 
+ 
+Figure 10 Jet issuing from a Dilution Hole.2 
+ 
+Figure 8 Schematic of a cooling strip. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+31
+ 
+Figure 11 Rows and bands of Dilution Holes.2 
+ 
+ 
+ 
+Figure 12 Screen shot of the developed code main page.  
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+32
+ 
+Figure 13 Screen shot of the input parameters required to run the code. 
+ 
+ 
+Figure 14 Screen shot of the developed code while running the Pre-diffuser (aerodynamic) design module. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+33
+ 
+ 
+ 
+Figure 15 Screen shot of the developed code while running the air distribution module. 
+ 
+Figure 16 Screen shot of the developed code while running the combustor sizing module. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+34
+ 
+Figure 17 Screen shot of the developed code while running the fuel nozzle design module. 
+ 
+Figure 18 Screen shot of the developed code while running the axial swirler design module. 
+ 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+35
+ 
+Figure 19 Screen shot of the developed code while running the liner heat transfer module. 
+ 
+Figure 20 Screen shot of the developed code while running the dilution hole sizing module. 
+ 
+American Institute of Aeronautics and Astronautics 
+ 
+ 
+36
+ 
+Figure 21 Screen shot of the developed code while running performance estimation module. 
