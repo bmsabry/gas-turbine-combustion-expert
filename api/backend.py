@@ -1,68 +1,34 @@
-"""
-Gas Turbine Combustion Expert - FastAPI Backend
-Advanced RAG system with Knowledge Graph
-"""
 import json
 import numpy as np
-import faiss
 from pathlib import Path
-from typing import List, Dict, Optional
-from datetime import datetime
+from typing import List, Dict
+import re
+import asyncio
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import StreamingResponse, FileResponse
+from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import httpx
-import asyncio
 
-# Import admin module
 from api.admin import setup_admin_routes, load_settings
 
 app = FastAPI(title="Gas Turbine Combustion Expert API")
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
-# CORS for frontend
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# Project directory
 PROJECT_DIR = Path(__file__).parent.parent
-STATIC_DIR = Path("/app/static")  # Docker container path
+STATIC_DIR = Path("/app/static")
 
-# Mount static files for frontend
-static_dir = PROJECT_DIR / "static"
-if static_dir.exists():
+static_dir = STATIC_DIR if STATIC_DIR.exists() else PROJECT_DIR / "static"
+if static_dir.exists() and (static_dir / "assets").exists():
     app.mount("/assets", StaticFiles(directory=str(static_dir / "assets")), name="assets")
-
-@app.get("/api")
-async def api_info():
-    return {
-        "name": "Gas Turbine Combustion Expert API",
-        "version": "1.0.0",
-        "docs": "/docs",
-        "status": "running"
-    }
-
-@app.get("/")
-async def root():
-    # Try Docker path first, then local path
-    index_file = STATIC_DIR / "index.html"
-    if not index_file.exists():
-        index_file = PROJECT_DIR / "static" / "index.html"
-    if index_file.exists():
-        return FileResponse(str(index_file), media_type="text/html")
-    return {"message": "Gas Turbine Combustion Expert API", "docs": "/docs"}
 
 
 class ChatRequest(BaseModel):
     message: str
     history: List[Dict] = []
+
 
 class ChatResponse(BaseModel):
     response: str
@@ -70,374 +36,322 @@ class ChatResponse(BaseModel):
     conflicts: List[str] = []
     single_study_notes: List[str] = []
 
-# ─── Data Loading ────────────────────────────────────────────────────────────
 
-def load_embeddings():
-    embeddings_file = PROJECT_DIR / "embeddings" / "embeddings.json"
-    if embeddings_file.exists():
-        with open(embeddings_file) as f:
-            return json.load(f)
-    return []
+_chunks = []
+_tfidf_matrix = None
+_vectorizer = None
+_entities = []
+_relationships = []
+_contradictions = []
+_data_loaded = False
 
-def load_chunks():
-    chunks = []
+
+def load_all_data():
+    global _chunks, _tfidf_matrix, _vectorizer, _entities, _relationships, _contradictions, _data_loaded
+    if _data_loaded:
+        return
+    print("Loading data...")
     chunks_dir = PROJECT_DIR / "chunks"
+    all_chunks = []
     if chunks_dir.exists():
-        for chunk_file in chunks_dir.glob("*_chunks.json"):
+        for chunk_file in sorted(chunks_dir.glob("*.json")):
             try:
                 with open(chunk_file) as f:
                     data = json.load(f)
-                    if isinstance(data, list):
-                        chunks.extend(data)
-                    elif isinstance(data, dict):
-                        chunks.append(data)
-            except Exception as e:
-                print(f"Error loading {chunk_file}: {e}")
-    return chunks
-
-def load_knowledge_graph():
-    entities_file = PROJECT_DIR / "knowledge_graph" / "entities.json"
-    relationships_file = PROJECT_DIR / "knowledge_graph" / "relationships.json"
-    contradictions_file = PROJECT_DIR / "knowledge_graph" / "contradictions.json"
-
-    entities, relationships, contradictions = [], [], []
-    try:
-        if entities_file.exists():
-            with open(entities_file) as f:
-                entities = json.load(f)
-    except Exception as e:
-        print(f"Error loading entities: {e}")
-    try:
-        if relationships_file.exists():
-            with open(relationships_file) as f:
-                relationships = json.load(f)
-    except Exception as e:
-        print(f"Error loading relationships: {e}")
-    try:
-        if contradictions_file.exists():
-            with open(contradictions_file) as f:
-                contradictions = json.load(f)
-    except Exception as e:
-        print(f"Error loading contradictions: {e}")
-
-    return entities, relationships, contradictions
-
-# ─── Load FAISS index ─────────────────────────────────────────────────────────
-
-def load_faiss_index():
-    index_file = PROJECT_DIR / "embeddings" / "faiss_index.bin"
-    ids_file = PROJECT_DIR / "embeddings" / "faiss_index.ids"
-    if index_file.exists():
-        index = faiss.read_index(str(index_file))
-        if ids_file.exists():
-            with open(ids_file) as f:
-                ids = json.load(f)
-        else:
-            ids = list(range(index.ntotal))
-        return index, ids
-    return None, []
-
-# ─── Startup ─────────────────────────────────────────────────────────────────
-
-print("Loading embeddings...")
-embeddings_data = load_embeddings()
-print(f"Loaded {len(embeddings_data)} embeddings")
-
-print("Loading chunks...")
-all_chunks = load_chunks()
-print(f"Loaded {len(all_chunks)} chunks")
-
-print("Loading knowledge graph...")
-entities, relationships, conflicts = load_knowledge_graph()
-print(f"Loaded {len(entities)} entities, {len(relationships)} relationships, {len(conflicts)} conflicts")
-
-print("Loading FAISS index...")
-faiss_index, faiss_ids = load_faiss_index()
-if faiss_index:
-    print(f"FAISS index loaded: {faiss_index.ntotal} vectors")
-else:
-    print("FAISS index NOT found — will use keyword fallback")
-
-# Build chunk lookup by index position
-chunk_by_idx = {i: c for i, c in enumerate(all_chunks)}
-
-# Lazy load SentenceTransformer (loaded on first request to avoid startup timeout)
-_st_model = None
-_st_model_loaded = False
-
-def get_st_model():
-    global _st_model, _st_model_loaded
-    if not _st_model_loaded:
-        _st_model_loaded = True
+                if isinstance(data, list):
+                    for item in data:
+                        if isinstance(item, dict) and item.get("text"):
+                            all_chunks.append(item)
+                elif isinstance(data, dict) and data.get("text"):
+                    all_chunks.append(data)
+            except Exception:
+                pass
+    _chunks = all_chunks
+    print(f"Loaded {len(_chunks)} chunks")
+    if _chunks:
         try:
-            from sentence_transformers import SentenceTransformer as ST
-            _st_model = ST("all-MiniLM-L6-v2")
-            print("SentenceTransformer model loaded successfully")
+            from sklearn.feature_extraction.text import TfidfVectorizer
+            texts = [c.get("text", "") for c in _chunks]
+            _vectorizer = TfidfVectorizer(max_features=50000, stop_words="english", ngram_range=(1, 2))
+            _tfidf_matrix = _vectorizer.fit_transform(texts)
+            print(f"TF-IDF index built: {_tfidf_matrix.shape}")
         except Exception as e:
-            _st_model = None
-            print(f"SentenceTransformer load failed: {e}")
-    return _st_model
-
-# ─── Semantic search using FAISS ──────────────────────────────────────────────
-
-def semantic_search(query: str, top_k: int = 10) -> List[Dict]:
-    """Search chunks using FAISS semantic similarity"""
-    if faiss_index is None or not embeddings_data:
-        return keyword_fallback(query, top_k)
-
+            print(f"TF-IDF failed: {e}")
+    kg_dir = PROJECT_DIR / "knowledge_graph"
     try:
-        model = get_st_model()
-        if model is None:
-            return keyword_fallback(query, top_k)
-        query_vec = model.encode([query], normalize_embeddings=True)
-        query_vec = np.array(query_vec, dtype=np.float32)
-
-        distances, indices = faiss_index.search(query_vec, min(top_k, faiss_index.ntotal))
-
-        results = []
-        for dist, idx in zip(distances[0], indices[0]):
-            if idx < 0:
-                continue
-            # Map FAISS index to chunk
-            if idx < len(all_chunks):
-                chunk = all_chunks[idx].copy()
-                chunk["_score"] = float(dist)
-                results.append(chunk)
-        return results
-    except Exception as e:
-        print(f"FAISS search error: {e} — falling back to keyword")
-        return keyword_fallback(query, top_k)
+        with open(kg_dir / "entities.json") as f:
+            _entities = json.load(f)
+    except Exception:
+        pass
+    try:
+        with open(kg_dir / "relationships.json") as f:
+            _relationships = json.load(f)
+    except Exception:
+        pass
+    try:
+        with open(kg_dir / "contradictions.json") as f:
+            _contradictions = json.load(f)
+    except Exception:
+        pass
+    print(f"KG: {len(_entities)} entities, {len(_contradictions)} conflicts")
+    _data_loaded = True
 
 
-def keyword_fallback(query: str, top_k: int = 10) -> List[Dict]:
-    """Keyword-based fallback retrieval"""
-    query_lower = query.lower()
-    query_words = set(query_lower.split())
-    domain_terms = [
-        "nox", "emission", "swirl", "pressure", "flame", "combustion",
-        "stability", "flashback", "residence", "time", "temperature",
-        "fuel", "air", "equivalence", "ratio", "lean", "rich", "premix",
-        "diffusion", "turbulence", "blowout", "ignition", "liner",
-        "injector", "dilution", "cooling", "pattern", "factor"
-    ]
-
+def search_chunks(query: str, top_k: int = 15) -> List[Dict]:
+    if not _data_loaded:
+        load_all_data()
+    if _vectorizer is not None and _tfidf_matrix is not None:
+        try:
+            from sklearn.metrics.pairwise import cosine_similarity
+            qv = _vectorizer.transform([query])
+            scores = cosine_similarity(qv, _tfidf_matrix)[0]
+            top_idx = np.argsort(scores)[::-1][:top_k]
+            results = []
+            for idx in top_idx:
+                if scores[idx] > 0:
+                    c = _chunks[idx].copy()
+                    c["score"] = float(scores[idx])
+                    results.append(c)
+            return results
+        except Exception as e:
+            print(f"TF-IDF error: {e}")
+    keywords = [w.lower() for w in re.split(r"\W+", query) if len(w) > 3]
     scored = []
-    for chunk in all_chunks:
+    for chunk in _chunks:
         text = chunk.get("text", "").lower()
-        tags = [t.lower() for t in chunk.get("topic_tags", [])]
-        score = 0
-        for word in query_words:
-            if word in text:
-                score += 2
-            if word in tags:
-                score += 3
-        for term in domain_terms:
-            if term in query_lower and term in text:
-                score += 1
+        score = sum(1 for kw in keywords if kw in text)
         if score > 0:
             c = chunk.copy()
-            c["_score"] = score
+            c["score"] = float(score)
             scored.append(c)
-
-    scored.sort(key=lambda x: x["_score"], reverse=True)
+    scored.sort(key=lambda x: x["score"], reverse=True)
     return scored[:top_k]
 
 
-# ─── Health & Stats endpoints ─────────────────────────────────────────────────
+def find_conflicts(query: str) -> List[str]:
+    query_lower = query.lower()
+    results = []
+    for conflict in _contradictions[:100]:
+        entity = conflict.get("entity", "").lower()
+        if entity and entity in query_lower:
+            pa = conflict.get("paper_a", "Study A")
+            pb = conflict.get("paper_b", "Study B")
+            fa = conflict.get("paper_a_finding", "makes a claim")
+            fb = conflict.get("paper_b_finding", "contradicts")
+            results.append(
+                f"CONFLICTING EVIDENCE on '{entity}': {pa} states: {fa}. However, {pb} states: {fb}."
+            )
+    return results[:3]
+
+
+@app.on_event("startup")
+async def startup_event():
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(None, load_all_data)
+
+
+@app.get("/")
+async def root():
+    for p in [STATIC_DIR / "index.html", PROJECT_DIR / "static" / "index.html"]:
+        if p.exists():
+            return FileResponse(str(p), media_type="text/html")
+    return {"name": "Gas Turbine Combustion Expert API", "version": "1.0.0", "status": "running"}
+
+
+@app.get("/api")
+async def api_info():
+    return {"name": "Gas Turbine Combustion Expert API", "version": "1.0.0", "status": "running"}
+
 
 @app.get("/api/health")
-async def health_check():
+async def health():
+    if not _data_loaded:
+        load_all_data()
     return {
         "status": "healthy",
-        "papers": 317,
-        "chunks": len(all_chunks),
-        "entities": len(entities),
-        "relationships": len(relationships),
-        "conflicts": len(conflicts),
-        "faiss_loaded": faiss_index is not None
+        "papers": len(set(c.get("paper_id", "") for c in _chunks)),
+        "chunks": len(_chunks),
+        "entities": len(_entities),
+        "relationships": len(_relationships),
+        "conflicts": len(_contradictions),
+        "tfidf_loaded": _tfidf_matrix is not None
     }
 
-@app.get("/api/stats")
-async def get_stats():
-    return {
-        "papers_processed": 317,
-        "chunks": len(all_chunks),
-        "embeddings": len(embeddings_data),
-        "entities": len(entities),
-        "relationships": len(relationships),
-        "conflicts": len(conflicts)
-    }
-
-
-# ─── Main Chat Endpoint ───────────────────────────────────────────────────────
 
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    """Main chat endpoint with FAISS RAG retrieval and LLM synthesis"""
+    if not _data_loaded:
+        load_all_data()
 
-    # Get settings
-    settings = load_settings()
-    api_key = settings.get("llm_api_key", "").strip()
-    api_url = settings.get("llm_api_url", "").rstrip("/")
-    model = settings.get("llm_model", "google/gemini-2.0-flash-001")
-
-    # ── Semantic retrieval ────────────────────────────────────────────────────
-    relevant_chunks = semantic_search(request.message, top_k=10)
-
-    # Deduplicate by text
-    seen_texts: set = set()
-    unique_chunks = []
-    for c in relevant_chunks:
-        txt = c.get("text", "")[:100]
-        if txt not in seen_texts:
-            seen_texts.add(txt)
-            unique_chunks.append(c)
-    relevant_chunks = unique_chunks[:8]
-
-    # ── Check for conflicts ───────────────────────────────────────────────────
-    query_lower = request.message.lower()
-    relevant_conflicts = []
-    for conflict in conflicts:
-        e1 = conflict.get("entity_1", "").lower()
-        e2 = conflict.get("entity_2", "").lower()
-        if e1 in query_lower or e2 in query_lower:
-            pa = conflict.get("paper_a", "Unknown")
-            pb = conflict.get("paper_b", "Unknown")
-            fa = conflict.get("paper_a_finding", "states a different conclusion")
-            fb = conflict.get("paper_b_finding", "states a different conclusion")
-            notes = conflict.get("resolution_notes", "Requires expert review")
-            relevant_conflicts.append(
-                f"⚠️ CONFLICTING EVIDENCE: [{pa}] states: {fa}. "
-                f"However, [{pb}] states: {fb}. "
-                f"Expert note: {notes}"
-            )
-
-    # ── Build sources list ────────────────────────────────────────────────────
-    sources = []
-    seen_titles: set = set()
-    for chunk in relevant_chunks:
-        title = chunk.get("title", "Unknown")
-        if title not in seen_titles:
-            sources.append({
-                "title": title,
-                "year": chunk.get("year", "Unknown"),
-                "authors": chunk.get("authors", []),
-                "chunk_id": chunk.get("chunk_id", "")
-            })
-            seen_titles.add(title)
-
-    # ── Build context for LLM ─────────────────────────────────────────────────
-    context_parts = []
-    for i, chunk in enumerate(relevant_chunks):
-        title = chunk.get("title", "Unknown")
-        year = chunk.get("year", "Unknown")
-        text = chunk.get("text", "")
-        context_parts.append(f"[Paper {i+1}] {title} ({year}):\n{text}")
-    context = "\n\n---\n\n".join(context_parts)
-
-    # ── No API key: return clear message ──────────────────────────────────────
-    if not api_key:
+    retrieved = search_chunks(request.message, top_k=15)
+    if not retrieved:
         return ChatResponse(
-            response=(
-                "⚠️ **LLM Not Configured**\n\n"
-                "Please configure an LLM in the admin panel (/admin).\n"
-                "Login: admin / admin123"
-            ),
-            sources=sources,
-            conflicts=relevant_conflicts[:3],
-            single_study_notes=[]
+            response="No relevant information found in the research papers. Please rephrase your question.",
+            sources=[], conflicts=[], single_study_notes=[]
         )
 
-    # ── Build system prompt ───────────────────────────────────────────────────
+    sources = []
+    seen = set()
+    for chunk in retrieved[:10]:
+        title = chunk.get("title", chunk.get("paper_id", "Unknown"))
+        if title not in seen:
+            seen.add(title)
+            sources.append({
+                "title": title,
+                "year": chunk.get("year", ""),
+                "credibility_score": chunk.get("credibility_score", 3),
+                "section": chunk.get("section", ""),
+                "relevance_score": round(chunk.get("score", 0), 3)
+            })
+
+    conflicts = find_conflicts(request.message)
+
+    context_parts = []
+    for i, chunk in enumerate(retrieved[:10]):
+        title = chunk.get("title", "Unknown")
+        year = chunk.get("year", "")
+        text = chunk.get("text", "")
+        section = chunk.get("section", "")
+        context_parts.append(f"[{i+1}] {title} ({year}) - {section}:\n{text}\n")
+    context = "\n".join(context_parts)
+
+    settings = load_settings()
+    api_key = settings.get("llm_api_key", "").strip()
+    api_url = settings.get("llm_api_url", "").strip().rstrip("/")
+    model = settings.get("llm_model", "google/gemini-2.0-flash-001")
+
+    if not api_key:
+        preview_parts = []
+        for i, c in enumerate(retrieved[:5]):
+            t = c.get("title", "Unknown")
+            y = c.get("year", "")
+            txt = c.get("text", "")[:400]
+            preview_parts.append(f"**[{i+1}] {t} ({y})**\n{txt}...")
+        preview = "\n\n".join(preview_parts)
+        return ChatResponse(
+            response=(
+                "## LLM Not Configured\n\n"
+                "Please configure an LLM API key in the Admin Panel:\n"
+                "1. Go to `/admin`\n"
+                "2. Login: admin / admin123\n"
+                "3. Enter your API key\n\n---\n\n"
+                "**Top retrieved papers:**\n\n" + preview
+            ),
+            sources=sources, conflicts=conflicts, single_study_notes=[]
+        )
+
+    conflict_ctx = ""
+    if conflicts:
+        conflict_ctx = "\n\nLITERATURE CONFLICTS:\n" + "\n".join(conflicts)
+
     system_prompt = (
-        "You are a gas turbine combustion expert AI assistant with access to 317 scientific research papers.\n\n"
-        "RULES:\n"
-        "1. Answer ONLY based on the provided research paper excerpts below.\n"
-        "2. If the context does not contain enough information, say so explicitly - never hallucinate.\n"
-        "3. When multiple papers agree, synthesize them and cite all: (Smith et al., 2021; Jones et al., 2019).\n"
-        "4. When papers DISAGREE, explicitly flag it with: ⚠️ CONFLICTING EVIDENCE\n"
-        "5. When a finding comes from only ONE paper, flag it with: 📌 NOTE: Single study finding\n"
-        "6. For design questions, answer component by component, citing the relevant paper for each point.\n"
-        "7. End with a ## Sources Used section listing every paper cited.\n"
-        "8. Use confidence language: The literature strongly supports... / Evidence suggests... / Limited evidence indicates..."
+        "You are a gas turbine combustion expert AI. Answer ONLY from the provided research excerpts.\n\n"
+        "Rules:\n"
+        "1. Never use outside knowledge - if not in context, say so explicitly.\n"
+        "2. Cite agreeing papers together: (Author et al., Year)\n"
+        "3. Flag disagreements: CONFLICTING EVIDENCE: [Paper A] states X. However [Paper B] states Y.\n"
+        "4. Single-study findings: NOTE: Single study - not independently corroborated.\n"
+        "5. For design questions: answer component by component.\n"
+        "6. End every response with a Sources Used section.\n"
+        "7. Confidence levels: Literature strongly supports / Evidence suggests / Limited evidence.\n"
+        "8. Be thorough and technical for combustion engineers."
     )
 
-    user_message = (
-        f"Based on the following research paper excerpts, answer the question.\n\n"
-        f"RESEARCH PAPER EXCERPTS:\n{context}\n\n"
-        f"QUESTION: {request.message}\n\n"
-        f"Provide a detailed, expert-level answer with proper citations."
+    user_msg = (
+        f"Research Paper Context:\n{context}{conflict_ctx}\n\n"
+        f"Question: {request.message}\n\n"
+        "Provide a comprehensive, technically accurate answer based solely on the provided research papers."
     )
 
-    # ── Call LLM via OpenAI-compatible API (works with OpenRouter, OpenAI, etc.) ──
-    llm_response = None
-    error_message = None
+    if "anthropic" in api_url.lower():
+        endpoint = f"{api_url}/v1/messages"
+        headers = {
+            "x-api-key": api_key,
+            "Content-Type": "application/json",
+            "anthropic-version": "2023-06-01"
+        }
+        payload = {
+            "model": model,
+            "max_tokens": 2000,
+            "system": system_prompt,
+            "messages": [{"role": "user", "content": user_msg}]
+        }
+    elif "openrouter" in api_url.lower():
+        endpoint = f"{api_url}/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://gas-turbine-combustion-expert.onrender.com",
+            "X-Title": "Gas Turbine Combustion Expert"
+        }
+        payload = {
+            "model": model,
+            "max_tokens": 2000,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_msg}
+            ]
+        }
+    else:
+        endpoint = f"{api_url}/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json"
+        }
+        payload = {
+            "model": model,
+            "max_tokens": 2000,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_msg}
+            ]
+        }
 
     try:
         async with httpx.AsyncClient(timeout=90.0) as client:
-            headers = {
-                "Authorization": f"Bearer {api_key}",
-                "Content-Type": "application/json",
-                "HTTP-Referer": "https://gas-turbine-combustion-expert.onrender.com",
-                "X-Title": "Gas Turbine Combustion Expert"
-            }
+            resp = await client.post(endpoint, headers=headers, json=payload)
+            resp.raise_for_status()
+            data = resp.json()
 
-            payload = {
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": user_message}
-                ],
-                "max_tokens": 2048,
-                "temperature": 0.1
-            }
+        if "anthropic" in api_url.lower():
+            llm_text = data["content"][0]["text"]
+        else:
+            llm_text = data["choices"][0]["message"]["content"]
 
-            # OpenAI-compatible endpoint (works for OpenRouter, OpenAI, etc.)
-            endpoint = f"{api_url}/chat/completions"
-            print(f"Calling LLM: {endpoint} with model {model}")
+        sources_txt = "\n\n---\n**Sources Used:**\n"
+        for s in sources:
+            sources_txt += f"- {s['title']} ({s['year']})\n"
 
-            response = await client.post(endpoint, headers=headers, json=payload)
-            print(f"LLM response status: {response.status_code}")
-
-            if response.status_code == 200:
-                data = response.json()
-                llm_response = data["choices"][0]["message"]["content"]
-            else:
-                error_message = f"LLM API error {response.status_code}: {response.text[:500]}"
-                print(error_message)
-
-    except Exception as e:
-        error_message = f"LLM call failed: {str(e)}"
-        print(error_message)
-
-    # ── Return LLM response ───────────────────────────────────────────────────
-    if llm_response:
         return ChatResponse(
-            response=llm_response,
+            response=llm_text + sources_txt,
             sources=sources,
-            conflicts=relevant_conflicts[:5],
+            conflicts=conflicts,
             single_study_notes=[]
         )
 
-    # ── Fallback: show error + raw context ───────────────────────────────────
-    fallback = f"⚠️ **LLM Error**: {error_message}\n\n" if error_message else ""
-    fallback += "**Retrieved Context from Papers (LLM unavailable):**\n\n"
-    for chunk in relevant_chunks[:3]:
-        title = chunk.get("title", "Unknown")
-        year = chunk.get("year", "Unknown")
-        text = chunk.get("text", "")[:400]
-        fallback += f"**{title}** ({year}):\n{text}...\n\n"
-
-    return ChatResponse(
-        response=fallback,
-        sources=sources,
-        conflicts=relevant_conflicts[:3],
-        single_study_notes=[]
-    )
+    except httpx.HTTPStatusError as e:
+        err = e.response.text[:500] if e.response else str(e)
+        return ChatResponse(
+            response=f"## API Error\n\nStatus: {e.response.status_code}\n\n{err}\n\nCheck your API key in Admin Panel.",
+            sources=sources, conflicts=conflicts, single_study_notes=[]
+        )
+    except Exception as e:
+        return ChatResponse(
+            response=f"## Error\n\n{str(e)}\n\nCheck API settings in Admin Panel.",
+            sources=sources, conflicts=conflicts, single_study_notes=[]
+        )
 
 
-# Setup admin routes
-app = setup_admin_routes(app)
+setup_admin_routes(app)
+
+
+@app.get("/{full_path:path}")
+async def catch_all(full_path: str):
+    for p in [STATIC_DIR / "index.html", PROJECT_DIR / "static" / "index.html"]:
+        if p.exists():
+            return FileResponse(str(p), media_type="text/html")
+    raise HTTPException(status_code=404, detail="Not found")
+
 
 if __name__ == "__main__":
     import uvicorn
