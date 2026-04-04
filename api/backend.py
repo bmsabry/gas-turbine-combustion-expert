@@ -476,14 +476,31 @@ async def chat(request: ChatRequest):
                 "messages": [{"role": "system", "content": system_prompt}] + messages_with_history
             }
 
+
         try:
             resp = await client.post(endpoint, headers=headers, json=payload)
             resp.raise_for_status()
             data = resp.json()
             if "anthropic" in api_url.lower():
-                llm_text = data["content"][0]["text"]
+                raw_text = data["content"][0]["text"]
             else:
-                llm_text = data["choices"][0]["message"]["content"]
+                raw_text = data["choices"][0]["message"]["content"]
+
+            # Strip any Sources/References section the LLM adds despite instructions
+            import re
+            clean_text = raw_text
+            strip_patterns = [
+                r'\n+\*{0,3}\s*sources\s*used[\s\S]*$',
+                r'\n+\*{0,3}\s*references[\s\S]*$',
+                r'\n+\*{0,3}\s*bibliography[\s\S]*$',
+                r'\n+\*{0,3}\s*citations[\s\S]*$',
+                r'\n+\*{0,3}\s*works\s*cited[\s\S]*$',
+                r'\n+---+\n\s*\*{0,3}\s*(sources|references|bibliography)[\s\S]*$',
+            ]
+            for pat in strip_patterns:
+                clean_text = re.sub(pat, '', clean_text, flags=re.IGNORECASE)
+            llm_text = clean_text.strip()
+
             return ChatResponse(
                 response=llm_text,
                 sources=sources,
