@@ -252,7 +252,7 @@ async def chat(request: ChatRequest):
         "3. Flag disagreements: CONFLICTING EVIDENCE: [Paper A] states X. However [Paper B] states Y.\n"
         "4. Single-study findings: NOTE: Single study - not independently corroborated.\n"
         "5. For design questions: answer component by component.\n"
-        "6. End every response with a Sources Used section.\n"
+        "6. Do NOT include any citations, reference lists, or source lists. Just answer directly.\n"
         "7. Confidence levels: Literature strongly supports / Evidence suggests / Limited evidence.\n"
         "8. Be thorough and technical for combustion engineers."
     )
@@ -318,12 +318,8 @@ async def chat(request: ChatRequest):
         else:
             llm_text = data["choices"][0]["message"]["content"]
 
-        sources_txt = "\n\n---\n**Sources Used:**\n"
-        for s in sources:
-            sources_txt += f"- {s['title']} ({s['year']})\n"
-
         return ChatResponse(
-            response=llm_text + sources_txt,
+            response=llm_text,
             sources=sources,
             conflicts=conflicts,
             single_study_notes=[]
