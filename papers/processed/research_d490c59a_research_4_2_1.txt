@@ -1,0 +1,1412 @@
+295
+295
+4.2.1-1 Introduction
+The technology of cooling gas turbine components via internal convective ﬂ ows 
+of single-phase gases has developed over the years from simple smooth cooling 
+passages to very complex geometries involving many differing surfaces, architectures, 
+and ﬂ uid-surface interactions.  The fundamental aim of this technology area is to 
+obtain the highest overall cooling effectiveness with the lowest possible penalty on 
+the thermodynamic cycle performance.  As a thermodynamic Brayton cycle, the 
+efﬁ ciency of the gas turbine engine can be raised substantially by increasing the ﬁ ring 
+temperature of the turbine.  Modern gas turbine systems are ﬁ red at temperatures in 
+excess of the material melting temperature limits.  This is made possible by utilization 
+of thermal barrier coating materials and by the aggressive cooling of the hot gas path 
+(HGP) components using a portion of the compressor discharge air, as depicted in the 
+aero-engine schematic of ﬁ gure 1.  The use of 20 to 30% of this compressed air to 
+cool the high-pressure turbine (HPT) presents a severe penalty on the thermodynamic 
+efﬁ ciency unless the ﬁ ring temperature is sufﬁ ciently high for the gains to outweigh 
+the losses.  In all properly operating cooled turbine systems, the efﬁ ciency gain is 
+signiﬁ cant enough to justify the added complexity and cost of the cooling technologies 
+employed.
+Cooling technology, as applied to gas turbine components such as the high-
+pressure turbine vanes and blades (also known as nozzles and buckets), is composed 
+of ﬁ ve main elements: (1) internal convective cooling, (2) external surface ﬁ lm 
+cooling, (3) materials selection, (4) thermal-mechanical design, and (5) selection 
+and/or pre-treatment of the coolant ﬂ uid.  Internal convective cooling is the art of 
+directing coolant via the available pressure gradients into all regions of the component 
+requiring cooling, while augmenting the heat transfer coefﬁ cients as necessary to 
+obtain distributed and reasonably uniform thermal conditions.  The enhancement of 
+internal convective ﬂ ow surfaces for the augmentation of heat transfer has occurred 
+through a myriad of surface treatments and features as well as the forceful direction 
+of ﬂ ows via diverters, swirl devices, etc.  The most common turbine airfoil interior 
+surface features have been rib-rougheners or turbulators, and also pin-banks or pin-
+ﬁ ns, which continue to play a large role in today’s turbine cooling designs.  Film 
+cooling is the practice of bleeding internal cooling ﬂ ows onto the exterior skin of 
+the components to provide a heat ﬂ ux reducing cooling layer. Film cooling is 
+intimately tied to the internal cooling technique used in that the local internal ﬂ ow 
+details will inﬂ uence the ﬂ ow characteristics and temperature of the ﬁ lm jets injected 
+Cooling Design Analysis
+4.2.1
+COMBUSTION
+ZONE
+HP TURBINE
+VANE
+COMPRESSOR
+DISCHARGE
+HP TURBINE
+BLADE
+COMBUSTION
+ZONE
+HP TURBINE
+VANE
+COMPRESSOR
+DISCHARGE
+HP TURBINE
+BLADE
+Fig. 1. Aero-engine High Pressure Turbine and Combustor
+Ron S. Bunker
+GE Global Research
+One Research Circle, K-1 ES-104
+Niskayuna, NY 12309
+phone: (518) 387-5086  
+               
+email: bunker@crd.ge.com
+
+296
+on the surface.  Materials most commonly employed in cooled parts include high-temperature, high-strength nickel or cobalt-based 
+superalloys coated with yttria-stabilized zirconia oxide ceramics (thermal barrier coating, TBC).  The protective ceramic coatings are 
+currently used to actively enhance the cooling capability of the internal convection mechanisms.  The thermal-mechanical design of 
+the components must integrate these ﬁrst three elements into a package that has acceptable thermal stresses, coating strains, oxidation 
+limits, creep-rupture properties, and aero-mechanical response.  Under the majority of practical system constraints, this allows for the 
+highest achievable internal convective heat transfer coefﬁcients with the lowest achievable frictional coefﬁcient or pressure loss.  In 
+some circumstances, pressure loss is not a concern and the highest available heat transfer enhancements are sought for cooling, while in 
+other applications pressure loss may be so restricted as to dictate a very limited means of heat transfer enhancement.  The last cooling 
+design element concerns the correct selection of the cooling ﬂuid to perform the required function with the least impact on the cycle 
+efﬁciency.  This usually is achieved through the use of compressor bleed air from the most advantageous stage of the compressor, but can 
+also be done using off-board cooling sources such as closed-circuit steam or air, as well as intra-cycle and inter-cycle heat exchangers. 
+ 
+In many respects, the evolution of gas turbine internal cooling technologies began in parallel with heat exchanger and ﬂuid 
+processing techniques, “simply” packaged into the constrained designs required of turbine airfoils (ie. aerodynamics, mechanical 
+strength, vibrational response, etc.). Turbine airfoils are after all merely highly specialized and complex heat exchangers that 
+release the cold side ﬂuid in a controlled fashion to maximize work extraction.  Actively or passively cooled regions of the hot 
+gas path in both aircraft engine and power generating gas turbines include the stationary vanes or nozzles, the rotating blades or 
+buckets of the HPT stages, the shrouds bounding the rotating blades, and the combustor liners and ﬂame holding segments.  Also 
+included are the secondary ﬂow circuits of the turbine wheelspaces and the outer casings that serve as both cooling and positive 
+purge ﬂows.  The ever present constraints common to all components and systems include but are not limited to pressure 
+losses, material temperatures, component stresses, geometry and volume, aerodynamics, fouling, and coolant conditions. 
+ 
+An overview of the cooling design analysis system or method is presented in the generic summary diagram of ﬁgure 2.  For 
+the present purpose, the design analysis method is shown as a three level system, working from Level 1 outwards.  Level 1 concerns 
+the conceptual design of the components largely based on nominal target conditions and divorced from the surrounding systems 
+constraints and competing requirements or trade-offs.  Level 1 analysis can be performed based on 1D, 2D, or 3D complexities and 
+details, and is primarily used to compare various options in design.  Analysis at the conceptual level must still be detailed enough 
+however to allow ranking and down-selection between options.  Level 2 cooling analysis is the much more detailed inclusion of 
+surrounding effects and constraints from aerodynamics, material properties, mechanical loads, liﬁng limitations, clearances etc. as 
+depicted in the design cycle diagram of ﬁgure 3.  The analyses performed in Level 2 often must be combined thermal-mechanical 
+predictions using very detailed ﬁnite element models, sometimes even sub-models of certain component sections.  Most Level 2 
+analyses are performed at one steady-state operating condition, e.g. 100% load.  The result of Level 2 analysis, after various alterations 
+and iterations, is the basic system design with balanced choices that satisfy the engine design goals.  Level 3 analysis brings in the 
+operational transient aspects to determine if requirements or constraints are violated under conditions such as normal start-up, fast 
+start-up, trips, and hot restarts.  Level 3 results can require that additional changes be made with new analyses at Levels 1 and 2. 
+ 
+In all cooling system design analysis levels, engine experience design factors and known engine degradation factors must be 
+included.  As examples, such factors may include the use of –3σ material properties, knock-down factors on cooling augmentation, and 
+loss of coatings or metal thickness.  In addition, there is a Level 0 analysis not shown in ﬁgure 2.  Level 0 is the preliminary design of 
+the engine.  The preliminary design deals mainly with the mission requirements, such as efﬁciency, cost-of-electricity, power sizing 
+and number of starts.  Level 0 sets the target goals on the cooling system, including the coolant consumption, turbine airfoil life, and 
+inspection intervals.
+               
+ 
+      Fig. 2. Cooling Design Analysis System  
+ 
+ 
+           
+Operational Transients
+Level 3
+Cooling
+Design
+Analysis
+External Heat
+Transfer Coefficients
+External Gas T
+Distribution
+Adiabatic Film
+Effectiveness
+Emissivity
+Internal Heat
+Transfer Coefficients
+Coolant T
+Discharge Coefficients
+Wall Thicknesses
+Thermal Conductivities
+Engine Experience
+Design Factors
+Mass Balance
+Flow Rates
+Energy Balance
+Wall T’s
+Aero
+Work
+Combustor
+Profile
+Max T
+Oxidation
+LCF
+Creep
+HCF
+Max Flow
+Material
+Bearing
+Thrust
+Clearances
+Leakages
+Assembly
+Repair
+Cost
+Engine Degradation
+Level 2
+Level 1
+Operational Transients
+Level 3
+Cooling
+Design
+Analysis
+External Heat
+Transfer Coefficients
+External Gas T
+Distribution
+Adiabatic Film
+Effectiveness
+Emissivity
+Internal Heat
+Transfer Coefficients
+Coolant T
+Discharge Coefficients
+Wall Thicknesses
+Thermal Conductivities
+Engine Experience
+Design Factors
+Mass Balance
+Flow Rates
+Energy Balance
+Wall T’s
+Aero
+Work
+Combustor
+Profile
+Max T
+Oxidation
+LCF
+Creep
+HCF
+Max Flow
+Material
+Bearing
+Thrust
+Clearances
+Leakages
+Assembly
+Repair
+Cost
+Engine Degradation
+Level 2
+Level 1
+Cooling
+Design
+Analysis
+External Heat
+Transfer Coefficients
+External Gas T
+Distribution
+Adiabatic Film
+Effectiveness
+Emissivity
+Internal Heat
+Transfer Coefficients
+Coolant T
+Discharge Coefficients
+Wall Thicknesses
+Thermal Conductivities
+Engine Experience
+Design Factors
+Mass Balance
+Flow Rates
+Energy Balance
+Wall T’s
+Aero
+Work
+Combustor
+Profile
+Max T
+Oxidation
+LCF
+Creep
+HCF
+Max Flow
+Material
+Bearing
+Thrust
+Clearances
+Leakages
+Assembly
+Repair
+Cost
+Engine Degradation
+Level 2
+Level 1
+Aero Design
+• Flowpath
+• Airfoils
+Materials
+• Base metal
+• Coatings
+• Composites
+Thermal
+Design
+• Bulk Temp
+• Max. T
+• %  Wc
+Mech. Design
+• Stresses
+• Creep 
+Life
+• Mission mix
+• LCF
+Aero-
+Mechanical
+• HCF
+• Vibration
+Cycle
+• T41
+• % Wc
+• SFC
+Cost
+Repairability
+Commonality
+Servicing
+Manufacturing
+Durability
+Aero Design
+• Flowpath
+• Airfoils
+Aero Design
+• Flowpath
+• Airfoils
+Materials
+• Base metal
+• Coatings
+• Composites
+Materials
+• Base metal
+• Coatings
+• Composites
+Thermal
+Design
+• Bulk Temp
+• Max. T
+• %  Wc
+Mech. Design
+• Stresses
+• Creep 
+Mech. Design
+• Stresses
+• Creep 
+Life
+• Mission mix
+• LCF
+Life
+• Mission mix
+• LCF
+Aero-
+Mechanical
+• HCF
+• Vibration
+Aero-
+Mechanical
+• HCF
+• Vibration
+Cycle
+• T41
+• % Wc
+• SFC
+Cycle
+• T41
+• % Wc
+• SFC
+Cost
+Repairability
+Commonality
+Servicing
+Manufacturing
+Durability
+  Fig. 3. Turbine Engine Design Cycle
+
+297
+4.2.1-2 Level 0 – Preliminary Cooling Design Analysis
+At this very early stage in the deﬁnition of an engine design, the cooling system is completely wrapped up in a single set of 
+performance characteristic curves, usually presented in graphical format, known as Cooling Technology Maps.  A generic cooling 
+technology performance chart is shown in ﬁgure 4 for a turbine airfoil, either a vane or a blade.  The technology curves shown on this 
+chart present the gross airfoil cooling effectiveness versus a heat loading parameter, deﬁned as non-dimensional quantities:
+Gross Cooling Effectiveness = (Tgas – Tbulk metal) / (Tgas – Tcoolant supply)
+Heat Loading Parameter = (mcoolant * Cp coolant) / 2 * Hgas * Agas 
+The quantities in these terms are as follows:
+Tgas  
+ 
+= average hot gas temperature (e.g. ﬁring temperature for blade)
+Tbulk metal   
+= average metal temperature of entire airfoil with endwalls
+Tcoolant supply  
+= temperature of coolant entering the airfoil
+Hgas 
+ 
+= average external gas heat transfer coefﬁcient (corrected for radiation)
+Agas 
+ 
+= external gas wetted surface area
+mcoolant 
+ 
+= coolant ﬂow rate to airfoil
+Cp coolant  
+= coolant speciﬁc heat.
+ 
+The heat loading parameter ratios the overall hot gas 
+heat ﬂux (source) delivered to the component against the overall 
+coolant capability to accept heat ﬂux (sink).  Since the gas and 
+coolant temperatures are not in this term, the ratio is not unity, 
+but does provide a relative scale for placement of past and current 
+designs.  The symbolic points on the chart represent various engine 
+experience data points for different designs.  Several curves will 
+generally be present showing major levels of cooling technology. 
+Such maps may also present extrapolated design points based on 
+analysis only, or target design points for new engines.
+ 
+In this preliminary Level 0 design phase, cooling 
+analysis is simply a matter of looking up the expected or projected 
+coolant ﬂow rates based on the cycle or mission design goals. 
+Temperatures may be altered by various choices of cycles, surface 
+areas by overall power requirements or aerodynamics, coolant 
+speciﬁc heat by selection of cooling ﬂuid, airfoil temperatures by 
+cooling mass ﬂow rate, and so forth.  All of which lead to differing 
+impacts on overall engine efﬁciency, emissions, life, and cost.
+A similar set of performance curves may be used to examine the 
+effect of wheelspace and casing leakage ﬂows from the secondary 
+cooling circuits.  Here, variations may be made in the complexity 
+of seals to obtain lower overall leakages ﬂows with potential 
+consequences such as higher rotor rim material temperatures.
+4.2.1-3 Level 1 – Conceptual Cooling 
+Design Analysis
+Component design may take on one of several depths of 
+analysis, from preliminary estimates, to detailed two-dimensional 
+analyses, 
+to 
+complete 
+three-dimensional 
+computational 
+predictions including the conjugate effects of the convective 
+and radiative environments.  Each mode of analysis has its use 
+as the design progresses from concept to reality.  Figure 5 shows 
+a three-dimensional vane airfoil and endwalls reduced ﬁrst 
+to a two-dimensional, constant thickness cross-section of the 
+aerodynamic shape, and then again to a one-dimensional basic 
+Heat Loading Parameter
+Gross Cooling Efficiency
+100%
+0
+Convection cooling
+Convection+Film cooling
+Convection+
+Film cooling+TBC
+Heat Loading Parameter
+Gross Cooling Efficiency
+100%
+0
+Convection cooling
+Convection+Film cooling
+Convection+
+Film cooling+TBC
+           Fig. 4. Cooling Technology Performance Chart
+Ron S. Bunker
+3D
+X
+X=0
+X
+Pressure side
+Suction side
+2D
+Hot Air
+X
+Coolant
+Air
+Flat plate external flow
+Internal cooling flow
+1D
+3D
+X
+X=0
+X
+Pressure side
+Suction side
+X
+X=0
+X
+Pressure side
+Suction side
+X
+X=0
+X
+Pressure side
+Suction side
+2D
+Hot Air
+X
+Coolant
+Air
+Flat plate external flow
+Internal cooling flow
+1D
+Fig. 5. Simpliﬁed to Complex Cooling Design Analysis
+
+298
+ﬂat plate representing ﬂow from the leading edge stagnation point to the trailing edge.  Preliminary design uses mostly bulk quantities 
+and one-dimensional simpliﬁed equations to arrive at approximate yet meaningful estimates of temperatures and ﬂow requirements. 
+While the actual airfoil / endwall shape involves many complexities of accelerating and decelerating ﬂows, secondary ﬂows, and 
+discrete ﬁlm injection holes, a good estimate may still be obtained using fundamental ﬂat plate relations.  Two-dimensional design 
+incorporates boundary layer analyses, network ﬂow and energy balances, and some thermal gradient estimates to reﬁne the results for 
+local temperature and ﬂow predictions suitable for use in ﬁnite element stress modeling.  Three-dimensional design may use complete 
+computational ﬂuid dynamics and heat transfer modeling of the internal and external ﬂow ﬁelds to obtain the most detailed predictions 
+of local thermal effects and ﬂow losses.  Design analyses may of course also mix these methods, such as the use of CFD to predict the 
+hot gas path pressures, velocities, and temperatures for the aerodynamic proﬁle only, while the internal cooling and ﬁlm cooling are 
+predicted using semi-empirical correlations.
+One-Dimensional Analysis – Preliminary Design
+The simplest one-dimensional analysis may be best understood as an iterative sequence of several steps leading to an overall model 
+that is approximately optimized for material thicknesses, cooling conﬁguration, and cooling ﬂow.  Figure 6 shows the one-dimensional 
+thermal model that applies to any discrete location on the airfoil.  These steps include the following:
+1. 
+Estimation of the external heat transfer coefﬁcient distribution on the airfoil, which may include effects such as surface 
+roughness and freestream turbulence.  This estimate may include thermal radiative heat ﬂux separately, or as part of an 
+effective convective heat transfer coefﬁcient;
+2. 
+Calculation of the average adiabatic wall temperature due to ﬁlm cooling;
+3. 
+Calculation of the conductive material thermal resistances, e.g. TBC, bondcoat, and substrate.
+4. 
+Estimation of the internal heat transfer coefﬁcients due to cooling;
+5. 
+Calculation of the required aggregate cooling ﬂow rate; and
+6. 
+Iteration of the solution to achieve target metal temperatures, thermal gradients, material thicknesses, etc., or to comply 
+with target constraints.
+ 
+The solution is iterative to account for ﬂuid property changes with temperature, both internal and external to the airfoil, as well 
+as temperature rise in the cooling ﬂuid.
+Two-Dimensional Analysis – Conceptual Design
+The simple one-dimensional model is not of much use in conceptual design unless it is knit into a sectional or complete model 
+representing the cooled airfoil.  This means applying the simple analysis to many regions of the airfoil (wall elements) making up a 2D 
+sectional view as depicted in ﬁgure 5.  This is analogous to a ﬁnite element model construction, and in many cases can be achieved using 
+a FEM approach.  The elements can be disconnected from thermal conduction as a ﬁrst estimate, or simply connected to include axial 
+conduction effects within the airfoil section.  Such conduction effects are more important in regions that are not well modeled by a single 
+wall thickness, like the trailing edge.  Taking this a step further, many radial sections of the airfoil may be stacked to form a pseudo-3D 
+model of the nearly complete component (without endwalls, tip, or shank).  Again, this can be accomplished with or without complete 
+thermal conduction connections.  These are each valid conceptual design modeling approaches with varying levels of accuracy.  Note 
+that such approaches do not typically integrate the airfoil and its endwalls, but treat these portions separately by similar analytical means. 
+4.2.1 Cooling Design Analysis
+TBC T
+TBC-Metal T
+Metal T
+Coolant T(x,y,z,t)
+Gas T(x,y,z,t)
+Film exit T
+Adiabatic
+wall T
+haw
+Hgas
+Hcoolant
+(k, t)TBC
+(k, t)Metal
+Q
+“H”rad
+TBC T
+TBC-Metal T
+Metal T
+Coolant T(x,y,z,t)
+Gas T(x,y,z,t)
+Film exit T
+Adiabatic
+wall T
+Gas T(x,y,z,t)
+Film exit T
+Adiabatic
+wall T
+haw
+Hgas
+Hcoolant
+(k, t)TBC
+(k, t)Metal
+Q
+“H”rad
+Fig. 6. General Thermal Resistance Model
+
+299
+ 
+One may ask why a FEM approach is not always 
+employed for the conceptual design of cooled airfoils, and 
+also why the airfoil and endwalls are not always integrated 
+into a single component.  The answer is the same for both 
+questions, and lies partially in historical design methods 
+and partially in the state-of-the-art computational analysis. 
+Looking at the turbine blade of ﬁgure 7, a candidate cooling 
+circuit design can be very complex.  In this example, the 
+main portion of the blade is cooled using a turbulated ﬁve-
+pass serpentine circuit, the leading edge is cooled using a 
+radial passage impinging through crossover holes into the 
+concave stagnation region, and the trailing edge is cooled 
+with a radial pin-bank array and aft ejection channels.  Film 
+cooling is employed heavily in the leading edge region and 
+tip, with additional rows of ﬁlm holes on both the pressure 
+and suction sides of the blade.  The blade has three distinct 
+cooling circuits isolated in the shank cooling supply.  This 
+blade design, and for that matter any other, must be analyzed 
+and modiﬁed with the following in mind:
+• 
+Typical internal cooling technologies including turbulators, pin-ﬁns, turns, impingement jets, trailing edge holes, swirl cooling, 
+vortex cooling, convoluted passages, tip purge holes, and basic number and sizing of passages must be readily (i.e. easily) 
+manipulated to investigate design options and their effects on performance.  Manipulation includes movement to new locations, 
+change of size, change of number or spacing, addition to and subtraction from the component.  Performance evaluation usually 
+refers to cooling effectiveness and aerodynamic mixing losses at this stage of analysis.
+• 
+Film cooling holes and rows of holes need to be readily moved or altered in the design, including ﬁlm hole angles and 
+shaping.
+• 
+Rotational cooling circuit differences must be evaluated by altering the general passage layouts.
+• 
+Balancing of ﬂow rates with coolant temperature rises and pressure losses must be performed readily.
+• 
+Changes in the external heat transfer coefﬁcient distributions due to new estimates of freestream turbulence, surface roughness, 
+ﬁlm injection heat transfer coefﬁcient augmentation, wakes / unsteadiness, hot-streaks / clocking, proﬁle and pattern factors 
+must be accommodated.
+• 
+Wall thickness and TBC coating thickness may also be changed in design at virtually any location.
+ 
+These factors and more dictate that complex 
+FEM and CFD analyses of cooled airfoils at the 
+conceptual design phase are simply not practical.  As 
+an example, ﬁgure 8 shows three more blade cooling 
+designs, none of which would be easily obtained from 
+some initial generic design if FEM or CFD were used 
+for every change and alteration being investigated1. 
+ 
+In addition to these design manipulation 
+requirements, the majority of current knowledge concerning 
+internal cooling and ﬁlm cooling is still contained in 
+empirical and semi-empirical correlations.  State-of-the-
+art computational predictions are as yet not sufﬁciently 
+advanced to provide prime reliant “data” for the design 
+of cooled airfoils.  As such, conceptual design methods 
+must make use of a multitude of design correlations based 
+on experimental data obtained by the original equipment 
+manufacturers (OEM’s) and/or contained in open literature. 
+ 
+Putting the foregoing discussion into practice, 
+the two-dimensional or pseudo three-dimensional cooling 
+analysis of the airfoil portion for a vane or blade is typically 
+performed in the following manner.
+Ron S. Bunker
+ Fig. 7. Cooled HPT Blade (Bucket) 
+Leading Edge
+Trailing Edge
+Tip
+Tip section
+Leading Edge
+Trailing Edge
+Tip
+Leading Edge
+Trailing Edge
+Tip
+Tip section
+Fig. 8. Diversity of Cooled Designs
+US patent 4,753,575
+US patent 4,753,575
+US patent 5,931,638
+US patent 4,753,575
+US patent 4,753,575
+US patent 5,931,638
+
+300
+• 
+Given a current prediction of the aerodynamics (static pressure distributions) and gas temperatures surrounding the airfoil 
+sections, the external heat transfer coefﬁcient distribution is calculated for each radial section using either boundary layer 
+analysis or computational heat transfer.  The distributions must account for some or all of the inﬂuencing factors including:
+ Airfoil loading
+ Subsonic boundary layer laminar and turbulent transitions
+ Bypass transition
+ Transonic shocks
+ Surface roughness distribution
+ Freestream turbulence
+ Freestream approach swirl
+ Rotational effects
+ Boundary layer disturbances due to ﬁlm coolant injections
+ Boundary layer disturbances due to coating spallations
+ Periodic unsteadiness and wake passing
+ Secondary ﬂow injections in hub and tip regions
+ Radiative heat ﬂux distributions
+• 
+A detailed ﬂow network model of the internal cooling circuits of the airfoil is built using the current known coolant supply 
+pressure and temperature, and the external airfoil static pressure distribution as boundary conditions.  The network ﬂow model 
+should allow compressible ﬂow effects, though some models may be sufﬁcient with incompressible ﬂow only.  The ﬂow model 
+is executed with an initial solution guess and iterated to convergence based upon the current boundary conditions and internal 
+geometry.  This cooling circuit model includes:
+ Flow area distributions for each passage
+ Detailed local geometry for each internal feature or repeating feature, such as turbulators, pin-ﬁns, etc.
+ Cooling passage aspect ratio distributions
+ Impingement cooling geometry deﬁnitions locally
+ Geometry details for all internal cooling holes
+ Film cooling extraction locations
+ Convective heat transfer coefﬁcient correlations
+ Coefﬁcient of friction correlations
+ Coefﬁcient of pressure loss correlations for turns, holes, etc.
+ Cooling ﬂuid properties
+• 
+The ﬂow network model can also be arranged to contain a material shell representing the airfoil, such that the model may 
+interact with the external conditions via thermal exchange.  This merely requires deﬁnition of
+ Wall thickness distributions for each section
+ Internal dividing rib thickness distributions
+ Protective coating thickness distributions
+ Material property tables
+• 
+In addition, the ﬂow model is extended to include the ﬂow and discharge of all ﬁlm cooling holes.  This is done by providing 
+information on
+ Film hole or ﬁlm row exit locations
+ Film hole sizes, shaping factors, spacing, and orientations
+ Film hole discharge coefﬁcient correlations
+ Film hole or ﬁlm row adiabatic effectiveness correlations
+ Film injection mixing loss correlations
+ Film hole internal heat transfer coefﬁcient correlations
+4.2.1 Cooling Design Analysis
+
+301
+ 
+This total airfoil model can be modiﬁed through relatively simple and quick adjustment of the several input distributions and 
+boundary conditions.  Execution of the model is straight forward as long as the boundary conditions and geometry parameters are 
+realistic.  It must be recognized that such a model contains multiple inlet and exit boundary conditions and parallel ﬂow circuits, of 
+which some ﬂow circuits may be in communication.  The complexity of the model must be sufﬁcient to include/resolve all signiﬁcant 
+pressure losses.  The output of the airfoil model can include predictions of all internal heat transfer coefﬁcients, all ﬂow distributions, 
+individual ﬁlm hole ﬂow rates and mixing losses, total cooling ﬂow rate, the external ﬁlm temperatures, and of course the local material 
+temperatures.  This model can be further coupled to a prediction of the external heat transfer coefﬁcients to update the heat loads for 
+effects of ﬁlm injection and wall temperature distributions.  Once such a model is ﬁnalized upon a desired design and result, it may then 
+be exercised to further study manufacturing effects on ﬁlm hole discharge coefﬁcients and turbulated cooling passages, tolerances for 
+material properties, wall thicknesses, hole diameters, and core shifts, and special considerations for IGCC designs, including surface 
+roughness, TBC spallation, and ﬁlm hole blockage effects.
+Cooling Design Analysis Correlations
+A major consideration in the above cooling analysis is the provision of good correlations for both internal ﬂows and ﬁlm cooling 
+under conditions representative of engines.  These correlations are numerous as the variation of internal cooling geometries and ﬁlm 
+cooling parameters are vast.  Because there are so many possible combinations and variations, design analysis is founded on several basic 
+generic correlations from the open literature, and augmented by many geometry-speciﬁc correlations determined by OEM research.  The 
+following is a list of the primary correlation sources from open literature:
+ Impingement jet array heat transfer coefﬁcients (Nusselt numbers) may be obtained from the correlation of Florschuetz et al. for 
+average jet Reynolds numbers typical in engine design2.  For square arrays of jets at somewhat lower Re numbers, the graphical 
+data of Kercher and Tabakoff  may be used3.
+ Impingement cooling that involves the use of individual jets, or slot type jets, or other non-standard conﬁgurations, may be 
+determined by correlations in the summary paper of Martin4.
+ Simple fully-developed duct ﬂow turbulent heat transfer may be estimated quite well by the Dittus-Boelter correlation, Nu = 
+.023 Re0.8 Pr0.33 ,or other variants on this correlation that can be found in any modern textbook.  Care should be taken to account 
+for the wall-to-ﬂuid temperature ratio.
+ Most fully-developed turbulated duct ﬂow heat transfer correlations are of the format Nu = C * Ren Prm .  The basic correlations 
+for stationary turbulated ducts with transverse or angled rib rougheners can be found in Han et al.5.  This research also includes 
+the coefﬁcients of friction.
+ Rotating passage heat transfer data with and without turbulators is contained in the NASA HOST program data sets6.
+ Pin bank internal heat transfer and pressure loss correlations are contained in the works by Metzger et al. and Van Fossen7.
+ Fundamental equations and correlations concerning various cases of idealized slot ﬁlm cooling, such as might be encountered 
+in various leakage ﬂow paths, are summarized in the review of Goldstein8.
+ The best source of both adiabatic ﬁlm effectiveness and heat transfer 
+coefﬁcient augmentation factors due to ﬁlm injection for round and 
+shaped holes is contained in the recent series of studies from the 
+Institute for Thermal Turbomachinery at the University of Karlsruhe, 
+Germany9.  Such data is generally put into a simpliﬁed form to 
+describe the centerline or laterally averaged adiabatic effectiveness 
+as a function of distance and mass velocity ratio.  Figure 9 shows 
+several correlation formats that have been used.
+ A broad set of data for discharge coefﬁcients of ﬁlm cooling holes is 
+available from the research of Hay and Lampard and also from the 
+ITS Karlsruhe group10.
+ Aerodynamic ﬁlm injection mixing losses may be estimated by the 
+use of the method of Hartsel11.
+Ron S. Bunker
+ Fig. 9. Deﬁnitions of Adiabatic Film Effectiveness
+ηaw =  C1 / ( x/Ms + C2 )
+ηaw =  C1 / { 1 + C2 ( x/Ms)0.8 }
+ηaw =  C1 Re0.2 / ( x/Ms )0.8
+ηaw =  C1 / ( x/Ms )n
+ηaw =  ( Trec – Taw ) / ( Trec – Trec coolant ) 
+where
+M = (ρV)coolant / (ρV)gas
+s = equivalent film row slot width
+Re = film jet Reynolds number
+ηaw =  C1 / ( x/Ms + C2 )
+ηaw =  C1 / { 1 + C2 ( x/Ms)0.8 }
+ηaw =  C1 Re0.2 / ( x/Ms )0.8
+ηaw =  C1 / ( x/Ms )n
+ηaw =  ( Trec – Taw ) / ( Trec – Trec coolant ) 
+where
+ηaw =  C1 / ( x/Ms + C2 )
+ηaw =  C1 / { 1 + C2 ( x/Ms)0.8 }
+ηaw =  C1 Re0.2 / ( x/Ms )0.8
+ηaw =  C1 / ( x/Ms )n
+ηaw =  C1 / ( x/Ms + C2 )
+ηaw =  C1 / { 1 + C2 ( x/Ms)0.8 }
+ηaw =  C1 Re0.2 / ( x/Ms )0.8
+ηaw =  C1 / ( x/Ms )n
+ηaw =  ( Trec – Taw ) / ( Trec – Trec coolant ) 
+where
+M = (ρV)coolant / (ρV)gas
+s = equivalent film row slot width
+Re = film jet Reynolds number
+
+302
+ 
+Other excellent sources of summarized data and correlations 
+exist in the open literature, but it is up to the design team to determine 
+what to use and how to use it in analysis.  One such source is the 
+Lecture Series accumulated by the von Karman Institute of Fluid 
+Dynamics, Brussels.  Speciﬁc lecture series that cover turbine 
+cooling include Dailey et al., , Harasgama et al., and Glezer et al.12. 
+ 
+While the above referenced correlations provide a good 
+starting point for the most common methods of cooling, there are 
+dozens of special regions, geometries, and circumstances in cooling 
+design analysis that require case-by-case data.  For these cases, the 
+relevant literature is too large to mention here.  Most of these cases 
+deal with the so-called “edge” regions of the cooled components, 
+including the endwalls, platforms, airfoil leading and trailing edges, 
+blade tips, interfacial rails, ﬁllets, and any isolated corners.  All of 
+these may be treated by the use of similar thermal-ﬂow network 
+models, or integrated into the airfoil model as special regions. 
+ 
+Is this level of cooling analysis detail really required? 
+Figure 10 shows the characteristic uncertainties in engine boundary 
+conditions that affect the complete cooling design analysis of a 
+HPT blade.  Also shown is the percentage impact of each boundary 
+condition on the ﬁnal result (these add to 100%).  It should be clear 
+that no detail is unimportant here.  Also clear is that the accuracy 
+of certain data, such as the adiabatic ﬁlm cooling effectiveness 
+distribution, is of very high importance.
+Additional Factors
+Two additional considerations must be incorporated into the cooling design analyses as indicated in ﬁgure 2:
+1. 
+Engine experience design factors such as ﬁlm knockdown, coating of ﬁlm hole interiors, hole spacings, etc; and,
+2. 
+Engine degradation factors such as combustor gas proﬁle changes, tip erosion, etc.
+ 
+These factors account for past experience in both test engines and operational engines that cannot be obtained through 
+research and design activities.  These adjustments account for the unknown, or at least poorly understood, conversions from 
+laboratory data and predictions to the reality of complex engine conditions.  Another way to look at these factors is as “lessons 
+learned”.  For the cooling design analyses, experience factors will include ﬁlm effectiveness realization or knockdown multipliers, 
+ﬁlm hole diameter reductions due to protective coating applications, minimum allowable hole spacings to avoid hole-to-hole 
+cracking, reduction of internal heat transfer coefﬁcients due to debris collection, typical TBC spallation sizes (if any), surface 
+roughness distribution patterns, and any other generic or design-speciﬁc experience gained.  Example engine degradation 
+factors will include alterations to the hot gas temperature proﬁles or magnitudes due to combustor system operation, blade tip 
+erosion, ﬁlm hole blockages due to deposits, and even modiﬁed material properties with exposure at elevated temperatures. 
+ 
+These additional factors are typically incorporated into the design process by one of two methods.  First, the data from engine 
+experience can be “data matched” to the design prediction to arrive at the required adjustment factors to be used in the design correlations. 
+Second, modiﬁcations due to degradation can be carried through the design analysis in a statistical manner to determine magnitudes of 
+change, as well as sensitivity coefﬁcients.
+4.2.1-4 Three-Dimensional Analysis
+The two-dimensional or pseudo three-dimensional analysis described above is very similar to the simple one-dimensional analysis 
+in format, but includes all of the required detail to perform design manipulations and trade-off studies to arrive at a “ﬁnal” cooled 
+component design.  Once this iterative process has produced a design that is sufﬁciently polished a more precise three-dimensional 
+design analysis can be performed.  The three-dimensional analysis primarily adds thermal-mechanical detail through the use of a full, 
+accurate FEM of the component.  The FEM is executed using mapped convective boundary conditions of local heat transfer coefﬁcients 
+and ﬂuid temperatures from the 2D model results.  The FEM solution presents the complete temperature distributions of the materials.
+The 3D analysis can also be performed completely through the use of computational modeling, with the prediction of external and 
+internal ﬂow ﬁelds and heat transfer coefﬁcients, or coupled with the use of a conjugate model.  This method of cooling design analysis 
+must however be in agreement with the conventional design result, since the latter contains a great deal of empirical data and experience 
+factors built in.  Sufﬁcient agreement is dictated by the sensitivity of the design to inaccuracies.  For example, it is not generally sufﬁcient 
+for the predicted average heat transfer coefﬁcient in a cooling passage to match the average correlation result.
+4.2.1 Cooling Design Analysis
+Fig. 10. Impact of Boundary Condition Uncertainties
+External Gas
+Temperature
+External Heat
+Transfer Coefficient
+Adiabatic Film
+Effectiveness
+TBC Thermal
+Properties
+Metal Thermal
+Properties
+Internal Heat
+Transfer Coefficient
+Internal Coolant
+Temperature
+0
+10
+20
+30
+40
+50
+HPT Blade
+BC Uncertainty
+BC % Impact
+
+303
+4.2.1-5 Level 2 – Detailed Component and System Cooling Design Analysis
+Component Analyses
+As indicated in ﬁgure 2, Level 2 cooling design analysis is how and where the results of the Level 1 analysis interface with the 
+other component and system goals and requirements.  The Level 2 subjects noted in ﬁgure 2 do not comprise an exhaustive list, but 
+do represent the diversity of requirements.  These aspects of overall design, manufacturing, and operation apply to all of the cooled 
+hot gas path components and their portions – vanes, blades, endwalls, platforms, shrouds, supports, and dovetails.  There is no single 
+cooling design analysis method that can be described here.  Level 2 analysis must pass and receive results to/from the other engine 
+design analysis packages in an iterative method until an acceptable total design solution is obtained.  This may require many changes 
+to the Level 1 design with subsequent re-analysis.  As one example of the requirements and complexity of this process, the HPT blade 
+tip region design interaction is considered, as presented in the review of Bunker13. (Reprinted by permission of the American Institute 
+of Aeronautics and Astronautics, Inc.)
+In designing blade tips, both cooled and uncooled, for proper operation within the larger turbine system one must consider the 
+following major factors (in no particular order):
+• 
+Stage and turbine aerodynamic efﬁciency are greatly affected by the blade tip design in terms of the resulting effective leakage 
+clearance.  The effective clearance, which may also be thought of as an effective overall tip discharge coefﬁcient, is determined not 
+only by the tip geometry, but also by the tip aerodynamic distribution, injected cooling ﬂows, tip sealing arrangement, rotational 
+speed, shroud surface treatments, and much more.  As a ﬁrst estimate, each stage can be thought of as having an isolated tip region 
+aerodynamically, but the reality of multistage turbines is that all stages must be designed together to obtain maximum beneﬁt. 
+Another important aspect of the aerodynamic efﬁciency directly tied to blade tips is the mixing loss associated with the tip leakage 
+ﬂows as they combine with the high momentum suction side passage ﬂow.
+• 
+Stage thermal efﬁciency, and then also overall turbine efﬁciency, is strongly affected by the amount of chargeable cooling air 
+used to maintain blade tip integrity and life.  In highly cooled HPT blades, the tip region alone may account for as much as 20% of 
+the total blade cooling ﬂow.
+• 
+Bulk material temperature limits must be considered for the entire blade structure.  While the tip region is generally not subject 
+to the same limitations as the rest of the blade in this respect, the tip design does inﬂuence the resulting bulk temperatures of the 
+lower blade sections through the overall cooling design.  The tip may also present enough weight to require lower bulk temperatures 
+in the main blade sections to avoid creep rupture issues.
+• 
+Maximum local material temperatures are typically a major concern for blade tips as these regions are the most difﬁcult to cool. 
+Temperature limits will be placed on the metal substrate, the bond coat, and the thermal barrier coating (TBC) to avoid, for example, 
+excessive oxidation, high coating strains, and melt inﬁltration of surface deposits, respectively.
+• 
+Tip sealing methods vary widely, but all methods attempt to reduce the effective tip clearance.  The type of sealing arrangement 
+is intimately tied to the other system design aspects.  In many ways, the sealing design is the result of which system design 
+parameters are given the most emphasis.
+• 
+Casing out-of-roundness (ie. non-cylindrical) will be transmitted through the structure response to the hot gas ﬂow path 
+roundness bounding the blade tips.  This leads to non-uniform tip gaps around the circumference, and potential tip rubs.
+• 
+Shroud segment variation, such as bowing, can result from the thermal gradients present in the design, again leading to non-
+uniform tip gaps either radially and/or axially.
+• 
+Approaching and leaving disturbances in the ﬂow around blade tips can affect both the aerodynamics and the cooling. 
+Approaching disturbances are most notably associated with the wakes and shocks being shed from the upstream vane row, which 
+to some degree must inﬂuence the tip ﬂow and heat transfer by the introduction of unsteady effects.  Approaching and leaving 
+disturbances may be encountered in tip designs that involve shroud recesses and axial ﬂow gaps between the stationary shrouds and 
+attached tip shrouds.
+• 
+Gas temperature proﬁles are the result of the particular combustion system design, the operational point, and mixing through 
+the subsequent stages.  The radial gas temperature proﬁle may have severe impact on the blade tip, both in respect to the temperature 
+ﬁeld itself and the pressure distribution.  Stronger radial ﬂows may bring hotter gases to the blade tip than desired, while gas 
+temperatures may drive strong material thermal gradients and cause lower cooling effectiveness.
+• 
+Aeromechanics must be considered in the overall blade structural design, and the tip region must be included in this response.
+• 
+Stresses, both mechanical and thermal, are key in turbine blade survival.  Blade tips must typically deal with very high thermal 
+stresses locally.  Higher cooling effectiveness in the tip can alleviate thermal stresses, but must be weighed against the cost to the 
+cycle efﬁciency.  As noted earlier, the blade tip design will inﬂuence the weight distribution in the entire blade, which must then be 
+dealt with in the allowable stresses, as well as the low cycle fatigue (LCF) and high cycle fatigue (HCF) responses.  This effect will 
+also be transmitted into stress requirements for the blade shank, dovetail, rotor disk posts, and the rotor disk.
+• 
+Operating conditions must be considered at various limiting points in the engine cycle, because these change the gas and 
+coolant ﬂow rates, temperatures, and pressures.  A blade tip design focused solely on steady state takeoff conditions may not be well 
+suited for cruise conditions.  A balanced or optimized cycle design must be sought.
+• 
+Transients play a major role in the durability and life of any effective blade tip design.  The relative displacements, radial and 
+axial, of the rotor and stator systems during various transients will determine the ultimate steady state operating clearances, as well 
+Ron S. Bunker
+
+304
+as the potential for detrimental interference.
+• 
+Durability is desired for both the blade tip and the opposing shroud as a system.  In the long term, durability may be associated 
+with oxidation, while in the short term durability is a matter of survival in the face of tip rubs (intentional or unintentional), plugged 
+cooling holes, and thermal stresses.
+• 
+Materials and material loss must be planned in blade tip design.  Blades and blade tips are not automatically designed with the 
+highest temperature capability material, nor the highest strength material.  The tip material may be different from the rest of the 
+blade.  The compatibility of the tip and shroud materials must be considered, for example, if a highly abrasive shroud should damage 
+a relatively weak tip material.
+• 
+Cumulative damage of blade tips is typically experienced in certain characteristic locations in each design type.  Uniform 
+damage or material loss is not the general rule.  The change in tip geometry with characteristic damage and loss will alter the 
+aerodynamics and heat transfer, usually leading to accelerated loss.
+• 
+Exhaust gas temperature (EGT) is directly and strongly affected by blade tip clearance.  Any improvement in effective tip 
+sealing will preserve valuable EGT margin.
+• 
+Cost of new parts and cost of repair depend on the complexity of tip design.
+• 
+Blade weight impacts the blade root stresses, LCF life, and blade creep.  This is not limited to a simple matter of centrifugal 
+stresses, but can also have severe effects on the overall aerodynamic design, changing the reaction and work of the stage.
+• 
+Thrust bearing location and bearing housing distortion affect axial motion and disk sag, which in turn are transmitted through 
+the rotor to the blade tip potentially creating larger clearances on one side of the turbine and rubs on the other side.
+• 
+Rotor and stator systems should be thermally matched to minimize variations in blade tip clearances during transients.  Active 
+clearance control systems can aid in this goal by providing fast thermal response of the shroud radial location.
+• 
+Blade tips are commonly at least partially damaged or worn in the course of operation.  The ability or inability to repair blade 
+tips becomes an important factor in lifetime cost.  The complexity of a blade tip design impacts the decision to provide more or less 
+cooling to balance the cost of repairs.  Unrepairable blade tips result in scrapped blades.
+ 
+While this summary of system design aspects may appear quite detailed and daunting for such a relatively small region of the 
+turbine, there is one requirement that exceeds all others – the blade tip system design must never cause such severe damage as to liberate 
+blades or pieces of blades in operation.  As in the other interacting system relationships within the turbine, prior design and operational 
+experience must guide and temper improved designs.
+Combustor-Turbine System Analysis
+The turbine has a special relationship with the combustion system.  Turbine cooling design analysis is directly inﬂuenced by the type 
+of combustor system, the combustor exit conditions, and the change in combustor conditions at various cycle points.  The combustion 
+system operation and its design relative to the turbine has potential impact in at least six main respects:
+• 
+Hot gas temperature proﬁles
+• 
+Hot streak clocking relative to the turbine
+• 
+Turbulence characteristics
+• 
+Airfoil backﬂow margins
+• 
+NOx emissions
+• 
+Fuel type
+ 
+Each different combustor system design has it’s own set of characteristic radial and circumferential gas temperature proﬁles. 
+The “set” of proﬁles refers to the fact that the full power radial proﬁle differs from any part-power proﬁle.  For example, some systems 
+have annular combustors, some have can-annular combustors, and others have dump combustors.  Full annular combustors may be 
+single, dual, or even triple annular systems with respect to the number of fuel nozzle rings present.  In such cases, combustor nozzle 
+staging may be used for differing power requirements.  Another major difference arises between the low NOx systems of power turbine 
+engines and aero-engines, the former employing very little dilution or ﬁlm ﬂow injection within the combustors, and the latter utilizing 
+a great deal of dilution and ﬁlm injection.  Most power generation turbines tend toward very ﬂat radial proﬁles, while aero-engines 
+tend to have more peaked radial proﬁles that may change peaking location with power condition.  Power turbines may also have radial 
+temperature proﬁle changes as operation is changed from diffusion mode to premixed mode.  The key for turbine cooling design is to 
+know as much as possible about the combustor system exit conditions for all operating conditions, and to carry this information through 
+to the design for each cycle point.
+Combustion systems have circumferential gas temperature and pressure proﬁles as well, due to the discrete nature of virtually all 
+designs with respect to air/fuel injection and ﬂame holding.  While radial proﬁles are caused by the combined effects of fuel nozzles 
+and combustor dilution / cooling ﬂows, circumferential proﬁles or pattern factors are caused primarily by the number and spacing of 
+the fuel nozzles.  Since the turbine inlet vanes are also of a ﬁnite number, this leads to the interesting aspect of hot streak clocking. 
+The combustor hot streak may be aligned directly on a vane leading edge, or midway between two vanes.  In fact, the hot streaks may 
+be variable around the entire vane ring depending on the relative count of fuel nozzles and turbine inlet vanes.  Different unsteady gas 
+conditions may be incident upon the rotating blade row.  The center hot streak may pass through the passage with little vane interaction, 
+4.2.1 Cooling Design Analysis
+
+305
+while the leading edge hot streak may be greatly modiﬁed by interaction with the vane and its cooling ﬂows.  There are of course 
+immediate consequences for the vane, but this also translates through to the blade.
+As with the hot streak effects, combustion system turbulence and swirl ﬂow are additional complicating factors.  The turbulence 
+intensity levels, distributions, and length scales will not be the same as those generated by the grids used in simpliﬁed studies.  The 
+combustor exit ﬂow, in addition to temperature proﬁles, may also contain signiﬁcant swirl content.  These factors may not be entirely 
+washed out by the inlet vane row.  Some studies have indicated that combustor exit average turbulence intensity over the entire region 
+is as high as 30%.
+Of great concern in all gas turbine designs is the attainment of single digit NOx emission levels.  The cooling of low-emissions 
+combustor liners is achieved primarily through the use of convective backside heat transfer, with little or no injection of coolant into the 
+hot gas path.  Given the high levels of ﬂow required to perform this cooling, the pressure drop allocated to the combustion system is an 
+important factor.  A typical combustion system may use up to 7% of the available pressure from the compressor.  This cooling system 
+pressure loss is roughly equivalent to 1% in cycle efﬁciency, a very signiﬁcant amount.  It is therefore of great concern to designers 
+to achieve the greatest possible cooling effectiveness with the lowest possible pressure loss.  It is equally important to the design to 
+achieve a greater cooling effectiveness while matching the pressure loss required by the compressor and turbine design.  In this respect, 
+lower pressure loss combustion systems can impose higher loading on the turbine inlet nozzle, and can also present problems in meeting 
+backﬂow margin requirements.  Additionally, since lower NOx emissions can be obtained by “stealing” cooling air from the turbine, this 
+puts pressure on turbine cooling design to use less air.
+Fuel ﬂexibility is another clear objective in power turbines, with the desire to use gas, liquid distillates, various syngases, and even 
+heavy oils.  The operation of a turbine on multiple fuels presents multiple scenarios for the cooling design analysis.  In most cases, this 
+means analysis for the most severe cases.  Future turbine systems may conceive of controllable turbine cooling to accommodate such 
+changes in operation.
+These several issues concerning the combustor-turbine system all point to the requirement that the cooling design analysis must not 
+only be performed for changing conditions due to the combustor, but in some cases will even lead to vane-to-vane differences in the 
+cooling analysis.
+4.2.1-6 Turbine Secondary Cooling Circuit 
+Analyses
+While much attention is given to the cooled airfoils of the 
+turbine, the secondary ﬂow cooling circuits deserve equal scrutiny 
+and diligence to arrive at a total engine design solution.  Figure 1 
+shows the secondary ﬂow circuits typical of an aero-engine HPT, 
+and ﬁgure 11 shows an example of the secondary ﬂow regions for a 
+heavy frame turbine.  Secondary circuits of the turbine include the 
+following:
+• 
+Lower wheelspaces or disk cavities inboard of the hot gas 
+path
+• 
+Supply circuits from the compressor discharge region to the 
+inboard turbine ﬂows
+• 
+Upper wheelspaces including buffer and trench cavities 
+around the angel wings
+• 
+Supply circuits from the compressor discharge to the outer turbine casing ﬂows
+• 
+Outboard nozzle and shroud cooling air plenums and connections
+• 
+All rotating seals in these areas, e.g. labyrinth and brush seals
+• 
+All stationary seals in these areas, e.g. labyrinth and cloth seals
+• 
+Component interface leakage pathways and their seals, such as nozzle-to-combustor gaps, nozzle-to-nozzle gaps, shroud-to-
+shroud gaps, nozzle-to-shroud gaps, and blade-to-blade gaps (spline seals, C-seals, W-seals, leaf seals, etc.)
+• 
+Rotating oriﬁces
+• 
+Stationary oriﬁces
+• 
+Pre-swirl supply nozzles
+• 
+Inducers and cover plate systems
+• 
+Blade dovetail / shank leakages
+• 
+Bolt leakages
+• 
+Nozzle support leakages
+• 
+Outboard-to-inboard cooling circuits routed through turbine airfoils
+• 
+Nozzle diaphragm chambers
+• 
+Supply ﬂows bled from earlier compressor stages
+• 
+Shroud hanger system ﬂows and leakages
+Ron S. Bunker
+Outboard air supplies
+Lower wheelspaces
+Inboard air supplies
+Shrouds & hangers
+Nozzle
+diaphragm
+Upper wheelspaces
+Lab seals
+Outboard air supplies
+Lower wheelspaces
+Inboard air supplies
+Shrouds & hangers
+Nozzle
+diaphragm
+Upper wheelspaces
+Lab seals
+Fig. 11. Heavy Frame Turbine Secondary Flow Regions
+
+306
+ 
+The cooling design analysis for the secondary ﬂow systems is performed in much the same way as that of the turbine airfoils, 
+the main difference being that most of these ﬂow circuits do not directly interact with the hot gas path.  Because there is no “external” hot 
+gas ﬂow involved, the thermal-ﬂuid design analysis of these regions becomes an elaborate ﬂow network model with thermal boundary 
+conditions at the hardware surfaces.  Just as in the turbine 
+airfoil analysis, the secondary ﬂow models may be simple or 
+complex depending on the design stage.
+Ultimately, some regions will require complex CFD 
+analysis to resolve full details.  The primary location where 
+this level of design analysis is required concerns the points at 
+which the secondary ﬂows do interact with the hot gas path. 
+One such region is the forward wheelspace sealing cavities 
+between the turbine inlet nozzle and the ﬁrst stage blade, as 
+depicted in ﬁgure 12.  A source of cooling air is supplied 
+from the inboard location and routed through the stationary-
+rotating seal cavities, in this case a buffer cavity and then the 
+trench cavity at the turbine ﬂow path.  Aside from this ﬂow 
+circuit, there are several other leakage pathways inﬂuencing 
+the region, as depicted in ﬁgure 13.  In addition, the exit of the 
+ﬂow circuit sees a very three dimensional ﬂow that varies in 
+the circumferential direction due to nozzle wakes and blade 
+leading edge effects.  Such interaction regions can involve 
+substantial mixing of the cold and hot ﬂows.  A more detailed 
+knowledge or prediction level of the heat transfer coefﬁcients 
+and gas temperatures in these regions is required.
+Secondary ﬂow design analysis begins with overall, large 
+network models representing the compressor discharge and 
+bleeds to the eventual exit ﬂows into the turbine ﬂow path, 
+accounting for all key ﬂow areas, lengths, restrictions, and 
+discharge coefﬁcients, using approximate thermal boundary 
+conditions for heat transfer.  More detailed models are made to 
+examine separate portions of the ﬂow circuits and add greater 
+ﬁdelity to the boundary conditions.  Open literature sources may 
+be used for most of the required information concerning ﬂow 
+restrictions, friction coefﬁcients, and discharge coefﬁcients. 
+Some commercial ﬂow network solvers contain correlations 
+for much of this information.  Heat transfer boundary 
+conditions can be estimated by simple forced duct ﬂow and 
+natural convection correlations in most locations other than the 
+radial disk ﬂow, radial cavity ﬂow, and labyrinth seal regions. 
+A good summary of the ﬂow and heat transfer in radial rotating 
+disk and disk cavity systems for various situations is that of 
+Owen and Rogers and the subsequent literature publications of 
+Owen and co-workers14.  Labyrinth seal ﬂow and heat transfer data for planar and stepped geometries may be found in the research of 
+the ITS Karlsruhe group, such as that of Waschka et al.15.
+The thermal condition of the hardware surrounding the secondary ﬂow circuits must be included in the ﬁnal design analysis.  These 
+boundaries cannot in most cases be treated as adiabatic.  For example, the bucket dovetails are connected to the wheel in the disk-posts. 
+While the forward and aft surfaces of the dovetail and disk-post are exposed to the secondary ﬂows of the upper wheelspace, the primary 
+cooling ﬂow of the bucket is routed between the bottom of the dovetail and the wheel, and the coolant ﬂows inside the dovetail to the 
+airfoil.  This forms an additional network that connects the secondary ﬂow circuit and the coolant circuit of the buckets.  This internal 
+cooling of the bucket dovetail and shank will thermally affect the response of the disk-post and wheel.  Even the cooling of the bucket 
+airfoils and platforms has an inﬂuence on the top portion of the wheel, serving to conduct energy from the hot gas path down into the 
+wheel.  This latter effect is usually analyzed by applying lumped or equivalent thermal masses to the top of the wheels or bucket shanks 
+to act as heat sources.  Detailed thermal models of the airfoils, supports, and wheels are rarely if ever done in the same model.  In a 
+similar manner, the outer shrouds and their hangers must be modeled together to provide the complete prediction of ﬂows and thermal 
+response.  Individual wheels may be modeled, or the entire turbine rotor system.  In fact, at some detailed design level, the entire turbine 
+rotor must be thermally analyzed as one in order to correctly predict all clearances.  Going one step further, the so-called “unit rotor”, 
+which is the combined compressor-turbine-generator rotor must also be analyzed with thermal boundary conditions, albeit with a less 
+detailed application of conditions.
+4.2.1 Cooling Design Analysis
+Hot fluid may enter 
+the region between 
+the two anglewings
+and mix with colder 
+wheelspace purge 
+fluid.
+Hot fluid may enter 
+the region between 
+the two anglewings
+and mix with colder 
+wheelspace purge 
+fluid.
+Nozzle
+Bucket
+Hot fluid may enter 
+the region between 
+the two anglewings
+and mix with colder 
+wheelspace purge 
+fluid.
+Hot fluid may enter 
+the region between 
+the two anglewings
+and mix with colder 
+wheelspace purge 
+fluid.
+Nozzle
+Bucket
+Fig. 12. Purge Flow Circuit for Turbine Wheelspace
+Nozzle
+Bucket
+Shank leakage
+Dovetail leakage
+Slashface leakages
+Platform
+leakage
+Nozzle support
+leakages
+Purge cooling
+flow
+Hot gas
+Nozzle
+Bucket
+Shank leakage
+Dovetail leakage
+Slashface leakages
+Platform
+leakage
+Nozzle support
+leakages
+Purge cooling
+flow
+Hot gas
+Fig. 13. Cooling Flows and Leakages in Buffer Cavity Region
+
+307
+     
+ 
+                        
+ 4.2.1-7 Level 3 – Transient Operational Cooling Design Analysis
+All of the foregoing cooling design analyses are commonly applied to steady-state operating conditions at some well deﬁned 
+point in the cycle deck or operational map of the turbine engine.  The reality of turbine operation however is that both slow and fast 
+transients must considered in the design process.  Slow transients include normal startup and shutdown, or load following operations, 
+while fast transients include quick starts for peaking power, engine trips, and hot restarts.  Within even the normally slow startup 
+procedure for a heavy frame turbine, there are several intermediate operating points and transients, such as turning gear operation, low 
+RPM holding, and ~80% power point warm up.  Other transients may include speciﬁc operating domains dictated by the combustion 
+system, water washing, and power augmentation (e.g. water injection to post-combustion).
+Figure 14 shows an approximate transient growth behavior for the turbine rotor and stator during a fast start (< 30 minutes).  The 
+transient growth of the rotor is a combination of all portions making up the rotor, with contributions from centrifugal and thermal 
+effects.  The transient growth of the stator and casing outboard of the rotor is thermally dominated, occurring at a different rate than 
+the rotor.  The cooling design analysis of all transients is performed using a sufﬁcient number of steady-state analyses and their 
+associated boundary conditions.  Each steady-state analysis is performed using the Level 2 methods discussed in the pervious section. 
+The boundary conditions of these several operating points, ﬂow rates, pressures, gas temperature proﬁles, heat transfer coefﬁcients, 
+and ﬁlm effectiveness, are used to form the anchor points of the transient analysis.  Since the number of steady-state analysis points is 
+typically limited, the boundary conditions at several intermediate steps must be obtained by interpolation.  As the basic ﬂuid dynamic 
+and thermal domains of the hot gas and cooling ﬂows also change with operating conditions, these interpolations are performed using 
+explicit or ad-hoc rules.  The exact nature and deﬁnition of these rules are very dependent on the turbine design and operation, and as 
+such are speciﬁc to the OEM’s.
+Transient analyses of individual components, such as the turbine airfoils, follow the same general guidelines.  Usually, the 
+concerns associated with these components are not the same as those of the overall turbine stator and rotor systems.  Instead, issues 
+with clearances, leakage gaps, binding, and hot gas backﬂow or ingestion are scrutinized.  In addition, transient effects on peak 
+material stress and strain are important, as evidenced by the potential for TBC spallation under severe thermal transients.  The transient 
+cooling design analysis for hot gas path components may therefore focus on certain transients, or portions of transients, known to be 
+of greatest concern.
+ 
+ 
+ 
+ 
+ 
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        
+Fig. 14. Transient Rotor and Stator Growth for Fast Startup. (From Bunker13, reprinted by permission of the American Institute of 
+Aeronautics and Astronautics, Inc.)
+Ron S. Bunker
+∆R
+RPM
+Time (min)
+Cold Start
+RPM
+Rotor
+Stator
+0
+5
+10
+15
+20
+Blade & Disk
+Centrifugal Growth
+Blade Thermal
+Growth
+Disk Thermal
+Growth
+Trip
+Steady State
+Potential
+Tip Rub
+∆R
+RPM
+Time (min)
+Cold Start
+RPM
+Rotor
+Stator
+0
+5
+10
+15
+20
+Blade & Disk
+Centrifugal Growth
+Blade Thermal
+Growth
+Disk Thermal
+Growth
+Trip
+Steady State
+Potential
+Tip Rub
+
+308
+308
+4.2.1-8 Notes
+________________________
+1. J. L.Levengood and T. A. Auxier,  “Airfoil with Nested Cooling Channels,” U.S. Patent  4,753,575, 1988; D. A. Krause, D. J.   
+ 
+    Mongillo, F. O. Soechting, and M. F. Zelesky, “Turbomachinery Airfoil with Optimized Heat Transfer”, U.S. Patent 5,931,638,   
+ 
+   1999.
+2. L. Florschuetz, C. Truman, and D. Metzger, “Streamwise Flow and Heat Transfer Distributions for Jet Array Impingement with  
+ 
+    Crossﬂ ow,” Journal of Heat Transfer 103 (1981): 337-342. 
+ 
+3. D. Kercher, and W. Tabakoff, “Heat Transfer by a Square Array of Round Air Jets Impinging Perpendicular to a Flat   
+ 
+           Surface Including the Effect of Spent Air,” Journal of Engineering for Power, 92 (1970): 73-82.
+ 
+4. H. Martin,  “Heat and Mass Transfer Between Impinging Gas Jets and Solid Surfaces,”  Advances in Heat Transfer 13 (1977):   
+ 
+    1-60.
+ 
+5. J. C. Han, J. S. Park, and C. K. Lei, “Heat Transfer Enhancement in Channels with Turbulence Promoters”, Journal of Engr. for  
+ 
+   Gas Turbines and Power 107 (1985): 628-635.
+ 
+6. T. J. Hajek, J. H. Wagner, B. V. Johnson, A. W. Higgins, and G. D. Steuber,  “Effects of Rotation on Coolant Passage Heat  
+ 
+ 
+    Transfer,” NASA Contractor Report 4396 (1991).
+7. D. E. Metzger, R. A. Berry, and J. P. Bronson,  “Developing Heat Transfer in Rectangular Ducts with Staggered Arrays of Short  
+ 
+    Pin Fins,” Journal of Heat Transfer 104 (1982): 700-706; G. J. VanFossen, “Heat Transfer Coefﬁ cients for Staggered Arrays of  
+ 
+    Short Pin Fins,” Journal of Engineering for Power 104 (1982): 268-274.
+8. R. J. Goldstein,  “Film Cooling,” Advances in Heat Transfer 7 (1971): 321-379.
+9. M. Gritsch, A. Schulz, and S. Wittig, “Adiabatic Wall Effectiveness Measurements of Film-Cooling Holes with Expanded  
+ 
+           Exits,” Paper 97-GT-164 (IGTI Conference, Orlando, Florida [1997]); M. Gritsch,  A. Schulz, and S. Wittig, “Heat Transfer  
+ 
+           Coefﬁ cients Measurements of Film-Cooling Holes with Expanded Exits,” Paper 98-GT-28 (IGTI Conference, Stockholm, 
+ 
+    Sweden [1998]); C. Saumweber, A. Schulz, and S. Wittig, “Free-Stream Turbulence Effects on Film Cooling with 
+ 
+    Shaped Holes,” Paper GT-2002-30170 (IGTI Turbo Expo, Amsterdam, Netherlands [2002]); J. Dittmar, A. Schulz, and S.  
+ 
+           Wittig,  “Assessment of Various Film Cooling Conﬁ gurations Including Shaped and Compound Angle Holes Based on Large 
+ 
+    Scale Experiments,” Paper GT-2002-30176 (IGTI Turbo Expo, Amsterdam, Netherlands [2002]).
+10. N. Hay and D. Lampard, “Discharge Coefﬁ cient of Turbine Cooling Holes: A Review,” Journal of Turbomachinery 120  
+ 
+             (1998): 314-319; M. Gritsch, A Schulz, and S. Wittig, “Discharge Coefﬁ cient Measurements of Film-Cooling Holes with  
+ 
+              Expanded Exits,” Paper No. 97-GT-165 (IGTI Turbo Expo, Orlando [1997]); M. Gritsch, C. Saumweber, A. Schulz, S. 
+ 
+       Wittig, and E. Sharp, “Effect of Internal Coolant Crossﬂ ow Orientation on the Discharge Coefﬁ cient of Shaped Film-Cooling  
+ 
+       Holes,” Journal of Turbomachinery 122 (2000): 146-152.
+ 
+ 11. J. E. Hartsel, “Prediction of Effects of Mass Transfer Cooling on the Blade Row Efﬁ ciency of Turbine Airfoils,” AIAA Paper   
+ 
+       72-11 (AIAA Aerospace Sciences Meeting, San Diego, California [Jan. 17-19, 1972]).
+ 
+ 12. G. M. Dailey, M. Taslim, D. L. Rigby, P. Sagaut, M. Cakan, B. Han, R.J. Goldstein, and J.M. Buchlin, “Aero-Thermal  
+ 
+        
+Performance of Internal Cooling Systems in Turbomachines,” Von Karman Institute for Fluid Dynamics Lecture Series 
+ 
+       VKI-LS 2002-01 (2002); S.P. Harasgama, J.C. Han, S. Dutta, H. Iacovides, G. Rau, J.M. Owen, and M. Wilson, “Heat  
+ 
+ 
+       Transfer and Cooling in Gas Turbines,” Von Karman Institute for Fluid Dynamics Lecture Series VKI-LS 1996-01 
+ 
+ 
+(1996); B. Glezer, N. Harvey, C. Camci, R. Bunker, and A. Ameri, “Turbine Blade Tip Design and Tip Clearance Treatment,”  
+ 
+       Von Karman Institute for Fluid Dynamics Lecture Series VKI-LS 2004-02 (2004).
+ 
+ 13. Bunker, R.S., “Axial Turbine Blade Tips: Function, Design, and Durability,” to be published in the AIAA Journal of   
+ 
+ 
+Propulsion and Power, March-April, 2006 special issue on Turbine Science & Technology.
+ 
+ 14. J. M. Owen and R.H. Rogers, Flow and Heat Transfer in Rotating Disc Systems, vol. 1 (Somerset, England: Research Studies  
+ 
+       Press, 1989); J. M. Owen and R. H. Rogers,  Flow and Heat Transfer in Rotating Disc Systems,vol. 2 ( Somerset, England:    
+ 
+       Research Studies Press, 1989).
+ 
+ 15. W. Waschka, S. Wittig, and S. Kim, “Inﬂ uence of High Rotational Speeds on the Heat Transfer and Discharge Coefﬁ cients  
+ 
+ 
+       in Labyrinth Seals,” Paper No. 90-GT-330 (IGTI Turbo Expo Conference, Brussels, Belgium, 1990); W. Waschka, S. 
+ 
+       Wittig, S. Kim, and T. Scherer, “Heat Transfer and Leakage in High-Speed Rotating Stepped Labyrinth Seals,” AGARD  
+ 
+ 
+       Conference Proceedings 527, Heat Transfer and Cooling in Gas Turbines (1993).
+4.2.1 Cooling Design Analysis
+
+Ron S. Bunker
+GE Global Research
+One Research Circle, K-1 ES-104
+Niskayuna, NY 12309
+phone: (518) 387-5086  
+               
+email: bunker@crd.ge.com
+Dr. Bunker is an internationally recognized research engineer in the ﬁ eld of Gas Turbine Heat 
+Transfer.  Dr. Bunker received his PhD in Mechanical Engineering from Arizona State University 
+in 1988.  After a one-year post-doctoral research fellowship from the Alexander von Humboldt 
+Foundation of Germany,  Dr. Bunker joined GE Aircraft Engines in Cincinnati.  In 1993, Dr. Bunker 
+joined the GE Global Research Center.  He has worked on R&D activities focused on turbine vane 
+and blade internal and external heat transfer.  The main thrust of efforts during the most recent 
+years has been new technology development for the Advanced Turbine System “H” power plant. 
+Dr. Bunker is a Fellow of the American Society of Mechanical Engineers and Associate Technical 
+Editor for the Journal of Turbomachinery.  Dr. Bunker has been awarded 35 US patents and is the 
+author of 75 technical publications.
+4.2.1 Cooling Design Analysis
+BIOGRAPHY  

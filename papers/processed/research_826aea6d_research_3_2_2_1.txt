@@ -1,0 +1,1430 @@
+265
+3.2.2.1-1 Introduction
+ 
+Currently, gas turbines operating on natural gas offer the lowest 
+achievable NOx emissions without exhaust-gas aftertreatment, as compared 
+to other fuels.  Commercially, this has been achieved through the use of lean-
+premixed combustion systems, allowing NOx emissions below 9 ppm (at 15% 
+O2) to be guaranteed for natural gas operation, and emissions near 5 ppm to be 
+demonstrated1.  Lower emissions are needed, however, and are possible through 
+the use of catalytic combustion2.
+ 
+Because natural gas has historically offered the greatest potential for 
+low emissions, catalytic combustor development has until recently focused 
+largely on methane and natural gas operation.  As a result, the unique properties 
+of methane have led to a number of development issues and design strategies, 
+generally related to the behavior of Pd-based catalysts used for methane 
+oxidation.
+ 
+In particular, for methane oxidation under fuel-lean conditions, only 
+Pd-based catalysts among the PGM group are currently practical, because 
+only they offer acceptable activity, lightoff temperature, and resistance to 
+volatilization3.  Unfortunately Pd-PdO catalyst morphology and its reactions 
+with methane are complex, and lead to complex behaviors such as deactivation 
+at high temperature (above about 750°C / 1380°F), hysteresis in reaction rate 
+over heating and cooling cycles4, and oscillations in activity and temperature5. 
+In addition, lightoff and extinction temperatures are well above 300°C (570°F) 
+for fuel-lean reaction on Pd-based catalysts, thus requiring the use of a preburner 
+in many engine applications6.
+ 
+Fuel-rich operation of the catalyst circumvents many of these issues 
+and provides signiﬁ cant catalyst advantages, including a wider choice of 
+catalyst type (non-Pd catalysts are active to methane under fuel-rich conditions), 
+improved catalyst durability (non-oxidizing catalyst environment), and low 
+catalyst lightoff and extinction temperatures.  Catalyst extinction temperature is 
+particularly low, and is generally less than 200°C (400°F) for the precious-metal 
+catalysts used in the work reported here (that is, once the catalyst has been lit 
+off, the catalyst remains lit at inlet air temperatures less than 200°C / 400°F), and 
+a preburner is generally not required.  A more complete discussion of fuel-rich 
+versus fuel-lean catalyst behavior for methane oxidation is given by Lyubovsky 
+et al.7.
+ 
+In addition to catalyst material challenges, commercial acceptance of 
+catalytic combustion by gas turbine manufacturers and by power generators has 
+been slowed by the need for durable substrate materials.  Of particular concern 
+is the need for catalyst substrates which are resistant to thermal gradients and 
+thermal shock8.  Metal substrates best ﬁ ll this need, but their temperature must 
+be limited to less than 950°C (1750°F) to assure sufﬁ cient material strength and 
+long life.  Downstream of the catalyst, combustion temperatures greater than 
+about 1100°C (2000°F) are required for gas-phase reactions to complete the 
+burnout of fuel and CO in a reasonable residence time (on the order of 10 ms). 
+Thus, only a portion of the fuel can be reacted on the catalyst.
+ 
+A major challenge, then, is to limit the extent of reaction within the 
+catalyst bed such that excessive heat does not damage the catalyst or substrate, 
+yet release sufﬁ cient heat that downstream gas-phase combustion is stabilized 
+under ultra-low emission conditions.  For systems which lean-premix fuel and 
+air upstream of the catalyst, the degree of reaction can be limited by chemical 
+reaction rate upon the catalyst, or by channeling within the reactor such that only 
+a limited fraction of the fuel contacts the catalyst.  In all cases, however, it is 
+imperative that uncontrolled gas-phase reactions do not occur within the catalyst-
+bed, since this implies a loss of reaction limitation and ultimate over-temperature 
+and failure of the catalyst bed.  Preventing such gas-phase reactions is especially 
+challenging in applications to advanced, high-ﬁ ring temperature turbines, where 
+fuel/air ratios in the catalyst-bed can be well within the ﬂ ammability limits.
+265
+Fuel-Rich Catalytic 
+Combustion
+3.2.2.1
+Gas Turbine Group, Precision 
+Combustion, Inc.
+410 Sackett Point Road, CT 
+06473
+phone: (203) 287-3700 x217
+email: setemad@precision-
+combustion.com
+Dr. Lance Smith
+Dr. Hasan Karim
+Dr. Shahrokh Etemad
+Dr. William C. Pfefferle
+
+266
+3.2.2.1-2 Fuel-Rich Catalyst Systems
+ 
+Another approach to limiting the extent of reaction is to operate the catalyst fuel-rich.  In this case, there is insufﬁcient oxygen 
+to fully oxidize all fuel in the catalyst bed, and the extent of reaction is therefore limited even if gas-phase reactions occur.  To use a fuel-
+rich catalyst bed in a catalytic combustion system, additional air is introduced downstream of the catalyst so that combustion completion 
+can occur fuel-lean.  Based on this concept, fuel-rich catalytic reactors were tested by NASA and contractors for liquid fuel applications, 
+and showed good soot-free performance9.  An examination of fuel-rich catalysis on a variety of liquid fuels was also conducted at Yale 
+University under support from NASA10.  Like the NASA results, this work showed soot-free catalyst performance on a range of fuel 
+types, including a surrogate jet fuel.  United Technologies Research Center11 also investigated fuel-rich catalytic reaction of liquid fuels, 
+to reduce downstream thermal NOx generation by removing some heat of reaction prior to gas-phase combustion.
+ 
+For these liquid hydrocarbon fuel applications, ultra-low NOx emissions (< 3 ppm) have not been considered feasible because 
+of these fuels’ propensity for autoignition during mixing with additional combustion air downstream of the catalyst.  Even for natural 
+gas fuel, previous systems have not permitted mixing of raw catalyst efﬂuent with additional combustion air.  For example, Acurex 
+tested a two-stage natural gas combustion system having a fuel-rich catalyst stage followed by inter-stage heat extraction12.  Additional 
+combustion air was introduced only after heat extraction, and prior to a ﬁnal fuel-lean catalytic combustion stage.
+ 
+Precision Combustion, Inc. (PCI), however, demonstrated that it is possible to directly mix catalyst efﬂuent with additional 
+combustion air without incurring autoignition13.  This is possible because signiﬁcant improvement in combustion stability is imparted to 
+the downstream fuel-lean combustion process even at catalyst efﬂuent temperatures well below the instantaneous autoignition temperature 
+of the efﬂuent.  Thus, low-temperature low-emissions combustion requires only moderate catalyst temperatures, and autoignition can be 
+avoided.
+ 
+This improvement in combustion stability with only moderate heat release on the catalyst can be quantiﬁed most simply by 
+modeling the gas-phase combustion process as a zero-dimensional stirred reactor, as shown in ﬁgure 1.  A simple Perfectly-Stirred-
+Reactor (PSR) combustion model demonstrates that combustion stability is signiﬁcantly improved when catalytic pre-reaction heats the 
+combustor inlet gases from 400°C to 700°C, well below the instantaneous autoignition temperature.  Details of the model are described 
+by Smith et al. and model results for methane/air combustion are plotted here in ﬁgure 1 as ﬂame temperature at incipient blowout 
+(y-axis) versus combustor inlet temperature (x-axis)14.  In this model, combustor inlet temperature is 400°C when there is no catalytic 
+reaction.  For the 400°C no-catalyst case lean blowout occurs at a ﬂame temperature near 1305°C .  With catalytic pre-reaction providing 
+a 700°C inlet temperature to the combustor, however, the ﬂame temperature at lean blowout drops by 55°C (100°F) to near 1250°C, a 
+signiﬁcant improvement.
+ 
+This improvement is achieved without risk of autoignition.  For a catalyst efﬂuent temperature (combustor inlet temperature) 
+of 700°C, the estimated autoignition delay time is about 25 ms.  This autoignition delay time was calculated using the correlation of 
+Spadaccini and Colket for a representative natural gas composition (94.9% CH4, 3.1% C2H6, 0.65% C3H8, 0.3% C4H10, 0.1% C5H12, 0.1% 
+C6H14, 0.05% C7 and higher-order hydrocarbons, and 0.8% diluent)15.  For this calculation, pressure was 15 atm, equivalence ratio was 
+0.5 and the effect of vitiation from catalytic pre-reaction was neglected. 
+ 
+Note that this 25 ms autoignition delay time at 700°C catalyst efﬂuent temperature is far greater than the 2 to 5 ms residence 
+time required to mix catalyst efﬂuent with ﬁnal combustion air, and is also greater than the typical 10-20 ms residence time of gas 
+turbine combustors.  Thus, complete mixing without autoignition is in fact possible downstream of the catalyst, yet combustion stability 
+is markedly improved as a result of catalytic pre-reactions.  The result is stable, low-temperature, ultra-low-NOx combustion. 
+ 
+ 
+           
+          
+1200
+1210
+1220
+1230
+1240
+1250
+1260
+1270
+1280
+1290
+1300
+1310
+1320
+300
+400
+500
+600
+700
+800
+900
+1000
+PSR inlet temperature (post-catalyst), 
+oC
+PSR exit temperature
+at imminent blowout, 
+oC
+2192
+2212
+2232
+2252
+2272
+2292
+2312
+2332
+2352
+2372
+2392
+PSR exit temperature
+at imminent blowout, 
+oF
+ 
+ 
+ 
+Fig. 1. Gas temperature (“ﬂame” temperature) within PSR reactor at imminent 
+ 
+ 
+ 
+           blowout, as a function of PSR inlet temperature (catalyst exit temperature).
+
+267
+3.2.2.1-3 Rich-Catalytic Lean-burn (RCL) Combustion
+ 
+Precision Combustion, Inc. (PCI) has developed a Rich-Catalytic Lean-burn combustion system (trademarked by PCI as 
+RCL) based on this concept of stabilizing combustion of catalyst efﬂuent having a temperature below the instantaneous autoignition 
+temperature.  The system catalytically reacts a portion of the fuel upstream of the combustor, thus preheating (and vitiating) the fuel/air 
+mixture entering the combustor, and thereby improving combustion stability especially at low ﬂame temperatures.  NOx emissions are 
+improved by operating at lower allowable (stable) ﬂame temperatures, and turndown to low engine power can be improved by operating 
+at still lower ﬂame temperatures without excessive emissions of CO or unburned hydrocarbons.
+ 
+A schematic of PCI’s rich-catalytic combustion system is shown in ﬁgure 2.  As shown, the combustion air stream is split 
+into two parts upstream of the catalyst.  One part is mixed with all of the fuel and contacts the catalyst, while the second part is used to 
+backside cool the catalyst.  At the exit of the catalytic reactor, the catalyzed fuel/air stream and the cooling air stream mix and then burn 
+to completion to provide the ﬁnal burner outlet temperature.  As shown, combustion (fuel oxidation) occurs in two stages: a fuel-rich 
+catalyst stage and an overall fuel-lean gas-phase combustion stage.  Note that the catalyst is cooled only by primary combustion air, so 
+that no heat is extracted from the system.
+ 
+With this approach, the fuel-rich mixture contacting the catalyst has insufﬁcient oxygen to completely oxidize all of the fuel, 
+thus limiting the extent of catalyst-stage reaction and enabling limitation of the catalyst-stage operating temperature to a safe value.
+Combustion
+Fuel
+Premixer Catalytic
+Reactor
+Post-Catalyst
+Mixing
+Catalyst
+Cooling
+Air
+Burned Gas
+ 
+         Fig. 2. Schematic of Rich-Catalytic Lean-burn system, showing two-stage (rich-lean) combustion process.
+3.2.2.1-4 Performance and Operating Characteristics of RCL Combustion
+ 
+PCI has tested the RCL catalytic reactor at pressures from 1 to more than 15 atm, in both sub-scale and full-scale tests and for 
+multiple fuel types, providing design data over a wide range of operating conditions.  Key performance parameters for RCL combustion 
+are listed below, and measured values for these parameters are given in this section.
+                           From full-scale full-pressure rig tests using natural gas fuel:
+• 
+Combustor emissions and turndown
+• 
+Combustor noise levels
+• 
+Combustion system pressure drop
+• 
+Catalyst operating temperatures
+From sub-scale full-pressure rig tests to date:
+• 
+Catalyst lightoff and extinction temperatures
+• 
+Alternate (non-methane) hydrocarbon fuel capability
+• 
+Non-hydrocarbon fuel capability, e.g. syngas (discussed in later section)
+ 
+In addition to these performance criteria, engine operational issues are also of interest, including method for engine start and 
+catalyst lightoff, fuel staging needs, complexity of required controls, and transient capability such as load shifting and load rejection.  
+To address these operational concerns, PCI and Solar Turbines have operated a modiﬁed Saturn engine using RCL combustion; these 
+results are also presented here.
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle 
+
+268
+3.2.2.1-5 Full-Scale Full-Pressure Test at Solar Turbines
+ 
+Under DOE support and in cooperation with Solar Turbines, Inc., a full-scale fuel-rich catalytic reactor was fabricated and 
+combustion tested to provide well-characterized experimental conﬁrmation of the capabilities of Rich-Catalytic Lean-burn combustion 
+for ultra-low-NOx power generation.  The tests were performed in Solar Turbines’ full-pressure single-injector combustion rig using 
+natural gas fuel, and are described in detail by Smith et al.,and summarized here16. 
+ 
+A schematic of the catalytic combustor assembly, including premixer, catalytic reactor, and downstream combustor liner as 
+tested in the rig is shown in ﬁgure 3.  The catalytic reactor design is described generally in Smith et al. and includes backside cooling 
+of the catalyst17.  An annular reverse-ﬂow premixer was ﬁtted around the catalytic reactor, to provide a premixed fuel-rich mixture to 
+the catalyst.  Note that all fuel entered via this premixer, and all fuel contacted the catalyst.  Catalyst cooling air bypassed the premixer, 
+and entered from the left-hand side in ﬁgure 3.  Downstream of the catalyst, but upstream of the combustor, the fuel-rich mixture and 
+the catalyst cooling air were combined in a post-catalyst mixing duct (“post-mix” duct) to create a partially-reacted fuel-lean fuel/air 
+mixture.  The premixer, catalytic reactor, and post-mix duct together constitute what we call the “RCL-injector.”  Conceptually, the 
+RCL-injector replaces a conventional Dry Low-NOx (DLN) premixer/swirler arrangement, such as Solar’s SoLoNOx injector.  For the 
+tests reported here, a single Solar Turbines Taurus 70 SoLoNOx injector was replaced by an RCL-injector having a 3.0-inch diameter 
+catalyst.  An actual Taurus 70 engine would have 12 such injectors installed in its annular combustor.
+ 
+In Solar’s single-injector rig, the combustor liner was cylindrical, 8.0 inches in diameter, and backside-cooled.  Four 0.5-inch 
+diameter holes were located at the combustor’s downstream end, to allow dilution air to enter the combustor after cooling it.  Some 
+leakage air also entered the combustor at the injector insertion seal (grommet seal), where the RCL-injector was inserted into the 
+combustor’s head end, or dome.  A small amount of cooling air was also used to cool the combustor dome, and entered the combustor 
+along the liner walls.
+ 
+A ﬂameholding cone was installed at the exit of the post-mix duct, as shown in ﬁgure 3.  Recirculation of hot combustion gases 
+in the cone’s wake provided a ﬂame anchor zone in the central part of the combustor.  The expansion (dump) of the combustor liner’s 
+dome also served to anchor combustion.  In general, the RCL-injector catalyst is intended to improve combustion stability and turndown 
+at the ﬂame anchor point, but is not necessarily intended to provide gas-phase ignition.  Solar’s torch igniter was used to ignite gas-phase 
+combustion during rig testing. 
+ 
+                
+                                    
+Combustor Emissions and Turndown
+ 
+Emissions performance and turndown were measured for the RCL combustion system depicted in ﬁgure 3, at nominal Taurus 
+70 operating conditions (16-17 atm pressure and 4 pps total airﬂow to the single-injector combustor).  Measured NOx and CO emissions 
+are plotted in ﬁgure 4 as a function of adiabatic ﬂame temperature at the emissions rake.  For the tests reported here, the emissions rake 
+was located just upstream of the combustor dilution air holes, corresponding to about 30 ms combustor residence time.  NOx and CO 
+emissions are reported after correction to 15% O2 on a dry basis.  UHC emissions are reported on a wet basis, corrected to 15% O2.
+ 
+It is also worth noting that, as discussed earlier, some leakage and cooling air entered the combustor between the RCL-injector 
+and the emissions rake.  For this reason, fuel/air ratio as measured at the emissions rake gave an adiabatic ﬂame temperature that was 
+about 130°C (230°F) lower than that based on fuel/air ratio measured at the RCL-injector exit.  Imperfect mixing of this leakage air with 
+the injector’s fuel/air mixture can increase NOx emissions to values slightly higher than expected for perfectly premixed combustion at 
+the adiabatic ﬂame temperatures measured at the emissions rake.  In fact, the NOx emissions shown in ﬁgure 4 are about 1 ppm higher 
+than expected at 1450°C (2650°F) based on perfectly premixed combustion.
+ 
+As shown in ﬁgure 4, the RCL combustion system achieved ultra-low emissions over a wide operating window of approximately 
+110°C (200°F) variation in ﬂame temperature, with CO below 10 ppm and NOx below 3 ppm (and as low as 1 ppm).  Unburned 
+hydrocarbons (UHC) remained less than 2 ppm at all conditions shown in ﬁgure 4.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+Fig. 3. Assembly of 3-inch diameter fuel-rich catalytic reactor with 8-inch diameter 
+combustor liner in Solar Turbines’ single-injector combustion test facility.  Bulk ﬂow is from 
+left-to-right.
+
+269
+ 
+These high-pressure ultra-low-emissions results provide experimental conﬁrmation of the ultra-low-NOx capability of the 
+RCL combustion concept.  In particular, they demonstrate that it is possible to mix fuel-rich catalyst efﬂuent with ﬁnal combustion 
+air, without inducing autoignition, yet imparting signiﬁcant combustion stability to the downstream combustion process to allow low-
+temperature low-emissions combustion with wide turndown.
+ 
+ 
+ 
+Fig. 4.  NOx and CO emissions, as a function of adiabatic ﬂame temperature at 
+ 
+ 
+ 
+            emissions rake.  Data obtained at 16 atm pressure.
+Combustor Noise Levels
+ 
+Combustion-driven pressure oscillations (noise) were also monitored during full-scale combustion tests at Solar, and remained 
+less than 2.4 kPa (0.35 psi) peak-to-peak (less than 0.15% peak-to-peak of mean combustor pressure) at all conditions tested, indicating 
+quiet operation.  Low levels of combustion noise are expected, since gas-phase energy release in the combustor (the driving force for 
+combustion noise) is reduced when a portion of the fuel is catalytically reacted prior to gas-phase combustion.
+Combustion System Pressure Drop
+ 
+Pressure drop through the fuel-rich catalytic reactor is a primary determiner of RCL-injector size for any given application. 
+For the 3-inch diameter reactor tested at Solar, pressure drop through the entire combustion system at simulated Taurus 70 full load 
+conditions varied from about 3.5% to 5% of combustor inlet pressure, depending on hardware modiﬁcations made to redirect airﬂow 
+during rig testing.  This pressure drop includes both the losses through the fuel-rich catalytic reactor and losses in the downstream 
+combustor (pressure drop across ﬂameholder, dump loss at combustor inlet, fundamental combustion loss, etc.).  We estimate that losses 
+in the downstream combustor account for about 0.5% pressure drop, with the remaining best-case 3% attributable to the catalytic reactor 
+in Solar’s rig.  Additional pressure loss data has been obtained for other full-scale RCL-injectors not tested in Solar’s rig, but designed 
+for reduced pressure drop.  Data from other rigs indicate that at Solar rig conditions pressure drop would be about 2%.
+Catalyst Operating Temperatures
+ 
+Figure 5 shows steady-state catalyst surface temperatures plotted against adiabatic ﬂame temperature at the full-scale RCL-
+injector exit, as tested at Solar.  As shown in ﬁgure 5, catalyst surface temperature increases only slightly as fuel ﬂow is reduced, and 
+all catalyst surface temperature measurements remain below 780°C (1430°F) over the complete range of operating conditions tested 
+(1440-1700°C / 2620-3090°F range in adiabatic ﬂame temperature).
+ 
+RCL catalyst temperatures do not vary signiﬁcantly with fuel/air ratio because reaction rate (heat release) upon the catalyst 
+surface is controlled by oxygen ﬂow (air ﬂow) under fuel-rich conditions, and because heat removal (heat transfer) from the catalyst is 
+also determined primarily by air ﬂow.  Fuel ﬂow has little effect on reaction rate and little effect on heat removal rate.  This insensitivity 
+of catalyst temperature to fuel/air ratio is advantageous in allowing combustor and turbine operation over a wide range of ﬂame 
+temperatures (including ﬂame temperatures well above the low-NOx-emissions range), making the RCL system suitable even for 
+advanced high-ﬁring-temperature machines.
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle 
+0.0
+0.5
+1.0
+1.5
+2.0
+2.5
+3.0
+3.5
+4.0
+4.5
+5.0
+2400
+2450
+2500
+2550
+2600
+2650
+2700
+Adiabatic Flame Temperature at Emissions Rake (F) 
+NOx (ppm, 15% O2 dry)
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+CO (ppm, 15% O2 dry)
+NOx
+CO
+NOx
+CO
+2550
+2600
+2650
+2700
+2750
+2800
+2850
+Calculated Primary Zone Temperature (F)
+
+270
+400
+450
+500
+550
+600
+650
+700
+750
+800
+1400
+1450
+1500
+1550
+1600
+1650
+1700
+1750
+Adiabatic Flame Temperature at RCL Injector Exit (C)
+Catalyst Temperature (C)
+P = 15 - 16 atm
+Tinlet air =  440 C
+Fig. 5.  Catalyst surface temperature as a function of adiabatic ﬂame temperature at RCL-injector exit.
+3.2.2.1-6 Sub-Scale Test Data for Hydrocarbon Fuels
+ 
+Catalyst testing under controlled conditions is best conducted at sub-scale, where smaller-size equipment allows for accurate 
+metering and control of ﬂow and temperature.  Thus, accurate values for catalyst lightoff and extinction temperature are obtainable. 
+Sub-scale testing is also useful for evaluating new concepts, such as use of alternative fuels.
+Catalyst Lightoff and Extinction Temperatures
+ 
+Catalyst lightoff and extinction tests 
+have been performed under well-controlled 
+experimental conditions at sub-scale for pressures 
+from 9 to 15 atm.  For natural gas fuel having one 
+or two percent ethane, PCI’s fuel-rich catalysts 
+typically light off in the vicinity of 300°C.  For 
+natural gas fuel with greater than two percent 
+ethane (or higher-order hydrocarbons) lightoff 
+can occur at inlet temperatures below 280°C. 
+This is shown in ﬁgure 6 below, which indicates 
+a lightoff temperature between about 260 and 
+280°C for natural gas fuel, at 15 atm pressure.  In 
+ﬁgure 6, inlet gas temperature, catalyst surface 
+temperature, and gas temperature exiting the 
+module (following mixing of the catalytically 
+reacted stream with the catalyst cooling air 
+stream, but prior to gas-phase combustion) are 
+plotted as a function of time in minutes.  Lightoff 
+occurs when the heat of reaction results in an 
+increase in catalyst operating temperature and 
+catalyst exit temperature as compared to the gas 
+inlet temperature, as described in Section 3.2.2. 
+of this Handbook
+15 atm pressure
+1470 F
+1110 F
+750 F
+Fig. 6.  Catalyst lightoff in a sub-scale high-pressure (15 atm) fuel-rich reactor 
+operating on natural gas fuel.  Inlet gas temperature (“T gas in”), catalyst 
+surface temperature (“T catalyst”), and gas temperature exiting the module (“T 
+gas out”) are plotted as a function of time in minutes.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+271
+                                              
+15 atm pressure
+1470 F
+1110 F
+750 F
+390 F
+ 
+Following catalyst lightoff, the inlet air temperature can be reduced well below the initial lightoff temperature without 
+extinguishing the catalyst.  Thus, once lit (active), the catalyst remains lit (active) down to inlet temperatures approaching ambient. 
+Following the catalyst lightoff event depicted in ﬁgure 6, the inlet air temperature was reduced to less than 200°C, but catalyst activity 
+was not diminished.  This is shown below in ﬁgure 7, which plots the same parameters as ﬁgure 6, now after several hours of testing 
+following the initial lightoff.  Here, still at 15 atm pressure and with the same ﬂow of natural gas fuel, catalyst activity was maintained 
+until the fuel was shut off at an inlet air temperature less than 200°C.
+Alternate Hydrocarbon Fuel Capability
+ 
+Sub-scale fuel-rich catalyst tests have also been performed using alternative (non-natural-gas) hydrocarbon fuels.  In particular, 
+liquid fuels have been tested (gasoline and Diesel No. 2 fuel) with performance similar to that obtained using methane or natural gas, 
+and a simulated landﬁll gas fuel has also been tested.
+BACK PRESSURE
+VALVE
+WATER COOLED
+SAMPLE LINES
+CATALYTIC 
+REACTOR
+COMBUSTOR BURNOUT SECTION
+ 
+Sub-scale tests with alternative fuels were performed in a 10 atm combustion test rig at PCI equipped for obtaining combustion 
+emissions measurements, as shown in ﬁgure 8.  The gas-phase combustion section of this rig is nominally 2 inches in diameter and 
+18 inches in length, and is fabricated from high-temperature ceramic and housed in a steel pressure vessel as shown in the photograph 
+of ﬁgure 8.  Reactants enter the ceramic-lined combustor through an air-cooled fuel-rich catalytic reactor of nominally 3/4-inch 
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+Fig. 7.  Catalyst extinction does not occur until the fuel is shut off at an inlet air temperature 
+less than 200 C.  Data were obtained for the same sub-scale high-pressure (15 atm) 
+fuel-rich reactor for which data were shown in Figure 6.  Again, inlet gas temperature 
+(“T gas in”), catalyst surface temperature (“T catalyst”), and gas temperature exiting the 
+module (“T gas out”) are plotted as a function of time in minutes.
+Fig. 8.  Photograph of PCI’s 10 atm sub-scale combustion rig, for testing fuel-
+rich catalytic reactors with downstream combustion.  Bulk ﬂow is from right to 
+left in this photograph.
+
+272
+diameter.  Combustion emissions reported for the alternative-fuel tests were obtained from a water-cooled gas sampling probe location 
+corresponding to 30 ms residence time in the ceramic-lined combustor downstream of the catalyst.
+ 
+A single sub-scale fuel-rich catalytic reactor was tested in PCI’s high-pressure combustion rig with three different fuels: methane, 
+simulated landﬁll gas, and Diesel No. 2 (the ﬁrst three listed in Table 3).  No changes were made to the reactor or combustor for operation 
+on these different fuels.  For diesel fuel, however, a prevaporizer was added upstream of the reactor.  Two different prevaporizers were 
+used: initially we used a simple preheater to directly heat diesel fuel after adding less than 10% N2 (by weight) to assist in atomization; 
+later we improved prevaporization by mixing steam with the diesel fuel.  The latter was considered ideal for co-generation applications. 
+Note that liquid fuel tests were generally performed at 6-8 atm pressure, based on limitations of the fuel prevaporizers.
+ 
+Prior to testing of the ﬁrst three fuels listed in Table 3, a separate fuel-rich catalytic reactor of similar design was tested with 
+gasoline and natural gas.  For these initial liquid fuel tests gasoline was chosen for its high volatility, simplifying prevaporizer design.
+ 
+For all fuels, the most relevant measures of performance for PCI’s two-stage catalytic combustion system are catalyst 
+temperatures in the ﬁrst stage (catalyst-stage) and combustor emissions from the second stage (gas-phase combustion stage).  We 
+especially wish to compare these measures of performance for operation on various types of fuels.
+           
+ 
+In ﬁgure 9, catalyst temperatures for 7 atm operation on gasoline are compared to those for natural gas. As shown, catalyst 
+operating temperature (“Tsurfaces”) and catalyst lightoff temperature are both very similar for the two dissimilar fuels.  Note that for 
+both fuels the overall equivalence ratio was 0.4 downstream of the catalyst, after mixing of catalyst cooling air with fuel-rich catalyst 
+efﬂuent.
+ 
+Catalyst lightoff and extinction temperatures for diesel fuel were tested using the ﬁrst-generation prevaporizer  at 6 atm pressure 
+and 0.33 equivalence ratio, as shown in ﬁgure 10.  For this test, temperature of the prevaporized fuel was between 350 and 380°C before 
+mixing with air.  For catalyst lightoff, inlet air temperature was ramped up from about 345°C until deﬁnitive lightoff occurred at about 
+360°C inlet air temperature, as indicated by a rapid increase in catalyst temperature.  Prior to this event, some reaction occurred along 
+the length of the reactor, as evidenced by catalyst temperatures nearly 75°C higher than the inlet temperature (e.g. 420°C versus 350°C). 
+After lightoff, inlet air temperature was ramped down until sudden loss of activity (catalyst extinction) occurred at about 200°C inlet 
+air temperature.  Note that for all fuel types tested under fuel-rich conditions, catalyst extinction temperature was well below catalyst 
+lightoff temperature.  Also note the similar catalyst operating temperatures for diesel fuel as compared to gasoline and natural gas 
+operating temperatures, as a result of fuel-rich operation of the catalyst.
+ 
+Although successful operation on diesel fuel was obtained using the non-steam prevaporizer, it could only provide enough 
+prevaporized fuel to establish an overall equivalence ratio of 0.33 downstream of the catalyst.  A steam prevaporizer was therefore 
+designed and used, allowing catalyst temperatures and combustion emissions to be measured over a wider range of equivalence ratios 
+(ﬂame temperatures), as shown in ﬁgures 11 and 12.
+ 
+For diesel fuel operation using the second-generation prevaporizer, steady-state catalyst temperature data (“T surface”) are 
+shown as a function of the reactor’s overall equivalence ratio in ﬁgure 11.  Diesel fuel operating data were obtained at the prevaporizer’s 
+maximum operating pressure of 6 atm, and at 430°C inlet temperature.  Average gas temperature exiting the reactor (“T gas out”) is also 
+shown.  Note that “T gas out” and overall equivalence ratio are both deﬁned after mixing of catalyst efﬂuent with catalyst cooling air.
+ 
+Fig. 9 (left panel).  Combined graph showing catalyst operation for 
+both natural gas and liquid fuel (gasoline) at 7 atm pressure and 
+0.4 equivalence ratio (Φ), as a function of time.  For both fuels, the 
+inlet gas temperature (“Tgas in”) was initially held steady at about 
+350 C, and then ramped down to about 200 C without catalyst 
+extinction.
+Fig. 10 (right panel).  Catalyst surface temperatures, and 
+lightoff and extinction temperatures, for diesel fuel operation. 
+Tests were performed with non-steam prevaporizer, at 6 atm 
+pressure and 0.33 overall equivalence ratio (Φ).  "Tinlet" 
+represents air temperature entering the reactor, and "Tcatalyst" 
+represents catalyst surface temperature.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+273
+ 
+ 
+Fig. 11.  Catalyst performance with diesel fuel versus methane, for second-generation prevaporizer 
+ 
+ 
+              (~5:1 steam:fuel ratio by weight) operating at 6 atm pressure and 430°C inlet air temperature.  
+ 
+ 
+              Compare to methane tests at 9 atm and 440°C inlet temperature.  
+ 
+As shown in ﬁgure 11, catalyst operating temperatures are insensitive to operating condition (overall equivalence ratio) for both 
+methane and diesel fuels, and in general very similar catalyst performance was obtained for both fuels.
+ 
+As stated earlier, catalyst temperatures do not vary signiﬁcantly with fuel/air ratio because reaction rate (heat release) upon the 
+catalyst surface is controlled by oxygen ﬂow (air ﬂow) under fuel-rich conditions.  Thus, the oxygen available for reaction (the limiting 
+reactant under fuel-rich conditions) is the same at all test conditions, with the result that heat release and temperatures in the catalyst bed 
+are insensitive to equivalence ratio, and are very similar for both methane and diesel fuels despite a wide difference in reactivity between 
+these two fuels.
+ 
+NOx emissions from the fuel-lean combustion zone downstream of the fuel-rich catalyst were also measured for both liquid 
+fuels and gaseous fuels, as shown in ﬁgure 12.  Note that NOx emissions from the diesel fuel are primarily due to fuel-bound nitrogen, 
+except at the highest ﬂame temperature tested (near 2900°F).  The Diesel fuel tested was red-dyed Diesel No. 2 fuel, and its nitrogen 
+content was measured at 188 ppm by weight by an independent laboratory.  At this concentration, nearly complete conversion of fuel-
+bound N to NOx is expected [4].  Thus, based on fuel-bound nitrogen content, the diesel fuel would emit at least 8.1 ppmv NOx (at 15% 
+O2) when burned.  Fuel-bound nitrogen for all other fuels was zero.
+ 
+NOx emissions are shown in ﬁgure 12 for three fuel types: methane, simulated bio-mass landﬁll gas (essentially diluted 
+methane), and Diesel No. 2 fuel.  Here, NOx emissions are measured on a dry basis and are corrected to 15% excess O2.  NOx emissions 
+are shown as a function of maximum measured ﬂame temperature (via type S thermocouple) for each data point.  For all data points 
+obtained, CO and unburned hydrocarbon (UHC) emissions were less than 2 ppmv.
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+274
+              
+ 
+Fig. 12.  NOx emissions for three fuel types (methane, biomass landﬁll gas, and Diesel No. 2 fuel).  For all data points, 
+ 
+              CO/UHC emissions were less than 2 ppmv.  For the Diesel No. 2 fuel, fuel analysis indicated that 8.1 ppmv 
+ 
+              NOx would be emitted as a result of fuel-bound nitrogen alone.
+ 
+For methane and bio-mass landﬁll gas fuels, NOx emissions were below 3 ppm for measured ﬂame temperatures below 2600°F. 
+For diesel fuel, NOx emissions were about 10 ppm for measured ﬂame temperatures below 2600°F, compared to the 8.1 ppm expected 
+based on fuel-bound nitrogen alone.  Thus, about 2 ppm NOx is likely formed by prompt (non-thermal) mechanisms at low ﬂame 
+temperatures (below 2600°F).  At higher ﬂame temperatures, NOx increases due to thermal formation mechanisms for all three fuels, as 
+shown.  The low NOx levels at low ﬂame temperature indicates that well-mixed fuel-lean combustion was achieved downstream of the 
+catalyst for all three fuels: methane, bio-mass landﬁll gas, and diesel.
+3.2.2.1-7 Engine Test Results
+ 
+Based on the successful full-scale single-injector rig tests at Solar Turbines, a “cluster” of four RCL-injectors was installed in 
+a modiﬁed (single can combustor) Solar Turbines Saturn engine, to assess controls compatibility and transient operation in an engine 
+environment, including engine start, acceleration, and load variation.  In addition, steady-state operating data were obtained, including 
+NOx and CO emissions at the engine exhaust.  The engine test also provided a basis for evaluating fuel-rich reactor robustness in an 
+engine environment, over a range of operating conditions and demands (including start, acceleration, and load).
+Test Engine Speciﬁcations and Conﬁguration
+Combustor Housing
+Compressor Discharge Air Pipe
+Combustor Primary Zone Air Pipe
+Dilution Air Pipe
+Burner Outlet Pipe (to turbine)
+3.2.2.1 Fuel-Rich Catalytic Combustion
+0
+2
+4
+6
+8
+10
+12
+14
+16
+18
+20
+1900
+2000
+2100
+2200
+2300
+2400
+2500
+2600
+2700
+2800
+2900
+Flame Temperature (°F)
+NOx (15% O2) ppmv
+Methane - measured NOx (32 ms, 9 atm)
+Biofuel - measured NOx (32 ms, 9 atm)
+Diesel (prevap, steam) - measured NOx (32 ms, 6 atm), measured flame temp
+Diesel (prevap, steam) - measured NOx (32 ms, 6 atm), measured flame temp
+Calculated NOx emissions from fuel-bound nitrogen in Diesel
+Prediction 10 atm, 30 ms
+, calculated adiabatic flame temperature
+, calculated adiabatic flame temperature
+NOTE:  For methane data measured and calculated flame temperatures generally agree within 50 degrees Fahrenheit.
+
+275
+ 
+The test engine was a modiﬁed version of a two-shaft recuperated Saturn T1200 engine, nominally rated at 750 kW (1000 hp) 
+after modiﬁcation.  This engine was selected as a test bed because its external combustor conﬁguration was amenable to modiﬁcation. 
+For catalytic combustor testing, the recuperator was removed, but the compressor discharge scroll and turbine inlet scroll were retained, 
+allowing a single side-mounted combustor can to be installed.
+ 
+The overall combustor conﬁguration is shown in ﬁgure 13.  Note that variable airﬂow butterﬂy valves were ﬁtted in the 
+combustor primary zone air pipe and the dilution air pipe, to allow combustor air to be varied for best emissions at any given fuel ﬂow 
+(engine load).  Also note that a preburner was located in the combustor primary zone air pipe below the butterﬂy valve, to temporarily 
+increase catalyst inlet air temperature to about 350°C (660°F) to ensure catalyst lightoff.  The preburner was turned off after catalyst 
+lightoff, and before engine emissions were measured.
+ 
+All fuel and air entered the combustor through the four RCL-injectors (neglecting leakage air).  The combustor liner was 
+backside cooled with dilution air, before the dilution air entered the hot gas path 24 inches downstream of the combustor’s upstream 
+end (the round plate through which the post-mix ducts are inserted, visible in ﬁgure 14, forms the combustor’s upstream end).  The 
+combustor liner itself was cylindrical and 15 inches in diameter.  At full Saturn engine load, and assuming 1.3 pps airﬂow through each 
+RCL-injector for ultra-low-emissions operation, combustor residence time was about 35 ms.
+Engine Operating Procedure
+ 
+Engine start-up data are shown in ﬁgure 15, with annotations, giving a graphical depiction of the start-up procedure.  Note that 
+there are three fuel circuits:  a preburner fuel stage, which received about 25 kg/hr (55 pph) fuel during catalyst lightoff, and two RCL-
+injector fuel stages, which together received up to about 275 kg/hr (600 pph) fuel at load.  RCL-injector fuel stage A supplied fuel to the 
+top two injectors, while RCL-injector fuel stage B supplied fuel to the bottom two injectors.
+ 
+At cold crank conditions (29% gas producer shaft speed, Ngp) the preburner was ignited and adjusted to 260°C (500°F) 
+outlet temperature, below the catalyst lightoff temperature.  As seen in ﬁgure 15, the small preburner fuel ﬂow provided little motive 
+power to the engine and negligible increase in engine speed.  Next, while still at 29% Ngp, fuel was introduced to the RCL-injectors 
+and combustion was ignited by a torch igniter in the main combustor.  With the starter motor still engaged, fuel ﬂow was ramped up 
+as the engine accelerated to 65% Ngp.  At 65% Ngp the starter motor was disengaged and the engine controller added fuel to maintain 
+a constant idle speed of 65% Ngp (no load).  Preburner outlet temperature remained at 260°C (500°F), and the catalysts remained 
+inactive.
+Fig. 13.  Side-mounted combustor conﬁguration in modiﬁed 
+Saturn engine, showing variable airﬂow control valves in 
+primary zone air pipe and dilution air pipe.
+Fig. 14.  Photograph of four-RCL-injector assembly, prior to 
+installation in Saturn engine.
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+276
+0
+25
+50
+75
+100
+125
+150
+175
+200
+225
+250
+12:36:00
+12:43:12
+12:50:24
+12:57:36
+13:04:48
+13:12:00
+Time
+Fuel mass flow (Wf, kg/hr)
+0
+10
+20
+30
+40
+50
+60
+70
+80
+90
+100
+Gas producer shaft speed (Ngp, %)
+Preburner Fuel (Wf_pbn)
+RCL Stage A fuel (Wf_A)
+RCL Stage B Fuel (Wf_B)
+Shaft Speed (Ngp)
+cold crank
+idle
+Ngp
+Wf_A
+Wf_B
+preburner fuel
+on @ 29% Ngp
+increase preburner fuel
+(RCL inlet temp) to
+light-off catalysts
+turn preburner fuel off @ 80% Ngp --
+catalysts remain active (lit off)
+Wf_pbn
+fuel RCL injectors,
+ignite combustion,
+accel to 65% Ngp
+Adjust combustor air
+valves for best emissions
+Fig. 15.  Saturn engine start-up data, showing engine acceleration, catalyst activation by preburner (followed by preburner shutoff with 
+continued catalyst activity), and operation at engine load by fuel supplied through four RCL-injectors.
+ 
+Preburner temperature was then increased to about 350°C (660°F) to ensure catalyst lightoff.  Engine speed was increased to 
+80% Ngp, the preburner was turned off, and the catalysts remained active.  Engine speed was then increased to 90% and the variable 
+airﬂow valves were adjusted to obtain optimum emissions.  The valves served to vary the airﬂow to the RCL-injectors thus allowing 
+control of NOx and CO emissions.  Emissions data were taken as engine speed was reduced in increments of about 1% Ngp.  The airﬂow 
+valves were adjusted for best emissions at each speed.
+ 
+Engine controls were based on a Saturn T1202R design and used a state of the art Allen-Bradley microprocessor console to 
+run the logic.  For the RCL combustor engine tests, catalyst temperatures were not used in the fuel control algorithm.  Instead, fuel 
+control was performed according to standard DLN methods (primarily monitoring engine speed versus set point), with the addition of a 
+preburner fuel control during initial start and catalyst lightoff.  This was possible because catalyst temperature is insensitive to fuel/air 
+ratio under fuel-rich conditions, as shown in ﬁgure 2.1.2 for the single-injector rig tests.  In addition, the RCL catalyst is air-cooled by 
+a large fraction of the total combustion air, and reactions on the catalyst are limited by available oxygen (fuel-rich); thus, the catalyst is 
+resistant to ﬂashback, autoignition, and overheating damage, and can operate safely without active temperature control.
+Engine Performance with RCL Combustor
+ 
+With RCL combustion, Saturn engine NOx emissions averaged 2.1 ppm with less than 10 ppm CO over an achievable engine 
+operating range (82% to 89% Ngp), as shown in ﬁgure 16.  Over this engine operating range, UHC emissions remained below 3 ppm, 
+and combustion-driven pressure oscillations (CDPO) remained less than 0.7 kPa (0.1 psi) peak-to-peak (less than 0.15% peak-to-peak 
+of mean combustor pressure).
+ 
+At 89% Ngp, combustor inlet air (compressor discharge air) was at 5.0 atm and 223°C (434°F).  At 82% Ngp, combustor inlet 
+air was at 3.9 atm and 191°C (376°F).  For all data points shown in Figure 2.1.16 the preburner was turned off, the catalyst remained 
+active at the available compressor discharge temperatures (as low as 191°C / 376°F), and NOx emissions remained below 3 ppm.
+ 
+Measured power output ranged from 237 kW (318 hp) to 453 kW (607 hp) over the 82% to 89% Ngp operating range, or about 
+32% to 61% load based on a 750 kW (1000 hp) nominal power rating for this modiﬁed engine.  Engine load was delivered to a water 
+dynamometer.
+ 
+Engine operation was limited to the 82% to 89% speed range.  At less than 82% Ngp the compressor was at its surge condition, 
+and the compressor bleed valve was opened to prevent surge.  This reduced the airﬂow to the RCL-injectors thus increasing NOx 
+emissions.  At speeds greater than 89% Ngp operation was limited by locally hot temperatures within the scroll ducting downstream of 
+the combustor.  This limitation was not attributable to the RCL combustion technology but to inadequate mixing of combustor dilution 
+air.  Improving the test rig dilution mixing was deemed unnecessary to document the controllability of the RCL system.
+ 
+Table 1 summarizes the Saturn engine operating data at the low-end and high-end of the achievable operating range.  In general, 
+the results show good combustor performance (low emissions and low combustion-induced pressure oscillations, or CDPO) even at very 
+low inlet temperatures.  In addition, the Saturn engine operation shows the feasibility of engine start-up, acceleration, and operation at 
+load using RCL combustion with simple engine controls.  The engine was successfully started, accelerated, and powered at load by fuel 
+injected through the four catalytic reactors, using conventional engine instrumentation and controls without instrumentation input from 
+the catalyst.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+277
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+Ngp (gas producer shaft speed, % of max)
+NOx / CO (ppm, @ 15% O2 dry)
+NOx
+CO
+ 
+ 
+ 
+Fig. 16.  RCL combustor emissions during Saturn engine operation, showing 
+ 
+ 
+ 
+              ultra-low NOx and CO emissions over an achievable engine operating 
+ 
+ 
+ 
+              range of 82% to 89% speed.
+ 
+      Table 1  Saturn engine operating data at low-end and high-end of achievable operating range.  Note catalyst 
+ 
+ 
+      activity and ultra-low-emissions achieved at inlet temperatures as low as 191 C (376 F).
+Engine Speed
+82% Ngp
+89% Ngp
+NOx Emissions
+2.2 ppm
+2.2 ppm
+CO Emissions
+9.5 ppm
+5.7 ppm
+CDPO (noise)
+< 0.7 kPa pk-pk
+< 0.7 kPa pk-pk
+Power Output
+237 kW / 318 hp
+453 kW / 607 hp
+Nominal Load
+32%
+61%
+Comb. Inlet Pressure
+3.9 atm
+5.0 atm
+Comb. Inlet Temp.
+191 C / 376 F
+223 C / 434 F
+3.2.2.1-8 Ultra-Low NOx Combustion of Coal-Derived Syngas and High-Hydrogen  
+ 
+      Fuels
+ 
+While early development of PCI’s Rich-Catalytic Lean-burn (RCL) combustion system was focused on the use of natural gas 
+fuel, fuel-rich operation of the catalyst is also advantageous for alternative fuels, including high-hydrogen fuels and coal-derived syngas. 
+As with natural gas, combustion stability is improved (especially at low ﬂame temperatures) by catalytically reacting a portion of the 
+fuel upstream of the combustor, thus preheating (and vitiating) the fuel/air mixture entering the combustor.  And, as with natural gas, this 
+allows improved NOx emissions by operating the combustor at lower allowable (stable) ﬂame temperatures.
+ 
+For low-Btu fuels such as blast furnace gas, ﬂame stability improvement by catalytic pre-reaction of a portion of the fuel is 
+especially important since combustion may be otherwise unsustainable even at the highest possible ﬂame temperatures.  With catalytic 
+pre-reaction and concomitant pre-heating, however, fuels having heating values as low as 82 Btu/ft3 have been successfully combusted 
+at PCI, with near-zero emissions of unburned fuel, CO, and NOx.
+ 
+For fuels with more moderate dilution levels, such as the syngas delivered from a coal gasiﬁer, combustion of the raw fuel can 
+occur without a catalyst, but low-emissions combustion is difﬁcult as a result of the high levels of hydrogen.  In particular, lean-premixed 
+combustion for syngas fuels has not generally been considered feasible, because the high concentration of hydrogen leads to increased 
+risk for ﬂashback and ﬂameholding in regions upstream of the combustor.  Thus, syngas fuels are generally burned in a non-premixed 
+mode, with NOx control accomplished by dilution of the fuel stream with water and/or nitrogen.  This introduces combustion stability 
+issues, however, such that low-single-digit NOx emissions have not yet been achieved in gas turbines burning coal-derived syngas.
+ 
+One solution to this combustion stability problem is to catalytically react some portion of the syngas fuel prior to gas-phase 
+combustion, effectively providing a higher inlet temperature to the combustor.  This is exactly the role of a catalyst in a lean-premixed 
+combustion system, and it can also be applied to combustion of syngas fuel, allowing greater dilution of the fuel and reduced NOx 
+emissions.
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+278
+ 
+For any fuel type, whether syngas, low-Btu gas, or hydrocarbon, fuel-rich catalytic reactor performance is insensitive to the 
+fuel’s reactivity, because reaction rate (heat release) upon the catalyst surface is controlled primarily by oxygen ﬂow (air ﬂow) under 
+fuel-rich conditions, and not by fuel ﬂow or reactivity.  Performance on different type fuels will therefore be similar when heat release 
+per atom of oxygen reacted is similar, and when the fuel’s mass and thermal capacity is negligible in the fuel/air mixture.  This is 
+generally the case for hydrocarbon fuels, and the primary remaining issue for operation on heavy liquid fuels is prevaporization.
+ 
+For coal-derived syngas fuel, heat release per atom of oxygen reacted is similar to hydrocarbon fuels, and additionally 
+prevaporization is not an issue.  However, unlike fuels consisting only of hydrocarbons, the large volume (low Btu value) of syngas fuels 
+is not negligible, particularly when the syngas is highly diluted with steam or nitrogen for NOx control.  Thus, while fuel-rich catalytic 
+reactor performance for syngas fuels can be made similar to that obtained on hydrocarbon fuels (on the basis of heat release per atom of 
+oxygen reacted), the reactor design must consider the large volume ﬂow of fuel that it must pass, as well as the oxygen ﬂow required for 
+the desired level of pre-reaction or pre-heat.
+3.2.2.1-9 Sub-Scale Test Data for Syngas Fuel
+ 
+A sub-scale fuel-rich catalytic reactor was fabricated at PCI for testing with syngas fuel in PCI’s high-pressure sub-scale 
+combustion rig (pictured in ﬁgure 8).  For the syngas tests, two independently controllable air supplies are provided, both heated and 
+at high pressure.  The larger air supply (entering from the right in ﬁgure 8) provides catalyst cooling air, which becomes primary zone 
+combustion air in the gas-phase combustor, and the smaller air supply (entering from the vertical pipe at the top-right of ﬁgure 8) 
+provides air to the fuel-rich fuel/air mixture.  For operation with syngas fuel, two heaters are also provided (but not shown in Figure 8); 
+one heater heats N2 diluent just before it is mixed with fuel, and the second heater heats all other fuel components and CO2.
+ 
+Dry, oil-free, high-pressure air is supplied to the rig from compressors, at pressures up to about 145 psia entering the rig.  At this 
+ﬂow rate, the rig inlet air can be heated to about 500°C.  Fuel and diluent are supplied from bottles or Dewar ﬂasks at high pressure, and 
+are pressure regulated to the proper delivery pressure to the rig.  All ﬂows (air, fuel, and diluent) are metered with electronic mass ﬂow 
+controllers.  Each fuel component is separately metered and then mixed with the other components to simulate the desired coal-derived 
+syngas composition.  Up to ﬁve fuel components can be introduced:  H2, CO, CH4, CO2, and N2.
+ 
+For syngas operation, combustion rig startup was accomplished by bringing the reactor to fuel-rich conditions using unheated 
+methane fuel, with some diluent addition to ensure proper mixing.  When necessary, a small amount of H2 was temporarily added to the 
+unheated methane to light off the reactor.  Once the catalyst and combustor were lit and the rig was thermally stable, syngas fuel ﬂow 
+was ramped up while methane fuel ﬂow was ramped down, holding catalyst equivalence ratio approximately constant.  This startup 
+procedure was economical and safe: it minimized the use of high-volume (costly) laboratory syngas fuel blend, and also avoided use 
+of H2 during transient and ignition events, where there was a concern that unburned H2 might enter the exhaust stack and create an 
+explosion hazard.  This procedure is similar to syngas combustor startup in actual engine applications.
+Catalyst Lightoff
+ 
+Prior to high-pressure testing with syngas, atmospheric-pressure tests were performed to provide some initial experience in 
+syngas fuel operation, and in catalyst and combustor behavior using syngas fuels.  The results were used to help guide reactor design and 
+test planning for the subsequent high-pressure tests.  Catalyst lightoff tests were an important part of these early atmospheric pressure 
+tests, and a lightoff temperature of 180°C was measured for fuel-rich reaction of syngas.  This value was most carefully measured for a 
+syngas mixture composed of 25% H2 and 35% CO (remainder diluent), but it was found that lightoff temperature is relatively insensitive 
+to syngas composition unless CO levels drop to very low values, leaving essentially a high-hydrogen fuel having signiﬁcantly lower 
+lightoff temperature.  In all cases, the 180°C or lower lightoff temperature is well below compressor discharge temperatures of industrial 
+and large-frame turbines, and the need for a preburner is thereby avoided in expected syngas applications.
+High-Pressure Test Conditions
+ 
+For the high-pressure sub-scale syngas tests, “baseline” operating conditions were scaled from those published for the IGCC 
+plant at Tampa Electric’s Polk Power Station.  The Tampa Polk plant operates a GE 107FA combined cycle system on syngas generated 
+from a Texaco oxygen-blown coal gasiﬁer.  Nitrogen injection reduces the effective heating value of the fuel, for NOx control.
+ 
+Data from references by the U.S. DOE, GE Power Systems, and Brdar and Jones were used to establish a baseline syngas 
+fuel composition representative of the Tampa Polk IGCC power plant fuel after dilution with nitrogen for NOx control, as well as a 
+baseline full-load ﬁring temperature18.  This baseline syngas composition was used for most sub-scale high-pressure testing at PCI, and 
+is tabulated in the ﬁrst row of Table 2 as noted.  The baseline full-load ﬂame temperature was determined to be about 2550°F (1400°C), 
+and represents a maximum in NOx emissions for an expected syngas application of fuel-rich catalytic combustion.
+ 
+Additional tests were performed for a highly-diluted low-Btu syngas, to demonstrate the ﬂame stability augmentation provided 
+by the catalyst.  The second row of Table 1 lists the composition of this low-Btu syngas mixture.  Note that for all sub-scale tests at PCI, 
+the nitrogen diluent was added to the syngas fuel prior to mixing with air, and well upstream of the catalyst.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+279
+ 
+ 
+Table 2  Syngas fuel compositions used for high-pressure sub-scale tests.
+Syngas Composition
+H2 
+(%)
+CO
+(%)
+CO2
+(%)
+N2
+(%)
+LHV
+(Btu/ft3)
+Baseline
+20
+20
+10
+50
+117
+Low-Btu
+15
+15
+10
+60
+88
+ 
+Emissions measurements reported here were obtained from a water-cooled gas sample probe located 15 inches downstream of 
+the catalyst, corresponding to about 50 ms residence time in the 2-inch inside-diameter ceramic-lined combustor.  This represents the 
+maximum residence time expected in a low-emissions gas turbine combustor, and therefore also represents the maximum expected NOx 
+emissions for a given operating condition.  Note that all emissions reported in ppm are parts per million by volume, and are corrected to 
+15% O2 dry.
+ 
+All measurements were made with a combustor inlet air temperature of 750°F (400°C) and a syngas fuel temperature of 570° 
+F (300°C).  Adiabatic ﬂame temperatures were calculated based on fuel/air ratio as measured by the emissions analyzers (i.e. from gas 
+samples extracted at the 15-inch gas sample probe location).
+Combustor Emissions and Turndown
+ 
+Figure 17 plots measured NOx and CO emissions as a function of adiabatic ﬂame temperature at 10 atm pressure for the baseline 
+syngas composition listed in row 1 of Table 2, having a Lower Heating Value (LHV) of 117 Btu/ft3.  With this fuel composition, NOx 
+emissions were 2.0 ppm (0.011 lbs/MMBtu) at the 2550°F (1400°C) ﬂame temperature data point corresponding to baseline operation 
+in the Tampa Polk IGCC plant at 100% load.
+ 
+As the fuel/air ratio was decreased, CO emissions remained near zero for ﬂame temperatures greater than about 2250°F (1230° 
+C), permitting a 300°F (150°C) turndown in ﬂame temperature from the 2550°F (1400°C) baseline point, allowing ultra low emissions 
+operation over a wide range of loads.  These results − CO near zero, and NOx equal to or less than 2 ppm (0.011 lbs/MMBtu) for full 
+load and below − easily met PCI’s emissions goals for these tests.
+0.000 
+0.005 
+0.010 
+0.015 
+0.020 
+0.025 
+0.030 
+2100 2200 2300 2400 2500 2600 2700 2800 
+Adiabatic Flame Temperature @ emissions probe (F) 
+NOx ((lbs NOx)/MMBtu) 
+0.0 
+0.9 
+1.8 
+2.7 
+3.6 
+4.5 
+5.4 
+NOx / CO (ppm @ 15% O2) 
+Baseline Combustor  
+Temp (2550 F) 
+NOx 
+CO 
+Combustor rig data, P = 10 atm 
+Syngas: 20% H 2 , 20% CO, 10% CO 2 , 50% N 2 
+(LHV = 117Btu/ft3) 
+ 
+ 
+ 
+Fig. 17.  Measured NOx and CO emissions for 10 atm baseline syngas tests, 
+ 
+ 
+ 
+ 
+as a function of adiabatic ﬂame temperature at the emissions probe. 
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+280
+ 
+0.000 
+0.005 
+0.010 
+0.015 
+0.020 
+0.025 
+0.030 
+0.035 
+0.040 
+2100 
+2200 
+2300 
+2400 
+2500 
+2600 
+2700 
+2800 
+Adiabatic Flame Temperature @ emissions Probe (F) 
+NOx ((lbs NOx)/MMBtu) 
+0.0 
+0.9 
+1.8 
+2.7 
+3.6 
+4.5 
+5.4 
+6.3 
+7.2 
+NOx (ppm, 15% O2) - Baseline Syngas Only 
+LHV = 88 Btu/ft  
+3 
+ Except as noted: 
+ P = 10 atm;  τ res  = 50 ms 
+ air @ 400 C (750 F), syngas @ 300 C (570 F) 
+ baseline syngas composition, LHV = 117Btu/ft 
+3 
+ (20% H 2 , 20% CO, 10% CO 2 , 50% N 2 ) 
+LHV = 117 Btu/ft  
+3 
+ 
+ 
+ 
+Fig. 18.  Measured NOx emissions  for two different syngas compositions having 
+ 
+ 
+ 
+              LHVs of 88 and 117 Btu/ft3.
+ 
+Subsequent to the baseline tests, the heating value of the diluted syngas fuel was reduced to determine operability and emissions 
+for highly-diluted low-Btu syngas fuels.  NOx emissions are shown in ﬁgure 18 for the low-Btu syngas composition listed in row 2 of 
+table 2, as well as for the baseline syngas composition.  It is important to note that the right-hand vertical axis in ﬁgure 18 (NOx values 
+in ppm) is only applicable to the baseline syngas composition, as marked.  For the fuel composition with the lower heating value (88 
+Btu/ft3), NOx emissions in ppm are slightly lower than shown (for the low-Btu fuel, 0.011 lbs/MMBtu is equivalent to 1.6 ppm).
+ 
+It is worth noting that, as shown in ﬁgure 18, catalytic combustion allows stable operation with low emissions for the low Btu 
+syngas case (88 Btu/ft3) even at ﬂame temperatures as low as 2300°F (1260°C).  CO emissions were less than 5 ppm in all cases, and 
+were near zero for ﬂame temperatures greater than 2200°F (1200°C).
+3.2.2.1-10 Sub-Scale Test Data for High-Hydrogen and Low-Btu Fuels
+ 
+In addition to syngas, other fuels containing non-hydrocarbon heating values are also of interest for power generation with low 
+emissions.  Industrial process and waste gases are particularly of interest, and PCI has therefore tested its fuel-rich catalytic combustion 
+system with two such fuels: a low-Btu Blast Furnace Gas (BFG) and a high-hydrogen reﬁnery fuel gas.  Both gases were simulated in the 
+laboratory by blending gases obtained from bottles or Dewars, using the same equipment that was used for the syngas fuel tests.  Again, 
+tests were performed in PCI’s high-pressure sub-scale combustion test rig, pictured in ﬁgure 8.
+Blast Furnace Gas
+ 
+RCL combustion of an 82 Btu/ft3 blast furnace gas was tested using a catalytic reactor that had previously been used for syngas 
+testing.  Results for the blast furnace gas show that combustion of this gas is extremely stable following fuel-rich catalytic reaction, even 
+at adiabatic ﬂame temperatures as low as 2250°F (1230°C).  For these tests the simulated blast furnace gas comprised 23% CO, 22% 
+CO2, 1.4% H2, 0.6% CH4, and 53% N2, and entered the reactor after being heated to about 450°F (230°C).  Air entered the reactor and 
+combustor at about 660°F (350°C).
+ 
+Note that the high diluent fraction (low Btu value) of the blast furnace gas means that high fuel-lean equivalence ratios are 
+needed in the combustor burnout zone to achieve the desired ﬂame temperature.  Therefore, tests were performed over a low range of 
+adiabatic ﬂame temperatures in the combustor burnout section, from about 2250°F(1230°C) to 2500°F (1370°C), representing maximum 
+fuel ﬂow capability of the rig for this blast furnace gas composition.  For comparison, the stoichiometric ﬂame temperature for this blast 
+furnace gas is only about 2700°F (1480°C) for the inlet temperatures tested.
+ 
+Because the catalyst was able to stabilize complete combustion at such low ﬂame temperatures,  NOx and CO emissions 
+were ultra-low for all conditions tested.  NOx emissions for blast furnace gas operation are plotted in ﬁgure 19, as measured by sample 
+extraction from the cooled probe located 15 inches downstream of the catalyst exit.  For all conditions tested, NOx emissions were 
+measured below 2.5 ppm on a raw basis (uncorrected) and below 1 ppm corrected to 15% O2 dry.  CO emissions were near zero (< 1 
+ppm) for all conditions shown.
+ 
+Because measured oxygen concentrations after fuel-lean burnout were very low, varying between about 2.5% and 5.5% for 
+the conditions shown, the standard emissions reporting correction to 15% O2 may be misleading.  In fact, because of the high level of 
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+281
+diluent in the blast furnace gas, oxygen levels would never approach 15% in an actual engine application.  Therefore, the raw NOx data 
+are probably as relevant as the corrected NOx data, or perhaps more so, and both are therefore plotted in ﬁgure 19.  In either case, NOx 
+emissions were ultra-low as a result of the low blast furnace gas ﬂame temperatures.
+0 
+0.5 
+1 
+1.5 
+2 
+2.5 
+3 
+2200 
+2250 
+2300 
+2350 
+2400 
+2450 
+2500 
+Adiabatic Flame Temperature (F) 
+NOx @ 15% O2 dry 
+raw 
+(uncorrected) 
+corrected 
+(15% O2) 
+ 
+ 
+ 
+        Fig. 19.  NOx emissions, uncorrected and corrected to 15% O2, as a 
+ 
+ 
+ 
+ 
+        function of adiabatic ﬂame temperature in the downstream 
+ 
+ 
+ 
+ 
+        combustion zone of the RCL combustor burning blast furnace 
+ 
+ 
+ 
+ 
+        gas (23% CO, 1.4% H2, 0.6% CH4, 22% O2, and 53% N2).
+Reﬁnery Fuel Gas
+ 
+Testing of RCL combustion of reﬁnery fuel gas was also conducted using the same hardware conﬁguration as previous tests 
+for syngas and blast furnace gas.  Results showed NOx emissions below 3 ppm for ﬂame temperatures below 2800°F (1538°C).
+ 
+For the reﬁnery fuel gas tests, the simulated reﬁnery fuel gas comprised 30% H2 and 70% CH4, and entered the reactor without 
+passing through a fuel heater.  However, some fuel heat was obtained from hot combustor rig components so that the fuel plenum gas 
+temperature measured about 347°F (175°C).  Combustion air entered the reactor at about 734°F (390°C).
+ 
+Tests were performed over a range of adiabatic ﬂame temperatures, from about 2400 to 3000°F  (1315 to 1650°C) in the 
+combustor burnout section, and at a pressure of about 10 atm.  NOx and CO emissions were measured at each condition, as well as O2 
+and CO2.
+ 
+NOx emissions for the RCL combustion of reﬁnery fuel gas are plotted in ﬁgure 20, as measured by sample extraction from the 
+cooled probe located 15 inches downstream of the catalyst exit, corresponding to about 50 ms residence time.  As shown, NOx emissions 
+were measured below 3 ppm for ﬂame temperatures less than about 2800°F (1540°C).  CO emissions were less than about 1 ppm for all 
+conditions shown.
+ 
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+2400 
+2500 
+2600
+2700 
+2800 
+2900 
+3000 
+Adiabatic Flame Temp (F)  
+NOx @ 15% O2 dry
+ 
+ 
+ 
+Fig. 20. NOx emissions, corrected to 15% O2, as a function of adiabatic ﬂame 
+ 
+ 
+ 
+             temperature in the downstream combustion zone burning reﬁnery fuel 
+ 
+ 
+ 
+             gas (30% H2 and 70% CH4).
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+282
+3.2.2.1-11 Technology Status and Outlook
+ 
+For natural gas fuel, RCL combustion system has been demonstrated in engine testing of a modiﬁed Solar Turbines Saturn 
+engine, and in full-scale full-pressure rig tests at Taurus 70 conditions and beyond, including F-engine type ﬂame temperatures.  The 
+technology has been demonstrated viable in-engine, and the next step in technology maturity will be ﬁeld demonstration for an extended 
+period.  Thus, the major challenges that lie ahead for natural gas applications will be durability demonstration and design integration for 
+speciﬁc engine applications.
+ 
+RCL combustion system has also been tested at sub-scale with multiple alternative fuels, as listed in table 3.  For all fuels 
+tested, catalyst temperatures were well controlled and combustor emissions were held to single-digit values over a wide turndown range, 
+conﬁrming the beneﬁt of catalytic reactions in achieving low emissions for multiple types of fuels.  The results also conﬁrm that fuel-rich 
+operation of the catalyst allows similar catalyst and reactor performance with widely varying fuel types.
+ 
+For liquid fuel applications, the major outstanding development issue is prevaporization of the fuel prior to fuel-rich catalytic 
+reaction.  The primary concern here is autoignition and overheating of the premixer hardware.  Likewise, the propensity for high-
+hydrogen fuels to autoignite is also problematic, as in syngas fuels.  In both cases, the air-cooled catalyst structure is able to tolerate 
+autoignition and gas-phase reactions, but conventional premixing devices located upstream of the catalyst may not.  Therefore, advanced 
+premixing concepts are to be developed for both liquid fuel and high-hydrogen fuel (e.g. syngas) applications.
+  Table 3  Composition of seven different fuel types tested.
+Fuel Tested
+Chemical Formula
+C/H Ratio
+by Wt (%)
+Fuel-Bound
+N by Wt (%)
+Methane
+CH4
+75 / 25
+0
+Landﬁll Gas
+0.65 CH4 + 0.35 CO2
+46.5 / 10.1
+0
+Diesel No. 2
+Multi component
+87.6 / 13.0
+0.0188
+Gasoline
+not analyzed
+not analyzed
+~0
+Reﬁnery Fuel Gas
+0.70 CH4 + 0.30 H2
+71.2 / 28.8
+0
+Syngas
+20% H2 + 20% CO + 10% CO2 + 50% N2
+14.75 / 1.64
+0
+Blast Furnace Gas
+23%CO+22%CO2+1.4%H2+0.6%CH4+53%N2
+17.6 / 0.17
+0
+ 
+In addition, for IGCC applications with coal-derived syngas fuels, consideration must be given to the high volume ﬂow of fuel 
+that must pass through the catalytic reactor, to prevent excessive size or pressure drop penalties.  Depending upon the application, this 
+may require system level re-design and development of the catalyst and combustor.
+ 
+Finally, it is also recognized that syngas fuels carry trace levels of catalyst contaminants that may affect long-term catalyst 
+durability.  This needs to be examined and remediated if problematic.  Long-term durability tests are required, preferably in an actual 
+syngas slipstream at an operating IGCC plant, where real contaminants will be present.
+3.2.2.1-12 Conclusions
+ 
+For natural gas operation, the Rich-Catalytic Lean-burn (RCL) combustion concept has been tested at gas turbine conditions, 
+ﬁrst in a full-scale full-pressure single-injector rig, and second in a modiﬁed industrial gas turbine.  These constitute two signiﬁcant 
+experimental milestones:
+1. 
+Experimental conﬁrmation of the ultra-low-NOx capability of the RCL combustion concept.  In particular, we conﬁrm the ability 
+to mix fuel-rich catalyst efﬂuent with primary combustion air, without inducing autoignition, yet imparting signiﬁcant stability to 
+the downstream combustion process.
+2. 
+Demonstration of RCL combustion feasibility for gas turbine engine operation.  In particular, we demonstrate engine start-up, 
+acceleration, and robust operation at load by fuel injected only through RCL-injectors (effectively a single fuel stage, with all fuel 
+contacting the catalyst), and with simple engine controls that do not monitor catalyst temperature.
+ 
+In summary, the data presented show that fuel-rich catalytic reactions can stabilize fuel-lean premixed combustion to provide 
+stable, quiet combustor operation with ultra-low NOx and CO emissions.   In addition, the air-cooled fuel-rich catalyst system can 
+operate safely without active temperature control because its temperature is insensitive to fuel/air ratio.
+ 
+The RCL system also provides signiﬁcant operational advantages as compared to earlier catalytic combustion systems.  Most 
+notably, the RCL reactor requires no preburner, is immune to issues of auto-ignition and ﬂashback (and can therefore operate safely 
+in high-ﬁring-temperature machines such as F-class), and provides long catalyst life (as a result of the non-oxidizing fuel-rich catalyst 
+environment).
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+283
+ 
+Finally, fuel-rich operation of the catalyst allows operation on multiple types of fuels, as successfully demonstrated at sub-scale 
+for gaseous and liquid hydrocarbon fuels, for low-Btu fuels and high-hydrogen fuels, and for simulated coal-derived syngas.  For all of 
+these fuels catalyst temperatures were well controlled, and ultra-low emissions were achieved.
+3.2.2.1-13 Notes
+________________________
+1. C.L. Vandervort, “9 ppm NOx / CO Combustion System for ‘F’ Class Industrial Gas Turbines,”  ASME Paper 
+    No. 2000-GT-0086, ASME Turbo Expo May 8-11, 2000, Munich, Germany.
+2. D.K. Yee, K. Lundberg, and C.K. Weakley, “Field Demonstration of a 1.5 MW Gas Turbine with a Low Emissions Catalytic 
+    Combustion System,” Journal of Engineering for Gas Turbines and Power 123 (2001): 550-556; L.L. Smith, H. Karim, M.J. 
+    Castaldi, S. Etemad, W.C. Pfefferle, V.K. Khanna, and K.O. Smith,  “Rich-Catalytic Lean-Burn Combustion for Low-Single-
+    Digit NOx Gas Turbines,” Journal of Engineering for Gas Turbines and Power 127 (2005): 27-35. 
+3. J.H. Lee and D.L. Trim, “Catalytic Combustion of Methane,” Fuel Processing Technology  42 (1995): 339-359; R.A. Dalla 
+    Betta,  “Catalytic Combustion Gas Turbine Systems:  the Preferred Technology for Low Emissions  Electric Power Production 
+    and Co-generation,” Catalysis Today 35 (1997): 129-135; P. Forzatti and G. Groppi, “Catalytic Combustion for the Production 
+    of Energy,” Catalysis Today  54 (1999): 165-180.
+4. R.J. Farrauto, M.C. Hobson, T. Kennelly, and E.M. Waterman, “Catalytic Chemistry of Supported Palladium for Combustion 
+   of Methane,” Applied Catalysis A: General  81 (1992): 227-237; R.J. Farrauto, J.K. Lampert, M.C. Hobson, and E.M. 
+   Waterman, “Thermal Decomposition and Reformation of PdO Catalysts; Support Effects,” Applied Catalysis B: Environmental  
+    6 (1995): 263-270; J.G. McCarty “Kinetics of PdO Combustion Catalysis,” Catalysis Today  26 (1995): 283-293; N.M. 
+    Rodriguez, S.G. Oh, R.A. Dalla-Betta, and R.T.K. Baker, “In Situ Electron Microscopy Studies of Palladium Supported on 
+    Al2O3, SiO2, and ZrO2 in Oxygen,” J. Catalysis  157 (1995): pp. 676-686.
+5. R.A. Dalla Betta, T. Shoji, K., Tsurumi, and N. Ezawa (1994). “Partial Combustion Process and a Catalyst Structure for Use 
+    in the Process,” U.S. Patent No. 5,326,253; T. Furuya, K. Sasaki, Y. Hanakata, T. Ohhashi, M. Yamada, T. Tsuchiya, and Y. 
+    Furuse (1995). “Development of a Hybrid Catalytic Combustor for a 1300°C Class Gas Turbine," Catalysis Today  26 (1995): 
+    345-350; Y. Ozawa, Y. Tochihara, N. Mori, I. Yuri, T. Kanazawa, and K. Sagimori,  “High Pressure Test Results of a 
+    Catalytically Assisted Ceramic Combustor for a Gas Turbine,” ASME Paper No. 98-GT-381, Stockholm, Sweden, 2-5 June 
+    1998; R. Carroni, V. Schmidt, and T. Grifﬁn, “Catalytic Combustion for Power Generation,” Catalysis Today  75 (2002):  287-
+    295.
+6. S.T. Kolaczkowski, “Catalytic Stationary Gas Turbine Combustors: A Review of the Challenges Faced to Clear the Next Set of 
+    Hurdles,” Trans. I. Chem. E. 73 Part A (1995): 168-190; D.B. Fant, G.S. Jackson, H. Karim, D.M. Newburry, P. Dutta, K.O. 
+    Smith, and R.W. Dibble,  “Status of Catalytic Combustion R&D for the Department of Energy Advanced Turbine Systems 
+    Program,” Journal of Engineering for Gas Turbines and Power 122 (2000): 293-300.
+7. M. Lyubovsky, L.L. Smith, M. Castaldi, H. Karim, B. Nentwick, S. Etemad, R. LaPierre, and W.C. Pfefferle, “Catalytic          
+           Combustion over Platinum Group Catalysts: Fuel-Lean versus Fuel-Rich Operation,” Catalysis Today  83 (2003): 71-84. 
+       8. R.E. Hayes and S.T. Kolaczkowski, Introduction to Catalytic Combustion (Amsterdam: Gordon and Breach Science Publishers, 
+           1997); E.M. Johansson, D. Papadias, P.O. Thevenin, A.G. Ersson, R. Gabrielsson, P.G. Menon, P.H. Bjornbom and S.G. Jaras,    
+           “Catalytic Combustion for Gas Turbine Applications,” Catalysis 14 (1999): 183-235; also see note 6 (Kolaczkowski). 
+       9. R.J. Rollbuhler, “Fuel-Rich, Catalytic Reaction Experimental Results,” 27th Joint Propulsion Conference, Sacramento, CA, 
+           24- 27 June 1991, NASA Technical Memorandum 104423, AIAA Paper No. 91-2463; T.A. Brabbs and S.A. Merritt, “Fuel-Rich  
+           Catalytic Combustion of a High Density Fuel,” NASA Technical Paper 3281 (1993). 
+       10. G.O. Kraemer, (1996). “Fuel-Rich Catalytically Stabilized Combustion for Aircraft Engine Applications,” Ph.D. thesis, Yale   
+             University. 
+       11. M.B. Colket, A.S. Kesten, J.J. Sangiovanni, M.F. Zabielski, D.R. Pandy, and D.J. Seery (1993). “Method and System for  
+ 
+             Combusting Hydrocarbon Fuels with Low Pollutant Emissions by  Controllably Extracting Heat from the Catalytic Oxidation   
+             Stage,” U.S. Patent No. 5,235,804. 
+       12. J.P. Kesselring, W.V. Krill, E.K. Chu, and R.M. Kendall.  In proceedings of New fuels and advances in combustion   
+ 
+             technologies symposium, Mar. 26-30, 1979, New Orleans, LA.
+13. W.C. Pfefferle, L.L. Smith, and M.J. Castaldi (2002). “Method and Apparatus for a Fuel-Rich Catalytic Reactor,” U.S. Patent   
+             No. 6,358,040.
+14. See note 2 (Smith). 
+       15. L.J. Spadaccini, and M.B. Colket, “Ignition Delay Characteristics of Methane Fuels,” Prog. Energy Combust. Sci. 20 (1994):   
+            431-460. 
+Dr. Lance Smith, Dr. Hasan Karim, Dr. Shahrokh Etemad, Dr. William C. Pfefferle
+
+284
+284
+       16. See note 2 (Smith).
+       17. L.L. Smith, S. Etemad, M.J. Castaldi, H. Karim, and W.C. Pfefferle (2002). “Method and Apparatus for a Fuel-Rich Catalytic   
+             Reactor,” U.S. Patent No. 6,394,791.
+       18. United States Department of Energy (2000). Clean Coal Technology Topical Report Number 19, “Tampa Electric Integrated   
+             Gasiﬁ cation Combined-Cycle Project, An Update” July 2000; GE Power Systems (2002). “Gas Turbine and Combined Cycle   
+             Products,” available at www.gepower.com/corporate/en_us/assets/gasturbines_heavy/prod/pdf/gasturbine_2002.pdf; R.D. 
+             Brdar and R.M. Jones (2000). “GE IGCC Technology and Experience with Advanced Gas Turbines,” GE Power Systems  
+ 
+             Report No. GER-4207, October 2000.
+3.2.2.1 Fuel-Rich Catalytic Combustion
+
+3.2.2 Catalytic Combustion & 3.2.2.1 Fuel-Rich Catalytic Combustion
+Dr. Lance L. Smith is a senior research & development engineer in the Gas Turbine Products 
+group at Precision Combustion, Inc. (PCI), and a visiting assistant professor in the Engineering 
+Department at Trinity College.  Dr. Smith has 14 years experience in combustion research and 
+combustor development, including work in turbulent non-premixed combustion, premixed 
+combustion and premixing, aerodynamic design of combustor components, pulsed combustion, 
+and catalytic combustion.  His academic research has been primarily experimental, with a focus on 
+laser-based measurements in ﬂ ames, including work conducted as a visiting researcher at Sandia 
+National Laboratories and as a post-doctoral researcher at UCLA.  Dr. Smith is a principal engineer 
+of, and holds multiple patents for, the RCLTM catalytic reactor.  At PCI, he works with OEM gas 
+turbine manufacturers to develop integrated catalytic combustion systems for ultra-low emissions 
+gas turbines.  A graduate of Brown University (B.S., 1986) and of University of California, Berkeley 
+(M.S., 1990 and Ph.D., 1994), Dr. Smith is an elected member of the Tau Beta Pi and Sigma Xi 
+honor societies, and a member of the Combustion Institute.
+Dr. Lance L. Smith
+Gas Turbine Group, Precision Combustion, Inc.
+410 Sackett Point Road, 
+North Haven, CT 06473
+BIOGRAPHY  
+
+Dr. Shahrokh Etemad
+Gas Turbine Group, Precision Combustion, Inc.
+410 Sackett Point Road, 
+North Haven, CT 06473
+phone: (203) 287-3700 x217
+email: setemad@precision-combustion.com
+Dr. Shahrokh Etemad as Manager of Gas Turbine Products at Precision Combustion, Inc. (PCI) 
+in North Haven, Connecticut, has full responsibility for technical and commercial development 
+of two major products.  He manages an advanced technology group to develop low-emissions 
+combustion products in close collaboration with several OEM gas turbine engine manufacturers 
+and the U.S. Department of Energy.  Dr. Etemad is responsible for budgeting, funding opportunities, 
+technology direction, proposal preparation and complete R&D operations including concept 
+development, computational analysis, experimental testing, full-size performance demonstration 
+and productionization.  Prior to his present position at PCI, he worked for several years at Textron 
+Lycoming and United Technologies, Carrier. Dr. Etemad has published 28 technical articles and 
+holds 28 patents in the ﬁeld of turbomachinery, combustion, and thermoﬂuid systems.  He earned 
+bachelor’s and master’s degrees at Sussex University and University of London respectively, and 
+received his Ph.D. from the University of Washington in 1984.  He has been a member of ASME 
+since 1995 and won the 2003 ASME Gas Turbine award.
+
+Dr. Hasan Karim is a senior research & development engineer at Precision Combustion, Inc. (PCI), 
+where his responsibilities include design, development, analysis, numerical and computational 
+ﬂuid dynamics, and testing of catalytic combustors for natural gas, syngas, and liquid fuel.  He is 
+the principal investigator for the catalytic combustor development project for the U.S. Navy and 
+lead engineer for the catalytic pilot and catalytic combustor for downhole combustion programs. 
+After receiving a bachelor’s degree from Indian Institute of Technology-Kharagpur in 1987, Dr. 
+Karim earned his M.S. from New Jersey Institute of Technology in 1991, and his Ph.D. from Yale 
+University in 1998.  He is a co-inventor of air-cooled rich and lean reactor technology.
+Dr. Hasan Karim
+Gas Turbine Group, Precision Combustion, Inc.
+410 Sackett Point Road, 
+North Haven, CT 06473
+
+Dr. William C. Pfefferle
+Gas Turbine Group, Precision Combustion, Inc.
+410 Sackett Point Road, 
+North Haven, CT 06473
+Dr. William C. Pfefferle invented the original catalytic combustor for gas turbine engines in the 
+early 1970s and now holds over 90 U.S. patents.  In 1986, Dr. Pfefferle co-founded Precision 
+Combustion, Inc. (PCI), a Connecticut-based company dedicated to developing clean and efﬁ cient 
+technology for clean air.  His research has led to important industrial advances such as the RCL 
+catalytic combustor for ground power gas turbine engines, which is now in late-stage development 
+and evaluation by several major gas turbine manufacturers, and the Microlith catalytic reaction 
+system, which forms the basis for paradigm-shift, high heat mass transfer catalytic reactors for 
+fast-lightoff automotive catalytic converters and fuel processor reactors.  With a B.S. in Chemical 
+Engineering from Drexel University (1944) and a Ph.D. in Physical Chemistry from the University 
+of Pennsylvania (1952), Dr. Pfefferle is a member of the American Chemical Society (ACS), and 
+received the ACS 31st Northeast Regional Industrial Innovation Award.  He was inducted into the 
+New Jersey Inventor’s Hall of Fame in February 1990.  He continues to work full-time to develop 
+catalytic devices for clean and efﬁ cient energy.

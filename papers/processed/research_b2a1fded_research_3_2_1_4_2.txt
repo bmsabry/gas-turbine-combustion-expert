@@ -1,0 +1,786 @@
+241
+241
+3.2.1.4.2-1 Introduction
+ 
+Lean-premixed (LP) combustion technologies have been adopted by virtually 
+every industrial gas turbine manufacturer as a Dry Low NOx (DLN) method to meet 
+emissions regulations which are being implemented in the US and in many regions 
+worldwide. But to meet more stringent ultra-low emissions standards being proposed, 
+the DLN combustors have to operate at conditions near the lean limit of their stability 
+envelopes where noise, instability, ﬂ ame blowoff, and ﬂ ashback can seriously affect 
+engine performance. To mitigate these potential problems much effort has been devoted 
+to explore passive control, e.g., fuel and/or air staging, and active control, e.g., feed-
+back loop, strategies. Other alternatives invoke more costly exhaust gas clean up or 
+catalytically assisted combustion. Undoubtedly, utilization of these new schemes would 
+lead to more complex combustion devices consisting of tightly controlled sensors and 
+actuators as well as many auxiliary components. For coal-based syngas engines the 
+instability problems are further exacerbated due to the variability of the fuel contents. 
+Therefore the injectors as well as the combustors have to be optimized or re-engineered 
+to accommodate the changes in the combustion properties. Because most turbine 
+combustors are designed for natural gas, they may not be readily adaptable or scalable 
+to burn IGCC fuels. 
+ 
+One promising solution to resolve fuel ﬂ exibility issues of IGCC turbines 
+is a novel premixed combustion technology that operates on a unique low-swirl 
+combustion (LSC) concept. Originally developed at the Lawrence Berkeley National 
+Laboratory as a small laboratory research burner (about 15 kW) for fundamental 
+studies, a good understanding of its operating principle has been obtained1. This 
+patented combustion concept  is based on exploiting the aerodynamic properties of the 
+propagating premixed ﬂ ames2. It is a simple, robust, and readily adaptable technology 
+for industrial process burners and gas turbine combustors to meet stringent emissions 
+targets without signiﬁ cantly altering their system conﬁ gurations, efﬁ ciencies, turndown, 
+and costs. LSC has been commercialized for industrial process heaters as low-swirl 
+burners (LSB). Products of 150 kW to 7.5 MW (0.5 to 25 MMBtu/hr) with ultra-low 
+emissions of 4 – 7 ppm NOx and CO (both @3% O2) have been available since late 
+2003. Central to the commercialization pathway was the scientiﬁ c knowledge obtained 
+from laboratory studies that has provided critical information for scaling as well as 
+resolving system integration issues. LSC is also being adapted for natural gas turbines. 
+Rig tests of prototype low-swirl injectors (LSI) for 10 MW size engines show it to be a 
+very promising and cost-effective solution as “plug-in” injector replacements to enable 
+current DLN turbines to meet the emission targets of < 5 ppm (@ 15% O2) for both NOx 
+and CO.
+ 
+The LSC concept is readily adaptable for burning other hydrocarbons and 
+hydrogen enriched fuels. Its operating principle is based on matching the ﬂ owﬁ eld 
+to the turbulent premixed ﬂ ame speeds of ultra-lean premixed ﬂ ames. Laboratory 
+measurements of ﬂ ame speeds and ﬂ ame temperatures for the alternate fuels will be 
+necessary to obtain basic information for optimizing the LSC design. This strategy has 
+already been applied to develop fuel-ﬂ exible industrial LSBs. Prototypes have been 
+tested with propane, ethylene, natural gas diluted with ﬂ ue gases (up to 40%), and reﬁ nery 
+gases with large hydrogen constituencies (up to 50% H2). The main technical issue for 
+adapting LSI to IGCC syngas turbines concerns the signiﬁ cantly different combustion 
+properties of the two principal types of gasiﬁ ed coal fuels. Typical compositions of 
+the syngas from oxygen blown coal gasiﬁ cation are 25% H2, 40% CO, 20% H2O, 
+with a lower heating value of 200 BTU/ft3. With the addition of CO2 separation and 
+sequestration, the syngas composition shifts to mostly hydrogen at 65-85% H2, and 
+15-35% H2O. These syngases have diverse combustion properties and the LSI needs 
+to be optimized for the slower and faster burning ﬂ ames (compared to natural gas) at 
+operating conditions where the ﬂ ame temperatures are sufﬁ ciently low to prevent NOx 
+formation. Other concerns stem from the high H2 diffusivity and short auto-ignition 
+delay time. Therefore, issues on system integration will need to address the impact 
+on ﬂ ashback, blow-off, light-off, shut-down, off-load, and load following. Currently, 
+the research activities have been limited to proof-of-concept laboratory experiments 
+using hydrogen and hydrogen/hydrocarbon blended fuels. More extensive laboratory 
+studies will be necessary to develop basic LSI designs optimized for syngases and the 
+accompanying scaling rules and engineering guidelines.
+Low Swirl Combustion
+3.2.1.4.2
+Robert K. Cheng
+Lawrence Berkeley National 
+Laboratory
+MS70-108B, 1 Cyclorton Road
+Berkeley, CA 94720
+phone: (510) 486-5438
+email: rkcheng@lbl.gov
+
+242
+3.2.1.4.2-2 Principle of Low-swirl Combustion and Technology Transfer History
+ 
+Swirling ﬂow burners have been essential to both premixed and non-premixed combustion systems because of their signiﬁcant 
+beneﬁcial inﬂuences on ﬂame stability, and combustion intensity, as well as the combustor performance. Until now, gas turbine 
+combustors and industrial systems utilized a high-swirl type of burner in which the swirling motion generated by the injector (or burner) 
+is sufﬁciently high to produce a fully developed internal recirculation zone at the entrance of the combustor. For conventional non-
+premixed combustion, the role of the large recirculation zone, also know as the toroidal vortex core, is to promote turbulent mixing 
+of the fuel and air. In premixed DLN systems, the recirculation zone provides a stable heat source for continuous ignition of the fresh 
+reactants. Refer to the review of Syred and Beer for extensive background on the basic processes and practical implementation of high-
+swirl combustors3.
+ 
+Low-swirl combustion is a relatively recent development. It is an excellent tool for laboratory research on ﬂame/turbulent 
+interactions4.  Its operating principle exploits the “propagating wave” nature of premixed ﬂames and is not valid for non-premixed 
+combustion. Premixed ﬂames consume the reactants in the form of self-sustained reacting waves that propagate at ﬂame speeds controlled 
+by the mixture compositions, the thermodynamic conditions, and turbulence intensities. In contrast, non-premixed diffusion ﬂames do 
+not propagate (i.e., move through the reactants) because burning occurs only at the mixing zones of the fuel and oxidizer streams. To 
+capture a fast moving turbulent premixed ﬂame as a “standing wave” that remains stationary, low-swirl combustion exploits a ﬂuid 
+mechanical phenomenon called a divergent ﬂow. As the name implies, divergent ﬂow is an expanding ﬂow stream. It is formed when the 
+swirl intensities are deliberately low such that vortex breakdown, a precursor to the formation of ﬂow reversal and recirculation, does 
+not occur. Therefore, the LSC principle is fundamentally different from the high-swirl concept of typical DLN gas turbines where strong 
+toroidal vortexes are the essential ﬂow elements to hold and continuously re-ignite the ﬂames.
+ 
+The original LSB for laboratory studies known as the jet-LSB is shown in ﬁgure 15. This burner is essentially a cylindrical tube 
+of 5.08 cm diameter ﬁtted with a tangential air swirler section consisting of four small inclined jets of 0.63 cm in diameter. Reactants at 
+a given fuel air equivalence ratio is supplied to the bottom of the tube. After passing through a turbulence generating plate, the reactants 
+stream interacts with the tangential ﬂow supplied through the jets. The size of the air-jets is kept small so that the swirling motions cling 
+to the inner wall of the burner tube and do not penetrate into the center. When the ﬂow exits the burner, centrifugal force due to the 
+swirling motions causes the ﬂow to expand and diverge. This divergent ﬂow has a non-swirling core surrounded by a swirling shroud that 
+weakens progressively downstream. Within the non-swirling center core, the adverse mean axial pressure gradient is accompanied by a 
+linear decrease in the mean axial velocity. This velocity “down ramp” provides a very stable ﬂow conﬁguration for a premixed turbulent 
+ﬂame to freely propagate and settle at a position where the local ﬂow velocity is equal and opposite to the ﬂame speed. The ﬂame does 
+not ﬂashback into the burner because it cannot propagate faster than the velocity at the burner exit. Blow off is also mitigated because 
+the center non-swirling core provides a broad region where the ﬂame naturally settles. More importantly, over mixture inhomogeneity or 
+slight ﬂow transients cause only a shift in the ﬂame position so that the likelihood of catastrophic ﬂameout is minimized. This is a robust 
+self-adjusting mechanism for the ﬂame to withstand transients and changes in mixture and ﬂow conditions.
+Fig. 1. 
+A jet-LSB demonstrates the principle of low-swirl ﬂame stabilization.
+
+243
+ 
+The ﬂow feature crucial to ﬂame stabilization is illustrated by the axial velocity proﬁles. Plotted in ﬁgure 2 are measurements 
+obtained by laser Doppler velocimetry (LDV) published in Yegian and Cheng’s article where the effects of enclosure were evaluated 
+by placing the jet-LSB inside quartz cylinders of 7.62 cm diameter, 20 and 30 cm in length with or without an exit constriction of 5.4 
+cm diameter to simulate typical combustor enclosures6. The experimental conditions were CH4/air ﬂames with φ = 0.8 and 18.5 kW 
+corresponding to a bulk ﬂow velocity of U0 = 3.0 m/s. From the mean axial velocity (u) proﬁles (top), it can be seen that the velocity 
+at the burner exit is slightly lower than U0 (about 70%). In the region just outside the exit (x < 20 mm), a linear decaying trend (with 
+increasing x) shown on all the U/U0 proﬁles is the characteristic feature of ﬂow divergence. The leading edge of the ﬂame brushes are 
+marked by the abrupt upturn in the proﬁles at 20 < x < 40 mm. These increases are due to combustion-generated ﬂow acceleration. The 
+minimum velocity on the U/U0 proﬁles corresponds to the velocity normal to the leading edge of the turbulent ﬂame brushes and offers 
+a convenient means to determine the turbulent ﬂame speed, ST. Studies of ST using the jet-LSB show that a linear correlation exists 
+between ST and turbulence intensity over a very broad range of turbulence intensities 7. This is an important property that enables the 
+LSC concept to be scaled to the capacities of very large industrial combustion systems.
+ 
+Technology transfer of LSC began with adaptation to residential pool heaters of 15 to 90 kW (50 to 300 KBtu/hr). These 
+small domestic heaters are consumer products. To be price competitive they can only accept very simple and low-cost technologies that 
+utilize rudimentary electronic controls. A LSB that has separate control for swirl jets and combustion air was deemed too elaborate to be 
+economically and practically feasible. Therefore the key task was to develop a simpler burner that is easy to manufacture and requires 
+few controls. The outcome of this work was a patented vane-swirler that has since been adapted for gas turbines.
+ 
+The main challenge in the swirler development process was a lack of relevant background knowledge on low-swirl ﬂows. 
+All prior research efforts on swirl combustion emphasized the generation of strong and stable ﬂow recirculation. Extensive laboratory 
+experimentation by LDV led to the design of ﬁgure 3. This LSB was sized for domestic heaters of 18 KW with a radius Rb of 2.54 cm. 
+The unique feature of the swirler is a center by-pass channel (Rc = 2 cm) to allow a portion of the reactants to pass without being swirled 
+by the outer annulus swirl vane section ﬁtted with eight straight blades inclined at an angle α of 37.5°. The novelty of this design is 
+the use of a perforated screen to control the ﬂow-split between the unswirled core and the swirled annulus. The screen also produces 
+turbulence in the center unswirled core. Because turbulence scales with ﬂow velocity, it provides a crucial feedback control mechanism 
+for the ﬂame to accelerate and decelerate in response to changes in bulk ﬂow, i.e. load change. The perforated screen ﬁtted to the LSB in 
+ﬁgure 3 has 3 mm holes arranged in a rectangular grid to give 81% blockage. By recessing this swirler assembly inside the burner tube 
+at a distance, L, this burner produces the key ﬂowﬁeld features same as the jet-LSB.
+Robert K. Cheng
+Fig. 2. 
+Velocity proﬁle showing that enclosures have little effect 
+on the ﬂame stabilization mechanism of a jet-LSB with CH4/air 
+ﬂame of φ = 0.8 at 18.5 kW (reproduced with permission from 
+Combustion Science and Technology). 
+ 
+Source:  D.T. Yegian and R.K. Cheng, “Development of a Lean 
+Premixed Low-Swirl Burner for Low NOx Practical  Applications,” 
+Combustion Science and Technology 139 no. 1-6 (1998):  207-227. 
+
+244
+ 
+ 
+As show in ﬁgure 4, the ﬂame generated by the LSB is lifted with a bowl shape slightly different than the one produced by a 
+jet-LSB. To demonstrate an exceptional feature of the LSC concept, all the components of the LSB in ﬁgure 3 were made of plastic to 
+show that it does not receive signiﬁcant heat from the ﬂame. This has important practical signiﬁcance because the burner suffers little or 
+no material degradation due to a substantial reduction in thermal stresses.
+ 
+Subsequent to the development for pool heaters, several projects have been pursued to adapt LSB to industrial and commercial 
+heaters. The efforts began by conducting parametric studies of LSB by varying Rb (2.54, 3.8, 5.1 and 6.35 cm) Rc (0.5 < R = Rc/Rb < 
+0.8), α (37o to 45ο), and L (1 < L/Rb < 4). Also investigated were other geometric variations such as the number of vanes, vane types (i.e. 
+,straight and aerodynamically shaped). types of center screens and their placement positions. The laboratory experiments and ﬁeld tests 
+were all performed with natural gas. The scientiﬁc foundation obtained for LSC has been most valuable to support data analyses and to 
+devise solutions that meet speciﬁc operational and performance requirements.
+ 
+These studies proved that the LSB design 
+is robust. To investigate turndown, the smallest 
+LSB with Rb= 2.54 cm was ﬁred in the open and 
+generated stable ﬂames from 10 to 600 kW that 
+remained stationary despite the 60 to 1 change in 
+input rate. At the lowest thermal input of 10 kW, 
+the bulk ﬂow velocity Uo corresponds to 1.7 m/s. 
+This is the minimum allowable operating point 
+for natural gas ﬁring. Flashback becomes likely 
+if Uo were reduced further because the velocity at 
+the burner exit would be too close to the ST. The 
+minimum Uo criterion to avoid ﬂashback applies 
+unequivocally to the larger burners because the 
+LSB subscribes to constant velocity scaling. This 
+simply means that the thermal input of LSB is 
+directly proportional to Uo and Rb
+2. The effects 
+of enclosure geometry on LSB performances 
+was also investigated by testing several versions 
+of the Rb = 6.35 cm LSB in boilers and furnaces 
+at 150 kW to 2.3 MW. The results showed that 
+vane shape and screen placement had little effect 
+on ﬂame noise, ﬂame stability, and lean blow 
+off. Most signiﬁcantly, emissions of NOx depend 
+primarily on φ. As shown in ﬁgure 5 by the NOx 
+emissions from LSB of various sizes, the trends 
+with φ are similar despite differences in thermal 
+inputs and combustor geometries to show its 
+capability to accept different fuels. Additional 
+tests of the 6.35 cm LSB were performed with 
+alternate fuels including natural gas diluted with 
+up to 40% ﬂue gases and reﬁnery gases with 
+hydrogen constituent up to 50%. 
+3.2.1.4.2 Low Swirl Combustion
+Fig. 3. 
+Schematics of a vane swirler developed for the low swirl burner.
+Fig. 4.    A vane-LSB ﬁring at 18KW.                                                
+
+245
+ 
+In 2003, Maxon Corporation commercialized a line of industrial LSBs called M-PAKT burners. These products are developed 
+for direct process heat applications of 0.3 to 1.8 MW (1- 6 MMBtu/hr) with a guarantee of 4 – 7 ppm NOx and CO (both at 3% O2) 
+throughout its 10:1 turndown range. With these ultra-low emissions, the M-PAKT burners meet the most stringent air-quality rules in 
+the U.S. As shown by the schematic in ﬁgure 6, the M-PAKT burner has a very simple compact design consisting of the swirler with 
+air supplied by a blower through a plenum and a multi-port natural gas injector delivering fuel just upstream of the swirler. The control 
+system is standard with conventional mechanical linkages and ﬂow dampers. The exceptional performance of these commercial LSBs 
+demonstrates that the implementation of LSC not only provides very effective emissions control but also improves system performance 
+and reliability by eliminating the need for elaborate controls and intricate auxiliary components. The economic and operational beneﬁt 
+of this approach cannot be understated. In their continuing effort to commercialize LSC technology, Maxon engineers applied the 
+scaling rules described in the next section to design a new LSB product of 7.5 MW (25 MMBtu/hr). The ﬁrst installation was complete 
+in February 2005. This large burner has a radius Rb of 25.4 cm and has an improved 20:1 turndown. It also incorporates a liquid fuel 
+injector for dual-fuel ﬁring.
+3.2.1.4.2-3  Scaling rules and 
+engineering guidelines
+ 
+The current size range of LSB from the smallest 
+laboratory 7 kW unit of Rb = 1.27 cm to the largest 7.5 MW 
+industrial burner represents a scaling factor of over 1000. 
+This has been accomplished by using a set of scaling rules 
+for the geometric variables and engineering guidelines 
+for the LSBs to meet system integration and operational 
+requirements. These design rules and guidelines are the 
+signiﬁcant outcomes of the technology development efforts. 
+They represent the synthesis of the knowledge gained from 
+extensive laboratory experiments and analyses based on 
+theories on ﬂame temperature, ﬂame speeds, and reaction 
+chemistry as well as combustion aerodynamics, turbulence, 
+and turbulence/ﬂame interactions. Though these rules and 
+guidelines have been developed for natural gas, similar 
+guidelines can be obtained for other fuels to account for the 
+resulting changes in combustion properties.
+Robert K. Cheng
+Fig 5.  NOx emissions of LSB in furnaces and boilers of 300 kW to 1.8 MW.
+Fig. 6. 
+Emissions and schematic of a commercial LSB 
+manufactured by Maxon Corporation, Muncie, Indiana.
+
+246
+ 
+Central to the scaling rule is the deﬁnition of a swirl number, S, for the LSB. It is derived from the formal deﬁnition of S based 
+on the ratio of angular to axial ﬂow momentum 8:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (1)
+ 
+where Gang is the angular momentum in the swirled section and G’x is the linear momentum ﬂux through the unswirled center 
+core and the swirled annulus. These terms can be calculated by integrating the mean axial, U, and the mean swirl, W, velocity components 
+across the burner exit. However, this deﬁnition is not convenient because velocity data are not usually available. For engineering 
+applications, a swirl number deﬁnition based on the geometry of the device is more amenable. With the assumption that the distribution 
+of the axial ﬂow remains ﬂat, and U and W at the burner exit are kinematically related to the blade angle as tan α = U/W , the axial ﬂux 
+of angular momentum in the annular section is then written as follows: 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+          
+         (2)
+ 
+Here, Ua is a mean axial velocity supplied through the swirl annulus. By assuming ﬂat axial velocity distribution, the linear 
+momentum ﬂux from the two regions of the burner is then calculated as follows:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (3)
+ 
+where Uc is a mean axial velocity through the center core. With Equation (1) as deﬁned, the geometric swirl number for the vane 
+swirl burner is then:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (4)
+ 
+Here, R is the ratio of centerbody to burner radii R= Rc / Rb. It is simpliﬁed further when Uc/Ua is expressed in terms of m the 
+mass ﬂux ratio (ﬂow-split) 
+a
+c m
+m
+m
+
+/
+=
+ through the centerbody (
+c
+m) and annular (
+a
+m). The mass ﬂux ratio is the same as the ratio 
+of the effective areas of the center core and the swirl annulus and can be determined simply by the use of standard ﬂow pressure drop 
+procedure. Obviously, it is a more convenient form for engineering designs.
+ 
+The scaling rules were deduced from studying the inﬂuences of varying S, L and Rb on the burner operation. To start, the 
+LSB prototype of ﬁgure 2 was used as a benchmark with its swirl number varied by the use of four different screens with 65 to 75% 
+blockage. The swirl numbers were 0.4 < S < 0.44 corresponding to m of 0.8 to 1 meaning that 44 to 50% of the reactants bypassed the 
+swirl annulus. These swirlers installed with L varied from 4 to 12 cm. The 16 LSBs with various combinations were tested with methane 
+air ﬂames at 5 < U0 < 25 m/s covering a thermal input range of 18 to 90 kW. All burners were found to be operable. Increasing S pulled 
+the ﬂame closer to the burner but the lean blowoff (LBO) remained relatively unaffected indicating that the performance of the LSB is 
+not highly sensitive to a small variation in S. The differences were mainly with ﬂame positions and the fuel/air equivalence ratio at lean 
+blowoff, φLBO . Large swirler recesses generated a highly lifted ﬂame but the overall ﬂame stability remained relatively unchanged. A 
+short recess distance produces higher φLBO indicating a compromise in the capability to support ultra-lean ﬂames. 
+ 
+Additional studies were performed to explore the impact of radius Rb as well as R (0.5 to 0.8) and α (30° to 45°). The swirl 
+numbers of the burners with various combinations of Rb, R and α were varied by ﬁtting them with screens of different blockages. The 
+most signiﬁcant ﬁnding was that the LSBs with larger diameters Rb operate at the same range of S (around 0.4 to 0.5) as the smaller 
+burner. Their performances in terms of ﬂame stability and  φLBO were also identical. Moreover, decreasing R has no effects on emissions 
+or performance but brings about a signiﬁcant beneﬁt in lowering the pressure drop of the LSB. This can be explained by the fact that 
+reducing R enlarges the swirl annulus and lowers its drag. To maintain a swirl number of 0.4 to 0.5, a screen of lower blockage is 
+required. For example, the screen used for the Rb = 6.35 cm with R = 0.5 has a 60% blockage compared to 65 to 81% needed for the R = 
+0.8 LSB. This combination effectively lowers the overall pressure drop of the burner. The drag coefﬁcients determined for the different 
+LSBs show them to depend only on R and independent of Rb. This knowledge is very important in the design of LSBs that will meet the 
+various system requirements and efﬁciency targets.
+3.2.1.4.2 Low Swirl Combustion
+
+247
+ 
+The scaling rules for the LSB were established from these results. They are the same regardless of burner radius (up to Rb = 
+25.4 cm). For stable and reliable operation, S of a LSB should be between 0.4 and 0.55. The swirler can have straight or curved vanes 
+with angle α from 37 to 45o. The optimum center channel to burner radius ratios R can be from 0.5 to 0.8. Once α and R are deﬁned, 
+the blockage of the center channel screen can be varied to set S within the range of 0.4 to 0.5. In addition, L can be from 2 to 3 times 
+the burner radius Rb. To determine the appropriate burner size, Rb, guidelines have been developed to optimize for the desired thermal 
+input range, turndown, fuel pressure, fan power (pressure drop), combustion chamber size, and other physical constraints. The criterion 
+for minimum thermal input is a bulk ﬂow velocity of Uo = 3 m/s. This is simply the ﬂashback point for natural gas (U0 ≈ 1.7 m/s) with 
+a built-in safety factor. There is no restriction on the maximum thermal input owing to the high turndown (at least 20) available. To 
+optimize for the fuel pressure and fan power, the drag coefﬁcient for different R can be used. The optimum enclosure radius for the LSB 
+is between 3 to 4 times Rb. Smaller enclosures restrict ﬂow divergence and forces the ﬂame to move inside the burner. Larger enclosures 
+allow the ﬂame to over-expand and generate internal ﬂow patterns that negatively affect emissions. These rules and guidelines are easy 
+to apply and are versatile enough to provide many design options to build simple and low cost LSBs for easy integration to existing or 
+new systems.
+3.2.1.4.2-4  Flowﬁeld characteristics and their relevance to ﬂame stability
+ 
+Low-swirl combustion exploits combustion aerodynamics. 
+Understanding the ﬂowﬁeld characteristics of LSB and how these 
+characteristics affect ﬂame properties is central to the future 
+development of the technology for IGCC turbines. Laboratory 
+experiments remain an important step to provide an understanding 
+of the underlying mechanisms that enable LSB to maintain its 
+performance over a large range of conditions. The advent of 
+Particle Image Velocimetry (PIV) has greatly facilitated the 
+characterization of the LSB ﬂowﬁelds. In a recent investigation, a 
+series of experiments were conducted to investigate the evolution 
+of ﬂow and ﬂame features with increasing Uo. PIV captures in 2D 
+the velocity distributions in a relatively large region. Our system 
+was conﬁgured to have a 13 x 13 cm ﬁeld-of-view covering the 
+entire ﬂame region of the laboratory burners. Shown in ﬁgure 7 
+is an example of the velocity vectors and turbulence stresses for 
+a LSB with S = 0.53, Rb = 2.54 cm, R = 0.5, α = 37o and L = 6.3 
+cm burning a methane/air ﬂame of φ = 0.8 and Uo = 5.0 m/s. The 
+leading edge of the ﬂame brush is outlined by the broken line. These 
+velocity vectors show that the LSB ﬂowﬁeld is relatively uniform 
+and free of steep velocity gradients. The background contours of 
+the positive (red) and negative (blue) shear stresses also show that 
+high turbulence stresses are relegated to the outer edges where the 
+reactants mix with the room air. The center ﬂow entering the ﬂame 
+brush is in fact relatively free of large shear stresses. The absence 
+of high stresses means that the ﬂames are much less vulnerable 
+to stress induced non-uniform heat release and local quenching 
+at ultra-lean conditions. This feature is very unlike those in other 
+burners where steep velocity gradients are found at the ﬂame 
+stabilization region and the shear stresses can lead to premature 
+ﬂame blowoff. 
+ 
+The evolution of the ﬂowﬁeld with Uo was investigated 
+by applying PIV at 5 < U0 < 17.5 m/s. Shown in ﬁgure 8 are the 
+normalized axial velocity proﬁles from the non-reacting cases. The 
+fact that the proﬁles of the normalized axial velocity, U/U0, and 
+the normalized two-component turbulent kinetic energy, q’/U0 (q’ 
+= ((u’2 + v`2)/2)1/2) collapse to their respective trends shows that the 
+LSB ﬂowﬁeld exhibits similarity feature. Similarity is also shown 
+by radial proﬁles of U/Uo and V/Uo meaning that the key ﬂowﬁeld 
+features are preserved at different bulk ﬂow velocities.
+ 
+Robert K. Cheng
+Fig. 7.  Velocity vectors and shear stresses (background 
+contours) obtained in Rb = 2.54 cm LSB with methane air ﬂame 
+of φ = 0.8 and U0 = 5 m/s. White dash line marks the leading 
+edge of the ﬂame brush.
+
+248
+3.2.1.4.2 Low Swirl Combustion
+Fig. 8. Normalized centerline proﬁles of non-reacting ﬂow 
+produced by a laboratory LSB showing self similarity features.
+ 
+ 
+Flowﬁeld similarity explains why the ﬂame maintains at a relatively ﬁxed position regardless of U0. This can be illustrated by 
+invoking an equality at the leading edge position of the ﬂame brush, xf, (typically at 1.5 < x < 2.5 cm for this LSB).
+ 
+ 
+ 
+ 
+ 
+                
+ 
+ 
+ 
+(5) 
+ 
+Here, xo is the virtual origin of the linearly divergent portions of the axial proﬁles and has a negative value. As discussed earlier, 
+ST of the LSB is linearly dependent on the rms velocity of the turbulence u’ such that ST = SL (1+ K u’) where SL is the laminar ﬂame 
+speed and K is an empirical constant that is in the order of 2.5 for methane. Substituting this into Eq. 5 and dividing both sides by Uo 
+results in
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+(6) 
+ 
+The similar feature of the U/Uo proﬁles means that the normalized axial divergence rate (i.e., (dU/dx)/Uo) has a constant value 
+( ≈ 8 m-1 from data of Fig 8a). On the right hand side, (1 + K u’)/Uo tends to a constant value for large u’. This is because the turbulence 
+at the ﬂame stabilization point is isotropic such that u’ scales linearly with U0 as expected of turbulence produced by a perforated plate. 
+Therefore, if SL is held constant, (i.e., at a ﬁxed φ) the ﬂame position xf attains a constant value that is independent of Uo and u’. As long 
+as the ﬂow similarity is preserved, the ﬂame can be held at the same position. Changing φ will have an insigniﬁcant effect on xf because 
+the range of SL for CH4 air ﬂames (0.2 to 0.5 m/s) is small compared to the other values and constants in Eq (6). This analysis also shows 
+that the turbulent ﬂame speed ST is the important combustion parameter to consider when adapting the LSC for different fuels.
+ 
+However, measurements and predictions of ST are still active areas of fundamental research and data for the type of fuels IGCC 
+turbines utilize are unavailable. But a lack of scientiﬁc ST data does not present a signiﬁcant technical hurdle because the LSI developed 
+for natural gas can be the benchmark to be adjusted for the slower and faster burning syngases. From Eq. (6) it can be seen that faster 
+burning gases (e.g., high H2 constituents) need a lower divergence rate. Conversely, the slower burning gases (e.g., highly diluted 
+syngas) need higher divergence rates. Of course, there are other combustion characteristics such as heat release ratios and preferential 
+diffusion of the fuel components (e.g. between H2 and CH4) that need to be considered. From our studies of methane, ethylene, propane, 
+and hydrogen ﬂames, contributions from these other factors tend to be of secondary nature.
+a)
+b)
+
+249
+Robert K. Cheng
+3.2.1.4.2-5 Development of low-swirl injectors for natural gas turbines
+ 
+To adapt low-swirl combustion for gas turbines the most pressing question is whether or not this ﬂame stabilization method 
+is operable at elevated temperatures and pressures. To seek an answer, a jet-LSB of Rb = 3.8 cm was constructed for proof-of-concept 
+test at Solar Turbines, San Diego. Successful ﬁring of this LSB at typical gas turbine combustor inlet temperatures (220 and 341°C), 
+pressures (5 and 10 atm), and loads (0.6 to 1.2 kg/s air) showed the concept to be valid. Light-off of the LSB was easy even at elevated 
+temperatures and pressures. The ﬂame remained very stable and free of unacceptable pressure ﬂuctuations towards lean blow-off. The 
+trends of the jet-LSB emissions were also typical of other DLN injectors but the overall concentrations of NOx and CO were higher. This 
+was caused by the poor mixing from a rudimentary fuel spoke injector and signiﬁcant dilution from the nitrogen swirl jets.
+ 
+Following the proof-of-concept tests the next logical step was to design and evaluate a vane LSI prototype. The lack of 
+relevant background knowledge on low-swirl ﬂows and turbulent ﬂame speeds at gas turbine conditions remained the main obstacle. To 
+circumvent this difﬁculty and reduce engineering design efforts and prototype fabrication costs, a decision was made to pursue a fast-
+track developmental path which exploited, as much as possible, the current injector hardware parts. Because the annulus swirler is the 
+main component of Solar Turbines’ SoLoNOx Taurus 70 high-swirl injectors (HSI), the preferred option was to investigate if the HSI 
+swirler could be converted to operate in the low-swirl mode.
+ 
+The LSI (Fig. 9 a-c) converted from the HSI (Fig. 9 (e-f) has the same basic conﬁguration as the LSB. The SoLoNOx swirler 
+(Fig. 9c) has a modular design such that the solid centerbody can be easily removed to form the center-channel for the LSI (Fig 9b). 
+Thus, the two key parameters of the LSI, α (40o) and R (0.63), are ﬁxed by SoLoNOx swirler having an outer radius of 3.27 cm and 
+a centerbody radius of 2.06 cm with 16 aerodynamically shaped curved vanes. To conﬁgure the other LSI parameters, S and L, the 
+guidelines for atmospheric LSB were followed. The swirler recess of L = 9.5 cm satisﬁes the 2 < L/Rb, < 3 criterion. The swirl number, 
+S, was set between 0.4 and 0.55 by the use of center channel screens with blockage of 50 to 73%. These screens were ﬁtted to the LSI 
+and tested at laboratory conditions with CH4/air mixtures at a range of stoichiometry and a ﬁxed bulk ﬂow velocity, U0 = 5 m/s (≈ 35 
+kW). The optimum was a 58% blockage screen that stabilized the ﬂame at 1.5 to 2.5 cm downstream of the injector exit. From effective 
+area measurements, m for this LSI was 0.3, thus 23% of the reactants passed through the center channel unswirled. This gave a swirl 
+number S of 0.5 for the LSI. In comparison, the swirl number determined for the HSI was 0.73. Even though the difference in S between 
+LSI and HSI is slight, ﬁgure 9f shows that the HSI ﬂame is attached to the centerbody while the LSI ﬂame of ﬁgure 9c is detached.
+Fig. 9.  Schematics and photographs of the LSI (top a-c) and the HSI (bottom d-f)
+
+250
+ 
+The ﬂowﬁelds of the LSI and the HSI ﬂames were also investigated by PIV9. Figure 10 shows the results obtained for CH4/air 
+ﬂames with φ = 0.8 at 87 kW. Under these conditions, the bulk velocities for the LSI and HSI were 9.6 and 12 m/s respectively. To 
+illustrate the differences between the ﬂowﬁelds of the two injectors, streamlines have been traced from the velocity vectors. For the 
+LSI, its ﬂowﬁeld features are essentially the same as those of the LSB of ﬁgure 3. The spreading of the streamlines near the bottom 
+corresponds to the divergent ﬂow and their slight bends through the ﬂame brush are associated with heat release effects. Downstream 
+of the ﬂame brush, the streamlines are relatively parallel showing a uniform ﬂow of the hot products. The color ﬂooded contours of the 
+shear stresses in the background illustrate again that the ﬂame does not experience high stresses.
+ 
+In contrast, the ﬂowﬁeld of the LSI is characterized by several high shear regions with the ﬂame zones encountering the highest 
+stress levels. These large velocity ﬂuctuations with very steep instantaneous local gradients make the ﬂame vulnerable to stress-induced 
+non-uniform heat releases as well as local ﬂame extinctions. Downstream of the ﬂame, strong recirculation is shown by the streamlines 
+forming into two separate loops. This is the crucial ﬂow structure for HSI that provides a steady source of hot products for igniting 
+the incoming reactants and holding the propagating ﬂame. The PIV results clearly show that HSI ﬂowﬁelds are dominated by very 
+large velocity gradients and vortex structures. With the LSI ﬂowﬁeld showing more uniformity, the ﬂame characteristics and behavior 
+produced by the two injectors are fundamentally different.
+ 
+Subsequent to the laboratory tests, the LSI was evaluated to determine its operability at gas turbine conditions as well as its 
+effectiveness in lowering emissions. The ﬁrst set of tests was performed with preheated air at atmospheric pressure to observe ﬂame 
+positions, ﬂame shift with Uo, and sensitivity to mixture homogeneity. Visual observation during these tests showed that the locations of 
+the ﬂames were not highly sensitive to U0, φ and initial temperature T0. Flashback did not occur throughout the test matrix. The ﬂame 
+size was similar to that of the HSI ﬂame indicating that the LSI can use the same combustor liner. Tests performed with two premixers 
+with +/- 3% and +/- 10% mixture uniformity showed no effects on NOx emissions, overall ﬂame behavior and ﬂame characteristics.
+3.2.1.4.2 Low Swirl Combustion
+Fig. 10.  Streamlines and shear stresses of HSI and LSI burner CH4/air ﬂames at φ = 0.8 and 87 kW. 
+The turbulent ﬂame brushes are outlined by the white dash lines.
+
+251
+Robert K. Cheng
+ 
+Next the LSI was ﬁtted to a standard ﬁlm-cooled 
+combustor liner and tested in a high pressure combustion 
+rig. The combustor rig-test matrix covering To of 360 to 
+430°C, P0 of 5 to 15 atm and air ﬂow of 0.4 to 1.33 kg/s 
+represented the partial and full load conditions of Solar 
+Turbines’ SoLoNOx engines of 5 to 7 MW. Successful 
+ﬁring of the LSI at these conditions showed that its 
+operating range is fully compatible with that of the 
+HSI. Throughout these tests, there were no indications 
+of shifting in ﬂame positions or ﬂashback. Excessive 
+acoustic amplitudes were not observed and peak rms 
+acoustics pressures were generally below the allowable 
+3.4 kPa established for production hardware. Figure 11 
+shows NOx and CO emissions from the LSI (corrected to 
+15% O2) compared with the emissions of HSI. Due to the 
+variation in T0 and P0, the combustion temperature was not 
+proportional to φ. Instead, the emission data was plotted 
+against the theoretical adiabatic ﬂame temperature Tad 
+(for the combustor-rig Tad was calculated for the primary 
+zone). As can be seen, all the NOx emissions from LSI 
+collapsed onto a consistent trend that crossed the 5 ppm 
+threshold at Tad < 1920K. The strong correlation of NOx 
+emissions with Tad showed that thermal NOx was the predominant reaction pathway. In comparison, NOx emissions of HSI were generally 
+higher and only approached the 5 ppm NOx threshold before LBO. The over 2.5 times NOx emissions reduction offered by LSI represents 
+a signiﬁcant improvement of DLN technology. Moreover, these results imply that the LSI can operate farther away from LBO (higher 
+Tad) where it is less prone to combustion oscillation. Although the CO emissions in ﬁgure 8b do not show a consistent trend, all but one 
+point from the high T0 and P0 runs is below 5 ppm. Therefore, the LSI does not entail compromising CO for the sake of lowering NOx.
+ 
+The emissions from LSI rig-tests are very encouraging and show that the LSI has the potential to bring about a substantial 
+reduction in NOx emissions from DLN gas turbines without incurring signiﬁcant add-on cost or system complexity. The lowest NOx 
+emission of < 2 ppm (at 15% O2) is comparable with those from the more costly and much less durable catalytic combustor. Despite 
+the complexity of the NOx formation mechanisms, the ﬂowﬁeld characteristics of LSI may provide an explanation for why it is highly 
+effective in reducing NOx. Recent studies of high-swirl combustion have shown a correlation between NOx emissions and the residence 
+time within the recirculation zone. Trapped by the recirculation vortex, a portion of the combustion products resides for a prolonged 
+period at high temperature, which allows the NOx formation mechanism to continue and increase in concentrations. The PIV results 
+show clearly that the LSI does not have a recirculation zone to trap a large recirculating mass, therefore, the residence time of the hot 
+products in a LSI is much shorter than in a HSI and truncates NOx formation in the post ﬂame region.
+ 
+Continuing the effort to develop the LSI for SoLoNOx turbines, additional tests were conducted to show that the emissions 
+and ﬂame stability of LSI are not highly sensitive to mixture inhomogeneity. Its design can easily incorporate components needed for 
+normal engine operations, e.g., plenum, liner, ignitor, pilot, and premixer. Therefore, adaptation of LSI to current engines does not 
+require signiﬁcant hardware modiﬁcations or change in control strategy or protocol. Currently, an engine-ready LSI prototype has been 
+designed and has undergone a series of single-injector rig tests to verify its readiness for start up, shutdown, load change and ofﬂoad. It 
+uses the production swirlers made for Solar Turbine’s Taurus 70 engines integrated with a pilot and a multi-spokes fuel injector similar 
+to the kind used in current HSIs. The prototype LSIs have been designed to be backward-compatible as “drop-in” replacements for the 
+current HSIs.
+3.2.1.4.2-6 Development of LSI for IGCC
+ 
+The development of LSI for natural gas turbines shows that laboratory research is directly applicable to engineering of the 
+turbine hardware. This process is efﬁcient and cost effective and does not require extensive computational ﬂuid dynamics efforts. The 
+same approach is being taken to adapt the LSI concept for IGCC turbines. Currently, progress has been limited to proof-of-concept 
+laboratory demonstration of LSI burning hydrogen and hydrogen/hydrocarbon blended fuels. Much more extensive laboratory studies 
+will be necessary to obtain better understanding of the properties of the various syngas ﬂames to conﬁgure the LSI to accommodate 
+the changes in the reactivity, diffusivity and exothermicity. The laboratory studies will also be used for developing scaling rules and 
+engineering guidelines that can be applied to IGCC gas turbines of different sizes.
+ 
+Due to the different constituencies and concentrations of the two principal types of gasiﬁed coal fuels, accommodating the 
+variability in fuel properties is the main challenge in adapting the LSC technology for IGCC turbines. From oxygen-blown coal 
+gasiﬁcation, typical compositions of the syngas are 25% H2, 40% CO, 20% H2O. This fuel has a lower heating value of only 8.3 Mj/m3 
+compared to 42 Mj/m3 for natural gas. Due to the high level of dilution, the ﬂame speeds of this syngas are much lower than those of 
+natural gas and they also burn at lower ﬂame temperatures. The key design issue is to stabilize these weak and not highly ﬂammable 
+ﬂames without affecting engine operability. Mitigating NOx emissions will not be a signiﬁcant challenge due to the lowered ﬂame 
+Fig. 11.  NOx and CO emissions of natural gas LSI and HSI from  
+            rig-tests at 5 < P0 < 15 atm and 360C < T0 < 430°C.
+
+252
+3.2.1.4.2 Low Swirl Combustion
+temperatures. The second type of syngas is produced with CO2 separation and sequestration to change the compositions to mostly 
+hydrogen at 65-85% H2, 15-35% H2O. This syngas is much more ﬂammable with ﬂame speeds several times higher than natural if it 
+is not diluted by N2 from the air separation unit. The basic issues for LSI development are now shifted to stabilizing these potentially 
+faster ﬂames at very lean conditions where the ﬂame temperatures are sufﬁciently low to prevent NOx formations. Additional issues 
+arise due to the high diffusivity of H2 and its low ﬂammability limit. Moreover, H2 rich mixtures have shorter auto-ignition delays than 
+hydrocarbon mixtures. Therefore, integration of the LSI with fuel injection and premixer will be a signiﬁcant part of the development.
+ 
+To gain insights on some of these issues, a study was performed with a LSB of Rb = 2.54 cm, R = 0.6 by burning blended 
+mixtures of laboratory grade CH4 and H2 with concentrations progressively varied from pure CH4 to pure H2. The test conditions were 
+the same (Uo = 10 m/s) as the conditions for the original laboratory experiments performed to develop the natural gas LSI. While this 
+LSB was found to burn pure H2-air ﬂames, a limiting ﬂame phenomenon was found. Shown in ﬁgure 12 is the ﬂame stabilization map 
+obtained for the CH4-H2 mixtures consisting of the (LBO) limit as well as an additional limit where partially rim-attached ﬂames were 
+observed. The LBO limit is the boundary between the blowoff region and the stable lifted ﬂame region. It has a decreasing trend towards 
+lower φ values with increasing H2. This is consistent with increasing ﬂammability due to the presence of H2. However, for a mixture 
+with more than 20% H2, the ﬂames transition from fully-lifted ﬂames to partially rim-attached ﬂames when φ is increased. The attached 
+ﬂame indicates that the mixing layer between the swirling reactants and the surrounding air has become ﬂammable. This is caused by 
+H2 diffusing preferentially into the surrounding ambient air when the overall fuel concentration increases with φ. Α partially attached 
+ﬂame is a consequence of the tail end of the lifted ﬂame curled back upstream to ignite the mixing zones. While this phenomenon does 
+not seem to affect the ﬂame at the center region, it alters the overall ﬂowﬁeld dynamics and how the ﬂame behaves within a combustor. 
+The limit for partially attached ﬂames also showed a decreasing trend with increasing H2 and thus the range of conditions for pure H2 
+ﬂames was very small. This phenomenon showed that the highly diffusive nature of H2 needs to be carefully considered in the design of 
+LSI for syngases.
+ 
+At test condition of U0 = 10 m/s, the 100% H2 ﬂames are close to the ﬂashback point. This is because of the high laminar ﬂame 
+speeds compared to those of methane. In accord with Eq. (6), the faster burning H2 ﬂames also sit closer to the burner exit. The close 
+proximity of the H2 ﬂames can be one of the contributing factors for the onset of partial ﬂame attachment. Therefore, to modify the 
+current natural gas LSB for syngases with high H2 constituency, the ﬂame needs to be maintained at a position further downstream. This 
+can be accomplished by relaxing the normalized divergence rate (dU/dx)/Uo through lowering of the swirl number S. Conversely, for 
+syngases with low heating values, the current LSB will generate ﬂames that are further downstream and this is not optimum. To draw 
+these ﬂames closer to the burner exit, it would be necessary to increase the normalized divergence rate by increasing S. This illustrates 
+that the ﬂame speed is the important parameter for engineering the LSI for 
+different fuels.
+ 
+Consequently, adjusting the LSI swirl number for each fuel is the 
+ﬁrst step toward development for IGCC turbines. Using the natural gas LSI as 
+a benchmark, the strategy is to determine the S range for different fuels with 
+various dilution levels. The results will be analyzed to obtain operating maps 
+expressed in terms of S, Tad, and φ. Using the ﬂame temperature and NOx 
+emissions as the reference parameters, these maps will guide the development 
+of fuel-ﬂexible LSI prototypes that can accommodate several fuel types. 
+Reﬁnement of the designs to further optimize for differences in combustion 
+characteristics such as exothermicity, preferential diffusion of the fuel 
+components (e.g., between H2 and CH4) and other non-linear behavior can be 
+accomplished through further rig tests with preheated air and at simulated gas 
+turbine conditions.
+ 
+As LSI technology is still under development, issues concerning its 
+full integration to gas turbine engines are still being investigated. The signiﬁcant 
+outstanding issue is, of course, the combustion oscillation characteristics of 
+the LSI. The interesting question from both the scientiﬁc and technological 
+perspectives is whether or not the absence of a large recirculation zone in the 
+LSI ﬂame will have an inﬂuence on the combustion oscillation characteristics. 
+From ﬁeld tests of atmospheric boiler and furnaces, the LSBs show relatively 
+low tendencies to incite combustion oscillations. Rig-tests of the LSI at 
+simulated gas turbine conditions also indicate the absence of a strong 
+characteristic acoustic signature from the ﬂame. Though these observations are 
+encouraging, the combustion oscillation characteristics of LSB and LSI need 
+to be investigated more systematically to gain a fundamental understanding 
+for addressing issues that may arise when the technology is adapted for more 
+complex systems such as IGCC gas turbines.
+Fig. 12. Stability limits of a Rb = 2.54 cm, R = 
+0.6 LSB for CH4-H2-air ﬂames at Uo = 10 m/s.
+
+253
+Robert K. Cheng
+3.2.1.4.2-7 Conclusions
+ 
+Low-swirl combustion (LSC) is a very promising simple, robust, and cost-effective solution to attain single-digit NOx operation. 
+Already commercialized for industrial process heaters and currently being adapted for natural gas turbines, development of LSC for 
+IGCC turbines can provide a simple and direct solution to resolve important complex coupling issues concerning fuel-variability, 
+reliability, and emissions. LSC exploits a patented combustion aerodynamic process to burn ultra-lean premixed turbulent ﬂames that 
+emit very low levels of NOx. Originally developed for basic research, a good understanding of its operating principle has been obtained. 
+The principle is fundamentally different than the high-swirl method used in all current DLN engines. Instead of relying on a very high 
+level of swirl to generate a well formed vortex to “hold” the ﬂame, LSC takes the opposite approach. By lowering the swirl intensity until 
+a recirculation zone is not formed, it generates a divergent ﬂow with a non-swirling center ﬂow region. Linear velocity decay within the 
+center region provides a stable ﬂow conﬁguration where the premixed ﬂame freely propagates and maintains itself at the position where 
+the local ﬂow velocity is equal and opposite to the turbulent ﬂame speed. Flash back is prevented because the ﬂame cannot propagate 
+faster than the velocity upstream. Blow-off is mitigated because the center ﬂow region provides a broad range of velocities where the 
+ﬂame naturally re-settles during occasional swings in ﬂow or mixture conditions.
+ 
+For practical implementations, the scientiﬁc background of LSC provides a sound foundation for the development of a patented 
+vane swirler. It consists of an annulus swirl vane section found in many other swirler designs but with an open center channel that allows 
+a portion of the reactants to remain unswirled. Laboratory experiments, prototype development and testing, and extensive analysis of the 
+ﬂow and emission data have produced a set of scaling rules and engineering guidelines that have been applied successfully to develop 
+and commercialize low-swirl burners (LSB) of 17 kW to 7.5 MW for meeting ultra-low emission goals of < 7 ppm NOx and CO at 5% 
+O2. Central to the rules and guidelines is a new deﬁnition of the swirl number based on the geometric variables that include the vane 
+angle, ratio of the center channel radius to burner radius, swirler recess, and the ﬂow split between the center core and swirled ﬂow. By 
+setting speciﬁc ranges for the swirl number and for the geometric variables, LSB can be conﬁgured to meet emissions goals as well as 
+system integration, performance, and operational requirements. These rules and guidelines have also been applied to develop low-swirl 
+injectors (LSI) for 5 to 7 MW gas turbine engines. To be compatible with existing engines, the LSI prototypes were made using the 
+key components engineered for current production high-swirl injectors. Single injector rig-tests of the LSI prototypes showed them to 
+emit < 5 ppm NOx and CO at 15% O2 at simulated part-load and full-load conditions. This represents a 2.5 times emissions reduction 
+compared to current DLN high-swirl combustion technology. These results also showed that atmospheric laboratory experiments are 
+directly applicable for designing and engineering of gas turbine hardware. Upon the completion of the single injector rig-tests, a set of 
+pre-production LSI prototypes is being fabricated for engine tests in late 2006. These prototypes have been designed to utilize many key 
+components from current production DLN high-swirl injectors and conﬁgured to be “drop-in” replacements for existing engines. Due to 
+the robust low-swirl combustion mechanism, the operability of the engine such as lightoff, shutdown, off load, and load change are not 
+expected to be affected when the new LSI are used. From system integration and cost standpoints, the most signiﬁcant feature of both 
+the LSBs and LSIs is that they can be fully compatible with current systems using some of the same components (i.e., plenum, swirler, 
+air compressors, blowers, premixer, pilots and ignitor) but with signiﬁcant performance improvements in terms of emissions, turndown, 
+and stability.
+ 
+The laboratory studies also provide the scientiﬁc insights necessary for adapting the technology to accept different gaseous 
+fuels. Measurements of the velocity distributions and turbulence statistics have shown that low-swirl produces self-similar ﬂowﬁelds 
+that scale linearly with bulk velocities (i.e., input power). Because premixed turbulent ﬂames propagate at turbulent ﬂame speeds that 
+also scale linearly with the turbulence intensity and bulk ﬂow velocity, the ﬂow and ﬂame features are coupled optimally to give LSC its 
+exceptional performances. Therefore, the adaptation of LSC to different IGCC syngases involves primarily the adjustment of the LSC 
+ﬂowﬁeld via the swirl intensity and other geometric variables to accommodate for the changes in the ﬂame speeds. Proof-of-concept 
+laboratory experiments have already been performed and have shown that LSC can burn pure H2/air ﬂames. The plan towards further 
+development for IGCC includes experimental measurements of the ﬂame speeds for syngases and developing guidelines for fuel-ﬂexible 
+LSIs. 
+
+254
+254
+3.2.1.4.2-8  Notes
+___________________________
+ 
+1. C.K. Chan et al., “Freely Propagating Open Premixed Turbulent Flames Stabilized by Swirl,”Proc. Comb. Inst., 24 (1992): 511-
+        518; B. Bedat and R.K. Cheng, “Experimental Study of Premixed Flames in Intense Isotropic Turbulence,” Combustion and 
+           Flame 100, no. 3 (1995): 485-494; R.K. Cheng, “Velocity and Scalar Characteristics of Premixed Turbulent Flames Stabilized 
+           By Weak Swirl,” Combustion and Flame 101, no.1-2 (1995): 1-14.
+ 
+2. R.K.Cheng, 1998. Ultralean Low Swirl Burner. U.S. Patent  5735681, (The Regents of the University of California), ﬁ led 
+            March 19, 1993  and issued  April 7, 1998; R.K. Cheng and D.T. Yegian, 1999. Mechanical Swirler for a Low-NOx Weak-
+            Swirl Burner. U.S. Patent  5,879,148, (The Regents of the University of California), ﬁ led April 16, 1997 and issued  March 9, 
+           1999 .
+ 
+3. N. Syred and J.M. Beer, “Combustion in Swirling Flow: A Review,” Combustion and Flame 23 (1974):  143-201.
+ 
+4. T. Plessing et al., “Measurement of the Turbulent Burning Velocity and the Structure of Premixed Flames on a Low Swirl 
+           Burner,” Proc. Comb. Inst. 28 (2000): 359-366; I. G. Shepherd et al., “Premixed Flame Front Structure in Intense Turbulence,” 
+           Proc. Comb. Inst. 29 (2002): 1833-1840; R.K. Cheng, et al., “Premixed Turbulent Flame Structures in Moderate and 
+         Intense Isotropic Turbulence,” Combustion Science and Technology 174, no.1(2002): 29-59; C. Kortschik, T. Plessing, and N. 
+           Peters, “Laser Optical Investigation of Turbulent Transport of Temperature Ahead of the Preheat Zone in a Premixed Flame,” 
+       Combustion and Flame 136, no.1-2 (2004): 43-50; L.P.H. de Goey et al.,  “Analysis of the Flame Thickness of Turbulent 
+           Flamelets in the Thin Reaction Zones Regime,” Proc. Comb. Inst. 30, no 1 (2005): . 859-866; also see 
+           note 2 above.
+ 
+5. See note 2 above (Bedat & Cheng).
+ 
+6. See note 1 above.
+ 
+7. See note 2 above (Bedat & Cheng).
+ 
+8. See note 4 above.
+ 
+9. M.R. Johnson et al.,  “A Comparison of the Flowﬁ elds and Emissions of High-swirl Injectors and Low-swirl Injectors for 
+ 
+    Lean Premixed Gas Turbines,” Proc. Comb. Inst. 30 (2005):  2867 - 287
+3.2.1.4.2 Low Swirl Combustion
+
+3.2.1.4.2  Low Swirl Combustion
+Robert K. Cheng
+Lawrence Berkeley National 
+Laboratory
+MS70-108B, 1 Cyclorton Road
+Berkeley, CA 94720
+phone: (510) 486-5438
+email: rkcheng@lbl.gov
+Dr. Robert K. Cheng is a Senior Scientist  and the leader of the Combustion Technologies Group 
+in the Environmental Energy Technolgies Division of Lawrence Berkeley National Laboratory. He 
+received a B. S., a M. S., and a Ph. D. in Mechanical Engineering from the University of California 
+at Berkeley. Since 1977, he has been leading experimental research on fundamental combustion 
+ﬂ uid mechanics with an emphasis on lean premixed turbulent ﬂ ames and has published over 
+sixty papers on fundamental turbulent ﬂ ame properties. His recent discoveries of novel ﬂ ame 
+stabilization concepts for ultra-low NOx combustion systems have generated three patents. These 
+technologies are in various stages of development and commercialization for industrial heating 
+equipment and gas turbines.
+BIOGRAPHY  

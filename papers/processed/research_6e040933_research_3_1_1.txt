@@ -1,0 +1,493 @@
+197
+3.1.1-1 Introduction
+ 
+The objective of this article is to provide the reader 
+with some background on blowoff and combustion instability, 
+often referred to as a combustor’s “static stability” and “dynamic 
+stability”.  In particular, this chapter will focus upon this 
+phenomenon in lean, premixed combustion systems operating 
+with any of a variety of fuels, such as natural gas or synthetic-
+gas.
+ 
+Blowoff refers to the ﬂ ame physically leaving the 
+combustor and “blowing out” of the combustor.  This issue is 
+often referred to as “static stability”.  Blowoff occurs when 
+the ﬂ ame cannot be anchored in the combustor.  Combustion 
+instability, or “dynamic instabilities” refer to damaging 
+oscillations driven by ﬂ uctuations in the combustion heat release 
+rate.  These oscillations cause wear and damage to combustor 
+components and, in extreme cases, can cause liberation of pieces 
+into the hot gas path and resulting damaging to downstream 
+turbine components.
+   
+3.1.1-2 Static Stability
+ 
+As the propagation speed of essentially all ﬂ ames is 
+substantially lower than ﬂ ow velocities in realistic systems, 
+special ﬂ ame stabilization systems are necessary to anchor the 
+ﬂ ame.  These include rapid expansions or bluff bodies in the ﬂ ow, 
+so that there is a re-circulating ﬂ ow ﬁ eld that recirculates hot 
+products back to the incoming reactants.  Swirling combustors 
+introduce this recirculation with purely aerodynamic means - the 
+ﬂ ow actually reverses direction and forms a recirculation bubble 
+when the ﬂ uid has a sufﬁ cient swirl number, a phenomenon 
+referred to as “vortex breakdown”.
+ 
+Whatever the stabilization method, a ﬂ ame can only be 
+stabilized in a combustor over a certain range of conditions, even 
+if those conditions lie within its ﬂ ammability limits.  For example, 
+at a ﬁ xed stoichiometry, as the ﬂ ow velocity is increased, at some 
+point the ﬂ ame will not be able to remain anchored but will blow 
+off.  Alternatively, at a ﬁ xed ﬂ ow velocity, as the equivalence 
+ratio is decreased, at some point the ﬂ ame blows off.
+ 
+Predicting blowout behavior is complicated by a lack 
+of understanding of the ﬂ ame characteristics at the stabilization 
+point.  Nonetheless, empirically anchored phenomenological 
+methods for correlating blowout behavior have been reasonably 
+successful.  Most approaches consider the ratio of two time 
+scales: a chemical kinetic time and residence time, τchem/τres. 
+The chemical time characterizes how much time is required 
+for the reaction while the residence time characterizes the time 
+which the reactants reside in the reaction zone1. This ratio is 
+often referred to as a combustor loading parameter.  Simply 
+put, if this residence time is shorter than the chemical time, the 
+ﬂ ame will blow off.  It must be emphasized that the detailed 
+ﬂ ow and chemical processes are much more complex than this 
+simple picture might suggest; nonetheless, more sophisticated 
+approaches generally reduce to a correlation of this form. 
+ 
+When applied to blowoff limits of premixed ﬂ ames, 
+this chemical time can be estimated as:
+197
+Timothy C. Lieuwen
+Associate Professor
+School of Aerospace Engineering
+Georgia Institute of Technology
+Atlanta, GA 30332-0150
+email: tim.lieuwen@aerospacegatech.edu
+3.1.1
+Static and Dynamic 
+Combustion stability
+
+198
+2
+L
+chem
+S
+α
+τ
+=
+    
+ 
+ 
+ 
+                          (1)
+where SL and α denote the laminar ﬂame speed and thermal diffusivity, 
+respectively2.  The residence time is generally scaled as d/Uref, where d and 
+Uref denote a characteristic length scale (e.g., a recirculation zone length) 
+and velocity scale, respectively.  Putting this together, blowoff limits 
+should scale with the Damköhler number:
+2
+res
+L
+chem
+ref
+S d
+Da
+U
+τ
+τ
+α
+=
+=
+.  
+ 
+ 
+ 
+          (2)
+ 
+ 
+Determining the correct length and velocity scale is not 
+straightforward.  Note that Uref need not directly scale with approach ﬂow 
+velocity, Uu, due to the acceleration of the burned gas3.  Since the burned 
+gas velocity scale is given by Ub=(Tb/Tu)Uu, then Uref =f(Uu, Tb/Tu).  Similar 
+considerations apply for the recirculation zone scale, d.  For this reason, 
+prior workers have often had to measure the recirculation zone length in 
+order to use Eq. (2) (e.g., see Ref 6.).  Furthermore, the chemical time 
+calculation is complicated by thermal-diffusive effects (i.e., H2  diffuses 
+much more rapidly than air or other fuels), as the local fuel/air ratio of the 
+mixture may differ from the global average.
+ 
+While clearly there are important issues such as appropriate choice 
+of length and velocity scale, Damköhler number scalings do a reasonable 
+job in scaling blowout data across a wide range of fuel compositions, as 
+shown in several prior publications.  As such, the manner in which the 
+blowoff trends of a system are affected by variations in fuel composition 
+can be inferred from the chemical kinetic times of the mixtures.  To 
+illustrate, ﬁgure 1, plots the dependence of the chemical time, upon fuel 
+composition of H2/CO/CH4 mixtures at a ﬁxed ﬂame temperature of 
+1900°K.  Note the order of magnitude variation in chemical time from the 
+fast H2 mixtures to slow CO mixtures.  One clear implication of this result 
+is that higher hydrogen mixtures will blowoff at leaner equivalence ratios, 
+as can be seen by ﬁgure 2, which plots the equivalence ratio of the mixture 
+at blowoff. 
+ 
+It should be emphasized that ﬂuid mechanics, and not just 
+chemical kinetics, must be accounted for in understanding how blowoff 
+limits will vary with composition.  Because the ﬂow ﬁeld and the ﬂame are 
+coupled, variations of the chemistry do impact the ﬂow.  
+3.1.1-3 Dynamic Stability 
+Overview
+Combustion instabilities refer to large amplitude oscillations of pressure, 
+heat release, velocity, and other variables inside the combustion chamber. 
+They often occur at discrete frequencies associated with the natural acoustic 
+modes of the combustor. Such instabilities have been encountered during 
+the development and operation of most high performance propulsion and 
+power generating devices.  They are spontaneously excited by feedback 
+between unsteady heat release and, generally, one of the natural acoustic 
+modes of the combustor. Their occurrence is usually problematic because 
+they produce large amplitude pressure and velocity oscillations that 
+result in enhanced heat transfer and thermal stresses to combustor walls, 
+oscillatory mechanical loads that result in low or high cycle fatigue of 
+system components, and ﬂame blowoff or ﬂashback. 
+Fig. 1. Dependence of chemical time (ms) 
+upon fuel composition at ﬁxed adiabatic ﬂame 
+temperature of 1900°K [pressure is 4.4 atm with 
+460K reactants temperature] (reproduced with 
+permission from authors). 
+Source:  Q. Zhang, D. Noble, and T. Lieuwen, 
+“Blowout Measurements in a Syngas-Fired Gas 
+Turbine Combustor,”  Annual Pittsburgh Coal 
+Conference (2005).  
+0
+0.2
+0.4
+0.6
+0.8
+1
+0.2
+0.25
+0.3
+0.35
+0.4
+% H2
+φ at LBO
+Flame
+No Flame
+Fig. 2. Dependence of LBO equivalence ratio 
+upon H2 mole fraction at approach  ﬂow velocities 
+of 6 m/s and 4.4 atm combustor pressures, 460 
+K inlet temperature (reproduced with permisson 
+from authors). 
+Source:  See ﬁg. 1.
+
+199
+A generic feedback loop is shown in ﬁgure 3, illustrating the sequence 
+of events responsible for self-excited oscillations in the combustion 
+chamber: (1) Fluctuations in the velocity, pressure, fuel/air ratio, etc. excite 
+a ﬂuctuation in the heat release rate, (2) The heat release ﬂuctuation excites 
+acoustic oscillations, (3) The acoustic oscillations generate the disturbance 
+in Step (1) above, closing the feedback loop.  Depending upon the phase 
+between the pressure and heat release (discussed below), the ﬂame may add 
+or remove energy from the acoustic ﬁeld during each cycle, represented by 
+one complete loop in this diagram.  If the energy supplied to the acoustic 
+ﬁeld by the combustion process exceeds the energy losses of the mode, the 
+acoustic amplitude will grow in time until it saturates, at some limit, cycle 
+amplitude.  
+Generally, combustion instabilities occur at frequencies associated with 
+natural acoustic modes of the combustor. These include, e.g., bulk (i.e., 
+Helmholtz type oscillations), axial, and transverse (i.e., tangential and/or 
+radial) modes (see ﬁgure 4).  On occasion, however, the oscillations are 
+not associated with a purely acoustic mode and are excited by a coupled 
+“convective-acoustic mode, which occurs at frequencies lower than those 
+of purely acoustic modes.  Such oscillations occur when a hot gas packet 
+(due to, e.g., partial ﬂame extinction) or vortex convects through the nozzle, 
+where it excites an acoustic wave that propagates back to the ﬂame4, exciting 
+another convected wave, thus repeating the process. These types of modes 
+are often encountered in systems that are operating at conditions close to 
+ﬂame blowoff. 
+Why do Instabilities Occur?
+In order to understand why instabilities occur, we must understand why 
+the ﬂame adds energy to the acoustic ﬁeld.  Rayleigh’s Criterion describes 
+these conditions. Essentially, it states that heat release disturbances add energy 
+to the acoustic ﬁeld if the heat is added/removed to or from the gas when its 
+pressure is above/below its mean value. This statement is mathematically 
+described by the integral in Eq. (2).  This equation shows that the heat 
+addition process locally adds energy to the acoustic ﬁeld when the magnitude 
+of the phase between the pressure and heat release oscillations, θpq, is less 
+than ninety degrees (i.e., 0<| θpq|<90). Conversely, when these oscillations 
+are out of phase (i.e., 90<| θpq|<180), the heat addition oscillations damp the 
+acoustic ﬁeld.  
+Rayleigh’s criterion describes the conditions under which unsteady 
+heat release adds energy to the acoustic ﬁeld.  However, even if energy is 
+transferred from the combustion process to the acoustic ﬁeld, this does not 
+necessarily imply that the combustor is unstable – this can only happen 
+if the rate of energy supplied by the periodic combustion process to the 
+acoustic ﬁeld is larger than the rate at which acoustic energy is dissipated 
+within the combustor and/or transmitted through its boundaries.  
+Having established the conditions under which energy is added 
+to the acoustic ﬁeld by the ﬂame, we need to consider the mechanisms 
+through which these heat release disturbances are generated.  A number 
+of mechanisms can produce heat release ﬂuctuations in gas turbines, as 
+indicated in ﬁgure 5.  These include:
+1. Fuel Feed Line-Acoustic Coupling.  Pressure oscillations in the 
+combustor modulate the pressure drop across unchoked fuel nozzles. 
+This, in turn, modulates the fuel injection rate into the system, causing an 
+oscillatory heat release process that drives the acoustic oscillations.
+2. Equivalence Ratio Oscillations6. Combustor pressure oscillations 
+propagate into the premixer section where they modulate mixing processes 
+and fuel and/or air supply rates, thus producing a reactive mixture whose 
+equivalence ratio varies periodically in time. The resulting mixture is 
+convected into the ﬂame where it produces heat release oscillations that 
+drive the instability. 
+Heat Release
+Oscillations
+Acoustic
+Oscillations 
+Flow and 
+Mixture 
+Perturbations
+Fig. 3. Illustration of feedback loop responsible for 
+combustion instability.
+Longitudinal
+Transverse Radial Mode
+Transverse Azimuthal Mode
+Fig. 4. Longitudinal and transverse acoustic modes in 
+cylindrical combustors.
+Unsteady mixing, 
+vaporization, 
+atomization
+Fuel flow rate 
+oscillations
+Vortex/flame 
+interactions 
+Fuel/air ratio 
+oscillations
+Flame area and 
+reaction rate 
+oscillations
+Combustion 
+Products
+Flow rate 
+oscillations
+Fig. 5. Potential mechanisms of combustion instability.
+Timothy C. Lieuwen
+
+200
+4. Oscillatory Flame Area Variation7. Interactions of acoustic 
+velocity oscillations with the ﬂame cause periodic variation of the ﬂame 
+area and, thus, a periodic heat addition process that drives the acoustic 
+ﬁeld. 
+5. Vortex Shedding8. Large scale, coherent vortical structures due 
+to ﬂow separation from ﬂameholders and rapid expansions, as well as 
+vortex breakdown in swirling ﬂows, are often present in gas turbine 
+combustors, as shown in ﬁgure 6.  The vortical structures distort the 
+ﬂame and cause its surface area to oscillate, thus producing heat release 
+oscillations.
+ 
+Although the details are excluded here, one can show that 
+in order for any one of these mechanisms to be self-exciting, the 
+characteristic times related to the physical processes responsible for the 
+heat release disturbance must be of similar magnitude as the acoustic 
+period.  For example, if the mechanism is equivalence ratio oscillations 
+or vortex shedding, a combustion instability may occur when the 
+following relationship holds: 
+ 
+convect
+chem
+kT
+τ
+τ
++
+=
+ 
+ 
+ 
+                     (3)
+ 
+where τconvect refers to the time required for either the equivalence ratio oscillation or vortex to convect from its point of 
+formation to the “center of mass” of the ﬂame, τchem refers to the chemical delay time, T refers to the acoustic period, and k is a series of 
+constants whose value depend upon the combustion chamber acoustics9.  
+ 
+Fuel composition variations impact this relationship, Eq. (3), by affecting both characteristic times on the left of the equation. 
+Their impact on the chemical time is clear.  Their impact on the convective time delay can be better understood from the following 
+equation:
+ 
+(
+/
+) /
+convect
+Fl
+st
+L
+n
+L
+u
+τ
+=
++
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (4)
+where u refers to the mean ﬂow velocity, Lst refers to the ﬂame “standoff distance” from wherever the disturbance originates, LFl is the 
+ﬂame length, and n is a constant that determines the location of the ﬂame “center of mass”.  For example, an n value of ½ refers to a 
+ﬂame that is effectively concentrated at its midpoint.  
+ 
+Variations in fuel composition impact both the ﬂame standoff location, ﬂame length and the constant n (by altering the ﬂame 
+shape).  For situations where the ﬂame temperature remains constant, fuel composition impacts upon the ﬂame standoff location can be 
+approximately inferred from the turbulent ﬂame speed.  Increases in turbulent ﬂame speed cause the ﬂame to anchor farther upstream 
+and vice-versa.  If the ﬂame temperature varies as well, the situation is much more complex, as the recirculating ﬂow structure can be 
+altered as well in a complex manner.  
+ 
+Similar considerations apply for the ﬂame length, which also scales with the turbulent ﬂame speed.  One point worth emphasizing 
+is that no fuel is intrinsically more “stable” or “unstable” than another.  In other words, stability is determined by whether the equality 
+in Eq. (4) is satisﬁed – depending upon ﬂow velocity, ﬂame location, and a variety of other factors, any particular fuel can be either 
+stable or unstable.  This point is emphasized because it is sometimes stated, incorrectly, that the addition of hydrogen has a stabilizing 
+inﬂuence upon dynamic stability.  While hydrogen certainly does have a stabilizing inﬂuence on static stability, due to its high ﬂame 
+speed, hydrogen fueled combustors can  (and do!) become quite dynamically unstable.  One instance where hydrogen addition can 
+promote dynamic stability in general is under near blowout conditions where low frequency dynamic instabilities occur.  By promoting 
+a more statically stable ﬂame, hydrogen addition could potentially make these types of dynamic instabilities less problematic.  
+Growth and Saturation of Instabilities
+The amplitude of the instability grows if the rate of energy addition to the oscillations exceeds the rate of energy dissipation by 
+damping processes. As the amplitude of the oscillations increases, the energy addition and dissipation processes become amplitude 
+dependent and the amplitude of the oscillations attains its maximum value when the time average of the energy addition and removal 
+equal one another. The resulting oscillations are referred to as a limit cycle. The objective of this section is to consider the growth and 
+saturation of the instability amplitude. 
+The mechanisms that initiate combustion instabilities are typically grouped into linear and nonlinear categories. A linearly unstable 
+system is one that is unstable with respect to inﬁnitesimally small disturbances; e.g., a ball perfectly balanced at the crest of a hill.  
+To further illustrate the dependence of the stability and limit cycle of a system upon the amplitude of the oscillations, A, consider 
+the hypothetical, amplitude dependent, driving, H(A), and damping, D(A) processes, which are described in ﬁgure 8.  As shown, the 
+3.1.1 Static and Dynamic Combustion stability
+Fig. 6.  Computed image of swirling ﬂame distorted by 
+vortical structures (reproduced with permission of Y. 
+Huang and V. Yang).
+Source:  Y Huang and V. Yang, “Effect of Swirl on 
+Combustion Dynamics in a Lean-Premixed Swirl-
+Stabilized Combustor,” Proceedings of the Combustion 
+Institute 30 (2004):  1771-1778.
+
+201
+“driving” and “damping” curves intersect at the origin, indicating that a 
+zero amplitude oscillation is a potential equilibrium point. This equilibrium 
+point is, however, unstable, as any small disturbance that moves the system 
+away from the origin produces a condition in which H(A) is larger than 
+D(A), resulting in further growth of the disturbance. Because these two 
+curves diverge near the origin, their difference increases with amplitude, 
+implying that the amplitude growth rate increases with amplitude. 
+Nonlinear combustor processes control the dynamics of the 
+oscillations as the driving and damping processes become amplitude 
+dependent.  Figure 8 describes a situation where H(A) saturates and D(A) 
+increases linearly with the amplitude A, thus resulting in an intersection 
+of the two curves at the limit cycle amplitude, ALC. 
+A nonlinearly unstable system differs from a linearly stable one 
+in that it is stable with respect to small amplitude disturbances but is 
+unstable when subjected to disturbances whose magnitude exceeds a 
+certain threshold value, AT. A simple example of a nonlinearly unstable 
+system is a ball in a depression on the top of a hill. When pushed, this ball 
+returns to its equilibrium point as long as it is subjected to disturbances 
+with amplitude that does not get it over the side walls of the depression. 
+However, for sufﬁciently large disturbance amplitude, the ball rolls out of 
+the depression and down the hill. 
+Similar behavior may be observed in combustors. Although 
+nominally stable, if disturbed hard enough, the combustor may become 
+unstable.  A typical manifestation of combustors with this type of behavior 
+is hysteresis, where the parameter values where instability occurs differ 
+depending upon whether the parameter is increasing or decreasing. Figure 
+9 provides an example of the amplitude dependences of H(A) and D(A) 
+that produces the above discussed behavior. In this case, the system has 
+three equilibrium points where the driving and damping curves intersect. 
+Speciﬁcally, the damping exceeds the driving when A<AT, indicating that 
+A=0 is a stable ﬁxed point, as all disturbances in the range 0< A < AT decay 
+to A=0. The next equilibrium amplitude where the driving and damping 
+curves intersect is at the triggering amplitude, A =A T. This is an unstable 
+equilibrium point because any disturbance that shifts the system from this 
+point continues to increase in time. The third equilibrium point, A=ALC, is a 
+stable limit cycle. Thus, in such a system all disturbances with amplitudes 
+A<AT return to the stable solution A=0 and disturbances with amplitudes 
+A>AT grow until their amplitude attains the value A=ALC. Consequently, 
+two stable solutions exist at this operating condition. The one observed at 
+any point in time will depend upon the history of the system.  
+Two other phenomena are often observed in unstable combustors 
+under limit cycle conditions.  First, is the generation of harmonics.  In 
+other words, an instability at 251 Hz generates harmonic oscillations at 
+502 Hz, and possibly 753 Hz and higher harmonics as well.  Second, the 
+presence of oscillations also changes the mean ﬂame position and ﬂow 
+ﬁeld.  For example, the ﬂame may become either shorter or longer. 
+Unfortunately, the factors that inﬂuence the limit cycle instability 
+amplitude are very poorly understood.  As such, it is not possible to comment 
+on the inﬂuence of fuel composition upon instability amplitudes.
+A
+Driving/Damping
+D(A )
+H(A )
+A LC
+A T
+Fig. 8. Hypothetical dependence of the acoustic 
+driving, H(A) and damping, D(A), processes 
+upon amplitude, A, that produce triggering of 
+instabilities.
+A
+Driving/Damping
+D(A )
+H(A )
+A LC
+Fig. 7. Hypothetical dependence of the acoustic 
+driving, H(A) and damping, D(A), processes 
+upon the instability amplitude, A.
+Timothy C. Lieuwen
+
+202
+202
+3.1.1-4 Notes
+_________________________
+1. E.E. Zukoski, “Afterburners,” in Aerothermodynamics of Gas Turbine and Rocket Propulsion, G. Oates, Ed., 1997; D. 
+          Spaulding, “Some Fundamentals of Combustion,” Ch. 5, Butterworth Press:  London, 1955; J. Longwell, E. Frost, and M. 
+          Weiss, “Flame Stability in Bluff-Body Recirculation Zones,” Ind. Eng. Chem. 45 no. 8 :  1629-1633; S. Hoffmann, 
+          P. Habisreuther, and B. Lenze, “Development and Assessment of Correlations for Predicting Stability Limits of Swirling 
+          Flames,” Chemical Engineering and Processing 33 (1994):  393-400.
+2. S.L. Plee, and A.M. Mellor, “Characteristic Time Correlation for Lean Blowoff of Bluff Body Stabilized Flames,”  
+         Comb. Flame 35 (1979):  61-80; K. Radhakrishnan, J. Heywood, and R. Tabaczynski, “Premixed Turbulent Flame Blowoff 
+         Velocity Correlation Based on Coherent Structures in Turbulent Flows,” Comb. Flame 42 (1981):  19-33.
+3. See note 2 (Plee & Mellor).
+4. K. Yu, A. Trouve, and J. Daily, “Low-frequency Pressure Oscillations in a Model Ramjet Combustor,” J. Fluid Mech. 232 
+         (1991):  47-72; F. Marble and S. Candel, “Acoustic Disturbance from Gas Non-uniformity Convected Through a Nozzle,”  
+         J. Sound Vib. 55 (1977):  225-243.
+5. Donald W. Kendrick, Torger J. Anderson, and William A. Sowa, “Acoustic Sensitivities of Lean-Premixed Fuel Injectors in a       
+         Single Nozzle Rig,” ASME Paper #98-GT-382.
+6. T. Lieuwen, H. Torres, C. Johnson, and B.T. Zinn, “A Mechanism for Combustion Instabilities in Premixed Gas Turbine  
+ 
+         Combustors,” Journal of Engineering for Gas Turbines and Power 123 no. 1 (2001):  182-190.
+7. S. Candel, “Combustion Dynamics and Control:  Progress and Challenges,”  Proc. Comb. Inst. 29 (2002): 
+8. U.G. Hegde, D. Reuter, B.R. Daniel and B.T. Zinn, “Flame Driving of Longitudinal Instabilities in Dump Type Ramjet 
+          Combustors,” Comb. Sci. and Tech. 55 (1987):  125-138; K. Schadow and E. Gutmark, “Combustion Instability Related 
+          to Vortex Shedding in Dump Combustors and Their Passive Control,” Prog. Energy Combust. Sci. 18 (1992):  117-132.
+9. See note 6 above.
+3.1.1 Static and Dynamic Combustion stability
+
+Timothy C. Lieuwen
+Associate Professor
+School of Aerospace Engineering
+Georgia Institute of Technology
+Atlanta, GA 30332-0150
+email: tim.lieuwen@aerospacegatech.edu
+3.1.1 Static and Dynamic Combustion stability
+Dr. Tim. Lieuwen is an Associate Professor at the Georgia Institute of Technology.  He is an 
+active researcher in the areas of unsteady combustion phenomenon and acoustics. Dr. Lieuwen 
+is the author of 2 book chapters, and over 100 conference publications and journal articles.  He 
+is an Associate Editor of the Journal of Propulsion and Power.  Dr. Lieuwen has held various 
+leadership roles in the Air Breathing Propulsion technical committee of the American Institute of 
+Aeronautics and Astronautics (AIAA) and the Combustion and Fuels committee of the American 
+Society of Mechanical Engineers (ASME).  Dr. Lieuwen has served on the organizing committees 
+of several major international conferences sponsored by both AIAA and ASME.  Dr. Lieuwen’s 
+awards include the NSF CAREER Award, the AIAA Lawrence Sperry Award, and the ASME/
+IGTI Turbo Expo Best Paper Award.  
+BIOGRAPHY  

@@ -1,0 +1,2136 @@
+389
+4.4-1 Introduction
+ 
+The thermal efﬁ ciency and speciﬁ c output of a gas turbine are primarily 
+dependent on two major cycle parameters: the pressure ratio and the turbine 
+inlet temperature1. In an ideal Brayton cycle, thermal efﬁ ciency increases up 
+to stoichiometric temperatures and high-pressure ratios, without considering 
+losses, particularly, those associated with turbine cooling. Since turbine airfoil 
+materials melt at temperatures much lower than the stoichiometric temperatures, 
+hot gas-path components, such as turbine airfoils, must be cooled and attention 
+must be given to cycle parasitic losses. 
+ 
+The recognition of material temperature limitations has led to the 
+continuous turbine development programs for cooling technologies, material 
+development, and related multi-disciplinary disciplines of ﬂ uid dynamics, heat 
+transfer, aerodynamic performance, and structures, all aimed at the durability 
+of turbine hot-gas-path components. The pursuit of improved turbine materials 
+began long ago when the initial temperature limitations were found to be at 
+about 1500°F (800°C)2. Following this initial period, an intensive development 
+period took place when nickel-based alloys were developed and characterized 
+as having high creep resistance characteristics. Material improvements relaxed 
+temperature limitations by about 300°F (167°C)3. Further development of turbine 
+airfoil manufacturing techniques, such directionally-solidiﬁ cation castings 
+and single-crystal castings led to higher metal temperature capability. More 
+recently, numerous testing evaluations have been conducted to characterize new 
+hot-gas path material superalloys in terms of tensile, rupture, fatigue, creep, 
+toughness, corrosion and oxidation resistances, producibility, processing, and 
+other thermophysical properties4. Following extensive laboratory testing, actual 
+operating experience is gained with engine testing subject to real operational 
+environments culminating in mature levels of technology readiness levels for 
+production. 
+Today, many modern turbine airfoils use single crystal superalloys. 
+These are two-phase alloys with a large volume fraction of       precipitates, 
+based on the intermetallic compound, Ni3 Al, interspersed in a coherent face-
+centered cubic    matrix comprised of nickel, Ni, with smaller weight percent 
+of various other elements in solid solution5. These elements include: cobalt, 
+Co, aluminum, Al, chromium, Cr, tungsten, W, molybdenum, Mo, tantalum, 
+Ta, hafnium, Hf, rhenium, Re, and ruthenium, Ru. The elements Re and Ru are 
+introduced in the latest generation of single crystal alloys. All these elements 
+have different attributes which can be summarized as follows: Cr, Al, and 
+Hf are used as surface protection elements, Mo, W, and Ta are used in solid 
+solution strengthening, and Re and Ru are used for high creep strength6.
+ 
+The strength of these single crystal alloys is mainly a function of the 
+size and the percentage of      precipitates. Experimentally, it has been determined 
+that the peak creep strength is achieved with a volume fraction of    of 60%-
+65%7. Much of the behavior of these alloys can be explained on the basis 
+that high volume fraction    alloys deformation occurring by shearing of the 
+precipitates. The high volume fraction of precipitates precludes dislocation 
+bypass at low and intermediate temperatures forcing precipitate shearing. 
+However, the energies resisting dislocation shearing of the precipitates are 
+those required to form a local reversal of Al-Ni order or antiphase boundary 
+in stacking fault of the Ni3 Al superlattice. The energies associated with the 
+anti-phase boundary in the superlattice stacking faults determine the strength, 
+fatigue, and fracture characteristics of these alloys8. This is also evident by the 
+increase in yield strength at moderate to high temperatures before a monotonic 
+decrease in yield strength. As a result, the excellent high-temperature creep and 
+fatigue resistance of the superalloys is a result of a combination of solid-solution 
+strengthening, absence of deleterious grain boundaries, and high volume fraction 
+of precipitates that act as barriers to dislocation motion. It should be pointed-
+out, however, that fatigue crack initiation also depends on the microscopic 
+389
+4.4
+Heat Transfer Analysis
+Frank J. Cunha, Ph.D., P.E.
+Pratt & Whitney
+United Technologies Corporation
+5 Bruce Lane
+Avon, CT 06001
+Phone: (860) 565-8909
+Email: frank.cunha@pw.utc.com
+
+390
+defects, which can be categorized as intrinsic defects and deviant material defects. Intrinsic defects include carbides, undissolved 
+eutectic pools, and associated micro-porosity, concentrated in interdendritic regions of the casting.  Even though the intrinsic defects 
+are normal features of the alloy microstructure, deviant defects, such as crystallographic defects related to low and high angle grain 
+boundaries, freckles and silver grains, and porosity, are considered rejectable defects in the material quality that exceeds speciﬁed 
+limits. Modern single crystal superalloys are face-centered single crystal superalloys with cubic symmetry. As a result, there are 
+three independent mechanical properties that characterize the material behavior: the modulus of elasticity, E, the shear modulus, G, 
+and the Poisson ratio, v9. The mechanical and thermal-physical properties are also a function of temperature and change with crystal 
+orientation leading to anisotropic behavior of the material. After the casting process, a series of standard heat treatments, such as, 
+solution annealing, coating heat treatment, and precipitation heat treatment, are used to optimize microstructures of the material10. 
+ 
+In parallel to base material development, coatings were also developed to protect the base material from corrosion and 
+oxidation attack11. These coatings were designated as metallic bond coatings characterized as diffusion and overlay type coatings. 
+The substantive difference between the overlay and diffusion type coatings relies on the how the coating constituents are supplied. 
+For diffusion type coatings, the major constituents are supplied by the base metal; whereas, for overlay coatings, the constituents 
+are supplied by external coating sources. The advantage of overlay coatings is that more varied corrosion and oxidation resistant 
+compositions can be applied with increased bonding thickness. The surface roughness of bond coatings allow for the deposition 
+of ceramic type thermal barrier coatings. The addition of these coating systems onto single crystal superalloy substrate has further 
+relaxed the temperature limitations associated with the turbine inlet conditions. As the material development of coatings and base 
+material reach a culminating point, further increases in turbine inlet temperatures can only come from advanced airfoil cooling. Thus, 
+cooling and material technologies have permitted designs with turbine inlet conditions in excess of 3100°F (1700°C) with interface 
+bond-to-metal temperatures topping at 2050°F (1121°C) for durability requirements of oxidation, creep life, and fatigue cycles12. 
+ 
+Two of the most relevant parameters for measuring and assessing cooling performance of turbine airfoils are the cooling 
+effectiveness parameter and heat load parameter. By deﬁnition, this parameter is a dimensionless temperature ratio of gas-to-metal 
+temperature difference over the gas-to-coolant temperature difference13:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                            
+ 
+ 
+         (1)
+Clearly, if the cooling effectiveness is non-existent, or zero, there is no cooling effect; whereas, if the cooling effectiveness is equal to 
+unity, the airfoil metal and coolant temperature are the same. These two extreme values of either zero or unity are considered as outer 
+limits for cooling effectiveness parameter. In general, the cooling effectiveness lies in-between these two limits and characterizes the 
+performance of the cooling circuit inside the turbine airfoil. 
+ 
+The other parameter denoted as the heat load parameter is deﬁned as the ratio of internal heat to the external heat ﬂuxes as 
+follows14:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+               
+ 
+ 
+ 
+    
+         (2)
+ 
+Figure 1 illustrates cooling effectiveness for typical cooling conﬁgurations as a function of heat load parameter simpliﬁed here 
+just by the variable in cooling ﬂow15. The cooling effectiveness is naturally a function of many design variables, that is, the cooling 
+conﬁguration, and the coolant ejection requirements. It also a strong function of the amount of cooling medium used, usually measured 
+as percentage of the mainstream gas. As illustrated in ﬁgure 1, the cooling effectiveness increases rapidly with small amounts of 
+coolant. Then, the cooling effectiveness increases monotonically at a lower rate. This implies that for demanding thermal applications, 
+where the thermal load parameter is high, large amounts of coolant may be required. For state-of-the-art engines, turbine cooling air 
+and leakage may be as high as 25-30% of engine mainstream ﬂow. In terms of efﬁciency, and since the cooling air is drawn from the 
+compressor, which is driven by the turbine, it represents a direct loss of efﬁciency. In general, a very approximate rule-of-thumb of 1% 
+cooling air may represent a loss of a fraction of that percentage in speciﬁc fuel consumption. This leads to the obvious conclusion that 
+turbine cooling needs to be minimized. Clearly, this is not the only loss mechanism in the engine. Other losses may include mixing and 
+aerodynamic losses, such as proﬁle drag, skin-friction, gas diffusion, secondary ﬂows, tip clearance, boundary-layer separation, shocks, 
+losses due to off-design airfoil incidence angles, trailing edge vortex shedding, and blockage losses16. All these losses of engine cycle and 
+turbine efﬁciencies have to be set against the gains in running the engine at higher turbine inlet temperatures for maintaining required 
+output. Therefore, it is always necessary to reduce and optimize the cooling air requirements for a gas turbine engine design.
+ 
+In ﬁgure 1, the simplest cooling conﬁguration is characterized by the lowest cooling effectiveness. For instance, the radial 
+cooling holes in the middle of the airfoil cross-section will not permit air to eject from the airfoil walls into the gas mainstream, avoiding 
+ﬁlm cooling and corresponding ejection mixing losses. However, forced convection through the radial holes may not be sufﬁcient for high 
+
+391
+thermal load applications, and even at low thermal loads, 
+this simple cooling arrangement is likely to induce high 
+temperature gradients between the airfoil surface and the 
+cooling hole locations. An improved cooling arrangement 
+over the radial cooling hole arrangement is the multi-pass 
+serpentine cooling conﬁguration. In serpentine cooling 
+arrangements, coolant enters the airfoil through the blade 
+root inlet; passes though multiple circuits, cooling the 
+mid-body of the airfoil before ejecting out of the airfoil 
+through main body ﬁlm holes or trailing edge slots. The 
+leading edge, with high thermal loads, may be cooled with 
+dedicated cooling circuits. If the leading edge and the 
+mid-body circuits are combined and coupled together, one 
+can refer to these arrangements as cold-bridge or warm-
+bridge designs depending on the feed source. If the feed 
+coolant comes from the mid-body with freshly supplied 
+coolant, we have a cold-bridge cooling design; whereas, if 
+the feed comes from the mid-body with warmed coolant, 
+naturally after heat pick-up from the mid-body serpentine 
+arrangement, we have a warm-bridge cooling design. Since 
+the serpentine cooling circuits have large wet perimeters in 
+the turbine airfoil cross-section, it is possible to introduce trips on the airfoil internal wall to promote turbulence and enhance internal 
+coolant heat pick-up. Many trip conﬁgurations have been designed throughout the years of cooling technology development. These 
+include normal trips, skewed trips, and angled “chevron” trips with different orientations relative to the ﬂow, different trip heights, 
+different height-to-pitch ratios, different relative positioning with respect to each other, either in a staggered or in-line arrangements. 
+These different arrangements lead to different heat transfer characteristics enhancing heat pick-up by the coolant ﬂowing in the serpentine 
+passages tailored to minimize the effects of local external heat loads. 
+ 
+Further cooling improvements are obtained by the introduction of peripherally cooled airfoil designs. This is done to maintain 
+the greatest thermal gradient within a thin outer layer of the airfoil wall. In addition, the coolant can be ejected at many points around 
+the surface of the airfoil. This concept leads to an increase of convective cooling efﬁciency by means of peripheral cooling circuits. 
+This new parameter can also be regarded as a dimensionless temperature ratio of the difference between the exit coolant to inlet coolant 
+temperatures relative to the difference of metal to coolant inlet temperatures17:
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                      (3)
+If this ratio is non-existent, or zero, it is implied that exit coolant temperature and inlet temperature are the same, and thus, no heat 
+pick-up in the circuit. If the ratio is unity, then the exit coolant temperature and the metal temperature are the same. In this case, it is 
+said that the cooling circuit is 100% efﬁcient convectively. In general, serpentine cooling may be in the order of 15-30% efﬁcient. 
+However, dedicated airfoil peripheral cooling may be 30-60% efﬁcient. This is about 2X the convective efﬁciency values of typical 
+serpentine cooling. In addition to the improved convective characteristics, ﬁlm cooling can be used in many points of the airfoil. The 
+ﬁlm effectiveness is also a dimensionless parameter deﬁned as 18:
+ 
+ 
+ 
+ 
+ 
+                         
+ 
+ 
+ 
+ 
+ 
+ 
+                        (4)
+The overall cooling effectiveness, being a function of both the convective and ﬁlm cooling effectiveness, can be optimized for 
+any cooling arrangement. If the ﬁlm exit shape is optimized to cover the airfoil as much as practical, one can obtain overall cooling 
+effectiveness in excess of 75% with ﬁlm coverage and convective efﬁciency in excess of 50%. Simply stated, the peripheral airfoil 
+circuits will pick-up heat by convection in a very effective manner and then eject from ﬁlm openings with high coverage designs to 
+further reduce the thermal load to the part. 
+ 
+It should be noted that the thermal load can be reduced externally by the effect of thermal barrier coating. This is a ceramic 
+coating that is applied on top of the metallic bond coating. The net result is the ability to increase the inlet turbine temperature to values 
+in excess of 3100°F (1700°C) while maintaining interface bond-to-metal temperatures at 2050°F (1121°C) for desired life requirements 
+of oxidation, creep life, and thermal-mechanical fatigue cycles19. In the limit, combination of peripheral convective cooling and ﬁlm 
+may lead to airfoil transpiration cooling which would occur in micro-porous surface to form a continuous ﬁlm blanketing of the airfoil 
+surface as illustrated in ﬁgure 1.
+Fig. 1. Cooling effectiveness illustration for different modes of cooling 
+Source:  See note 1.
+Frank J. Cunha
+
+392
+ 
+Regarding the different cooling schemes, peripheral cooling and conventional serpentine cooling arrangements may include 
+several internal design features for augmenting internal heat transfer. These internal features may be small posts connected to both sides of 
+the coolant passage, as pedestals, or may project to only about half of the coolant passage, as pin-ﬁns20. Fundamentally, both features act 
+in a similar manner, by turbulating coolant ﬂow ﬁeld and by exposing more surface area to the coolant. These synergistic cooling effects 
+lead to higher internal heat transfer coefﬁcients, which can be regarded as a measure of heat pick-up by the coolant. It should also be noted 
+that there are conduction paths integrated directly with the walls of the airfoil for further cooling. The disadvantage of such augmentation 
+devices is that they increase the coolant ﬂow blockage, which in turn increases the coolant pressure drop. Since the coolant supply pressure 
+may be limited, attention must be given to these blockage effects so as to assure sufﬁcient pressure at the ﬁlm openings and overcome 
+external gas pressure. The internal-to-external pressure ratio is usually referred to as the back-ﬂow-margin with minimum values established 
+for the leading edge and mid-body of the airfoil. On the other hand, if the internal coolant pressure is much higher than the external 
+pressure at the ﬁlm exits, then the ﬁlm jets may actually penetrate through the external boundary layer setting out “blow-off” conditions. 
+Blowing the coolant out nearly normal to the airfoil surface with high velocity is likely to lift the coolant right off the blade and allow the 
+hot mainstream gas to move below the coolant jets making contact with the airfoil surface. This is an adverse ﬁlm effect that needs to be 
+prevented. To prevent blow-off conditions, the geometrical attributes of ﬁlm openings need to reduce the ejection velocity by introducing 
+cooling hole shapes, angles, tapering, or diffusion zones while maintaining a high degree of cooling hole ﬁlling21. Externally in the main 
+ﬂow ﬁeld, a mismatch between the gas mainstream and the coolant jet velocities will give rise to mixing losses. In this way, ﬁlm ejection 
+may trip or further energize the external boundary layer; thus, increasing the external heat transfer coefﬁcient or thermal load to the part. 
+ 
+Figure 2 and 3 illustrates typical airfoil cooling schemes. Typically, for the ﬁrst vane, the coolant is fed into the casing plenum 
+chamber, and from there into the leading edge impingement bafﬂe. From the leading edge bafﬂe, the coolant impinges on the leading edge 
+target surface and is ejected into the external gas-path through 
+several close-spaced rows of holes known generally as shower-
+head holes. For this component, the highest temperature occurs 
+at the leading edge where the stagnation point is located22. The 
+balance of the coolant ﬂow in this vane will pass through a 
+small gap between the bafﬂe and the internal wall of the airfoil 
+leading to other ﬁlm holes or slots in the main body or trailing 
+edge. Note that internal cooling is done by convective and 
+impingement cooling. At the trailing edge pedestals may be 
+placed to enhance internal cooling, heat pick-up, and decrease the 
+metal temperature23.  The ﬁrst blade shown in ﬁgure 3 is only an 
+example of a wide variety of serpentine cooling conﬁgurations. 
+Stators and rotor blades of downstream stages will often have 
+multi-pass cooling of the type shown in ﬁgure 2. The coolant ﬂow 
+is led through a series of serpentine passages and makes several 
+passes along the span before ﬁnally ejecting at the trailing edge. 
+ 
+The purpose of turbine cooling is solely justiﬁed 
+by the need to have turbine components withstand adverse 
+environments while maintaining life targets. Liﬁng and 
+durability of airfoils require a synthesis of mission cycle, range of 
+operating conditions and time spent at each condition, including 
+the number of transients between conditions.  Overall cooling 
+effectiveness is a function of the design, which is reﬂected by 
+two other relevant parameters: the convective efﬁciency and 
+the ﬁlm effectiveness. The overall cooling effectiveness should 
+balance the external heat load to the part. In turn, all cooling 
+parameters need to be balanced with their effects of aerodynamic 
+and cycle performance. For blades, the mechanical load, due 
+to centrifugal effects, need to be determined in conjunction 
+with the blade bulk metal temperature distributions to evaluate 
+its creep capability.  The next sections will describe turbine 
+airfoil requirements for the purposes of converting energy to 
+produce shaft power output, or speciﬁc core power in a manner 
+where the ﬁgure of merit associated with thrust speciﬁc fuel 
+consumption is optimized with the thrust-to-weight ratio in the 
+case of aircraft engine applications.  In this context, external 
+and internal heat transfer details are explicitly listed and 
+discussed. A section on durability is presented to describe most 
+of the design problems and possible solutions. Conclusions are 
+then derived based on current assessment methods for airfoil 
+cooling technology advancements.
+ 
+Fig. 2. Typical airfoil cooling schemes for a two-stage high 
+pressure turbine  illustrating different modes of cooling.
+Source: See Note 1.
+Fig. 3. Typical airfoil cooling schemes for high-pressure 
+turbine  blade.
+Source: See Note 30.
+4.4 Heat Transfer Analysis
+
+393
+4.4-2 Heat Transfer Requirements
+ 
+The primary components of gas turbine engines used in aircraft operations comprise the inlet duct, fan, compressor(s), 
+combustors, turbine(s), and nozzle24. Many engines have two turbines: the high and the low-pressure turbine. The high-pressure turbine 
+is required to drive the high-pressure compressor. Together with the combustor, these high-pressure, high-temperature, and high rotating-
+speed components make up the gas generator portion of the engine. The high-pressure turbine is the most challenging component of 
+the engine design. Most of the attention given in this section covers the turbine limits, and the cooling required to withstand extremely 
+hot, corrosive, and unsteady environments. The low-pressure turbine drives the fan and the low-pressure compressor. The low-pressure 
+turbine is subjected to much cooler gas temperatures. In power applications, another turbine may be added to drive a rotor, a generator, 
+a pump, or a gas compressor. In land-based gas turbine applications, the compressor work is extracted from the ﬁrst rotor stages, while 
+the other stages produce useful shaft work transformed into electrical power by the electrical generator connected in tandem.
+In traditional power generating plants, there are three fundamental  elements: (1) the heat source, (2) the heat utilizer, 
+and (3) the waste heat reservoir25. To produce useful work heat is supplied by a working ﬂuid from the heat source. The utilizer 
+is required to convert portion of the heat supplied by the working ﬂuid into useful power. Since not all heat can be converted to 
+useful power, a waste reservoir is required to dispose of the remainder of heat. These are the elements of a modern steam plant which 
+can be divided into two major sub-parts: One half consists of the boiler or nuclear reactor as the heat source with its auxiliaries; 
+and the other, the turbine cycle, consisting of turbine generator, condenser, pumps and feed-water heaters. The major components 
+in the turbine cycle are the heat utilizer and the refrigerator or water heat reservoir. In general steam comes from the boiler drum 
+or nuclear reactor, passes through the turbine, which produces mechanical power on the turbine shaft to drive a generator of 
+electrical energy for distribution.  Thermodynamic performance is reﬂected in the overall cycle efﬁciency, often times designated 
+as the plant heat balance, which is a measure of thermal energy conversion to electrical generation output in BTU per KW-hr. 
+ 
+In land-based power-producing applications, recent improvements in cycle heat balance have being achieved by combining the 
+operations of steam and gas turbines together in the same plant26. In these combined cycle plants, the elevated exhaust gas temperature 
+is used in heat recovery steam-generator to create steam before expanding through a train of steam turbines. Intermediate pressure steam 
+is then used as cooling medium in the gas turbine topping cycle. This is done in a closed loop circuit with reheated steam from the gas 
+turbine being returned to the steam turbine cycle for further expansion. In this layout, all gas turbine stationary and rotating airfoils were 
+designed with steam cooling in a closed-loop system. The main reason for this closed cooling system is to avoid losses associated with 
+coolant ejection onto the main gas stream from airfoil locations. Combined power plants operate at thermodynamic cycle efﬁciencies 
+as high as 60 percent or a heat balance as low as 5700 BTU/KW-hr. One such unit is the GE H-class machine operating at just under 60 
+percent at Baglan Bay power plant in Wales, UK27. This is remarkable, since current advanced nuclear generating plants operate at an 
+overall cycle efﬁciency of 32.5 percent or at a heat balance of about 10,500 BTU/KW-hr. 
+4.4-3 Gas Heat Transfer
+ 
+Regardless of the type of power plant cycle, it is common knowledge that a design of the turbine engine is very challenging, and 
+it requires a mix of technical disciplines: cycle analysis, aerodynamic, heat transfer, combustion, ﬂuid dynamics, and turbine mechanical 
+design and manufacturing. The basic cycle parameters deﬁne the engine capability for all operating modes. The overall design is selected 
+in concert with performance and mechanical design constraints. For instance, in gas turbine design, the average heat transfer design 
+point parameters are dependent upon a set of performance parameters deﬁned at different points in the gas turbine thermodynamic cycle, 
+such as inlet conditions, at cycle point no 2, engine core ﬂow, at cycle point no. 2.5, compressor discharge conditions of temperature 
+and pressure, at cycle point no. 3; turbine inlet conditions of temperature and pressure, at cycle point no. 4; high pressure rotor inlet 
+conditions of temperature and pressure, at cycle point no. 4.1; low pressure inlet conditions of temperature and pressure,  at cycle point 
+no. 4.5; and high and low rotor speeds for different ambient conditions.  
+4.4-4  Gas Temperature Transverse Quality
+ 
+The gas turbine combustor exit gas temperatures are further reﬁned with pattern and proﬁle factors consistent with the burner 
+characteristics28. The combustion process that takes place in the burner requires that incoming air be separated into primary and secondary 
+streams for adequate combustion. The primary air is mixed with the fuel at nearly stoichiometric proportions at the center of the burner, 
+and the combustion produces extremely hot core gaseous products. Secondary air is injected from the sides of the combustion chamber 
+and separates the very hot gases from the structure. The secondary air dilutes and cools the products of combustion to acceptable 
+levels before leaving the burner. Because of the size limitations, the burner may not be sufﬁciently large to give gases time to mix 
+homogeneously, and as a result, the turbine may experience gas temperature variations which give rise to pattern and proﬁle factors29:
+Frank J. Cunha
+
+394
+         
+         Fig. 4. Illustration of thermal load distribution for the high-pressure turbine components.
+         Source: See Note 30.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+         (5)
+ 
+ 
+       
+                
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (6)
+ 
+ 
+ 
+For the ﬁrst vane, the peak temperature is obtained from pattern factor and this information is used for thermal-mechanical 
+design. It should be noted current combustor exit temperatures are in excess of 3000°F (1650°C) with expected growth towards 3800°F 
+(2100°C). As the ﬂow passes through the turbine components, the temperature proﬁle retains the same basic form of the high temperature 
+in the center region and lower temperature at the outside region, but it is also affected by the processes that take place during turbine 
+expansion, such as mixing, tip leakage, and development of secondary ﬂows. Figure 4 illustrates the thermal load distribution for the 
+high-pressure turbine components30. The primary gas temperature of interest in blade design is the total temperature relative to the 
+blade31:
+ 
+ 
+     
+  
+  
+ 
+  
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+.
+c
+2Jg
+W
+r
+c
+2Jg
+V
+T
+T
+p
+c
+2
+p
+c
+2
+gas
+relative
+gas,
++
+−
+=
+                   
+ 
+ 
+         (7)
+At the inlet to the rotor, the relative velocity W is smaller than the absolute velocity V, and the relative gas temperature should reﬂect the 
+effect of Mach number through the recovery factor,              32.
+ 
+ 
+The effect of secondary ﬂows on streamline migration and the effect of ﬁlm ﬂow should be reﬂected in the stage Mach number 
+distributions. In addition to these considerations, there are margins or adders that lead to increments imposed on the gas temperature 
+values. These are used to account for the following design tolerances: engine-to-engine variation, deterioration, overshoot, and production 
+scattered tolerance to sustain thrust guarantee33. It should be noted that ﬁlm, or external surface to gas, thermophysical properties required 
+to determine heat transfer coefﬁcients, for instance, should be calculated using Eckert’s reference temperature34. Other dimensionless 
+ratios used to characterize stage local conditions, such as relative-to-total temperatures and pressures can be assumed nearly constant for 
+operating conditions at idle and above in high-pressure turbine design35. 
+4.4 Heat Transfer Analysis
+Pattern Factor = 
+Proﬁle Factor =
+.
+
+395
+4.4-5  Airfoil Thermal Load
+ 
+Externally to the turbine airfoil, gas static pressure and gas stream velocity distributions are used for determining the external 
+heat transfer coefﬁcients. The external heat transfer depends on the development of the boundary layers on the airfoil. The external 
+boundary layer is subject to several factors, which make this calculation difﬁcult. These factors include, pressure and temperature 
+gradients, turbulence level, surface curvature, surface roughness, laminar-to-turbulent transition, and ﬂow unsteadiness. Separation 
+bubbles near the airfoil leading edge could also have a major inﬂuence on the development of the boundary layer. These could be caused 
+by rapidly changing the curvature or during off-design conditions when incidence angles may be high. If, however, pressure gradient is 
+favorable and strong enough, a turbulent boundary may re-laminarize with subsequent reduction in the heat load. It should be noted that 
+the presence of ﬁlm cooling will invariably trip or energize the boundary layer. Standard relations for ﬂow over ﬂat plate with suitable 
+modifying factors to account for these effects, can be used to calculate external heat transfer rate to the airfoil as follows36:
+ 
+ 
+ 
+                 
+ 
+ 
+         
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (8)  
+The empirical correlation factor is obtained by matching test data. 
+ 
+Despite their simplicity, the ﬂat plate correlations provide a good estimate of heat transfer. Figure 5(a) and 5(b) are examples 
+for the pressure and suction sides37. The Nusselt number calculated are based on measurements of static pressure, from which the 
+distribution of the Reynolds number is obtained. On the downstream region of the suction side, with fully turbulent ﬂow, the heat transfer 
+coefﬁcient is predicted well. On the pressure side, the turbulent ﬂat plate correlation predicts heat transfer well on downstream region 
+towards the trailing edge; but on the upstream region, the heat transfer prediction is low. In this upstream region the ﬂow is very unsteady 
+causing very large heat transfer coefﬁcients.  Fortunately, heat transfer coefﬁcients are predicted using boundary layer codes, such as 
+those of reference38, which account for curvature effects, transition and surface roughness on the airfoil external wall. 
+ 
+                  
+      
+ 
+        (a)                                                    (b)
+ 
+Fig. 5. Flat plate correlations estimate of heat transfer on the pressure (a) and suction (b) sides of the high-pressure turbine airfoil in terms 
+of Nusselt numbers versus Reynolds numbers.
+Source: See Note 37.
+ 
+Besides, main-body airfoil thermal load calculations, airfoil tip and blade platform thermal loads need to be determined as 
+well. Tip heat transfer is difﬁcult to determine due to the complexities associated with leakage ﬂows over a relatively small gap between 
+rotating blades and stationary shrouds. However, references listed in note 39 can be consulted for determining the external heat transfer 
+coefﬁcients of different tip conﬁgurations39. Similarly, platform heat transfer is also complex due to the secondary ﬂow and leakage 
+effects associated with inter-segment gaps. In this regard, note 40 can be consulted for determining the external heat transfer coefﬁcients 
+associated with these difﬁcult situations40.
+Frank J. Cunha
+.
+
+396
+4.4-6  Leading Edge Thermal Load
+ 
+At the leading edge, effects related to unsteadiness due to the row of upstream airfoils lead to high heat transfer coefﬁcients and 
+empirical correction factors are usually applied as follows41:
+ 
+ 
+ 
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+         (9)
+where all variables are deﬁned in the nomenclature with 
+80.
+ 
+ 
+ 
+ 0
+<
+<θ
+ 
+Turbine airfoils are optimized for aerodynamic performance and heat load to improve airfoil life. The ideal heat transfer 
+objectives, during the conceptual airfoil design, include the following considerations: (1) blunt leading edges to minimize heat transfer 
+coefﬁcients at the airfoil stagnation points, (2) minimize blade count to minimize cooling surface. (3) minimal pressure diffusion to 
+minimize separation and high external heat transfer coefﬁcients, (4) increase mid-body airfoil thickness to reduce losses in internal 
+cooling serpentine cooling arrangements, (5) avoid low trailing edge wedge angles that lead to large distances from the trailing edge and 
+the pressure side coolant ejection (ﬁlm) bleeds. Some of these considerations may be in conﬂict with aerodynamic objectives, and, in 
+general, a compromise is reached between cooling and aerodynamic design groups.
+4.4-7 Coolant Heat Transfer
+The overall cooling effectiveness,      , as a dimensionless metal temperature is a function of the other cooling parameters, such 
+as the convective efﬁciency,     , and the ﬁlm effectiveness,      , for a given heat load,     , to the part . The relationship between these 
+cooling parameters can be expressed in a simple relationship, derived from one-dimensional heat transfer analysis as follows42:
+ 
+ 
+                                               
+ 
+ 
+ 
+   
+ 
+ 
+       (10)
+If a metal temperature at a point in the airfoils is limited to a required value for a speciﬁed thermal load,      ; then, the overall cooling 
+effectiveness,       , as a measure of metal temperature, is set for the design, and the design process begins with a search of the required 
+internal convective efﬁciency and ﬁlm effectiveness. 
+4.4-8  Film Cooling
+Film cooling takes the cooling medium and discharges it in a carefully designed pattern of openings in the blade surface to 
+form a protective ﬁlm over the airfoil surface. This ﬁlm blanket reduces the external heat load to the airfoil by reducing the driving 
+temperature from the local gas temperature to the ﬁlm temperature, as shown in Figure 6. The ﬁlm cooling effectiveness is a function 
+of injection geometry on the airfoil including the hole diameter, 
+h
+d
+, hole spacing, 
+n
+x
+ , effective slot height,                               , 
+surface distance from the ﬁlm row, x, inclination of the ﬁlm hole axis to the surface in terms of in-plane and out-of-plane angles, blowing 
+parameter,                                 , density ratio,  the ratio of x/(Ms), and ﬁlm coverage, Cov43. Film coverage is a fraction of the length 
+along the row of ﬁlm holes which is covered by the footprint of the breakout of the holes and is usually given by the ratio of ﬁlm hole 
+breakout, b, to the ﬁlm hole pitch, p, or Cov=b/p. Film effectiveness can then be expressed analytically as:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+  
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        (11)
+    
+where, the empirical constants, 
+1
+C
+and 
+2
+C
+, are determined by ﬁtting the test data for different ﬁlm cooling conﬁgurations. In general, 
+the exponent 
+2
+C
+is about the same order of magnitude for the pressure and suction sides of the airfoil. However, coefﬁcient 
+1
+C
+is about 
+an order of magnitude different between the pressure and suction side of the airfoil with the pressure side ﬁlm decaying  much faster on 
+the pressure side of the airfoil. It should be noted that when the empirical constants of equation (11) are matched with test data, most of 
+the density ratio for the data reported in the literature is about unity, and this data needs adjustment for typical engine environments. 
+4.4 Heat Transfer Analysis
+
+397
+         
+The use of diffuser shaped holes for ﬁlm cooling 
+reduce the penalties associated with ﬁlm of blowing ratios, 
+M.  Shaped holes also provide increased coverage, as 
+shown in ﬁgure 744. In the past, shaped holes were almost 
+eliminated in favor laser drilled round holes, but it is now 
+apparent that they should be used due to superior cooling 
+advantage over laser drilled holes.   For a given coolant 
+ﬂow, laterally averaged ﬁlm cooling effectiveness from 
+staggered double row of holes is usually higher than from 
+a single row of holes. However, for the same coolant ﬂow, 
+the double row hole diameters may be expensive to make. 
+The injection of coolant from succeeding rows of ﬁlm holes 
+results in a cooler ﬁlm temperature than if only one row 
+of holes were blowing. Film temperatures superposition 
+produced by coolant injection from multiple rows of 
+ﬁlm holes can be evaluated by successive heat balance 
+stations. This procedure is repeated for blowing from all 
+N successive rows of holes upstream of the heat balance 
+station as follows45:
+ 
+ 
+ 
+ 
+           
+ 
+ 
+ 
+ 
+     
+    
+ 
+ 
+ 
+       (12)
+Computer programs are developed to superimpose the ﬁlm cooling effectiveness distribution downstream from several rows 
+of ﬁlm holes having individual levels of coolant injection, temperature, and ﬂow rate to provide the effective distribution of cumulative 
+ﬁlm cooling effectiveness; and, hence, ﬁlm temperature along the airfoil surfaces. 
+           
+4.4-9  Trip Strips or Turbulence Promoters for Cooling Passages
+If the ﬁlm effectiveness,          , is known for a particular design, due to the number and arrangement of ﬁlm cooling holes; then 
+the only unknown in equation (10) is the convective efﬁciency,        . This convective efﬁciency has a fundamental solution, which can 
+be given, in simple terms, by the relation:
+ 
+ 
+ 
+ 
+                
+ 
+ 
+        
+ 
+       (13)
+In this expression, the convective efﬁciency,        , is related to the internal heat transfer coefﬁcient, wetted surface area, and coolant ﬂow 
+rate. Expression (13) allows for design features to be evaluated in terms of this performance parameter. That is, for a required convective 
+efﬁciency,        , limited by the required cooling effectiveness,        ; then a required product of internal heat transfer coefﬁcient with the 
+wetted surface area, 
+c
+cA
+h
+ can be evaluated as a fundamental requirement for the cooling design. 
+ 
+In a general, it is the goal of the design to obtain the largest 
+c
+cA
+h
+ product, for the least amount for coolant ﬂow rate, m , 
+possible. Insofar as the airfoil internal cooling features are concerned, there may be a large number of conﬁgurations that can be explored 
+in the design space as noted in the reference provided by Han, et al.46. These would include conﬁgurations with internal cooling features, 
+such as pedestals or turbulating trip strips just to mention just a few.  
+Fig. 6. Film blanket reduces the external heat load to the airfoil by reducing the 
+driving temperature from the local gas temperature to the ﬁlm temperature.
+Frank J. Cunha
+Fig. 7. The use of diffuser shaped holes for ﬁlm cooling provide 
+increased ﬁlm coverage in terms of ﬁlm effectiveness versus hole 
+locations.
+
+398
+ 
+Patankar and Spalding observed that in the near the internal wall of the airfoil, the convection associated with the primary ﬂow 
+direction can be neglected, the so-called Couette ﬂow assumption47. However, for the speciﬁc case of predicting the boundary layer 
+behavior under the inﬂuence of rotation, this assumption may not be applicable. The boundary layer equations for momentum and energy 
+can be written as:
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (14)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+   
+ 
+ 
+       (15)
+ 
+The ﬁrst term of the right-hand-side of equation (14) represents the shear stress at the wall. The second term represents the crosswise 
+convective mass ﬂux, where the velocity is taken as the mean velocity component normal to the wall, in the near wall region. This cross-
+wise component exists due to rotational Coriolis inﬂuences on the boundary layer. The third term represents the axial pressure gradient 
+on the boundary layer. The variable, y, is taken as the cross-stream coordinate away from the wall. All other symbols are provided in the 
+nomenclature.
+ 
+The relations given by equations (14) and (15) are written in dimensionless form by using the traditional groups of 
++
++
++
+p
+and
+,
+y
+,
+v
+deﬁned in the nomenclature. When these groups are substituted into (14) and (15), the following new relationships are 
+obtained;
+ 
+ 
+ 
+ 
+                                        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (16)
+ 
+ 
+ 
+  
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+   
+ 
+       (17)
+ 
+ 
+Using the diffusion laws, the effective (laminar and turbulent) shear stress and heat ﬂux are written in dimensionless form as 
+ 
+ 
+ 
+ 
+      
+ 
+ 
+ 
+ 
+  
+ 
+ 
+      
+ 
+       (18)
+and  
+ 
+ 
+ 
+     
+ 
+ 
+ 
+   
+ 
+ 
+ 
+     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (19)
+where      is the dynamic viscosity,       is the effective viscosity, and         is the effective Prandtl number.
+ 
+Two ordinary differential equations describing momentum and energy transport in the boundary layer can be obtaining by 
+equations (16) and (17) with equation (18) and (19), respectively. If the mixing-length hypothesis is used for the viscosity ratio as , as   
+ 
+ 
+ 
+ 
+          
+ 
+            described by Crawford and Kays48, the resulting set of equations become
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (20)
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+           
+ 
+ 
+ 
+       (21)
+where the effective sub-layer 
++
+A =26 was used proposed by White49. The boundary conditions are:             
+Equations (20) and (21) can be solved numerically for given Prandtl numbers to yield the desired proﬁles for the velocity and temperature 
+near the wall.  Typical results are succinctly summarized as the law of the wall correlations:
+ 
+                                     
+ 
+ 
+ 
+ 
+                   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (22)
+and 
+ 
+ 
+ 
+                                            
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (23)
+where, E and P can be regarded as constant factors for a smooth wall condition and given Prandtl numbers. These are used to calculate 
+the Stanton number at the wall, which is given by the relation:
+4.4 Heat Transfer Analysis
+
+399
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+ 
+ 
+ 
+        
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (24)
+Note that the Nusselt number is related to the Stanton number by the relation; Nu =(Re) (Pr) (St). Solutions (22) through (24) are 
+applied for smooth channels; however, these correlations have been modiﬁed to account for non-smooth roughened walls. Typical 
+representations of dimensionless velocity and temperatures have catalogued by Han for a series of conﬁgurations50. These relationships 
+can assume the form
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (25)
+and  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (26)
+ 
+ 
+ 
+ 
+The functions R and G are the momentum and thermal roughness functions determined experimentally. All other variables are described 
+in the nomenclature. 
+ 
+In blade cooling passages, repeated roughness elements in the form of regularly spaced ribs are used to increase heat transfer 
+rates. As a by-product of the desired increases in heat transfer rates, the pressure losses through the channel also increase. It is usually 
+necessary to determine the best combination of heat transfer rate increases with the lowest possible pressure losses. As an example, 
+several trip strips conﬁgurations in a cooling channel are shown in ﬁgure 8. These are described as follows:
+(a) Parallel 90 degree  ribs
+(b) Parallel inclined ribs
+(c) Parallel v-shaped (Chevron) ribs
+(d) Criss-crossed inclined ribs
+ 
+ 
+ 
+ 
+ 
+     
+The pertinent parameters to consider include the dimensionless heat transfer coefﬁcient, the Stanton Number, the friction factor, and 
+the thermal performance index. Figure 9 illustrates the geometrical parameters for the trip-strip conﬁgurations.
+ 
+The ribbed channel pressure losses were originally modeled using the “law of the wall” similarity  by Nikuradse for sand grain 
+roughness51. The correlating parameter  became known as the roughness function, R, which, for rectangular channels,  is deﬁned as: 
+ 
+ 
+ 
+ 
+                                    
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (27)
+Frank J. Cunha
+Fig. 8. Several trip strips conﬁgurations in cooling channels. 
+ Fig. 9. Illustrates the geometrical parameters for the trip-strip 
+conﬁgurations.
+
+400
+where: e is the rib height, f is friction factor, and 
+h
+d
+is the channel hydraulic diameter. The friction factors and the roughness function 
+for the rib conﬁgurations (a)-(d) of ﬁgure 8 are given in Table I.
+ 
+    Table I. Friction factor and momentum roughness function for the conﬁgurations of Figure 8.
+ 
+ 
+                  Friction factor  
+ 
+                    Roughness function        
+ Sources:  
+ 
+  (a) See Note 52. 
+ 
+  (b) Han, J.C., J.S. Park, and C.K. Lei, “Heat transfer enhancements in channels with turbulance promoters”, Trans. ASME J.  
+ 
+        Eng. Gas Turbine and Power, Vol. 107, 628-635,1985.
+ 
+  (c) Han, J.C., Y.M. Zhang and V.P. Lee, “The inﬂuence of surface heat ﬂux ratio on heat transfer augmentation in square  
+ 
+ 
+        channels with parallel, crossed and V-shaped angled ribs”, ASME Paper 91-GT-3, 1991.
+ 
+ (d) Lau, S.C., R.T. Kukreja and R.D. McMillin, “Effects of V-shaped rib arrays on turbulent heat transfer and friction of 
+ 
+        fully developed ﬂow in square channel”, Int. J. Heat Mass Transfer 34, 7, 1605-1616, 1991.
+4.4 Heat Transfer Analysis
+
+401
+ 
+Using the Reynolds analogy between momentum and heat transfer, Dipprey and Sabersky developed a thermal analog to the 
+roughness function to correlate heat transfer data in sand roughened channels52.  Webb et al., extended the analysis to rib roughened 
+channels53. The thermal roughness function was given by:
+ 
+ 
+ 
+ 
+2
+f
+1
+2St
+f
+R
+G
+−
++
+=
+                                                       
+ 
+ 
+ 
+       (28)
+The corresponding heat transfer correlations for geometries (a) – (d) of ﬁgure 8 are given in Table II.
+Table II. Stanton Number and thermal roughness function for the conﬁgurations of Figure 8
+ Sources:  
+ 
+  (a) See Note 52. 
+ 
+  (b) Han, J.C., J.S. Park, and C.K. Lei, “Heat transfer enhancements in channels with turbulance promoters”, Trans. ASME J.  
+ 
+        Eng. Gas Turbine and Power, Vol. 107, 628-635,1985.
+ 
+  (c) Han, J.C., Y.M. Zhang and V.P. Lee, “The inﬂuence of surface heat ﬂux ratio on heat transfer augmentation in square  
+ 
+ 
+        channels with parallel, crossed and V-shaped angled ribs”, ASME Paper 91-GT-3, 1991.
+ 
+ (d) Lau, S.C., R.T. Kukreja and R.D. McMillin, “Effects of V-shaped rib arrays on turbulent heat transfer and friction of 
+ 
+        fully developed ﬂow in square channel”, Int. J. Heat Mass Transfer 34, 7, 1605-1616, 1991.
+ 
+The motivation for placing the ribs in a channel is to increase the rate of heat transfer from the channel walls to the bulk ﬂuid. 
+This is accomplished by two distinct mechanisms. First, the placement of ribs act as turbulators to break-up the near wall ﬂow increasing 
+the turbulence level and enhancing the exchange of ﬂuid in the near wall region with the core ﬂow by action turbulent diffusion. While 
+this increases the heat transfer, it also increases the wall friction resulting in higher pressure losses. A second heat transfer mechanism 
+is active if the ribs are inclined to the core ﬂow direction. In this case, the ribs induce secondary ﬂows in the core ﬂow, which can 
+circulate ﬂuid from the middle of the channel towards the walls thus increasing the heat transfer along these walls. The secondary ﬂows 
+have a smaller effect on the pressure losses, thus they are more beneﬁcial of increasing the thermal performance of the cooling channel. 
+ 
+The ﬂow in a ribbed channel can be divided conceptually in a main core ﬂow and near wall ﬂow. The ﬂow structures that 
+have been observed in the vicinity of the ribbed wall are shown in Figure 1054. This structure varies primarily upon the geometrical 
+ratio of p/e.  As an example, when p/e>7, three different separated ﬂows regions are observed: (1) In front of the rib, a separated 
+Frank J. Cunha
+
+402
+recirculation zone exists; (2) on top of each rib a separation bubble 
+forms due to upstream facing step; (3) following the back side of 
+the rib, a separated recirculation region exists which can extend up 
+to 7 rib heights downstream before the ﬂow reattaches. From this 
+point the boundary layer re-develops until the next separated region 
+is encountered upstream of the rib. When p/e<7, the two separated 
+regions which lie between the pair of ribs combine. On top of each 
+rib a separation bubble exists. When p/e=7, the boundary layer 
+between the separation zones and preceding the up and downstream 
+ribs does not have a chance to develop. Separation occurs on the top 
+of each rib. When p/e=10, the separation bubble at the top of the 
+rib may not re-attach on the top surface of the rib but it may extend 
+past the back of the rib and combine with the separation region 
+following the rib.  The re-attachment occurs between ribs. This is 
+believed to be the optimum conﬁguration. However, the effects of 
+the Reynolds number may determine the validity of these results. 
+ 
+The core ﬂows develops rapidly in a ribbed channel 
+compared to a smooth one. Friction factors become constant after 
+the 3rd rib or 4 diameters downstream. The Nusselt number shows 
+similar behavior.  The presence of the ribs increase turbulence and 
+induce secondary ﬂows that tend to move ﬂuid from the main core 
+towards certain walls and away from the others. Similar core ﬂuid 
+ﬂow and heat transfer enhancements are found in rotating channels 
+caused by Coriolis as illustrated in ﬁgure 11. This is particularly true 
+for channels with aspect ratio of unity. Sources listed in note 55 can 
+be consulted for determining the effects of rotation on internal heat 
+transfer coefﬁcients where rotational and buoyancy numbers are the 
+fundamental dimensionless parameters55. The thermal performance 
+can be deﬁned by the parameter of 
+1/3
+St/f
+ as given by Webb and 
+Eckert56. It relates the heat transfer to friction factors or pressure loss 
+in the channel. 
+4.4-10 Impingement Cooling for Cross-
+Over Holes and Inserts
+ 
+The impingement conﬁgurations have been used extensively 
+in the gas turbine industry. In general, there are two locations in airfoil 
+design where impingement cooled has been used. The ﬁrst location 
+is used for leading edge cooling. Dedicated cooling air is allowed 
+to pass through rib cross-over openings leading to jet impingement 
+on the inner wall of the airfoil leading edge57. After impingement 
+cooling the air ﬂow passes through a series of ﬁlm holes forming 
+a shower-head arrangement through the airfoil the leading edge. 
+Internal jet impingement, convective cooling through the ﬁlm holes, 
+and ﬁlm cooling become very effective means to cool this section of 
+the airfoil with very high heat loads. The other location is for trailing 
+edge cooling. In this case, the cooling air is allowed to pass through 
+a series of rib cross-over openings58. Jet impingement occurs after 
+each cross-over hole. The air impinges on each subsequent ribs and 
+surrounding walls before discharging at the trailing edge exit slots. 
+Many references can be consulted for obtaining impingement heat 
+transfer coefﬁcients for these two conﬁgurations59.  
+ 
+For high-pressure vanes, inserts or bafﬂes can be used 
+to cool the airfoil with impingement cooling. There are several 
+references that can be consulted in this regard60. Each impingement 
+correlation for this type cooling will be dependent on the cross ﬂow 
+degradation from upstream impingement jets. A useful correlation 
+has been provided by Floerschuetz et al as follows61:
+4.4 Heat Transfer Analysis
+    
+      Fig. 10. Observed ﬂow structures in the vicinity of the ribbed wall.
+      Source: See Note 53. 
+Fig. 11. Core ﬂuid ﬂow and heat transfer enhancements are 
+found in rotating channels caused by the rotating vortices inside 
+the cooling passages.
+Source: See Note 30.
+ 
+ 
+
+403
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+      (29)
+where 
+ 
+ 
+ 
+C
+x
+n
+y
+n
+z
+n
+A
+1.180
+-0.944
+-0.642
+0.169
+M
+0.612
+0.059
+0.032
+-0.022
+B
+0.437
+-0.095
+-0.219
+0.275
+N
+0.092
+-0.005
+0.599
+1.040
+The different variables are described in the nomenclature. The validity of correlation is the deﬁned by the following parameter range: 
+ 
+ 
+ 
+ 
+It should be noted that for the calculation of the Reynolds number in correlation (29) needs to be determined for the ﬂow passing 
+through the insert impingement holes. Flow through these openings is a result of pressure differences which can be obtained from an 
+overall ﬂow network analysis.
+4.4-11  Pin-Fin or Pedestals for Trailing Edge Cooling
+In trailing edge designs, typically two rows of cross-over holes 
+are used for cooling. The ﬂow acceleration is high through these cross-over 
+impingement openings. The coolant ﬂow Mach number proﬁles follows 
+that of the coolant static pressure proﬁle in that it assumes almost step-
+wise proﬁles as the cooling ﬂow crosses through  these openings. The 
+step-wise proﬁles are undesirable as they lead to relative high peaks in 
+internal heat transfer coefﬁcients at the walls of the blade as illustrated 
+in ﬁgure 12. In other words, there are regions in the airfoil trailing edge 
+walls, which attain relative lower metal temperatures due to high internal 
+heat transfer coefﬁcients. Meanwhile, other areas attain relatively higher 
+metal temperatures due to lower internal heat transfer coefﬁcients. These 
+metal temperature differences can lead to high thermal strains, which in 
+conjunction with transient thermal response during take-off or power 
+loading can, in turn, lead to undesirable thermal-mechanical fatigue damage. 
+ 
+It is, therefore, desirable to use a trailing edge cooling design, 
+which improves the internal proﬁles for Mach number, static pressure drop, 
+and internal heat transfer coefﬁcient distributions along the airfoil trailing 
+edge. In that regard, internal features, such as pedestals provide design 
+advantages. Optimum designs may include internal pedestals with many 
+different cross-sectional areas, such as: circular, oval, racetrack, square, 
+rectangular, diamond cross-sections, just to mention only a few. In the 
+illustrative example that follows, attention is given to the most simplest 
+form of an internal cooling feature: such as round pedestals. 
+Frank J. Cunha
+Fig. 12. Localized heat transfer enhancement on 
+different segments in trailing edge cavities.
+Source: See Note 58.
+m
+
+404
+The relevant cooling characteristics of round pedestals could easily be extended to other cross-sectional area pedestals for 
+speciﬁc applications.  In this context, for a staggered array of round pedestals the internal unobstructed trailing edge channel area will 
+have a cross-sectional area, A=WH, where W  is the width and H  is the channel height. The corresponding perimeter becomes Per = 
+2 (W+H) , and the hydraulic diameter is given by 
+4A/Per
+d H =
+. The surface area becomes
+2WL
+A duct =
+, where L  is the length of 
+the channel. The surface of the plate not being covered by the pedestals becomes                                                                        , where 
+T
+L
+N
+ 
+and
+ 
+N
+are the number of pedestals in the longitudinal and transverse directions of the trailing edge channel. It should be noted that 
+the number of pedestals can be given by
+p
+L
+n
+T
+L/S
+N
+ 
+and
+ 
+W/S
+N
+=
+=
+, where 
+p
+n
+S 
+and
+ 
+S
+ are the transverse and longitudinal pitches, 
+respectively. With these geometrical parameters, the Reynolds number, associated with the pin diameter, is calculated as follows:  
+ 
+ 
+      , where 
+)
+V(A/A
+V
+min 
+max =
+with         
+   
+      . In this case, the coolant velocity, V , is the free 
+stream inlet velocity. With the knowledge of the pin Reynolds number, the following relationships for the Nusselt number from table III 
+can be obtained, following Zukauskas62.
+Table III. Pedestal Nusselt numbers [17].
+For the area not affected by the pedestals, the plate Nusselt number is given by                                          
+63.The pin ﬁn efﬁciency is 
+obtained from the relationship Ishida et al  [65]:
+                            
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (30)
+where all variables are described in the nomenclature.
+The overall internal heat transfer with pedestals is then based on the following two contributions: (1) the plate contribution, and (2) the 
+pin contribution as follows:
+ 
+ 
+  
+ 
+ 
+  
+ 
+ 
+     
+ 
+ 
+ 
+ 
+       (31)
+The corresponding heat transfer multiplier, HM, normalized by the Dittus-Boelter correlation64,  
+        
+                , is then given 
+by 
+                                                   
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (32)
+The  pressure drop calculations through a bank of pedestals is given by Ishida et al. and are presented here for completeness as follows
+65.                   
+ 
+ 
+ 
+ 
+ 
+                   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (33)
+4.4 Heat Transfer Analysis
+
+405
+The corresponding friction multiplier, FM , normalized with Blasius resistance formula,      
+ 
+  , becomes
+                               
+ 
+ 
+ 
+      
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                     (34)
+Relationships provided by equations (32) and (34) can be used to design a trailing edge cooling channel with round pin-ﬁns. These were 
+provided here to represent a design procedure; however, many other empirical correlations can be obtained for other type of internal 
+features as described by Han et al.66. The overall procedure for obtaining heat transfer and friction multipliers would follow the steps 
+outlined here. In many instances, plots of FM/HM  versus ReH are used to compare the performance of different conﬁgurations. One 
+such plot is shown in ﬁgure 13, based on mass-transfer augmentation, from Chyu67. By mass-transfer to heat transfer analogy, the results 
+of this plot are directly related to heat transfer assessment. Figure 13 allows for comparison and determination of which conﬁguration 
+would provide the best heat transfer for the least pressure drop.  Plots similar to that of ﬁgure 13 are usually called performance index 
+plots and become useful early in the design process. 
+ 
+ 
+   
+                                (a)                                       
+(b)
+ 
+Fig. 13. Pedestal trailing edge conﬁguration and test results; (a) transparent view of blade showing pedestal bank  
+ 
+at trailing edge (b) effect of Reynolds number on performance index (HM/FM) in straight pins with ﬁllets.
+ 
+Source: See Note 20.
+4.4-12  Bulk Temperatures for Cooling Passages 
+To estimate airfoil cavity cooling ﬂow, one needs to consider the inlet coolant ﬂow rate, at the root of the blade passage, denoted 
+here as mRoot, as well as the cooling ﬂow rate at the several ﬁlm holes, denoted as mﬁlm, and ﬂow variation through the cavity. The linear 
+function of cooling ﬂow rate distribution from the root as ﬂow exits the airfoil cavity leads to the following ﬂow relationship68:
+(35)
+with LH as the blade span radial height to the ﬁlm hole location.  The temperature of the coolant inside the cavity is obtained by 
+considering an inﬁnitesimal small control volume, dr, in the supply cavity. This consideration leads to the following energy balance69:
+Frank J. Cunha
+
+406
+(36)
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (37)
+where Q denotes the total heat transfer onto the corresponding section of radial span, LH. The coolant ﬂow rate is then introduced in 
+equation (36). The resulting expression is integrated from root to a radial section of the airfoil. This yields an expression for the coolant 
+temperature increase in terms of heat transfer, and rotational pumping, as a function coolant ﬂow rate. The result is:
+4.4-13 Thermal-Mechanical Aspects of Durability
+ 
+Once the internal and external heat transfer 
+loads have been assessed, the gas and coolant 
+temperatures, together with the internal and external 
+heat transfer coefﬁcients, will form a set of boundary 
+conditions for a heat conduction analysis to predict 
+the metal temperatures and stresses in the airfoil. 
+Usually, this analysis begins with the modeling of a 
+3D section of the blade as a solid model and then 
+proceeds by using a ﬁnite element code, such as 
+ANSYS70, for completing the thermal-stress analysis. 
+An example is provided here for illustrative purposes. 
+It was taken from the NASA report71 for the E3 HPT 
+blade.  The blade solid model and the corresponding 
+ﬁnite element ANSYS model are shown in ﬁgure 
+14. As can be seen from the transparent solid model 
+of ﬁgure 14, this blade is cooled by convection 
+with cavity wall trip strips, not shown, and with a 
+set of pedestals in the trailing edge. While external 
+surfaces are locally ﬁlm cooled from the leading 
+edge with three rows of showerhead holes, there 
+are no ﬁlm cooling holes on either the pressure or 
+suction surfaces of the airfoil. The trailing edge has a 
+centerline cooling ﬂow ejection.  
+ 
+The NASA E3 HPT blade is used as a vehicle 
+to demonstrate the thermal-mechanical analysis for a 
+typical uncoated anisotropic turbine component. The 
+3D model of ﬁgure 14, using ANSYS, is composed 
+of 21567 elements, 13494 of which are 3D-10 
+node tetrahedral structural solid elements in the 
+trailing edge, while 8073 are 3D-20 node structural 
+solid elements in the rest of the airfoil. This hybrid 
+ﬁnite element model was selected to improve the 
+meshing of the pedestals in the trailing edge region 
+of the airfoil. This modeling technique is common in 
+durability assessment of turbine airfoils.                      
+ 
+The thermal boundary conditions set-up for 
+a blade model is a very laborious process. On the 
+external side, computational ﬂuid dynamic codes 
+can be used to set-up external pressure and Mach number distributions for free-stream conditions with speciﬁed turbulence intensity 
+levels. Boundary layer programs are used to establish the external heat transfer coefﬁcients based on expected wall roughness. Gas 
+recovery temperatures and ﬁlm cooling effectiveness, usually obtained from previous testing, are used to determine the adiabatic wall 
+(ﬁlm) temperatures. In the end, external heat transfer coefﬁcients and ﬁlm temperatures are speciﬁed as external boundary conditions 
+for the model. Inside the airfoil, ﬂow network models are used to determine internal pressure drops and Mach number distributions. 
+4.4 Heat Transfer Analysis
+Fig. 14. NASA 
+3
+E
+blade solid model and the corresponding ﬁnite element 
+ANSYS model.
+Source: See Note 23.
+
+407
+Heat transfer correlations, based on previous testing, can be used 
+to determine the internal heat transfer characteristics of the blade 
+cooling system under the effects of rotation. Thus, the network 
+ﬂow analysis provides the means to determine internal heat 
+transfer coefﬁcients and coolant temperatures as internal boundary 
+conditions for the model. The thermal results are shown in ﬁgure 
+15, which illustrates a region on the suction side with high metal 
+temperatures corresponding to high thermal loads due to ﬂow 
+acceleration.
+ 
+In this example selected for illustrative purposes, the 
+mechanical boundary conditions for the model are such that the 
+bottom plane must remain ﬁxed in the direction of the blade 
+stacking axis or the z-direction. One node near the middle of an 
+aft internal rib remains ﬁxed in space for all three directions, and 
+one other node near the leading edge is ﬁxed in the y-direction. The 
+top plane nodes are constrained to remain coupled and planar. The 
+primary crystal coordinate system has the z-axis coincident with 
+pull direction of the centrifugal force experienced by the blade at 
+rated design speed. In order to simulate this, a uniformly distributed 
+load is applied normally to the top face of the blade section. The 
+planar boundary condition applied this way is a ﬁrst approximation 
+to boundary conditions that may be experienced by the blade 
+section. The assumption is that there is sufﬁcient constraint of the 
+surrounding blade material to counteract bending moments seen 
+as a result of temperature gradients and non-uniform deformation 
+rates72.  The blade deformation will largely be controlled by the 
+conditions at the ends of the blade. At the root, the blade will 
+experience a relatively lower and more uniform temperature. Thus, 
+if the root of the blade experiences a more uniform temperature, 
+any other cross-section will be forced to deform at a uniform rate73. 
+Therefore, to a ﬁrst approximation, the constraint of planar sections 
+has been applied in the blade model. The results of this structural 
+analysis are shown in ﬁgure 16 in terms of von Mises total strains. 
+It should be noted that the analysis provided here could be applied 
+to a more complex blade model as well. The strain results can be 
+used for fatigue assessments. In general, strain range versus cycles 
+to crack initiation are available for the material under consideration 
+leading to assessment of the airfoil fatigue life.
+ 
+The allowable stress in the blade depends on its temperature 
+and the target life. The link between these considerations is the 
+behavior of the blade material in creep. Although the maximum 
+stress occurs at the root, this airfoil section may not be the most 
+critical area for creep life. This is because even though the stress 
+may largest at the root, the metal temperature is the lowest. The critical section is then where combination of stress and temperature will 
+make the blade reach the creep limit ﬁrst. References listed in note 73 present approaches to take the combination of metal temperature 
+and stress in assessing the creep life74.  For aircraft propulsion engine mission cycles are characterized by takeoff, climb, cruise; whereas 
+for power-generation engine the mission cycle is simpler with long periods of running at constant conditions between starts and stops. 
+At each segment of the mission cycle, the engine will run at different speed and temperature conditions, so that the overall life needs to 
+be considered as the cumulative effect of the life expended in each mission segment.  For each set of conditions, a thermal and structural 
+analysis needs to be made, and the results, together with material data, will be used to estimate the creep life of the component. 
+ 
+When the turbine airfoil is subjected to repeated loads, the airfoil may incur fatigue damage75. Whereas creep occurs through 
+initially elastic and plastic bulk deformation of the material, fatigue starts at localized plastic points due to defects, inclusions, corrosion 
+and oxidation damage.  As soon as cracks exist in the component, the stress is transferred to the remaining material through load 
+shakedown. Eventually, if cracks reach critical size sound material will not be sufﬁcient to support the load leading to failure.  As a result, 
+crack initiation, and not propagation, is the preferred way to design for fatigue. In general the total strain, similar to the strain distribution 
+of ﬁgure15, can be used with material data to determine the number cycles that the component can withstand. This leads to the concept 
+of damage, D, which is deﬁned as the mission actual cycles relative to the material cyclic capability under the same operating conditions. 
+The overall damage is the accumulated sum of the damage from all ﬂight segments or types. The same deﬁnition can be applied for creep 
+damage; but instead of cycles, actual hot time becomes the variable. In the end, the total damage of participating modes should be less 
+than unity as described by the following damage summation equation:
+Frank J. Cunha
+ Fig. 15.  NASA
+3
+E
+blade thermal results.
+Source: See Note 23.
+         Fig. 16.  NASA
+3
+E
+blade thermal strain results.
+         Source: See Note 23.
+
+408
+ 
+ 
+ 
+    
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       (38)
+ 
+There are other relevant modes of damage, such as high cycle fatigue, corrosion, and oxidation; but discussion of these topics 
+would be beyond this subject matter. Sufﬁce to say that metal temperature, steady and unsteady stresses for the turbine component are 
+extremely relevant for all damage modes. As a result, one should strive for obtaining representative and accurate turbine component heat 
+transfer analysis and preparation for component life analysis.
+4.4-14 Conclusions
+Aircraft propulsion engines, land-based power generation, and industrial machines have, as a primary component, the turbine as 
+means to produce thrust or generate power. In the turbine section of the engine, airfoil components are subjected to extremely complex 
+and damaging environments. The combination of high gas temperatures and pressures, strong gradients, abrupt geometry changes, 
+viscous forces, rotational forces, and unsteady turbine vane/blade interactions, all combine to offer a formidable challenge in terms 
+of turbine durability.  Nevertheless, the ultimate goal is to maintain or even improve the highest level of turbine performance and 
+simultaneously reduce the amount of ﬂow needed to achieve this end. Coolant ﬂow is a penalty to the cycle and thermal efﬁciency, 
+and requires management by characterizing of the turbine airfoil thermal loads and the requirements for ﬁlm cooling. Despite being a 
+difﬁcult situation to assess, relatively simple correlations can be used to determine the airfoil overall cooling effectiveness in terms of 
+thermal heat load, convective efﬁciency and ﬁlm effectiveness. In this context, existing design approaches were presented to characterize 
+airfoil thermal loads and existing airfoil cooling schemes. Emphasis was given to the general characteristics of turbine cooling including 
+ﬁlm cooling, impingement cooling, and convective cooling for different parts of the airfoil such as leading edge, mid-body, trailing 
+edge, tip and endwalls. Convective cooling is presented in terms of fundamental cooling enhancements. The heat transfer phenomena 
+associated with turbulating trip strips and pedestals were presented and discussed in some detail. In the end, internal and external heat 
+transfer conditions are used to determine the durability of the airfoils in terms of oxidation, creep life and fatigue cycles. Recent literature 
+dealing with these topics is listed to provide more in-depth overview of the subject matter.
+4.4-15 Notes
+________________________
+ 
+ 
+1. J. Moustapha, M.F. Zelesky, N. Baines, and D. Japikse, Axial and Radial Turbines, Concepts NREC, 2003 
+ 
+2. Ibid. 
+ 
+3. Ibid. 
+ 
+4. D.P. DeLuca and C.G. Annis Jr, “Fatigue in Single Crystal Nickel Superalloys,” Ofﬁce of Naval research (ONR)   
+ 
+ 
+    FR-23800, Aug. 1995; N.J. Arakere, “High-Temperature Properties of Single Crystal Superalloys in Air and Hydrogen,”  
+ 
+    ASME IGTI 2001-GT-0585, New Orleans, June 2001; R.A. Naik, D.P. DeLuca, and D.M Shah,  “Critical Plane Fatigue  
+ 
+    Modeling and Characterization of Single Crystal Nickel Superalloys,” ASME IGTI 2001-GT-30300, Trans. ASME  
+ 
+    Journal of Engineering for Gas Turbines and Power, 2004; D.W. Maclachlan and D.M. Knowles, “The Effect of Material  
+ 
+    on the Analysis of Single Crystal Turbine Blades: Part I – Material Model,” Fatigue and Fracture Engineering Material  
+ 
+    Science 25 (2002): 385-398;D.W. Maclachlan and D.M. Knowles, “The Effect of Material on the Analysis of Single  
+ 
+ 
+    Crystal Turbine Blades: Part II – Component Analysis,” Fatigue and Fracture Engineering Material Science   
+ 
+    25 (2002): 385-398. 
+ 
+5. V. Seetharaman, “Thickness Debit Properties of PW1484,” Pratt and Whitney Materials and Processes Engineering,  
+ 
+ 
+    Interim Report, Nov. 2002. 
+ 
+6. C.T. Sims, N.S. Stoloff, and W.C. Hagel,  Superalloys II, (John Wiley & Sons, 1980). 
+ 
+7. T.L. Dame,  “Anisotropic Constitute Model for Nickel Base Single Crystal Alloys: Development and Finite Element  
+ 
+ 
+    Implementation,” PhD Thesis, University of Cincinnati, 1985. 
+ 
+8. F.R.N. Nabarro and H.L. deVillers,  The Physics of Creep, (Taylor and Francis, 1995). 
+ 
+9. F.J. Cunha, M.T. Dahmer, and M.K. Chyu,  ”Thermal-Mechanical Life Prediction System for Anisotropic Turbine  
+ 
+ 
+    Components,” ASME GT2005-68108, Reno, NV, 2005, Trans. ASME Journal of Turbomachinery, 2006. 
+ 
+10. See note 5 above. 
+ 
+11. J.E. Heine, J.R. Warren, and B.A. Cowles,  “Thermal Mechanical Fatigue of Coated Blade Materials,” Wright-Patterson   
+ 
+      Final Report ERDC-TR-89-4027, Sept. 1988. 
+ 
+12. See note 1 above. 
+ 
+13. L. Torbidoni and J.H. Horlock,  “ A New Method to Calculate the Coolant Requirements of a High Temperature Gas  
+ 
+ 
+      Turbine Blade,” ASME Paper GT2004-53729, Vienna, Austria, 2004. 
+ 
+14. Ibid. 
+4.4 Heat Transfer Analysis
+1
+    
+     
+}
+ 
+D
+ 
+ 
+ 
+D
+ 
+ 
+   
+{
+ 
+Cycles
+Load
+Creep
+1
+i
+Creep
+Cycles
+Fatigue
+1
+i
+Fatigue
+Cycle
+Mission
+Overall
+1
+k
+=
++ ∑
+∑
+∑
+=
+=
+=
+
+409
+ 
+15. See note 1. 
+ 
+16. H. Schlichting, Boundary-Layer Theory, (McGraw-Hill, 7th Edition, 1979). 
+ 
+17. See note 13. 
+ 
+18. Goldstein, R.J., “Film Cooling”, Advances in Heat Transfer, Vol. 7, pp. 357-358. 
+ 
+19. See note 1.  
+ 
+20. M.K. Chyu,  “Heat Transfer and Pressure Drop for Short Pin-Fin Arrays with Pin-Endwall Fillet.” Trans. ASME Journal   
+ 
+      of Heat Transfer 112 (1990): 926-932; A.A. Zukauskas,  “Heat Transfer from Tubes in Cross Flow,” Advances in Heat  
+ 
+      Transfer  8 (1972): 116-133. 
+ 
+21. R.J. Goldstein, E.R.G Eckert, and F. Burggraf, “Effects of Hole Geometry and Density on Three-Dimensional Film  
+ 
+ 
+      Cooling,” Trans. ASME J. Heat Transfer, 1974.  
+ 
+22. J.E. Albert, D.G. Bogard, and F. Cunha,  “Adiabatic and Overall Effectiveness for a Film Cooled Blade,” IGTI-ASME  
+ 
+ 
+      GT2004-53998, Vienna, Austria, 2004.  
+ 
+23. F.J. Cunha,  M. Dahmer, and M.K. Chyu,  ”Analysis of Airfoil Trailing Edge Heat Transfer and Its Signiﬁcance in  
+ 
+ 
+      Thermal Mechanical Design and Durability,” ASME GT2005-68107, Trans. ASME Journal of Turbomachinery, 2006. 
+ 
+24. See note 1. 
+ 
+25. J.K. Salisbury, Steam Turbines and Their Cycles (Malabar, FL:  R.E. Krieger Publishing Co., 1950). 
+ 
+26. F.J. Cunha,  “Integrated Steam/Gas Cooling System for Gas Turbines,” US Patent No. 5,340,274, 1994; A. Jacala, R.M.   
+ 
+      Davis, M.A. Sullivan, R.P. Chyu, and F.  Staub,  “Closed Circuit Steam Cooled Bucket,” US Patent No. 5,536,143,  
+ 
+      1996; F.J. Cunha, D.A. DeAngelis, T.A. Brown, S. Chopra, V.H.S. Correia, and D.R.  Predmore,  “Turbine Stator Vane  
+ 
+      Segments Having Combined Air and Steam Cooling Circuits,” US Patent No. 5,634,766, 1996. 
+ 
+27. L. Langston, “A Year of Turbulence”, Power and Energy, ASME Magazine, June, 2004. 
+ 
+28. A.H. Lefebre, Gas Turbine Combustion, Taylor and Francis, 2nd Ed., 1999. 
+ 
+29. Ibid. 
+ 
+30. J.C. Han, “Turbine Blade Cooling Studies at Texas A&M University ~ 1980-2004”, The 2004 AIAA Thermophysics  
+ 
+ 
+      Award Lecture, 2005. 
+ 
+31. See note 16. 
+ 
+32. Ibid. 
+ 
+33. See note 1. 
+ 
+34. See note 16. 
+ 
+35. See note 1. 
+ 
+36. W.M. Kays and M.E. Crawford, Convective Heat and Mass Transfer, McGraw-Hill, 1980, 2nd Ed. 
+ 
+37. F.O. Soechting and O.P. Sharma,  “Design Code Veriﬁcation of External Heat Transfer Coefﬁcients,” Paper No.  
+ 
+      AIAA-88-3011, 1988. 
+ 
+38. W.M. Kays and M.E. Crawford, “STAN5 - A Program for Numerical Computation of Two-Dimensional Internal and  
+ 
+ 
+      External Flows,” NASA CR-27-42, 1976. 
+ 
+39. R.L. McKnight, J.H. Laﬂen, and Spamer, “Turbine Blade Tip Durability Analysis”, NASA CR-165268, Feb. 1981; J.  
+ 
+ 
+      Christophel, K.A. Thole, and F.J. Cunha,  “Measured Adiabatic Effectiveness and Heat Transfer for Blowing from Tip of   
+ 
+      a Turbine Blade,” Trans.  ASME Journal of Turbomachinery 127, (2005): 251-262; J. Christophel, K.A. Thole, and F.J.  
+ 
+      Cunha, “Cooling the Tip of a Turbine Blade Using Pressure Side Holes – Part I. Adiabatic Effectiveness Measurements,”  
+ 
+      Trans. ASME Journal of Turbomachinery 127 (2005): 270-277; J. Christophel, K.A. Thole, and F.J. Cunha,  “Cooling the  
+ 
+      Tip of a Turbine Blade Using Pressure Side Holes – Part II: Heat Transfer Measurements,” Trans. ASME Journal of  
+ 
+      Turbomachinery 127 (2005): 278-286; E. Couch, J. Christophel, E. Hohlfeld, K.A. Thole, and F.J. Cunha,   
+ 
+      “Comparison of Measurements and Predictions for Blowing from Tip of a Turbine Blade,” AIAA J. of Propulsion and  
+ 
+      Power 21 (2005): 335-343. 
+ 
+40. M.F. Blair, “An experimental Study of Heat Transfer and Film Cooling on Large-Scale Turbine Endwall,” Trans. ASME   
+ 
+      J of Heat Transfer 96 (1974): 524-529; R.A. Graziani, M.F. Blair, J.R. Taylor, and R.E. Mayle,  “An Experimental Study   
+ 
+      of Endwall and Airfoil Surface Heat Transfer in a Large Scale Turbine Blade Cascade,” Trans. ASME J. Eng. Gas  
+ 
+      Turbine Power 102 (1980): 257-267; O.P. Sharma and T.C. Buttler, “ Reynolds Stresses and Dissipation Mechanisms  
+ 
+      Downstream of a Turbine Cascade,” Trans. J of Turbomachinery 109 (1987): 229-236; R.J. Goldstein and R.A. Spores,  
+ 
+      “Turbulent Transport on the Endwall in the Region Between Adjacent Turbine Blades,” Trans. J of Turbomachinery 110  
+ 
+      (1988): 862-869; J.T. Chung and T.W. Simon,  “Effectiveness of the Gas Turbine Endwall Fences in Secondary Flow  
+ 
+      Control at Elevated Freestream Turbulence Levels,” ASME Paper 93-GT-51, 1993; Y. Yu and M.K. Chyu,  “Inﬂuence of  
+ 
+      Gap Leakage Downstream of the Injection Holes on Film Cooling Performance,” Trans. J of Turbomachinery 120 (1998): 
+ 
+      541-548; W.W. Ranson, K.A. Thole, and F.J. Cunha,  “Adiabatic Effectiveness Measurements and Predictions of Leakage  
+ 
+      Flows Along a Blade Endwall, AIAA J. of Propulsion, Nov. 2005. 
+ 
+41. F. Kreith, Principles of Heat Transfer , IEP- A Dun-Donneley Pub., 1976, 3rd Ed. 
+ 
+42. See note 13.  
+ 
+43. See note 18. 
+ 
+44. See note 21. 
+ 
+45. See note 18. 
+Frank J. Cunha
+
+410
+410
+ 
+46. J.C. Han, S. Dutta, and S. Ekkad, Gas Turbine Heat Transfer and Cooling Technology, Taylor and Francis, 1st Ed., Ch. 1,   
+ 
+      2000.
+ 
+47. Patankar, S.V., and Spalding, D.B., Heat and Mass Transfer in Boundary Layers, CRC Press, Cleveland, 1968.
+ 
+48. See note 36.
+ 
+49. F.M. White, Viscous Fluid Flow, McGraw-Hill, 2nd Ed, 1991.
+ 
+50. See note 41.
+ 
+51. J. Nikuradse, (1933) “ Laws of ﬂ ow in rough pipes,” VDI Forsch.. 361(1933) English Translation. NACA TM-1292  
+ 
+ 
+      (1965).
+ 
+52. J.C. Han, “Heat transfer and friction in channels with two opposite rib-roughnened walls,” Trans. ASME Journal of Heat   
+ 
+      Transfer 106 (1984): 774-781.
+ 
+53. R.L. Webb, E.R.G. Eckert, and R.J. Goldstein, “Heat transfer and  friction in tubes with repeated-rib roughness,” 
+ 
+      Int. J. Mass Transfer 14 (1971): 601-617; R.L. Webb and E.R.G. Eckert, “Application of rough surfaces to heat exchanger 
+ 
+      design,” Int. J. Mass Transfer 15 (1972): 1647-1658.
+ 
+54. Ibid.
+ 
+55. F.J. Cunha,  “Numerical Prediction of Heat Transfer in Internal Cooling Passages of Gas Turbine Blades,” IGTI- ASME   
+ 
+      Cogen Turbo Power  8 (1993): 307-316; F.J. Cunha,  “A Calculation procedure to Analyze Three Dimensional Parabolic 
+ 
+      Flow Problems of Heat Transfer with Rotation,” ASME HTD 300 (1994): 123-137; D.G.N. Tse and Steuber, “Flow in a 
+ 
+      Rotating Square Serpentine Coolant Passage with Skewed Trips,” ASME Paper 97-GT-529, 1997; J.H. Wagner. B.V. 
+ 
+      Johnson, R.A. Graziani, and F.C. Yeh,  “Heat Transfer in Rotating Serpentine Passages with Trips Normal to the Flow,” 
+ 
+      ASME Paper 91-GT-265, Transactions ASME, 1992.
+ 
+56. See note 53.
+ 
+57. U. Uysal, P. Li, M.K. Chyu,  and F.J. Cunha,  “ Heat Transfer on Internal Surfaces of a Duct Subjected to 
+ 
+      Impingement of a Jet Array with Varying Jet Hole-Size and Spacing,” ASME GT2005-68944, Trans. ASME Journal of  
+ 
+ 
+      Turbomachinery, 2006; R. Gardon and J. Cohonpue, “Heat Transfer Between a Flat Plate and Jet Air Impinging on It,” 
+ 
+      ASME/AICHE International Heat Transfer Conference Proceedings, 1962; H. Martin, “Heat and Mass Transfer Between 
+ 
+      Impingement Gas Jets and Solid Surfaces,” Advances in Heat Transfer 13, 1977.
+ 
+58. M.K. Chyu, U. Uysal, and P-W Li,  “Convective Heat Transfer in a Triple-Cavity Structure Near Turbine Blade Trailing   
+ 
+      Edge,”  Proceedings of IMECE’02, International Mechanical Engineers Congress, New Orleans, Nov. 17-22, 2002.
+ 
+59. See note 46. 
+ 
+60. D.M. Kercher and W. Tabakoff,  “Heat Transfer by Square Air Jets Impinging Perpendicular to a Flat Surface Including   
+ 
+      the Effect of Spent Air,” ASME Paper 69-GT-4, Trans. ASME Journal of Engineering for Power, 1970; L.M. Florschuetz, 
+ 
+      C.R. Truman, and D.E. Metzger,  “ Streamwise Flow and Heat Transfer Distributions for Jet Array Impingement with 
+ 
+      Crossﬂ ow, Trans. ASME Journal Heat Transfer, March, 1981. 
+ 
+61. Ibid (Florschuetz).
+ 
+62. See note 20 (Zukauskas).
+ 
+63. See note 20 (Chyu).
+ 
+64. F.W. Dittus and L.M.K. Boelter, University of California at Berkely Publications in Engineering 2 (1930): 443.
+ 
+65. K. Ishida and K. Hamabe, “Effect of Pin-Fin Aspect Ratio and Arrangement on Heat Transfer and Pressure Drop of Pin   
+ 
+      Fin Duct for Airfoil Internal Cooling Passage,” ASME Paper 85-WA/HT-62, 1985.
+ 
+66. See note 46.
+ 
+67. See note 20 (Chyu).
+ 
+68. See note 23.
+ 
+69. Ibid.
+ 
+70. ANSYS User’s Manual, Swanson Analysis Systems, Inc., Volumes I,II,III,IV, Revision 5.0.
+ 
+71. R.D. Thulin and D.C. Howe,  “Energy Efﬁ cient Engine High-Pressure Turbine Design Report”, NASA CR-165608,  
+ 
+ 
+      PWA-5594-171, March 1982.
+ 
+72. See note 4 (Maclachlan, 2002).
+ 
+73. Ibid.
+ 
+74. F.R. Larson and J. Miller, “A Time-Temperature Relationship for Rupture and Creep Stress,” Transactions of the ASME   
+ 
+      (1952): 765-775; F. Garafalo, Fundamentals of Creep and Creep-Rupture in Metals, The Macmellan Co.,1965; D.C.  
+ 
+ 
+      Stouffer and L.T. Dame,  Inelastic Deformation of Metals Models, Mechanical Properties and Metallurgy, John Wiley & 
+ 
+      Sons, 1st Ed.,1996.
+ 
+75. D. Burgreen, “Structural Growth Induced by Thermal Cycling,” Journal of Basic Engineering, ASME 68-WA/Met-14,  
+ 
+ 
+      1968; F.O. Soechting, ”Turbine Low Cycle Fatigue Design Program,” Wright-Patterson Final Report AFWAL-TR-86- 
+ 
+ 
+      2124, 1985; also see note 21.
+4.4 Heat Transfer Analysis
+
+4.4 Heat Transfer Analysis
+Frank J. Cunha, Ph.D., P.E.
+Pratt & Whitney
+United Technologies Corporation
+5 Bruce Lane
+Avon, CT 06001
+phone: (860) 565-8909
+email: frank.cunha@pw.utc.com
+Dr. Cunha has worked in the area of turbine cooling design and analysis, heat transfer and mechanical 
+design for a period spanning 25 years.  During this time, Dr. Cunha assumed lead design responsibilities at 
+several original equipment manufacturers, including Siemens-Westinghouse, General Electric, and Pratt and 
+Whitney and has received 25 US patents for design of turbine engine hot gas path components.  Throughout 
+his career, Dr. Cunha has continued to apply recent advances in cooling technology to both commercial and 
+military engine programs to achieve the highest rotor inlet temperature level in the aerospace industry.  Dr. 
+Cunha has been a leader in developing advanced testing cooling programs at a consortium of Universities, 
+and has published numerous journal and symposium technical papers on turbine cooling technologies. 
+BIOGRAPHY  
