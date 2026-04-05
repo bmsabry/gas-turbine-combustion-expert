@@ -76,16 +76,6 @@ function App() {
           </div>
         ))}
         
-        {msg.sources?.length > 0 && (
-          <div className="sources-section">
-            <h4>📚 Sources Used</h4>
-            {msg.sources.map((source, i) => (
-              <div key={i} className="source-item" onClick={() => setSelectedSource(source)}>
-                <strong>{source.title}</strong> ({source.year})
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     )
   }
