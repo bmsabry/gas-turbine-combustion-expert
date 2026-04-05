@@ -28,7 +28,7 @@ if static_dir.exists() and (static_dir / "assets").exists():
 
 class ChatRequest(BaseModel):
     message: str
-    history: List[Dict] = []  # Conversation history for multi-turn support
+    history: List[Dict] = []
 
 
 class ChatResponse(BaseModel):
@@ -36,7 +36,7 @@ class ChatResponse(BaseModel):
     sources: List[Dict] = []
     conflicts: List[str] = []
     single_study_notes: List[str] = []
-    sub_queries: List[str] = []  # Decomposed sub-queries shown to user
+    sub_queries: List[str] = []
 
 
 _chunks = []
@@ -50,6 +50,40 @@ _contradictions = []
 _data_loaded = False
 
 
+def strip_all_references(text: str) -> str:
+    """Remove ALL forms of citations and references from LLM output."""
+    # Step 1: Remove trailing reference/sources sections (everything after these headers)
+    section_patterns = [
+        r'\n+\*{0,3}\s*sources\s*used[\s\S]*$',
+        r'\n+\*{0,3}\s*references[\s\S]*$',
+        r'\n+\*{0,3}\s*bibliography[\s\S]*$',
+        r'\n+\*{0,3}\s*citations[\s\S]*$',
+        r'\n+\*{0,3}\s*works\s*cited[\s\S]*$',
+        r'\n+---+\s*\n\s*\*{0,3}\s*(sources|references|bibliography)[\s\S]*$',
+        # Perplexity numbered URL blocks at end
+        r'\n+\[\d+\]\s*https?://[^\n]+(?:\n\[\d+\]\s*https?://[^\n]+)*\s*$',
+        r'\n+\d+\.\s*https?://[^\n]+(?:\n\d+\.\s*https?://[^\n]+)*\s*$',
+    ]
+    for pat in section_patterns:
+        text = re.sub(pat, '', text, flags=re.IGNORECASE)
+
+    # Step 2: Remove inline citation numbers like [1], [2], [1][2], [3][4][5]
+    # Perplexity style: [1], [2][3], etc.
+    text = re.sub(r'(\[\d+\])+', '', text)
+
+    # Step 3: Remove inline author-year citations like (Smith et al., 2021) or (Smith, 2021)
+    text = re.sub(r'\([A-Z][a-z]+(?:\s+et\s+al\.)?[,\s]+\d{4}[^)]*\)', '', text)
+
+    # Step 4: Remove superscript-style refs like ^1 ^2
+    text = re.sub(r'\^\d+', '', text)
+
+    # Step 5: Clean up any double spaces left by removals
+    text = re.sub(r'  +', ' ', text)
+    text = re.sub(r' ([.,;:?!])', r'\1', text)
+
+    return text.strip()
+
+
 def load_all_data():
     global _chunks, _tfidf_matrix, _vectorizer, _neural_embeddings, _neural_chunk_ids
     global _entities, _relationships, _contradictions, _data_loaded
@@ -57,7 +91,6 @@ def load_all_data():
         return
     print("Loading data...")
 
-    # Load all chunks
     chunks_dir = PROJECT_DIR / "chunks"
     all_chunks = []
     if chunks_dir.exists():
@@ -76,7 +109,6 @@ def load_all_data():
     _chunks = all_chunks
     print(f"Loaded {len(_chunks)} chunks")
 
-    # Build TF-IDF index (always available as fallback)
     if _chunks:
         try:
             from sklearn.feature_extraction.text import TfidfVectorizer
@@ -87,7 +119,6 @@ def load_all_data():
         except Exception as e:
             print(f"TF-IDF failed: {e}")
 
-    # Load pre-computed neural embeddings (numpy binary - no model needed at runtime)
     neural_path = PROJECT_DIR / "embeddings" / "neural_embeddings.npy"
     neural_ids_path = PROJECT_DIR / "embeddings" / "neural_chunk_ids.json"
     if neural_path.exists() and neural_ids_path.exists():
@@ -99,7 +130,6 @@ def load_all_data():
         except Exception as e:
             print(f"Neural embeddings load failed: {e}")
 
-    # Load knowledge graph
     kg_dir = PROJECT_DIR / "knowledge_graph"
     for fname, target in [("entities.json", "_entities"), ("relationships.json", "_relationships"), ("contradictions.json", "_contradictions")]:
         try:
@@ -212,7 +242,7 @@ async def rerank_with_gemini(query: str, chunks: List[Dict], client: httpx.Async
     return chunks[:top_k]
 
 
-def search_chunks_tfidf(query: str, top_k: int = 150) -> List[Dict]:
+def search_chunks_tfidf(query: str, top_k: int = 300) -> List[Dict]:
     """TF-IDF retrieval returning top_k candidates."""
     if not _data_loaded:
         load_all_data()
@@ -231,7 +261,6 @@ def search_chunks_tfidf(query: str, top_k: int = 150) -> List[Dict]:
             return results
         except Exception as e:
             print(f"TF-IDF error: {e}")
-    # Keyword fallback
     keywords = [w.lower() for w in re.split(r"\W+", query) if len(w) > 3]
     scored = []
     for chunk in _chunks:
@@ -243,32 +272,6 @@ def search_chunks_tfidf(query: str, top_k: int = 150) -> List[Dict]:
             scored.append(c)
     scored.sort(key=lambda x: x["score"], reverse=True)
     return scored[:top_k]
-
-
-def search_neural(query_embedding: np.ndarray, top_k: int = 150) -> List[Dict]:
-    """Neural similarity search using pre-computed embeddings (no model needed at runtime)."""
-    if _neural_embeddings is None or not _neural_chunk_ids:
-        return []
-    try:
-        chunk_lookup = {c.get("chunk_id", ""): c for c in _chunks}
-        norms = np.linalg.norm(_neural_embeddings, axis=1, keepdims=True)
-        normed = _neural_embeddings / (norms + 1e-10)
-        q_norm = query_embedding / (np.linalg.norm(query_embedding) + 1e-10)
-        scores = normed @ q_norm
-        top_idx = np.argsort(scores)[::-1][:top_k]
-        results = []
-        for idx in top_idx:
-            if idx < len(_neural_chunk_ids):
-                chunk_id = _neural_chunk_ids[idx]
-                chunk = chunk_lookup.get(chunk_id)
-                if chunk:
-                    c = chunk.copy()
-                    c["score"] = float(scores[idx])
-                    results.append(c)
-        return results
-    except Exception as e:
-        print(f"Neural search error: {e}")
-        return []
 
 
 def find_conflicts(query: str) -> List[str]:
@@ -307,7 +310,7 @@ async def api_info():
         "version": "2.0.0",
         "status": "running",
         "neural_embeddings": _neural_embeddings is not None,
-        "upgrades": ["query_decomposition", "gemini_reranking", "conversation_history", "50_chunk_context"]
+        "upgrades": ["query_decomposition", "gemini_reranking", "conversation_history", "300_chunk_context"]
     }
 
 
@@ -338,13 +341,13 @@ async def chat(request: ChatRequest):
     api_url = settings.get("llm_api_url", "").strip().rstrip("/")
     model = settings.get("llm_model", "google/gemini-2.0-flash-001")
 
-    async with httpx.AsyncClient(timeout=90.0) as client:
+    async with httpx.AsyncClient(timeout=120.0) as client:
 
-        # STEP 1: Query Decomposition via Gemini Flash
+        # STEP 1: Query Decomposition
         sub_queries = await decompose_query(request.message, client, settings)
         print(f"Sub-queries: {sub_queries}")
 
-        # STEP 2: Multi-query TF-IDF Retrieval (150 candidates per sub-query, merged)
+        # STEP 2: Multi-query TF-IDF Retrieval
         all_retrieved = {}
         for sq in sub_queries:
             results = search_chunks_tfidf(sq, top_k=300)
@@ -361,7 +364,7 @@ async def chat(request: ChatRequest):
                 sources=[], conflicts=[], single_study_notes=[], sub_queries=sub_queries
             )
 
-        # STEP 3: Gemini Flash Reranking → top 50
+        # STEP 3: Reranking → top 300
         reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=300)
 
         # STEP 4: Build sources list
@@ -382,7 +385,7 @@ async def chat(request: ChatRequest):
         # STEP 5: Knowledge graph conflict detection
         conflicts = find_conflicts(request.message)
 
-        # STEP 6: Build context from top 50 chunks
+        # STEP 6: Build context from top 300 chunks
         context_parts = []
         for i, chunk in enumerate(reranked[:300]):
             title = chunk.get("title", "Unknown")
@@ -398,7 +401,7 @@ async def chat(request: ChatRequest):
         if conflicts:
             conflict_ctx = "\n\nLITERATURE CONFLICTS DETECTED:\n" + "\n".join(conflicts)
 
-        # STEP 7: Build conversation history (last 3 turns = 6 messages)
+        # STEP 7: Conversation history (last 3 turns)
         history_messages = []
         for h in request.history[-6:]:
             if h.get("role") in ["user", "assistant"]:
@@ -417,37 +420,35 @@ async def chat(request: ChatRequest):
 
         # STEP 9: System prompt
         system_prompt = (
-            "ABSOLUTE RULE - THIS OVERRIDES EVERYTHING: You are STRICTLY FORBIDDEN from mentioning "
-            "ANY paper title, author name, year, journal name, citation, reference, or source ANYWHERE "
-            "in your answer. NEVER write phrases like 'according to', 'as shown by', 'researchers found', "
-            "'studies show', 'Smith et al.', '[Author Year]', 'Sources:', 'References:', 'Bibliography:', "
-            "or any similar attribution. Do NOT number your sources. Do NOT list papers at the end. "
-            "Do NOT mention where information came from. EVER. Your answer must contain ONLY direct "
-            "technical content with zero attribution of any kind.\n\n"
+            "ABSOLUTE RULE - THIS OVERRIDES EVERYTHING ELSE: "
+            "You are STRICTLY FORBIDDEN from including ANY citations, references, footnotes, or source attributions "
+            "ANYWHERE in your answer. This means: NO [1], NO [2], NO [1][2], NO (Author, Year), NO 'according to', "
+            "NO 'as shown by', NO 'researchers found', NO 'Sources:', NO 'References:', NO numbered URL lists, "
+            "NO footnote markers of any kind. Do NOT cite anything. Do NOT mention where information came from. "
+            "Write ONLY the direct technical answer with zero attribution of any kind.\n\n"
             "You are a gas turbine combustion expert AI assistant. "
-            "Answer ONLY from the provided research excerpts.\n\n"
+            "Answer ONLY from the provided research paper excerpts.\n\n"
             "Rules:\n"
-            "1. Never use outside knowledge. If the answer is not in the provided context, say so explicitly.\n"
-            "2. Synthesize all relevant information into one single coherent technical answer.\n"
+            "1. Never use outside knowledge. If not in the context, say so explicitly.\n"
+            "2. Synthesize all relevant information into one coherent technical answer.\n"
             "3. Flag disagreements: ⚠️ CONFLICTING EVIDENCE: One body of research states X. However, other research states Y.\n"
-            "4. For system design questions: answer component by component (diffuser → premixer → liner → coatings).\n"
+            "4. For system design: answer component by component (diffuser → premixer → liner → coatings).\n"
             "5. Use confidence levels: 'The literature strongly supports...' / 'Evidence suggests...' / 'Limited evidence indicates...'\n"
             "6. Be thorough and deeply technical - your audience is combustion engineers.\n"
-            "7. When context includes [VISUAL/EQUATION] chunks, incorporate that quantitative data and equations directly into your answer."
+            "7. Incorporate [VISUAL/EQUATION] chunk data directly into your answer."
         )
 
-        # STEP 10: Assemble user message with full context
+        # STEP 10: Assemble user message
         user_msg = (
-            f"Research Paper Context (top 300 most relevant chunks, including equations and figure data):\n"
+            f"Research Paper Context (top 300 most relevant chunks):\n"
             f"{context}{conflict_ctx}\n\n"
             f"Question: {request.message}\n\n"
-            "Provide a comprehensive, technically accurate answer based solely on the provided research context."
+            "Provide a comprehensive, technically accurate answer. DO NOT include any citations, references, or source lists."
         )
 
-        # Build messages with conversation history
         messages_with_history = history_messages + [{"role": "user", "content": user_msg}]
 
-        # STEP 11: Call LLM (Anthropic or OpenAI-compatible/OpenRouter)
+        # STEP 11: Call LLM
         if "anthropic" in api_url.lower():
             endpoint = f"{api_url}/v1/messages"
             headers = {
@@ -457,12 +458,12 @@ async def chat(request: ChatRequest):
             }
             payload = {
                 "model": model,
-                "max_tokens": 3000,
+                "max_tokens": 8000,
                 "system": system_prompt,
                 "messages": [{"role": "user", "content": user_msg}]
             }
         else:
-            # OpenAI-compatible (OpenRouter, OpenAI, etc.)
+            # OpenAI-compatible (OpenRouter, Perplexity, OpenAI, etc.)
             endpoint = f"{api_url}/chat/completions"
             headers = {
                 "Authorization": f"Bearer {api_key}",
@@ -472,10 +473,9 @@ async def chat(request: ChatRequest):
             }
             payload = {
                 "model": model,
-                "max_tokens": 3000,
+                "max_tokens": 8000,
                 "messages": [{"role": "system", "content": system_prompt}] + messages_with_history
             }
-
 
         try:
             resp = await client.post(endpoint, headers=headers, json=payload)
@@ -486,20 +486,8 @@ async def chat(request: ChatRequest):
             else:
                 raw_text = data["choices"][0]["message"]["content"]
 
-            # Strip any Sources/References section the LLM adds despite instructions
-            import re
-            clean_text = raw_text
-            strip_patterns = [
-                r'\n+\*{0,3}\s*sources\s*used[\s\S]*$',
-                r'\n+\*{0,3}\s*references[\s\S]*$',
-                r'\n+\*{0,3}\s*bibliography[\s\S]*$',
-                r'\n+\*{0,3}\s*citations[\s\S]*$',
-                r'\n+\*{0,3}\s*works\s*cited[\s\S]*$',
-                r'\n+---+\n\s*\*{0,3}\s*(sources|references|bibliography)[\s\S]*$',
-            ]
-            for pat in strip_patterns:
-                clean_text = re.sub(pat, '', clean_text, flags=re.IGNORECASE)
-            llm_text = clean_text.strip()
+            # Strip ALL forms of references/citations from the output
+            llm_text = strip_all_references(raw_text)
 
             return ChatResponse(
                 response=llm_text,
