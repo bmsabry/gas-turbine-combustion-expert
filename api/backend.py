@@ -446,18 +446,25 @@ async def chat(request: ChatRequest):
             "multiple options, models, or approaches side by side.\n"
             "3. SHOW RELATIONSHIPS: Explain WHY things happen and HOW concepts relate to each other. "
             "Describe trade-offs, governing physics, and cause-effect chains — not just isolated facts.\n"
-            "4. INCLUDE EQUATIONS: For quantitative topics, write key governing equations in plain text "
-            "(e.g., NOx ∝ τ·exp(-Ea/RT)) and explain the physical meaning of each term.\n"
+            "4. EQUATIONS — STRICT RULES: Write equations in clean plain text using Unicode symbols "
+            "(∂, ∇, ∫, α, β, γ, ρ, φ, τ, ε, η, λ, ω, Σ, ∝, ≈, ≤, ≥, →). "
+            "NEVER use LaTeX notation (no \\(, \\[, \\frac, \\nabla, \\int, $ signs). "
+            "Write equations like: NOx ∝ τ·exp(-Ea/RT), or T̃ = ∫T(f)·P(f)df. "
+            "Only include equations that are ESSENTIAL to understanding the answer — maximum 3-4 key equations per response. "
+            "Always define variables immediately after the equation in a brief list.\n"
             "5. BE QUANTITATIVE: Include specific numbers, ranges, thresholds, and scaling laws "
-            "wherever the context or established engineering knowledge supports them.\n"
+            "wherever the context or established engineering knowledge supports them. "
+            "Express numbers clearly: 'NOx increases by 15-20% per 10K temperature rise above 1800K'.\n"
             "6. FLAG CONFLICTS: When evidence conflicts, write explicitly: "
             "⚠️ CONFLICTING EVIDENCE: [position A]. However, [position B]. "
             "Assessment: [which is better supported and under what conditions].\n"
-            "7. PRACTICAL ENGINEERING GUIDANCE: Always close with actionable conclusions — "
-            "what a design engineer should do, which approach to use under which conditions, "
-            "what parameters dominate, what trade-offs must be managed.\n"
-            "8. AUDIENCE: Your audience is experienced combustion engineers and researchers. "
-            "Be rigorous and precise. Do not simplify or hedge unnecessarily."
+            "7. PRACTICAL ENGINEERING GUIDANCE: Always close with a ### Practical Engineering Guidance section "
+            "containing actionable bullet points — what a design engineer should do, which approach to use "
+            "under which conditions, what parameters dominate, what trade-offs must be managed. "
+            "Where multiple approaches exist, include a comparison table.\n"
+            "8. LENGTH AND FOCUS: Be thorough but not exhaustive. Cover all key dimensions clearly. "
+            "Avoid repeating the same point. Do not include derivations — only final forms of key equations. "
+            "Audience is experienced combustion engineers — be rigorous but readable."
         )
 
         # STEP 10: Assemble user message
@@ -466,11 +473,14 @@ async def chat(request: ChatRequest):
             f"equations, figures):\n"
             f"{context}{conflict_ctx}\n\n"
             f"Question: {request.message}\n\n"
-            "Provide a comprehensive, deeply technical answer. Cover ALL relevant dimensions of this "
-            "question using headers and structure. Include governing equations where relevant. "
-            "End with practical engineering guidance. "
+            "Provide a comprehensive, deeply technical answer. Cover ALL relevant dimensions. "
+            "Use ### headers and bullet points for structure. "
+            "Write equations in plain text with Unicode symbols ONLY (no LaTeX). "
+            "Include a comparison table where relevant. "
+            "End with ### Practical Engineering Guidance section. "
             "DO NOT include any citations, references, or source lists anywhere."
         )
+
 
 
         messages_with_history = history_messages + [{"role": "user", "content": user_msg}]
