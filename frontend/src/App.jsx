@@ -73,121 +73,28 @@ function App() {
           rehypePlugins={[rehypeKatex, rehypeRaw]}
           components={{
             table: ({node, ...props}) => (
-              <div style={{overflowX: 'auto', margin: '12px 0'}}>
-                <table style={{
-                  borderCollapse: 'collapse',
-                  width: '100%',
-                  fontSize: '14px'
-                }} {...props} />
+              <div className="table-wrapper">
+                <table {...props} />
               </div>
             ),
-            th: ({node, ...props}) => (
-              <th style={{
-                background: '#1e3a5f',
-                color: 'white',
-                padding: '8px 12px',
-                textAlign: 'left',
-                fontWeight: '600',
-                borderBottom: '2px solid #2d5a8e'
-              }} {...props} />
-            ),
-            td: ({node, ...props}) => (
-              <td style={{
-                padding: '8px 12px',
-                borderBottom: '1px solid #e2e8f0',
-                verticalAlign: 'top'
-              }} {...props} />
-            ),
-            tr: ({node, ...props}) => (
-              <tr style={{
-                background: 'inherit'
-              }} {...props} />
-            ),
-            h3: ({node, ...props}) => (
-              <h3 style={{
-                color: '#1e3a5f',
-                marginTop: '20px',
-                marginBottom: '8px',
-                fontSize: '16px',
-                fontWeight: '700',
-                borderBottom: '1px solid #e2e8f0',
-                paddingBottom: '4px'
-              }} {...props} />
-            ),
-            h4: ({node, ...props}) => (
-              <h4 style={{
-                color: '#2d5a8e',
-                marginTop: '16px',
-                marginBottom: '6px',
-                fontSize: '14px',
-                fontWeight: '600'
-              }} {...props} />
-            ),
-            h2: ({node, ...props}) => (
-              <h2 style={{
-                color: '#1e3a5f',
-                marginTop: '24px',
-                marginBottom: '10px',
-                fontSize: '18px',
-                fontWeight: '700'
-              }} {...props} />
-            ),
-            p: ({node, ...props}) => (
-              <p style={{
-                marginBottom: '10px',
-                lineHeight: '1.7'
-              }} {...props} />
-            ),
-            ul: ({node, ...props}) => (
-              <ul style={{
-                paddingLeft: '20px',
-                marginBottom: '10px'
-              }} {...props} />
-            ),
-            ol: ({node, ...props}) => (
-              <ol style={{
-                paddingLeft: '20px',
-                marginBottom: '10px'
-              }} {...props} />
-            ),
-            li: ({node, ...props}) => (
-              <li style={{
-                marginBottom: '4px',
-                lineHeight: '1.6'
-              }} {...props} />
-            ),
-            code: ({node, inline, ...props}) => (
+            th: ({node, ...props}) => <th {...props} />,
+            td: ({node, ...props}) => <td {...props} />,
+            tr: ({node, ...props}) => <tr {...props} />,
+            h1: ({node, ...props}) => <h1 {...props} />,
+            h2: ({node, ...props}) => <h2 {...props} />,
+            h3: ({node, ...props}) => <h3 {...props} />,
+            h4: ({node, ...props}) => <h4 {...props} />,
+            p:  ({node, ...props}) => <p {...props} />,
+            ul: ({node, ...props}) => <ul {...props} />,
+            ol: ({node, ...props}) => <ol {...props} />,
+            li: ({node, ...props}) => <li {...props} />,
+            strong: ({node, ...props}) => <strong {...props} />,
+            em: ({node, ...props}) => <em {...props} />,
+            blockquote: ({node, ...props}) => <blockquote {...props} />,
+            code: ({node, inline, className, children, ...props}) => (
               inline
-                ? <code style={{
-                    background: '#f1f5f9',
-                    padding: '1px 4px',
-                    borderRadius: '3px',
-                    fontFamily: 'monospace',
-                    fontSize: '13px',
-                    color: '#1e3a5f'
-                  }} {...props} />
-                : <code style={{
-                    display: 'block',
-                    background: '#f1f5f9',
-                    padding: '12px',
-                    borderRadius: '6px',
-                    fontFamily: 'monospace',
-                    fontSize: '13px',
-                    overflowX: 'auto',
-                    margin: '8px 0'
-                  }} {...props} />
-            ),
-            blockquote: ({node, ...props}) => (
-              <blockquote style={{
-                borderLeft: '4px solid #2d5a8e',
-                paddingLeft: '12px',
-                margin: '10px 0',
-                color: '#475569',
-                fontStyle: 'italic'
-              }} {...props} />
-            ),
-            strong: ({node, ...props}) => (
-              <strong style={{ color: '#1e3a5f' }} {...props} />
+                ? <code className={className} {...props}>{children}</code>
+                : <pre><code className={className} {...props}>{children}</code></pre>
             )
           }}
         >
