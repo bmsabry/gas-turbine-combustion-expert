@@ -273,6 +273,49 @@ def search_chunks_tfidf(query: str, top_k: int = 300) -> List[Dict]:
     scored.sort(key=lambda x: x["score"], reverse=True)
     return scored[:top_k]
 
+async def search_chunks_neural(query: str, client: httpx.AsyncClient, top_k: int = 300) -> List[Dict]:
+    """Neural semantic search using Deep-Infra embeddings (all-MiniLM-L6-v2, 384-dim)."""
+    if _neural_embeddings is None or not _neural_chunk_ids:
+        print("Neural search: embeddings not loaded, skipping")
+        return []
+    deep_infra_key = os.environ.get("DEEP_INFRA_API_KEY", os.environ.get("DEEP-INFRA_API_KEY", "")).strip()
+    if not deep_infra_key:
+        print("Neural search: no Deep-Infra API key, skipping")
+        return []
+    try:
+        resp = await client.post(
+            "https://api.deepinfra.com/v1/openai/embeddings",
+            headers={"Authorization": f"Bearer {deep_infra_key}", "Content-Type": "application/json"},
+            json={"model": "sentence-transformers/all-MiniLM-L6-v2", "input": query},
+            timeout=10.0
+        )
+        if resp.status_code != 200:
+            print(f"Neural embed API error: {resp.status_code} {resp.text[:200]}")
+            return []
+        query_vec = np.array(resp.json()["data"][0]["embedding"], dtype=np.float32)
+        # Cosine similarity against all stored embeddings
+        norms = np.linalg.norm(_neural_embeddings, axis=1)
+        q_norm = np.linalg.norm(query_vec)
+        sims = (_neural_embeddings @ query_vec) / (norms * q_norm + 1e-8)
+        top_idx = np.argsort(sims)[::-1][:top_k]
+        # Build chunk_id → chunk lookup
+        chunk_lookup = {c.get("chunk_id", ""): c for c in _chunks if c.get("chunk_id")}
+        results = []
+        for idx in top_idx:
+            if idx < len(_neural_chunk_ids):
+                cid = _neural_chunk_ids[idx]
+                chunk = chunk_lookup.get(cid)
+                if chunk and sims[idx] > 0.1:
+                    c = chunk.copy()
+                    c["score"] = float(sims[idx])
+                    c["retrieval_type"] = "neural"
+                    results.append(c)
+        print(f"Neural search: {len(results)} results for query '{query[:50]}'")
+        return results
+    except Exception as e:
+        print(f"Neural search error: {e}")
+        return []
+
 
 def find_conflicts(query: str) -> List[str]:
     """Find knowledge graph contradictions relevant to query."""
@@ -310,7 +353,7 @@ async def api_info():
         "version": "2.0.0",
         "status": "running",
         "neural_embeddings": _neural_embeddings is not None,
-        "upgrades": ["query_decomposition", "gemini_reranking", "conversation_history", "300_chunk_context"]
+        "upgrades": ["query_decomposition", "gemini_reranking", "hybrid_neural_tfidf", "conversation_history", "600_chunk_context"]
     }
 
 
@@ -347,16 +390,35 @@ async def chat(request: ChatRequest):
         sub_queries = await decompose_query(request.message, client, settings)
         print(f"Sub-queries: {sub_queries}")
 
-        # STEP 2: Multi-query TF-IDF Retrieval
+        # STEP 2: Hybrid Retrieval — TF-IDF (per sub-query) + Neural (original query)
         all_retrieved = {}
+
+        # TF-IDF: search each sub-query for keyword precision
         for sq in sub_queries:
             results = search_chunks_tfidf(sq, top_k=300)
             for r in results:
                 cid = r.get("chunk_id", r.get("text", "")[:50])
                 if cid not in all_retrieved or r["score"] > all_retrieved[cid]["score"]:
+                    r["retrieval_type"] = "tfidf"
                     all_retrieved[cid] = r
 
-        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:600]
+        tfidf_count = len(all_retrieved)
+
+        # Neural: search original query for semantic recall
+        neural_results = await search_chunks_neural(request.message, client, top_k=300)
+        neural_added = 0
+        for r in neural_results:
+            cid = r.get("chunk_id", r.get("text", "")[:50])
+            if cid not in all_retrieved:
+                all_retrieved[cid] = r
+                neural_added += 1
+            # If neural score is much higher, prefer neural score
+            elif r["score"] > all_retrieved[cid]["score"] * 1.2:
+                all_retrieved[cid]["score"] = r["score"]
+
+        print(f"Hybrid retrieval: {tfidf_count} TF-IDF + {neural_added} neural-only = {len(all_retrieved)} total candidates")
+        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:1200]
+
 
         if not candidates:
             return ChatResponse(
@@ -364,8 +426,9 @@ async def chat(request: ChatRequest):
                 sources=[], conflicts=[], single_study_notes=[], sub_queries=sub_queries
             )
 
-        # STEP 3: Reranking → top 300
-        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=300)
+        # STEP 3: Gemini Flash Reranking → top 600
+        reranked = await rerank_with_gemini(request.message, candidates, client, settings, top_k=600)
+
 
         # STEP 4: Build sources list
         sources = []
@@ -385,9 +448,9 @@ async def chat(request: ChatRequest):
         # STEP 5: Knowledge graph conflict detection
         conflicts = find_conflicts(request.message)
 
-        # STEP 6: Build context from top 300 chunks
+        # STEP 6: Build context from top 600 chunks (hybrid retrieval)
         context_parts = []
-        for i, chunk in enumerate(reranked[:300]):
+        for i, chunk in enumerate(reranked[:600]):
             title = chunk.get("title", "Unknown")
             year = chunk.get("year", "")
             text = chunk.get("text", "")
@@ -475,7 +538,7 @@ async def chat(request: ChatRequest):
 
         # STEP 10: Assemble user message
         user_msg = (
-            f"Research Context (top 300 most relevant chunks from 386 PDFs — papers, textbooks, "
+            f"Research Context (top 600 most relevant chunks from 386 PDFs — hybrid neural+TF-IDF retrieval — papers, textbooks, "
             f"equations, figures):\n"
             f"{context}{conflict_ctx}\n\n"
             f"Question: {request.message}\n\n"
