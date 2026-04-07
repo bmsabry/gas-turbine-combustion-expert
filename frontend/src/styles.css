@@ -241,17 +241,17 @@ body {
 
 .message.assistant .table-wrapper {
   overflow-x: auto;
-  margin: 16px 0;
+  margin: 20px 0;
   border-radius: 8px;
-  border: 1px solid var(--table-border);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid #b0c8e0;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
 }
 
 .message.assistant table {
   border-collapse: collapse;
   width: 100%;
   font-size: 14px;
-  min-width: 400px;
+  min-width: 480px;
 }
 
 .message.assistant thead {
@@ -261,13 +261,18 @@ body {
 .message.assistant th {
   background: var(--table-header);
   color: white;
-  padding: 11px 16px;
+  padding: 13px 22px;
   text-align: left;
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.02em;
+  font-size: 12px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
   white-space: nowrap;
-  border-right: 1px solid rgba(255,255,255,0.12);
+  border-right: 2px solid rgba(255,255,255,0.18);
+}
+
+.message.assistant th:first-child {
+  min-width: 140px;
 }
 
 .message.assistant th:last-child {
@@ -275,31 +280,45 @@ body {
 }
 
 .message.assistant td {
-  padding: 10px 16px;
-  border-bottom: 1px solid var(--border-light);
-  border-right: 1px solid var(--border-light);
+  padding: 12px 22px;
+  border-bottom: 1px solid #dde8f0;
+  border-right: 1px solid #dde8f0;
   vertical-align: top;
-  line-height: 1.6;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.message.assistant td:first-child {
+  font-weight: 600;
+  color: var(--primary);
+  background: #eef4fb;
+  min-width: 140px;
+  white-space: nowrap;
+  border-right: 2px solid #b0c8e0;
 }
 
 .message.assistant td:last-child {
   border-right: none;
 }
 
-.message.assistant tr:last-child td {
+.message.assistant tbody tr:last-child td {
   border-bottom: none;
 }
 
-.message.assistant tbody tr:nth-child(odd) {
-  background: white;
+.message.assistant tbody tr:nth-child(odd) td:not(:first-child) {
+  background: #ffffff;
 }
 
-.message.assistant tbody tr:nth-child(even) {
-  background: var(--table-row-alt);
+.message.assistant tbody tr:nth-child(even) td:not(:first-child) {
+  background: #f6fafd;
 }
 
-.message.assistant tbody tr:hover {
-  background: #e8f0fb;
+.message.assistant tbody tr:hover td:not(:first-child) {
+  background: #eaf2fb;
+}
+
+.message.assistant tbody tr:hover td:first-child {
+  background: #ddeaf7;
 }
 
 /* ─── Conflict and Note Blocks ────────────────────────────────────────────── */

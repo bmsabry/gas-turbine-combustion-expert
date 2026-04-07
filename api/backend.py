@@ -67,9 +67,14 @@ def strip_all_references(text: str) -> str:
     for pat in section_patterns:
         text = re.sub(pat, '', text, flags=re.IGNORECASE)
 
-    # Step 2: Remove inline citation numbers like [1], [2], [1][2], [3][4][5]
-    # Perplexity style: [1], [2][3], etc.
+    # Step 2: Remove multi-number bracket citations like [31, 89, 167] or [2, 10, 171, 209]
+    text = re.sub(r'\[\d+(?:[,;]\s*\d+)+\]', '', text)
+
+    # Step 2b: Remove single inline citation numbers like [1], [2], [1][2], [3][4][5]
     text = re.sub(r'(\[\d+\])+', '', text)
+
+    # Step 2c: Remove any remaining bracket-only artifacts like [ ] or [,]
+    text = re.sub(r'\[\s*[,;\s]*\s*\]', '', text)
 
     # Step 3: Remove inline author-year citations like (Smith et al., 2021) or (Smith, 2021)
     text = re.sub(r'\([A-Z][a-z]+(?:\s+et\s+al\.)?[,\s]+\d{4}[^)]*\)', '', text)
