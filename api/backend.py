@@ -190,6 +190,57 @@ async def decompose_query(query: str, client: httpx.AsyncClient, settings: dict)
     return [query]
 
 
+
+async def expand_topics(query: str, client: httpx.AsyncClient, settings: dict) -> list:
+    """Step 0: LLM identifies ALL topics a complete expert answer MUST cover.
+    Ensures critical topics like thermoacoustic instability are always retrieved
+    for DLE questions even when not explicitly mentioned by the user.
+    """
+    api_key = settings.get("llm_api_key", "").strip()
+    if not api_key:
+        return []
+    try:
+        prompt = (
+            "You are a world-class gas turbine combustion expert.\n"
+            "A combustion engineer asked:\n"
+            + query +
+            "\n\nList ALL technical sub-topics a COMPLETE expert answer MUST address.\n"
+            "Include topics NOT explicitly mentioned but any combustion expert would cover.\n"
+            "For DLE design questions ALWAYS include thermoacoustic instability, "
+            "flashback, and lean blowout even if not asked.\n"
+            "Return ONLY a JSON array of 6-10 short search query strings (4-8 words each).\n"
+            'Example: ["thermoacoustic instability lean premixed DLE", '
+            '"flashback premixer equivalence ratio", '
+            '"lean blowout stability limit"]\n'
+            "Return ONLY the JSON array, nothing else."
+        )
+        resp = await client.post(
+            "https://openrouter.ai/api/v1/chat/completions",
+            headers={
+                "Authorization": "Bearer " + api_key,
+                "Content-Type": "application/json",
+                "HTTP-Referer": "https://gas-turbine-combustion-expert.onrender.com",
+                "X-Title": "Gas Turbine Combustion Expert"
+            },
+            json={
+                "model": "google/gemini-2.0-flash-001",
+                "max_tokens": 400,
+                "messages": [{"role": "user", "content": prompt}]
+            },
+            timeout=15.0
+        )
+        if resp.status_code == 200:
+            txt = resp.json()["choices"][0]["message"]["content"].strip()
+            m = re.search(r"\[.*?\]", txt, re.DOTALL)
+            if m:
+                topics = json.loads(m.group())
+                if isinstance(topics, list):
+                    return [t for t in topics if isinstance(t, str)][:10]
+    except Exception as e:
+        print("Topic expansion failed: " + str(e))
+    return []
+
+
 async def rerank_with_gemini(query: str, chunks: List[Dict], client: httpx.AsyncClient, settings: dict, top_k: int = 100) -> List[Dict]:
     """Use Gemini Flash to rerank chunks - returns top_k most relevant."""
     if len(chunks) <= top_k:
@@ -391,16 +442,30 @@ async def chat(request: ChatRequest):
 
     async with httpx.AsyncClient(timeout=120.0) as client:
 
-        # STEP 1: Query Decomposition
-        sub_queries = await decompose_query(request.message, client, settings)
-        print(f"Sub-queries: {sub_queries}")
+        # STEP 0: Topic Expansion + Query Decomposition (parallel)
+        # LLM identifies ALL mandatory expert sub-topics so critical topics like
+        # thermoacoustic instability are always retrieved for DLE questions,
+        # even when not explicitly mentioned by the user.
+        sub_queries, expanded_topics = await asyncio.gather(
+            decompose_query(request.message, client, settings),
+            expand_topics(request.message, client, settings)
+        )
+        print("Sub-queries: " + str(sub_queries))
+        print("Expanded topics: " + str(expanded_topics))
 
-        # STEP 2: Hybrid Retrieval — TF-IDF (per sub-query) + Neural (original query)
+        # Merge into one deduplicated retrieval query list
+        all_search_queries = list(sub_queries)
+        for t in expanded_topics:
+            if t.lower() not in [q.lower() for q in all_search_queries]:
+                all_search_queries.append(t)
+        print("Total retrieval queries: " + str(len(all_search_queries)))
+
+        # STEP 1 + 2: Hybrid Retrieval — TF-IDF (all queries) + Neural
         all_retrieved = {}
 
-        # TF-IDF: search each sub-query for keyword precision
-        for sq in sub_queries:
-            results = search_chunks_tfidf(sq, top_k=300)
+        # TF-IDF: search ALL queries (decomposed + expert-expanded topics)
+        for sq in all_search_queries:
+            results = search_chunks_tfidf(sq, top_k=150)
             for r in results:
                 cid = r.get("chunk_id", r.get("text", "")[:50])
                 if cid not in all_retrieved or r["score"] > all_retrieved[cid]["score"]:
@@ -409,20 +474,21 @@ async def chat(request: ChatRequest):
 
         tfidf_count = len(all_retrieved)
 
-        # Neural: search original query for semantic recall
-        neural_results = await search_chunks_neural(request.message, client, top_k=300)
+        # Neural: original query + top 3 expanded topics for semantic recall
+        neural_queries = [request.message] + expanded_topics[:3]
         neural_added = 0
-        for r in neural_results:
-            cid = r.get("chunk_id", r.get("text", "")[:50])
-            if cid not in all_retrieved:
-                all_retrieved[cid] = r
-                neural_added += 1
-            # If neural score is much higher, prefer neural score
-            elif r["score"] > all_retrieved[cid]["score"] * 1.2:
-                all_retrieved[cid]["score"] = r["score"]
+        for nq in neural_queries:
+            nr = await search_chunks_neural(nq, client, top_k=200)
+            for r in nr:
+                cid = r.get("chunk_id", r.get("text", "")[:50])
+                if cid not in all_retrieved:
+                    all_retrieved[cid] = r
+                    neural_added += 1
+                elif r["score"] > all_retrieved[cid]["score"] * 1.2:
+                    all_retrieved[cid]["score"] = r["score"]
 
-        print(f"Hybrid retrieval: {tfidf_count} TF-IDF + {neural_added} neural-only = {len(all_retrieved)} total candidates")
-        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:1200]
+        print("Hybrid retrieval: " + str(tfidf_count) + " TF-IDF + " + str(neural_added) + " neural = " + str(len(all_retrieved)) + " candidates")
+        candidates = sorted(all_retrieved.values(), key=lambda x: x["score"], reverse=True)[:1500]
 
 
         if not candidates:
@@ -615,16 +681,32 @@ async def chat(request: ChatRequest):
 
             # ── PASS 2: Technical Critique & Correction ──────────────────────
             critique_system = (
-                "You are a precision technical editor for gas turbine combustion engineering.\n"
+                "You are a precision technical editor AND a senior gas turbine combustion engineer.\n"
                 "Review the DRAFT ANSWER and correct ONLY the following issues:\n\n"
-                "1. EQUATION-VARIABLE MISMATCH: If the text claims an equation shows parameter X, "
-                "but X does not appear in the equation — rewrite the equation to include X explicitly. "
-                "Example: if residence time τ is the topic, τ MUST appear in the equation, not just T or other variables.\n\n"
-                "2. INCOMPLETE TECHNICAL CONNECTIONS: If a concept is introduced but its mathematical "
-                "relationship to the main topic is missing, add it concisely.\n\n"
-                "3. MISSING QUANTITATIVE SPECIFICITY: If specific values, ranges, or scaling laws are "
-                "implied but not stated, add them where known from combustion engineering.\n\n"
-                "4. LOGICAL GAPS: Any place where reasoning jumps without explanation — fill the gap "
+                "1. EQUATION-VARIABLE MISMATCH: If the text claims an equation shows parameter X "
+                "but X does not appear in the equation, rewrite it to include X explicitly. "
+                "Example: if residence time is the topic, tau MUST appear in the equation. "
+                "NOx proportional to tau multiplied by exp(-Ea/RT) explicitly shows tau.\n\n"
+                "2. PHYSICAL PLAUSIBILITY OF NUMBERS: Apply engineering sanity checks to EVERY "
+                "specific numerical value cited. Known gas turbine combustion engineering ranges:\n"
+                "   Premixer residence time: 1-10 ms. If you see 42 ms for a premixer, that is wrong - "
+                "42 ms would cause autoignition and flashback in any realistic DLE premixer.\n"
+                "   Combustion zone residence time: 5-30 ms.\n"
+                "   Lean blowout equivalence ratio: 0.4-0.6.\n"
+                "   Autoignition temperature of natural gas at pressure: 450-600 degrees C.\n"
+                "   Lean premixed flame temperature: 1600-1900 K.\n"
+                "   Thermal NOx onset temperature: approximately 1800 K.\n"
+                "   Swirl number in DLE combustors: 0.6-1.2.\n"
+                "   DLE NOx target: 15-25 ppmv corrected to 15 percent O2.\n"
+                "   Combustor pressure drop: 3-5 percent total pressure.\n"
+                "   If a cited number violates these ranges, REMOVE it or add this note: "
+                "NOTE - This value appears specific to unusual test conditions and may not "
+                "represent typical gas turbine operation.\n\n"
+                "3. INCOMPLETE TECHNICAL CONNECTIONS: If a concept is introduced but its "
+                "mathematical link to the main topic is missing, add it in one sentence.\n\n"
+                "4. MISSING QUANTITATIVE SPECIFICITY: If values or scaling laws are implied "
+                "but not stated, add them from established combustion engineering knowledge.\n\n"
+                "5. LOGICAL GAPS: Where reasoning jumps without explanation, fill the gap "
                 "in one sentence.\n\n"
                 "RULES: Return ONLY the complete corrected answer. Keep the same structure and language. "
                 "Change only what needs correction. "
