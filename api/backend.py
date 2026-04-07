@@ -469,11 +469,19 @@ async def chat(request: ChatRequest):
         if conflicts:
             conflict_ctx = "\n\nLITERATURE CONFLICTS DETECTED:\n" + "\n".join(conflicts)
 
-        # STEP 7: Conversation history (last 3 turns)
+        # STEP 7: Conversation history — pass user questions only, truncate assistant answers
+        # Passing full previous answers causes topic bleeding into subsequent questions.
+        # The LLM only needs to know WHAT was asked before, not the full answer content.
         history_messages = []
         for h in request.history[-6:]:
-            if h.get("role") in ["user", "assistant"]:
-                history_messages.append({"role": h["role"], "content": h["content"]})
+            if h.get("role") == "user":
+                history_messages.append({"role": "user", "content": h["content"]})
+            elif h.get("role") == "assistant":
+                # Stub out previous answers to prevent topic bleeding
+                history_messages.append({
+                    "role": "assistant",
+                    "content": "[Answer provided. Now answer the next question fully independently.]"
+                })
 
         # STEP 8: Check API key
         if not api_key:
@@ -541,7 +549,8 @@ async def chat(request: ChatRequest):
             "Scenario | Recommended Approach | Key Reason) summarizing when to use what.\n"
             "9. AUDIENCE AND TONE: Write for experienced combustion engineers. Be precise and rigorous. "
             "Do not over-explain basic concepts. Do not hedge unnecessarily. "
-            "Aim for the tone of a confident expert explaining to a peer, not a textbook chapter."
+            "Aim for the tone of a confident expert explaining to a peer, not a textbook chapter.\n"
+            "10. CONVERSATION INDEPENDENCE: Answer ONLY the current question as a fully independent response. Do NOT carry over themes, conclusions, framing, or table structures from previous questions. Treat every question as fresh — based only on the current research context and current question. Only connect to a previous question if the user EXPLICITLY uses phrases like 'follow up', 'you mentioned', 'regarding my previous question'."
         )
 
         # STEP 10: Assemble user message
