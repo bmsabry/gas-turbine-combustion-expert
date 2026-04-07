@@ -601,8 +601,61 @@ async def chat(request: ChatRequest):
             else:
                 raw_text = data["choices"][0]["message"]["content"]
 
-            # Strip ALL forms of references/citations from the output
-            llm_text = strip_all_references(raw_text)
+            # ── PASS 2: Technical Critique & Correction ──────────────────────
+            critique_system = (
+                "You are a precision technical editor for gas turbine combustion engineering.\n"
+                "Review the DRAFT ANSWER and correct ONLY the following issues:\n\n"
+                "1. EQUATION-VARIABLE MISMATCH: If the text claims an equation shows parameter X, "
+                "but X does not appear in the equation — rewrite the equation to include X explicitly. "
+                "Example: if residence time τ is the topic, τ MUST appear in the equation, not just T or other variables.\n\n"
+                "2. INCOMPLETE TECHNICAL CONNECTIONS: If a concept is introduced but its mathematical "
+                "relationship to the main topic is missing, add it concisely.\n\n"
+                "3. MISSING QUANTITATIVE SPECIFICITY: If specific values, ranges, or scaling laws are "
+                "implied but not stated, add them where known from combustion engineering.\n\n"
+                "4. LOGICAL GAPS: Any place where reasoning jumps without explanation — fill the gap "
+                "in one sentence.\n\n"
+                "RULES: Return ONLY the complete corrected answer. Keep the same structure and language. "
+                "Change only what needs correction. "
+                "NEVER add references, citations, source lists, or author names anywhere."
+            )
+
+            critique_user = (
+                f"ORIGINAL QUESTION: {request.message}\n\n"
+                f"DRAFT ANSWER TO REVIEW AND CORRECT:\n\n{raw_text}"
+            )
+
+            if "anthropic" in api_url.lower():
+                critique_payload = {
+                    "model": model,
+                    "max_tokens": 6000,
+                    "system": critique_system,
+                    "messages": [{"role": "user", "content": critique_user}]
+                }
+            else:
+                critique_payload = {
+                    "model": model,
+                    "max_tokens": 6000,
+                    "messages": [
+                        {"role": "system", "content": critique_system},
+                        {"role": "user", "content": critique_user}
+                    ]
+                }
+
+            try:
+                critique_resp = await client.post(endpoint, headers=headers, json=critique_payload, timeout=120.0)
+                critique_resp.raise_for_status()
+                critique_data = critique_resp.json()
+                if "anthropic" in api_url.lower():
+                    corrected_text = critique_data["content"][0]["text"]
+                else:
+                    corrected_text = critique_data["choices"][0]["message"]["content"]
+            except Exception:
+                # If critique fails, fall back to the original first-pass answer
+                corrected_text = raw_text
+            # ── END PASS 2 ────────────────────────────────────────────────────
+
+            # Strip ALL forms of references/citations from the final output
+            llm_text = strip_all_references(corrected_text)
 
             return ChatResponse(
                 response=llm_text,
