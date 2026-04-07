@@ -241,60 +241,53 @@ body {
 
 .message.assistant .table-wrapper {
   overflow-x: auto;
-  margin: 20px 0;
-  border-radius: 8px;
-  border: 1px solid #b0c8e0;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+  margin: 24px 0;
+  border-radius: 10px;
+  border: 2px solid #7fa8c8;
+  box-shadow: 0 4px 18px rgba(30,58,95,0.13);
 }
 
 .message.assistant table {
   border-collapse: collapse;
   width: 100%;
   font-size: 14px;
-  min-width: 480px;
+  min-width: 500px;
 }
 
 .message.assistant thead {
-  background: var(--table-header);
+  background: #1e3a5f;
 }
 
 .message.assistant th {
-  background: var(--table-header);
+  background: #1e3a5f;
   color: white;
-  padding: 13px 22px;
+  padding: 13px 26px;
   text-align: left;
-  font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.07em;
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  white-space: nowrap;
-  border-right: 2px solid rgba(255,255,255,0.18);
-}
-
-.message.assistant th:first-child {
-  min-width: 140px;
+  vertical-align: middle;
+  word-break: break-word;
+  border-right: 2px solid rgba(255,255,255,0.22);
+  border-bottom: 2px solid rgba(255,255,255,0.15);
 }
 
 .message.assistant th:last-child {
   border-right: none;
 }
 
+/* ── Data cells: full visible grid ─────────────────────────────────────────── */
 .message.assistant td {
-  padding: 12px 22px;
-  border-bottom: 1px solid #dde8f0;
-  border-right: 1px solid #dde8f0;
+  padding: 12px 26px;
+  border-top: 1px solid #a8c8e0;
+  border-right: 1.5px solid #7fa8c8;
+  border-bottom: 1px solid #a8c8e0;
+  border-left: none;
   vertical-align: top;
-  line-height: 1.7;
-  color: var(--text);
-}
-
-.message.assistant td:first-child {
-  font-weight: 600;
-  color: var(--primary);
-  background: #eef4fb;
-  min-width: 140px;
-  white-space: nowrap;
-  border-right: 2px solid #b0c8e0;
+  line-height: 1.75;
+  color: #1e293b;
+  word-break: break-word;
 }
 
 .message.assistant td:last-child {
@@ -305,20 +298,32 @@ body {
   border-bottom: none;
 }
 
+/* ── First column as row label ──────────────────────────────────────────────── */
+.message.assistant td:first-child {
+  font-weight: 700;
+  color: #1e3a5f;
+  background: #e4eff9 !important;
+  border-right: 2.5px solid #5a90b8;
+  min-width: 110px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Row zebra stripes ──────────────────────────────────────────────────────── */
 .message.assistant tbody tr:nth-child(odd) td:not(:first-child) {
   background: #ffffff;
 }
 
 .message.assistant tbody tr:nth-child(even) td:not(:first-child) {
-  background: #f6fafd;
+  background: #f0f7fd;
 }
 
+/* ── Row hover highlight ────────────────────────────────────────────────────── */
 .message.assistant tbody tr:hover td:not(:first-child) {
-  background: #eaf2fb;
+  background: #deeef8;
 }
 
 .message.assistant tbody tr:hover td:first-child {
-  background: #ddeaf7;
+  background: #cfe4f5 !important;
 }
 
 /* ─── Conflict and Note Blocks ────────────────────────────────────────────── */
