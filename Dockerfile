@@ -22,7 +22,9 @@ RUN chmod +x ./start.sh
 COPY embeddings/ ./embeddings/
 COPY knowledge_graph/ ./knowledge_graph/
 COPY chunks/ ./chunks/
+COPY chunks_vision/ ./chunks_vision/
 COPY papers/metadata/ ./papers/metadata/
+COPY figures_metadata/ ./figures_metadata/
 
 # Build frontend - copy entire frontend folder first
 COPY frontend/ ./frontend/
