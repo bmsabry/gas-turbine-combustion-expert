@@ -6,7 +6,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeRaw from 'rehype-raw'
 import 'katex/dist/katex.min.css'
 import AdminPanel from './AdminPanel'
-
+import FigureSearchModal from './FigureSearchModal'
 function App() {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
@@ -14,6 +14,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [selectedSource, setSelectedSource] = useState(null)
   const [showAdmin, setShowAdmin] = useState(false)
+  const [showFigureSearch, setShowFigureSearch] = useState(false)
   const chatEndRef = useRef(null)
 
   useEffect(() => {
@@ -155,6 +156,12 @@ function App() {
           
           <div style={{marginTop: '24px'}}>
             <button 
+                onClick={() => setShowFigureSearch(true)}
+                style={{width: '100%', padding: '12px', background: '#3b82f6', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '500', marginBottom: '8px'}}
+              >
+                📊 Search Figures
+              </button>
+            <button 
                 onClick={() => setShowAdmin(true)}
                 style={{width: '100%', padding: '12px', background: '#f59e0b', color: 'white', border: 'none', borderRadius: '6px', cursor: 'pointer', fontWeight: '500'}}
               >
@@ -163,6 +170,8 @@ function App() {
           </div>
         </div>
       )}
+      
+      {showFigureSearch && <FigureSearchModal onClose={() => setShowFigureSearch(false)} />}
       
       <div className="main-content">
         <div className="header">

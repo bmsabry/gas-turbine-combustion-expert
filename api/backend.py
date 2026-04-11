@@ -430,6 +430,109 @@ async def health():
     }
 
 
+
+
+# Figure search endpoint
+_figures_index = None
+_figures_tfidf = None
+_figures_vectorizer = None
+_figures_loaded = False
+
+
+def load_figures_data():
+    global _figures_index, _figures_tfidf, _figures_vectorizer, _figures_loaded
+    if _figures_loaded:
+        return
+    figures_path = PROJECT_DIR / "figures_metadata" / "figures_index.json"
+    if figures_path.exists():
+        try:
+            with open(figures_path) as f:
+                _figures_index = json.load(f)
+            print(f"Loaded {len(_figures_index.get('figures', []))} figures")
+            # Build TF-IDF index for figure descriptions
+            figures = _figures_index.get('figures', [])
+            descriptions = []
+            for fig in figures:
+                desc = fig.get('description', '') or ''
+                text = fig.get('vision_chunk', {}).get('text', '') or ''
+                combined = f"{desc} {text}"
+                descriptions.append(combined)
+            if descriptions:
+                from sklearn.feature_extraction.text import TfidfVectorizer
+                _figures_vectorizer = TfidfVectorizer(max_features=10000, stop_words='english', ngram_range=(1, 2))
+                _figures_tfidf = _figures_vectorizer.fit_transform(descriptions)
+                print(f"Figure TF-IDF built: {_figures_tfidf.shape}")
+        except Exception as e:
+            print(f"Failed to load figures: {e}")
+    _figures_loaded = True
+
+
+class FigureSearchRequest(BaseModel):
+    query: str
+    limit: int = 10
+
+
+class FigureSearchResult(BaseModel):
+    figure_id: str
+    source_pdf: str
+    page_number: int
+    image_path: str
+    description: str
+    score: float
+    vision_chunk: Optional[Dict] = None
+
+
+class FigureSearchResponse(BaseModel):
+    results: List[FigureSearchResult]
+    total: int
+
+
+@app.post("/api/search_figures", response_model=FigureSearchResponse)
+async def search_figures(request: FigureSearchRequest):
+    """Search for figures matching the description query."""
+    if not _figures_loaded:
+        load_figures_data()
+    
+    if not _figures_index or not _figures_tfidf:
+        return FigureSearchResponse(results=[], total=0)
+    
+    figures = _figures_index.get('figures', [])
+    
+    # TF-IDF similarity search
+    from sklearn.metrics.pairwise import cosine_similarity
+    query_vec = _figures_vectorizer.transform([request.query])
+    scores = cosine_similarity(query_vec, _figures_tfidf)[0]
+    
+    # Get top results
+    top_idx = np.argsort(scores)[::-1][:request.limit]
+    
+    results = []
+    for idx in top_idx:
+        if scores[idx] > 0.01:  # Minimum threshold
+            fig = figures[idx]
+            results.append(FigureSearchResult(
+                figure_id=fig.get('figure_id', ''),
+                source_pdf=fig.get('source_pdf', ''),
+                page_number=fig.get('page_number', 0),
+                image_path=fig.get('image_path', ''),
+                description=fig.get('description', '') or '',
+                score=float(scores[idx]),
+                vision_chunk=fig.get('vision_chunk')
+            ))
+    
+    return FigureSearchResponse(results=results, total=len(results))
+
+
+@app.get("/api/figures/{figure_id}")
+async def get_figure(figure_id: str):
+    """Serve a specific figure image."""
+    figures_path = PROJECT_DIR / "figures" / f"{figure_id}.png"
+    if figures_path.exists():
+        return FileResponse(str(figures_path), media_type="image/png")
+    raise HTTPException(status_code=404, detail="Figure not found")
+
+
+
 @app.post("/api/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
     if not _data_loaded:
